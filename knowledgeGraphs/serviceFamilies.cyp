@@ -14,13 +14,13 @@ MERGE (AIandML:Service_family:AIandML
 MERGE (AppIntegration:Service_family:AppIntegration
     {
         name: "Application Integration",
-        services: "eventarc, cloudScheduler, cloudTasks, workflows, PubSub"
+        services: "Eventarc, Cloud Scheduler, Cloud Tasks, Workflows, PubSub"
     }
 )
 MERGE (ApiPlatform:Service_family:ApiPlatform
     {
         name: "API Platform and Ecosystems",
-        services: "apiAnalytics, apiMonetization, apigee, apiGateway, apigeeHybrid, apigeeSense, cloudEndpoints, developerPortal, Marketplace, appSheet"
+        services: "Api Analytics, Api Monetization, Apigee, ApiGateway, ApigeeHybrid, ApigeeSense, CloudEndpoints, Developer Portal, Marketplace, AppSheet"
     }
 )
 MERGE (BussinessIntellingence:Service_family:BussinessIntellingence
@@ -61,8 +61,8 @@ MERGE (DeveloperTools:Service_family:DeveloperTools
 )
 MERGE (DevOpsCICD:Service_family:DevOpsCICD
     {
-        name: "DevOps CI/CD", 
-        services: "cloudBuild, cloudDeploy, artifactRegistry, cloudSourceRepositories, containerRegistry"
+        name: "DevOps CI/CD",
+        services: "CloudBuild, CloudDeploy, Artifact Registry, Cloud Source Repositories, containerRegistry"
     }
 )
 MERGE (DistributedCloud:Service_family:DistributedCloud
@@ -104,7 +104,7 @@ MERGE (IntegrationServices:Service_family:IntegrationServices
 MERGE (IOT:Service_family:IOT
     {
         name: "Internet of Things (IOT)",
-        services: "cloudIOTCore"
+        services: "Cloud IOT Core"
     }
 )
 MERGE (ManagementTools:Service_family:ManagementTools
@@ -181,7 +181,7 @@ MERGE (Web3:Service_family:Web3
 )
 MERGE (WorkspacePlatform:Service_family:WorkspacePlatform
     {
-        name: "Workspace Platform", 
+        name: "Workspace Platform",
         services: "Admin SDK, AMP for Email, Apps Script, Calendar API, Classroom API, Cloud Search, Docs API, Drive Activity API, Drive API, Drive Picker, Email Markup, Google Workspace Add-ons, Google Workspace Marketplace, Gmail API, Google Chats API, People API, Sheets API, Slides API, Task API, Vault API"
     }
 )
