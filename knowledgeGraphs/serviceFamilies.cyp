@@ -8,7 +8,7 @@ MERGE (GCP:Cloud
 MERGE (AIandML:Service_family:AIandML
     {
         name: "AI and ML",
-        services: "AutoML, Vertex AI Data Labeling, Deep Learning VM Images, Deep Learning Containers, Vertex AI Matching Engine, Vertex AI Pipelines, Vertex AI Predictions, Vertex AI Training, Vertex AI Edge Manager, Vertex Explainable AI, Vertex AI Feature Store, Vertex ML Metadata, Vertex AI Model Monitoring, Vertex AI Tensorboard, Vertex AI Vizier, Speech-To-Text, Talent Solutions, Text-To-Speech, Cloud TPU, Cloud Translation, Cloud Video Intelligence API, Cloud Vision, Contact Center AI, Dialogflow, Document AI, Recommendations AI, Vision Product Search"
+        services: "Vertex AI Platform, Generative AI on Vertex AI, Vertex AI Search and Conversation, AutoML, Dialogflow, Media Translation, Natural Language AI, Recommendations AI, Speech-to-Text, Text-to-Speech, Translation AI, Video AI, Vision AI, Vertex AI Notebooks, Vertex Explainable AI, AI Infrastructure, Cloud GPUs, Cloud TPUs, Deep Learning VM Image, Deep Learning Containers, TensorFlow Enterprise, Contact Center AI, Document AI, Intelligent products, Product Discovery"
     }
 )
 MERGE (AppIntegration:Service_family:AppIntegration

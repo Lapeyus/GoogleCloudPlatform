@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.16.0/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.8.5/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.16.0/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.16.0/dist/index.js"></script><script>(()=>{setTimeout(()=>{const{markmap:H,mm:ae}=window,W=new H.Toolbar;W.attach(ae);const we=W.render();we.setAttribute("style","position:absolute;bottom:20px;right:20px"),document.body.append(we)})})()</script><script>((o,T,c,r)=>{const g=o();window.mm=g.Markmap.create("svg#mindmap",(T||g.deriveOptions)(r),c)})(()=>window.markmap,null,{"content":"Google Cloud Infrastructure Overview","children":[{"content":"<h2 data-lines=\"2,3\">Google Cloud's Foundation</h2>","children":[{"content":"Runs on Google’s own global network.","children":[],"payload":{"lines":"3,4"}},{"content":"Carries ~40% of the world’s internet traffic daily.","children":[],"payload":{"lines":"4,5"}},{"content":"Largest network of its kind with billions invested.","children":[],"payload":{"lines":"5,6"}},{"content":"Designed for high throughput and low latency.","children":[],"payload":{"lines":"6,7"}},{"content":"Utilizes over 100 content caching nodes worldwide.","children":[],"payload":{"lines":"7,8"}},{"content":"Currently Supports 112 zones in 37 regions.","children":[],"payload":{"lines":"8,9"}}],"payload":{"lines":"2,9"}},{"content":"<h2 data-lines=\"9,10\">Geographic Locations and Importance</h2>","children":[{"content":"<strong>Locations</strong>:","children":[{"content":"North America","children":[],"payload":{"lines":"11,12"}},{"content":"South America","children":[],"payload":{"lines":"12,13"}},{"content":"Europe","children":[],"payload":{"lines":"13,14"}},{"content":"Asia","children":[],"payload":{"lines":"14,15"}},{"content":"Australia.","children":[],"payload":{"lines":"15,16"}}],"payload":{"lines":"10,16"}},{"content":"Importance of location:","children":[{"content":"Affects availability","children":[],"payload":{"lines":"17,18"}},{"content":"durability","children":[],"payload":{"lines":"18,19"}},{"content":"latency.","children":[],"payload":{"lines":"19,20"}},{"content":"Multiple locations for redundancy and closer proximity to users.","children":[],"payload":{"lines":"20,22"}}],"payload":{"lines":"16,22"}}],"payload":{"lines":"9,22"}},{"content":"<h2 data-lines=\"22,23\">Structure of Google Cloud Infrastructure</h2>","children":[{"content":"<strong>Regions and Zones</strong>:","children":[{"content":"Regions:","children":[{"content":"Independent geographic areas composed of zones","children":[],"payload":{"lines":"25,26"}},{"content":"Bringing applications closer to users globally.","children":[],"payload":{"lines":"26,27"}},{"content":"Protection against regional outages (e.g., natural disasters).","children":[],"payload":{"lines":"27,28"}},{"content":"Example: London (europe-west2) with three zones.","children":[],"payload":{"lines":"28,29"}}],"payload":{"lines":"24,29"}},{"content":"Zones:","children":[{"content":"Areas where resources are deployed.","children":[],"payload":{"lines":"30,31"}},{"content":"Ensures resource redundancy and specificity in deployment location.","children":[],"payload":{"lines":"31,33"}}],"payload":{"lines":"29,33"}}],"payload":{"lines":"23,33"}}],"payload":{"lines":"22,33"}}],"payload":{"lines":"0,1"}},null)</script>
+</body>
+</html>
