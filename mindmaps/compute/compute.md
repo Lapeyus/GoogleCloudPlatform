@@ -1,3 +1,9 @@
+---
+markmap:
+  initialExpandLevel: 2
+  maxWidth: 300
+  embedAssets: true
+---
 # Google Cloud Computing Services
 
 ## Compute Services
