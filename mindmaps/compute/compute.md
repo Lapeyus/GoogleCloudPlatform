@@ -8,8 +8,6 @@ markmap:
 
 ## Choosing the Right Compute Service: Key Questions
 
-Consider these questions to guide your decision-making process:
-
 * **Level of control:** How much control do you need over the underlying infrastructure? (Compute Engine offers maximum control, while Cloud Functions offer the least)
 * **Application architecture:** Do you use containers or plan to containerize your applications? (GKE and Cloud Run are ideal for containerized workloads)
 * **Operational overhead:** How much infrastructure management do you wish to handle? (App Engine and Cloud Functions offer a more managed experience)
