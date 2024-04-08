@@ -1,10 +1,26 @@
 ---
 markmap:
-  initialExpandLevel: 2
+  initialExpandLevel: 3
   maxWidth: 300
   embedAssets: true
 ---
-# Google Cloud Computing Services
+# [Google Cloud Computing Services](https://lapeyus.github.io/GoogleCloudPlatform/)
+
+## Choosing the Right Compute Service: Key Questions
+
+Consider these questions to guide your decision-making process:
+
+* **Level of control:** How much control do you need over the underlying infrastructure? (Compute Engine offers maximum control, while Cloud Functions offer the least)
+* **Application architecture:** Do you use containers or plan to containerize your applications? (GKE and Cloud Run are ideal for containerized workloads)
+* **Operational overhead:** How much infrastructure management do you wish to handle? (App Engine and Cloud Functions offer a more managed experience)
+* **Event-driven:** Does your application react to specific triggers? (Cloud Functions are built with event-driven architectures in mind)
+* **Legacy workload migration:** Do you need to move existing on-premises workloads to the cloud? (Compute Engine is well-suited for this)
+
+## Additional Considerations
+
+* **Cost:**  Evaluate pricing models based on your expected usage patterns.
+* **Integration:** Consider how the service will integrate with other cloud services or your existing systems. 
+
 
 ## Compute Services
 
@@ -64,18 +80,4 @@ markmap:
     - Event-driven workloads triggered by Pub/Sub messages or other events.
     - Deployments emphasizing developer velocity without server management.
 
-## Choosing the Right Compute Service: Key Questions
-
-Consider these questions to guide your decision-making process:
-
-* **Level of control:** How much control do you need over the underlying infrastructure? (Compute Engine offers maximum control, while Cloud Functions offer the least)
-* **Application architecture:** Do you use containers or plan to containerize your applications? (GKE and Cloud Run are ideal for containerized workloads)
-* **Operational overhead:** How much infrastructure management do you wish to handle? (App Engine and Cloud Functions offer a more managed experience)
-* **Event-driven:** Does your application react to specific triggers? (Cloud Functions are built with event-driven architectures in mind)
-* **Legacy workload migration:** Do you need to move existing on-premises workloads to the cloud? (Compute Engine is well-suited for this)
-
-## Additional Considerations
-
-* **Cost:**  Evaluate pricing models based on your expected usage patterns.
-* **Integration:** Consider how the service will integrate with other cloud services or your existing systems. 
 
