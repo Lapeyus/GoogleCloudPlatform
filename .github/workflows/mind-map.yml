@@ -1,13 +1,15 @@
-name: Generate Markmap
+name: Generate Markmap and Publish to GitHub Pages
 
 on:
   push:
+    branches:
+      - main
     paths:
-      - '**/*.md' # Trigger the action for any markdown file changes
-  workflow_dispatch: # Also allows you to manually trigger the workflow
+      - '**/*.md'
+  workflow_dispatch:
 
 jobs:
-  markmap:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -16,19 +18,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20' # Upgrade Node.js version to be compatible with markmap-cli
+          node-version: '18'
 
       - name: Generate Markmap for Each Markdown File
         run: |
+          mkdir -p markmap-html
           for mdfile in $(find $GITHUB_WORKSPACE -name '*.md'); do
-            htmlfile="${mdfile%.md}.html"
+            htmlfile="./markmap-html/$(basename "${mdfile%.md}.html")"
             npx markmap-cli --no-open --offline -o "$htmlfile" "$mdfile"
           done
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@4.1.4
         with:
-          name: Markmap HTMLs
-          path: |
-            **/*.html
-          if-no-files-found: error # Fails the job if no HTML files are found
+          branch: gh-pages # The branch the action should deploy to.
+          folder: markmap-html # The folder the action should deploy.
+          clean: true # Automatically remove files that are not present in the deployment folder.
