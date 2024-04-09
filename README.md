@@ -6,9 +6,11 @@ markmap:
 ---
 
 # Google Cloud Platform
-  - [Resource Management](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/resource/resource.html)
+
+## **ADMIN**
+  - [Resource Management](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/resourcemanagement/resource.html)
   - [Billing](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/billing/billing.html)
-  - [Interacting with GCP](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/interactingwithGCP/access.html)
+  - [Interacting with GCP](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/interactingwithgcp/access.html)
 
 ## **AI and ML**
 - [Vertex AI Platform](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
