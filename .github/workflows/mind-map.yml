@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '20'
 
       - name: Generate Markmap for Each Markdown File
         run: |
@@ -28,9 +28,9 @@ jobs:
             npx markmap-cli --no-open --offline -o "$htmlfile" "$mdfile"
           done
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@4.1.4
-        with:
-          branch: gh-pages # The branch the action should deploy to.
-          folder: markmap-html # The folder the action should deploy.
-          clean: true # Automatically remove files that are not present in the deployment folder.
+    #   - name: Deploy to GitHub Pages
+    #     uses: JamesIves/github-pages-deploy-action@4.1.4
+    #     with:
+    #       branch: gh-pages # The branch the action should deploy to.
+    #       folder: markmap-html # The folder the action should deploy.
+    #       clean: true # Automatically remove files that are not present in the deployment folder.
