@@ -62,7 +62,7 @@ markmap:
 - [Looker](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
 - [Looker Studio](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
 
-## [Compute](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
+## [Compute](https://lapeyus.github.io/GoogleCloudPlatform/compute.html)
 - [App Engine](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
 - [Cloud Run](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
 - [Google Kubernetes Engine (GKE)](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
