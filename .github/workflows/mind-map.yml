@@ -36,7 +36,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16' # Markmap requires Node.js version 16 or newer
+          node-version: '20' # Markmap requires Node.js version 16 or newer
 
       - name: Generate Markmap HTML from Markdown
         run: |
