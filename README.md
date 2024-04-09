@@ -6,8 +6,9 @@ markmap:
 ---
 
 # Google Cloud Platform
-  - [Description: A suite of cloud computing services that](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
-
+  - [Resource Management](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/resource/resource.html)
+  - [Billing](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/billing/billing.html)
+  - [Interacting with GCP](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/interactingwithGCP/access.html)
 
 ## **AI and ML**
 - [Vertex AI Platform](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
