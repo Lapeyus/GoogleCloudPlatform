@@ -1,0 +1,37 @@
+name: Generate Markmap
+
+on:
+  push:
+    paths:
+      - '**/*.md' # Trigger the action for any markdown file changes
+  workflow_dispatch: # Also allows you to manually trigger the workflow
+
+jobs:
+  markmap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14' # Specify the Node.js version
+
+      - name: Install markmap-cli
+        run: npm install -g markmap-cli
+      
+      - name: Generate Markmap for Each Markdown File
+        run: |
+          for mdfile in $(find $GITHUB_WORKSPACE -name '*.md'); do
+            htmlfile="${mdfile%.md}.html"
+            markmap-cli --no-open --offline -o "$htmlfile" "$mdfile"
+          done
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: Markmap HTMLs
+          path: |
+            **/*.html
+          if-no-files-found: error # Fails the job if no HTML files are found
