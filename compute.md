@@ -1,6 +1,6 @@
 ---
 markmap:
-  initialExpandLevel: 2
+  initialExpandLevel: 3
   maxWidth: 300
   embedAssets: true
 ---
