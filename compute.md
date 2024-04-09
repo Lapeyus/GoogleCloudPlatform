@@ -25,8 +25,10 @@ markmap:
 ### **Compute Engine**
   - **Type:** IaaS (Infrastructure as a Service)
   - **Features:**
-    - Flexible virtual machines (VMs) with predefined or custom configurations.
-    - Diverse compute, memory, and storage options (including high-performance SSDs).
+    - Flexible virtual machines (VMs) with predefined or custom configurations. Up to 416 vCPUs and >12 TB memory.
+    - Disk options:
+      - **Persistent disks** up to 257 TB, with snapshot capabilities.
+      - **Local SSDs** for high I/O operations.    
     - Global load balancing and autoscaling capabilities.
     - Pay-per-second billing and preemptible VMs for cost optimization.
   - **Ideal for:**

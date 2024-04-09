@@ -1,0 +1,73 @@
+# Google Cloud Computing Services
+
+- ## Compute Engine
+  - **Type**: IaaS (Infrastructure as a Service)
+  - **Features**:
+    - Access to predefined and customized VM configurations.
+    - VMs up to 416 vCPUs and >12 TB memory.
+    - Disk options:
+      - **FPersistent disks**F up to 257 TB, with snapshot capabilities.
+      - **FLocal SSDs** for high I/O operations.
+    - Global load balancers and autoscaling.
+    - Managed instance groups.
+    - Per-second billing.
+    - Preemptible VMs.
+    - Complete control over infrastructure(os/apps).
+    - Ideal for applications requiring specific operating systems or on-premises workload migration.
+
+- ## Google Kubernetes Engine (GKE)
+  - **Type**: PaaS (Platform as a Service) 
+  - **Features**:
+    - Runs on Google Cloud, not on individual VMs.
+    - Containers package code with all dependencies.
+    - Ideal for applications that benefit from containerization.
+
+- ## App Engine
+  - **Type**: PaaS (Platform as a Service)
+  - **Features**:
+    - Managed environment for application deployment.
+    - Supports:
+      - Java
+      - Node.js 
+      - Python 
+      - PHP 
+      - C# 
+      - .NET 
+      - Ruby 
+      - Go
+      - containers
+    - Integrated with Google Cloud’s developer tools.
+      - Cloud Monitoring
+      - Cloud Logging
+      - Cloud Profiler
+      - Error Reporting.
+    - Supports version control and traffic splitting.
+    - Focus on application logic rather than infrastructure.
+    - Ideal for websites, mobile/back-end applications, and RESTful APIs.
+
+- ## Cloud Functions
+  - **Type**: FaaS (Function as a Service)
+  - **Features**:
+    - Event-based, serverless compute solution.
+    - Executes code in response to cloud events.
+    - Supports:
+      - Node.js
+      - Python
+      - Go
+      - Java
+      - .Net Core
+      - Ruby
+      - PHP.
+    - Ideal for microservices, serverless backends, and third-party service integration.
+    - Billed to the nearest 100 milliseconds
+    - Has a perpetual free tier.
+
+- ## Cloud Run
+  - **Type**:  PaaS (Platform as a Service) 
+  - **Features**:
+    - Managed compute platform for stateless containers.
+    - Serverless, focusing on application development.
+    - Built on Knative for workload portability.
+    - Auto-scaling, instantaneously from zero.
+    - Pay only for the used resources.
+    - Suitable for web requests or Pub/Sub events.
