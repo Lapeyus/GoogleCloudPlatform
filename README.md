@@ -6,7 +6,7 @@ markmap:
 ---
 
 # Google Cloud Platform
-  - [Description: A suite of cloud computing services that](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)runs on the same infrastructure that Google uses internally for its end-user products.
+  - [Description: A suite of cloud computing services that](https://lapeyus.github.io/GoogleCloudPlatform/mindmaps/compute/compute.html)
 
 
 ## **AI and ML**
