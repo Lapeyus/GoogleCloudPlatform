@@ -19,13 +19,13 @@ jobs:
           node-version: '14' # Specify the Node.js version
 
       - name: Install markmap-cli
-        run: npm install -g markmap-cli
+        run: npm install markmap-cli
       
       - name: Generate Markmap for Each Markdown File
         run: |
           for mdfile in $(find $GITHUB_WORKSPACE -name '*.md'); do
             htmlfile="${mdfile%.md}.html"
-            markmap-cli --no-open --offline -o "$htmlfile" "$mdfile"
+            npx markmap-cli --no-open --offline -o "$htmlfile" "$mdfile"
           done
 
       - name: Upload Artifacts
