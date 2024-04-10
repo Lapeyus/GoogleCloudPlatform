@@ -31,8 +31,10 @@ jobs:
       - name: Generate Markmap for Each Markdown File
         run: |
           mkdir -p markmap-html
-          for mdfile in $(find $GITHUB_WORKSPACE -name '*.md'); do
-            htmlfile="./markmap-html/$(basename "${mdfile%.md}.html")"
+          find $GITHUB_WORKSPACE -name '*.md' | while read mdfile; do
+            htmlfile="${mdfile//$GITHUB_WORKSPACE\//}"
+            htmlfile="./markmap-html/${htmlfile%.md}.html"
+            mkdir -p "$(dirname "$htmlfile")"
             markmap "$mdfile" -o "$htmlfile"
           done
 
