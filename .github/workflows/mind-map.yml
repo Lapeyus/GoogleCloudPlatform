@@ -18,19 +18,22 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Install markmap-cli
+        run: npm install -g markmap-cli@0.16.2
 
       - name: Generate Markmap for Each Markdown File
         run: |
           mkdir -p markmap-html
           for mdfile in $(find $GITHUB_WORKSPACE -name '*.md'); do
             htmlfile="./markmap-html/$(basename "${mdfile%.md}.html")"
-            npx markmap-cli --no-open --offline -o "$htmlfile" "$mdfile"
+            markmap "$mdfile" -o "$htmlfile"
           done
 
       - name: Upload artifact
