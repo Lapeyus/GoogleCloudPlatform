@@ -1,0 +1,34 @@
+---
+markmap:
+  maxWidth: 300
+---
+
+- **Monitoring is the basis of Google Cloud’s operation suite**
+  - **Logging**
+    - Cloud Logging allows you to store, search, analyze, monitor, and alert on log data and events from Google Cloud and AWS.
+    - Fully managed service
+      - Performs at scale
+      - Can ingest application and system log data from thousands of VMs
+    - Features
+      - Storage for logs
+      - Logs Explorer (UI)
+      - API to manage logs programmatically
+    - Capabilities
+      - Read and write log entries
+      - Search and filter logs
+      - Create log-based metrics
+    - Log retention
+      - Logs are only retained for 30 days
+    - Log export options
+      - **Cloud Storage**
+        - Suitable for storing logs >30 days
+      - **BigQuery**
+        - Analyze logs with SQL queries
+        - Visualize logs in Looker Studio
+        - Use cases
+          - Analyze network traffic
+          - Forecast capacity
+          - Optimize network traffic expenses
+          - Network forensics
+      - **Pub/Sub**
+        - Stream logs to applications or endpoints

@@ -1,0 +1,22 @@
+---
+markmap:
+  maxWidth: 300
+---
+   - **Cloud Trace**
+      - Distributed tracing system
+      - Collects latency data from applications
+      - Displays data in Google Cloud console
+      - **Capabilities**
+        - Track request propagation
+        - Near real-time performance insights
+        - Automatic in-depth latency reports
+          - Surface performance degradations
+      - **Trace Sources**
+        - App Engine
+        - HTTP(S) load balancers
+        - Instrumented with Cloud Trace API
+      - **Usage**
+        - Manage time for handling requests and operations
+        - Important for overall application performance
+      - **Based on Google’s Internal Tools**
+        - Used to manage services at extreme scale
