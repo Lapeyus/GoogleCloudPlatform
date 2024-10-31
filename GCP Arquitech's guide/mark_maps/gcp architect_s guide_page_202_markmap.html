@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_202</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Autoscaling
+        ## Overview
+        - Autoscaling is used to automatically adjust the number of replicas in a deployment based on certain criteria.
+        
+        ### Manual Configuration
+        - Manually configuring and scaling our cluster has of course certain limitations so ideally we would want to autoscale the cluster to meet some preconfigured criteria. We can do this using a simple command:
+        ```bash
+        - kubectl autoscale deployment test-scale --max-6-min-4-cpu percent=50
+        ```
+        - Alternatively we can use the GKE Workloads menu in the console to achieve the same thing.
+        
+        ### Horizontal Pod Autoscaler (HPA)
+        - Regardless, what the autoscale command does is to create a scaling device known as an HPA object that targets a specified resource (called the scale target) and scales it to meet the desired objectives. Therefore in practice what the HPA does is to periodically check and adjust the number of replicas of the scale target to match the average CPU utilization that you specified.
+        
+        ## Custom Metrics
+        - We can also extend the metrics that we use for autoscaling by integration of Kubernetes Engine with Stackdriver.
+        
+        ### Exporting Custom Metrics from Pods
+        - There are two ways to autoscale with custom metrics:
+        - 1. You can export a custom metric from every Pod in the Deployment and target the average value per Pod.
+        - 2. You can export a custom metric from a single Pod outside of the Deployment and target the total value.
+        
+        ## Key Metrics
+        - Where Desired is the number of replicas that you configured; Current is the number presently active and healthy; Up-to-date is the number of replicas that have been updated so far in order to achieve this desired state; Available is the number of currently available replicas; and Age is a measure of the time that the application has been running in the cluster.
+
+      </script>
+    </div>
+  </body>
+</html>

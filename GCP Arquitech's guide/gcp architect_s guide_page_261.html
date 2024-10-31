@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_261</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_261_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_261</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Migration Considerations</h1>
+<h2>Costs and Benefits</h2>
+<p>Many organizations move to the cloud on the basis that it's more cost efficient. However, cloud migrations are not cheap and although they may eventually reduce hardware and some IT overheads they actually increase operational expenses . Moreover, the increase in application OpEx will differ for each application. This is why it is critical to evaluate an applications suitability for the cloud not just on architecture but on cost efficiency.</p>
+<h2>Governance and Security</h2>
+<p>As organizations move data to the cloud, IT's control diminishes as more responsibility is passed onto Google. Therefore , organizations must shape their governance strategies to rely less on internal security and control, and more on Google.</p>
+<h2>Cloud-to-Cloud Migration Challenges</h2>
+<p>Cloud migrations aren't just a transition from on-premises technology to the cloud; they can also migrate data from one cloud to another . Additionally, cloud-to-cloud migrations involve considerable manual labour. To prepare for migration from one provider to another, enterprises need to test their applications and make all necessary configurations for virtual machines, networks, operating systems and more.</p>
+<h2>Migration Strategy</h2>
+<p>Once you've considered your data, costs, security and the challenges of cloud-to-cloud migrations, it's time to come up with a migration game plan. Organizations also need to determine migration timeframes for their data and applications. While some choose to migrate everything to the cloud all at once, this can be a challenging -- and risky -- proposition. It's often more effective to break the migration down by workload, starting with less critical applications.</p>
+<h3>Developing a Migration Strategy</h3>
+<p>Some suggestions for a viable migration strategy are:</p>
+<ol>
+<li><strong>Leverage cloud resources</strong> for legacy applications when there is opportunity for cost savings for example, Backup, DR, Business Continuity, or for global reach.</li>
+<li><strong>Focus your cloud strategy</strong> on new applications that will drive greater agility for the business and contribute to the bottom-line .</li>
+<li><strong>Leverage cloud resources</strong> to fill gaps in your on-premises technologies and skills, for example machine learning.</li>
+</ol>
+<h3>Building a Cloud Migration Plan</h3>
+<p>When we come to build our cloud migration plan there are three key factors that should guide you through the process. These factors will help determine whether to move on-premises workloads to the public cloud or leave them where they are.</p>
+<ol>
+<li><strong>Evaluate current infrastructure</strong></li>
+</ol></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Many organizations move to the cloud on the basis that it's more cost efficient, however, cloud migrations are not cheap and although they may eventually reduce hardware and some IT overheads, they actually increase operational expenses. Moreover, the increase in application OpEx will differ for each application. This is why it is critical to evaluate an application's suitability for the cloud not just on architecture but on cost efficiency. Some modern applications with volatile demand such as mobile applications, will tend to be very cost efficient if you move them to the cloud. But some older monolithic applications or earlier versions of an Oracle database may well be more expensive to run in the cloud.
+
+To assist you with this, Google has a cloud calculator but you must still factor in network and bandwidth costs.
+
+Rethinking governance and security is also crucial as organizations move data to the cloud, IT's control diminishes as more responsibility is passed onto Google. Therefore, organizations must shape their governance strategies to rely less on internal security and control, and more on Google.
+
+Preparing for cloud-to-cloud migration challenges is also essential. Cloud migrations aren't just a transition from on-premises technology to the cloud; they can also migrate data from one cloud to another. Additionally, cloud-to-cloud migrations involve considerable manual labour. To prepare for migration from one provider to another, enterprises need to test their applications and make all necessary configurations for virtual machines, networks, operating systems, and more.
+
+Once you've considered your data, costs, security, and the challenges of cloud-to-cloud migrations, it's time to come up with a migration game plan. Organizations also need to determine migration timeframes for their data and applications. While some choose to migrate everything to the cloud all at once, this can be a challenging -- and risky -- proposition. It's often more effective to break the migration down by workload, starting with less critical applications.
+
+Developing a Migration Strategy
+Some suggestions for a viable migration strategy are:
+1. Leverage cloud resources for legacy applications when there is opportunity for cost savings, such as Backup, DR, Business Continuity, or for global reach.
+2. Focus your cloud strategy on new applications that will drive greater agility for the business and contribute to the bottom-line.
+3. Leverage cloud resources to fill gaps in your on-premises technologies and skills, such as machine learning.
+
+Building a Cloud Migration Plan
+When building our cloud migration plan, there are three key factors that should guide you through the process. These factors will help determine whether to move on-premises workloads to the public cloud or leave them where they are.
+1. Evaluate current infrastructure
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud Migration Considerations</h3>
+<p>Cloud migrations are not cheap and may increase operational expenses, despite reducing hardware and some IT overheads. It's crucial to evaluate an application's suitability for the cloud based on both architecture and cost efficiency.</p>
+<h4>Cost Efficiency</h4>
+<ul>
+<li>Modern applications with volatile demand (e.g., mobile apps) tend to be cost-efficient in the cloud.</li>
+<li>Older monolithic applications or earlier versions of Oracle database may be more expensive to run in the cloud.</li>
+<li>Factor in network and bandwidth costs using Google's cloud calculator.</li>
+</ul>
+<h4>Governance and Security</h4>
+<p>As organizations move data to the cloud, IT control diminishes. Organizations must shape their governance strategies to rely less on internal security and control, and more on Google.</p>
+<h4>Cloud-to-Cloud Migration Challenges</h4>
+<p>Cloud migrations involve considerable manual labor and can also migrate data from one cloud to another. Prepare for migration by testing applications and making necessary configurations for virtual machines, networks, operating systems, and more.</p>
+<h4>Define Your Cloud Migration Strategy</h4>
+<p>Consider your data, costs, security, and challenges of cloud-to-cloud migrations before developing a migration plan. Determine migration timeframes for your data and applications, and break the migration down into smaller workloads starting with less critical applications.</p>
+<h3>Key Factors in Building a Cloud Migration Plan</h3>
+<ol>
+<li><strong>Evaluate Current Infrastructure</strong>: Assess your current infrastructure to determine whether to move on-premises workloads to the public cloud or leave them where they are.</li>
+<li><strong>Leverage Cloud Resources for Legacy Applications</strong>: Use cloud resources for legacy applications when there is opportunity for cost savings, such as backup, disaster recovery, business continuity, or global reach.</li>
+<li><strong>Focus Your Cloud Strategy on New Applications</strong>: Focus your cloud strategy on new applications that will drive greater agility for the business and contribute to the bottom-line.</li>
+<li><strong>Leverage Cloud Resources to Fill Gaps in On-Premises Technologies and Skills</strong>: Use cloud resources to fill gaps in your on-premises technologies and skills, such as machine learning.</li>
+</ol>
+<p>By considering these factors and developing a tailored migration plan, organizations can ensure a successful cloud migration that meets their specific needs and goals.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cost Efficiency and Migration Strategy</h3>
+<p>Cost efficiency is a critical factor in evaluating an application's suitability for the cloud, as it can significantly impact operational expenses.</p>
+<h3>Topic 2: Governance and Security</h3>
+<p>Governance and security are shifting from internal control to relying on Google, requiring organizations to adapt their strategies to ensure data protection and compliance.</p>
+<h3>Topic 3: Cloud-to-Cloud Migration Challenges</h3>
+<p>Cloud-to-cloud migrations involve considerable manual labor and require testing applications and configurations for virtual machines, networks, operating systems, and more.</p>
+<h3>Topic 4: Legacy Application Optimization</h3>
+<p>Leveraging cloud resources for legacy applications can provide cost savings opportunities, such as backup, disaster recovery, business continuity, or global reach.</p>
+<h3>Topic 5: New Application Focus</h3>
+<p>Focusing on new applications that drive business agility and contribute to the bottom line is crucial for a successful cloud strategy.</p>
+<h3>Topic 6: Filling Gaps in On-Premises Technologies</h3>
+<p>Leveraging cloud resources can fill gaps in on-premises technologies and skills, such as machine learning, to enhance overall capabilities.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is one of the main reasons organizations move to the cloud, according to the text?
+Answer: Cost efficiency.</p>
+</li>
+<li>
+<p>How do cloud migrations affect operational expenses for an organization?
+Answer: They actually increase operational expenses, despite reducing hardware and some IT overheads.</p>
+</li>
+<li>
+<p>What type of applications are likely to be very cost-efficient when moved to the cloud?
+Answer: Modern applications with volatile demand, such as mobile applications.</p>
+</li>
+<li>
+<p>Why is it critical to evaluate an application's suitability for the cloud not just on architecture but on cost efficiency?
+Answer: The increase in application OpEx will differ for each application.</p>
+</li>
+<li>
+<p>What tool does Google offer to assist organizations with evaluating their applications' suitability for the cloud?
+Answer: A cloud calculator.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do you think the shift from on-premises technology to the cloud affects an organization's control over its data and security?
+Answer: The shift diminishes IT's control, as more responsibility is passed onto Google.</p>
+</li>
+<li>
+<p>What are some potential challenges associated with cloud-to-cloud migrations?
+Answer: Cloud-to-cloud migrations involve considerable manual labor and require testing applications and making necessary configurations.</p>
+</li>
+<li>
+<p>Why might it be more effective for an organization to break down its migration into smaller workloads rather than migrating everything at once?
+Answer: It can be a challenging and risky proposition, and breaking it down by workload allows for a more manageable approach.</p>
+</li>
+<li>
+<p>How do you think the use of cloud resources for legacy applications can benefit an organization?
+Answer: It can provide cost savings, such as for backup, disaster recovery, business continuity, or global reach.</p>
+</li>
+<li>
+<p>What skills or technologies might an organization need to fill gaps in its on-premises infrastructure and operations?
+Answer: Machine learning is one example of a technology that can be leveraged through cloud resources.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are the IT manager for a small business considering moving some of its applications to the cloud. How would you approach evaluating an application's suitability for the cloud, based on the text?
+Answer: You would use Google's cloud calculator and factor in network and bandwidth costs, while also considering cost efficiency.</p>
+</li>
+<li>
+<p>If you were tasked with developing a migration strategy for your organization, what three key factors would guide your process, according to the text?
+Answer: Evaluating current infrastructure, focusing on new applications that drive business agility, and leveraging cloud resources to fill gaps in on-premises technologies and skills.</p>
+</li>
+<li>
+<p>How might an organization's governance strategies need to change as it moves data to the cloud?
+Answer: Organizations must shape their governance strategies to rely less on internal security and control and more on Google's services.</p>
+</li>
+<li>
+<p>What are some potential risks associated with migrating everything to the cloud at once, according to the text?
+Answer: It can be a challenging and risky proposition that may not be suitable for all organizations.</p>
+</li>
+<li>
+<p>How might an organization use cloud resources to improve its business operations and contribute to the bottom line?
+Answer: By focusing on new applications that drive greater agility and contributing to the bottom line through improved efficiency and cost savings.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cost efficient</td>
+<td>concept</td>
+<td>Many organizations move to the cloud on the basis that it's more cost efficient.</td>
+<td>The idea of cost efficiency is a key driver for cloud migration, but it's not without its challenges and complexities. The text highlights the need to evaluate applications' suitability for the cloud based on both architecture and cost efficiency.</td>
+</tr>
+<tr>
+<td>hardware</td>
+<td>technology</td>
+<td>although they may eventually reduce  hardware  and some IT overheads they actually increase operational expenses .</td>
+<td>Hardware is a critical component of an organization's infrastructure, and its management can have significant implications for operational expenses. The text notes that while cloud migration may lead to reduced hardware costs in the long run, it can also result in increased expenses in the short term.</td>
+</tr>
+<tr>
+<td>application OpEx</td>
+<td>financial concept</td>
+<td>The increase in application OpEx will differ for each  application .</td>
+<td>Application Operational Expenditure (OpEx) refers to the costs associated with running and maintaining applications. The text highlights that these costs can vary significantly between different applications, making it essential to evaluate each application's suitability for the cloud on a case-by-case basis.</td>
+</tr>
+<tr>
+<td>mobile applications</td>
+<td>type of application</td>
+<td>Some modern applications with volatile demand such as mobile  applications, will tend to be very cost efficient if you move them to the  cloud .</td>
+<td>Mobile applications are characterized by their high demand and volatility, making them well-suited for cloud-based deployment. The text suggests that these types of applications can benefit from cloud migration in terms of cost efficiency.</td>
+</tr>
+<tr>
+<td>Oracle database</td>
+<td>type of application</td>
+<td>some older monolithic applications or earlier versions  of an Oracle database may well be more expensive to run in the cloud .</td>
+<td>Oracle databases are a common example of legacy applications that may not be easily migratable to the cloud. The text notes that these types of applications can be more expensive to run in the cloud, highlighting the need for careful evaluation and planning.</td>
+</tr>
+<tr>
+<td>Google</td>
+<td>organization</td>
+<td>To  assist you  with  this Google has a cloud calculator but you must  still factor  in network and bandwidth costs .</td>
+<td>Google is the provider of the cloud services being discussed in the text. The mention of Google's cloud calculator highlights the importance of considering various factors, including network and bandwidth costs, when evaluating the suitability of an application for the cloud.</td>
+</tr>
+<tr>
+<td>governance</td>
+<td>concept</td>
+<td>As organizations move data to the cloud, IT's control diminishes as more responsibility is passed onto Google .</td>
+<td>Governance refers to the set of rules, policies, and procedures that govern an organization's operations. The text notes that as organizations move their data to the cloud, they must adapt their governance strategies to rely less on internal security and control and more on external providers like Google.</td>
+</tr>
+<tr>
+<td>security</td>
+<td>concept</td>
+<td>Therefore , organizations must shape their governance strategies to rely less  on internal security and control, and more on Google .</td>
+<td>Security refers to the measures taken to protect an organization's assets from unauthorized access or harm. The text highlights that as organizations move their data to the cloud, they must prioritize external security and control over internal measures.</td>
+</tr>
+<tr>
+<td>cloud-to-cloud migration</td>
+<td>type of migration</td>
+<td>Cloud migrations aren't just a transition from on-premises technology to the cloud; they can also migrate data from one cloud to another .</td>
+<td>Cloud-to-cloud migration refers to the process of moving data or applications between different cloud providers. The text notes that this type of migration requires careful planning and execution, including testing and configuration.</td>
+</tr>
+<tr>
+<td>virtual machines</td>
+<td>technology</td>
+<td>To prepare for migration from one provider to another, enterprises need to test their applications and make all necessary configurations for virtual machines, networks, operating systems and more .</td>
+<td>Virtual machines are a critical component of cloud infrastructure, providing a sandboxed environment for running applications. The text highlights the importance of testing and configuring these environments when preparing for cloud-to-cloud migration.</td>
+</tr>
+<tr>
+<td>agility</td>
+<td>concept</td>
+<td>Organizations also need to determine migration  timeframes  for their data and applications. While  some choose  to migrate  everything to the cloud all at once, this  can be  a challenging  -- and  risky -- proposition .</td>
+<td>Agility refers to an organization's ability to quickly adapt to changing circumstances or market conditions. The text notes that migrating all applications to the cloud at once can be a challenging and risky proposition, highlighting the importance of prioritizing critical applications and breaking down migration efforts into manageable workloads.</td>
+</tr>
+<tr>
+<td>legacy applications</td>
+<td>type of application</td>
+<td>Some suggestions for a viable migration strategy are: 1-Leverage  cloud resources for legacy applications  when there is opportunity  for cost savings for example, Backup, DR, Business Continuity, or for global reach .</td>
+<td>Legacy applications refer to older systems that may not be easily migratable to the cloud. The text suggests leveraging cloud resources for these applications to take advantage of cost savings and other benefits.</td>
+</tr>
+<tr>
+<td>machine learning</td>
+<td>technology</td>
+<td>3-Leverage  cloud resources to fill gaps in your on-premises technologies  and skills, for example machine learning .</td>
+<td>Machine learning refers to a subset of artificial intelligence that enables systems to learn from data without being explicitly programmed. The text highlights the importance of leveraging cloud resources to access advanced technologies like machine learning and improve an organization's capabilities.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

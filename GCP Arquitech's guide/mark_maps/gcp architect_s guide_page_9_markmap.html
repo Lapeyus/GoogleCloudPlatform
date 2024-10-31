@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_9</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # The Cloud Conundrum
+        
+        ## What Cloud?
+        
+        - The question persists: what cloud? It depends on circumstances.
+        
+        ### For Heavily Dependent Enterprises
+        
+        * Oracle, IBM, or VMware: Lift-and-shift operations to respective vendors' clouds.
+        
+        ### Microsoft Business Clients
+        
+        * Deploy to Microsoft Azure cloud due to vendor knowledge and expertise.
+        
+        ### SMB and SME with General Requirements
+        
+        * Amazon AWS is the most popular and largest cloud environment.
+        - 	+ Largest global reach and number of points-of-presence.
+        - 	+ Largest portfolio of cloud services.
+        
+        ## Why Google Cloud Platform?
+        
+        - Google has built a large fibre optic network with:
+        * High throughput and low latency for internet-based applications.
+        * Designed an SDN network unlike any vendor's roadmap at the time.
+        
+        ### Global Scope and Investment
+        
+        * Global scale requires interconnects at over 90 Internet exchanges.
+        * More than 100 points of presence worldwide, ensuring redundancy and high availability.
+        * Detects requests and responds via closest edge network location for low latency and best customer experience.
+        
+        ### Edge-Caching Network
+        
+        * Geographical caching of content for fast delivery to end users.
+        * Minimizes latency and increases customer experience by reducing connection and download times.
+        * Provides a measure of business continuity.
+        
+        ## Catching Up with AWS
+        
+        - Although Google was slow to benefit from sharing their global network, they have invested billions of dollars building their own cloud platform and global network fibre links to ensure low latency, resilience, and high efficiency.
+
+      </script>
+    </div>
+  </body>
+</html>

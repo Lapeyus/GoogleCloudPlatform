@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_113</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Overview of Compute Engine VM Configuration Methods
+        
+        ## Introduction
+        
+        - There are several methods for configuring Virtual Machines (VMs) in Google Cloud Platform's Compute Engine. Each method has its own advantages and disadvantages, and the choice of method depends on the specific needs of the project.
+        
+        ## Web Console vs Cloudshell
+        
+        - The Web Console is a graphical interface that makes it easy to build VMs, especially for beginners or inexperienced admins. However, as the number of VMs increases, the manual repetition required can become tedious. In this case, Cloudshell may be a more preferred method.
+        
+        - Cloudshell is the command line for the SDK, which can be accessed through the Web Console or installed locally on a laptop. Running commands to build VMs using Cloudshell is faster and less tedious than using the Web Console, especially when building multiple VMs.
+        
+        ## Automation with RESTful API
+        
+        - If manual running of commands or complex configurations is not desired, the RESTful API can be used to automate the process. The API programmatically configures VMs by defining all the different options for environments and runs automatically with minimum intervention required.
+        
+        ## Choosing the Right Machine Type
+        
+        - When deciding on a machine type, it's essential to consider the balance between CPU and memory usage. The standard machine type is best suited for applications that have a good balance between these two resources. Other machine types, such as high memory and high CPU, are better suited for specific use cases.
+        
+        ## Comparison of Machine Types
+        
+        - | Machine Type | Virtual CPUs per GB of Memory |
+        - | --- | --- |
+        - | Standard | 3.75:1 |
+        - | High Memory | 1:1 |
+        - | High CPU | 4:1 |
+        - | Shared Core | 2:1 |
+        
+        - Note: The ratios may vary depending on the specific configuration.
+        
+        ## Conclusion
+        
+        - In conclusion, there is no one-size-fits-all approach to configuring VMs in Compute Engine. The choice of method depends on the specific needs of the project, including the number of VMs, the level of automation required, and the balance between CPU and memory usage. By understanding the advantages and disadvantages of each method, developers can make informed decisions about which configuration method is best for their projects.
+
+      </script>
+    </div>
+  </body>
+</html>

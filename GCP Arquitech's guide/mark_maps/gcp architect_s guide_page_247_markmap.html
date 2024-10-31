@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_247</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Encryption and Security Controls in GCP
+        ## Overview of Encryption
+        
+        - And in this case, when you supply and manage your own keys the GCP does use those keys in memory but does not write it to storage this way, your data is still stored safely with Google, but you hold the decryption keys.
+        
+        - Now if you need more control over your encryption, there are lots of other tools you can use. A common method is to use your own client side encryption. Here you would encrypt the data before you send it over to Google Cloud Storage, and then you could also encrypt the storage bucket.
+        
+        - You can also do disk encryption, or even file system encryption using third party tools and techniques. TrueCrypt for example is a very popular one as it's an open source project.
+        
+        ## Blending Security Controls
+        
+        - Blending Security Controls very quickly if you work at the user level rather than using groups. AM is the foundation of all GCP security but it can get complex Therefore you should always create groups and then place users into the groups as this greatly simplifies the administration and maintainability of the security policy.
+        
+        - Similarly when working with folders in resource manager it is always best to mimic the organisational structure and to use the same naming convention. This is because folders are then easier to identify when looked at look okay when viewed in its hierarchal structure as we can see the out of context.
+        
+        - For example calling a folder 'development' might context but it is not very informative if we view the folder name in a log entry. Thus, we should be more verbose with folder names so as to relate their structure i.e. instead of just using the name 'development' we could use, 'ABC - IT- Development', which follows the organisational naming convention so we can see at a glance the owner of the folder.
+        
+        ## Control Principle
+        
+        - The principle we follow here are based on Control, Visibility, and Security Solutions. To get started we will begin with the principle of control.
+        
+        ### Control Measures
+        #### 1. Group Management
+        - AM is the foundation of all GCP security but it can get complex Therefore you should always create groups and then place users into the groups as this greatly simplifies the administration and maintainability of the security policy.
+        
+        #### 2. Organisational Structure
+        - Similarly when working with folders in resource manager it is always best to mimic the organisational structure and to use the same naming convention. This is because folders are then easier to identify when looked at look okay when viewed in its hierarchal structure as we can see the out of context.
+        
+        #### 3. Naming Conventions
+        - For example calling a folder 'development' might context but it is not very informative if we view the folder name in a log entry. Thus, we should be more verbose with folder names so as to relate their structure i.e. instead of just using the name 'development' we could use, 'ABC - IT- Development', which follows the organisational naming convention so we can see at a glance the owner of the folder.
+        
+        ### Conclusion
+        - So there are many different levels you can go to when encrypting and protecting your data. Blending Security Controls is key to getting the best out of GCP security solutions.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_115</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_115_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_115</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Machine Types</h1>
+<h2>Pre-emptible VMs</h2>
+<h3>Advantages</h3>
+<ul>
+<li>80% discount compared to normal VMs</li>
+<li>Cost-effective way to use a VM, with no charge if terminated within the first 10 minutes</li>
+</ul>
+<h3>Disadvantages</h3>
+<ul>
+<li>May be preempted or terminated at any time</li>
+<li>Limited to maximum 24 hours of operation</li>
+<li>Only 30-second notification before termination</li>
+<li>No live migrations possible</li>
+<li>No automatic restarts</li>
+</ul>
+<h2>Batch Processing Jobs</h2>
+<h3>Use Case</h3>
+<ul>
+<li>Economically deploy pre-emptible instances for batch processing tasks</li>
+<li>Save money and avoid placing additional workload on existing instances</li>
+</ul>
+<h2>Region and Zones</h2>
+<h3>Geographical Location</h3>
+<ul>
+<li>Choose a region closest to your customer base for lowest latency and highest customer experience</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>For example, consider this scenario where you have two instances that have different custom configurations and run at different times of the month. In this scenario Compute Engine breaks down the number of virtual CPUs and amount of memory used across all the custom instances and then aggregates the resource usage to qualify for the biggest sustained usage discounts possible. More specifically, Compute Engine will aggregate all of the CPU and memory resources, multiplied by the amount of time that they were used, and then apply the appropriate sustained used discounts.
+
+Finally one last thing about machine types and that is you should be aware of the advantages of the pre-emptible VM. This is a VM instance that you can create and run at a much lower price - typically circa 80% discount - than normal VMs. Therefore, you really should investigate whether your application can function completely on pre-emptible VMs or at least benefit from an 80 percent discount, which is a significant saving.
+
+To make this point clear, these VMs have their drawbacks after all; you don't get a huge discount for nothing, so a VM might be preempted or terminated at any time. This is something you should be aware of, but it is still a cost-effective way to use a VM as there's no charge if that happens within the first 10 minutes.
+
+Nonetheless, you must realise that pre-emptible VMs are only going to live for up to maximum 24 hours and that you only get a 30 second notification before the machine is terminated. Hence, pre-emptive VMs are not for every use case but they are still hugely cost-effective for most projects if deployed correctly.
+
+There are also some operational caveats that you must keep in mind when contemplating pre-emptive VMs. For example, when you use pre-emptive VMs, there are no live migrations possible nor are automatic restarts, as that would defeat the purpose. However, there are some techniques we can highlight, which are actually useful in re-spawning terminated pre-emptive VMs. These techniques typically require instance monitoring and the use of load balancers that can start up new pre-emptible VMs in case of failure.
+
+One valuable use case for using pre-emptible VMs is when running a batch processing job. During processing, but the analytical task may well slow down, but it does not completely stop. Therefore, you can economically deploy pre-emptible instances to complete your batch processing tasks. Not only does this save money, but it doesn't place additional workload on your existing instances and doesn't require you to pay full price for additional normal instances.
+
+Region and Zones
+After you select the machine type, the next question you will contemplate is where you want to host the VM. Therefore, the first thing you need to consider when choosing a region and zone is the geographical location, which is closest to your customer base as that is where you want to run your resources for lowest latency and highest customer experience.
+
+When selecting a region and zone, it's essential to consider the geographical location closest to your customer base. This will ensure that your resources are accessible at the lowest latency and provide the best possible customer experience.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Optimizing Compute Engine Resources with Machine Types</strong></p>
+<p>When running custom instances on Compute Engine, it's essential to understand how machine types work and how to optimize resource usage. The platform aggregates CPU and memory resources across all instances, then applies sustained usage discounts based on the total usage.</p>
+<p>To maximize savings, consider using pre-emptible VMs, which offer a 80% discount compared to normal VMs. However, be aware of the drawbacks: these VMs can be preempted or terminated at any time, and there's no charge if termination occurs within the first 10 minutes. Pre-emptible VMs are not suitable for every use case but can be cost-effective when deployed correctly.</p>
+<p><strong>Operational Considerations</strong></p>
+<p>When using pre-emptible VMs, keep in mind that live migrations and automatic restarts are not possible. Instead, consider techniques like instance monitoring and load balancers to re-spawn terminated instances. One valuable use case is running batch processing jobs, where some instances may terminate during analysis but can still complete the task.</p>
+<p><strong>Region and Zone Selection</strong></p>
+<p>When choosing a region and zone for your VM, consider geographical location to minimize latency and maximize customer experience. The closest region to your customer base should be selected to ensure optimal performance.</p>
+<p><strong>Key Takeaways</strong></p>
+<ul>
+<li>Use pre-emptible VMs to optimize resource usage and save up to 80% on normal VM costs.</li>
+<li>Be aware of the drawbacks: preempted or terminated instances may incur no charge within the first 10 minutes.</li>
+<li>Consider techniques like instance monitoring and load balancers to re-spawn terminated instances.</li>
+<li>Run batch processing jobs on pre-emptible VMs to complete tasks while minimizing additional workload and cost.</li>
+<li>Select a region and zone based on geographical location to minimize latency and maximize customer experience.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>High-Performance Computing</strong>
+The text discusses the use of Compute Engine for high-performance computing tasks such as batch processing jobs. It highlights the benefits of using pre-emptible VMs for these tasks, including cost savings and reduced workload on existing instances.</p>
+<h3>Topic 2</h3>
+<p><strong>Machine Type Selection</strong>
+The text emphasizes the importance of selecting the right machine type for a VM instance, considering factors such as geographical location, latency, and customer experience. It also discusses the advantages of pre-emptible VMs and their potential drawbacks.</p>
+<h3>Topic 3</h3>
+<p><strong>Pre-emptible VMs</strong>
+Pre-emptible VMs are discussed as a cost-effective option for running VM instances, offering significant discounts (up to 80%) compared to normal VMs. However, they have limitations, such as the possibility of termination without notice and limited availability (up to 24 hours).</p>
+<h3>Topic 4</h3>
+<p><strong>Operational Considerations</strong>
+The text highlights operational caveats when using pre-emptible VMs, including the lack of live migrations and automatic restarts. It also discusses techniques for re-spawning terminated pre-emptive VMs, such as instance monitoring and load balancers.</p>
+<h3>Topic 5</h3>
+<p><strong>Geographical Location and Zones</strong>
+The text stresses the importance of choosing a region and zone that is closest to the customer base, ensuring lowest latency and highest customer experience.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What happens to Compute Engine's resource usage when running custom instances with different configurations?
+Answer: It aggregates the CPU and memory resources, multiplied by the amount of time they were used, to qualify for sustained usage discounts.</p>
+</li>
+<li>
+<p>What is the typical discount offered for pre-emptible VMs compared to normal VMs?
+Answer: Pre-emptible VMs offer a 80% discount compared to normal VMs.</p>
+</li>
+<li>
+<p>What is the maximum duration for which pre-emptible VMs can live?
+Answer: Up to 24 hours.</p>
+</li>
+<li>
+<p>How much time do you get before a pre-emptible VM is terminated?
+Answer: 30 seconds.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential drawbacks of using pre-emptible VMs, and how can they be mitigated?
+Answer: Pre-emptible VMs have the drawback that they may be preempted or terminated at any time. However, this can be mitigated by using instance monitoring and load balancers to re-spawn terminated instances.</p>
+</li>
+<li>
+<p>How do pre-emptible VMs impact live migrations and automatic restarts?
+Answer: Pre-emptible VMs do not support live migrations and automatic restarts due to the nature of their preemptive scheduling.</p>
+</li>
+<li>
+<p>What is a valuable use case for using pre-emptible VMs, and how can they be used to benefit an application?
+Answer: Pre-emptible VMs are suitable for batch processing jobs where some instances may terminate during processing, allowing for cost-effective deployment without placing additional workload on existing instances.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>How can you determine the geographical location closest to your customer base when choosing a region and zone for hosting VMs?
+Answer: You should consider the geographical location that is closest to your customer base to minimize latency and maximize customer experience.</p>
+</li>
+<li>
+<p>What are some techniques for re-spawning terminated pre-emptive VMs, and what tools can be used to implement them?
+Answer: Techniques for re-spawning terminated pre-emptive VMs include instance monitoring and the use of load balancers that can start up new pre-emptible VMs in case of failure.</p>
+</li>
+<li>
+<p>How can you economically deploy pre-emptible instances to complete batch processing tasks without placing additional workload on existing instances?
+Answer: You can economically deploy pre-emptible instances by using them for batch processing jobs where some instances may terminate during processing, allowing for cost-effective deployment without adding additional workload.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>custom instances</td>
+<td>Location</td>
+<td>"...two instances that have different custom configurations and run at different times of the month."</td>
+<td>The text refers to "custom instances" as a specific type of instance with unique configurations, implying that these instances are tailored to meet specific needs. The use of "different" suggests that there may be variations in configuration or usage patterns.</td>
+</tr>
+<tr>
+<td>virtual CPUs</td>
+<td>Resource</td>
+<td>"...the number of virtual CPUs and amount of memory used across all the custom instances..."</td>
+<td>Virtual CPUs are a resource allocation unit for Compute Engine, allowing users to allocate resources more efficiently. The text highlights the importance of aggregating CPU and memory resources to qualify for sustained usage discounts.</td>
+</tr>
+<tr>
+<td>machine types</td>
+<td>Concept</td>
+<td>"...machine types and that is you should be aware of the advantages of the pre-emptible VM..."</td>
+<td>Machine types are a concept in Compute Engine, representing different configurations of virtual machines. Pre-emptible VMs offer significant cost savings but come with limitations and trade-offs.</td>
+</tr>
+<tr>
+<td>pre-emptible VMs</td>
+<td>Concept</td>
+<td>"...pre-emptible VMs that can create and run at a much lower price- typically circa 80% discount-"</td>
+<td>Pre-emptible VMs are a type of virtual machine instance that offers discounted pricing, typically 80% less than normal VMs. However, they come with the risk of termination or preemption without notice.</td>
+</tr>
+<tr>
+<td>batch processing job</td>
+<td>Use Case</td>
+<td>"...One valuable use case for using pre-emptible VMs is when running a batch processing job..."</td>
+<td>Batch processing jobs are a type of workload that can benefit from pre-emptible VMs, as they often require large amounts of resources but may not be continuously used. Pre-emptible VMs can provide cost savings while minimizing downtime.</td>
+</tr>
+<tr>
+<td>load balancers</td>
+<td>Tool</td>
+<td>"...techniques we can highlight, which are actually useful in re-spawning terminated pre-emptive VMs. These techniques typically require instance monitoring and the use of load balancers..."</td>
+<td>Load balancers are tools used to distribute traffic across multiple instances or servers. In this context, they play a crucial role in re-spawning terminated pre-emptible VMs by ensuring that new instances can take over when existing ones fail.</td>
+</tr>
+<tr>
+<td>geographical location</td>
+<td>Factor</td>
+<td>"...the first thing you need to consider when choosing a region and zone is the geographical location..."</td>
+<td>Geographical location is an important factor in selecting a region and zone for Compute Engine resources, as it affects latency and customer experience. The text emphasizes the importance of proximity to the customer base.</td>
+</tr>
+<tr>
+<td>latency</td>
+<td>Metric</td>
+<td>"...lowest latency and highest customer experience."</td>
+<td>Latency refers to the time it takes for data to be transmitted or processed. In this context, low latency is a key metric for selecting a region and zone, as it directly impacts customer experience.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

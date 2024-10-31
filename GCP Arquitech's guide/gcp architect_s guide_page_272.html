@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_272</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_272_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_272</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Capacity Planning Cycle</h1>
+<h2>Overview</h2>
+<p>The capacity planning cycle involves several stages, including forecasting, resource allocation, deployment, monitoring, and iteration.</p>
+<h3>Forecasting</h3>
+<ol>
+<li><strong>Initial Forecast</strong>: Based on project plan, marketing data, or previous industry/product knowledge.</li>
+<li><strong>Resource Allocation</strong>: Determine necessary resources and obtain approval.</li>
+<li><strong>Deployment</strong>: Deploy resources due to cloud deployments being more influenced by operation expense (OpEx) than upfront capital expense (CapEx).</li>
+</ol>
+<h3>Monitoring and Measurement</h3>
+<ol>
+<li><strong>Testing and Commissioning</strong>: Start monitoring indicators during testing and commissioning.</li>
+<li><strong>Real-World Conditions</strong>: Monitor indicators in production, adjusting forecasts and optimizing accordingly.</li>
+</ol>
+<h3>Iterative Forecasts</h3>
+<ol>
+<li><strong>Compare Actuals with Forecasts</strong>: Compare actual measured conditions with forecasts to determine accuracy.</li>
+<li><strong>Adjust and Refine</strong>: Adjust forecasts based on previous errors and refine predictions for future growth.</li>
+</ol>
+<h2>Error Budget and Overprovisioning</h2>
+<ol>
+<li><strong>Error Budget</strong>: Include additional resources to cater for unforeseen happenings, known as an error budget.</li>
+<li><strong>Overprovisioning</strong>: Allocate a generous amount of capacity to account for unknown overheads and potential cascading failures.</li>
+</ol>
+<h3>Capacity Allocation</h3>
+<ol>
+<li><strong>Instance Overhead Estimation</strong>: Estimate instance overheads, considering production overheads and inherent capacity overheads within a VM.</li>
+<li><strong>Capacity Allocation</strong>: Allocate 30% of capacity for partial load, accounting for fail-over in managed instances, and leaving 10% spare capacity to avoid cascading failures.</li>
+</ol>
+<h2>Conclusion</h2>
+<p>The capacity planning cycle involves iterative forecasting, resource allocation, deployment, monitoring, and iteration to ensure accurate predictions and optimal resource utilization.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>So let's start with taking a look at the capacity planning cycle. First, you will have to start with a forecast. This will likely be based on the project plan, marketing data or previous industry or product knowledge. Then you have to decide what resources are going to be necessary, and then try to go and get approval for that. But since cloud deployments are much more influenced by operation expense (OpEx) than upfront capital expense (CapEx), this is likely to be forthcoming and then you can go ahead and deploy.
+
+The next stage is the monitor and measure. This would have started during testing and commissioning but it is only once you move into production that it starts to have real value. This is because you can now monitor the indicators in production. Now you will know the real world conditions rather than on pre-production forecasts so you can adjust and predict future trends and optimise accordingly.
+
+Then simply repeat that process and each time your forecasts should become more accurate. So when it comes to these iterative forecasts, the purpose is to monitor and predict future demand, and plan for future growth. Therefore once in production we compare the actual measured conditions against the forecasts, to see whether they were high or low, and we will try to make a more accurate prediction next time.
+
+So this way, forecasting converges on a practical value by learning from previous errors. Then consider what other values should you potentially include in your forecasting estimate and give yourself some over provisioning to cater for unforeseen happenings - this is called an error budget.
+
+Forecasting estimation and measuring simply beats using advanced analytics and machine learning have taken a lot of the guess work out of predicting trends, mitigating the risk of provisioning. Nonetheless, as we said earlier, cloud deployments are about managing on-going operational expense rather than the upfront capital expense so overprovisioning is not such a large risk.
+
+Indeed, we actually need to overprovision for instance when building resiliency so we use a n+2 model to cope with aggregated traffic in the case of a node failure. There is also a requirement for meeting non-linear demand such as peak hour traffic or volatile spikes in system load.
+
+So the dilemma is when dealing with instance overhead estimation, how do you overestimate without overestimating too much? Well, we know we have to provide some overhead for such things as spikes in demand and the like. There is also the requirements of fail-over in the case where a VM is acting in a redundancy configuration such as in a managed instance.
+
+So we must take all these known production overheads into consideration. However, we must also not forget the inherent capacity overheads within a VM, such as in running the OS. This means that if the VM is already consuming 30% of its CPU capacity just to run itself, then you're only going to get another 30%, to run the application.
+
+This is because you will need the remaining 40% to cater for fail-over in a managed instance design where it will have to accept the load of a failed instance. We allocate a generous 30% of capacity for the partial load for this burden and any unknown overheads that may occur in production. This leaves us with 10% spare capacity because it is not a good idea to plan to run at 100% due to the very real risk of introducing potential cascading failures.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Capacity Planning Cycle Overview</h3>
+<p>The capacity planning cycle involves several stages, starting with forecasting based on project plans, marketing data, or industry/product knowledge. This stage is followed by obtaining approval for necessary resources and deploying them.</p>
+<h3>Iterative Forecasting Process</h3>
+<p>Once in production, the next stage is monitoring and measuring, which starts during testing and commissioning but gains real value only when moving into production. The purpose of this process is to monitor and predict future demand, plan for growth, and adjust forecasts accordingly.</p>
+<h3>Importance of Error Budget and Overprovisioning</h3>
+<p>To ensure accurate forecasting, it's essential to include an error budget that accounts for unforeseen happenings. This involves overprovisioning resources to cater for spikes in demand, non-linear demand, and fail-over requirements. The n+2 model is used to cope with aggregated traffic in the case of a node failure.</p>
+<h3>Key Considerations</h3>
+<ul>
+<li>Inherent capacity overheads within a VM, such as running the OS</li>
+<li>Allocating 30% of capacity for partial load and unknown overheads</li>
+<li>Leaving 10% spare capacity to avoid cascading failures</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Capacity planning and forecasting are crucial for cloud deployments, as they involve managing ongoing operational expenses rather than upfront capital expenditures.</p>
+<h3>Topic 2</h3>
+<p>The capacity planning cycle consists of three stages: forecast, monitor and measure, and repeat. The purpose is to monitor and predict future demand, plan for growth, and adjust forecasts based on actual conditions in production.</p>
+<h3>Topic 3</h3>
+<p>Overprovisioning is necessary to cater for unforeseen happenings, such as spikes in demand or system load. An error budget should be included in forecasting estimates to account for these uncertainties.</p>
+<h3>Topic 4</h3>
+<p>Advanced analytics and machine learning have significantly reduced the guesswork involved in predicting trends, but cloud deployments still require careful consideration of instance overhead estimation to avoid overestimation.</p>
+<h3>Topic 5</h3>
+<p>Inherent capacity overheads within a VM, such as running the OS, should be taken into account when estimating instance overhead. A generous allocation for partial load and unknown overheads is recommended to ensure sufficient spare capacity and prevent cascading failures.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the three main stages of the capacity planning cycle?
+Answer: The three main stages of the capacity planning cycle are forecast, monitor and measure, and repeat.</p>
+</li>
+<li>
+<p>Why is it important to include an error budget in forecasting estimates?
+Answer: An error budget allows for over-provisioning to cater for unforeseen happenings, ensuring that there is sufficient capacity to handle unexpected spikes in demand or system load.</p>
+</li>
+<li>
+<p>What is the purpose of using a n+2 model in cloud deployments?
+Answer: The n+2 model is used to cope with aggregated traffic in the case of a node failure, providing a buffer to ensure that the system can continue to operate even if one instance fails.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the nature of cloud deployments influence capacity planning compared to traditional on-premises deployments?
+Answer: Cloud deployments are more influenced by operational expenses (OpEx) than upfront capital expenses (CapEx), which means that over-provisioning is not as large a risk, but still necessary for resiliency and meeting non-linear demand.</p>
+</li>
+<li>
+<p>What are some of the key factors to consider when estimating instance overheads?
+Answer: Factors include spikes in demand, fail-over requirements, inherent capacity overheads within a VM (e.g., running the OS), and the need for spare capacity to avoid cascading failures.</p>
+</li>
+<li>
+<p>How does the concept of an error budget relate to the use of advanced analytics and machine learning in forecasting?
+Answer: Advanced analytics and machine learning can help mitigate the risk of provisioning by providing more accurate forecasts, but it is still important to include an error budget to account for unforeseen events.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are planning a cloud deployment for a new e-commerce application that is expected to experience peak hour traffic during the holiday season. How would you incorporate this information into your capacity planning?
+Answer: You would need to estimate the increased demand and allocate additional resources (e.g., instances, storage) to handle the expected spike in traffic.</p>
+</li>
+<li>
+<p>If you are using a n+2 model to cope with aggregated traffic in the case of a node failure, what is the optimal value for 'n'?
+Answer: The optimal value for 'n' would depend on various factors, including the expected frequency and severity of failures, as well as the available resources and budget.</p>
+</li>
+<li>
+<p>How would you adjust your error budget if you were to use a cloud provider that offers auto-scaling features?
+Answer: You may be able to reduce your error budget since the cloud provider can automatically add or remove instances based on demand, reducing the need for manual over-provisioning. However, it's still important to have some buffer in place to account for unexpected events.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>forecast</td>
+<td>Forecasting</td>
+<td>"First, you will have to start with a forecast."</td>
+<td>A forecast is a prediction of future demand or usage. In the context of capacity planning, it is based on project plans, marketing data, or previous industry or product knowledge. The purpose of forecasting is to monitor and predict future demand and plan for future growth.</td>
+</tr>
+<tr>
+<td>resources</td>
+<td>Resource Planning</td>
+<td>"Then you have to decide what resources are going to be necessary..."</td>
+<td>Resources refer to the necessary components or units required to achieve a specific goal or objective. In capacity planning, resources include instances, VMs, or other computing units. The decision of what resources are needed is crucial for successful deployment and operation.</td>
+</tr>
+<tr>
+<td>approval</td>
+<td>Approval Process</td>
+<td>"Then you have to try to go and get approval for that."</td>
+<td>An approval process involves obtaining consent or permission from stakeholders or authorities before proceeding with a specific action or decision. In capacity planning, approval is necessary to ensure that the resources required are sufficient and meet the expected demand.</td>
+</tr>
+<tr>
+<td>OpEx</td>
+<td>Operational Expense</td>
+<td>"cloud deployments are much more influenced by operation expense (OpEx)..."</td>
+<td>OpEx refers to the costs associated with operating a system, application, or service over time. In cloud computing, OpEx is a key consideration for capacity planning, as it affects the budget and resource allocation.</td>
+</tr>
+<tr>
+<td>CapEx</td>
+<td>Capital Expense</td>
+<td>"cloud deployments are much more influenced by operation expense (OpEx)..."</td>
+<td>CapEx refers to the costs associated with acquiring or purchasing assets, such as hardware or software. In cloud computing, CapEx is less relevant than OpEx for capacity planning, as it focuses on upfront costs rather than ongoing expenses.</td>
+</tr>
+<tr>
+<td>testing and commissioning</td>
+<td>Testing and Commissioning</td>
+<td>"This would have started during testing and commissioning..."</td>
+<td>Testing and commissioning refer to the processes of evaluating and validating a system or application before deployment. In capacity planning, these stages are critical for ensuring that resources meet the expected demand and performance requirements.</td>
+</tr>
+<tr>
+<td>production</td>
+<td>Production Environment</td>
+<td>"it is only once you move into production that it starts to have real value."</td>
+<td>A production environment refers to the operational stage where a system or application is deployed and used in a real-world setting. In capacity planning, production is the stage where resources are put to use, and performance is measured against expectations.</td>
+</tr>
+<tr>
+<td>indicators</td>
+<td>Performance Indicators</td>
+<td>"Now you will know the real world conditions rather than on pre-production forecasts..."</td>
+<td>Performance indicators refer to measurable values or metrics that reflect the performance of a system or application. In capacity planning, these indicators help evaluate the effectiveness of resources and make informed decisions about future planning.</td>
+</tr>
+<tr>
+<td>iterative forecasting</td>
+<td>Iterative Forecasting</td>
+<td>"So when it comes to these iterative forecasts the purpose is you want to monitor and predict future demand..."</td>
+<td>Iterative forecasting involves repeatedly updating and refining predictions based on new data or insights. In capacity planning, this approach enables continuous improvement and adaptation to changing demands or performance requirements.</td>
+</tr>
+<tr>
+<td>error budget</td>
+<td>Error Budget</td>
+<td>"Then consider what other values should you potentially include in your forecasting estimate..."</td>
+<td>An error budget refers to the amount of resources or allowance allocated for unexpected events or errors. In capacity planning, an error budget helps manage uncertainty and ensure that resources are sufficient to meet expected demand while accounting for potential variability.</td>
+</tr>
+<tr>
+<td>Advanced Analytics</td>
+<td>Advanced Analytics</td>
+<td>"Advanced analytics have taken a lot the guess work out of predicting trends..."</td>
+<td>Advanced analytics refer to sophisticated statistical or machine learning techniques used to analyze complex data sets. In capacity planning, these tools help improve forecasting accuracy and mitigate risks associated with uncertainty.</td>
+</tr>
+<tr>
+<td>machine learning</td>
+<td>Machine Learning</td>
+<td>"Advanced analytics have taken a lot the guess work out of predicting trends..."</td>
+<td>Machine learning refers to the use of algorithms and statistical models to enable machines to learn from data and make predictions or decisions. In capacity planning, machine learning can help improve forecasting accuracy and optimize resource allocation.</td>
+</tr>
+<tr>
+<td>n+2 model</td>
+<td>N+2 Model</td>
+<td>"Indeed we actually need to overprovision for instance when building resiliency so we use a n+2 model..."</td>
+<td>The n+2 model refers to a strategy of allocating resources based on the expected demand plus two additional units, typically used in capacity planning to account for uncertainty and variability. In this context, the n+2 model is applied to ensure that resources are sufficient to meet expected demand while accounting for potential spikes or surges.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

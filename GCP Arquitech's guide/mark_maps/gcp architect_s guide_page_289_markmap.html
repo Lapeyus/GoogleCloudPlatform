@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_289</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Incident Response
+        ## Definition
+        - Incident response is defined as the human behaviour that results in system stability when things don't go as planned.
+        
+        ## Importance of Consistency
+        - In responding to incidents, consistency is key. We need to minimize the frequency and duration of outage downtimes. Transparency about the root cause of the incident and sharing with others what we have done to fix it is crucial.
+        
+        ### Benefits of Consistency
+        
+        * Minimizes downtime
+        * Ensures transparency and communication
+        * Allows team members to learn quickly from incidents
+        
+        ## Creating a Structured Incident Response Policy
+        - To address consistency, we need to reduce duplication of effort. We can look to Google's Site Reliability Engineering (SRE) culture for best practices.
+        
+        ### Key Principles of SRE Culture
+        
+        * Collaboration and communication
+        * Learning and open source sharing of designs
+        * Publishing best practices under open source via research.google.com and other blog posts
+        
+        ## Developing an Incident Response Policy
+        - We must treat our incident response policy in the same way as we consider business logic for our app. The process should be step-by-step, following a flow that includes:
+        
+        - 1. **Information gathering**
+        - 2. **Notification of stakeholders and customers**
+        - 3. **Post-mortem analysis and documentation update**
+        
+        ### Key Steps in the Process
+        
+        * Monitoring service with alerting and dashboard
+        * Notification of support on-call, stakeholders, and customers
+        * Proactive planning for automated fail-over, auto-scale, or rollback mechanisms
+        
+        ## Root Cause Analysis
+        - Our business logic layer is where we start to work through our root cause analysis.
+        
+        ### Example Use Case
+        
+        * Incident response policy in place
+        * Monitoring service with alerting and dashboard
+        * Notification of stakeholders and customers
+        * Post-mortem analysis and documentation update
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_76</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_76_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_76</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Stackdriver</h1>
+<h2>Overview</h2>
+<p>Stackdriver is the built-in GCP tool for monitoring, logging and diagnostics.</p>
+<h3>Features</h3>
+<h4>Monitoring</h4>
+<ul>
+<li>Checks endpoints of Web applications</li>
+<li>Configures uptime checks for specific resources</li>
+<li>Allows alerts on health check failures or low uptime levels</li>
+</ul>
+<h4>Logging</h4>
+<ul>
+<li>Views logs from applications</li>
+<li>Filters and searches logs</li>
+<li>Defines metrics based on log contents</li>
+<li>Exports logs to BigQuery, Cloud Storage, and Cloud Pub/Sub</li>
+</ul>
+<h4>Error Reporting</h4>
+<ul>
+<li>Leverages in-depth error reporting for network management systems</li>
+<li>Tracks, groups, and categorizes errors in applications</li>
+</ul>
+<h4>Trace</h4>
+<ul>
+<li>Proactively samples latency of App Engine applications</li>
+<li>Reports per-URL statistics for gradual degradation detection</li>
+</ul>
+<h2>Debugger</h2>
+<h3>Overview</h3>
+<p>Stackdriver Debugger reduces tedious logging by connecting production data to source code.</p>
+<h3>Benefits</h3>
+<ul>
+<li>Inspects application state at any code location in production</li>
+<li>Views application state without adding logging statements</li>
+</ul>
+<h2>Anthos</h2>
+<h3>Overview</h3>
+<p>Anthos is an application management platform providing a consistent development, operations, and security experience for cloud and on-premises environments.</p>
+<h3>Features</h3>
+<h4>Application Modernization</h4>
+<ul>
+<li>Aligns with themes of modernization, cloud migration, hybrid cloud, and multi-cloud management</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Stackdriver is the built-in GCP tool for monitoring, logging, and diagnostics, providing low-level tools that give access to various signals from infrastructure platforms, virtual machines, containers, middleware, and application tiers. By accessing system-level signals, it provides insight into an application's health, performance, and availability, allowing issues to be fixed before they escalate into serious problems.
+
+The core components of Stackdriver include components responsible for detecting monitoring, logging, trace, error reporting, and debugging. Stackdriver monitoring checks the endpoints of web applications, as well as other internet-accessible services running on cloud environments. It allows configuration of uptime checks, which can be linked to specific URLs, groups, or resources, such as VM instances or load balancers.
+
+Stackdriver also enables configuration of alerts based on interesting criteria, like health check failures or uptime checks that require immediate action. Furthermore, it can be combined with popular notification tools to create dashboards for visualizing application state. Stackdriver logging allows viewing logs from applications and filtering/searching them. It also lets define metrics based on log contents, incorporated into custom dashboards and alerts.
+
+Logs can be exported to BigQuery, Cloud Storage, and Cloud Pub/Sub. By incorporating Stackdriver into existing network management systems or Network Operation Centre software, it leverages in-depth error reporting to notify of new errors detected. It can also track, group, and categorize errors in applications.
+
+Stackdriver trace proactively samples latency of App Engine applications and reports on per-URL statistics, notifying ahead of time of gradual degradation in specific services. When debugging code, a tedious method is to add logging statements. Stackdriver debugger reduces this drudgery by connecting production data to source code, allowing inspection of application state at any code location in production.
+
+Stackdriver Debugger works best when application source code is available in Cloud Source repositories, although it can also work with other repository types. Anthos is an application management platform providing a consistent development, operations, and security experience for both cloud and on-premises environments. It's different from other public cloud services, being a fully software-based umbrella for multiple services aligned with themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Stackdriver: A Comprehensive Monitoring, Logging, and Diagnostics Tool for GCP</h3>
+<p>Stackdriver is the built-in Google Cloud Platform (GCP) tool for monitoring, logging, and diagnostics. It provides low-level tools that grant access to various signals from infrastructure platforms, virtual machines, containers, middleware, and application tiers, logs, metrics, and traces.</p>
+<h4>Key Components of Stackdriver</h4>
+<ul>
+<li>Monitoring: Checks endpoints of web applications and other internet-accessible services.</li>
+<li>Logging: Allows viewing logs from applications, filtering, searching, and exporting them to BigQuery, Cloud Storage, and Cloud Pub/Sub.</li>
+<li>Error Reporting: Tracks, groups, and categorizes errors in applications.</li>
+<li>Trace: Proactively samples latency of App Engine applications and reports on per-URL statistics.</li>
+</ul>
+<h4>Benefits of Using Stackdriver</h4>
+<ul>
+<li>Provides insight into application health, performance, and availability.</li>
+<li>Enables configuration of uptime checks, alerts, and notifications for immediate action.</li>
+<li>Combines with popular notification tools to create dashboards for visualizing application state.</li>
+<li>Leverages in-depth error reporting for notified new errors detection.</li>
+</ul>
+<h4>Debugging Code with Stackdriver</h4>
+<ul>
+<li>Reduces tedious logging statement debugging by connecting production data to source code.</li>
+<li>Allows inspecting application state at any code location in production without adding logging statements.</li>
+<li>Works best when application source code is available in Cloud Source repositories, but can also work with other repositories.</li>
+</ul>
+<h4>Anthos: A Comprehensive Application Management Platform</h4>
+<p>Anthos is an application management platform that provides a consistent development, operations, and security experience for both cloud and on-premises environments. It's not just a product but a fully software-based umbrella for multiple services aligned with themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.</p>
+<h4>Key Features of Anthos</h4>
+<ul>
+<li>Consistent development, operations, and security experience.</li>
+<li>Aligns with themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Monitoring and Performance Analysis
+The first topic revolves around monitoring and performance analysis in the context of Stackdriver. It highlights the importance of having access to system-level signals from infrastructure platforms, virtual machines, containers, middleware, and application tiers. This allows for early detection of issues before they escalate into serious problems.</p>
+<h3>Topic 2</h3>
+<p>Logging and Error Reporting
+The second topic focuses on logging and error reporting capabilities within Stackdriver. It emphasizes the ability to view logs from applications, filter and search them, define metrics based on log contents, and export logs to various storage solutions like BigQuery, Cloud Storage, and Cloud Pub/Sub.</p>
+<h3>Topic 3</h3>
+<p>Error Tracking and Debugging
+The third topic centers around error tracking and debugging using Stackdriver. It discusses how the tool can leverage in-depth error reporting to notify users of new errors detected, track, group, and categorize errors in applications, and provide a debugger that connects production data to source code for inspecting application states without adding logging statements.</p>
+<h3>Topic 4</h3>
+<p>Application Management Platform - Anthos
+The fourth topic introduces Anthos as an application management platform providing a consistent development, operations, and security experience on both cloud and on-premises environments. It highlights Anthos' alignment with themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Stackdriver, and what does it provide?
+Answer: Stackdriver is a built-in GCP tool that provides monitoring, logging, and diagnostics capabilities, giving access to system-level signals for application health, performance, and availability.</p>
+</li>
+<li>
+<p>What are the core components of Stackdriver?
+Answer: The core components of Stackdriver include components responsible for detecting Monitoring, Logging, Trace, Error Reporting, and debugging.</p>
+</li>
+<li>
+<p>How does Stackdriver monitoring work?
+Answer: Stackdriver monitoring checks the endpoints of Web applications and other Internet-accessible services, allowing configuration of uptime checks and alerts on specific criteria.</p>
+</li>
+<li>
+<p>What is the purpose of Stackdriver logging?
+Answer: Stackdriver logging lets users view logs from their applications, filter and search them, define metrics based on log contents, and export logs to various storage options.</p>
+</li>
+<li>
+<p>How does Anthos relate to Stackdriver?
+Answer: Anthos is an application management platform that provides a consistent development, operations, and security experience for use on both cloud and on-premises environments, aligning with the themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Stackdriver's low-level access to system signals impact its ability to provide insights into application health, performance, and availability?
+Answer: This access enables Stackdriver to detect issues before they escalate to serious problems, allowing for proactive maintenance and optimization.</p>
+</li>
+<li>
+<p>What are the benefits of using Stackdriver Debugger in debugging code?
+Answer: It reduces drudgery by connecting production data to source code, enabling users to inspect application state without adding logging statements.</p>
+</li>
+<li>
+<p>How does Anthos differ from other public cloud services?
+Answer: Anthos is a fully software-based umbrella for multiple services aligned with themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.</p>
+</li>
+<li>
+<p>What are some potential use cases for combining Stackdriver with popular notification tools?
+Answer: Creating dashboards to visualize the state of an application, enabling users to quickly identify issues and take corrective action.</p>
+</li>
+<li>
+<p>How does Stackdriver's error reporting feature impact network management systems or Network Operation Centre software?
+Answer: It provides in-depth error detection and tracking, enabling these systems to notify users when new errors are detected and track groupings and categorizations of errors.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you're a DevOps engineer tasked with monitoring the performance of an e-commerce application running on GCP. How would you use Stackdriver?
+Answer: You would configure uptime checks for specific resources, set up alerts for health check failures or downtime, and create custom dashboards to visualize key metrics.</p>
+</li>
+<li>
+<p>A company is experiencing issues with its App Engine applications. What tool would you recommend using to diagnose the problem?
+Answer: Stackdriver Trace, which allows for proactive sampling of latency and reporting on per-URL statistics to identify potential degradation in specific services.</p>
+</li>
+<li>
+<p>How might a developer use Stackdriver Debugger to improve their debugging workflow?
+Answer: By connecting production data to source code, enabling them to inspect application state without adding logging statements, reducing the drudgery associated with traditional debugging methods.</p>
+</li>
+<li>
+<p>What are some potential benefits of using Anthos for application management in hybrid or multi-cloud environments?
+Answer: A consistent development, operations, and security experience across both cloud and on-premises environments, enabling organizations to optimize their application lifecycle and improve overall efficiency.</p>
+</li>
+<li>
+<p>Suppose you're a network administrator tasked with integrating Stackdriver into your existing network management system. What features would you prioritize?
+Answer: In-depth error reporting, tracking groupings and categorizations of errors, and the ability to notify users when new errors are detected.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stackdriver</td>
+<td>Tool/Platform</td>
+<td>"Stackdriver is the built-in GCP tool for monitoring, logging and diagnostics..."</td>
+<td>A built-in Google Cloud Platform (GCP) tool that provides low-level tools for monitoring, logging, and diagnostics. It gives access to system-level signals, providing insight into application health, performance, and availability.</td>
+</tr>
+<tr>
+<td>Monitoring</td>
+<td>Component</td>
+<td>"...components responsible for detecting the Monitoring..."</td>
+<td>A component of Stackdriver that detects monitoring-related activities.</td>
+</tr>
+<tr>
+<td>Logging</td>
+<td>Component</td>
+<td>"...components responsible for detecting the Monitoring, Logging..."</td>
+<td>A component of Stackdriver that handles logging-related activities.</td>
+</tr>
+<tr>
+<td>Trace</td>
+<td>Component</td>
+<td>"...components responsible for detecting the Monitoring, Logging, Trace..."</td>
+<td>A component of Stackdriver that deals with tracing and latency analysis.</td>
+</tr>
+<tr>
+<td>Error Reporting</td>
+<td>Component</td>
+<td>"...components responsible for detecting the Monitoring, Logging, Trace, Error..."</td>
+<td>A component of Stackdriver that reports errors in applications.</td>
+</tr>
+<tr>
+<td>Debugger</td>
+<td>Tool/Component</td>
+<td>"Stackdriver debugger reduces a lot of this drudgery by debugging code..."</td>
+<td>A tool within Stackdriver that helps debug code and log errors without adding logging statements to the source code.</td>
+</tr>
+<tr>
+<td>Anthos</td>
+<td>Platform</td>
+<td>"...Anthos is an application management platform..."</td>
+<td>An application management platform that provides a consistent development, operations, and security experience for both cloud and on-premises environments. It's a fully software-based umbrella for multiple services aligned with themes of application modernization, cloud migration, hybrid cloud, and multi-cloud management.</td>
+</tr>
+<tr>
+<td>Cloud Source Repositories</td>
+<td>Location/Repository</td>
+<td>"...Stackdriver Debugger works best when your application source code is available..."</td>
+<td>A location where application source code is stored, used as the primary repository for Stackdriver Debugger to work effectively.</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>Service</td>
+<td>"...You can also export logs to BigQuery..."</td>
+<td>A service that allows users to store and analyze large datasets in a scalable and efficient manner.</td>
+</tr>
+<tr>
+<td>Cloud Storage</td>
+<td>Service</td>
+<td>"...You can also export logs to Cloud Storage..."</td>
+<td>A service that provides object storage for data, used to store and manage application logs.</td>
+</tr>
+<tr>
+<td>Cloud Pub/Sub</td>
+<td>Service</td>
+<td>"...You can also export logs to Cloud Pub/Sub."</td>
+<td>A service that enables real-time messaging between applications, used to publish and subscribe to messages, including log data.</td>
+</tr>
+<tr>
+<td>App Engine</td>
+<td>Platform</td>
+<td>"...Stackdriver trace to proactively sample the latency of App Engine..."</td>
+<td>A platform provided by Google Cloud that allows developers to build web applications and mobile backends.</td>
+</tr>
+<tr>
+<td>Internet Accessible Services</td>
+<td>Category</td>
+<td>"...This also occurs with other Internet accessible services..."</td>
+<td>Services that can be accessed over the internet, such as web applications and cloud-based services.</td>
+</tr>
+<tr>
+<td>Uptime Checks</td>
+<td>Feature</td>
+<td>"...You are able to configure uptime checks..."</td>
+<td>A feature within Stackdriver that allows users to monitor the availability of specific resources or services.</td>
+</tr>
+<tr>
+<td>Alerts</td>
+<td>Feature</td>
+<td>"...You can also configure alerts on interesting events..."</td>
+<td>A feature within Stackdriver that sends notifications when certain conditions or events occur, such as errors or changes in application behavior.</td>
+</tr>
+<tr>
+<td>Dashboards</td>
+<td>Feature</td>
+<td>"...Furthermore you can combine Stackdriver to work with a lot of popular notification tools so you can create dashboards..."</td>
+<td>A feature within Stackdriver that allows users to visualize and analyze data from various sources, creating custom dashboards for better insights.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

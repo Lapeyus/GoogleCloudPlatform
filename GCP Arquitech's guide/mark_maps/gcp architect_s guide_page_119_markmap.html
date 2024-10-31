@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_119</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Persistent Disks
+        ## Overview
+        - Cloud Persistent Disks provide a managed, cloud-persistent storage solution for virtual machines (VMs) in Google Compute Engine.
+        
+        ### Features
+        
+        - **Redundancy**: Data is automatically replicated across multiple zones within a region.
+        - **Data Encryption**: Data at rest is encrypted using standard encryption keys provided by GCP. 
+        - **Management**: Disks can be resized as needed, and management of the disks is handled on the backend.
+        - **Decryption Keys**: Users have control over decryption keys, ensuring that only authorized parties can access data.
+        
+        ## Use Cases
+        
+        ### 1. Data Backup
+        - Snapshots are useful for periodic backups of data on persistent disks. They provide incremental backups, which means they backup only the data that has changed since the last snapshot. This approach is faster and cheaper than creating a full image of the disk.
+        
+        ### 2. Disk Upgrades
+        - Snapshots can be used to transfer data from one type of disk to another (e.g., from standard HDD to SSD). This allows for easier upgrades without losing data.
+        
+        ### 3. Data Migration
+        - Snapshots enable easy migration of data between zones within a region or across regions. This is particularly useful when moving VMs between different zones or regions.
+        
+        ## Best Practices
+        
+        - **Consistency**: Before taking a disk snapshot, it's recommended to freeze or unmount the file system to ensure snapshot consistency.
+        - **Security**: Users should manage their own decryption keys to maintain control over data access.
+        
+        ### 2. Automating Disk Migrations
+        - Compute Engine provides the `gcloud` command-line tool for automating VM migrations, including disk transfers using snapshots.
+
+      </script>
+    </div>
+  </body>
+</html>

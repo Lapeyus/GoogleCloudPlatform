@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_58</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_58_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_58</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Public Cloud Cost Model</h1>
+<h2>Understanding the Basics</h2>
+<p>The public cloud cost model is a pay-as-you-go pricing structure where users only pay for the resources they use.</p>
+<h3>Key Components</h3>
+<ul>
+<li><strong>Instance Types</strong>: The type of virtual machine or server instance used, which affects compute power and storage.</li>
+<li><strong>Storage</strong>: The amount of data stored in the cloud, which can be object storage, block storage, or file storage.</li>
+<li><strong>Data Transfer</strong>: The amount of data transferred in and out of the cloud, which can incur additional charges.</li>
+</ul>
+<h2>Moving to CloudSQL</h2>
+<h3>Benefits</h3>
+<ul>
+<li>Relatively straightforward migration from on-premises MySQL</li>
+<li>Simple sqldump transfer with minimal downtime</li>
+</ul>
+<h3>Considerations</h3>
+<ul>
+<li>Potential for downtime or service disruption during replication</li>
+<li>Replication ensures synchronisation between on-premises master and CloudSQL instance</li>
+</ul>
+<h1>Containers and Kubernetes Engine</h1>
+<h2>Introduction to Containers and Kubernetes</h2>
+<h3>What are Containers?</h3>
+<p>Containers provide a lightweight and portable way to package applications and their dependencies, allowing for efficient deployment and scaling.</p>
+<h3>Benefits of Containers</h3>
+<ul>
+<li>Improved application portability</li>
+<li>Reduced infrastructure overhead</li>
+<li>Faster deployment and scaling</li>
+</ul>
+<h2>Hybrid Service: Compute Engine and Kubernetes Engine</h2>
+<h3>Conceptual Model</h3>
+<p>The Kubernetes engine sits between the Compute Engine (IaaS) and App Engine (PaaS), providing a hybrid service that leverages benefits from both.</p>
+<h3>Benefits of Hybrid Service</h3>
+<ul>
+<li>Automation and elasticity from Compute Engine</li>
+<li>Self-awareness and dynamic scaling from App Engine</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Do you fully understand the public cloud cost model? Moving to CloudSQL will be relatively straightforward as it is itself MySQL so it will be a like for like swap. This makes transferring the schema and data straightforward as a simple sqldump that is uploaded into Cloud Storage, which is all that is required. Cloud SQL can then build the schema and data using the sqldump object in the Cloud Storage bucket. There might be an issue with downtime or service disruption but replicating the on-premises master to the CloudSQL MySQL instance will keep the two synchronised without the need for any service disruption.
+
+Chapter 6-Containers and Kubernetes Engine
+
+In this chapter, we will shift the focus away from GCP storage portfolio to containers and the Google Kubernetes engine. We will describe in this chapter why you want to use containers, what their benefits are, and how to manage them in Kubernetes engine.
+
+An introduction to Containers and Kubernetes
+
+In an earlier chapter, we introduced you to the Compute Engine, which is GCP's Infrastructure as a Service offering (laaS), with access to servers, file systems, and networking through the deployment of VMs. We will also discuss the App Engine service, which is GCP's Platform as a Service (PaaS) offering in the next chapter. However, for now, it is time to introduce you to containers and Kubernetes engine, which is a hybrid service that conceptually sits between the Compute Engine and App Engine, and as you will see provides benefits from both of the services. The Compute Engine and its functions that deliver automation and elasticity introduce the model of programmable infrastructure. Indeed, using laaS or PaaS such as App Engine makes your applications self-aware and allows them to scale-out and scale-in dynamically.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Public Cloud Cost Model and Migration to CloudSQL</h3>
+<p>The public cloud cost model is a complex topic, but moving to CloudSQL will be relatively straightforward due to its similarity to MySQL. This allows for a like-for-like swap, making the transfer of schema and data as simple as uploading a sqldump into Cloud Storage.</p>
+<p>Cloud SQL can then build the schema and data using the sqldump object in the Cloud Storage bucket. However, there may be an issue with downtime or service disruption during this process.</p>
+<h3>Containers and Kubernetes Engine</h3>
+<p>This chapter shifts the focus away from GCP storage to containers and the Google Kubernetes engine. It explains why you would want to use containers, their benefits, and how to manage them in Kubernetes engine.</p>
+<p>Containers provide a hybrid service that sits between Compute Engine and App Engine, offering benefits from both services. Compute Engine provides programmable infrastructure with automation and elasticity, while App Engine offers Platform as a Service (PaaS) capabilities.</p>
+<p>Using containers and Kubernetes engine allows applications to be self-aware, enabling dynamic scaling-out and scaling-in. This model introduces the concept of programmable infrastructure, which is essential for modern application development.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cloud Migration and Replication</h3>
+<p>Replicating on-premises master to CloudSQL MySQL instance for synchronisation without service disruption.</p>
+<h3>Topic 2: Public Cloud Cost Model</h3>
+<p>Understanding the public cloud cost model, including potential issues with downtime or service disruption.</p>
+<h3>Topic 3: Containers and Kubernetes Engine</h3>
+<p>Introduction to containers and Kubernetes engine as a hybrid service that provides benefits from both Compute Engine and App Engine.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary benefit of moving to CloudSQL, according to the text?
+Answer: The primary benefit is that it can be done relatively straightforwardly, with a simple sqldump process, making it a like-for-like swap.</p>
+</li>
+<li>
+<p>How does replicating the on-premises master to the CloudSQL MySQL instance ensure synchronisation without service disruption?
+Answer: Replicating the on-premises master ensures synchronisation without service disruption by keeping the two instances in sync without any downtime or disruption.</p>
+</li>
+<li>
+<p>What is the focus of Chapter 6, according to the text?
+Answer: The focus of Chapter 6 is shifting away from GCP storage portfolio to containers and the Google Kubernetes engine.</p>
+</li>
+<li>
+<p>How does Compute Engine introduce the model of programmable infrastructure?
+Answer: Compute Engine introduces the model of programmable infrastructure through its automation and elasticity features, making applications self-aware and allowing them to scale-out and scale-in dynamically.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What is the relationship between CloudSQL and MySQL, according to the text? How does this impact the migration process?
+Answer: CloudSQL is itself MySQL, making it a like-for-like swap, which simplifies the migration process by allowing for a straightforward transfer of schema and data using sqldump.</p>
+</li>
+<li>
+<p>How does the use of containers and Kubernetes engine provide benefits from both Compute Engine and App Engine services?
+Answer: The hybrid service provides benefits from both services, leveraging the automation and elasticity of Compute Engine while also offering the scalability and self-awareness of App Engine.</p>
+</li>
+<li>
+<p>What is the primary advantage of using containers in a cloud environment, according to the text?
+Answer: The primary advantage of using containers is not explicitly stated in the provided text, but it can be inferred that containers provide benefits such as portability, scalability, and ease of management.</p>
+</li>
+<li>
+<p>How does Kubernetes engine manage containers, according to the text?
+Answer: The text does not provide explicit information on how Kubernetes engine manages containers, but it mentions that it will describe how to manage them in this chapter.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you are migrating a MySQL database from an on-premises environment to CloudSQL, what steps would you take to ensure a smooth transition?
+Answer: You would use sqldump to transfer the schema and data into Cloud Storage, and then replicate the on-premises master to the CloudSQL instance to keep them synchronized without service disruption.</p>
+</li>
+<li>
+<p>How might you use containers and Kubernetes engine in your cloud environment to improve application scalability and self-awareness?
+Answer: You could use containers to package and deploy applications, and Kubernetes engine to manage and orchestrate these containers, allowing for automated scaling and self-healing of applications.</p>
+</li>
+<li>
+<p>What are some potential benefits of using a hybrid service like Kubernetes engine that combines features from Compute Engine and App Engine?
+Answer: Potential benefits include improved scalability, self-awareness, and ease of management, as well as the ability to leverage automation and elasticity from Compute Engine while also offering the scalability and self-awareness of App Engine.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>public cloud cost model</td>
+<td>Concept</td>
+<td>The question "Do you fully understand the public cloud cost model?" is asking about the author's knowledge of how costs are calculated in a public cloud environment. The entity is related to the topic of cloud computing and is likely to be discussed in the context of managing costs in a cloud-based infrastructure.</td>
+<td>The concept of a public cloud cost model refers to the pricing structure used by cloud providers such as GCP, AWS, or Azure. It encompasses various factors that affect the cost of using these services, including usage, storage, and instance types. Understanding the cost model is crucial for optimizing costs and making informed decisions about resource allocation in a cloud-based environment.</td>
+</tr>
+<tr>
+<td>CloudSQL</td>
+<td>Service</td>
+<td>The text mentions "Moving to CloudSQL will be relatively straightforward as it is itself MySQL so it will be a like for like swap." This indicates that CloudSQL is being compared to MySQL, suggesting that it is a similar service offered by GCP.</td>
+<td>CloudSQL is a fully managed relational database service provided by Google Cloud Platform (GCP). It allows users to create and manage MySQL databases in the cloud, providing a scalable and secure solution for storing and processing data. The fact that it is "like for like" with MySQL suggests that it offers similar functionality and performance characteristics.</td>
+</tr>
+<tr>
+<td>sqldump</td>
+<td>Tool</td>
+<td>The text mentions "This makes transferring the schema and data straightforward as a simple sqldump that is uploaded into Cloud Storage." This indicates that sqldump is being used to transfer database schema and data from one location to another.</td>
+<td>A sqldump is a command-line tool used to export the contents of a MySQL database to a file. It allows users to backup their databases, transfer them to other environments, or import them into new databases. In this context, sqldump is being used to simplify the process of transferring data from an on-premises database to CloudSQL.</td>
+</tr>
+<tr>
+<td>Cloud Storage</td>
+<td>Service</td>
+<td>The text mentions "Cloud SQL can then build the schema and data using the sqldump object in the Cloud Storage bucket." This indicates that Cloud Storage is being used as a repository for storing the sqldump file.</td>
+<td>Cloud Storage is a cloud-based storage service provided by GCP, allowing users to store and manage large amounts of data. It provides features such as versioning, access controls, and data encryption, making it a secure and reliable option for storing sensitive data. In this context, Cloud Storage is being used to store the sqldump file, which is then used to populate the database in CloudSQL.</td>
+</tr>
+<tr>
+<td>Containers</td>
+<td>Concept</td>
+<td>The text mentions "In this chapter we will shift the focus away from GCP storage portfolio to containers and the Google Kubernetes engine." This indicates that containers are being discussed as a new topic.</td>
+<td>A container is a lightweight and portable way of packaging applications, including their code, dependencies, and configuration. Containers provide a consistent and reliable environment for running applications, making it easier to deploy and manage them across different environments. In this context, containers are being introduced as a new concept that will be explored in more detail.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Service</td>
+<td>The text mentions "In this chapter we will describe in this chapter why you want to use containers, what their benefits are and how to manage them in Kubernetes engine." This indicates that Kubernetes Engine is being discussed as a service that provides features for managing containers.</td>
+<td>Kubernetes Engine is a managed container orchestration service provided by GCP. It allows users to deploy, manage, and scale containerized applications with ease. The service provides features such as automated deployment, scaling, and management of containers, making it an attractive option for developers who want to build and deploy modern applications.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service</td>
+<td>The text mentions "In an earlier chapter we introduced you to the Compute Engine, which is GCP's Infrastructure as the Service offering (laaS), with access to servers, file systems, and networking through the deployment of VMs." This indicates that Compute Engine is being discussed as a service provided by GCP.</td>
+<td>Compute Engine is a fully managed infrastructure as a service (IaaS) offering provided by GCP. It allows users to create and manage virtual machines (VMs), storage, and networking resources in the cloud. The service provides features such as automated deployment, scaling, and management of VMs, making it an attractive option for developers who want to build and deploy modern applications.</td>
+</tr>
+<tr>
+<td>App Engine</td>
+<td>Service</td>
+<td>The text mentions "We will also discuss the App Engine service, which is GCP's Platform as a Service (PaaS) offering in the next chapter." This indicates that App Engine is being discussed as a service provided by GCP.</td>
+<td>App Engine is a fully managed platform as a service (PaaS) offering provided by GCP. It allows users to build, deploy, and manage web applications without worrying about the underlying infrastructure. The service provides features such as automated deployment, scaling, and management of applications, making it an attractive option for developers who want to build and deploy modern web applications.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

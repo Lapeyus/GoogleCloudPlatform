@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_128</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_128_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_128</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Service Accounts in Google Cloud</h1>
+<h2>Introduction</h2>
+<p>Service accounts are a way to authenticate and authorize access to Google Cloud resources. They can be used to grant permissions to users or groups.</p>
+<h3>Authentication Keys</h3>
+<p>There are two types of service account keys:</p>
+<h4>GCP-managed keys</h4>
+<ul>
+<li>Used by Google Cloud platform services, such as App Engine and Compute Engine.</li>
+<li>Managed by Google Cloud.</li>
+</ul>
+<h4>User-managed keys</h4>
+<ul>
+<li>Created and managed by the user.</li>
+<li>Can be used with default or custom service accounts.</li>
+</ul>
+<h2>Access Scopes vs. IAM Roles</h2>
+<p>Access scopes are a legacy method for specifying permissions on instances. They can only be customized for default service accounts, but not for user-created service accounts.</p>
+<p>IAM roles, on the other hand, provide more granular permission control and can be assigned to groups or users.</p>
+<h3>Default Service Accounts</h3>
+<p>Default service accounts support primitive, project, and curated Cloud IAM roles.</p>
+<h4>Instance Admin Role</h4>
+<ul>
+<li>Has permissions to create, modify, and delete virtual machine instances, and disks.</li>
+<li>Can be used as a starting point for customizing access scopes.</li>
+</ul>
+<h2>Assigning IAM Policies</h2>
+<p>To assign IAM policies to a service account:</p>
+<ol>
+<li>Create a service account with the desired IAM role.</li>
+<li>Assign the service account user role to users or groups.</li>
+<li>Users who are also service account users can access all services for which the service account has access.</li>
+</ol>
+<h3>Best Practices</h3>
+<ul>
+<li>Be cautious when granting the service account user role to users or groups.</li>
+<li>Use GCP-managed keys for default service accounts and user-managed keys for custom service accounts.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Service accounts provide a secure way to authenticate and authorize access to Google Cloud resources. By understanding access scopes, IAM roles, and authentication keys, you can effectively manage permissions and ensure the security of your cloud-based applications.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>If we consider an example where applications A and B contain authenticated identities or service accounts, now let's assume that when both applications want to use a Cloud Storage bucket they will request access from the Google authorization server, and in return, they receive an access token. Application A receives an access token with 'read-only' scope, so it can only read from the Cloud Storage bucket. Application B on the other hand, receives an access token with 'read-write' scope, so it can read and modify data in the Cloud Storage bucket.
+
+These tokens can be short-term privileges so if you want to provide read access for only a limited time, say 24 hours, then you can create a 24 hour access token that your application service would use. Scopes can be further customized when you create an instance using the default service account. These scopes can also be changed after an instance is created by stopping it.
+
+However, access scopes cannot be customized for user-created service accounts, but you can always use the granular Cloud IAM roles instead. This restriction is due to access scopes being the legacy method for specifying permissions on your instance. As before the development of the more advances IAM roles, access scopes were the only available mechanism for granting permissions to the service accounts.
+
+Moreover, another distinction between service accounts is that default service accounts will support primitive, project, and curated, or Cloud IAM roles. While user-created service accounts only use Cloud IAM roles for access. Nonetheless, the roles for service accounts can also be assigned to groups or users as a service account can be looked upon as being a resource.
+
+Thus, like any other resource you can assign IAM policies. To achieve this, you will first create a service account that has been assigned with an IAM role. In this example, we will use a service account with the instance admin role, which has the permissions to create, modify, and delete virtual machine instances, and disks.
+
+Then, you treat this service account as you would any other resource and decide who can use it by providing users or groups with the service account user role. This allows those users to act as if they were that services account, to create, modify, and delete virtual machine instances, and disks. Users who are also service account users for a service account, can access all of the services for which the service account has access.
+
+Therefore, you need to show some caution when granting the service account user role to a user or group. Now you might wonder how service accounts get authenticated as they obviously can't have passwords hard coded in APIs and when they are working autonomously with zero human interaction there is no way to provide credentials.
+
+After all, users require a username and password to authenticate so for a similar purpose service accounts use keys. Authentication Keys There are two types of service account keys; GCP-managed keys and user-managed keys. GCP-managed keys are used by Google Cloud platform services, such as App Engine and Compute Engine.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Service Accounts in Google Cloud Platform</h3>
+<p>Service accounts are a way to authenticate and authorize access to Google Cloud Platform (GCP) resources. They can be used by applications or services that need to interact with GCP without requiring human intervention.</p>
+<h4>Access Tokens and Scopes</h4>
+<p>When an application wants to use a GCP resource, such as a Cloud Storage bucket, it requests an access token from the Google authorization server. The access token is then used to authenticate the request. There are two types of access tokens: short-term privileges and long-term credentials.</p>
+<ul>
+<li>Short-term privileges can be created for limited time periods, such as 24 hours.</li>
+<li>Long-term credentials can be used for extended periods.</li>
+</ul>
+<p>The scope of the access token determines what actions can be performed on the GCP resource. For example, an application with a 'read-only' scope can only read from the Cloud Storage bucket, while an application with a 'read-write' scope can both read and modify data in the bucket.</p>
+<h4>Customizing Scopes</h4>
+<p>Scopes can be customized when creating a service account instance using the default service account. However, access scopes cannot be customized for user-created service accounts. Instead, granular Cloud IAM roles can be used to specify permissions.</p>
+<h4>Assigning Roles to Service Accounts</h4>
+<p>Service accounts can be assigned to groups or users, allowing them to act on behalf of the service account. This is done by assigning the service account user role to a group or user.</p>
+<ul>
+<li>Default service accounts support primitive, project, and curated Cloud IAM roles.</li>
+<li>User-created service accounts only use Cloud IAM roles for access.</li>
+</ul>
+<h4>Authentication Keys</h4>
+<p>Service accounts use authentication keys to authenticate with GCP. There are two types of authentication keys:</p>
+<ul>
+<li><strong>GCP-managed keys</strong>: used by Google Cloud platform services such as App Engine and Compute Engine.</li>
+<li><strong>User-managed keys</strong>: can be created and managed by users.</li>
+</ul>
+<p>In summary, service accounts provide a way for applications or services to authenticate and authorize access to GCP resources without requiring human intervention. By customizing scopes, assigning roles, and using authentication keys, service accounts can be used to manage access to GCP resources effectively.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Service Accounts and Authentication</h3>
+<p>Service accounts are a way to authenticate and authorize access to resources in the Google Cloud Platform. They use keys for authentication and can be assigned roles to grant specific permissions.</p>
+<h3>Topic 2: Access Scopes and IAM Roles</h3>
+<p>Access scopes were the legacy method for specifying permissions on instances, but have been replaced by more advanced IAM roles. Default service accounts support primitive, project, and curated IAM roles, while user-created service accounts only use Cloud IAM roles.</p>
+<h3>Topic 3: Assigning IAM Policies to Service Accounts</h3>
+<p>Service accounts can be assigned IAM policies to control access to resources. This is done by creating a service account with an assigned IAM role and then assigning the service account user role to users or groups.</p>
+<h3>Topic 4: Authentication Keys for Service Accounts</h3>
+<p>There are two types of authentication keys for service accounts: GCP-managed keys and user-managed keys. GCP-managed keys are used by Google Cloud platform services, while user-managed keys can be used by any application.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the difference between access scopes and IAM roles in Google Cloud?
+Answer: Access scopes are a legacy method for specifying permissions on instances, while IAM roles provide more advanced permission management.</p>
+</li>
+<li>
+<p>How do default service accounts differ from user-created service accounts?
+Answer: Default service accounts support primitive, project, and curated, or Cloud IAM roles, whereas user-created service accounts only use Cloud IAM roles.</p>
+</li>
+<li>
+<p>What is the purpose of assigning an IAM role to a service account?
+Answer: To grant permissions to the service account, allowing users or groups to access specific services.</p>
+</li>
+<li>
+<p>How do users with the service account user role interact with the service account?
+Answer: They can act as if they were the service account, creating, modifying, and deleting virtual machine instances, and disks.</p>
+</li>
+<li>
+<p>What type of keys are used by Google Cloud platform services like App Engine and Compute Engine?
+Answer: GCP-managed keys.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do access scopes impact the management of permissions for service accounts?
+Answer: Access scopes are a legacy method that cannot be customized for user-created service accounts, but can be changed after an instance is created by stopping it.</p>
+</li>
+<li>
+<p>What are the implications of using IAM roles instead of access scopes for service accounts?
+Answer: IAM roles provide more advanced permission management and flexibility, allowing for granular control over permissions.</p>
+</li>
+<li>
+<p>How do authentication keys work in Google Cloud?
+Answer: Authentication keys are used to authenticate service accounts, providing a secure way to manage credentials without hardcoding passwords.</p>
+</li>
+<li>
+<p>What is the purpose of assigning an IAM role to a group or user?
+Answer: To grant access to specific services and resources managed by the service account.</p>
+</li>
+<li>
+<p>How do users with multiple roles interact with the service account?
+Answer: They can access all services for which the service account has access, but require caution when granting the service account user role.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a system that uses IAM roles to manage permissions for a service account used by an application.
+Answer: Create a service account with an instance admin role and assign it to users or groups, ensuring proper permission management and security.</p>
+</li>
+<li>
+<p>Implement a solution to provide short-term access tokens for read-only access to Cloud Storage buckets.
+Answer: Use the <code>gcloud auth</code> command to create a 24-hour access token with the desired scope, allowing applications to request access to the bucket.</p>
+</li>
+<li>
+<p>Develop a strategy for managing authentication keys for service accounts used by multiple applications.
+Answer: Implement a key management system that securely stores and rotates authentication keys, ensuring secure authentication and authorization for all applications using the service account.</p>
+</li>
+<li>
+<p>Create a scenario where an application uses a service account with a specific IAM role to access Cloud Storage buckets.
+Answer: Develop an application that uses a service account with an instance admin role to access Cloud Storage buckets, demonstrating proper permission management and security.</p>
+</li>
+<li>
+<p>Design a system that integrates authentication keys with IAM roles for secure service account management.
+Answer: Implement a system that securely stores and rotates authentication keys, while assigning IAM roles to service accounts to manage permissions and ensure secure access to resources.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>authenticated identities or service accounts</td>
+<td>Concept</td>
+<td>When both applications want to use a Cloud Storage bucket, they request access from the Google authorization server.</td>
+<td>The text discusses the use of authenticated identities or service accounts to authenticate applications with Google Cloud services. Service accounts are used to grant permissions and access to resources in Google Cloud.</td>
+</tr>
+<tr>
+<td>Cloud Storage bucket</td>
+<td>Location</td>
+<td>Both applications want to use a Cloud Storage bucket.</td>
+<td>A Cloud Storage bucket is a location where data can be stored in Google Cloud. Applications need to request access to this bucket using service accounts or authenticated identities.</td>
+</tr>
+<tr>
+<td>read-only scope</td>
+<td>Permission</td>
+<td>Application A receives an access token with 'read-only' scope, so it can only read from the Cloud Storage bucket.</td>
+<td>The text explains that scopes determine the level of access granted to applications in Google Cloud. A 'read-only' scope allows an application to perform a specific action (reading) on a resource.</td>
+</tr>
+<tr>
+<td>read-write scope</td>
+<td>Permission</td>
+<td>Application B receives an access token with 'read-write' scope, so it can read and modify data in the Cloud Storage bucket.</td>
+<td>Similar to the 'read-only' scope, a 'read-write' scope grants an application more privileges (reading and modifying). This allows applications to perform multiple actions on resources.</td>
+</tr>
+<tr>
+<td>short-term privileges</td>
+<td>Type of access token</td>
+<td>Tokens can be short-term privileges so if you want to provide read access for only a limited time, say 24 hours, then you can create a 24 hour access token that your application service would use.</td>
+<td>The text explains that access tokens can have varying durations and types (e.g., short-term). This allows administrators to control the level of access granted to applications.</td>
+</tr>
+<tr>
+<td>instance admin role</td>
+<td>IAM Role</td>
+<td>In this example, we will use a service account with the instance admin role, which has the permissions to create, modify, and delete virtual machine instances, and disks.</td>
+<td>An IAM Role is a set of permissions that define what actions an application can perform on resources in Google Cloud. The 'instance admin' role grants specific privileges related to virtual machine instances and disks.</td>
+</tr>
+<tr>
+<td>service account user role</td>
+<td>Permission</td>
+<td>Users who are also service account users for a service account, can access all of the services for which the service account has access. Therefore, you need to show some caution when granting the service account user role to a user or group.</td>
+<td>The text explains that assigning an IAM Role to a service account allows administrators to control access to resources in Google Cloud. However, this also means that users with the 'service account user' role can perform actions on behalf of the service account.</td>
+</tr>
+<tr>
+<td>GCP-managed keys</td>
+<td>Type of authentication key</td>
+<td>There are two types of service account keys; GCP-managed keys and user-managed keys. GCP-managed keys are used by Google Cloud platform services, such as App Engine and Compute Engine.</td>
+<td>The text explains that there are different types of authentication keys for service accounts in Google Cloud. GCP-managed keys are used by specific Google Cloud services (e.g., App Engine, Compute Engine).</td>
+</tr>
+<tr>
+<td>user-managed keys</td>
+<td>Type of authentication key</td>
+<td>There are two types of service account keys; GCP-managed keys and user-managed keys. User-managed keys are not explicitly defined in the text but imply that users have control over their own authentication keys.</td>
+<td>The text mentions that there are different types of authentication keys for service accounts, but does not provide further details on 'user-managed' keys. This implies that users have some level of control over their own authentication keys.</td>
+</tr>
+<tr>
+<td>primitive, project, and curated IAM roles</td>
+<td>Type of IAM Role</td>
+<td>Default service accounts will support primitive, project, and curated, or Cloud IAM roles. While user-created service accounts only use Cloud IAM roles for access.</td>
+<td>The text explains that there are different types of IAM Roles available in Google Cloud (e.g., 'primitive', 'project', 'curated'). User-created service accounts may have limited access compared to default service accounts with more advanced IAM Roles.</td>
+</tr>
+<tr>
+<td>authentication keys</td>
+<td>Authentication Method</td>
+<td>Service accounts use keys to authenticate applications with Google Cloud services.</td>
+<td>The text explains that service accounts use authentication keys to grant access to resources in Google Cloud. This allows administrators to control who can access their resources and what actions they can perform.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

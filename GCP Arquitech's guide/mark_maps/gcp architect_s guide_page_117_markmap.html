@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_117</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Persistent External Disk Types
+        ## Understanding the Difference
+        
+        - When building a VM, you must select a persistent external disk type. This choice determines whether your data will be stored on a spinning hard disk drive (HDD) or a solid-state drive (SSD).
+        
+        ### Persistent vs Non-Persistent Disks
+        
+        - Persistent disks are durable network storage devices that distribute data across several physical disks. They can survive even if the VM terminates, but they cannot be moved between regions.
+        
+        #### Persistent HDD vs SSD
+        
+        - Standard persistent disks use standard spinning hard disk drives (HDD), while SSD persistent disks use solid-state drives (SSD). The main difference is that HDDs are more efficient and cost-effective for typical sequential read/write operations, while SSDs handle high rates of random input/output operations per second (IOPS) and offer extremely low millisecond latency.
+        
+        ### Choosing the Right Disk Type
+        
+        - The choice between persistent HDD and SSD depends on your specific needs:
+        
+        * Use HDD persistent disks for applications that require efficient sequential read/write operations.
+        * Use SSD persistent disks for applications that require high rates of random I/O operations or extremely low latency.
+        
+        ## Key Considerations
+        
+        - When selecting a persistent external disk type, keep the following in mind:
+        
+        * Persistent disks are dynamically resizable while running and attached to a VM.
+        * You can attach and share disks in read-only mode to multiple VMs.
+        * Persistent disks cannot be moved between regions; you must take a snapshot of your data before moving it to a new region.
+        
+        ## Local SSDs vs Persistent Disks
+        
+        - Local SSDs are fundamentally different from persistent disks, as they are physically attached to the virtual machine. This means that local SSDs offer even lower latency and higher IOPS than persistent disks.
+        
+        ### Conclusion
+        
+        - When building a VM, selecting the right persistent external disk type is crucial for ensuring data availability and performance. By understanding the differences between HDD and SSD persistent disks, you can choose the best option for your specific needs.
+
+      </script>
+    </div>
+  </body>
+</html>

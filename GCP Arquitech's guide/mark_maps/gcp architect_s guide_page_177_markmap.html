@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_177</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Regional Load Balancing
+        ## Network Load Balancing
+        ### Overview
+        - Network load balancing allows you to balance the load of your systems based on incoming IP protocol data such as the address, port, and protocol type.
+        
+        #### Benefits
+        - Distributes traffic across a pool of servers.
+        - Uses traffic forwarding rules to determine which server to connect to within the target pool.
+        - Defines health checks for instances in the target pool.
+        
+        ### Regional Load Balancing vs Proxy Load Balancers
+        - Network load balancing is regional and non-proxy, meaning it's available across multiple zones and doesn't terminate connections from clients.
+        - It provides a way to load balance UDP traffic on non-standard ports, which are not supported by global SSL proxy and TCP proxy load balancers.
+        
+        #### Example Use Case
+        - You can use network load balancing to replicate a 3-tier application on the cloud. Each instance could be an Apache webserver, a PHP application server, or a MySQL back-end.
+        
+        ### How it Works
+        - 1. The load balancer receives TCP/IP traffic coming in through the internet at the regional level.
+        - 2. It redirects traffic across multiple zones via forwarding rule protocols based on IP address, port, or protocol.
+        - 3. Before forwarding traffic, the load balancer checks against firewall rules to ensure they don't deny forwarding.
+        - 4. If the traffic is not denied, it's forwarded to the designated target pool and its appropriate VM instance.
+        
+        ### Additional Features
+        - Fail over mechanism: Set up a fail over target pool that exists elsewhere in another zone for redundancy and business continuity purposes.
+        - Continuous deployment model: Apply the redundant environment to a continuous deployment model.
+
+      </script>
+    </div>
+  </body>
+</html>

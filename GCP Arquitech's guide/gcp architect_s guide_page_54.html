@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_54</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_54_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_54</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Bigtable</h1>
+<h2>What is NoSQL?</h2>
+<h3>Definition</h3>
+<p>The term NoSQL with regards database technology means that it is 'Not Only SQL' and the difference between NoSQL and traditional SQL relational databases is that the former is better suited to today's application data loads and development lifecycles.</p>
+<h2>Relational Databases vs. NoSQL Databases</h2>
+<h3>Schema-Defined vs. Schema-Free</h3>
+<p>Relational databases require that schemas be defined before you can add data. A schema is a collection of relational tables that consist of records and fields. However, this pre-configuration and planning of the database schema fits poorly with modern agile development approaches.</p>
+<h2>Modern Approach to Database Development</h2>
+<h3>NoSQL Databases</h3>
+<p>The modern approach is to use NoSQL databases, which are built to allow the insertion of data without any predefined schema. That makes it easy to make significant application changes in real-time, without worrying about service interruptions - which means development is faster, code integration is more reliable, and less database administrator time is needed.</p>
+<h2>Advantages of NoSQL Databases</h2>
+<h3>Flexibility and Scalability</h3>
+<p>NoSQL databases are better suited for modern applications that require flexibility and scalability. They can handle large amounts of data and scale horizontally without downtime.</p>
+<h2>Cloud Bigtable</h2>
+<h3>Overview</h3>
+<p>Cloud Bigtable is a fully managed NoSQL database service offered by Google Cloud Platform (GCP). It provides a scalable and flexible way to store and manage large amounts of data.</p>
+<h2>Key Features of Cloud Bigtable</h2>
+<h3>Scalability</h3>
+<p>Cloud Bigtable can scale horizontally without downtime, making it an ideal choice for applications that require high availability and scalability.</p>
+<h3>High Throughput</h3>
+<p>Cloud Bigtable supports high throughput, both read and write, making it suitable for operational and analytical applications.</p>
+<h3>Petabyte-Scale Data Storage</h3>
+<p>Cloud Bigtable allows you to store petabytes of data in a single table, making it an ideal choice for large-scale data storage needs.</p>
+<h2>Comparison with HBase</h2>
+<h3>API Compatibility</h3>
+<p>Cloud Bigtable is offered through the same open source API as HBase, which is the native database for the Apache Hadoop project. This enables the portability of applications between HBase and Bigtable.</p>
+<h3>Scalability</h3>
+<p>While HBase can scale horizontally, Cloud Bigtable provides easier scalability without downtime, making it a better choice for large-scale data storage needs.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Cloud Bigtable
+Cloud Bigtable is Google's NoSQL, Big Data database service. What the term NoSQL with regards database technology means is that it is 'Not Only SQL' and the difference between NoSQL and the traditional SQL relational database is that the former is better suited to today's application data loads and development lifecycles.
+
+Relational databases require that schemas be defined before you can add data. A schema is a collection of relational tables that consist of records and fields. For example, you might want to store data in a customer record that hold data in fields, such as phone numbers, first and last name, address, city and postcode. Hence, an SQL database needs tables, records and fields in a DB schema to be preconfigured in advance in order to store the data into the relevant customer record.
+
+However, this pre-configuration and planning of the database schema fits poorly with modern agile development approaches, because each time you complete new features, the schema of your database often needs to change. If the database is large or reiterations frequent, this can involve significant downtime. Also it is unlikely that, using a relational database, you would be able to effectively accommodate data that's completely unstructured or unable to fit a pre-defined schema.
+
+The modern approach is to use NoSQL databases, which are built to allow the insertion of data without any predefined schema. That makes it easy to make significant application changes in real-time, without worrying about service interruptions - which means development is faster, code integration is more reliable, and less database administrator time is needed.
+
+Despite this SQL and relational databases do excel in certain areas such as in transactional processes  as an enforced schema is a big help for some applications  but it is also a big hindrance for  others. This is simply because many  modern  apps  require a much more flexible approach, hence the move  towards the NoSQL schema . These applications do not need all the rows to have the same columns. And in fact, the database might be designed to take advantage of that by sparsely populating the rows.
+
+That's part of what makes your NoSQL database in Bigtable what it is as its tables are sparsely populated so that they can scale to billions of rows and thousands of columns allowing you to store petabytes of data. Fortunately Google GCP offers Cloud Bigtable as a fully managed service so much of the technology complexity and data schema is transparent to you, so you don't have to worry about configuring and tuning it.
+
+Therefore you can just look upon it as being an ideal place for storing large amounts of data with very low latency. As such it is also perfect for storing data that has a single lookup key and it also supports high throughput, both read and write, so it's a great choice for both operational and analytical applications including Internet of Things, user analytics and financial data analysis.
+
+Cloud Bigtable is offered through the same open source API as HBase, which is the native database for the Apache Hadoop project. Having the same API enables the portability of applications between HBase and Bigtable. However Cloud Bigtable has a few advantages most notably with regards scalability. For if you have worked with and managed your own Hbase installation, you will know that once you hit a certain rate of queries per second scaling gets difficult.
+
+But scaling with Cloud Bigtable is easy as you can just increase your machine count which doesn't even require downtime.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Cloud Bigtable: A NoSQL Database Service for Big Data</strong></h1>
+<p>Google's Cloud Bigtable is a NoSQL, big data database service that offers a flexible and scalable solution for storing large amounts of data. The term "NoSQL" refers to databases that are not only SQL (Structured Query Language) based, but also designed to handle large volumes of unstructured or semi-structured data.</p>
+<h2><strong>Key Characteristics of NoSQL Databases</strong></h2>
+<ul>
+<li><strong>Schema-less</strong>: NoSQL databases do not require a predefined schema, making it easier to store and manage large amounts of data.</li>
+<li><strong>Flexible data model</strong>: NoSQL databases can handle varying data structures and formats, including key-value pairs, documents, and graphs.</li>
+<li><strong>Scalability</strong>: NoSQL databases are designed to scale horizontally, allowing for easy addition of new nodes as the dataset grows.</li>
+</ul>
+<h2><strong>Advantages of Cloud Bigtable</strong></h2>
+<ul>
+<li><strong>Fully managed service</strong>: Cloud Bigtable is a fully managed service, eliminating the need for database administrators and reducing downtime.</li>
+<li><strong>High scalability</strong>: Cloud Bigtable can handle large amounts of data and scale horizontally without downtime.</li>
+<li><strong>Low latency</strong>: Cloud Bigtable offers low-latency storage and retrieval, making it ideal for real-time applications.</li>
+</ul>
+<h2><strong>Use Cases</strong></h2>
+<ul>
+<li><strong>Internet of Things (IoT)</strong>: Cloud Bigtable is suitable for IoT applications that require fast data processing and analysis.</li>
+<li><strong>User analytics</strong>: Cloud Bigtable can handle large amounts of user data and provide insights into behavior and preferences.</li>
+<li><strong>Financial data analysis</strong>: Cloud Bigtable's scalability and low latency make it an ideal choice for financial data analysis and reporting.</li>
+</ul>
+<h2><strong>Portability and Integration</strong></h2>
+<ul>
+<li><strong>Open source API</strong>: Cloud Bigtable offers the same open source API as HBase, enabling portability of applications between HBase and Bigtable.</li>
+<li><strong>Integration with other Google services</strong>: Cloud Bigtable can be integrated with other Google services, such as Google Cloud Storage and Google Cloud Dataflow.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<ul>
+<li>Definition: Relational databases and their limitations in modern agile development approaches</li>
+<li>Context: The text highlights the need for flexible database schema to accommodate modern applications that require a more adaptable approach.</li>
+</ul>
+<h3>Topic 2</h3>
+<ul>
+<li>Definition: NoSQL databases and their benefits, including scalability and flexibility</li>
+<li>Context: The text explains how NoSQL databases are designed to allow for easy insertion of data without predefined schema, making it ideal for modern applications with changing requirements.</li>
+</ul>
+<h3>Topic 3</h3>
+<ul>
+<li>Definition: Cloud Bigtable's advantages in terms of scalability and performance</li>
+<li>Context: The text emphasizes the ease of scaling with Cloud Bigtable, which can handle large amounts of data and high throughput without downtime.</li>
+</ul>
+<h3>Topic 4</h3>
+<ul>
+<li>Definition: Comparison between relational databases and NoSQL databases</li>
+<li>Context: The text highlights the trade-offs between relational databases' enforced schema and NoSQL databases' flexibility, making it clear that NoSQL is better suited for modern applications.</li>
+</ul></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What does the term "NoSQL" mean in the context of database technology?
+Answer: It means 'Not Only SQL' and refers to databases that are better suited for today's application data loads and development lifecycles.</p>
+</li>
+<li>
+<p>Why do relational databases require predefined schemas before adding data?
+Answer: Relational databases need tables, records, and fields in a DB schema to be preconfigured in advance to store the data into the relevant customer record.</p>
+</li>
+<li>
+<p>What is the main advantage of using NoSQL databases over traditional SQL relational databases?
+Answer: NoSQL databases allow for easy insertion of data without any predefined schema, making it easier to make significant application changes in real-time.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the pre-configuration and planning of a database schema fit with modern agile development approaches?
+Answer: It fits poorly because each time you complete new features, the schema of your database often needs to change, which can involve significant downtime.</p>
+</li>
+<li>
+<p>What are some areas where SQL and relational databases excel, but also have limitations?
+Answer: They excel in transactional processes, but their enforced schema can be a hindrance for applications that require a more flexible approach.</p>
+</li>
+<li>
+<p>How does the sparsely populated design of NoSQL databases like Bigtable enable scalability?
+Answer: It allows for scaling to billions of rows and thousands of columns, enabling the storage of petabytes of data.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What type of applications are well-suited for using Cloud Bigtable?
+Answer: Applications that require a flexible approach, such as Internet of Things, user analytics, and financial data analysis.</p>
+</li>
+<li>
+<p>How does Cloud Bigtable differ from managing an HBase installation in terms of scalability?
+Answer: Scaling with Cloud Bigtable is easy because you can increase the machine count without downtime, whereas scaling with an HBase installation becomes difficult once a certain rate of queries per second is reached.</p>
+</li>
+<li>
+<p>What are some benefits of using Cloud Bigtable over traditional relational databases for storing large amounts of data?
+Answer: It offers low latency, high throughput, and supports storing petabytes of data with very low latency.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NoSQL</td>
+<td>Concept</td>
+<td>"the term NoSQL with regards database technology means is that it is 'Not Only SQL'"</td>
+<td>Refers to a database technology that allows for flexible schema design, making it suitable for modern application data loads and development lifecycles. It implies a departure from traditional relational databases.</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Concept</td>
+<td>"traditional SQL relational database"</td>
+<td>Relational database technology that requires predefined schema definition before data insertion, which can be inflexible and hinder agile development approaches.</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>Entity</td>
+<td>"...a collection of relational tables that consist of records and fields."</td>
+<td>A pre-defined structure for organizing data in a relational database, which can limit flexibility and scalability.</td>
+</tr>
+<tr>
+<td>Relational Database</td>
+<td>Concept</td>
+<td>"traditional SQL relational database"</td>
+<td>Traditional database technology that relies on predefined schema definition, making it less suitable for modern application requirements.</td>
+</tr>
+<tr>
+<td>Agile Development</td>
+<td>Concept</td>
+<td>"...modern agile development approaches..."</td>
+<td>A software development methodology that emphasizes flexibility, rapid iteration, and continuous improvement, which can be challenging to implement with traditional relational databases.</td>
+</tr>
+<tr>
+<td>Big Data</td>
+<td>Concept</td>
+<td>"Big Data database service"</td>
+<td>A type of data that is characterized by its large volume, variety, and velocity, requiring specialized database technologies like NoSQL databases.</td>
+</tr>
+<tr>
+<td>Cloud Bigtable</td>
+<td>Service</td>
+<td>"...Google's NoSQL, Big Data database service..."</td>
+<td>A fully managed NoSQL database service offered by Google Cloud Platform, designed for storing large amounts of structured and semi-structured data with low latency.</td>
+</tr>
+<tr>
+<td>HBase</td>
+<td>Concept</td>
+<td>"...the native database for the Apache Hadoop project"</td>
+<td>An open-source NoSQL database technology that is part of the Hadoop ecosystem, providing a scalable and flexible storage solution for big data.</td>
+</tr>
+<tr>
+<td>API</td>
+<td>Entity</td>
+<td>"...offered through the same open source API as HBase..."</td>
+<td>Application Programming Interface (API) that enables communication between applications and databases, allowing for portability and integration between different systems.</td>
+</tr>
+<tr>
+<td>Machine Count</td>
+<td>Concept</td>
+<td>"...increase your machine count which doesn't even require downtime."</td>
+<td>The number of computing resources required to scale a database like Cloud Bigtable, which can be easily increased without disrupting service.</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Some entities may overlap or have similar meanings, but they are listed separately for clarity and distinctness.</p>
+      </div>
+    </div>
+  </body>
+</html>

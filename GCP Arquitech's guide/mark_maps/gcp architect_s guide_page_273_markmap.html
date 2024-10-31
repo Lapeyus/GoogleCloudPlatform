@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_273</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Migration to Google Cloud
+        ## Considerations
+        
+        - **Load Testing**: Monitor and measure failure scenarios and perform load testing, especially when comparing on-premise to cloud.
+        - **Hardware Architecture**: Understand that replacing a physical CPU with virtual cores requires consideration of instruction sets and hardware architecture.
+        
+        ### Choosing the Right CPU Platform Type
+        
+        *   Go to Compute Engine > Create VM > Customize
+        *   Choose a CPU platform type for optimal performance
+        *   Benchmark application running on different processor types to determine benefits
+        
+        ### OS Image Selection
+        
+        - **Google's Published Benchmarks**: Compare with Google's published benchmarks or run your own tests to find the most optimal OS image.
+        - **Ubuntu vs. Other OS Versions**: Typically, Ubuntu runs better over GCP than other OS versions.
+        
+        ### Persistent Disk Storage
+        
+        *   **Standard Persistent Disks**: 10 GB fixed performance
+        *   **Increasing Capacity**: Performance increases as storage scales due to Google's quotas
+        *   **I/O Bursts**: Consider I/O bursts when trading up for performance over capacity, and choose between faster SSDs or standard HDs.
+        
+        ### CPU Requirements
+        
+        - **Capacity Planning**: A higher amount of CPU is necessary to drive larger storage capacity and reap higher disk IOPS.
+        - **Bottleneck Prevention**: Ensure enough CPU to drive disk I/O to prevent bottlenecks.
+
+      </script>
+    </div>
+  </body>
+</html>

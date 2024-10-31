@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_107</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Part II-Essential Cloud Infrastructure Core
+        ## Services
+        ### Chapter 13 - VMs in Compute Engine deep-dive
+        
+        - In this chapter, we will take a deeper dive into some of the core services that we introduced in Part 1, which provided you with a high-level introduction to Google Cloud Platform. The first core service that we will examine in far more detail than previously is Compute Engine's VMs.
+        
+        ### Compute Engine VM
+        #### Overview
+        
+        - In GCP when it comes to compute and processing options the most commonly used is the traditional virtual machine instance. This is typically because Compute Engine gives you the utmost in flexibility when making a VM instance. For example, you are free to run whatever OS or language that you want as this is a pure laaS - infrastructure as a service - model.
+        
+        #### Key Features
+        
+        *   You get a VM and an operating system, and it's up to you to manage it and handle aspects such as auto-scaling and firewall rules.
+        *   The primary work-case of Compute Engine is pretty much any general workload, especially enterprise applications that were designed to run on a server infrastructure. This makes Compute Engine very portable and easy to run in the cloud.
+        
+        #### Types and Configurations
+        
+        - Earlier you learned that when using Compute Engine to make a type, the former offers you a selection of commonly used models, new VM instance you can use either predefined or custom machine. The latter allows you to choose how much memory and how much CPU you want. You can also select the type and capacity of disk you require, such as standard hard drives, SSDs, or local SSDs.
+        
+        - You can even configure the networking as well as run a combination of Linux Windows machines.
+        
+        #### Customizing the VM
+        
+        - A good starting point when discussing VMs is to consider how many CPUs you will require. To this end, the Compute Engine provides a large selection of predetermined machine configurations that would be suitable for most use cases.
+        
+        - Specifically, there are predefined micro, medium or high CPU, low to high memory, and standard and shared-core machine types.
+        
+        - But importantly, should those machine types not be suitable, you can also customize your own machine.
+
+      </script>
+    </div>
+  </body>
+</html>

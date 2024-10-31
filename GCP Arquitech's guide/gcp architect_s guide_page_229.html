@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_229</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_229_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_229</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_229_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Chapter 23 - Cloud Architecture Layers</h1>
+<h2>Data Layer</h2>
+<h3>Storage and Retrieval Mechanisms</h3>
+<h4>Databases and File Systems</h4>
+<ul>
+<li><strong>SQL</strong>: Structured query language for managing relational databases</li>
+<li><strong>API's</strong>: Application programming interfaces for accessing data services</li>
+</ul>
+<h3>Data Layer Design</h3>
+<h4>Persistent Mechanisms</h4>
+<ul>
+<li><strong>Database Services</strong></li>
+<li><strong>Storage Services</strong></li>
+</ul>
+<h4>Data Access Layer</h4>
+<ul>
+<li>Encapsulates persistent mechanisms to expose data</li>
+</ul>
+<h2>Characterizing Data</h2>
+<ul>
+<li><strong>Structured vs Unstructured</strong></li>
+<li><strong>Persistent vs Ephemeral</strong></li>
+<li>Focus on user concerns: data accessibility and integrity</li>
+</ul>
+<h3>Data Integrity</h3>
+<ul>
+<li>Users care about:</li>
+<li>Data being accessible when needed</li>
+<li>Data not modified or deleted without notice</li>
+</ul>
+<h2>Data Storage Design Methods</h2>
+<ul>
+<li>Aim for persistence, proactive detection, and rapid recovery from users' perspective</li>
+<li>Consider versioning, replication, and live streaming backup mechanisms</li>
+</ul>
+<h2>CAP Theorem</h2>
+<ul>
+<li>Choose a balance between consistency, availability, and partition tolerance</li>
+<li><strong>BASE</strong>: Basically Available Storage, prioritizing availability over consistency</li>
+</ul>
+<h3>Trade-offs</h3>
+<ul>
+<li>Consistency vs Availability vs Partition Tolerance</li>
+<li>BASE allows for quick data writing with eventual consistency</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_229_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Chapter 23-Cloud Architecture Layers
+
+The data layer covers the storage and retrieval of data, including mechanisms of storage and retrieval such as databases and file systems, which use access methods like SQL and APIs.
+
+Data layer design includes the data persistent mechanisms, such as database services and storage services, and the data access layer, which encapsulates the persistent mechanisms that expose the data. Characterizing data is crucial; users care about data accessibility and integrity rather than the underlying technology. They want their data to be available when needed, without modification or deletion.
+
+Data storage design methods should aim at persistence, proactive detection, and rapid recovery from the user's perspective. Users can't distinguish between data access, corruption, unavailability, or other engineering terms; they just want their data to be accessible. If a file is denied access due to changed privileges, it feels lost to the user.
+
+To recover accidentally lost data, available methods like versioning should be used. In cases where data is controlled or replicated, live streaming backup mechanisms can be employed. When considering data storage, think about transaction properties and maintaining state requirements. The CAP Theorem makes designers aware of trade-offs required in networked shared data systems.
+
+The CAP Theorem states that a balance must be struck between consistency, availability, and partition tolerance. If availability and partition tolerance are prioritized, BASE (Basically Available Storage) can be used, which allows for updates to propagate over time due to data distribution across multiple tables, cubes, and servers. This type of availability enables quick data writing and eventual consistency, making it suitable for Big Data soft state applications.
+
+Data layer design should prioritize user needs, focusing on persistence, detection, and recovery. The CAP Theorem provides a framework for designers to make informed decisions about trade-offs in networked shared data systems.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_229_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Cloud Architecture Layers: Data Layer</h3>
+<p>The <strong>data layer</strong> is responsible for storing and retrieving data, including mechanisms such as databases, file systems, SQL, and APIs.</p>
+<h4>Data Layer Design</h4>
+<p>The data layer consists of:</p>
+<ul>
+<li><strong>Data Persistent Mechanisms</strong>: Database services and storage services.</li>
+<li><strong>Data Access Layer</strong>: Encapsulates persistent mechanisms that exposes the data.</li>
+</ul>
+<p>When designing the data layer, it's essential to consider how users perceive data. Users care about data integrity, accessibility, and whether the retrieved data is the same as the stored data.</p>
+<h4>Characterizing Data</h4>
+<p>There are various ways to characterize data (structured/unstructured, persistent/ephemeral), but the primary concern should be based on what the user cares about. The user's perspective focuses on data availability and integrity rather than the underlying technology.</p>
+<p>To ensure persistence, proactive detection, and rapid recovery from the users' perspective:</p>
+<ul>
+<li>Implement backup mechanisms such as versioning.</li>
+<li>Consider replicated data stores or live streaming backup mechanisms.</li>
+</ul>
+<p>When designing data storage, consider <strong>data transaction properties</strong> and whether maintaining state is required. The CAP Theorem (Consistency, Availability, Partition Tolerance) highlights the trade-offs required when creating networked shared data systems.</p>
+<h4>CAP Theorem</h4>
+<p>The CAP Theorem states that you can't have all three consistency, availability, and partition tolerance simultaneously. To achieve a balance between these aspects:</p>
+<ul>
+<li>Choose between consistency and availability or partition tolerance.</li>
+<li>Consider using BASE (Basically Available Storage), which provides reassuring availability by allowing updates to propagate over time.</li>
+</ul>
+<p>BASE's advantages include fast data writing and eventual consistency, making it suitable for Big Data soft state applications.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_229_lda.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Topic 1: Data Storage Design Principles</h3>
+<p>Characterizes data based on user needs, focusing on persistence, proactive detection, and rapid recovery.</p>
+<h3>Topic 2: CAP Theorem and Trade-offs</h3>
+<p>Describes the trade-offs required when designing networked shared data systems, including consistency, availability, and partition tolerance.</p>
+<h3>Topic 3: Data Transaction Properties and State Maintenance</h3>
+<p>Discusses the importance of considering data transaction properties and maintaining state in data storage design.</p>
+<h3>Topic 4: Availability and Partition Tolerance</h3>
+<p>Explains how to balance availability and partition tolerance using BASE (Basically Available Storage), allowing for quick data writing with eventual consistency.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_229_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary concern when designing a data storage system, from the user's perspective?
+Answer: The primary concern is ensuring that the data is accessible and not modified or deleted.</p>
+</li>
+<li>
+<p>What are some common ways to characterize data, according to the text?
+Answer: Data can be characterized as structured or unstructured, persistent or ephemeral.</p>
+</li>
+<li>
+<p>What does the CAP Theorem state about networked shared data systems?
+Answer: The CAP Theorem states that it is impossible to achieve all three consistency, availability, and partition tolerance simultaneously.</p>
+</li>
+<li>
+<p>What is the purpose of the BASE (Basically Available) storage model?
+Answer: The purpose of BASE is to provide a balance between consistency, availability, and partition tolerance in networked shared data systems.</p>
+</li>
+<li>
+<p>How does the BASE storage model handle updates to data?
+Answer: Updates may not show immediately, but they will eventually be propagated across all instances of the data due to its distribution across multiple tables, cubes, and servers.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential trade-offs when designing a data storage system that balances consistency, availability, and partition tolerance? 
+Answer: The trade-off is between sacrificing one aspect for another, such as prioritizing availability over consistency or partition tolerance.</p>
+</li>
+<li>
+<p>How does the CAP Theorem impact the design of Big Data soft state applications?
+Answer: The CAP Theorem highlights the need to choose a balance between consistency, availability, and partition tolerance when designing Big Data soft state applications.</p>
+</li>
+<li>
+<p>What are some common data storage mechanisms mentioned in the text (e.g., databases, file systems, SQL, APIs)?
+Answer: Databases, file systems, SQL, and APIs are examples of data storage mechanisms.</p>
+</li>
+<li>
+<p>How does the concept of "data integrity" relate to user concerns about data storage?
+Answer: Data integrity refers to the accuracy and consistency of data, which is a primary concern for users when it comes to data storage.</p>
+</li>
+<li>
+<p>What role do versioning techniques play in recovering lost or corrupted data?
+Answer: Versioning techniques can help recover lost or corrupted data by maintaining multiple versions of data that can be accessed and compared.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a data storage system for a web application that requires high availability and partition tolerance, but also needs to maintain consistency across all instances.
+Answer: This would involve using the BASE storage model, which prioritizes availability and partition tolerance while ensuring eventual consistency.</p>
+</li>
+<li>
+<p>How might you optimize data storage for a Big Data soft state application that requires rapid write performance?
+Answer: To optimize data storage for rapid write performance, consider using distributed databases or NoSQL storage solutions that can handle high volumes of data and provide low-latency writes.</p>
+</li>
+<li>
+<p>What are some potential security risks associated with using unstructured data in a data storage system?
+Answer: Unstructured data may introduce security risks due to its lack of organization and metadata, making it more vulnerable to unauthorized access or tampering.</p>
+</li>
+<li>
+<p>How might you implement data replication for a distributed data storage system that requires high availability?
+Answer: Data replication can be implemented using techniques such as master-slave replication, where multiple copies of data are stored across different locations.</p>
+</li>
+<li>
+<p>What are some best practices for designing a data storage system that balances consistency, availability, and partition tolerance?
+Answer: Best practices include prioritizing the most critical use cases, using distributed databases or NoSQL storage solutions, and implementing versioning techniques to recover lost or corrupted data.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_229_entities.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>databases and file systems</td>
+<td>Technology</td>
+<td>"The mechanisms of storage and retrieval, such as databases and file systems..."</td>
+<td>Refers to the underlying technologies used for storing and retrieving data. The text highlights their importance in the data layer.</td>
+</tr>
+<tr>
+<td>SQL and API's</td>
+<td>Technology</td>
+<td>"...including the access methods that use the services, such as SQL and API's."</td>
+<td>Describes specific access methods used with databases and file systems. SQL (Structured Query Language) is a standard language for managing relational databases, while APIs (Application Programming Interfaces) are used to interact with software components.</td>
+</tr>
+<tr>
+<td>data persistent mechanisms</td>
+<td>Concept</td>
+<td>"...the data persistent mechanisms, such as the database services and storage services..."</td>
+<td>Refers to the mechanisms that ensure data is stored persistently, including database services and storage services. This concept is crucial in understanding how data is managed in the data layer.</td>
+</tr>
+<tr>
+<td>data access layer</td>
+<td>Concept</td>
+<td>"...the data access layer, which encapsulates the persistent mechanisms that exposes the data."</td>
+<td>Describes a layer that provides a interface to access data, hiding the underlying persistent mechanisms. This layer is essential for ensuring data integrity and availability.</td>
+</tr>
+<tr>
+<td>structured or unstructured, persistent or ephemeral</td>
+<td>Data Characterization</td>
+<td>"There are many ways to characterize data such as structured or unstructured..."</td>
+<td>Refers to the different characteristics of data, including its structure, persistence, and ephemeral nature. The text highlights that these characteristics should be considered based on user needs.</td>
+</tr>
+<tr>
+<td>CAP Theorem</td>
+<td>Concept</td>
+<td>"...the CAP Theorem, which makes designers aware of the trade-offs required when making networked shared data systems."</td>
+<td>Describes a fundamental concept in distributed systems that highlights the trade-offs between consistency, availability, and partition tolerance. This theorem is crucial for designing reliable and scalable data storage systems.</td>
+</tr>
+<tr>
+<td>BASE</td>
+<td>Technology</td>
+<td>"...which is reassuring called basically available storage."</td>
+<td>Refers to a technology that provides a balance between consistency, availability, and partition tolerance, making it suitable for Big Data soft state applications. The text highlights its advantages in terms of quick data writing and eventual consistency.</td>
+</tr>
+</tbody>
+</table>
+<p>Note: Some entities may overlap or be mentioned multiple times in the text, but they are listed here only once with their most relevant context.</p>
+      </div>
+    </div>
+  </body>
+</html>

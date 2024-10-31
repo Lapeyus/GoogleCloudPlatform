@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_126</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # IAM Concepts
+        
+        ## Permissions
+        - The permissions themselves are classes and methods in the APIs. For example, compute instances start, can be broken down into service, resource, and verb, meaning that this permission is used to start a stopped Compute Engine instance.
+        
+        ## Bundling Permissions
+        - Bundling all the permissions together to perform this task and then present it as a pre-configured role makes life a lot easier for the admin and greatly reduces errors.
+        
+        ## Custom Roles
+        - IAM custom roles allow you to make your own roles if there is not a suitable preconfigured role. You can create a custom role and then bundle all the prerequisite permissions to fulfil that particular role. However, this is no easy task so you are advised to look for the closest preconfigured role and then edit it by adding or removing specific permissions in order to meet your requirements.
+        
+        ### Custom Role Principles
+        - Custom roles require a lot of testing and can be considered to be risky but sometimes there is no alternative. When making up your custom roles, you should keep in mind the principles of least privilege and separation of duties.
+        
+        ## Members
+        - Members define who can do what on which resource. There are different types of members. Basically there are users, and there are service accounts. We will look at both in turn.
+        
+        ### Users
+        - Users can be members but they must have an identity that can be securely authenticated so GCP provides several ways - Google accounts, G Suite domains, Google Groups, or Cloud Identity domains;
+        
+        #### Google Accounts
+        - A Google account would be used by a user such as a developer, administrator, or any person who interacts with GCP. An email address that is associated with a Google account such as a gmail.com address can serve as an identity.
+        
+        #### G Suite Domains
+        - A G Suite domain represents a virtual group of all the members in an organization. G Suite customers can associate their email accounts with an Internet domain name. When you do this, each email account takes the form of username @mydomain.com. You can specify an identity by using an Internet domain name that is associated with a G suite account.
+        
+        #### Google Groups
+        - A Google Group is a named collection of Google account and service accounts. Every group has a unique email address that is associated with the group. Like groupname@mydomain.com. Google Groups are a convenient way to apply and access policy to a collection of users.
+        
+        - You can grant and change access controls for a whole group at once, instead of granting or changing access controls one at a time for individual users or service accounts.
+
+      </script>
+    </div>
+  </body>
+</html>

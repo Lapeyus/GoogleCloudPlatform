@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_176</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_176_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_176</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cross Regional Load Balancing</h1>
+<h2>Introduction</h2>
+<p>Cross regional load balancing is particularly useful if you have users spread out all around the world.</p>
+<h3>Benefits of Google Determining User Location</h3>
+<p>Having Google determine the location of the user is beneficial in a number of ways but one is that it eliminates the need for a DNS load balancer because utilizing Global Server Load Balancing or GLSB lookups for DNS locations is not always reliable.</p>
+<h2>HTTPS Load Balancing</h2>
+<p>In this example, we will see how we can use an HTTP load balancer to route traffic between multiple regions and multiple zones. Again, you will use that Anycast single global static IP address to represent your entire frontend application.</p>
+<h3>Content-Based Load Balancing</h3>
+<p>The Google load balancer can also support content-based load balancing but it only applies to HTTP and HTTPS and it will involve configuring multiple backend services to handle each of the different content types.</p>
+<h2>URL Rule Matching</h2>
+<p>Basically, it is really more like URL rule matching as it compares the parameters within a URL to pre-configured path rules to each backend service. For example, within a URL it might match against a parameter/video to filter traffic destined for the backend video services and then /static for determining any static content.</p>
+<h2>Splitting Traffic</h2>
+<p>Now that you have a way to identify, filter and redirect traffic based configure different instance types for different content types in the upon content-type albeit only in the URL you can go ahead and However, to return to the original example, let's say that user traffic is entering through that global HTTP load balancer. Then we are splitting traffic based on the URL header to determine location backend.</p>
+<h2>SSL Proxy Load Balancing</h2>
+<p>The other types of Global load balancers that we have available to us are the SSL proxy and TCP proxy load balancing services. As you might expect, the SSL proxy load balancing performs global load balancing of SSL traffic, routing clients to the closest instance with sufficient capacity.</p>
+<h3>Advantages of SSL Proxy</h3>
+<p>Some advantages of SSL proxy include intelligent routing, better utilization of the virtual machine instances, certificate management , and security patching.</p>
+<h2>TCP Proxy Load Balancing</h2>
+<p>The main feature of a SSL proxy is that it terminates the incoming TLS/SSL session, which is the incoming connections arriving at the load balancer from the users. So for example, SSL traffic from users in lowa and Boston will be terminated at the global load balancing layer and a separate SSL connection is then established between the proxy and the selected backend instance.</p>
+<p>TCP proxy load balancing also allows you to use a single IP address to present to all users around the world and automatically routes traffic to the instances that are geographically closest to the user. The advantage of using TCP proxy load balancing include, intelligent routing and security patching.</p>
+<h2>Conclusion</h2>
+<p>Cross regional load balancing is a useful technique for handling traffic from users spread out across different regions. By utilizing Google's global server load balancing, you can eliminate the need for DNS load balancers and route traffic efficiently to backend services.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Cross Regional Load Balancing
+Now let's learn a little more about cross-regional load balancing. Cross region load balancing is particularly useful if you have users spread out all around the world. By default, Google will route those requests to the closest regions, unless of course you have URL maps and different URL rewrites to determine otherwise.
+
+Having Google determine the location of the user is beneficial in a number of ways but one is that it eliminates the need for a DNS load balancer because utilizing Global Server Load Balancing or GLSB lookups for DNS locations is not always reliable. In direct comparison, with this global load balancer, we don't need to rely on DNS to determine the destination because we can identify where they actually entered the Google network in order to handle that.
+
+HTTPS load balancing
+In this example, we will see how we can use an HTTP load balancer to route traffic between multiple regions and multiple zones. Again, you will use that Anycast single global static IP address to represent your entire frontend application.
+
+Earlier we saw how hardware load balancers were adept at handling the balancing or redirection of traffic based on content-type. The Google load balancer can also support content-based load balancing but it only applies to HTTP and HTTPS and it will involve configuring multiple backend services to handle each of the different content types.
+
+Basically, it is really more like URL rule matching as it compares the parameters within a URL to pre-configured path rules to each backend service. For example, within a URL it might match against a parameter/video to filter traffic destined for the backend video services and then /static for determining any static content.
+
+Now that you have a way to identify, filter and redirect traffic based on configure different instance types for different content types in the upon content-type albeit only in the URL you can go ahead and however, to return to the original example, let's say that user traffic is entering through that global HTTP load balancer. Then we are splitting traffic based on the URL header to determine location backend and content-type.
+
+So if they're going to the directory '/video', we can send that to the specific backend video service or if they're just going to the website, we can send them to a general purpose frontend web cluster.
+
+The other types of Global load balancers that we have available to us are the SSL proxy and TCP proxy load balancing services. As you might expect, the SSL proxy load balancing performs global load balancing of SSL traffic, routing clients to the closest instance with sufficient capacity.
+
+Some advantages of SSL proxy include intelligent routing, better utilization of the virtual machine instances, certificate management, and security patching. The main feature of a SSL proxy is that it terminates the incoming TLS/SSL session, which is the incoming connections arriving at the load balancer from the users. So for example, SSL traffic from users in lowa and Boston will be terminated at the global load balancing layer and a separate SSL connection is then established between the proxy and the selected backend instance.
+
+TCP proxy load balancing also allows you to use a single IP address to present to all users around the world and automatically routes traffic to the instances that are geographically closest to the user. The advantage of using TCP proxy load balancing includes intelligent routing and security patching.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Cross-Regional Load Balancing</h1>
+<p>Cross-regional load balancing is particularly useful when users are spread out across the globe. By default, Google will route requests to the closest region unless URL maps and different URL rewrites are used to determine otherwise.</p>
+<h2>Benefits of Cross-Regional Load Balancing</h2>
+<ul>
+<li>Eliminates the need for a DNS load balancer by utilizing Global Server Load Balancing (GLSB) lookups for DNS locations.</li>
+<li>Allows Google to identify where users entered the network, eliminating the need for reliable DNS-based routing.</li>
+</ul>
+<h2>HTTPS Load Balancing</h2>
+<p>In this example, we will use an HTTP load balancer to route traffic between multiple regions and zones. We will utilize an Anycast single global static IP address to represent our entire frontend application.</p>
+<h2>Content-Based Load Balancing</h2>
+<p>The Google load balancer can support content-based load balancing for HTTP and HTTPS traffic. This involves configuring multiple backend services to handle different content types. The process is similar to URL rule matching, where parameters within a URL are compared to pre-configured path rules to determine the destination backend service.</p>
+<h2>Example Use Case</h2>
+<p>Suppose user traffic enters through the global HTTP load balancer. We can split traffic based on the URL header to determine location and content-type. For example:</p>
+<ul>
+<li>If users access the directory '/video', we can send them to a specific backend video service.</li>
+<li>If users only access the website, we can send them to a general-purpose frontend web cluster.</li>
+</ul>
+<h2>Global Load Balancers</h2>
+<p>Google offers several types of global load balancers, including:</p>
+<ul>
+<li><strong>SSL Proxy</strong>: Performs global load balancing for SSL traffic, routing clients to the closest instance with sufficient capacity. Advantages include intelligent routing, better utilization of virtual machine instances, certificate management, and security patching.</li>
+<li><strong>TCP Proxy</strong>: Allows a single IP address to be presented to all users around the world, automatically routing traffic to instances that are geographically closest to the user. Advantages include intelligent routing and security patching.</li>
+</ul>
+<p>In summary, cross-regional load balancing is useful when users are spread out across the globe. The Google load balancer can support content-based load balancing for HTTP and HTTPS traffic, eliminating the need for reliable DNS-based routing. Global load balancers like SSL Proxy and TCP Proxy offer advantages in intelligent routing, security patching, and better utilization of virtual machine instances.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cross-Regional Load Balancing</h3>
+<p>Cross-regional load balancing is useful for users spread across the world, eliminating the need for DNS load balancers by identifying where users entered the Google network.</p>
+<h3>Topic 2: HTTPS Load Balancing</h3>
+<p>HTTPS load balancing routes traffic between multiple regions and zones using an Anycast single global static IP address to represent the frontend application.</p>
+<h3>Topic 3: HTTP Load Balancing with URL Rule Matching</h3>
+<p>HTTP load balancing uses URL rule matching to filter traffic based on content-type, comparing parameters within a URL to pre-configured path rules for each backend service.</p>
+<h3>Topic 4: SSL Proxy Load Balancing</h3>
+<p>SSL proxy load balancing performs global load balancing of SSL traffic, routing clients to the closest instance with sufficient capacity, featuring intelligent routing and security patching.</p>
+<h3>Topic 5: TCP Proxy Load Balancing</h3>
+<p>TCP proxy load balancing allows a single IP address to present to all users around the world, automatically routing traffic to instances geographically closest to the user.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is cross-regional load balancing useful for?
+Answer: Cross regional load balancing is particularly useful if you have users spread out all around the world.</p>
+</li>
+<li>
+<p>Why do we need to use a global server load balancer instead of DNS load balancers?
+Answer: Having Google determine the location of the user eliminates the need for a DNS load balancer because utilizing Global Server Load Balancing or GLSB lookups for DNS locations is not always reliable.</p>
+</li>
+<li>
+<p>What is the main feature of an SSL proxy load balancing service?
+Answer: The main feature of a SSL proxy is that it terminates the incoming TLS/SSL session, which is the incoming connections arriving at the load balancer from the users.</p>
+</li>
+<li>
+<p>How does TCP proxy load balancing work?
+Answer: TCP proxy load balancing allows you to use a single IP address to present to all users around the world and automatically routes traffic to the instances that are geographically closest to the user.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages of using an SSL proxy load balancing service over other types of global load balancers?
+Answer: The advantages of SSL proxy include intelligent routing, better utilization of virtual machine instances, certificate management, and security patching.</p>
+</li>
+<li>
+<p>How does content-based load balancing work in Google load balancers?
+Answer: Content-based load balancing involves configuring multiple backend services to handle each of the different content types, which is similar to URL rule matching that compares parameters within a URL to pre-configured path rules to each backend service.</p>
+</li>
+<li>
+<p>What are the benefits of using an Anycast single global static IP address to represent your entire frontend application?
+Answer: Using an Anycast single global static IP address allows you to route traffic between multiple regions and multiple zones, providing better scalability and flexibility for your application.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you have a website that requires different backend services for video content and static content. How would you configure the Google load balancer to achieve this?
+Answer: You would create URL rules that match against specific parameters in the URL (e.g., /video) and route traffic accordingly to the respective backend services.</p>
+</li>
+<li>
+<p>If you need to use SSL proxy load balancing, what are some key considerations for configuring it effectively?
+Answer: Key considerations include intelligent routing, better utilization of virtual machine instances, certificate management, and security patching to ensure secure and efficient SSL traffic routing.</p>
+</li>
+<li>
+<p>How would you implement TCP proxy load balancing in a scenario where you have multiple regions with different backend instances?
+Answer: You would configure the TCP proxy load balancer to use a single IP address that presents to all users around the world, automatically routing traffic to the instances that are geographically closest to the user.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cross Regional Load Balancing</td>
+<td>Concept</td>
+<td>"Now let's learn a little more about cross-regional load balancing."</td>
+<td>Refers to the process of distributing traffic across multiple regions, allowing users from around the world to access resources. It is particularly useful for large-scale applications with global user bases.</td>
+</tr>
+<tr>
+<td>Global Server Load Balancing (GLSB)</td>
+<td>Technology</td>
+<td>"utilizing Global Server Load Balancing or GLSB lookups for DNS locations"</td>
+<td>A technique used to distribute traffic across multiple servers, eliminating the need for DNS load balancers. It relies on identifying the location of users within the Google network.</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>Protocol</td>
+<td>"HTTPS load balancing."</td>
+<td>A secure communication protocol that uses encryption to protect data in transit. In this context, it refers to the process of routing HTTPS traffic to specific backend services.</td>
+</tr>
+<tr>
+<td>HTTP Load Balancer</td>
+<td>Technology</td>
+<td>"In this example, we will see how we can use an HTTP load balancer to route traffic between multiple regions and multiple zones."</td>
+<td>A type of load balancer that distributes HTTP traffic across multiple servers, allowing for efficient scaling and high availability.</td>
+</tr>
+<tr>
+<td>Anycast Single Global Static IP Address</td>
+<td>Concept</td>
+<td>"Again, you will use that Anycast single global static IP address to represent your entire frontend application."</td>
+<td>A technique used to distribute traffic across multiple regions using a single IP address. It allows users from around the world to access resources without having to know the specific location of the server.</td>
+</tr>
+<tr>
+<td>URL Rule Matching</td>
+<td>Technique</td>
+<td>"Basically, it is really more like URL rule matching as it compares the parameters within a URL to pre-configured path rules to each backend service."</td>
+<td>A technique used to filter traffic based on URL parameters, allowing for efficient routing of traffic to specific backend services.</td>
+</tr>
+<tr>
+<td>SSL Proxy Load Balancing</td>
+<td>Technology</td>
+<td>"The other types of Global load balancers that we have available to us are the SSL proxy and TCP proxy load balancing services."</td>
+<td>A type of load balancer that distributes SSL traffic across multiple servers, terminating the incoming TLS/SSL session at the load balancer level.</td>
+</tr>
+<tr>
+<td>TCP Proxy Load Balancing</td>
+<td>Technology</td>
+<td>"TCP proxy load balancing also allows you to use a single IP address to present to all users around the world and automatically routes traffic to the instances that are geographically closest to the user."</td>
+<td>A type of load balancer that distributes TCP traffic across multiple servers, routing traffic based on geographical proximity.</td>
+</tr>
+<tr>
+<td>Hardware Load Balancers</td>
+<td>Technology</td>
+<td>"Earlier we saw how hardware load balancers were adept at handling the balancing or redirection of traffic based on content-type."</td>
+<td>Traditional load balancers that distribute traffic based on content-type, often used in large-scale applications with high traffic volumes.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

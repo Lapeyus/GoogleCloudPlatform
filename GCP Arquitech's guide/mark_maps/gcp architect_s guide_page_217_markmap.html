@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_217</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Microservice vs Business Logic Design
+        
+        ## Introduction
+        - In general, microservices can make development in the cloud much easier and faster, especially with unit testing. However, they can also complicate business logic.
+        
+        ## Unified Banking Service
+        - Consider a simple unified banking service where customers deposit or withdraw money. If a customer deposits money, the bank needs to update the relevant customer account. But what happens if you have segregated deposit and withdrawal functions in microservices?
+        
+        ### Challenges with Microservices
+        - If a particular microservice fails or communication is interrupted between the segregated microservices, there's a possibility that someone could fail to withdraw their money because an earlier deposit was never recorded against their account.
+        
+        ## Communication Protocol
+        - Communication protocol between microservices is an important aspect of business logic design. With microservices, it can be complicated, but GCP has mechanisms to monitor and troubleshoot integration and business logic issues.
+        
+        ## When to Use Microservices
+        - Use microservices when many consumers will be performing the same single function all the time. However, if these functions are closely related and tightly coupled, using microservices might add overhead without much benefit.
+        
+        ## Cloud Functions
+        - Cloud Functions is a lightweight compute solution for GCP that offers a managed service. It can help with scenarios where tightly coupled functions need to cooperate via multiple microservices.
+        
+        ### Example Use Case
+        
+        - Consider an application where customers upload images all the time. To process these images, you might deploy two separate microservices: one for accepting and storing uploads, and another for processing the images. However, if these functions are tightly coupled, using Cloud Functions can help encapsulate them into a single consolidated service.
+        
+        ## Conclusion
+        - Microservices can make development in the cloud easier and faster, but they also complicate business logic. Use microservices when many consumers will be performing the same single function all the time, and consider Cloud Functions for scenarios where tightly coupled functions need to cooperate via multiple microservices.
+
+      </script>
+    </div>
+  </body>
+</html>

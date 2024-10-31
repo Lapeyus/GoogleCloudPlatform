@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_58</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Public Cloud Cost Model
+        
+        ## Understanding the Basics
+        
+        - The public cloud cost model is a pay-as-you-go pricing structure where users only pay for the resources they use.
+        
+        ### Key Components
+        
+        * **Instance Types**: The type of virtual machine or server instance used, which affects compute power and storage.
+        * **Storage**: The amount of data stored in the cloud, which can be object storage, block storage, or file storage.
+        * **Data Transfer**: The amount of data transferred in and out of the cloud, which can incur additional charges.
+        
+        ## Moving to CloudSQL
+        
+        ### Benefits
+        
+        * Relatively straightforward migration from on-premises MySQL
+        * Simple sqldump transfer with minimal downtime
+        
+        ### Considerations
+        
+        * Potential for downtime or service disruption during replication
+        * Replication ensures synchronisation between on-premises master and CloudSQL instance
+        
+        # Containers and Kubernetes Engine
+        
+        ## Introduction to Containers and Kubernetes
+        
+        ### What are Containers?
+        
+        - Containers provide a lightweight and portable way to package applications and their dependencies, allowing for efficient deployment and scaling.
+        
+        ### Benefits of Containers
+        
+        * Improved application portability
+        * Reduced infrastructure overhead
+        * Faster deployment and scaling
+        
+        ## Hybrid Service: Compute Engine and Kubernetes Engine
+        
+        ### Conceptual Model
+        
+        - The Kubernetes engine sits between the Compute Engine (IaaS) and App Engine (PaaS), providing a hybrid service that leverages benefits from both.
+        
+        ### Benefits of Hybrid Service
+        
+        * Automation and elasticity from Compute Engine
+        * Self-awareness and dynamic scaling from App Engine
+
+      </script>
+    </div>
+  </body>
+</html>

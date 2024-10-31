@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_148</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_148_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_148</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Firestore</h1>
+<h2>Overview</h2>
+<p>Cloud Firestore's is GCP's next generation NoSQL database but with Cloud Firestore you store data in structures called documents, which contain fields mapping to values. These documents are then stored in collections, which are  containers for your  documents ,  which are used to organize your data  and make it easier to build queries.</p>
+<h2>Features</h2>
+<ul>
+<li>Documents support many different  data types, from simple strings and numbers, to complex, nested objects </li>
+<li>You can create sub-collections within documents </li>
+<li>Build hierarchical data structures that scale as your database grows.</li>
+<li>Efficient and flexible query system for targeted document-level retrieval</li>
+<li>Add sorting, filtering, and limits to queries for more expressive results</li>
+<li>Realtime listeners keep data in sync across client apps</li>
+<li>Seamless integration with other Firebase Platform and Google Cloud Platform products</li>
+</ul>
+<h2>Pricing</h2>
+<p>• The number of reads, writes, and deletes that you perform.
+• The amount of storage that your database uses, including overhead for  metadata and indexes.
+• The amount of network bandwidth that you use. 
+Storage and  bandwidth usage are calculated in  gigabytes (GIB),  where 1 GiB = 230 bytes. All charges accrue daily. However you  get 1GB of free storage per month and 50,000 document  reads per day as well as 20,000 document writes  and deletes per day . After that quota has been exceeded the price is $0.06 per  read, $0.18 per write and $0.02 per delete. Storage is charged  at $0.18 per Gigabyte per month.</p>
+<h1>Bigtable</h1>
+<h2>Overview</h2>
+<p>Google Bigtable is Google's cloud storage solution for high- performance and  low latency data access. It is widely used  in many Google's core services  like Google Search, Google Maps, and Gmail .</p>
+<h2>Features</h2>
+<ul>
+<li>Designed in NoSQL architecture but can use row-based data format</li>
+<li>Handle data read/ write under 10 milliseconds, perfect for frequent and large amounts of data ingestion</li>
+<li>Compatible with HBase 1.0 API via extensions for simplified migration from HBase</li>
+<li>No SQL interface, only use the API to use Put/Get/Delete commands on individual rows or run scan operations</li>
+<li>Readily integrated with other GCP tools, like Cloud Dataflow and Dataproc</li>
+</ul>
+<h2>Pricing</h2>
+<p>312</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Cloud Firestore
+Essentially, Cloud Firestore's is GCP's next generation NoSQL database but with Cloud Firestore you store data in structures called documents, which contain fields mapping to values. These documents are then stored in collections, which are containers for your documents, which are used to organize your data and make it easier to build queries. Documents support many different data types, from simple strings and numbers, to complex, nested objects and you can create sub-collections within documents and build hierarchical data structures that scale as your database grows.
+
+Additionally, the way that you make a query in Cloud Firestore is efficient and flexible as you can create queries to retrieve data targeted at the document level. This means you do not need to retrieve the entire collection, or for that matter any nested sub-collections. Furthermore, you can also add sorting, filtering, and limits to your queries to make them more expressive and to paginate the results.
+
+The Cloud Firestore data model supports whatever data structure works best for your app and to keep data in your apps current, without retrieving your entire database each time an update happens, you can also add realtime listeners. This feature also keeps your data in sync across client apps, which makes it popular for mobile apps and offers offline support for mobile and web so you can build responsive apps that work regardless of network latency or Internet connectivity.
+
+Finally, we can consider that Cloud Firestore also offers you the opportunity for seamless integration with other Firebase Platform and Google Cloud Platform products.
+
+Pricing
+When you use Cloud Firestore, you are charged for the following:
+• The number of reads, writes, and deletes that you perform.
+• The amount of storage that your database uses, including overhead for metadata and indexes.
+• The amount of network bandwidth that you use. Storage and bandwidth usage are calculated in gigabytes (GIB), where 1 GiB = 230 bytes. All charges accrue daily.
+
+However, you get 1GB of free storage per month and 50,000 document reads per day as well as 20,000 document writes and deletes per day. After that quota has been exceeded, the price is $0.06 per read, $0.18 per write, and $0.02 per delete. Storage is charged at $0.18 per Gigabyte per month.
+
+Bigtable
+Google Bigtable is Google's cloud storage solution for high-performance and low latency data access. It is widely used in many Google's core services like Google Search, Google Maps, and Gmail. Big Table, like Cloud Datastore, is designed in NoSQL architecture, but it can still use row-based data format.
+
+Where Big Table comes into its own is in throughput as it can handle data read/write under 10 milliseconds, which means it is perfect for those applications that have frequent and large amounts of data ingestion. Furthermore, unlike Datastore, which is similar in purpose, it is designed to scale to hundreds of petabytes and handle millions of operations per second (IOPS).
+
+What makes Bigtable popular is its compatibility with HBase 1.0 API via extensions as this simplifies any migration from HBase. Bigtable, like Cloud Datastore, has no SQL interface and you can only use the API to use Put/Get/Delete commands on individual rows or run scan operations.
+
+Bigtable can also be readily integrated with other GCP tools, like Cloud Dataflow and Dataproc.
+
+Pricing
+312
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud Firestore and Google Bigtable Overview</h3>
+<p>Cloud Firestore is Google's next-generation NoSQL database that stores data in structures called documents, which contain fields mapping to values. These documents are stored in collections, making it easier to organize data and build queries.</p>
+<h4>Key Features of Cloud Firestore</h4>
+<ul>
+<li>Stores data in documents with various data types (strings, numbers, complex objects)</li>
+<li>Supports sub-collections within documents for hierarchical data structures</li>
+<li>Efficient and flexible querying capabilities at the document level</li>
+<li>Realtime listeners for updating data without retrieving the entire database</li>
+<li>Offline support for mobile and web apps</li>
+<li>Seamless integration with other Firebase Platform and Google Cloud Platform products</li>
+</ul>
+<h4>Pricing of Cloud Firestore</h4>
+<ul>
+<li>Charges based on reads, writes, deletes, storage, and network bandwidth usage</li>
+<li>1GB of free storage per month and 50,000 document reads per day</li>
+<li>$0.06 per read, $0.18 per write, and $0.02 per delete after the quota is exceeded</li>
+</ul>
+<h3>Google Bigtable Overview</h3>
+<p>Google Bigtable is a cloud storage solution for high-performance and low-latency data access. It's widely used in Google's core services like Google Search, Google Maps, and Gmail.</p>
+<h4>Key Features of Google Bigtable</h4>
+<ul>
+<li>Designed in NoSQL architecture with row-based data format</li>
+<li>High throughput capabilities (10 milliseconds) for frequent and large data ingestion</li>
+<li>Scales to hundreds of petabytes and handles millions of operations per second (IOPS)</li>
+<li>Compatible with HBase 1.0 API via extensions for simplified migration from HBase</li>
+</ul>
+<h4>Pricing of Google Bigtable</h4>
+<ul>
+<li>Pricing information not provided in the given text</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: NoSQL Database Architecture</h3>
+<p>Cloud Firestore is designed in NoSQL architecture, allowing for flexible data structures and efficient querying.</p>
+<h3>Topic 2: Realtime Data Access and Offline Support</h3>
+<p>Realtime listeners enable seamless integration with client apps, keeping data in sync across devices, and offering offline support for mobile and web applications.</p>
+<h3>Topic 3: Pricing Model for Cloud Storage</h3>
+<p>Storage and bandwidth usage are calculated in gigabytes (GIB), with charges accruing daily. Quotas include 1GB of free storage per month, 50,000 document reads, and 20,000 document writes and deletes per day.</p>
+<h3>Topic 4: High-Performance Data Access</h3>
+<p>Google Bigtable is designed for high-performance data access, handling data read/write under 10 milliseconds, making it suitable for applications with frequent and large amounts of data ingestion.</p>
+<h3>Topic 5: Compatibility and Integration with GCP Tools</h3>
+<p>Bigtable can be integrated with other GCP tools like Cloud Dataflow and Dataproc, simplifying migration from HBase and providing a scalable solution for large-scale data storage.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary data structure used in Cloud Firestore?
+Answer: Documents, which contain fields mapping to values.</p>
+</li>
+<li>
+<p>How does Cloud Firestore handle queries compared to traditional databases?
+Answer: Cloud Firestore allows for targeted document-level queries, reducing the need to retrieve entire collections or nested sub-collections.</p>
+</li>
+<li>
+<p>What feature of Cloud Firestore keeps data in sync across client apps and offers offline support?
+Answer: Realtime listeners.</p>
+</li>
+<li>
+<p>What is the primary use case for Google Bigtable?
+Answer: High-performance and low-latency data access.</p>
+</li>
+<li>
+<p>How does Bigtable handle throughput compared to other NoSQL databases?
+Answer: It can handle data read/write under 10 milliseconds, making it suitable for applications with frequent and large amounts of data ingestion.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages of using Cloud Firestore over traditional relational databases?
+Answer: Cloud Firestore offers flexible querying, efficient storage, and seamless integration with other Firebase Platform products.</p>
+</li>
+<li>
+<p>How does Bigtable's row-based data format differ from other NoSQL databases like Cloud Datastore?
+Answer: Bigtable can use a row-based data format, whereas Cloud Datastore is designed in column-family based architecture.</p>
+</li>
+<li>
+<p>What are the implications of using Bigtable for large-scale data storage and processing?
+Answer: Bigtable's scalability to hundreds of petabytes and millions of operations per second (IOPS) make it suitable for large-scale data storage and processing applications.</p>
+</li>
+<li>
+<p>How does Cloud Firestore's pricing model incentivize efficient use of resources?
+Answer: The free quota of 1GB of storage, 50,000 document reads, and 20,000 document writes per day encourages developers to optimize their database usage.</p>
+</li>
+<li>
+<p>What are the benefits of integrating Bigtable with other GCP tools like Cloud Dataflow and Dataproc?
+Answer: Integration enables seamless data processing, analytics, and machine learning workflows across various GCP services.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a mobile app that requires offline support and real-time data synchronization using Cloud Firestore.
+Answer: Implement Cloud Firestore as the backend database, use Realtime listeners to keep data in sync across client apps, and utilize offline storage mechanisms like IndexedDB or local caching to enable seamless app functionality during network latency.</p>
+</li>
+<li>
+<p>Develop a web application that leverages Bigtable for high-performance data processing and analytics.
+Answer: Integrate Bigtable with Cloud Dataflow and Dataproc to process large datasets, utilize Bigtable's row-based data format for efficient storage, and implement data analytics and machine learning workflows using Bigtable's scalable architecture.</p>
+</li>
+<li>
+<p>Create a serverless function that uses Cloud Firestore as the primary database and integrates with other Firebase Platform services.
+Answer: Develop a serverless function that interacts with Cloud Firestore to perform CRUD operations, utilizes Firebase Authentication for user authentication, and leverages Firebase Cloud Functions for additional functionality and scalability.</p>
+</li>
+<li>
+<p>Design an IoT application that requires real-time data processing and analytics using Bigtable.
+Answer: Implement Bigtable as the primary database for storing and processing IoT sensor data, utilize Cloud Dataflow and Dataproc for data analytics and machine learning workflows, and integrate with other GCP services like Cloud Pub/Sub for event-driven architecture.</p>
+</li>
+<li>
+<p>Develop a cloud-native application that leverages Cloud Firestore's flexible querying and efficient storage capabilities.
+Answer: Design an application that utilizes Cloud Firestore as the primary database, implements flexible querying mechanisms using Cloud Firestore's SDKs, and integrates with other Firebase Platform services to provide seamless app functionality and scalability.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Firestore</td>
+<td>NoSQL Database</td>
+<td>"Essentially, Cloud Firestore's is GCP's next generation NoSQL database..."</td>
+<td>Cloud Firestore is a NoSQL database that stores data in documents with fields mapping to values. It allows for efficient and flexible querying, real-time listeners, and seamless integration with other Firebase Platform and Google Cloud Platform products. The pricing model charges based on reads, writes, deletes, storage, and network bandwidth usage.</td>
+</tr>
+<tr>
+<td>Bigtable</td>
+<td>NoSQL Database</td>
+<td>"Google Bigtable is Google's cloud storage solution..."</td>
+<td>Bigtable is a NoSQL database designed for high-performance and low-latency data access. It can handle large amounts of data ingestion and scale to hundreds of petabytes. The pricing model charges based on reads, writes, deletes, storage, and network bandwidth usage.</td>
+</tr>
+<tr>
+<td>Documents</td>
+<td>Data Structure</td>
+<td>"...you store data in structures called documents..."</td>
+<td>In Cloud Firestore, a document is a self-contained piece of data that can contain fields mapping to values. Documents support various data types and can be used to build hierarchical data structures. The use of documents allows for efficient querying and real-time listeners.</td>
+</tr>
+<tr>
+<td>Collections</td>
+<td>Data Structure</td>
+<td>"...these documents are then stored in collections..."</td>
+<td>A collection in Cloud Firestore is a container for one or more documents. It allows for organizing data and making it easier to build queries. Collections can be used to store related data together. The use of collections enables efficient querying and data management.</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Resource</td>
+<td>"...the amount of storage that your database uses..."</td>
+<td>In Cloud Firestore, storage refers to the amount of space allocated to store documents and other data. The pricing model charges based on storage usage in gigabytes (GIB). A free quota of 1GB per month is provided, with additional storage charged at $0.18 per Gigabyte per month.</td>
+</tr>
+<tr>
+<td>Network Bandwidth</td>
+<td>Resource</td>
+<td>"...the amount of network bandwidth that you use..."</td>
+<td>In Cloud Firestore, network bandwidth refers to the amount of data transferred over the internet. The pricing model charges based on network bandwidth usage in gigabytes (GIB). A free quota of 50,000 document reads and 20,000 document writes per day is provided, with additional bandwidth charged at $0.06 per read and $0.18 per write.</td>
+</tr>
+<tr>
+<td>HBase</td>
+<td>NoSQL Database</td>
+<td>"Big Table comes into its own is in throughput as it can handle data read/ write under 10 milliseconds..."</td>
+<td>HBase is a NoSQL database that Bigtable is compatible with via extensions. It allows for high-performance and low-latency data access, making it suitable for applications with frequent and large amounts of data ingestion.</td>
+</tr>
+<tr>
+<td>Data Ingestion</td>
+<td>Concept</td>
+<td>"...Big Table comes into its own is in throughput as it can handle data read/ write under 10 milliseconds..."</td>
+<td>Data ingestion refers to the process of loading or importing data into a database or storage system. Bigtable's high-throughput capabilities make it suitable for applications with large amounts of data ingestion.</td>
+</tr>
+<tr>
+<td>Petabytes</td>
+<td>Unit of Measurement</td>
+<td>"...Big Table is designed to scale to hundreds of petabytes..."</td>
+<td>A petabyte is a unit of measurement for data storage, equivalent to one million gigabytes. Bigtable's scalability allows it to handle large amounts of data, making it suitable for applications with massive data requirements.</td>
+</tr>
+<tr>
+<td>IOPS (Input/Output Operations Per Second)</td>
+<td>Performance Metric</td>
+<td>"...Big Table can handle millions of operations per second..."</td>
+<td>IOPS is a performance metric that measures the number of input/output operations performed by a storage system or database in a given time period. Bigtable's high IOPS capabilities make it suitable for applications with high-performance requirements.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

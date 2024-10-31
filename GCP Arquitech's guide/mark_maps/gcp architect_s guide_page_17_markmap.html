@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_17</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Use Case: 1
+        ## Business Overview
+        - ABC Technology, a start-up business, has sent an RFC (Request for Proposal) for a proposal to accommodate growth, business continuity, and disaster recovery for their entire operation.
+        
+        ## Current Architecture
+        - Their current architecture consists of:
+        - On-premises hardware supporting a three-tier web application
+        - Three set-ups: production, development/testing, and data storage/archive
+        
+        ## Proposed Solution
+        - As a first stage, propose mirroring their on-premises architecture to Google Cloud Platform (GCP) using VMs in Compute Engine.
+        
+        ### Benefits
+        - Quickly prototyped for demonstration
+        - Mirrors current architecture with minimal changes
+        - Solves business continuity and disaster recovery requirements
+        
+        ### Cost Effectiveness
+        - Requires ascertaining desired level of continuity requirement (RTO)
+        -   - How much down-time and data loss can the business accept?
+        - Possible to build a warm DR cloud environment if flexible on RTO
+        - Not insignificant financial consequences for building entire cloud architecture 24/7
+        
+        ### Accommodating Growth and Scale
+        - Suggest switching to GCP after first stage completion
+        - Use on-premises as backup site for local storage and archiving of data
+        - Utilize GCP's elasticity and high scalability for automatic hardware scaling
+        
+        ### Third Stage
+        - Retire on-premises data centre altogether
+        - Replicate everything in the cloud and mirror infrastructure and storage across two zones or regions
+
+      </script>
+    </div>
+  </body>
+</html>

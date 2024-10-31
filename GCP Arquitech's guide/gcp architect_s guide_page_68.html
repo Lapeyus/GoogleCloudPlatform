@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_68</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_68_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_68</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Computing Options</h1>
+<h2>Choosing Between GAE and GKE</h2>
+<p>So if you choose GKE then you will have more fine control, but also 
+the network, security, software updates etc. On the other hand 
+more work for you to do.</p>
+<h2>Pros and Cons of Each Option</h2>
+<h3>GAE</h3>
+<ul>
+<li>More work for you to do</li>
+<li>Most configuration is done for you</li>
+<li>Focus on your app</li>
+</ul>
+<h3>GKE</h3>
+<ul>
+<li>More freedom to change cloud providers</li>
+<li>Less risk of vendor lock-in</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>So if you choose GKE then you will have more fine control, but also the network, security, software updates etc. On the other hand, more work for you to do. For example, with GAE, most of this is done for you, leaving developers to focus on their app.
+
+However, GKE provides more freedom as you can change cloud providers easier than if you are using GAE, so there is less risk of vendor lock-in.
+
+Chapter 8 - Cloud Functions
+
+In the previous chapter, we discussed App Engine and how it was designed for application development environments. The object was to abstract the underlying infrastructure for the application code, thereby allowing developers to focus solely on their code. App Engine either ran application code and typically API services in a runtime or within a container depending on the version of App Engine being used.
+
+However, some applications use even smaller segments of code for micro-applications, which are typically one function apps, much like microservices. For this type of development, you can further abstract the underlying infrastructure and applications and utilize Google's serverless platform, Cloud Functions.
+
+Many applications contain event-driven components that are triggered by some criteria being met, such as when a user uploads videos. Whenever that happens, you need to know so that you can process that video. An event can trigger the application to process the user's uploaded video and perform a transcription of the video into various text files, and then store each file in a repository.
+
+You could always integrate this function into your application, but then you have to worry about capacity planning and providing all the compute resources necessary to meet the demand. The issue with a new application is that you don't know whether user uploads will happen once a day, once an hour, or once a millisecond. But what if you could just ignore the tedious task of capacity planning and forecasting, and simply make that provisioning problem irrelevant?
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Choosing Between GKE and GAE: Fine-Tuning Control vs. Vendor Lock-In</strong></p>
+<p>When selecting between Google Kubernetes Engine (GKE) and Google App Engine (GAE), developers must weigh the trade-offs between fine-tuned control and vendor lock-in.</p>
+<p>On one hand, GKE provides more control over network, security, software updates, and other infrastructure aspects, allowing for greater customization. However, this increased control comes at a cost, requiring more work from developers to configure and manage their applications.</p>
+<p>In contrast, GAE abstracts the underlying infrastructure, freeing developers to focus on their code. Most configuration tasks are handled automatically, leaving developers to concentrate on their application. Nevertheless, this approach can lead to vendor lock-in, making it more difficult to switch to a different cloud provider if needed.</p>
+<p>On the other hand, GKE offers greater freedom and flexibility, enabling developers to change cloud providers with ease. This reduces the risk of vendor lock-in, allowing for more agility in responding to changing business needs.</p>
+<p><strong>Serverless Computing: Cloud Functions</strong></p>
+<p>For applications that require event-driven components, such as processing user uploads or triggering API services, Google's serverless platform, Cloud Functions, provides an ideal solution. By abstracting the underlying infrastructure and applications, developers can focus on their code without worrying about capacity planning and compute resource provisioning.</p>
+<p>However, this approach also introduces uncertainty, as the demand for compute resources is unpredictable. With Cloud Functions, developers can ignore the tedious task of capacity planning and forecasting, making it easier to build scalable and efficient applications.</p>
+<p>Ultimately, the choice between GKE and GAE depends on the specific needs and requirements of each project. By understanding the trade-offs involved, developers can make informed decisions that balance control, flexibility, and vendor lock-in.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cloud Management and Control</h3>
+<p>This topic revolves around the trade-offs between fine control over cloud infrastructure and the ease of use offered by managed services like GAE.</p>
+<h3>Topic 2: Vendor Lock-in and Flexibility</h3>
+<p>This topic highlights the importance of flexibility in choosing a cloud provider, with GKE offering more freedom to switch providers compared to GAE.</p>
+<h3>Topic 3: Application Development and Abstraction</h3>
+<p>This topic discusses how PaaS solutions like App Engine abstract underlying infrastructure for application code, allowing developers to focus on their app.</p>
+<h3>Topic 4: Event-Driven Components and Capacity Planning</h3>
+<p>This topic explores the challenges of handling event-driven components in applications, particularly when it comes to capacity planning and provisioning compute resources.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main difference between GKE and GAE in terms of control and management?
+Answer: GKE provides more fine-grained control, but also requires more work from developers to configure network, security, software updates, etc.</p>
+</li>
+<li>
+<p>How does GAE handle micro-applications compared to GKE?
+Answer: GAE abstracts the underlying infrastructure for application code, whereas GKE provides more freedom and flexibility for developers to manage their own applications.</p>
+</li>
+<li>
+<p>What is the purpose of Cloud Functions in Google's serverless platform?
+Answer: To further abstract the underlying infrastructure and applications, allowing developers to focus solely on their code.</p>
+</li>
+<li>
+<p>How do event-driven components work in applications?
+Answer: Event-driven components are triggered by some criteria being met, such as user uploads, and require capacity planning and compute resources to process the event.</p>
+</li>
+<li>
+<p>What is the benefit of using Cloud Functions for event-driven components?
+Answer: It allows developers to ignore tedious tasks like capacity planning and forecasting, making provisioning a problem irrelevant.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does GKE's flexibility in cloud providers impact vendor lock-in risks?
+Answer: By allowing developers to change cloud providers easily, GKE reduces the risk of vendor lock-in.</p>
+</li>
+<li>
+<p>What are some potential drawbacks of using GKE compared to GAE?
+Answer: More work is required from developers to configure and manage network, security, software updates, etc.</p>
+</li>
+<li>
+<p>How does Cloud Functions address the issue of capacity planning for event-driven components?
+Answer: By abstracting the underlying infrastructure and applications, allowing developers to focus solely on their code.</p>
+</li>
+<li>
+<p>What are some potential benefits of using GKE compared to GAE for micro-applications?
+Answer: More freedom and flexibility for developers to manage their own applications.</p>
+</li>
+<li>
+<p>How does Cloud Functions fit into Google's serverless platform?
+Answer: It provides a further abstraction layer, allowing developers to focus solely on their code.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you're building an application that processes user uploads of videos. Which cloud provider would be more suitable for this use case?
+Answer: GKE or GAE, depending on the specific requirements and needs of the application.</p>
+</li>
+<li>
+<p>How might you use Cloud Functions to handle event-driven components in your application?
+Answer: By integrating Cloud Functions into your application, allowing it to process events triggered by user uploads, without worrying about capacity planning and compute resources.</p>
+</li>
+<li>
+<p>What are some potential considerations when choosing between GKE and GAE for a new project?
+Answer: Control and management, flexibility, vendor lock-in risks, and the specific needs of the application.</p>
+</li>
+<li>
+<p>How might you use Cloud Functions to simplify capacity planning and provisioning for event-driven components?
+Answer: By abstracting the underlying infrastructure and applications, allowing developers to focus solely on their code.</p>
+</li>
+<li>
+<p>What are some potential benefits of using GKE compared to GAE for a micro-application?
+Answer: More freedom and flexibility for developers to manage their own applications.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GKE</td>
+<td>Cloud Platform</td>
+<td>"So if you choose GKE then you will have more fine control, but also the network, security, software updates etc."</td>
+<td>Google Kubernetes Engine (GKE) is a managed container orchestration service that provides more control over infrastructure and deployment options compared to App Engine. However, it requires more configuration and management efforts.</td>
+</tr>
+<tr>
+<td>GAE</td>
+<td>Cloud Platform</td>
+<td>"For example, you may need to configure with GAE most of this is done for you leaving the developers to focus on their app."</td>
+<td>Google App Engine (GAE) is a managed platform-as-a-service that abstracts underlying infrastructure, allowing developers to focus solely on their code. However, it provides less control over infrastructure and deployment options compared to GKE.</td>
+</tr>
+<tr>
+<td>Cloud Functions</td>
+<td>Cloud Platform</td>
+<td>"For this type of development you can further abstract the underlying infrastructure and applications and utilise Google's serverless platform, Cloud Functions."</td>
+<td>Cloud Functions is a serverless platform that allows developers to run small code segments (micro-applications) without worrying about capacity planning and provisioning. It provides more flexibility and scalability compared to traditional application deployment models.</td>
+</tr>
+<tr>
+<td>App Engine</td>
+<td>Cloud Platform</td>
+<td>"In the previous chapter we discussed App Engine and how as a PaaS it was designed for application development environments."</td>
+<td>App Engine is a managed platform-as-a-service that abstracts underlying infrastructure, allowing developers to focus solely on their code. It provides a range of features and services, including runtime and container deployment options.</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>Development Pattern</td>
+<td>"For this type of development you can further abstract the underlying infrastructure and applications and utilise Google's serverless platform, Cloud Functions."</td>
+<td>Microservices is an architectural pattern that involves breaking down large applications into smaller, independent services that communicate with each other. This approach provides greater flexibility, scalability, and maintainability compared to traditional monolithic architectures.</td>
+</tr>
+<tr>
+<td>Serverless</td>
+<td>Deployment Model</td>
+<td>"For this type of development you can further abstract the underlying infrastructure and applications and utilise Google's serverless platform, Cloud Functions."</td>
+<td>Serverless is a deployment model that involves running code without managing servers or infrastructure. This approach provides greater scalability, flexibility, and cost-effectiveness compared to traditional server-based deployments.</td>
+</tr>
+<tr>
+<td>Vendor Lock-in</td>
+<td>Risk</td>
+<td>"However GKE does provide you with more freedom as you can change cloud providers easier than if you are using GAE so there is less risk of vendor lock-in."</td>
+<td>Vendor lock-in refers to the risk of being tied to a specific technology or platform, making it difficult or expensive to switch to another provider. In this context, GKE provides greater flexibility and portability compared to GAE, reducing the risk of vendor lock-in.</td>
+</tr>
+<tr>
+<td>API Services</td>
+<td>Service Type</td>
+<td>"App Engine either ran application code and typically API services in a runtime or within a container depending on the version of App Engine being used."</td>
+<td>API services refer to pre-built services that provide specific functionality, such as authentication, data storage, or messaging. In this context, API services are often integrated with App Engine to provide additional features and capabilities.</td>
+</tr>
+<tr>
+<td>Runtime</td>
+<td>Deployment Option</td>
+<td>"App Engine either ran application code and typically API services in a runtime or within a container depending on the version of App Engine being used."</td>
+<td>Runtime refers to the environment in which an application is executed. In this context, runtime options are provided by App Engine, allowing developers to choose between running their application code directly or using a pre-built runtime service.</td>
+</tr>
+<tr>
+<td>Container</td>
+<td>Deployment Option</td>
+<td>"App Engine either ran application code and typically API services in a runtime or within a container depending on the version of App Engine being used."</td>
+<td>Container refers to a self-contained environment that provides a specific set of resources and dependencies for an application to run. In this context, container deployment options are provided by App Engine, allowing developers to choose between running their application code directly or using a pre-built container service.</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>Development Pattern</td>
+<td>"However some applications use even smaller segments of code for micro-applications, which are typically one function apps, much like microservices."</td>
+<td>Microservices is an architectural pattern that involves breaking down large applications into smaller, independent services that communicate with each other. This approach provides greater flexibility, scalability, and maintainability compared to traditional monolithic architectures.</td>
+</tr>
+<tr>
+<td>Event-Driven Components</td>
+<td>Component Type</td>
+<td>"Many applications contain event-driven components that are triggered by some criteria being met..."</td>
+<td>Event-driven components refer to components that respond to specific events or triggers, such as user interactions or system notifications. In this context, these components are often used in cloud-based applications to provide real-time processing and response capabilities.</td>
+</tr>
+<tr>
+<td>Capacity Planning</td>
+<td>Task</td>
+<td>"You could always integrate this function into your application, but then you have to worry about capacity planning and providing all the compute resources necessary to meet the demand."</td>
+<td>Capacity planning refers to the process of determining the required resources and infrastructure for an application to handle expected traffic or usage patterns. In this context, capacity planning is a critical task that requires careful consideration and planning to ensure optimal performance and scalability.</td>
+</tr>
+<tr>
+<td>Provisioning</td>
+<td>Task</td>
+<td>"You could always integrate this function into your application, but then you have to worry about capacity planning and providing all the compute resources necessary to meet the demand."</td>
+<td>Provisioning refers to the process of setting up and configuring infrastructure or services for an application to use. In this context, provisioning is a critical task that requires careful consideration and planning to ensure optimal performance and scalability.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

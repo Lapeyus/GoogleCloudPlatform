@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_106</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_106_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_106</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Network Design for Collaboration</h1>
+<h2>Introduction</h2>
+<p>To enable collaboration between different business units in various zones and regions, while maintaining isolation between them, a robust network design is required.</p>
+<h2>Bastion Host Network Design</h2>
+<p>In order to gain access to this instance, the admin can create a maintenance host known as a bastion host with an external IP on an internet-facing interface. The admin could then restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM.</p>
+<h2>Network Address Translation (NAT) Gateway Isolation</h2>
+<p>A similar but technical variation of the bastion host network design is a network address translation, for NAT gateway isolation. Similar to the previous design, we have VM instances that do not need an external IP address for their primary purpose but remote maintenance is frequently required. In this case, rather than give each instance an expensive external IP, you can configure another VM instance in the same network with an external IP and have it serve as a NAT gateway configured with IP forwarding to serve the entire network.</p>
+<h2>VPC Peering</h2>
+<p>You could propose to use VPC peering. By using VPC peering, you effectively form interconnects across the Google internal network using private IP addresses. A VPC can peer with several peers but only directly peered VPC can communicate there is no transitive communication allowed. Because peering is set up independently at separate VPC peering also works on GCE, GKE and GAE-Flexible.</p>
+<h3>Caveats</h3>
+<ul>
+<li>Auto-network types cannot peer as their IP address ranges could clash so they will need to be converted to custom-mode first.</li>
+<li>When VPC peers all subnet routes are exchanged if this is not desirable you may need to set up firewall rules to filter access.</li>
+</ul>
+<h2>Use Case - 12</h2>
+<p>A client ABC wishes to allow collaboration with other organisational unit in different zones and regions. These units are independently controlled and in their own VPCs, which are isolated from the ABC VPC. The other business units are keen to collaborate with ABB via their VPC but would like to remain isolated from one another.</p>
+<h3>Solution</h3>
+<p>To achieve this, you can use a combination of bastion host network design, NAT gateway isolation, and VPC peering. By setting up a bastion host with an external IP, restricting access to the internal VM instance, and configuring a NAT gateway, you can enable collaboration between ABB and other business units while maintaining their isolation from each other.</p>
+<p>```plain</p>
+<h1>Bastion Host Network Design</h1>
+<p>In order to gain access to this instance, the admin can create a maintenance host known as a bastion host with an external IP on an internet-facing interface. The admin could then restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM.</p>
+<h1>Network Address Translation (NAT) Gateway Isolation</h1>
+<p>A similar but technical variation of the bastion host network design is a network address translation, for NAT gateway isolation. Similar to the previous design, we have VM instances that do not need an external IP address for their primary purpose but remote maintenance is frequently required. In this case, rather than give each instance an expensive external IP you can configure another VM instance in the same network with an external IP and have it serve as a NAT gateway configured with IP forwarding to serve the entire network.</p>
+<h1>VPC Peering</h1>
+<p>You could propose to use VPC peering. By using VPC peering you effective form interconnects across the Google internal network using private IP addresses. A VPC can peer with several peers but only directly peered VPC can communicate there is no transitive communication allowed. Because peering is set up independently at separate VPC peering also works on GCE, GKE and GAE-Flexible.</p>
+<h1>Caveats</h1>
+<ul>
+<li>Auto-network types cannot peer as their IP address ranges could clash so they will need to be converted to custom-mode first.</li>
+<li>When VPC peers all subnet routes are exchanged if this is not desirable you may need to set up firewall rules to filter access.</li>
+</ul>
+<p>```</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>In order to gain access to this instance, the admin can create a maintenance host known as a bastion host with an external IP on an internet-facing interface. The admin could then restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM.
+
+A similar but technical variation of the bastion host network design is a network address translation, for NAT gateway isolation. Similar to the previous design, we have VM instances that do not need an external IP address for their primary purpose but remote maintenance is frequently required. In this case, rather than giving each instance an expensive external IP, you can configure another VM instance in the same network with an external IP and have it serve as a NAT gateway configured with IP forwarding to serve the entire network.
+
+You could propose to use VPC peering. By using VPC peering, you effectively form interconnects across the Google internal network using private IP addresses. A VPC can peer with several peers but only directly peered VPCs can communicate; there is no transitive communication allowed. Because peering is set up independently at separate locations, VPC peering also works on GCE, GKE, and GAE-Flexible.
+
+Either VPC or the peer retains their autonomy and remains administratively independent. However, one caveat is that auto-network types cannot peer as their IP address ranges could clash, so they will need to be converted to custom-mode first. Another is that when VPC peering all subnet routes are exchanged; if this is not desirable, you may need to set up firewall rules to filter access.
+
+Use Case - 12
+
+A client ABC wishes to allow collaboration with other organisational units in different zones and regions. These units are independently controlled and in their own VPCs, which are isolated from the ABC VPC. The other business units are keen to collaborate with ABB via their VPC but would like to remain isolated from one another. How can you allow these different business units to interconnect with ABB but retain their isolation from each other without going across VPNs and the internet?
+
+Solution
+228
+
+A client ABC wishes to allow collaboration with other organisational unit in different zones and regions. These units are independently controlled and in their own VPCs, which are isolated from the ABC VPC. The other business units are keen to collaborate with ABB via their VPC but would like to remain isolated from one another. How can you allow these different business units to interconnect with ABB but retain their isolation from each other without going across VPNs and the internet?
+
+To achieve this, you can create a bastion host with an external IP on an internet-facing interface, restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM. Alternatively, you can configure another VM instance in the same network with an external IP and have it serve as a NAT gateway configured with IP forwarding to serve the entire network.
+
+You could also propose using VPC peering to form interconnects across the Google internal network using private IP addresses. This will allow different business units to interconnect with ABB while retaining their isolation from one another without going across VPNs and the internet.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Accessing VM Instances for Remote Maintenance</strong></p>
+<p>To access a VM instance for remote maintenance, an admin can create a <strong>bastion host</strong> with an external IP on an internet-facing interface. This allows SSH traffic to be restricted to the private address IP of the VM instance.</p>
+<p><strong>Alternative Network Design: NAT Gateway Isolation</strong></p>
+<p>For instances that don't require an external IP but need remote maintenance, a <strong>NAT gateway isolation</strong> design can be used. A separate VM instance with an external IP is configured as a NAT gateway, serving the entire network and providing IP forwarding.</p>
+<p><strong>VPC Peering for Inter-Region Collaboration</strong></p>
+<p>To enable collaboration between business units in different zones and regions, VPC peering can be used. This allows interconnects across the Google internal network using private IP addresses. However, there are limitations:</p>
+<ul>
+<li>Only directly peered VPCs can communicate.</li>
+<li>Auto-network types cannot peer due to IP address range clashes, requiring conversion to custom-mode first.</li>
+<li>All subnet routes are exchanged when VPC peers; firewall rules may be needed to filter access.</li>
+</ul>
+<p><strong>Solution for Inter-Region Collaboration</strong></p>
+<p>To allow collaboration between business units while maintaining isolation, a bastion host with an external IP can be created. SSH traffic can be restricted to the private address IP of the VM instance. Alternatively, a NAT gateway isolation design or VPC peering can be used to enable inter-region collaboration without compromising security.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Bastion Host Network Design</h3>
+<p>Configuring a bastion host with an external IP on an internet-facing interface for remote maintenance access.</p>
+<h3>Topic 2: NAT Gateway Isolation</h3>
+<p>Using network address translation to isolate VM instances from external traffic, allowing them to maintain internal IP addresses while providing remote access through a NAT gateway.</p>
+<h3>Topic 3: VPC Peering for Interconnectivity</h3>
+<p>Establishing interconnections between VPCs using private IP addresses, enabling communication between directly peered VPCs without transitive communication.</p>
+<h3>Topic 4: Isolation and Autonomy in VPC Peering</h3>
+<p>Maintaining autonomy and isolation between VPCs by setting up firewall rules to filter access, while converting auto-network types to custom-mode for peer compatibility.</p>
+<h3>Topic 5: Collaboration Across Zones and Regions</h3>
+<p>Enabling collaboration between business units in different zones and regions through VPC peering, while maintaining isolation from each other.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is a bastion host, and how does it relate to gaining access to an instance?
+Answer: A bastion host is a maintenance host that can be created with an external IP on an internet-facing interface to allow restricted access to internal VM instances.</p>
+</li>
+<li>
+<p>What is the purpose of creating a NAT gateway in a network design?
+Answer: The purpose of creating a NAT gateway is to provide remote maintenance for VM instances without assigning them an expensive external IP address.</p>
+</li>
+<li>
+<p>How does VPC peering work, and what are its benefits?
+Answer: VPC peering allows interconnects across the Google internal network using private IP addresses, enabling direct communication between directly peered VPCs while maintaining autonomy and isolation.</p>
+</li>
+<li>
+<p>What is a limitation of VPC peering, and how can it be addressed?
+Answer: Auto-network types cannot peer due to potential IP address range clashes, which requires conversion to custom-mode first. Additionally, all subnet routes are exchanged when VPC peers; firewall rules may need to be set up to filter access if not desirable.</p>
+</li>
+<li>
+<p>How does a client ABC plan to allow collaboration with other business units while maintaining isolation?
+Answer: By creating a bastion host or NAT gateway and using VPC peering to interconnect with the desired business unit without going across VPNs and the internet.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages of using a bastion host over assigning an external IP address to each VM instance for remote maintenance?
+Answer: The advantages include cost savings, reduced complexity, and improved security.</p>
+</li>
+<li>
+<p>How does VPC peering compare to traditional VPN connections in terms of isolation and autonomy?
+Answer: VPC peering maintains autonomy and isolation while providing direct communication between directly peered VPCs, whereas traditional VPN connections may compromise isolation and autonomy.</p>
+</li>
+<li>
+<p>What are the implications of using auto-network types for VPC peering, and how can they be addressed?
+Answer: Auto-network types cannot peer due to potential IP address range clashes; conversion to custom-mode is required to resolve this issue.</p>
+</li>
+<li>
+<p>How does the use of NAT gateways impact network design and security?
+Answer: NAT gateways provide remote maintenance without assigning expensive external IP addresses while maintaining network design and security integrity.</p>
+</li>
+<li>
+<p>What are the benefits of using VPC peering for interconnecting business units across zones and regions?
+Answer: VPC peering enables direct communication between directly peered VPCs while maintaining autonomy, isolation, and reduced complexity in network design.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a network architecture that uses a bastion host to allow remote maintenance of VM instances without assigning expensive external IP addresses.
+Answer: Create a bastion host with an external IP on an internet-facing interface, restrict access to internal VM instances using firewall ingress rules, and configure NAT gateway isolation for remote maintenance.</p>
+</li>
+<li>
+<p>Implement VPC peering to interconnect two business units across zones and regions while maintaining isolation and autonomy.
+Answer: Set up VPC peering between the directly peered VPCs, ensure auto-network types are converted to custom-mode if necessary, and establish firewall rules to filter access as needed.</p>
+</li>
+<li>
+<p>Plan a network architecture that uses NAT gateways for remote maintenance of VM instances in a multi-zone environment.
+Answer: Configure NAT gateways with IP forwarding to serve the entire network, assign external IPs to NAT gateway VM instances, and ensure secure communication between the NAT gateway and internal VM instances.</p>
+</li>
+<li>
+<p>Design a network architecture that uses VPC peering to interconnect multiple business units across zones and regions while maintaining isolation and autonomy.
+Answer: Set up VPC peering between directly peered VPCs, establish firewall rules to filter access as needed, and ensure auto-network types are converted to custom-mode if necessary.</p>
+</li>
+<li>
+<p>Evaluate the benefits and limitations of using VPC peering for interconnecting business units across zones and regions.
+Answer: VPC peering enables direct communication between directly peered VPCs while maintaining autonomy and isolation; however, it may require conversion of auto-network types to custom-mode and establishment of firewall rules to filter access.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bastion host</td>
+<td>Network Device</td>
+<td>"In order to gain access to this instance, the admin can create a maintenance host known as a bastion host with an external IP on an internet facing interface."</td>
+<td>A bastion host is a network device that provides access to a private network for remote maintenance. It acts as a single point of entry for administrators to access and manage resources in the network.</td>
+</tr>
+<tr>
+<td>firewall ingress rule</td>
+<td>Network Security Policy</td>
+<td>"The admin could then restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM."</td>
+<td>A firewall ingress rule is a network security policy that controls incoming traffic to a specific resource, in this case, a virtual machine (VM) instance. It allows authorized traffic to pass through while blocking unauthorized traffic.</td>
+</tr>
+<tr>
+<td>NAT gateway isolation</td>
+<td>Network Architecture</td>
+<td>"A similar but technical variation of the bastion host network design is a network address translation, for NAT gateway isolation."</td>
+<td>NAT (Network Address Translation) gateway isolation is a network architecture that uses a separate device to translate IP addresses and provide access to resources while isolating them from the rest of the network.</td>
+</tr>
+<tr>
+<td>VM instance</td>
+<td>Virtual Machine</td>
+<td>"Similar to the previous design we have VM instances that do not need an external IP address for their primary purpose but remote maintenance is frequently required."</td>
+<td>A VM instance is a virtual machine that runs on a physical host and provides a sandboxed environment for applications to run in. It can be used as a standalone resource or connected to other resources through networking.</td>
+</tr>
+<tr>
+<td>VPC peering</td>
+<td>Network Interconnect</td>
+<td>"You could propose to use VPC peering. By using VPC peering you effective form interconnects across the Google internal network using private IP addresses."</td>
+<td>VPC peering is a network interconnect that allows two Virtual Private Cloud (VPC) networks to communicate with each other while maintaining their autonomy and isolation. It uses private IP addresses to establish connections between the two networks.</td>
+</tr>
+<tr>
+<td>auto-network types</td>
+<td>Network Type</td>
+<td>"One caveat is that when VPC peer all subnet routes are exchanged if this is not desirable you may need to set up firewall rules to filter access."</td>
+<td>Auto-network types refer to network types that use automatic configuration, such as IPv6 or IPv4 with DHCP. They can cause issues with VPC peering due to IP address range clashes, requiring conversion to custom-mode before establishing a connection.</td>
+</tr>
+<tr>
+<td>GCE, GKE, and GAE-Flexible</td>
+<td>Cloud Services</td>
+<td>"VPC peering also works on GCE, GKE, and GAE-Flexible."</td>
+<td>GCE (Google Compute Engine), GKE (Google Kubernetes Engine), and GAE-Flexible are cloud services provided by Google that offer virtual machines, container orchestration, and application hosting, respectively. VPC peering is supported for these services to enable secure communication between resources in different networks.</td>
+</tr>
+<tr>
+<td>custom-mode</td>
+<td>Network Configuration</td>
+<td>"One caveat is that when VPC peer all subnet routes are exchanged if this is not desirable you may need to set up firewall rules to filter access."</td>
+<td>Custom-mode refers to a network configuration where the IP address range is manually configured, allowing for more control over the network settings. It can be used to resolve issues with auto-network types and ensure secure communication between resources in different networks.</td>
+</tr>
+<tr>
+<td>VPNs</td>
+<td>Virtual Private Network</td>
+<td>"without going across VPNs and the internet?"</td>
+<td>A VPN (Virtual Private Network) is a network connection that uses encryption and other security measures to create a secure, private connection over an insecure network, such as the internet. It can be used to connect resources in different networks while maintaining their isolation from each other.</td>
+</tr>
+<tr>
+<td>VPCs</td>
+<td>Virtual Private Cloud</td>
+<td>"The other business units are keen to collaborate with ABB via their VPC but would like to remain isolated from one another."</td>
+<td>A VPC (Virtual Private Cloud) is a network that provides a secure, private environment for resources to run in. It can be used to connect resources in different networks while maintaining their isolation from each other.</td>
+</tr>
+<tr>
+<td>zones and regions</td>
+<td>Geographic Location</td>
+<td>"A client ABC wishes to allow collaboration with other organisational unit in different zones and regions."</td>
+<td>Zones and regions refer to geographic locations where resources are deployed, such as data centers or cloud services. They can be used to organize resources into separate networks for security, scalability, and performance reasons.</td>
+</tr>
+<tr>
+<td>business units</td>
+<td>Organizational Unit</td>
+<td>"The other business units are keen to collaborate with ABB via their VPC but would like to remain isolated from one another."</td>
+<td>Business units refer to independent organizational units that operate within a larger organization. They can be used to organize resources into separate networks for security, scalability, and performance reasons.</td>
+</tr>
+<tr>
+<td>application hosting</td>
+<td>Application Hosting Service</td>
+<td>"How can you allow these different business units to interconnect with ABB but retain their isolation from each other without going across VPNs and the internet?"</td>
+<td>Application hosting refers to a service that hosts applications in a secure environment, such as a cloud or virtual machine. It can be used to deploy resources in separate networks while maintaining their isolation from each other.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

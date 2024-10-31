@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_133</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_133_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_133</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Securing the Data</h1>
+<h3>Security and Convenience</h3>
+<p>but security and convenience are rarely good bed partners, so how
+Dumping your 
+data objects into a bucket might sound 
+convenient
+secure is it? To understand how the GCP provides 
+convenience
+while preserving the object's security and privacy we need to
+consider how GCP controls access to your objects and buckets.</p>
+<h3>Access Control</h3>
+<p>When you create a Cloud storage bucket it automatically becomes
+just like any other resource in a project. Therefore we can use the
+Cloud IAM service to apply a policy for access control.</p>
+<h4>Cloud IAM Service</h4>
+<p>Using the IAM service enables us to explicitly dictate what individual user, group or service account can access the bucket.
+Furthermore we can determine who can see the bucket, list the objects in the bucket, view the names of the objects in the bucket, or create new
+buckets.</p>
+<h3>IAM Cloud Storage Roles</h3>
+<p>You can grant roles at either the project level or at the bucket level. However, 
+granting roles at the lower more specific bucket level does not 
+affect any existing roles that you have already granted 
+at the project  level, and vice versa.
+Thus, this gives you some flexibility in the way 
+that you can use these two levels of granularity to tailor your
+permissions.</p>
+<h4>Roles</h4>
+<p>Examples 
+of IAM Cloud Storage roles that can be applied at both project 
+and bucket level are ; 
+roles/storage.admin,
+roles/storage.objectViewer, and roles/storage.objectCreator.
+On the other hand there are also some roles that can only be applied at one level. For example, you can only apply the Viewer role only at the project level, while you can only apply only at the bucket level the roles/storage.legacyObjectOwner.</p>
+<h4>Deploying IAM</h4>
+<p>Deploying IAM as the method for access control for objects and
+buckets will for most purposes be sufficient as the IAM roles are inherited from project, to bucket, to object.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Securing the Data
+
+but security and convenience are rarely good bed partners, so how 
+Dumping your data objects into a bucket might sound convenient. To understand how the GCP provides convenience while preserving the object's security and privacy we need to consider how GCP controls access to your objects and buckets.
+
+When you create a Cloud storage bucket it automatically becomes just like any other resource in a project. Therefore we can use the Cloud IAM service to apply a policy for access control. Using the IAM service enables us to explicitly dictate what individual user, group or service account can access the bucket. Furthermore we can determine who can see the bucket, list the objects in the bucket, view the names of the objects in the bucket, or create new buckets.
+
+IAM Cloud Storage Roles
+
+You can grant roles at either the project level or at the bucket level. However, granting roles at the lower more specific bucket level does not affect any existing roles that you have already granted at the project level, and vice versa. Thus, this gives you some flexibility in the way that you can use these two levels of granularity to tailor your permissions.
+
+For example, you might use a general set of permissions at the project level say to view all buckets and all their objects but only grant the permission to create objects to a specific bucket. Moreover, there are some roles that can be used at both the project level and the bucket level. In this case, to avoid conflict if the role is used at the project level, the permissions they contain apply to all buckets and objects in the project.
+
+When used at the bucket level, the permissions only apply to a specific bucket and the objects within it. Examples of IAM Cloud Storage roles that can be applied at both project and bucket level are: roles/storage.admin, roles/storage.objectViewer, and roles/storage.objectCreator. On the other hand, there are also some roles that can only be applied at one level.
+
+For example, you can only apply the Viewer role only at the project level, while you can only apply it at the bucket level to the roles/storage.legacyObjectOwner. Deploying IAM as the method for access control for objects and buckets will for most purposes be sufficient as the IAM roles are inherited from project, to bucket, to object.
+
+Securing the Data
+but security and convenience are rarely good bed partners, so how Dumping your data objects into a bucket might sound convenient secure is it? To understand how the GCP provides  convenience while preserving the object's security and privacy we need to consider how GCP controls access to your objects and buckets. When you create a Cloud storage bucket it automatically becomes just like any other resource in a project. Therefore we can use the Cloud IAM service to apply a policy for access control. Using the IAM service enables us to explicitly dictate what individual user, group or service account can access the bucket. Furthermore we can determine who can see the bucket, list the objects in the bucket, view the names of the objects in the bucket, or create new
+buckets.
+
+IAM Cloud Storage Roles
+
+You can grant roles at either the project level or at the bucket level. However,  granting roles at the lower more specific bucket level does not 
+affect any existing roles that you have already granted  at the project  level, and vice versa. Thus, this gives you some flexibility
+in the way 
+that you can use these two levels of granularity to tailor
+your 
+permissions. For example you might use a general set of
+permissions 
+at the project level say to view all buckets and all 
+their
+objects but 
+only grant the permission to create objects to a specific
+bucket. Moreover
+, there are some roles that can be used at both
+the project level  and the bucket level. In this case, to avoid conflict
+if the role is used at 
+the project level, the permissions they contain apply 
+to all buckets and objects in the project. When used at the
+bucket level, 
+the permissions only apply to a specific bucket and 
+the
+objects within it. Examples 
+of IAM Cloud Storage roles that can be
+applied at both project  and bucket level are 
+; 
+roles/storage.admin,
+roles/storage.objectViewer, and roles/storage.objectCreator. On
+the other hand there are also some roles that can only be applied at
+one level. For example, you can only apply the Viewer role only at
+the project level, while you can only apply only at the bucket level
+the roles/storage.legacyObjectOwner.
+Deploying IAM as the method for access control for objects and
+buckets will for most purposes be sufficient as the IAM roles are inherited from project, to bucket, to object.
+
+282
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Securing Data in GCP</h1>
+<p>Security and convenience are rarely good bed partners, so how dumping your data objects into a bucket might sound convenient, is it? To understand how GCP provides convenience while preserving the object's security and privacy, we need to consider how GCP controls access to your objects and buckets.</p>
+<h2>Access Control in GCP</h2>
+<p>When you create a Cloud storage bucket, it automatically becomes just like any other resource in a project. Therefore, we can use the Cloud IAM service to apply a policy for access control. Using the IAM service enables us to explicitly dictate what individual user, group, or service account can access the bucket.</p>
+<h2>IAM Roles</h2>
+<p>You can grant roles at either the project level or at the bucket level. However, granting roles at the lower, more specific bucket level does not affect any existing roles that you have already granted at the project level, and vice versa. This gives us some flexibility in the way we can use these two levels of granularity to tailor our permissions.</p>
+<p><strong>Project-level Roles</strong></p>
+<ul>
+<li>Can be used for general access control</li>
+<li>Examples: <code>roles/storage.admin</code>, <code>roles/storage.objectViewer</code>, <code>roles/storage.objectCreator</code></li>
+</ul>
+<p><strong>Bucket-level Roles</strong></p>
+<ul>
+<li>Can be used for specific bucket access control</li>
+<li>Examples: <code>roles/storage.legacyObjectOwner</code> (can only be applied at the bucket level)</li>
+</ul>
+<p>Using IAM roles provides sufficient access control for most purposes, as the roles are inherited from project to bucket to object.</p>
+<h2>Key Points</h2>
+<ul>
+<li>GCP controls access to objects and buckets using Cloud IAM service</li>
+<li>Roles can be granted at either project or bucket level</li>
+<li>Project-level roles provide general access control, while bucket-level roles provide specific access control</li>
+<li>IAM roles are inherited from project to bucket to object</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Security and Convenience</h3>
+<p>The text highlights the trade-off between security and convenience in data storage. It emphasizes that securing data is crucial but also acknowledges that convenience can be compromised when trying to achieve security.</p>
+<h3>Topic 2: Cloud Storage Access Control</h3>
+<p>The topic discusses how Google Cloud Platform (GCP) controls access to objects and buckets, focusing on the use of IAM (Identity and Access Management) service for access control. It explains how to apply policies for individual users, groups, or service accounts to manage access to buckets.</p>
+<h3>Topic 3: IAM Cloud Storage Roles</h3>
+<p>This topic delves into the different roles that can be granted at both project and bucket levels, including roles like storage.admin, objectViewer, and objectCreator. It also mentions roles that are specific to one level, such as legacyObjectOwner.</p>
+<h3>Topic 4: Role Inheritance and Granularity</h3>
+<p>The text explains how IAM roles are inherited from project to bucket to object, providing flexibility in granting permissions at different levels of granularity.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main concern when it comes to security and convenience in Cloud Storage?
+Answer: Security and convenience rarely go hand-in-hand.</p>
+</li>
+<li>
+<p>How does creating a Cloud storage bucket affect its access control?
+Answer: It automatically becomes just like any other resource in a project, allowing for the use of Cloud IAM service for access control.</p>
+</li>
+<li>
+<p>What is the purpose of using Cloud IAM roles at both the project level and bucket level?
+Answer: To provide flexibility in granting permissions while avoiding conflicts between existing roles.</p>
+</li>
+<li>
+<p>Can you grant roles at one level without affecting existing roles at another level?
+Answer: Yes, this gives flexibility in tailoring permissions.</p>
+</li>
+<li>
+<p>Which IAM Cloud Storage roles can be applied at both the project level and bucket level?
+Answer: Roles such as storage.admin, objectViewer, and objectCreator.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential security risks associated with granting broad permissions to users or groups at the project level?
+Answer: This could lead to unauthorized access to sensitive data and increase the risk of data breaches.</p>
+</li>
+<li>
+<p>How does the use of IAM roles at both levels impact the management of permissions for Cloud Storage buckets?
+Answer: It allows for more granular control over permissions, enabling administrators to tailor access rights to specific users or groups while avoiding conflicts between existing roles.</p>
+</li>
+<li>
+<p>What are some benefits of using IAM roles at the bucket level instead of the project level?
+Answer: This provides more precise control over permissions and reduces the risk of unauthorized access to sensitive data within a specific bucket.</p>
+</li>
+<li>
+<p>How does the inheritance of IAM roles from project to bucket affect the management of permissions for Cloud Storage objects?
+Answer: It ensures that permissions are consistently applied across all buckets and objects, reducing the complexity of permission management.</p>
+</li>
+<li>
+<p>What are some potential consequences of not using IAM roles as the method for access control in Cloud Storage?
+Answer: This could lead to a lack of security and control over data, increasing the risk of unauthorized access and data breaches.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you want to grant users read-only access to all buckets in a project but only allow them to create objects in one specific bucket. How would you achieve this using IAM roles?
+Answer: You would use a general set of permissions at the project level (e.g., view all buckets and their objects) and then grant the permission to create objects specifically to that one bucket.</p>
+</li>
+<li>
+<p>If you want to ensure that only authorized personnel can access sensitive data stored in Cloud Storage, what steps would you take?
+Answer: You would use IAM roles to control access at both the project level and bucket level, ensuring that only authorized users or groups have read-only or read-write access to specific buckets and objects.</p>
+</li>
+<li>
+<p>How would you handle a situation where an employee leaves the company but still has access to Cloud Storage buckets and objects?
+Answer: You would revoke their IAM roles and permissions, using the Cloud IAM service to ensure that they no longer have access to sensitive data.</p>
+</li>
+<li>
+<p>Suppose you want to implement a new security policy for your organization's Cloud Storage buckets. How would you go about doing this?
+Answer: You would use IAM roles to control access at both the project level and bucket level, ensuring that only authorized users or groups have read-only or read-write access to specific buckets and objects.</p>
+</li>
+<li>
+<p>What are some best practices for managing permissions in Cloud Storage using IAM roles?
+Answer: Regularly review and update IAM roles and permissions to ensure they align with changing security requirements and organizational policies.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>security and convenience</td>
+<td>Concept</td>
+<td>"but security and convenience are rarely good bed partners" - This phrase highlights the trade-off between security and convenience in data management. It suggests that while convenience might be appealing, it often comes at the cost of security. The use of the word "bed partners" implies a romantic relationship, emphasizing the idea that these two concepts are intertwined but not necessarily compatible.</td>
+<td></td>
+</tr>
+<tr>
+<td>Dumping your data objects into a bucket</td>
+<td>Action</td>
+<td>"Dumping your data objects into a bucket might sound convenient" - This phrase describes an action where data is being transferred to a Cloud Storage bucket. The use of the word "convenient" implies that this action might seem appealing or easy, but its implications on security and privacy are not immediately clear.</td>
+<td></td>
+</tr>
+<tr>
+<td>GCP</td>
+<td>Organization</td>
+<td>"To understand how the GCP provides convenience while preserving the object's security and privacy" - This sentence refers to Google Cloud Platform (GCP), a cloud computing service provider. The use of the word "convenience" suggests that GCP offers features or services that make data management easier, but also implies that these conveniences might come with trade-offs in terms of security and privacy.</td>
+<td></td>
+</tr>
+<tr>
+<td>bucket</td>
+<td>Object</td>
+<td>"When you create a Cloud storage bucket it automatically becomes just like any other resource in a project" - This sentence describes the creation of a Cloud Storage bucket, which is an object within the GCP ecosystem. The use of the word "bucket" emphasizes its role as a container for data objects.</td>
+<td></td>
+</tr>
+<tr>
+<td>Cloud IAM service</td>
+<td>System</td>
+<td>"Therefore we can use the Cloud IAM service to apply a policy for access control" - This sentence refers to the Identity and Access Management (IAM) service provided by GCP, which is used to manage access to resources such as buckets. The use of the word "service" emphasizes its role as a system or tool that facilitates access control.</td>
+<td></td>
+</tr>
+<tr>
+<td>Cloud IAM roles</td>
+<td>Concept</td>
+<td>"You can grant roles at either the project level or at the bucket level" - This sentence describes the concept of Cloud IAM roles, which are used to define permissions for accessing resources such as buckets. The use of the word "roles" emphasizes their role in defining access controls.</td>
+<td></td>
+</tr>
+<tr>
+<td>individual user, group, or service account</td>
+<td>Entity</td>
+<td>"Using the IAM service enables us to explicitly dictate what individual user, group or service account can access the bucket" - This sentence refers to specific entities that can be granted access to a bucket using Cloud IAM roles. The use of the word "individual" emphasizes their unique identity and role in accessing resources.</td>
+<td></td>
+</tr>
+<tr>
+<td>project</td>
+<td>Organization</td>
+<td>"When you create a Cloud storage bucket it automatically becomes just like any other resource in a project" - This sentence describes the relationship between a Cloud Storage bucket and a GCP project, which is an organization or entity that contains multiple resources such as buckets. The use of the word "project" emphasizes its role as a container for resources.</td>
+<td></td>
+</tr>
+<tr>
+<td>IAM Cloud Storage Roles</td>
+<td>Concept</td>
+<td>"There are some roles that can be used at both the project level and the bucket level" - This sentence describes specific concepts related to Cloud IAM roles, which are used to define permissions for accessing resources such as buckets. The use of the word "roles" emphasizes their role in defining access controls.</td>
+<td></td>
+</tr>
+<tr>
+<td>Viewer role</td>
+<td>Role</td>
+<td>"You can only apply the Viewer role only at the project level" - This sentence refers to a specific role that defines permission to view resources, which is limited to the project level. The use of the word "role" emphasizes its function as a permission definition.</td>
+<td></td>
+</tr>
+<tr>
+<td>legacyObjectOwner</td>
+<td>Role</td>
+<td>"you can only apply only at the bucket level the roles/storage.legacyObjectOwner" - This sentence refers to a specific role that defines permission to access legacy objects, which is limited to the bucket level. The use of the word "role" emphasizes its function as a permission definition.</td>
+<td></td>
+</tr>
+<tr>
+<td>Cloud Storage Roles</td>
+<td>Concept</td>
+<td>"Examples of IAM Cloud Storage roles that can be applied at both project and bucket level are ; roles/storage.admin, roles/storage.objectViewer, and roles/storage.objectCreator" - This sentence describes specific concepts related to Cloud Storage roles, which define permissions for accessing resources such as buckets. The use of the word "roles" emphasizes their role in defining access controls.</td>
+<td></td>
+</tr>
+<tr>
+<td>Viewer</td>
+<td>Entity</td>
+<td>"You can only apply the Viewer role only at the project level" - This sentence refers to a specific entity that is granted permission to view resources using the Viewer role, which is limited to the project level. The use of the word "entity" emphasizes its unique identity and role in accessing resources.</td>
+<td></td>
+</tr>
+<tr>
+<td>objectCreator</td>
+<td>Entity</td>
+<td>"Examples of IAM Cloud Storage roles that can be applied at both project and bucket level are ; roles/storage.admin, roles/storage.objectViewer, and roles/storage.objectCreator" - This sentence refers to a specific entity that is granted permission to create objects using the objectCreator role, which is limited to the bucket level. The use of the word "entity" emphasizes its unique identity and role in accessing resources.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

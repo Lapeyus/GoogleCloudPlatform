@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_129</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_129_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_129</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Cloud IAM Best Practices</h1>
+<h2>User-Managed Keys</h2>
+<h3>Overview</h3>
+<p>These keys cannot be downloaded but Google will keep the keys.</p>
+<p>User-managed keys are created, downloadable, and managed by users. When you create a new key pair, you download the private key, which is not retained by Google. With external keys, you are responsible for key privacy and secure storage of the private key and other management operational chores, such as key rotation.</p>
+<h3>Key Rotation</h3>
+<p>Each service account can support one or more keys and these are used to authenticate with Google Cloud APIs. The specific keys should be periodically rotated, which involves a process where you will generate a new version of the key. This is because the fact that you may well be distributing the key amongst users will make it susceptible to leakage so it is better to rotate the keys regularly and remove the old version of a key.</p>
+<h3>IAM Best Practices</h3>
+<h4>Understanding GCP IAM Resource Hierarchy</h4>
+<p>Before we close this chapter on IAM we will summarise some of the Cloud IAM best practices that we have discussed in order to assist you in designing your own IAM policies.
+boundary.
+Initially, when designing your own IAM policy you must have a good understanding  of the GCP IAM resource hierarchy. This is critical as It lets you  leverage the concepts  of  inheritance and isolation, which can  be established between the  various  tiers in the hierarchy.</p>
+<h4>Policy Inheritance</h4>
+<p>Specifically , you should be looking to establish projects  in order to  group and share resources that have the same trust With regard to the concept of policy inheritance make sure you recognize  the effects of inheritance and use the principle of least privilege  when granting roles. This is especially important at the highest levels  because a child tier cannot rescind permissions  given at a parent  tier.</p>
+<h4>Auditing and Least Privilege</h4>
+<p>To minimise the risk of permission creep and enforce  the policy of least privilege establish audit policies  using Cloud audit  logs and regularly audit the memberships of groups used in policies.</p>
+<h3>Group-Based Role Assignment</h3>
+<p>To make administration easier it is generally best to grant roles to groups instead of individuals. Doing this doesn't just ease the administration burden it also importantly reduces error.</p>
+<p>An exception to this is when allocating permissions for high-risk tasks in high security environments, in which case you should assign rights to the user rather than the group. Typically, it is preferable to update the group membership than change a Cloud IAM policy.</p>
+<p>Therefore, you can sub-divide specific roles into multiple groups so that you can assign privileges more granularly for finer control. Therefore look at groups as a method for assigning specific roles with the concept of least privileges to a more specialised group.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>These keys cannot be downloaded but Google will keep the keys.
+
+User-managed keys are created, downloadable, and managed by users. When you create a new key pair, you download the private key, which is not retained by Google. With external keys, you are responsible for key privacy and secure storage of the private key and other management operational chores, such as key rotation.
+
+Each service account can support one or more keys and these are used to authenticate with Google Cloud APIs. The specific keys should be periodically rotated, which involves a process where you will generate a new version of the key. This is because the fact that you may well be distributing the key amongst users will make it susceptible to leakage so it is better to rotate the keys regularly and remove the old version of a key.
+
+This systematic rotation of the service account keys is done to limit the risk of them being used by malicious third-party users in the event of keys being compromised. Regularly creating and distributing new keys limits the impact of leaked keys being used by malicious third parties to access publicly available GCP API endpoints.
+
+IAM Best Practices
+
+Before we close this chapter on IAM, we will summarise some of the Cloud IAM best practices that we have discussed in order to assist you in designing your own IAM policies.
+
+Initially, when designing your own IAM policy, you must have a good understanding of the GCP IAM resource hierarchy. This is critical as it lets you leverage the concepts of inheritance and isolation, which can be established between the various tiers in the hierarchy. Specifically, you should be looking to establish projects in order to group and share resources that have the same trust.
+
+With regard to the concept of policy inheritance, make sure you recognize the effects of inheritance and use the principle of least privilege when granting roles. This is especially important at the highest levels because a child tier cannot rescind permissions given at a parent tier. To minimise the risk of permission creep and enforce the policy of least privilege, establish audit policies using Cloud audit logs and regularly audit the memberships of groups used in policies.
+
+To make administration easier, it is generally best to grant roles to groups instead of individuals. Doing this doesn't just ease the administration burden but also importantly reduces error. An exception to this is when allocating permissions for high-risk tasks in high security environments, in which case you should assign rights to the user rather than the group.
+
+Typically, it is preferable to update the group membership than change a Cloud IAM policy. Therefore, you can sub-divide specific roles into multiple groups so that you can assign privileges more granularly for finer control. Therefore, look at groups as a method for assigning specific roles with the concept of least privileges to a more specialised group.
+
+274
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>User-managed Keys and External Keys</h3>
+<p>User-managed keys are created, downloadable, and managed by users. When creating a new key pair, users download the private key, which is not retained by Google. In contrast, external keys are managed by Google and should be periodically rotated to prevent leakage.</p>
+<p>External keys are used to authenticate with Google Cloud APIs, and each service account can support one or more keys. Regular rotation of these keys limits the risk of them being used by malicious third-party users in the event of key compromise.</p>
+<h3>IAM Best Practices</h3>
+<p>When designing your own IAM policies, it is essential to have a good understanding of the GCP IAM resource hierarchy. This allows you to leverage concepts like inheritance and isolation between various tiers.</p>
+<p>Establishing projects helps group and share resources with the same trust level. When granting roles, recognize the effects of policy inheritance and use the principle of least privilege to minimize permission creep.</p>
+<p>Regularly audit the memberships of groups used in policies using Cloud audit logs. Granting roles to groups instead of individuals eases administration and reduces errors, except for high-risk tasks in high security environments where individual assignments are preferred.</p>
+<p>Sub-divide specific roles into multiple groups to assign privileges more granularly for finer control. Update group membership rather than changing a Cloud IAM policy whenever possible.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Key Management and Security
+The text discusses key management and security in Google Cloud Platform (GCP), focusing on user-managed keys, external keys, service account keys, and key rotation. It highlights the importance of secure storage, periodic rotation, and minimizing the risk of leaked keys being used by malicious third parties.</p>
+<h3>Topic 2</h3>
+<p>IAM Best Practices for Resource Hierarchy and Policy Inheritance
+The text emphasizes the need to understand the GCP IAM resource hierarchy and leverage concepts like inheritance and isolation when designing IAM policies. It stresses the importance of recognizing the effects of policy inheritance, using the principle of least privilege, and establishing audit policies to minimize permission creep.</p>
+<h3>Topic 3</h3>
+<p>Group-Based Role Assignment for Administration and Security
+The text recommends granting roles to groups instead of individuals to ease administration and reduce errors. However, it also notes exceptions for high-risk tasks in high security environments, where individual assignments may be necessary. It suggests sub-dividing specific roles into multiple groups for more granular control and assigning privileges with the concept of least privilege.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What happens to the private key when a new key pair is created in user-managed keys?
+Answer: The private key is downloaded and not retained by Google.</p>
+</li>
+<li>
+<p>Why are external keys used instead of user-managed keys for certain use cases?
+Answer: External keys allow users to be responsible for key privacy and secure storage, reducing the risk of leakage.</p>
+</li>
+<li>
+<p>What is the purpose of rotating service account keys regularly?
+Answer: To limit the risk of leaked keys being used by malicious third parties to access publicly available GCP API endpoints.</p>
+</li>
+<li>
+<p>Why should roles be granted to groups instead of individuals in most cases?
+Answer: It eases administration and reduces error, while also promoting the principle of least privilege.</p>
+</li>
+<li>
+<p>What is the benefit of sub-dividing specific roles into multiple groups?
+Answer: It allows for more granular control over privileges and easier management.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of inheritance in GCP IAM policies impact the design of IAM policies, particularly at higher levels?
+Answer: Inheritance can lead to permission creep if not managed carefully, emphasizing the importance of using the principle of least privilege and regular auditing.</p>
+</li>
+<li>
+<p>What are some potential risks associated with distributing keys amongst users, and how can they be mitigated?
+Answer: Key leakage is a risk; rotating keys regularly and using secure storage solutions can mitigate this risk.</p>
+</li>
+<li>
+<p>How does the use of groups in IAM policies impact administration and security?
+Answer: Groups simplify administration and reduce error, while also promoting the principle of least privilege and more granular control over privileges.</p>
+</li>
+<li>
+<p>What are some best practices for managing service account keys to minimize risks?
+Answer: Regular key rotation, secure storage, and careful consideration of key distribution can help mitigate risks associated with leaked keys.</p>
+</li>
+<li>
+<p>How does the GCP IAM resource hierarchy impact the design of IAM policies?
+Answer: The hierarchy provides a framework for leveraging concepts like inheritance and isolation, allowing for more effective management of resources and permissions.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design an IAM policy that takes into account the concept of inheritance and promotes the principle of least privilege.
+Answer: This would involve establishing clear roles and responsibilities, using groups to simplify administration, and regularly auditing membership in groups used in policies.</p>
+</li>
+<li>
+<p>Create a plan for rotating service account keys regularly to minimize risks associated with key leakage.
+Answer: This would involve setting up a schedule for key rotation, implementing secure storage solutions, and ensuring that users are aware of the importance of key security.</p>
+</li>
+<li>
+<p>Explain how sub-dividing specific roles into multiple groups can improve control over privileges in IAM policies.
+Answer: By creating specialized groups for specific roles, administrators can assign privileges more granularly, reducing the risk of permission creep and improving overall security.</p>
+</li>
+<li>
+<p>Develop a strategy for managing external keys to ensure secure key storage and distribution.
+Answer: This would involve implementing secure storage solutions, establishing clear protocols for key distribution, and regularly auditing key usage to minimize risks associated with leaked keys.</p>
+</li>
+<li>
+<p>Design an IAM policy that takes into account the need for high-risk task permissions in high security environments.
+Answer: This would involve assigning specific roles to individual users rather than groups, while still promoting the principle of least privilege and regular auditing to ensure compliance with security policies.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>keys</td>
+<td>Key</td>
+<td>"These keys cannot be downloaded but Google will keep the keys"</td>
+<td>The entity refers to cryptographic keys used for authentication and authorization in Google Cloud. The context suggests that users are responsible for managing these keys, including downloading and rotating them regularly.</td>
+</tr>
+<tr>
+<td>private key</td>
+<td>Key</td>
+<td>"When you create a new key pair, you download the private key, which is not retained by Google."</td>
+<td>A private key is a cryptographic key used to decrypt data encrypted with a public key. In this context, it is downloaded by users when creating a new key pair and is not retained by Google.</td>
+</tr>
+<tr>
+<td>external keys</td>
+<td>Key</td>
+<td>"With external keys, you are responsible for key privacy and secure storage of the private key..."</td>
+<td>External keys refer to cryptographic keys managed by users outside of Google Cloud. The entity highlights the responsibility of users in managing these keys, including secure storage and rotation.</td>
+</tr>
+<tr>
+<td>service account</td>
+<td>Service Account</td>
+<td>"Each service account can support one or more keys and these are used to authenticate with Google Cloud APIs."</td>
+<td>A service account is a type of identity that allows a user to delegate access to Google Cloud resources without sharing their credentials. The entity suggests that service accounts use keys for authentication.</td>
+</tr>
+<tr>
+<td>key rotation</td>
+<td>Key Rotation</td>
+<td>"...periodically rotate the keys regularly..."</td>
+<td>Key rotation refers to the process of generating a new version of a cryptographic key, typically to replace an old or compromised key. In this context, it is mentioned as a best practice to rotate keys regularly to limit the risk of unauthorized access.</td>
+</tr>
+<tr>
+<td>IAM (Identity and Access Management)</td>
+<td>Concept</td>
+<td>"Before we close this chapter on IAM we will summarise some of the Cloud IAM best practices..."</td>
+<td>IAM refers to a set of policies and procedures that govern access to cloud resources. The entity is mentioned as a concept in the context of designing IAM policies, highlighting its importance in managing access to Google Cloud resources.</td>
+</tr>
+<tr>
+<td>policy inheritance</td>
+<td>Policy Inheritance</td>
+<td>"...establish projects in order to group and share resources that have the same trust..."</td>
+<td>Policy inheritance refers to the process by which permissions are inherited from parent resources to child resources. The entity highlights the importance of understanding policy inheritance when designing IAM policies, particularly with regards to the principle of least privilege.</td>
+</tr>
+<tr>
+<td>groups</td>
+<td>Group</td>
+<td>"To make administration easier it is generally best to grant roles to groups instead of individuals..."</td>
+<td>A group is a collection of users or services that share common characteristics or permissions. The entity suggests that granting roles to groups can simplify administration and reduce errors, while also promoting the principle of least privilege.</td>
+</tr>
+<tr>
+<td>Cloud audit logs</td>
+<td>Audit Log</td>
+<td>"...establish audit policies using Cloud audit logs and regularly audit the memberships of groups used in policies."</td>
+<td>Cloud audit logs refer to a record of all changes made to cloud resources, including user actions and permissions. The entity highlights the importance of using Cloud audit logs to establish audit policies and monitor group membership.</td>
+</tr>
+<tr>
+<td>roles</td>
+<td>Role</td>
+<td>"...granting roles to groups instead of individuals..."</td>
+<td>A role is a set of permissions that define an identity's access to cloud resources. The entity suggests that granting roles to groups can simplify administration and reduce errors, while also promoting the principle of least privilege.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

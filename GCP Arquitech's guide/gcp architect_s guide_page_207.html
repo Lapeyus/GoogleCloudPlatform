@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_207</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_207_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_207</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Architecture Design</h1>
+<h2>Overview</h2>
+<p>Maybe it's going to be a mix of both, perhaps it's going to be NoSQL or global relational databases we won't know until we have an understanding of our business logic and what the requirements of that may be.</p>
+<h2>Business Logic</h2>
+<p>For the business logic will also define exactly what our storage data layer is going to look like.
+The fourth and final tier is the security layer and no design or prototype should go online without thorough scrutiny of its security controls and its threat surface. Security should be encouraged at every stage of the design process from prototype to development through to production and should never be bolted on as an after-thought at the end.</p>
+<h2>Security</h2>
+<p>Indeed security along with identity and access management (IAM) should be contemplated throughout the design process and IAM integrated into the design where appropriate. You may also consider bastion hosts, service accounts, access-lists and firewall rules to bolster some vulnerable areas in the design.
+Once you have designed your logic, you understand what services you need, what components are going to make it work, the type of data storage you need, as well as the security controls that you need, and you have a working proof of concept, only then will it be time to start to expand the design.</p>
+<h2>Reliability and Availability</h2>
+<p>Once we have modelled the business logic and designed the underpinning network that connects all our functional components together we can start thinking about resiliency and capacity planning.
+For example it is at this stage that we might contemplate how resilient can the design be made in case of failures? What about the designs ability to scale above forecasted loads?
+430
+We have forecast capacity and load and even overprovisioned for optimistic use-cases but are we prepared in case things fail or succeed well beyond expectations?</p>
+<h2>Business Continuity and Disaster Recovery</h2>
+<p>In order to answer that question sufficiently we need to understand the concepts and realities of business continuity and disaster recovery.
+This might mean a complete redesign, but that's why you recovery.</p>
+<h2>Project Design Constraints</h2>
+<p>In this chapter we are focusing on cloud service design and process
+but that discipline doesn't exist in a vacuum. Indeed you will have all the other tiresome constraints that every other IT project has to rail against.
+And as ever, and it has always been so, there's going to be a compromise on how much budget you have, versus the best most optimal design that you envisage that meets all of the service objectives that you're trying to achieve.
+Despite this we still need to forecast and plan for load and capacity regardless of what the budget might be.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Maybe it's going to be a mix of both, perhaps it's going to be NoSQL or global relational databases we won't know until we have an understanding of our business logic and what the requirements of that may be. For the business logic will also define exactly what our storage data layer is going to look like.
+
+The fourth and final tier is the security layer and no design or prototype should go online without thorough scrutiny of its security controls and its threat surface. Security should be encouraged at every stage of the design process from prototype to development through to production and should never be bolted on as an afterthought at the end.
+
+Indeed, security along with identity and access management (IAM) should be contemplated throughout the design process and IAM integrated into the design where appropriate. You may also consider bastion hosts, service accounts, access-lists, and firewall rules to bolster some vulnerable areas in the design. Once you have designed your logic, you understand what services you need, what components are going to make it work, the type of data storage you need, as well as the security controls that you need, and you have a working proof of concept, only then will it be time to start to expand the design.
+
+Reliability and Availability
+
+Once we have modelled the business logic and designed the underpinning network that connects all our functional components together, we can start thinking about resiliency and capacity planning. For example, it is at this stage that we might contemplate how resilient can the design be made in case of failures? What about the design's ability to scale above forecasted loads? What if this becomes a popular application, how will the design cope?
+
+We have forecast capacity and load and even overprovisioned for optimistic use-cases but are we prepared in case things fail or succeed well beyond expectations? In order to answer that question sufficiently, we need to understand the concepts and realities of business continuity and disaster recovery. This might mean a complete redesign, but that's why we have recovery plans.
+
+Project Design Constraints
+
+In this chapter, we are focusing on cloud service design and process, but that discipline doesn't exist in a vacuum. Indeed, you will have all the other tiresome constraints that every other IT project has to rail against. And as ever, there's going to be a compromise on how much budget you have, versus the best most optimal design that you envisage that meets all of the service objectives that you're trying to achieve.
+
+Despite this, we still need to forecast and plan for load and capacity regardless of what the budget might be. Eventually, though, we will have to face the harsh economic reality and compromise through making design changes and tweaks to bring that price costing down.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Cloud Service Design</h3>
+<p>The process of designing a cloud service involves multiple tiers: business logic, storage data layer, security layer, reliability and availability, and project design constraints.</p>
+<h4>Business Logic and Storage Data Layer</h4>
+<p>The first tier is the business logic, which defines the requirements for the storage data layer. This understanding will determine the type of database to use, such as NoSQL or global relational databases. The storage data layer should be designed in conjunction with the business logic.</p>
+<h4>Security Layer</h4>
+<p>The fourth and final tier is the security layer, which requires thorough scrutiny before deployment. Security controls and threat surfaces must be considered throughout the design process, including identity and access management (IAM). Bastion hosts, service accounts, access-lists, and firewall rules can be used to bolster vulnerable areas in the design.</p>
+<h4>Reliability and Availability</h4>
+<p>Once the business logic and storage data layer are designed, the focus shifts to reliability and availability. This involves considering how resilient the design is in case of failures, its ability to scale above forecasted loads, and how it will cope with unexpected popularity.</p>
+<h4>Project Design Constraints</h4>
+<p>Despite the ideal design, real-world constraints such as budget limitations must be considered. Compromises may need to be made to balance optimal design with economic realities. Forecasts and planning for load and capacity are still necessary, even in the face of budget constraints.</p>
+<h3>Key Takeaways</h3>
+<ul>
+<li>Business logic defines storage data layer requirements</li>
+<li>Security controls should be integrated into the design process</li>
+<li>Reliability and availability considerations must be addressed</li>
+<li>Project design constraints, including budget limitations, must be factored in</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Business Logic and Requirements</h3>
+<p>The importance of understanding business logic and requirements in determining the storage data layer.</p>
+<h3>Topic 2: Security Controls and Identity Management</h3>
+<p>The need for thorough security scrutiny, identity management (IAM), bastion hosts, service accounts, access-lists, and firewall rules throughout the design process.</p>
+<h3>Topic 3: Reliability and Availability Planning</h3>
+<p>Considering resiliency, capacity planning, business continuity, disaster recovery, and scalability in the design after a proof of concept.</p>
+<h3>Topic 4: Project Design Constraints and Budget Limitations</h3>
+<p>Focusing on cloud service design while dealing with constraints such as budget limitations, forecasting load and capacity, and making compromises for optimal design.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary goal of designing a cloud service architecture?
+Answer: To ensure the system can meet business objectives while considering various constraints.</p>
+</li>
+<li>
+<p>According to the text, what should be done at every stage of the design process?
+Answer: Security controls and threat surface should be thoroughly scrutinized and integrated into the design.</p>
+</li>
+<li>
+<p>What is the importance of understanding business continuity and disaster recovery in cloud service design?
+Answer: It helps ensure the system can cope with failures or unexpected growth, potentially requiring a complete redesign.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do you think the author's emphasis on security and threat surface will impact the design process?
+Answer: The author's focus on security will likely lead to more thorough and integrated security controls throughout the design process.</p>
+</li>
+<li>
+<p>What are some potential trade-offs that cloud service designers may face, according to the text?
+Answer: Designers must balance budget constraints with the need for optimal design that meets all service objectives.</p>
+</li>
+<li>
+<p>How does the author's approach to security differ from a traditional "bolt-on" approach?
+Answer: The author advocates for integrating security into the design process from the outset, rather than adding it as an afterthought.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are designing a cloud-based e-commerce platform. How would you apply the principles outlined in this text to ensure your system meets business objectives while considering constraints?
+Answer: You would need to forecast and plan for load and capacity, integrate security controls throughout the design process, and consider potential trade-offs between budget and optimal design.</p>
+</li>
+<li>
+<p>What are some potential benefits of using a proof-of-concept approach to cloud service design?
+Answer: A proof-of-concept approach allows designers to test their logic, identify vulnerabilities, and refine their design before scaling up.</p>
+</li>
+<li>
+<p>How might you apply the concept of business continuity and disaster recovery in your own cloud service design project?
+Answer: You would need to consider potential risks, develop a plan for recovery, and ensure that your system can scale to meet changing demands.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>business logic</td>
+<td>Concept</td>
+<td>"an understanding of our business logic and what the requirements of that may be"</td>
+<td>Refers to the underlying rules and processes that govern an organization's operations, influencing the design of the storage data layer.</td>
+</tr>
+<tr>
+<td>storage data layer</td>
+<td>System Component</td>
+<td>"exactly what our storage data layer is going to look like"</td>
+<td>Describes the physical or virtual infrastructure used to store and manage data, which is shaped by the business logic.</td>
+</tr>
+<tr>
+<td>security controls</td>
+<td>Security Measure</td>
+<td>"thorough scrutiny of its security controls and its threat surface"</td>
+<td>Refers to measures taken to protect against unauthorized access, use, disclosure, disruption, modification, or destruction of data, including identity and access management (IAM).</td>
+</tr>
+<tr>
+<td>identity and access management (IAM)</td>
+<td>Security Measure</td>
+<td>"contemplated throughout the design process and integrated into the design where appropriate"</td>
+<td>Describes a set of practices and technologies used to manage user identities and regulate access to resources within an organization.</td>
+</tr>
+<tr>
+<td>bastion hosts, service accounts, access-lists, and firewall rules</td>
+<td>Security Measures</td>
+<td>"considered to bolster some vulnerable areas in the design"</td>
+<td>Refers to specific security controls used to protect against threats, including isolated servers (bastion hosts), secure user credentials (service accounts), network access control lists (access-lists), and network traffic filtering (firewall rules).</td>
+</tr>
+<tr>
+<td>business continuity and disaster recovery</td>
+<td>Concept</td>
+<td>"the concepts and realities of business continuity and disaster"</td>
+<td>Describes the processes and strategies used to ensure an organization's ability to recover from disruptions, including natural disasters, cyber attacks, or other crises.</td>
+</tr>
+<tr>
+<td>proof of concept</td>
+<td>Prototype</td>
+<td>"a working proof of concept, which addresses the logic"</td>
+<td>Refers to a preliminary version of a system or application that demonstrates its feasibility and functionality, often used to test assumptions and validate design decisions.</td>
+</tr>
+<tr>
+<td>resiliency and capacity planning</td>
+<td>Concept</td>
+<td>"resiliency and capacity planning"</td>
+<td>Describes the processes used to ensure an organization's ability to withstand disruptions and scale to meet changing demands, including forecasting capacity and load, and implementing backup systems.</td>
+</tr>
+<tr>
+<td>cloud service design process</td>
+<td>Discipline</td>
+<td>"focusing on cloud service design and process"</td>
+<td>Refers to a set of principles, guidelines, and best practices used to design and deliver cloud-based services, often involving trade-offs between budget constraints and optimal design goals.</td>
+</tr>
+<tr>
+<td>project design constraints</td>
+<td>Concept</td>
+<td>"all the other tiresome constraints that every other IT project has to rail against"</td>
+<td>Describes the various limitations and challenges faced by IT projects, including budget constraints, which must be balanced with the need for optimal design and functionality.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

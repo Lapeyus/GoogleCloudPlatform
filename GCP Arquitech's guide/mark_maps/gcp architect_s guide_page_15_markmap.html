@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_15</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud Pricing
+        ## Overview
+        - Indeed, all cloud providers follow this pay-as-you-use model but it was Google that first introduced billing by the second rather than rounding up to the minute for the virtual machines that you use.
+        
+        ### Initiatives and Features
+        - Initiatives such as charging by the second can have a large impact on monthly billing if you are running thousands of VM instances. However, the per second model for billing is not restricted to the use of virtual machines through the Compute Engine as it is also available for several other services as well:
+        - • Kubernetes Engine, which is GCP's container managed platform
+        - • Infrastructure as a Service,
+        - Cloud Dataproc. which is GCP's open source Big Data system
+        - Hadoop as a service, and
+        - •App Engine Flexible Environment which is GCP's platform as a service.
+        - Cloud Spanner, which is GCPS vastly scalable SQL relational database
+        
+        - Moreover GCP has several other cost reducing or cost management initiatives that you should be aware of and take into consideration when planning deployments of services. For example, Compute Engine offers you discounts based upon consistent use of a VM resource. These discounts are automatically applied to reward sustained usage, i.e. these are automatic discounts for running a virtual machine for more than 25% of the billing month.
+        
+        ### Savings Strategies
+        - Savings can also be made through diligent sizing of the VM that you create. This is because when you initially provision a VM you will select among other things, the memory size and how many virtual CPUs you require. In most cases customers will pick a reconfigured VM from a drop down menu but you can customize your VM.
+        
+        - Because Compute Engine allows you to select the required memory or virtual CPUs when provisioning the VM this enables you to fine-tune the VM to tailor the pricing to match your workloads. Moreover, if you are in development you might want to take advantage of the micro VMs that GCP offers within Compute Engine. These are minimal VMs that are ideal for building prototypes or proof-of-concept models.
+        
+        - By using micro VMs in development you can reduce the cost significantly. Another way is to use pre-emptive VMs to reduce costs. A pre-emptive VM is one that Google can reclaim at any time so they are only suitable for certain applications but the pricing is significantly reduced.
+        
+        ## Avoiding Vendor Lock-In
+        - Earlier in this chapter we highlighted some of the reasons why customers are moving their IT operations to the cloud and to Google Cloud in particular. However not every IT customer was initially enamoured with the prospect of potentially losing control of their data's security and integrity.
+        
+        - That was the major factor amongst customers for not migrating operations to the cloud but there was another common reason and that was the fear of vendor lock-in.
+        
+        - Many companies were concerned that if they migrated their workloads to the cloud they might become so dependent on the providers service that they became effectively locked into a particular vendor. This is a common concern amongst IT leaders.
+
+      </script>
+    </div>
+  </body>
+</html>

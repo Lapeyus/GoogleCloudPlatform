@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_214</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_214_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_214</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Service Level Objectives (SLOs)</h1>
+<h2>Understanding SLOs</h2>
+<p>Contrary to popular belief, SLOs aren't set at the maximum performance a service can achieve. Rather, the business will determine an appropriate  and achievable  level of the performance or reliability that the provider can realistically deliver.</p>
+<h2>Importance of Realism</h2>
+<p>After  all the service must be financially viable so we can't make it too  responsive
+or too available because then it would be too expensive.
+One important thing is that your SLOs are not immutable and they might change as you continually improve and upgrade  your service .</p>
+<h2>Golden Monitoring Signals</h2>
+<p>Also , keep  in mind the four  golden monitoring signals when creating your SLOS: latency, traffic, errors, and resource  saturation.</p>
+<p>When designing your SLOS, it's important to be realistic  and not over optimistic. While we would all like to think  we have designed a service that is 100 percent reliable and available, that  is sadly rarely the case.</p>
+<h2>Error Budget Methodology</h2>
+<p>This is why many organisations use an error budget methodology when it comes to maintenance and managing service windows.
+444</p>
+<h3>Error Budget</h3>
+<p>By taking a realistic approach to maintenance it is assumed that
+every service will not run
+perfectly. Hence, services are given
+acceptable error limits for the SLOS that operate a bit like any financial  budget.</p>
+<p>With an error budget, each service will be  given a set level  of credit which is a set amount of errors, which are measured  in downtime, that are considered acceptable, i.e.  normal and expected  maintenance and service downtime.</p>
+<p>However, any errors in  excess of this budget are considered to be service outages .</p>
+<p>You will commonly see error budgets displayed as  SLAs such as  99.9% and the like.</p>
+<p>Therefore, the goal with an error  budget is to  perform all the system maintenance and updates within this budget .</p>
+<p>The error budget in effect provides a strict window of opportunity  for unscheduled maintenance and servicing.</p>
+<p>Each month there  will be opportunities for implement  changes and applying  updates but as the days go by the error budget is
+replenished.</p>
+<h3>Service Requirements</h3>
+<p>A key design focus is on the requirements that are important to the stakeholders, for example the business goals.</p>
+<p>Requirements are also measurable for example; one operational requirement might be that the service must be highly responsive to users.</p>
+<p>That requirement is now contained in an objective, such as; the system must respond to customer requests in no more than 400 milliseconds latency.</p>
+<p>The design objective can then be mapped to a corresponding measurable service indicator, such as; measuring round trip time between receiving a user request and delivery of a result to the gateway.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Contrary to popular belief, SLOs aren't set at the maximum performance a service can achieve. Rather, the business will determine an appropriate and achievable level of the performance or reliability that the provider can realistically deliver. After all, the service must be financially viable so we can't make it too responsive or too available because then it would be too expensive.
+
+One important thing is that your SLOs are not immutable and they might change as you continually improve and upgrade your service. Also, keep in mind the four golden monitoring signals when creating your SLOS: latency, traffic, errors, and resource saturation. When designing your SLOS, it's essential to be realistic and not over optimistic. While we would all like to think we have designed a service that is 100 percent reliable and available, that is sadly rarely the case.
+
+This is why many organizations use an error budget methodology when it comes to maintenance and managing service windows. By taking a realistic approach to maintenance, it's assumed that every service will not run perfectly. Hence, services are given acceptable error limits for the SLOS that operate a bit like any financial budget.
+
+With an error budget, each service will be given a set level of credit which is a set amount of errors, measured in downtime, that are considered acceptable, i.e., normal and expected maintenance and service downtime. However, any errors in excess of this budget are considered to be service outages. You will commonly see error budgets displayed as SLAs such as 99.9% and the like.
+
+The goal with an error budget is to perform all system maintenance and updates within this budget. The error budget provides a strict window of opportunity for unscheduled maintenance and servicing. Each month, there will be opportunities for implementing changes and applying updates but as the days go by, the error budget is replenished.
+
+Service Requirements
+A key design focus is on the requirements that are important to stakeholders, such as business goals. Requirements are also measurable, for example, one operational requirement might be that the service must be highly responsive to users. That requirement is now contained in an objective, such as; the system must respond to customer requests in no more than 400 milliseconds latency.
+
+The design objective can then be mapped to a corresponding measurable service indicator, such as measuring round trip time between receiving a user request and delivery of a result to the gateway.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Service Level Objectives (SLOs) are Not Set at Maximum Performance</h3>
+<p>Contrary to popular belief, SLOs are not set at the maximum performance a service can achieve. Instead, businesses determine an appropriate and achievable level of performance or reliability that the provider can realistically deliver.</p>
+<h3>Financial Viability and Realistic Expectations</h3>
+<p>The service must be financially viable, so it cannot be made too responsive or too available, as this would be too expensive. SLOs are not immutable and may change as the service is continually improved and upgraded.</p>
+<h3>Four Golden Monitoring Signals</h3>
+<p>When creating SLOS, consider the four golden monitoring signals: latency, traffic, errors, and resource saturation. It's essential to be realistic and not over optimistic when designing SLOs.</p>
+<h3>Error Budget Methodology</h3>
+<p>Many organizations use an error budget methodology for maintenance and managing service windows. This approach assumes that every service will not run perfectly and provides acceptable error limits for the SLOS. Each service is given a set level of credit, which is a set amount of errors measured in downtime, considered acceptable (normal and expected maintenance and service downtime).</p>
+<h3>Service Requirements</h3>
+<p>A key design focus is on the requirements important to stakeholders, such as business goals. Requirements are measurable, like the requirement for high responsiveness to users, contained in an objective, e.g., the system must respond to customer requests in no more than 400 milliseconds latency.</p>
+<h3>Measurable Service Indicators</h3>
+<p>Design objectives can be mapped to corresponding measurable service indicators, such as measuring round trip time between receiving a user request and delivery of a result to the gateway.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Service Performance and Reliability</h3>
+<p>This topic is centered around the concept of Service Level Objectives (SLOs) and their relationship with service performance and reliability. It discusses how SLOs are not set at maximum performance levels, but rather at achievable levels that balance business needs with financial viability.</p>
+<h3>Topic 2: Error Budgeting and Maintenance</h3>
+<p>This topic focuses on the use of error budgets as a maintenance strategy for services. It explains how error budgets provide a framework for acceptable errors and downtime, allowing services to be maintained within a budgeted limit while minimizing service outages.</p>
+<h3>Topic 3: Design Requirements and Objectives</h3>
+<p>This topic emphasizes the importance of design requirements and objectives in defining service performance. It highlights the need to map operational requirements to measurable service indicators, such as latency and round trip time, to ensure that services meet stakeholder needs.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary purpose of Service Level Objectives (SLOs) in a service provider's perspective?
+Answer: SLOs are set at an appropriate and achievable level of performance or reliability that the provider can realistically deliver, considering financial viability.</p>
+</li>
+<li>
+<p>Why are SLOs not immutable?
+Answer: SLOs may change as the service is continually improved and upgraded.</p>
+</li>
+<li>
+<p>What are the four golden monitoring signals when creating SLOS?
+Answer: Latency, traffic, errors, and resource saturation.</p>
+</li>
+<li>
+<p>What is the purpose of an error budget methodology in maintenance and managing service windows?
+Answer: To provide a realistic approach to maintenance by setting acceptable error limits for services.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of financial viability impact SLOs?
+Answer: The business must ensure that the service is financially viable, which means not making it too responsive or available, as this would be too expensive.</p>
+</li>
+<li>
+<p>What is the relationship between SLOs and error budgets?
+Answer: SLOs are related to error budgets in that they provide a realistic approach to maintenance by setting acceptable error limits for services.</p>
+</li>
+<li>
+<p>How do stakeholders' requirements influence SLO design?
+Answer: Stakeholders' requirements, such as business goals, are used to create operational requirements, which are then mapped to measurable service indicators.</p>
+</li>
+<li>
+<p>What is the significance of mapping design objectives to measurable service indicators?
+Answer: It allows for the quantification and tracking of performance metrics, enabling data-driven decision-making.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose a company wants to set an SLO for its web application. How would you help them determine an appropriate level of performance or reliability?
+Answer: I would work with the company to identify their business goals and operational requirements, then map those to measurable service indicators to create a realistic SLO.</p>
+</li>
+<li>
+<p>If a company has an error budget of 99.9%, how would they handle errors exceeding this budget?
+Answer: They would consider any errors in excess of the budget as service outages and prioritize maintenance and updates within the remaining credit.</p>
+</li>
+<li>
+<p>How would you design an SLO for a cloud-based service that requires high availability and low latency?
+Answer: I would work with the company to identify their stakeholders' requirements, such as business goals and operational requirements, then create measurable service indicators to map those objectives to SLOs.</p>
+</li>
+<li>
+<p>What are some potential challenges in implementing an error budget methodology?
+Answer: Potential challenges include ensuring accurate measurement of errors, managing downtime, and balancing maintenance with user needs.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SLOs</td>
+<td>Service Level Objective</td>
+<td>"Contrary to popular belief, SLOs aren't set at the maximum performance a service can achieve."</td>
+<td>A Service Level Objective (SLO) is a measurable target for a service's performance or reliability. It is not set at the maximum possible performance but rather at an achievable level that the provider can realistically deliver.</td>
+</tr>
+<tr>
+<td>Performance</td>
+<td>Metric</td>
+<td>"the business will determine an appropriate and achievable level of the performance"</td>
+<td>Performance refers to the ability of a service to meet its operational requirements. In this context, it means determining a realistic target for the service's performance or reliability.</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Concept</td>
+<td>"the provider can realistically deliver"</td>
+<td>Reliability refers to the ability of a service to operate without failure or interruption. It is an important aspect of service design and planning.</td>
+</tr>
+<tr>
+<td>Financial Viability</td>
+<td>Goal</td>
+<td>"so we can't make it too responsive or too available because then it would be too expensive"</td>
+<td>Financial viability means that a service must be able to generate revenue while also being cost-effective. In this context, it means that the service cannot be made too responsive or available, as this would increase costs.</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Metric</td>
+<td>"latency, traffic, errors, and resource saturation"</td>
+<td>Latency refers to the time it takes for a service to respond to user requests. It is an important aspect of service design and planning.</td>
+</tr>
+<tr>
+<td>Traffic</td>
+<td>Metric</td>
+<td>"latency, traffic, errors, and resource saturation"</td>
+<td>Traffic refers to the volume of users or data that a service handles. It is an important aspect of service design and planning.</td>
+</tr>
+<tr>
+<td>Errors</td>
+<td>Incident</td>
+<td>"errors in excess of this budget are considered to be service outages"</td>
+<td>Errors refer to mistakes or failures that occur within a service. In this context, they are used to measure the performance of the service against its SLOs.</td>
+</tr>
+<tr>
+<td>Error Budget</td>
+<td>Concept</td>
+<td>"an error budget methodology when it comes to maintenance and managing service windows"</td>
+<td>An error budget is a method for managing errors within a service. It provides a framework for measuring and controlling errors in order to ensure that the service meets its operational requirements.</td>
+</tr>
+<tr>
+<td>SLAs</td>
+<td>Standard</td>
+<td>"error budgets displayed as SLAs such as 99.9%"</td>
+<td>Service Level Agreements (SLAs) are contracts between a provider and a customer that outline the terms of service delivery. In this context, they refer to error budgets that are used to measure the performance of a service against its SLOs.</td>
+</tr>
+<tr>
+<td>Stakeholders</td>
+<td>Group</td>
+<td>"requirements that are important to the stakeholders"</td>
+<td>Stakeholders refer to individuals or groups who have an interest in a service or organization. They may include customers, employees, investors, and others. In this context, they refer to those who have a vested interest in the performance of a service.</td>
+</tr>
+<tr>
+<td>Business Goals</td>
+<td>Goal</td>
+<td>"the business goals"</td>
+<td>Business goals refer to the objectives that an organization seeks to achieve through its operations. In this context, they refer to the goals that are relevant to the design and operation of a service.</td>
+</tr>
+<tr>
+<td>Operational Requirements</td>
+<td>Requirement</td>
+<td>"one operational requirement might be that the service must be highly responsive to users"</td>
+<td>Operational requirements refer to the conditions under which a service must operate in order to meet its operational objectives. In this context, they refer to the requirements for responsiveness, availability, and other aspects of service performance.</td>
+</tr>
+<tr>
+<td>Objective</td>
+<td>Goal</td>
+<td>"the system must respond to customer requests in no more than 400 milliseconds latency"</td>
+<td>An objective is a specific goal or target that an organization seeks to achieve through its operations. In this context, it refers to the goal of achieving a certain level of responsiveness within a specified time frame.</td>
+</tr>
+<tr>
+<td>Measurable Service Indicator</td>
+<td>Metric</td>
+<td>"measuring round trip time between receiving a user request and delivery of a result to the gateway"</td>
+<td>A measurable service indicator is a metric that is used to measure the performance of a service against its operational requirements. In this context, it refers to the measurement of round-trip time between user requests and the delivery of results.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

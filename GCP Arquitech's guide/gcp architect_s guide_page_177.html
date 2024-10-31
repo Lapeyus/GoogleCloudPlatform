@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_177</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_177_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_177</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_177_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Regional Load Balancing</h1>
+<h2>Network Load Balancing</h2>
+<h3>Overview</h3>
+<p>Network load balancing allows you to balance the load of your systems based on incoming IP protocol data such as the address, port, and protocol type.</p>
+<h4>Benefits</h4>
+<ul>
+<li>Distributes traffic across a pool of servers.</li>
+<li>Uses traffic forwarding rules to determine which server to connect to within the target pool.</li>
+<li>Defines health checks for instances in the target pool.</li>
+</ul>
+<h3>Regional Load Balancing vs Proxy Load Balancers</h3>
+<ul>
+<li>Network load balancing is regional and non-proxy, meaning it's available across multiple zones and doesn't terminate connections from clients.</li>
+<li>It provides a way to load balance UDP traffic on non-standard ports, which are not supported by global SSL proxy and TCP proxy load balancers.</li>
+</ul>
+<h4>Example Use Case</h4>
+<p>You can use network load balancing to replicate a 3-tier application on the cloud. Each instance could be an Apache webserver, a PHP application server, or a MySQL back-end.</p>
+<h3>How it Works</h3>
+<ol>
+<li>The load balancer receives TCP/IP traffic coming in through the internet at the regional level.</li>
+<li>It redirects traffic across multiple zones via forwarding rule protocols based on IP address, port, or protocol.</li>
+<li>Before forwarding traffic, the load balancer checks against firewall rules to ensure they don't deny forwarding.</li>
+<li>If the traffic is not denied, it's forwarded to the designated target pool and its appropriate VM instance.</li>
+</ol>
+<h3>Additional Features</h3>
+<ul>
+<li>Fail over mechanism: Set up a fail over target pool that exists elsewhere in another zone for redundancy and business continuity purposes.</li>
+<li>Continuous deployment model: Apply the redundant environment to a continuous deployment model.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_177_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Regional Load Balancing
+
+In this chapter so far, we have considered the options for global load balancing, specifically HTTP(S), TCP Proxy, and SSL Proxy. However, there are also regional load balancers that you can deploy, which come in two flavors: network load balancers and internal load balancers.
+
+Network Load Balancing allows you to balance the load of your systems based on incoming IP protocol data such as address, port, and protocol type, and distribute traffic across a pool of servers. To achieve this, network load balancing uses traffic forwarding rules that are applied to incoming traffic flows to determine which server to connect to within the target pool. Each target pool contains server instances set up for load balancing purposes and defines which type of health check should be performed on these instances.
+
+In contrast to HTTP(S), TCP Proxy, and SSL Proxy load balancers, which have global scope, network load balancing is a regional and non-proxy load balancer. When we say that the network load balancer is regional, it means that it is regionally available across multiple zones. Non-proxy means that the network load balancer is effectively a pass-through load balancer as it does not terminate and then proxy connections from its clients. Therefore, the load balancer plays no part in the return path.
+
+However, it does provide a way to load balance UDP traffic as well as TCP and SSL traffic on non-standard ports, which are not supported by global SSL Proxy and TCP Proxy load balancers.
+
+In practice, the networking load balancer receives TCP/IP traffic coming in through the internet at the regional level and can redirect traffic across multiple zones via forwarding rule protocols. For example, you may choose to forward ingress traffic based upon IP address, port, or protocol to a pre-configured target pool of VM instances.
+
+This approach is useful when you have different applications running on different Compute Engine instances. It could be that you are replicating a 3-tier application on the cloud, with one instance being an Apache webserver, another a web-based PHP application server, and the other a MySQL back-end.
+
+Before traffic is forwarded by the load balancer, it will need to check against firewall rules. Remember that load balancers and firewalls are not physical devices, so this doesn't add latency or change in subnet as they are all part of the SDN. Therefore, checks to see if traffic matches any firewall rule that denies its forwarding are performed almost simultaneously and near instantaneously.
+
+Once the firewall rules have been checked, it is either dropped or forwarded to the designated target pool and its appropriate VM instance. This is a simple use case example, but we could add some added features such as a fail-over mechanism, set up a health check, and then have a fail-over target pool which could exist elsewhere in another zone for redundancy and business continuity purposes.
+
+Regional Load Balancing
+
+In this chapter so far, we have considered the options for global load balancing, specifically HTTP(S), TCP Proxy, and SSL Proxy. However, there are also regional load balancers that you can deploy, which come in two flavors: network load balancers and internal load balancers.
+
+Network Load Balancing allows you to balance the load of your systems based on incoming IP protocol data such as address, port, and protocol type, and distribute traffic across a pool of servers. To achieve this, network load balancing uses traffic forwarding rules that are applied to incoming traffic flows to determine which server to connect to within the target pool. Each target pool contains server instances set up for load balancing purposes and defines which type of health check should be performed on these instances.
+
+In contrast to HTTP(S), TCP Proxy, and SSL Proxy load balancers, which have global scope, network load balancing is a regional and non-proxy load balancer. When we say that the network load balancer is regional, it means that it is regionally available across multiple zones. Non-proxy means that the network load balancer is effectively a pass-through load balancer as it does not terminate and then proxy connections from its clients. Therefore, the load balancer plays no part in the return path.
+
+However, it does provide a way to load balance UDP traffic as well as TCP and SSL traffic on non-standard ports, which are not supported by global SSL Proxy and TCP Proxy load balancers.
+
+In practice, the networking load balancer receives TCP/IP traffic coming in through the internet at the regional level and can redirect traffic across multiple zones via forwarding rule protocols. For example, you may choose to forward ingress traffic based upon IP address, port, or protocol to a pre-configured target pool of VM instances.
+
+This approach is useful when you have different applications running on different Compute Engine instances. It could be that you are replicating a 3-tier application on the cloud, with one instance being an Apache webserver, another a web-based PHP application server, and the other a MySQL back-end.
+
+Before traffic is forwarded by the load balancer, it will need to check against firewall rules. Remember that load balancers and firewalls are not physical devices, so this doesn't add latency or change in subnet as they are all part of the SDN. Therefore, checks to see if traffic matches any firewall rule that denies its forwarding are performed almost simultaneously and near instantaneously.
+
+Once the firewall rules have been checked, it is either dropped or forwarded to the designated target pool and its appropriate VM instance. This is a simple use case example, but we could add some added features such as a fail-over mechanism, set up a health check, and then have a fail-over target pool which could exist elsewhere in another zone for redundancy and business continuity purposes.
+
+Of course, we don't have to just use that redundant environment just for fail-over; it could equally apply to a continuous deployment model.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_177_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Regional Load Balancing</h3>
+<p>Regional load balancing is an option for load balancing that can be deployed, offering two flavors: network load balancers and internal load balancers.</p>
+<h4>Network Load Balancing</h4>
+<p>Network load balancing allows you to balance the load of your systems based on incoming IP protocol data such as address, port, and protocol type. It distributes traffic across a pool of servers using traffic forwarding rules that determine which server to connect to within the target pool.</p>
+<p>Each target pool contains server instances set up for load balancing purposes and defines the type of health check to be performed on these instances. Network load balancers are regional and non-proxy load balancers, meaning they are regionally available across multiple zones and do not terminate connections from clients.</p>
+<p>This approach provides a way to load balance UDP traffic as well as TCP and SSL traffic on non-standard ports, which is not supported by global SSL proxy and TCP proxy load balancers. Network load balancers can redirect traffic across multiple zones via forwarding rule protocols based on IP address, port, or protocol.</p>
+<p>In practice, network load balancers receive TCP/IP traffic coming in through the internet at the regional level and forward it to a pre-configured target pool of VM instances. This allows for different applications running on different Compute Engine instances to be load balanced.</p>
+<p>Before forwarding traffic, the load balancer checks against firewall rules. Since load balancers and firewalls are not physical devices, this process does not add latency or change in subnet, as they are part of the SDN. The checks are performed almost simultaneously and near instantaneously.</p>
+<p>Network load balancing can be used for simple use cases, but it can also be extended with features such as fail-over mechanisms, health checks, and redundant environments for business continuity purposes. It can also apply to continuous deployment models.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_177_lda.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Topic 1</h3>
+<p>Network Load Balancing: A regional load balancer that balances traffic based on IP protocol data, distributing it across a pool of servers.</p>
+<h3>Topic 2</h3>
+<p>Regional Load Balancers: A type of load balancer that is regionally available and non-proxy, providing a way to load balance UDP traffic as well as TCP and SSL traffic on non-standard ports.</p>
+<h3>Topic 3</h3>
+<p>Network Load Balancing in Practice: The networking load balancer receives TCP/IP traffic at the regional level, redirecting it across multiple zones via forwarding rule protocols, and checks against firewall rules before forwarding traffic to designated target pools.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_177_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the two flavors of regional load balancers?
+Answer: Network Load Balancers and Internal Load Balancers.</p>
+</li>
+<li>
+<p>How does network load balancing distribute traffic across servers?
+Answer: By using traffic forwarding rules that determine which server to connect to within a target pool.</p>
+</li>
+<li>
+<p>What is unique about network load balancers compared to HTTP(S), TCP proxy, and SSL Proxy load balancers?
+Answer: Network load balancers are regional and non-proxy load balancers, meaning they are regionally available across multiple zones and do not terminate connections from clients.</p>
+</li>
+<li>
+<p>What types of traffic can network load balancers handle on non-standard ports?
+Answer: UDP traffic, as well as TCP and SSL traffic on non-standard ports.</p>
+</li>
+<li>
+<p>How does the networking load balancer receive traffic coming in through the internet at a regional level?
+Answer: By using forwarding rule protocols to redirect traffic across multiple zones.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages of using network load balancing for load distribution, and how does it differ from other types of load balancers?
+Answer: Network load balancing allows for regional availability, non-proxy functionality, and support for UDP traffic on non-standard ports, making it a suitable option for certain use cases.</p>
+</li>
+<li>
+<p>How do network load balancers handle firewall rules, and what are the implications for latency and subnet changes?
+Answer: Network load balancers perform checks against firewall rules almost simultaneously and near instantaneously, without adding latency or changing subnets due to their non-physical nature as part of the SDN.</p>
+</li>
+<li>
+<p>What are some potential use cases for network load balancing beyond simple fail-over mechanisms and health checks?
+Answer: Network load balancing can be used in continuous deployment models, redundant environments, and other scenarios where regional availability and non-proxy functionality are beneficial.</p>
+</li>
+<li>
+<p>How do internal load balancers differ from network load balancers in terms of their scope and functionality?
+Answer: Internal load balancers have a global scope and terminate connections from clients, whereas network load balancers are regional and non-proxy, with the latter not terminating connections.</p>
+</li>
+<li>
+<p>What are some potential applications for network load balancing beyond cloud computing environments?
+Answer: Network load balancing can be applied in various scenarios where regional availability and non-proxy functionality are required, such as in content delivery networks (CDNs) or other distributed systems.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_177_entities.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network Load Balancing</td>
+<td>Concept</td>
+<td>"In this chapter so far we have considered the options for global load balancing, specifically the HTTP(S), TCP Proxy and the SSL  Proxy."</td>
+<td>A regional load balancer that balances traffic based on incoming IP protocol data, distributing it across a pool of servers. It uses traffic forwarding rules to determine which server to connect to within the target pool.</td>
+</tr>
+<tr>
+<td>Network Load Balancing (Regional)</td>
+<td>Concept</td>
+<td>"When we say that the network load balancer is regional it means that it is regionally available across multiple zones."</td>
+<td>A regional version of the network load balancer, meaning it's available across multiple zones and has a global scope. It's non-proxy, meaning it doesn't terminate connections from clients.</td>
+</tr>
+<tr>
+<td>Network Load Balancing (Non-Proxy)</td>
+<td>Concept</td>
+<td>"Non-proxy means that the network load balancer is effectively a pass-through load balancer as it does not terminate and then proxy connections from its clients."</td>
+<td>A characteristic of the regional network load balancer, indicating it's a pass-through load balancer that doesn't modify or terminate client connections.</td>
+</tr>
+<tr>
+<td>Network Load Balancing (UDP Traffic)</td>
+<td>Concept</td>
+<td>"However, it does provide a way to load balance UDP traffic as well as TCP and SSL traffic on non-standard ports."</td>
+<td>A feature of the network load balancer, allowing it to handle UDP traffic on non-standard ports, which is not supported by global SSL proxy and TCP proxy load balancers.</td>
+</tr>
+<tr>
+<td>Target Pool</td>
+<td>Concept</td>
+<td>"Each of the target pools contains the server instances that are setup for load balancing purposes..."</td>
+<td>A collection of server instances used for load balancing, defined within a network load balancer configuration. Each pool defines health checks to be performed on its instances.</td>
+</tr>
+<tr>
+<td>Traffic Forwarding Rules</td>
+<td>Concept</td>
+<td>"...traffic forwarding rules that are applied to the incoming traffic flows..."</td>
+<td>Rules used by the network load balancer to determine which server to connect to within a target pool based on incoming IP protocol data, such as address, port, and protocol type.</td>
+</tr>
+<tr>
+<td>Firewall Rules</td>
+<td>Concept</td>
+<td>"Before the traffic is forwarded by the load balancer it will need to check against the firewall rules..."</td>
+<td>Rules used to control incoming traffic, checked by the network load balancer before forwarding traffic to a target pool. These rules can deny or allow traffic based on various criteria.</td>
+</tr>
+<tr>
+<td>Compute Engine Instances</td>
+<td>Entity</td>
+<td>"...different applications running on different Compute Engine instances."</td>
+<td>Virtual machines (VMs) running on the Compute Engine platform, used as targets for load balancing in a network load balancer configuration. Each instance may run a different application.</td>
+</tr>
+<tr>
+<td>Apache Webserver</td>
+<td>Application</td>
+<td>"One instance might then be an Apache webserver..."</td>
+<td>A type of web server software that can be deployed on Compute Engine instances, potentially running behind a network load balancer.</td>
+</tr>
+<tr>
+<td>PHP Application Server</td>
+<td>Application</td>
+<td>"...another a web based PHP application server..."</td>
+<td>A type of web application server software that can be deployed on Compute Engine instances, potentially running behind a network load balancer.</td>
+</tr>
+<tr>
+<td>MySQL Back-end</td>
+<td>Application</td>
+<td>"...the other could be a MySQL back-end."</td>
+<td>A database management system used as the back-end for a web application, potentially running on Compute Engine instances behind a network load balancer.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

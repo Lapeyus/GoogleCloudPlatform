@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_48</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud Storage
+        ## Overview
+        - Google Cloud Storage (GCS) is an object file storage system that stores data as arbitrary bytes - blobs - and addresses them with unique keys. This allows for web-friendly interactions and doesn't require provisioning capacity or developing a schema.
+        
+        ### Key Features
+        
+        #### **Immutable Objects**
+        - Storage objects within a bucket are immutable, meaning they cannot be edited in place. Instead, new versions are created.
+        
+        #### **Encryption**
+        - Data is encrypted on the server side before writing to disk, and encryption is applied by default at rest and when data is in-transit using HTTPS.
+        
+        ### Use Cases
+        - Serving website content
+        - Archiving data
+        - Disaster recovery
+        
+        ## Benefits
+        - No need to provision capacity or develop a schema
+        - High durability and availability
+        - Web-friendly with URL-based access
+        
+        ## Best Practices
+        - Choose a location close to your customer base for minimal latency
+        - Consider legal restrictions on data storage in certain countries
+        
+        ### Storage Buckets
+        - Create a globally unique name for the bucket
+        - Specify a geographic location for storage
+        - Choose a default storage class
+        
+        ### Security
+        - Data is encrypted on the server side before writing to disk
+        - Encryption is applied by default at rest and when data is in-transit using HTTPS
+
+      </script>
+    </div>
+  </body>
+</html>

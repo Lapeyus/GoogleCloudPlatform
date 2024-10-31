@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_214</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Service Level Objectives (SLOs)
+        ## Understanding SLOs
+        - Contrary to popular belief, SLOs aren't set at the maximum performance a service can achieve. Rather, the business will determine an appropriate  and achievable  level of the performance or reliability that the provider can realistically deliver.
+        
+        ## Importance of Realism
+        - After  all the service must be financially viable so we can't make it too  responsive
+        - or too available because then it would be too expensive.
+        - One important thing is that your SLOs are not immutable and they might change as you continually improve and upgrade  your service .
+        
+        ## Golden Monitoring Signals
+        - Also , keep  in mind the four  golden monitoring signals when creating your SLOS: latency, traffic, errors, and resource  saturation.
+        
+        - When designing your SLOS, it's important to be realistic  and not over optimistic. While we would all like to think  we have designed a service that is 100 percent reliable and available, that  is sadly rarely the case.
+        
+        ## Error Budget Methodology
+        - This is why many organisations use an error budget methodology when it comes to maintenance and managing service windows.
+        - 444
+        
+        ### Error Budget
+        - By taking a realistic approach to maintenance it is assumed that
+        - every service will not run
+        - perfectly. Hence, services are given
+        - acceptable error limits for the SLOS that operate a bit like any financial  budget.
+        
+        - With an error budget, each service will be  given a set level  of credit which is a set amount of errors, which are measured  in downtime, that are considered acceptable, i.e.  normal and expected  maintenance and service downtime.
+        
+        - However, any errors in  excess of this budget are considered to be service outages .
+        
+        - You will commonly see error budgets displayed as  SLAs such as  99.9% and the like.
+        
+        - Therefore, the goal with an error  budget is to  perform all the system maintenance and updates within this budget .
+        
+        - The error budget in effect provides a strict window of opportunity  for unscheduled maintenance and servicing.
+        
+        - Each month there  will be opportunities for implement  changes and applying  updates but as the days go by the error budget is
+        - replenished.
+        
+        ### Service Requirements
+        - A key design focus is on the requirements that are important to the stakeholders, for example the business goals.
+        
+        - Requirements are also measurable for example; one operational requirement might be that the service must be highly responsive to users.
+        
+        - That requirement is now contained in an objective, such as; the system must respond to customer requests in no more than 400 milliseconds latency.
+        
+        - The design objective can then be mapped to a corresponding measurable service indicator, such as; measuring round trip time between receiving a user request and delivery of a result to the gateway.
+
+      </script>
+    </div>
+  </body>
+</html>

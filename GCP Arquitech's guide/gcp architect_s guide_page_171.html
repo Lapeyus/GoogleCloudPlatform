@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_171</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_171_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_171</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Managed Instance Groups</h1>
+<h2>Overview</h2>
+<p>Managed Instance Groups can work with load balancing services to distribute network traffic to all of the instances in the group.
+Furthermore, using Managed Instance Groups provides a robust automated system for maintaining service availability.</p>
+<h2>Key Features</h2>
+<ul>
+<li>Automatically restarts if a VM instance in the group should stop, crash, or be accidentally deleted</li>
+<li>Recreated VM instance uses the same name and instance template as the previous instance</li>
+<li>Useful for identifying and recreating unhealthy instances in a group</li>
+</ul>
+<h2>Creating Managed Instance Groups</h2>
+<h3>Steps</h3>
+<ol>
+<li>Create an instance template using the console.</li>
+<li>Use the instance template to create a managed instance group of 'n' specified instances.</li>
+<li>Define specific rules to apply to the instance group, such as:</li>
+<li>Single or multi zoned?</li>
+<li>Location of instances?</li>
+<li>Ports allowed and load balanced?</li>
+<li>Auto scaling criteria?</li>
+<li>Minimum and maximum number of instances?</li>
+<li>Health check criteria?</li>
+</ol>
+<h3>Rules for Health Check</h3>
+<ul>
+<li>Configurable with complex criteria and thresholds</li>
+<li>Supports HTTP, HTTPS, TCP, and SSL or TLS</li>
+</ul>
+<h2>Regional Managed Instance Groups</h2>
+<ul>
+<li>Can distribute instances across multiple zones in the same region</li>
+<li>Used to support autoscaling, network load balancing, and HTTPS load balancing</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The relevance of Managed Instance Groups in this chapter is that they can work with load balancing services to distribute network traffic to all of the instances in the group. Furthermore, using Managed Instance Groups provides a robust automated system for maintaining service availability.
+
+For example, if a VM instance in the group stops, crashes, or is accidentally deleted, the managed instance group will automatically restart it and recreate the VM so that it can resume its place in the group and continue processing tasks. A notable feature of this process is that the recreated VM instance uses the same name and instance template as the previous instance, even if the group references a different instance template.
+
+Another caveat is that restarting and recreating an instance does not occur if the instance was stopped or deleted via the instance group's commands. Additionally, Managed Instance Groups are useful in identifying and recreating unhealthy instances in a group, ensuring that all instances in a group are running optimally.
+
+You can create regional Managed Instance Groups, which distribute instances across multiple zones in the same region, supporting autoscaling, network load balancing, and HTTPS load balancing. Creating these groups is straightforward: you create an instance template using the console, then use this template to create a managed instance group of 'n' specified instances.
+
+During the creation process, you can define specific rules to apply to the instance group, such as whether it should be single or multi-zoned, where instances will be located, and what ports are allowed and load balanced. You can also configure autoscaling criteria, health check settings, and periodicity for the health check.
+
+The health check capabilities built-in for managing instance groups support HTTP, HTTPS, TCP, and SSL/TLS protocols, allowing you to configure complex criteria and thresholds to determine when an instance is unhealthy.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Managed Instance Groups in Azure: Key Features and Benefits</h3>
+<p>Managed Instance Groups (MIGs) play a crucial role in ensuring high availability and scalability of applications running on Azure Virtual Machines (VMs). By leveraging MIGs, users can create robust automated systems for maintaining service availability.</p>
+<h4>Key Features of Managed Instance Groups</h4>
+<ul>
+<li><strong>Load Balancing</strong>: MIGs can work with load balancing services to distribute network traffic to all instances in the group.</li>
+<li><strong>Automated Service Availability</strong>: If a VM instance in the group stops, crashes, or is deleted, the managed instance group will automatically restart it. Additionally, if an instance needs to be recreated, the new instance will use the same name and instance template as the previous one.</li>
+<li><strong>Regional Support</strong>: MIGs can be created across multiple zones within a region, providing improved availability and scalability.</li>
+</ul>
+<h4>Benefits of Managed Instance Groups</h4>
+<ul>
+<li><strong>Improved Service Availability</strong>: By automatically restarting or recreating instances, MIGs ensure that applications remain available even in the event of failures.</li>
+<li><strong>Enhanced Scalability</strong>: MIGs enable users to scale their applications up or down as needed, without manual intervention.</li>
+<li><strong>Health Check Capabilities</strong>: Built-in health check capabilities allow users to configure complex criteria and thresholds for determining instance health.</li>
+</ul>
+<h4>Creating Managed Instance Groups</h4>
+<p>To create an MIG, follow these steps:</p>
+<ol>
+<li>Create an instance template using the Azure portal or Azure CLI.</li>
+<li>Use the instance template to create a managed instance group with 'n' specified instances.</li>
+<li>Define specific rules for the instance group, including:<ul>
+<li>Zone configuration (single or multi-zoned)</li>
+<li>Instance location</li>
+<li>Port configuration and load balancing</li>
+<li>Autoscaling settings</li>
+<li>Minimum and maximum instance count criteria</li>
+<li>Health check criteria with periodicity and method options</li>
+</ul>
+</li>
+</ol>
+<p>By leveraging Managed Instance Groups, users can create robust automated systems for maintaining service availability, scalability, and high performance in their Azure-based applications.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Load Balancing and Traffic Distribution</h3>
+<p>Managed Instance Groups can work with load balancing services to distribute network traffic to all instances in the group.</p>
+<h3>Topic 2: Automated Service Availability</h3>
+<p>Using Managed Instance Groups provides a robust automated system for maintaining service availability, including automatic restarts and recreations of VM instances.</p>
+<h3>Topic 3: Health Check Capabilities</h3>
+<p>Managed Instance Groups have built-in health check capabilities that support HTTP, HTTPS, TCP, and SSL or TLS, allowing for complex criteria and thresholds to determine instance health.</p>
+<h3>Topic 4: Regional Distribution and Autoscaling</h3>
+<p>Regional Managed Instance Groups can distribute instances across multiple zones in the same region, supporting autoscaling, network load balancing, and HTTPS load balancing.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary function of Managed Instance Groups in relation to load balancing services?
+Answer: To distribute network traffic to all instances in the group.</p>
+</li>
+<li>
+<p>How does a Managed Instance Group handle deleted instances?
+Answer: It automatically restarts if an instance stops, crashes, or is accidentally deleted.</p>
+</li>
+<li>
+<p>What happens when an instance is recreated due to a stop or deletion via the instance group's commands?
+Answer: The instance is not restarted or recreated.</p>
+</li>
+<li>
+<p>What is the purpose of regional Managed Instance Groups?
+Answer: To distribute instances across multiple zones in the same region and support autoscaling, network load balancing, and HTTPS load balancing.</p>
+</li>
+<li>
+<p>How are instance templates created for Managed Instance Groups?
+Answer: Using the console, following the same steps as manually creating an instance, but with recorded properties that can be repeated.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some benefits of using Managed Instance Groups in terms of service availability?
+Answer: Robust automated system, ensuring instances remain running and processing tasks even after deletion or stoppage.</p>
+</li>
+<li>
+<p>How do the health check capabilities of Managed Instance Groups impact their functionality?
+Answer: Built-in for managing instance groups, load balancing, and autoscaling, with support for complex criteria and thresholds to determine unhealthy instances.</p>
+</li>
+<li>
+<p>What are some key considerations when defining rules for an instance group?
+Answer: Single or multi-zoned, location, ports allowed, auto-scaling, minimum and maximum instance numbers, and health check criteria.</p>
+</li>
+<li>
+<p>How do regional Managed Instance Groups differ from single-zone groups in terms of their functionality?
+Answer: They distribute instances across multiple zones in the same region, supporting autoscaling, network load balancing, and HTTPS load balancing.</p>
+</li>
+<li>
+<p>What are some potential drawbacks to using Managed Instance Groups?
+Answer: None explicitly mentioned in the provided text; however, one might consider the added complexity of managing instance groups compared to single-zone groups.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a scenario where you would use regional Managed Instance Groups for autoscaling and load balancing.
+Answer: A high-traffic web application with multiple zones in the same region, requiring automatic scaling and load distribution across instances.</p>
+</li>
+<li>
+<p>Create an instance template using the console, following the steps outlined in the text.
+Answer: (This question requires hands-on experience with the GCP console.)</p>
+</li>
+<li>
+<p>Develop a plan for implementing Managed Instance Groups in your organization's infrastructure.
+Answer: Assess current infrastructure needs, define rules for instance groups, and establish procedures for managing and monitoring these groups.</p>
+</li>
+<li>
+<p>Compare and contrast Managed Instance Groups with single-zone instance groups in terms of their functionality and benefits.
+Answer: Regional Managed Instance Groups offer more flexibility and scalability, while single-zone groups are simpler to manage but may not support the same level of distribution and load balancing.</p>
+</li>
+<li>
+<p>Research and propose a solution for implementing health checks using GCP's built-in capabilities.
+Answer: (This question requires research into GCP's health check capabilities and proposing a solution based on those findings.)</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Managed Instance Groups</td>
+<td>Concept</td>
+<td>"The relevance of Managed Instance Groups in this chapter is that..."</td>
+<td>Managed Instance Groups are a feature of Google Cloud Platform (GCP) that allows for the creation of groups of virtual machine instances. They provide a robust automated system for maintaining service availability and can work with load balancing services to distribute network traffic to all instances in the group.</td>
+</tr>
+<tr>
+<td>Load Balancing Services</td>
+<td>Concept</td>
+<td>"...they can work with load balancing services..."</td>
+<td>Load Balancing Services are a feature of GCP that distributes network traffic across multiple virtual machine instances. They provide high availability, scalability, and reliability for applications. Managed Instance Groups can be used to distribute network traffic to all instances in the group.</td>
+</tr>
+<tr>
+<td>Network Traffic</td>
+<td>Concept</td>
+<td>"...distribute network traffic to all of the instances in the group."</td>
+<td>Network Traffic refers to the flow of data between devices on a network. In the context of GCP, it refers to the traffic that is routed through virtual machine instances. Managed Instance Groups can distribute network traffic across multiple instances in a group.</td>
+</tr>
+<tr>
+<td>Autoscaling</td>
+<td>Concept</td>
+<td>"...and this will ensure that all the instances in a group are running optimally."</td>
+<td>Autoscaling is a feature of GCP that automatically adjusts the number of virtual machine instances based on demand. It ensures that applications have enough resources to handle changes in traffic or workload. Managed Instance Groups can be used to support autoscaling by automatically recreating instances when needed.</td>
+</tr>
+<tr>
+<td>Regional Managed Instance Groups</td>
+<td>Concept</td>
+<td>"...as you can create regional Managed Instance Groups which distribute instances across multiple zones in the same region."</td>
+<td>Regional Managed Instance Groups are a type of Managed Instance Group that distributes virtual machine instances across multiple zones in a region. They provide high availability and scalability for applications.</td>
+</tr>
+<tr>
+<td>Single Zones</td>
+<td>Location</td>
+<td>"...you're not restricted to working with instance groups that belong only in single zones..."</td>
+<td>A single zone is a geographic location within a region where data can be stored and processed. In the context of GCP, it refers to a specific area where virtual machine instances are located. Regional Managed Instance Groups can distribute instances across multiple zones in a region.</td>
+</tr>
+<tr>
+<td>HTTPS Load Balancing</td>
+<td>Service</td>
+<td>"...Regional Managed Instant Groups are also used to support autoscaling, network load balancing, and HTTPS load balancing."</td>
+<td>HTTPS Load Balancing is a feature of GCP that distributes network traffic across multiple virtual machine instances using the HTTPS protocol. It provides high availability, scalability, and reliability for applications.</td>
+</tr>
+<tr>
+<td>Instance Templates</td>
+<td>Concept</td>
+<td>"...The first step is to create an instance template..."</td>
+<td>An instance template is a pre-configured set of properties that can be used to create virtual machine instances. In the context of GCP, it refers to a template that defines the settings for a Managed Instance Group.</td>
+</tr>
+<tr>
+<td>Health Checks</td>
+<td>Service</td>
+<td>"...and what criteria we want to use for the health check?"</td>
+<td>A health check is a feature of GCP that monitors the status of virtual machine instances and determines whether they are healthy or unhealthy. It provides high availability and scalability for applications by automatically recreating instances when needed.</td>
+</tr>
+<tr>
+<td>TCP</td>
+<td>Protocol</td>
+<td>"...GCP health checks support HTTP, HTTPS, TCP, and SSL or TLS."</td>
+<td>TCP (Transmission Control Protocol) is a protocol used for communication over the internet. In the context of GCP, it refers to a protocol that can be used for health checks.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

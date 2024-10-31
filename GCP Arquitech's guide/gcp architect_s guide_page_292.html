@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_292</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_292_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_292</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Monitoring and Logging in Cloud Services</h1>
+<h2>Overview</h2>
+<p>Monitoring and logging are crucial for ensuring the health and performance of cloud-based applications. In this section, we will explore various methods for monitoring and logging different types of data.</p>
+<h3>Timeliness of Data</h3>
+<p>To ensure that all incoming data is recorded in real-time, periodic queries can be made to a big table or log data. This approach allows for timely detection of any issues with the data storage logs.</p>
+<h2>Monitoring Queue Mechanisms</h2>
+<p>Monitoring queue mechanisms in Pub/Sub can help detect issues with the ingress process. If the queue becomes too far behind, it may indicate that cloud functions are not scaling quickly enough to handle the processing. This can be achieved through white box monitoring, where the focus is on determining if any of the logs are out of date.</p>
+<h2>Black Box Monitoring</h2>
+<p>Black box monitoring involves detecting anomalies in network uptime and data ingestion. By combining this with queue monitoring, potential issues between the two can be identified.</p>
+<h2>Solution Architectures</h2>
+<p>Google provides solution architectures for various use cases, which can be found on <a href="https://cloud.google.com/solutions">cloud.google.com/solutions</a>. These solutions showcase synergies between services and offer custom tweaks specific to certain verticals.</p>
+<h3>Example Use Cases</h3>
+<ul>
+<li>Monitoring web logs and app logs</li>
+<li>Checking timeliness of data storage logs</li>
+<li>Monitoring queue mechanisms in Pub/Sub</li>
+<li>Detecting anomalies in network uptime and data ingestion</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Say we're not getting the data storage logs, but we are getting web logs and app logs. We also want to be able to monitor for all these different services. To do this, we could check for the timeliness of all this incoming data. Therefore, we would periodically query a big table or query our log data to make sure that it's recorded in real time.
+
+We could also potentially monitor the queue mechanisms in Pub Sub. If the ingress process began to get too far behind, perhaps due to cloud functions not scaling quickly enough to handle the processing, then we could detect this. We could do this as a white box monitoring method, where we'd monitor to determine if any of these logs are out of date. Then our black box would monitor for network uptime, and as we're already monitoring queues and checking for data ingestion, we might discover anomalies between the two.
+
+This is only one single example application, but there are many different solutions available. Google actually publishes solution architectures that cover many diverse use cases. If you go to cloud.google.com/solutions, you'll find a wide range of case studies and solutions designed for many different business and industry vertical markets. You can see a lot of synergies between the two and how they take advantage of services, but there are custom tweaks specific to certain verticals.
+
+Google publishes solution architectures which cover many diverse use cases. So, if you go to cloud.google.com/solutions, you're going to find a wide range of case studies and solutions designed for many different business and industry vertical markets.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p>To monitor multiple services, including web logs, app logs, and data storage logs, we can employ a combination of white box and black box monitoring methods. The former involves periodically querying log data to ensure it is recorded in real-time, while the latter focuses on detecting anomalies in queue mechanisms, such as Pub Sub.</p>
+<p>By checking the timeliness of incoming data, we can identify potential issues with data storage logs. Additionally, monitoring queue mechanisms can help detect if cloud functions are not scaling quickly enough to handle processing, potentially leading to delays or errors.</p>
+<p>To achieve this, Google provides solution architectures that cover various use cases and industries. By leveraging these solutions, businesses can take advantage of synergies between services while making custom tweaks specific to their vertical markets.</p>
+<p>Key points:</p>
+<ul>
+<li>White box monitoring involves querying log data to ensure real-time recording.</li>
+<li>Black box monitoring focuses on detecting anomalies in queue mechanisms, such as Pub Sub.</li>
+<li>Monitoring queue mechanisms can help identify issues with cloud function scaling and processing.</li>
+<li>Google provides solution architectures for diverse use cases and industries.</li>
+<li>Custom tweaks are possible for specific vertical markets.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Real-time Data Monitoring</h3>
+<p>Monitoring timeliness of incoming data from web logs, app logs, and other services.</p>
+<h3>Topic 2: Queue Mechanism Monitoring</h3>
+<p>Detecting anomalies in Pub Sub queue mechanisms, including ingress process delays and network uptime issues.</p>
+<h3>Topic 3: Cloud Function Scaling</h3>
+<p>Identifying when cloud functions are not scaling quickly enough to handle processing demands.</p>
+<h3>Topic 4: Solution Architectures and Customization</h3>
+<p>Exploring Google's solution architectures for diverse use cases and customizing them for specific business and industry vertical markets.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What is the main challenge in monitoring data from various services such as web logs, app logs, and Pub/Sub queues?</li>
+<li>How can we ensure that our log data is recorded in real-time?</li>
+<li>What type of monitoring method would be used to detect anomalies between log data and network uptime?</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>How does the use of a big table or querying log data periodically relate to ensuring timeliness of incoming data?</li>
+<li>What are some potential consequences if the ingress process in Pub/Sub becomes too far behind, and how can this be detected?</li>
+<li>How do solution architectures published by Google on cloud.google.com/solutions help address diverse use cases?</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>Design a monitoring system that incorporates both white box and black box methods to detect anomalies between log data and network uptime.</li>
+<li>Choose a specific service from the list of solutions available on cloud.google.com/solutions, and explain how it addresses a particular business or industry vertical market's needs.</li>
+<li>Develop a plan for implementing real-time logging and monitoring for a new application built on Google Cloud Platform.</li>
+</ol>
+<h3>Critical Thinking Questions</h3>
+<ol>
+<li>How might the lack of data storage logs impact our ability to monitor and analyze log data from other services?</li>
+<li>What are some potential trade-offs between using white box versus black box monitoring methods, and how can these be balanced in a real-world scenario?</li>
+<li>How can we ensure that our monitoring system is scalable and adaptable to changing business needs and requirements?</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data storage logs</td>
+<td>Log type</td>
+<td>Not available</td>
+<td>Not applicable</td>
+</tr>
+<tr>
+<td>web logs</td>
+<td>Log type</td>
+<td>"we're getting web logs"</td>
+<td>Web logs are used to monitor and analyze website traffic, providing insights into user behavior, page views, and other relevant metrics.</td>
+</tr>
+<tr>
+<td>app logs</td>
+<td>Log type</td>
+<td>"we're getting app logs"</td>
+<td>App logs are used to monitor and analyze application performance, errors, and other issues, providing insights into the application's functionality and reliability.</td>
+</tr>
+<tr>
+<td>Pub Sub queues</td>
+<td>Service</td>
+<td>"queue mechanisms in Pub Sub"</td>
+<td>Pub/Sub (Publish/Subscribe) is a messaging service that allows for asynchronous communication between services. Queues refer to the channels through which messages are exchanged between publishers and subscribers. Monitoring queue mechanisms can help detect issues with message processing, latency, or throughput.</td>
+</tr>
+<tr>
+<td>cloud functions</td>
+<td>Service</td>
+<td>"cloud functions are not scaling quick enough"</td>
+<td>Cloud Functions are serverless compute services that allow developers to run code without managing servers. They provide a scalable and on-demand computing environment for applications.</td>
+</tr>
+<tr>
+<td>network uptime</td>
+<td>Metric</td>
+<td>"monitoring the network up time"</td>
+<td>Network uptime refers to the availability and reliability of a network, indicating whether it is functioning correctly and providing connectivity to users. Monitoring network uptime can help detect issues with network infrastructure or services.</td>
+</tr>
+<tr>
+<td>big table</td>
+<td>Data storage</td>
+<td>"periodically query a big table"</td>
+<td>A big table is a large-scale data storage solution that can handle high volumes of data. Querying a big table periodically can help ensure that data is up-to-date and accurate, providing insights into application performance and user behavior.</td>
+</tr>
+<tr>
+<td>black box monitoring</td>
+<td>Monitoring method</td>
+<td>"black box would monitor for the network up time"</td>
+<td>Black box monitoring refers to the use of automated tools to analyze and detect issues in systems or services without direct human intervention. In this context, it is used to monitor network uptime and detect anomalies between queue mechanisms and data ingestion.</td>
+</tr>
+<tr>
+<td>white box monitoring</td>
+<td>Monitoring method</td>
+<td>"white box would monitor to determine if any of these logs are out of date"</td>
+<td>White box monitoring refers to the use of manual or semi-manual tools to analyze and inspect systems or services. In this context, it is used to monitor log timeliness and detect issues with data storage.</td>
+</tr>
+<tr>
+<td>cloud.google.com/solutions</td>
+<td>Resource</td>
+<td>"Google actually publish solution architectures"</td>
+<td>Cloud Google Solutions is a resource provided by Google that offers case studies and solutions for various business and industry vertical markets. It provides insights into how Google's services can be tailored to meet specific use cases and requirements.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

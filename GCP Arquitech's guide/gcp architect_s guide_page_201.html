@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_201</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_201_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_201</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_201_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Cluster Federations</h1>
+<h3>Overview</h3>
+<p>Cluster federation is useful when you want to deploy resources across more than one cluster, region, or cloud provider.</p>
+<h4>Benefits</h4>
+<ul>
+<li>Enable high availability</li>
+<li>Offer greater geographic coverage for your app</li>
+<li>Use more than one cloud provider</li>
+<li>Combined cloud providers and on-premise solutions</li>
+<li>Ultra-high scalability</li>
+</ul>
+<h3>Example Use Case</h3>
+<p>Consider running environments in Asia, Europe, and the Pacific. Cluster federation will allow you to manage and deploy this in a multi-cloud solution.</p>
+<h4>Integration with Network Load Balancing and Google's Cluster Autoscaler</h4>
+<p>Federations also integrate with network load balancing and of course, Google's cluster autoscaler.</p>
+<h3>Container Registry</h3>
+<h4>Overview</h4>
+<p>Container Registry provides secure, private, docker image storage on GCP.</p>
+<h4>Benefits</h4>
+<ul>
+<li>Secure and private image storage</li>
+<li>Images can be accessed through HTTPS</li>
+<li>Reliable for consistent uptime and point</li>
+</ul>
+<h4>Example Use Case</h4>
+<p>Pull images from any machine, whether that machine is a Google Compute Engine instance or your own hardware.</p>
+<h3>GKE Scalability</h3>
+<h4>Overview</h4>
+<p>One of Kubernetes Engine's most notable features is its ability to scale from small and medium sized clusters to a truly vast size.</p>
+<h4>Benefits</h4>
+<ul>
+<li>Extremely flexible</li>
+<li>Support single cluster web application just as proficiently as HPA (High Performance Computing) and HTA (High Throughput Computing)</li>
+</ul>
+<h4>Command for Scaling an Application</h4>
+<p><code>bash
+kubectl scale [CONTROLLER] my-app --replicas 4</code></p>
+<p>Where you would substitute <code>(Controller)</code> with the controller type such as deployment or statefullset.</p>
+<h4>Output</h4>
+<p>Desired Current Up-to- Available
+Name     date    Age
+Test     4       4       4       5min
+418</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_201_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Cluster Federations
+
+Cluster federation is useful when you want to deploy resources across more than one cluster, region, or cloud provider. Cluster federation applies to multi-region cluster containers. You may want to use federations to enable high availability, offer greater geographic coverage for your app, to use more than one cloud provider, combined cloud providers and on-premise solutions, or for ultra-high scalability.
+
+Cluster federation is also helpful when you want resources to be contactable in a consistent manner from both inside and outside your clusters without incurring unnecessary latency or bandwidth costs penalties or being susceptible to individual cluster outages. As an example of how you'd use cluster federation in practice, let's consider that you're going to be running environments in Asia, Europe, and the Pacific, or even through other cloud providers. In this scenario, cluster federation will allow you to manage and deploy this in a multi-cloud solution.
+
+Federations also integrate with network load balancing and of course, Google's cluster autoscaler.
+
+Container Registry
+
+Container Registry provides secure, private, docker image storage on GCP. While Docker provides a central registry to store public images, you may not want your images to be accessible to the world. In this case, you must use a private registry. The Container Registry security features ensure that only authorized users can access and manage your images.
+
+The registry can be accessed through an HTTPS endpoint on GCP, so it can be relied upon for consistent uptime and reliability. This means you can pull images from any machine, whether that machine is a Google Compute Engine instance or your own hardware.
+
+GKE Scalability
+
+One of Kubernetes Engine's most notable features is its ability to scale from small and medium-sized clusters to truly vast sizes. This makes Kubernetes Engine extremely flexible as it can support single-cluster web applications just as proficiently as HPA (High Performance Computing) and HTA (High Throughput Computing) where vast scale is a prerequisite to operations.
+
+The way that Kubernetes handles scaling is important because when we initially deploy our clusters, we can declare how many replicas that we want. We then scale by increasing or reducing the number of clusters as we desire to suit a specific criteria. The fastest way to scale an application is to use the following command: kubectl scale [CONTROLLER] my-app --replicas 4.
+
+Where you would substitute (Controller) with the controller type, such as deployment or statefulset. The output from this command will look something like this:
+
+Desired Current Up-to- Available
+Name Date Age Test 4 4 4 4 5min 418
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_201_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Cluster Federations and Container Registry for Scalable Applications</h3>
+<p>Cluster federation is a useful feature when you want to deploy resources across multiple clusters, regions, or cloud providers. It enables high availability, geographic coverage, and scalability, making it ideal for applications that require ultra-high scalability.</p>
+<p><strong>Key Benefits of Cluster Federation:</strong></p>
+<ul>
+<li>Enable deployment across multiple clusters, regions, or cloud providers</li>
+<li>Improve high availability and reduce latency costs</li>
+<li>Provide greater geographic coverage for your application</li>
+<li>Support multi-cloud solutions and on-premise environments</li>
+</ul>
+<p>As an example, consider running environments in Asia, Europe, and the Pacific. Cluster federation allows you to manage and deploy resources across these regions without incurring unnecessary latency or bandwidth costs.</p>
+<p><strong>Container Registry for Secure Image Storage</strong></p>
+<p>The Container Registry provides secure, private Docker image storage on GCP. It is essential when you want to store images that should not be accessible to the world. The registry can be accessed through HTTPS and is reliable for consistent uptime.</p>
+<p><strong>Key Benefits of Container Registry:</strong></p>
+<ul>
+<li>Provides secure, private Docker image storage</li>
+<li>Can be accessed through HTTPS for consistent uptime</li>
+<li>Allows pulling images from any machine, including Google Compute Engine instances or your own hardware</li>
+</ul>
+<h3>Kubernetes Engine Scalability</h3>
+<p>Kubernetes Engine's scalability is one of its most notable features. It can scale from small and medium-sized clusters to vast sizes, making it extremely flexible.</p>
+<p><strong>Key Benefits of Kubernetes Engine Scalability:</strong></p>
+<ul>
+<li>Can support single cluster web applications as well as HPA (High Performance Computing) and HTA (High Throughput Computing)</li>
+<li>Allows scaling by increasing or reducing the number of clusters</li>
+<li>Fastest way to scale an application is using the <code>kubectl scale</code> command</li>
+</ul>
+<p>Example command:
+<code>bash
+kubectl scale [CONTROLLER] my-app --replicas 4</code>
+Where you would substitute <code>(Controller)</code> with the controller type, such as deployment or statefulset.</p>
+<p>The output from this command will look something like this:
+<code>Desired Current Up-to- Available
+Name     date    Age
+Test 4   4   4   4   5min
+418</code></p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_201_lda.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Topic 1: Cluster Federation and Multi-Cloud Solutions</h3>
+<p>Cluster federation is a useful concept for deploying resources across multiple clusters, regions, or cloud providers. It enables high availability, geographic coverage, and scalability.</p>
+<h3>Topic 2: Container Registry Security and Private Image Storage</h3>
+<p>Container Registry provides secure private storage for Docker images on GCP, ensuring consistent uptime and access to images from any machine.</p>
+<h3>Topic 3: Kubernetes Engine Scalability and Flexibility</h3>
+<p>Kubernetes Engine's ability to scale from small to vast cluster sizes makes it flexible in supporting single-cluster web applications and large-scale operations.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_201_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Cluster Federation Questions</h3>
+<ol>
+<li>What is cluster federation used for in a multi-region cluster container setup?<ul>
+<li>Answer: To enable high availability, offer greater geographic coverage for an app, use more than one cloud provider, combined cloud providers and on-premise solutions, or for ultra-high scalability.</li>
+</ul>
+</li>
+<li>How does cluster federation help with resource accessibility from both inside and outside clusters?<ul>
+<li>Answer: It allows resources to be contactable in a consistent manner without incurring unnecessary latency or bandwidth costs penalties or being susceptible to individual cluster outages.</li>
+</ul>
+</li>
+<li>What is an example of how cluster federation can be used in practice?<ul>
+<li>Answer: Running environments in Asia, Europe, and the Pacific, or through other cloud providers, allowing for management and deployment in a multi-cloud solution.</li>
+</ul>
+</li>
+</ol>
+<h3>Container Registry Questions</h3>
+<ol>
+<li>Why would you use a private registry instead of Docker's central registry?<ul>
+<li>Answer: To ensure that images are not accessible to the world.</li>
+</ul>
+</li>
+<li>What is the security aspect of using a private registry like Container Registry?<ul>
+<li>Answer: The registry provides secure, private docker image storage on GCP.</li>
+</ul>
+</li>
+<li>How can you access and pull images from any machine with a private registry?<ul>
+<li>Answer: Through an HTTPS endpoint that runs on GCP, allowing for consistent uptime and reliable access.</li>
+</ul>
+</li>
+</ol>
+<h3>GKE Scalability Questions</h3>
+<ol>
+<li>What is one of Kubernetes Engine's most notable features?<ul>
+<li>Answer: Its ability to scale from small and medium-sized clusters to truly vast sizes.</li>
+</ul>
+</li>
+<li>How does Kubernetes handle scaling in a cluster setup?<ul>
+<li>Answer: By declaring the number of replicas initially deployed, then increasing or reducing the number of clusters as desired to suit specific criteria.</li>
+</ul>
+</li>
+<li>What is the fastest way to scale an application using kubectl?<ul>
+<li>Answer: Using the command <code>kubectl scale [CONTROLLER] my-app --replicas 4</code>, where you substitute <code>[CONTROLLER]</code> with the controller type (e.g., deployment or statefulset).</li>
+</ul>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_201_entities.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cluster Federation</td>
+<td>Concept</td>
+<td>"Cluster federation is useful when you want to deploy resources across more than one cluster, region, or cloud provider."</td>
+<td>A cluster federation allows for the deployment of resources across multiple clusters, regions, and cloud providers, enabling high availability, geographic coverage, scalability, and consistent access. It helps manage and deploy applications in a multi-cloud solution.</td>
+</tr>
+<tr>
+<td>Container Registry</td>
+<td>Service</td>
+<td>"Container Registry provides secure, private, docker image storage on GCP."</td>
+<td>A container registry is a secure and private storage for Docker images, providing consistent uptime and reliable access to images from any machine, including Google Compute Engine instances or own hardware. It ensures the security of images and prevents them from being accessible to the world.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) Scalability</td>
+<td>Feature</td>
+<td>"One of Kubernetes Engine's most notable features is its ability to scale from small and medium sized clusters to a truly vast size."</td>
+<td>GKE scalability allows for the deployment of applications in single cluster web applications as well as HPA and HTA environments, enabling vast scale operations. The scaling process involves declaring initial replicas and then increasing or reducing them based on specific criteria.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) Autoscaler</td>
+<td>Feature</td>
+<td>"Federations also integrate with network load balancing and of course, Google's cluster autoscaler."</td>
+<td>GKE autoscaler is a feature that integrates with federations to manage and deploy applications in a multi-cloud solution. It ensures consistent access and availability by scaling resources based on specific criteria.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) Cluster Autoscaler</td>
+<td>Feature</td>
+<td>"The fastest way to scale an application is to use the following command: kubectl scale [CONTROLLER] my-app --replicas 4"</td>
+<td>GKE cluster autoscaler is a feature that allows for fast scaling of applications using the <code>kubectl scale</code> command. It enables users to declare initial replicas and then increase or reduce them based on specific criteria, ensuring consistent access and availability.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) Deployment/StatefulSet</td>
+<td>Controller</td>
+<td>"Where you would substitute (Controller) with the controller type such as deployment or statefullset"</td>
+<td>GKE deployment/statefulset is a controller that manages the creation and scaling of applications in GKE. It allows users to declare initial replicas and then increase or reduce them based on specific criteria, ensuring consistent access and availability.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) High Performance Computing (HPC)</td>
+<td>Environment</td>
+<td>"where vast scale is a prerequisite to operations"</td>
+<td>HPC environment in GKE refers to the deployment of applications that require high performance computing capabilities. It enables users to deploy applications in single cluster web applications as well as HPA and HTA environments, ensuring consistent access and availability.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) High Throughput Computing (HTA)</td>
+<td>Environment</td>
+<td>"where vast scale is a prerequisite to operations"</td>
+<td>HTA environment in GKE refers to the deployment of applications that require high throughput computing capabilities. It enables users to deploy applications in single cluster web applications as well as HPA and HTA environments, ensuring consistent access and availability.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) Multi-Region Cluster Containers</td>
+<td>Container Type</td>
+<td>"Cluster federation applies to multi-region cluster containers"</td>
+<td>GKE multi-region cluster container refers to the deployment of applications across multiple regions using cluster federation. It enables users to deploy applications in a multi-cloud solution, ensuring consistent access and availability.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE) Network Load Balancing</td>
+<td>Feature</td>
+<td>"Federations also integrate with network load balancing"</td>
+<td>GKE network load balancing is a feature that integrates with federations to manage and deploy applications in a multi-cloud solution. It ensures consistent access and availability by distributing traffic across multiple regions.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_276</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_276_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_276</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Pricing Strategies</h1>
+<h2>Understanding the Costs</h2>
+<p>Is the cost of additional reliability worthy of the additional network charges?
+Pricing following diligent capacity planning can perhaps help you decide.</p>
+<h2>Google Cloud Platform Mechanisms</h2>
+<p>Why cloud pricing is important?
+Google cloud platform has a number of built mechanisms to help you in keeping on top of costs, one of the most notable  is virtual machine dimensioning.
+We have already mentioned  the standard machine type discount, but GCP also have inferred  type discounts, sustained-use discounts, and there are inferred  instance discounts.</p>
+<h3>Customizing VMs</h3>
+<p>Typically users will pick a standard  template for a VM but you can use custom VM that you  optimize for high memory or for more CPUs.
+But some  special purpose VM may need things like GPUs or TPUS for machine learning  purposes.
+Hence VMs may be customized to match your workload but of course then they would not match  any standard machine type discount.</p>
+<h3>Inferred Type Discounts</h3>
+<p>Google though has provided a work  around for this anomaly via the inferred type discount.
+The way this work is that Google will calculate how often and for how many hours you've used a particular type of VM.
+Then they will try to  match it to a similar standard lower cost configurations and give you a discount at the end of the year.</p>
+<h3>Committed Use Discounts</h3>
+<p>There is also committed use discounts, which are a pre-pay model
+where you commit use as
+Flex, Dataproc, so on and so forth.
+period.
+Therefore you can use any configuration it doesn't matter so long  as you meet your obligations on core use you will get a  fixed discount  for  anywhere from one year to three years depending  on how  much you'll  commit to.</p>
+<h3>Pre-emptible VMs</h3>
+<p>Another interesting  way to  lower costs is  to use pre- emptible VMs.
+In  case you don't know a pre-emptible VM is one that  you allow  GCP to terminate if they  require the  resources during peak demand  and they are  shutdown with 30 second  notification.
+Furthermore , the  VM is guaranteed to be terminated  within  24 hours if  you're not preempted.
+That doesn't sound very attractive so  they give you an 80% discount to encourage you to use them.</p>
+<h3>Pre-emptible VMs in High Availability</h3>
+<p>The  thing is though  sometimes pre-emptive VMs  are very attractive because  they can fit in nicely  into  your design and save you money.
+you've already built in the ability for fault-tolerance and failover.
+In For example  if you are building a highly available environment this case you  might as well use the pre-emptive VMs as not only will you get the 80 % discount but you will also have an inbuilt continuous  fail-over test environment.</p>
+<h2>Optimizing Disk Costs</h2>
+<p>When it comes to pricing for storage it is really driven by whether you are chasing performance  or  capacity.
+This is  another trade-off, as high performance  SSD is certainly more expensive as it costs more per gig (capacity), but it's a much lower price for IOPS (performance).
+Trying to find a balance that matches your budget is typically driven more by the technical capacity/performance demands of the design and the system properties more than the pricing but you can make savings here when neither is critical.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>For example, you may have distributed an element of your solution over multiple regions to improve reliability. However, that distribution design might result in additional network charges for egress traffic.
+
+Is the cost of the additional reliability worthy of the additional network charges? Pricing following diligent capacity planning can perhaps help you decide.
+
+Why cloud pricing is important?
+
+Google Cloud Platform has a number of built mechanisms to help you keep on top of costs. One of the most notable features is virtual machine dimensioning. We have already mentioned the standard machine type discount, but GCP also offers inferred type discounts, sustained-use discounts, and there are inferred instance discounts.
+
+Typically users will pick a standard template for a VM, but you can use custom VMs that you optimize for high memory or more CPUs. Some special purpose VMs may need things like GPUs or TPUS for machine learning purposes. Hence VMs may be customized to match your workload, but they would not match any standard machine type discount.
+
+Google has provided a workaround for this anomaly via the inferred type discount. The way it works is that Google will calculate how often and for how many hours you've used a particular type of VM. Then they will try to match it to a similar standard lower cost configurations and give you a discount at the end of the year.
+
+There is also committed use discounts, which are a pre-pay model where you commit use as Flex, Dataproc, so on and so forth. Periodically, you can use any configuration that doesn't matter, as long as you meet your obligations on core use, you will get a fixed discount for anywhere from one year to three years depending on how much you'll commit to.
+
+Unfortunately, this discount does not apply to Google managed services such as App Engine and App Engine. Another interesting way to lower costs is to use pre-emptible VMs. In case you don't know, a pre-emptible VM is one that allows GCP to terminate if they require the resources during peak demand and are shutdown with 30-second notification.
+
+Furthermore, the VM is guaranteed to be terminated within 24 hours if you're not preempted. That doesn't sound very attractive, so they give you an 80% discount to encourage you to use them. The thing is though, sometimes pre-emptive VMs are very attractive because they can fit in nicely into your design and save you money.
+
+You've already built in the ability for fault-tolerance and failover. In case of building a highly available environment, this might as well be used, not only will you get the 80% discount but also have an inbuilt continuous fail-over test environment.
+
+So, what about optimizing disk costs? When it comes to pricing for storage, it is really driven by whether you are chasing performance or capacity. This is another trade-off, as high-performance SSD is certainly more expensive as it costs more per gig (capacity), but it's a much lower price for IOPS (performance).
+
+Trying to find a balance that matches your budget is typically driven more by the technical capacity/performance demands of the design and the system properties more than the pricing. However, you can make savings here when neither is critical.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Pricing in Google Cloud Platform: A Key Consideration for Reliability and Cost Optimization</strong></p>
+<p>When designing a solution on Google Cloud Platform (GCP), it's essential to consider the cost implications of reliability measures. Distributing elements of your solution across multiple regions can improve reliability, but this design might result in additional network charges for egress traffic.</p>
+<p><strong>Pricing Mechanisms in GCP</strong></p>
+<p>To help users manage costs, GCP offers several pricing mechanisms:</p>
+<ul>
+<li><strong>Virtual Machine Dimensioning</strong>: This feature allows users to optimize their virtual machine (VM) configurations for high memory or more CPUs. However, custom VMs may not be eligible for standard machine type discounts.</li>
+<li><strong>Inferred Type Discounts</strong>: GCP calculates the usage of a particular VM type and matches it with similar standard lower-cost configurations to provide a discount at the end of the year.</li>
+<li><strong>Committed Use Discounts</strong>: This pre-pay model allows users to commit to a certain amount of core use, resulting in a fixed discount for a specified period (1-3 years). However, this discount does not apply to Google managed services like App Engine.</li>
+<li><strong>Pre-emptible VMs</strong>: These VMs are terminated if they require resources during peak demand and are shut down with 30-second notification. Users receive an 80% discount to encourage their use.</li>
+</ul>
+<p><strong>Optimizing Disk Costs</strong></p>
+<p>When it comes to pricing for storage, the primary consideration is whether users are chasing performance or capacity. High-performance SSDs are more expensive per gig but offer lower prices for IOPS (performance). To find a balance that matches your budget, consider the technical capacity/performance demands of your design and system properties.</p>
+<p><strong>Balancing Reliability and Cost</strong></p>
+<p>In highly available environments, pre-emptible VMs can be an attractive option due to their built-in fault-tolerance and failover capabilities. These VMs not only offer an 80% discount but also provide a continuous fail-over test environment. By carefully evaluating the trade-offs between reliability and cost, users can optimize their GCP solutions for maximum efficiency.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Reliability and Cost Trade-off in Cloud Computing
+The text discusses the trade-off between reliability and cost in cloud computing, highlighting the importance of considering additional network charges for distributed solutions.</p>
+<h3>Topic 2</h3>
+<p>Cloud Pricing Mechanisms
+The article explains various pricing mechanisms offered by Google Cloud Platform (GCP), including virtual machine dimensioning, inferred type discounts, sustained-use discounts, and committed use discounts.</p>
+<h3>Topic 3</h3>
+<p>Customizing Virtual Machines for Cost Optimization
+The text discusses the need to customize virtual machines to optimize costs, particularly when using special-purpose VMs that require GPUs or TPUS for machine learning purposes.</p>
+<h3>Topic 4</h3>
+<p>Pre-emptible VMs for Cost Savings
+The article highlights pre-emptible VMs as a cost-saving option, offering an 80% discount in exchange for allowing GCP to terminate the VM during peak demand periods.</p>
+<h3>Topic 5</h3>
+<p>Optimizing Disk Costs
+The text touches on the trade-off between performance and capacity when it comes to disk costs, suggesting that finding a balance is typically driven by technical demands rather than pricing considerations.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What are some potential drawbacks of distributing an element of your solution over multiple regions to improve reliability?</li>
+<li>How does Google Cloud Platform's virtual machine dimensioning mechanism help users in keeping on top of costs?</li>
+<li>What is the difference between a standard machine type discount and an inferred type discount?</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>Discuss the trade-offs involved in choosing between high performance SSD and capacity when it comes to pricing for storage.</li>
+<li>How do pre-emptible VMs fit into a design that requires fault-tolerance and failover?</li>
+<li>What are some potential benefits of using committed use discounts, and how do they differ from other cost-saving mechanisms offered by Google Cloud Platform?</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>Suppose you're building a highly available environment for a web application. Which type of VM would be most suitable for this scenario, and why?</li>
+<li>How might you optimize disk costs in a cloud-based infrastructure that requires both performance and capacity?</li>
+<li>If you're planning to use pre-emptible VMs, how can you ensure that your workload is properly optimized for these types of instances?</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>distributed element of your solution over multiple regions to improve reliability</td>
+<td>Location/Concept</td>
+<td>The text discusses the importance of distributing a solution across multiple regions for improved reliability, but also mentions that this distribution design might result in additional network charges. This highlights the trade-off between reliability and cost.</td>
+<td>The concept of distributing a solution across multiple regions is used to improve reliability, but it also has implications for cost, specifically network charges.</td>
+</tr>
+<tr>
+<td>Is the cost of the additional reliability worthy of the additional network charges?</td>
+<td>Question/Concept</td>
+<td>This question is asked in the context of evaluating the trade-off between reliability and cost when distributing a solution across multiple regions. It encourages the reader to consider whether the benefits of improved reliability outweigh the costs.</td>
+<td>The question highlights the importance of weighing the pros and cons of different design choices, specifically the trade-off between reliability and cost.</td>
+</tr>
+<tr>
+<td>Pricing following diligent capacity planning can perhaps help you decide</td>
+<td>Concept/Action</td>
+<td>This sentence suggests that careful planning and consideration of pricing can help individuals make informed decisions about their cloud usage. It emphasizes the importance of planning and budgeting in cloud computing.</td>
+<td>The concept of pricing is discussed in the context of capacity planning, highlighting the need for careful planning and consideration to avoid unexpected costs.</td>
+</tr>
+<tr>
+<td>Why cloud pricing is important?</td>
+<td>Question/Concept</td>
+<td>This question is asked to emphasize the significance of understanding cloud pricing and its implications for cost management. It encourages readers to consider the importance of pricing in cloud computing.</td>
+<td>The question highlights the importance of understanding cloud pricing, which is a critical aspect of managing costs and making informed decisions about cloud usage.</td>
+</tr>
+<tr>
+<td>Google Cloud Platform (GCP) has a number of built mechanisms to help you keep on top of costs</td>
+<td>Entity/Concept</td>
+<td>This sentence describes one of the key features of GCP, highlighting its ability to provide tools and mechanisms for cost management.</td>
+<td>The entity of GCP is discussed in the context of its capabilities, specifically its ability to manage costs through various mechanisms.</td>
+</tr>
+<tr>
+<td>Standard machine type discount</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a way to reduce costs when using virtual machines (VMs) on GCP. It highlights the importance of choosing the right VM configuration to minimize costs.</td>
+<td>The standard machine type discount is discussed as a cost-saving mechanism, emphasizing the need to choose the most efficient VM configuration to avoid unnecessary costs.</td>
+</tr>
+<tr>
+<td>Inferred type discounts</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as another way to reduce costs when using VMs on GCP. It highlights the importance of choosing the right VM configuration and taking advantage of available discounts.</td>
+<td>The inferred type discount is discussed as a cost-saving mechanism, emphasizing the need to choose the most efficient VM configuration and take advantage of available discounts.</td>
+</tr>
+<tr>
+<td>Sustained-use discounts</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a way to reduce costs for long-term cloud usage. It highlights the importance of committing to a specific usage pattern to qualify for discounted rates.</td>
+<td>The sustained-use discount is discussed as a cost-saving mechanism, emphasizing the need to commit to a specific usage pattern to qualify for discounted rates.</td>
+</tr>
+<tr>
+<td>Committed use discounts</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a way to reduce costs by committing to a specific usage pattern. It highlights the importance of planning and budgeting in cloud computing.</td>
+<td>The committed use discount is discussed as a cost-saving mechanism, emphasizing the need to plan and budget for long-term cloud usage to qualify for discounted rates.</td>
+</tr>
+<tr>
+<td>Pre-emptible VMs</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a way to reduce costs by allowing GCP to terminate VMs during peak demand. It highlights the trade-off between cost savings and potential downtime.</td>
+<td>The pre-emptible VM is discussed as a cost-saving mechanism, but also notes the potential risks of downtime and data loss.</td>
+</tr>
+<tr>
+<td>Fault-tolerance and failover</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as an advantage of using pre-emptible VMs, highlighting their ability to provide continuous availability and redundancy.</td>
+<td>The concept of fault-tolerance and failover is discussed in the context of pre-emptible VMs, emphasizing their ability to provide high availability and redundancy.</td>
+</tr>
+<tr>
+<td>High-performance SSD</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a trade-off between cost and performance when it comes to storage options on GCP. It highlights the importance of choosing the right storage configuration to balance cost and performance needs.</td>
+<td>The high-performance SSD is discussed as a trade-off between cost and performance, emphasizing the need to choose the right storage configuration to balance competing demands.</td>
+</tr>
+<tr>
+<td>IOPS (Input/Output Operations Per Second)</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a measure of performance when it comes to storage options on GCP. It highlights the importance of choosing the right storage configuration to meet specific performance needs.</td>
+<td>The concept of IOPS is discussed in the context of storage options on GCP, emphasizing the need to choose the right configuration to meet specific performance requirements.</td>
+</tr>
+<tr>
+<td>Technical capacity/performance demands</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as a driving factor behind the choice of storage configuration on GCP. It highlights the importance of considering technical requirements when making decisions about cloud usage.</td>
+<td>The concept of technical capacity/performance demands is discussed in the context of storage options on GCP, emphasizing the need to consider specific technical requirements when choosing a storage configuration.</td>
+</tr>
+<tr>
+<td>System properties</td>
+<td>Concept/Feature</td>
+<td>This feature is mentioned as an important consideration when choosing a storage configuration on GCP. It highlights the importance of considering system-specific requirements when making decisions about cloud usage.</td>
+<td>The concept of system properties is discussed in the context of storage options on GCP, emphasizing the need to consider specific system requirements when choosing a storage configuration.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_159</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud VPN
+        ## Overview
+        - To establish a VPN does not require any hardware devices in the Google Cloud as there is no actual VPN device on the Google side as any compatibility issues running your VPN between your existing it is purely software defined. Therefore, you should not experience of IKE (Internet key Exchange) protocol.
+        
+        ## Benefits for Small Organisations
+        - Using a VPN to interconnect your on-premises network with y GCP virtual private cloud is ideal for small organisations or those starting out perhaps with just a development VPC to test the waters. After all it is secure and as it connects over the network it can be configured and setup anywhere in the world where there is internet access.
+        
+        ## Limitations
+        - A VPN is a good starting point for a secure interconnect as it is very convenient or at least to start with. However, there are some significant issues that may arise when you start to grow your GCP network and then interconnect it with your on-premises network.
+        
+        ### Network Routing Issues
+        - The thorny issue here is that of network routing. For traffic to flow between subnets on both sides of the VPN they need to know about one another's existence. This is easy to start off with as you will only need to exchange subnet information for a few subnets on configuring a few static routes to let the routing process know that either side of the VPN tunnel.
+        
+        - However, as the two networks gradually merge then static routes to subnets become unwieldy and do not scale well. This is because with static routing, updating the tunnel requires the addition of adding all the static routes for each on-premises subnet to GCP. It also requires adding routes for every existing subnet in GCP for the on-premises network. That is bad enough but any new subnet will also need to be added before it can interconnect and the VPN tunnel restarted to include the new subnet. This is not really sustainable.
+        
+        ## Cloud VPN Gateways
+        - Google Cloud Platform offers two types of Cloud VPN gateways, HA VPN and Classic VPN.
+        
+        ### Classic VPN Gateway
+        - The legacy type is called a classic VPN gateway and it has a single interface, a single external IP address, and it supports tunnels using static routing.
+        
+        ### High Availability VPN (HA VPN)
+        - The second type of VPN that you can create is called a High-Availability VPN (HA VPN) and it lets you securely connect your on-premises network to your GCP Virtual Private Cloud network through an IPsec VPN connection in a single region.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_163</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_163_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_163</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_163_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Google Cloud Interconnect</h1>
+<h2>Overview</h2>
+<p>Google Cloud Interconnect is a service that allows you to connect your network directly to Google Cloud Platform (GCP) using dedicated connections.</p>
+<h3>## Benefits</h3>
+<ul>
+<li>Fastest, most reliable, and lowest latency method for interconnectivity</li>
+<li>Suitable for large organizations with high data transfer requirements</li>
+<li>Can be used for cloud-to-cloud, cloud-to-on-premises, or on-premises-to-on-premises connectivity</li>
+</ul>
+<h2>## Requirements</h2>
+<ul>
+<li>Familiarity with basic network interconnections</li>
+<li>Physical presence of a point of presence in a colocation facility</li>
+<li>Own routing equipment to support the following technical requirements:<ul>
+<li>Ethernet 10Gbps single-mode fibre</li>
+<li>IPv4 link local addressing</li>
+<li>LACP for bonding multiple links</li>
+<li>EBGP-4 with multihop</li>
+<li>802.1q VLANs</li>
+</ul>
+</li>
+</ul>
+<h2>## Use Cases</h2>
+<ul>
+<li>Transferring large amounts of data back and forth with Google Cloud Storage</li>
+<li>Data-intensive production networks requiring high data transfer rates for daily backup</li>
+<li>High-performance, low-latency, and operationally critical traffic</li>
+</ul>
+<h2>## Considerations</h2>
+<ul>
+<li>Initial setup can take a lot of time and expense</li>
+<li>Circuit between your network and Google's network is not encrypted (may require additional encryption)</li>
+<li>Currently, the Google Cloud VPN cannot be used in combination with a dedicated connection</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_163_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>However to reach Google's external IP addresses you must still go out your existing internet gateway using a separate connection. The choice of Direct Connection is determined by your data capacity requirements and it is delivered over one or more 10 Gigabits per second Ethernet connections. There is a minimum of one connection with a maximum of eight connections. That's a capacity on offer of between 10 and 80 Gigabits per second total per interconnect.
+
+However as the minimum deployment per location is 10 Gigabits per second, and the capacity scales by 10Gbs with each additional connection up to a maximum of 8 connections or 80Gbs this provides a range of capacity to suit most large organisations. If your traffic doesn't require that minimum level of capacity of 10Gbs then you should consider using a Cloud VPN.
+
+From a billing perspective, you will find that the cost of egress traffic from your VPC network to your on-premises network is reduced. This means that having a dedicated connection is generally the least expensive method if you have a high volume of traffic travelling to and from Google's network.
+
+However there is one important caveat and that is the circuit between your network and Google's network is not encrypted. This means that your data will be travelling over a dedicated circuit in plain view so you might need to provide your own encryption such as application level encryption or use your own VPN.
+
+Currently, you aren't able to configure and use the Google Cloud VPN in combination with a dedicated connection, but you are able to configure and use your own VPN solution. Direct connections are the fastest, reliable, lowest latency, and maintenance free method for interconnectivity. But before you commit to a dedicated interconnect you should consider a few other points.
+
+You must be familiar with basic network interconnections as you'll be ordering and configuring circuits. Your network must physically have a point of presence that can meet Google's network in a colocation facility. You must provide your own routing equipment. What happens is you will be required to order and configure circuits facility. In order to do this requires that you host your own on- to bring your network to meet Google's within the colocation premises network devices within the co-location facility as this is the termination point for your network.
+
+The network equipment must support the following technical requirements and support for; Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS. Deciding on a direct connection is not a trivial task as it can take a lot of time and expense initially setting up the pairing in the co-location facility.
+
+However let us take a look at some practical use cases to see where it can be highly advantageous. If you want to transfer large amounts of data back and forth with Google Cloud Storage, you would also want to invest the time to setup a direct pairing arrangement to enable you to do so efficiently, reliably and cost effectively. An added bonus would be that you could take advantage of the on-site backup of the data.
+
+Another example is if you have a data-intensive production network that requires high data transfer rates for daily backup, you probably would want to take advantage of using Cloud Interconnect. This method would not just simply save on bandwidth connection cost, it would also cut-down data transfer times, and perform far more reliably. In addition it would also free other circuits for high-performance, low-latency, and operationally critical traffic.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_163_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><p><strong>Google Cloud Direct Connection: A Comprehensive Overview</strong></p>
+<p>To access Google's external IP addresses, you must still use a separate connection from your existing internet gateway. The choice of Direct Connection depends on your data capacity requirements and is delivered over one or more 10 Gigabits per second Ethernet connections.</p>
+<p><strong>Key Features and Considerations</strong></p>
+<ul>
+<li>Minimum deployment per location: 10 Gigabits per second</li>
+<li>Maximum capacity: 80 Gigabits per second (total per interconnect)</li>
+<li>Capacity scales by 10Gbs with each additional connection up to a maximum of 8 connections or 80Gbs</li>
+<li>Not encrypted, requiring your own encryption or VPN solution</li>
+<li>Requires basic network interconnection knowledge and familiarity with colocation facilities</li>
+</ul>
+<p><strong>Benefits and Use Cases</strong></p>
+<ul>
+<li>Fastest, reliable, lowest latency, and maintenance-free method for interconnectivity</li>
+<li>Suitable for large organizations with high data transfer requirements</li>
+<li>Can be used to transfer large amounts of data back and forth with Google Cloud Storage efficiently and reliably</li>
+<li>Can free up other circuits for high-performance, low-latency, and operationally critical traffic</li>
+</ul>
+<p><strong>Practical Considerations</strong></p>
+<ul>
+<li>Requires hosting your own network equipment in a colocation facility</li>
+<li>Must support technical requirements: Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS</li>
+<li>Initial setup can be time-consuming and expensive</li>
+</ul>
+<p><strong>Alternatives to Direct Connection</strong></p>
+<ul>
+<li>Cloud VPN: suitable for lower data transfer requirements, but may not provide the same level of reliability and cost-effectiveness as a dedicated connection</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_163_lda.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Topic 1</h3>
+<p>Direct Connection Setup and Requirements
+The topic revolves around the setup and requirements of a direct connection between an organization's network and Google Cloud's network.</p>
+<h3>Topic 2</h3>
+<p>Cost and Billing Considerations
+This topic focuses on the cost and billing considerations for using a direct connection, including reduced egress traffic costs and the need for encryption.</p>
+<h3>Topic 3</h3>
+<p>Technical Requirements and Support
+The topic covers the technical requirements and support needed for a direct connection, including Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS.</p>
+<h3>Topic 4</h3>
+<p>Practical Use Cases and Advantages
+This topic explores practical use cases where a direct connection can be highly advantageous, including transferring large amounts of data with Google Cloud Storage and supporting high data transfer rates for daily backup.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_163_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the minimum deployment per location for a direct connection to Google Cloud?
+Answer: 10 Gigabits per second.</p>
+</li>
+<li>
+<p>How does the capacity of a direct connection scale with additional connections?
+Answer: The capacity scales by 10Gbs with each additional connection, up to a maximum of 8 connections or 80Gbs.</p>
+</li>
+<li>
+<p>What is one important caveat when using a dedicated connection to Google Cloud?
+Answer: The circuit between your network and Google's network is not encrypted, requiring you to provide your own encryption.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the choice of direct connection affect the cost of egress traffic from your VPC network to your on-premises network?
+Answer: Having a dedicated connection generally reduces the cost of egress traffic compared to using a Cloud VPN.</p>
+</li>
+<li>
+<p>What are some technical requirements that must be supported by your network equipment when setting up a direct connection?
+Answer: Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS.</p>
+</li>
+<li>
+<p>How does the use of Cloud Interconnect compare to using a dedicated connection in terms of reliability and data transfer times?
+Answer: Cloud Interconnect provides more reliable data transfer times and is less expensive than a dedicated connection.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you have a high volume of traffic traveling to and from Google's network, what method would be the least expensive option?
+Answer: A dedicated connection.</p>
+</li>
+<li>
+<p>What should you consider before committing to a direct connection with Google Cloud?
+Answer: Familiarity with basic network interconnections, physical presence in a colocation facility, and provision of your own routing equipment.</p>
+</li>
+<li>
+<p>How can using a direct connection enable you to take advantage of on-site backup for data stored in Google Cloud Storage?
+Answer: By setting up a direct pairing arrangement, you can efficiently transfer large amounts of data back and forth with Google Cloud Storage.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_163_entities.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Direct Connection</td>
+<td>Network Service</td>
+<td>"However, to reach Google's external IP addresses, you must still go out your existing internet gateway using a separate connection. The choice of Direct Connection is determined by your data capacity requirements and it is delivered over one or more 10 Gigabits per second Ethernet connections"</td>
+<td>A dedicated network service that provides high-speed connectivity between an organization's network and Google's network, with capacities ranging from 10 to 80 Gbps.</td>
+</tr>
+<tr>
+<td>Cloud Interconnect</td>
+<td>Network Service</td>
+<td>"However as the minimum deployment per location is 10 Gigabits per second, and the capacity scales by 10Gbs with each additional connection up to a maximum of 8 connections or 80Gbs this provides a range of capacity to suit most large organisations."</td>
+<td>A network service that enables organizations to connect their networks to Google's network, providing high-speed connectivity and scalability.</td>
+</tr>
+<tr>
+<td>Cloud VPN</td>
+<td>Network Service</td>
+<td>"If your traffic doesn't require that minimum level of capacity of 10Gbs, then you should consider using a Cloud VPN"</td>
+<td>A virtual private network (VPN) service that provides secure and encrypted connectivity between an organization's network and Google's network.</td>
+</tr>
+<tr>
+<td>Ethernet 10Gbs single-mode fibre</td>
+<td>Network Technology</td>
+<td>"The network equipment must support the following technical requirements and support for; Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS."</td>
+<td>A high-speed networking technology that provides reliable and secure connectivity between devices.</td>
+</tr>
+<tr>
+<td>Point of Presence (PoP)</td>
+<td>Location</td>
+<td>"Your network must physically have a point of presence that can meet Google's network in a colocation facility"</td>
+<td>A physical location where an organization's network is connected to a third-party provider, such as Google.</td>
+</tr>
+<tr>
+<td>Colocation Facility</td>
+<td>Physical Location</td>
+<td>"What happens is you will be required to order and configure circuits facility. In order to do this requires that you host your own on- to bring your network to meet Google's within the colocation premises"</td>
+<td>A physical location where an organization can rent space to house their equipment, such as servers or routers, in close proximity to a third-party provider like Google.</td>
+</tr>
+<tr>
+<td>IPv4 link local addressing</td>
+<td>Network Protocol</td>
+<td>"The network equipment must support the following technical requirements and support for; Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS."</td>
+<td>A networking protocol that enables devices to communicate with each other using unique IP addresses.</td>
+</tr>
+<tr>
+<td>LACP (Link Aggregation Control Protocol)</td>
+<td>Network Protocol</td>
+<td>"The network equipment must support the following technical requirements and support for; Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS."</td>
+<td>A protocol that enables devices to aggregate multiple physical links into a single logical link, improving network reliability and performance.</td>
+</tr>
+<tr>
+<td>EBGP-4 (BGP-4 Enhanced)</td>
+<td>Network Protocol</td>
+<td>"The network equipment must support the following technical requirements and support for; Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS."</td>
+<td>An enhanced version of the Border Gateway Protocol (BGP), used to route traffic between autonomous systems on the internet.</td>
+</tr>
+<tr>
+<td>802.1q VLANs</td>
+<td>Network Technology</td>
+<td>"The network equipment must support the following technical requirements and support for; Ethernet 10Gbs single-mode fibre, IPv4 link local addressing, LACP for bonding multiple links, EBGP-4 with multihop, and 802.1q VLANS."</td>
+<td>A technology that enables devices to segment networks into virtual LANs (VLANs), improving network security and management.</td>
+</tr>
+<tr>
+<td>Application-level encryption</td>
+<td>Security Measure</td>
+<td>"However, there is one important caveat and that is the circuit between your network and Google's network is not encrypted"</td>
+<td>A security measure that encrypts data at the application level, ensuring confidentiality and integrity of data in transit.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

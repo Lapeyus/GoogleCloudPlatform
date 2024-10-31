@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_10</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_10_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_10</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google's Cloud Strategy</h1>
+<h2>Overview</h2>
+<p>Today, Google strives to make their cloud platform attractive, affordable and available to their customers. This change in strategy appears to come about as Google has come to believe like Amazon, that presently and in the future data is and will be integral to all businesses, regardless of size or industry.</p>
+<h2>The Shift from Traditional IT to Data-Driven Business</h2>
+<p>This was not always the case, as even quite recently IT was often considered to be a service function of a business. After all manufacturing or product development, sales, marketing and finance were the core profit generating business units. IT was simply a service department that generated no new money or profit.</p>
+<p>But as technology has become integrated and almost inseparable with all these traditional business functions cloud providers have come to realize that the way a company will differentiate itself from its competitors will be through leveraging cost effective advanced IT technology in order to create new business value from its data. Google's belief is that future companies will largely deal in data, through advanced analytics, Artificial Intelligence and its subset of machine learning.</p>
+<h2>Focus on Data-Driven Businesses</h2>
+<p>Hence, Google's focus is on providing cloud services for businesses that focus on data and analytics, but also for companies that need to reimaging their data centres in the cloud to extend their scale and global reach. As, in the future, companies must have the ability to service customers around the globe.</p>
+<h2>The Need for Global Partnerships</h2>
+<p>Hence, customers that build on-premises solutions will be at a severe disadvantage as the cost are simply prohibitive. What is worse it is crucial capital that is wasted as it should be spent on core business functions that generate profit.</p>
+<p>Thus, Google believes that every company will have a need to rely on data analytics as well as have a global presence and this will require a global partner that can provide them the infrastructure to scale to their ambitions. Ultimately, this strategy will allow them to release their cash and energy to be spent on developing digital processes that permeates the entire organisation and its value and supply chains.</p>
+<h2>Cloud Native Architecture</h2>
+<p>Google's network is designed to support its eight key web-based products which each have in excess of one billion subscribers so it must be designed to be robust, scalable and efficient. But how does it differ from traditional network design?</p>
+<p>At a high level, we can consider cloud-native architecture to mean a design that adapts to take advantage of the many new possibilities-but also the very different set of architectural constraints-offered by the cloud compared to traditional on-premises infrastructure.</p>
+<h2>Key Considerations for Cloud Native Architecture</h2>
+<p>If we look to some of the high-level elements that you as a network architect will be trained to consider, such as:
+- The functional requirements of a system
+- The non-functional requirements
+· The architectural constraints</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Today, Google strives to make their cloud platform attractive, affordable and available to their customers. This change in strategy appears to come about as Google has come to believe like Amazon, that presently and in the future data is and will be integral to all businesses, regardless of size or industry. This was not always the case, as even quite recently IT was often considered to be a service function of a business. After all manufacturing or product development, sales, marketing and finance were the core profit generating business units. IT was simply a service department that generated no new money or profit.
+
+But as technology has become integrated and almost inseparable with all these traditional business functions, cloud providers have come to realize that the way a company will differentiate itself from its competitors will be through leveraging cost-effective advanced IT technology in order to create new business value from its data. Google's belief is that future companies will largely deal in data, through advanced analytics, Artificial Intelligence and its subset of machine learning.
+
+Hence, Google's focus is on providing cloud services for businesses that focus on data and analytics, but also for companies that need to reimagine their data centers in the cloud to extend their scale and global reach. As, in the future, companies must have the ability to service customers around the globe. Hence, customers that build on-premises solutions will be at a severe disadvantage as the cost are simply prohibitive. What is worse it is crucial capital that is wasted as it should be spent on core business functions that generate profit.
+
+Thus, Google believes that every company will have a need to rely on data analytics as well as have a global presence and this will require a global partner that can provide them the infrastructure to scale to their ambitions. Ultimately, this strategy will allow them to release their cash and energy to be spent on developing digital processes that permeate the entire organization and its value and supply chains.
+
+It is by following this road-map that places an emphasis on pursuing affordable, scalable, global and highly-advanced technology that will enable organizations to differentiate themselves and become digital leaders and the creators of innovative business value.
+
+Cloud Native Architecture
+
+Google's network is designed to support its eight key web-based products which each have in excess of one billion subscribers. It must be designed to be robust, scalable and efficient. But how does it differ from traditional network design?
+
+At a high level, we can consider cloud-native architecture to mean a design that adapts to take advantage of the many new possibilities-but also the very different set of architectural constraints-offered by the cloud compared to traditional on-premises infrastructure.
+
+If we look at some of the high-level elements that you as a network architect will be trained to consider, such as:
+
+The functional requirements of a system
+The non-functional requirements
+· The architectural constraints
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Google's Cloud Strategy: Embracing Data-Driven Business and Cloud-Native Architecture</h3>
+<p>Google is shifting its focus towards making its cloud platform attractive, affordable, and available to customers. This change in strategy stems from the realization that data has become integral to all businesses, regardless of size or industry. Unlike traditional IT, which was once considered a service function, Google believes that leveraging cost-effective advanced IT technology will enable companies to create new business value from their data.</p>
+<h3>The Rise of Data-Driven Business</h3>
+<p>Google's focus is on providing cloud services for businesses that focus on data and analytics, as well as those that need to reimagine their data centers in the cloud to extend their scale and global reach. With the increasing importance of data analytics, Artificial Intelligence, and machine learning, companies must have a global presence to service customers around the globe.</p>
+<h3>The Disadvantage of On-Premises Solutions</h3>
+<p>Customers who build on-premises solutions will be at a severe disadvantage due to the prohibitive costs and wasted capital. Instead, Google's strategy emphasizes pursuing affordable, scalable, global, and highly-advanced technology that enables organizations to differentiate themselves and become digital leaders.</p>
+<h3>Cloud Native Architecture</h3>
+<p>Google's network is designed to support its eight key web-based products with over one billion subscribers. This requires a robust, scalable, and efficient design that adapts to the unique constraints of cloud infrastructure. Key elements to consider in cloud-native architecture include:</p>
+<ul>
+<li>Functional requirements of a system</li>
+<li>Non-functional requirements</li>
+<li>Architectural constraints</li>
+</ul>
+<p>By embracing this approach, Google aims to release its cash and energy to focus on developing digital processes that permeate the entire organization and its value and supply chains.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Data-Driven Business Strategy</strong></h3>
+<p>Google's focus on providing cloud services for businesses that focus on data and analytics, leveraging cost-effective advanced IT technology to create new business value from its data.</p>
+<h3>Topic 2: <strong>Cloud Migration and Global Presence</strong></h3>
+<p>The need for companies to have a global presence and scale their ambitions requires a global partner with infrastructure to support it, making on-premises solutions prohibitive due to high costs.</p>
+<h3>Topic 3: <strong>Digital Transformation and Innovation</strong></h3>
+<p>Google's strategy aims to enable organizations to differentiate themselves by pursuing affordable, scalable, global, and highly-advanced technology, releasing cash and energy for developing digital processes that permeate the entire organization.</p>
+<h3>Topic 4: <strong>Cloud Native Architecture Design</strong></h3>
+<p>A design that adapts to take advantage of cloud possibilities while addressing architectural constraints compared to traditional on-premises infrastructure, considering functional requirements, non-functional requirements, and architectural constraints.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><p>What is Google's strategy for making its cloud platform attractive, affordable, and available to customers?
+Answer: Google believes that data analytics, Artificial Intelligence, and machine learning will become integral to all businesses, regardless of size or industry.</p>
+<p>How did the role of IT in businesses change over time?
+Answer: IT was initially considered a service function of a business, generating no new money or profit. However, as technology became integrated with traditional business functions, companies realized that leveraging cost-effective advanced IT technology could create new business value from data.</p>
+<p>What is Google's focus for its cloud services?
+Answer: Google focuses on providing cloud services for businesses that focus on data and analytics, as well as companies that need to reimagine their data centers in the cloud to extend their scale and global reach.</p>
+<p>Why will customers who build on-premises solutions be at a disadvantage?
+Answer: The cost of building and maintaining on-premises solutions is prohibitive, and crucial capital is wasted. This strategy requires a global partner to provide infrastructure that can scale to ambitions.</p>
+<p>What does Google believe companies need to rely on in the future?
+Answer: Companies will need to rely on data analytics as well as have a global presence, requiring a global partner with scalable and advanced technology.</p>
+<p>How does Google's network design differ from traditional network design?
+Answer: Cloud-native architecture adapts to take advantage of new possibilities and constraints offered by the cloud compared to traditional on-premises infrastructure. Key elements include functional requirements, non-functional requirements, and architectural constraints.</p>
+<p>What are some key considerations for a network architect in designing a cloud-native architecture?
+Answer: Network architects should consider the functional requirements of a system, non-functional requirements, and architectural constraints when designing a cloud-native architecture.</p>
+<p>How does Google's focus on data analytics and machine learning impact its business strategy?
+Answer: Google believes that future companies will largely deal in data through advanced analytics, Artificial Intelligence, and machine learning. This requires a global partner with scalable and advanced technology to support businesses' ambitions.</p>
+<p>What is the ultimate goal of Google's cloud-native architecture strategy?
+Answer: The ultimate goal is to enable organizations to differentiate themselves, become digital leaders, and create innovative business value by pursuing affordable, scalable, global, and highly-advanced technology.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google</td>
+<td>Company/Organization</td>
+<td>"Today, Google strives to make their cloud platform attractive, affordable and available to their customers."</td>
+<td>Google is a company that is shifting its strategy to focus on providing cloud services for businesses that rely on data analytics and global presence. This change in strategy is driven by the increasing importance of data in all businesses, regardless of size or industry.</td>
+</tr>
+<tr>
+<td>Amazon</td>
+<td>Company/Organization</td>
+<td>"This change in strategy appears to come about as Google has come to believe like Amazon..."</td>
+<td>Amazon is a company that shares Google's belief that data will be integral to all businesses in the future. This shared perspective drives both companies' strategies for providing cloud services.</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Concept</td>
+<td>"...data is and will be integral to all businesses, regardless of size or industry."</td>
+<td>Data refers to the information collected by organizations about their customers, products, and operations. In this context, data is seen as a key driver of business value and competitiveness.</td>
+</tr>
+<tr>
+<td>IT</td>
+<td>Function/Department</td>
+<td>"IT was often considered to be a service function of a business..."</td>
+<td>IT (Information Technology) refers to the department or function within an organization responsible for managing its technology infrastructure. Historically, IT was viewed as a non-core function that generated no new revenue. However, with the increasing importance of data and analytics, IT is now seen as a critical component of business strategy.</td>
+</tr>
+<tr>
+<td>Cloud</td>
+<td>Technology/Platform</td>
+<td>"Google's focus is on providing cloud services..."</td>
+<td>The cloud refers to a model of delivering computing resources over the internet, rather than through a local infrastructure. In this context, Google is shifting its focus towards providing cloud-based services for businesses that rely on data analytics and global presence.</td>
+</tr>
+<tr>
+<td>Analytics</td>
+<td>Function/Department</td>
+<td>"...businesses that focus on data and analytics..."</td>
+<td>Analytics refers to the process of analyzing data to gain insights and make informed business decisions. This function is critical in today's data-driven business environment, where organizations must be able to extract value from their data to remain competitive.</td>
+</tr>
+<tr>
+<td>Artificial Intelligence (AI)</td>
+<td>Technology/Field</td>
+<td>"...future companies will largely deal in data, through advanced analytics, Artificial Intelligence..."</td>
+<td>AI refers to the development of computer systems that can perform tasks that typically require human intelligence, such as learning and problem-solving. In this context, AI is seen as a key enabler of business value and competitiveness in the future.</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td>Technology/Field</td>
+<td>"...Artificial Intelligence and its subset of machine learning..."</td>
+<td>Machine learning refers to a type of AI that enables computers to learn from data without being explicitly programmed. This technology is critical in today's data-driven business environment, where organizations must be able to extract insights from their data to remain competitive.</td>
+</tr>
+<tr>
+<td>On-Premises</td>
+<td>Technology/Infrastructure</td>
+<td>"...customers that build on-premises solutions will be at a severe disadvantage..."</td>
+<td>On-premises refers to the deployment of computing resources within an organization's own infrastructure, rather than through a cloud-based service. In this context, on-premises solutions are seen as less desirable due to their higher costs and limitations in terms of scalability and flexibility.</td>
+</tr>
+<tr>
+<td>Global Presence</td>
+<td>Concept</td>
+<td>"...companies must have the ability to service customers around the globe..."</td>
+<td>A global presence refers to an organization's ability to operate and serve customers across multiple countries and regions. In this context, a global presence is seen as critical for businesses that rely on data analytics and want to remain competitive in today's interconnected world.</td>
+</tr>
+<tr>
+<td>Digital Processes</td>
+<td>Function/Department</td>
+<td>"...developing digital processes that permeates the entire organisation..."</td>
+<td>Digital processes refer to the use of technology to automate and streamline business operations. In this context, digital processes are seen as critical for organizations that want to remain competitive in today's data-driven business environment.</td>
+</tr>
+<tr>
+<td>Supply Chains</td>
+<td>Concept</td>
+<td>"...and its value and supply chains..."</td>
+<td>Supply chains refer to the network of organizations, people, and activities involved in the production and delivery of goods and services. In this context, supply chains are seen as critical for businesses that rely on data analytics and want to remain competitive in today's global market.</td>
+</tr>
+<tr>
+<td>Network Architecture</td>
+<td>Technology/Field</td>
+<td>"Google's network is designed to support its eight key web-based products..."</td>
+<td>Network architecture refers to the design and structure of an organization's technology infrastructure, including its networks, systems, and applications. In this context, Google's network architecture is seen as critical for supporting its cloud-based services and enabling business operations.</td>
+</tr>
+<tr>
+<td>Robustness</td>
+<td>Concept</td>
+<td>"...designed to be robust, scalable and efficient..."</td>
+<td>Robustness refers to the ability of a system or technology to withstand and recover from failures or disruptions. Scalability refers to the ability of a system or technology to handle increased demand or growth. Efficiency refers to the ability of a system or technology to deliver results with minimal waste or resources. In this context, robustness, scalability, and efficiency are seen as critical for Google's network architecture.</td>
+</tr>
+<tr>
+<td>Functional Requirements</td>
+<td>Concept</td>
+<td>"...the functional requirements of a system..."</td>
+<td>Functional requirements refer to the specific needs and capabilities that a system or technology must meet in order to be effective. In this context, functional requirements are seen as critical for designing and developing an organization's technology infrastructure.</td>
+</tr>
+<tr>
+<td>Non-Functional Requirements</td>
+<td>Concept</td>
+<td>"...the non-functional requirements..."</td>
+<td>Non-functional requirements refer to the characteristics of a system or technology that are not directly related to its functionality, but rather to its performance, security, or other aspects. In this context, non-functional requirements are seen as critical for designing and developing an organization's technology infrastructure.</td>
+</tr>
+<tr>
+<td>Architectural Constraints</td>
+<td>Concept</td>
+<td>"...the very different set of architectural constraints-offered by the cloud..."</td>
+<td>Architectural constraints refer to the limitations and challenges that arise when designing and developing a system or technology. In this context, architectural constraints are seen as critical for understanding the design and development of Google's network architecture.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

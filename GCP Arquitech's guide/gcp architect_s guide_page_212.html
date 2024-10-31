@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_212</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_212_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_212</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Service Level</h1>
+<h2>Introduction</h2>
+<p>In order to define a service level, you must first identify what your customer expects from the service and what features and functions that they care about.</p>
+<h2>Service Level Indicators (SLIs)</h2>
+<h3>Definition</h3>
+<p>Service Level Indicators or SLIs are directly observable and measurable by users. They should be quantitative measures of an attribute of the service.</p>
+<h4>Examples</h4>
+<ul>
+<li>Error-rate</li>
+<li>Latency</li>
+<li>Availability</li>
+</ul>
+<h3>Importance</h3>
+<p>Measuring internal system metrics such as CPU utilization or network bandwidth utilization is not effective for determining user experience. Instead, SLIs should be used to measure attributes that affect user experience, such as excessive delay, application hanging, or failure to complete a process.</p>
+<h2>Service Level Objective (SLO)</h2>
+<h3>Definition</h3>
+<p>The Service Level Objective or SLO is a target of system performance and a set threshold to measure against. It allows designers to use SLIs to meet customer expectations by addressing and controlling service level indicators.</p>
+<h3>Use Cases</h3>
+<ul>
+<li>Typically used within in-house operations and applications.</li>
+<li>May be required for formal business contracts with cloud services providers.</li>
+</ul>
+<h2>Service Level Agreement (SLA)</h2>
+<h3>Definition</h3>
+<p>A Service Level Agreement or SLA is a formal agreement between a provider and consumer that guarantees a certain level of service performance. It outlines the expected levels of service quality, including availability, response times, and error rates.</p>
+<h4>Examples</h4>
+<ul>
+<li>Guarantee 99.99% uptime.</li>
+<li>Specify performance thresholds for latency, error-rate, and other attributes.</li>
+</ul>
+<h3>Importance</h3>
+<p>SLAs provide a clear understanding of what is expected from a service provider and help manage customer expectations. They are particularly important for critical cloud services that require high levels of reliability and performance.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Service Level
+
+In order to define a service level, you must first identify what your customer expects from the service and what features and functions that they care about. Hence the first step in designing a good customer experience is to identify the Service Level Indicators or SLIs that deliver the best customer solution. This of course should mean benchmarking each process and following through a function from start to finish. This can mean measuring the time to execute for every process and how many CPU threads it might consume.
+
+These benchmarks will give us performance metrics and the thresholds for each of these SLIS. What this means is that the users will have a real-world benchmark to decide whether the service is working properly. Having this fixed indicator or target of system performance and a set threshold to measure against allows us to determine the Service Level Objective or SLO.
+
+The designer can use the SLO to finesse their architecture and meet customer expectations by addressing and controlling the service level indicators. Typically though, the SLO is only used within in-house operations and applications. The SLO provides a major metric for application design as it sets the level for application performance and customer experience when internal to the organisation.
+
+Nonetheless, some cloud services will be so critical to an organisation that a formal business contract will be needed. When you have a requirement for a formal legal agreement to exist between the provider and the consumers to guarantee a service level and perhaps even to compensate the consumers if the service fails to meet this expectation, then things become more complex.
+
+This is where we have Service Level Agreement or SLA and when define how a given service or product should behave and be fit for they come into the picture. Service levels agreements (SLA) will purpose under normal production environments. There are a number of factors that might be contemplated within service levels agreements, which will be dependent on the critically of the service.
+
+For example, the SLI's might be determined on availability. In this scenario, the SLA specifications night guarantee 99.99 percent up time or perhaps other performance specification such as a Regardless, service levels, whether they are SLO or SLA, will determine the user's expectation and they manage customer minimum latency expectations.
+
+Service Level Indicators
+
+When we select service level indicators, we should ensure that they are directly observable and measurable by the users. This means that the SLIs should not be internal system metrics such as CPU utilization or other internal metrics such as network bandwidth utilization.
+
+The reason for this is that the user must be able to relate to the indicator and be able to directly measure them and that is not something they can do with those internal system metrics. Another reason is that measuring utilization isn't actually an effective measure of the usability of a system. Rather, utilization is best deployed as a metric by auto-scalars to maintain a consistent user experience.
+
+Service Level Indicators should be a quantitative measure of an attribute of the service. SLIs could represent things such as error-rate, latency, or availability. Finally, the user experience will be determined by application performance, which will be determined to be poor more commonly when there is excessive delay, the application hanging or the failure to complete a process.
+
+Therefore, we should make sure you are measuring the correct pain points when setting your SLIs.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Defining Service Level and Identifying Key Indicators</h3>
+<p>To define a service level, it's essential to identify what customers expect from the service and what features and functions they care about. The first step in designing a good customer experience is to identify Service Level Indicators (SLIs) that deliver the best customer solution.</p>
+<h3>Benchmarking and Performance Metrics</h3>
+<p>Benchmarking each process and following through a function from start to finish can help measure performance metrics and thresholds for SLIs. This provides users with a real-world benchmark to decide whether the service is working properly. The designer can use these benchmarks to determine the Service Level Objective (SLO) and address customer expectations.</p>
+<h3>Service Level Agreements (SLAs)</h3>
+<p>When critical cloud services are involved, a formal business contract may be necessary to guarantee a service level and compensate consumers if the service fails to meet expectations. This is where Service Level Agreements (SLAs) come into play. SLAs define how a given service or product should behave and be fit for purpose.</p>
+<h3>Key Considerations for SLIs</h3>
+<p>When selecting service level indicators, it's crucial to ensure they are directly observable and measurable by users. Internal system metrics such as CPU utilization or network bandwidth utilization should not be used, as they do not provide an effective measure of the usability of a system. Instead, SLIs should represent quantitative measures of attributes such as error-rate, latency, or availability.</p>
+<h3>Determining User Expectations</h3>
+<p>The user experience will be determined by application performance, which is often poor when there is excessive delay, the application hangs, or the failure to complete a process. Therefore, it's essential to measure the correct pain points when setting SLIs to ensure that customer expectations are met.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Service Level Indicators (SLIs)</h3>
+<p>Service level indicators that deliver the best customer solution, measurable by users.</p>
+<h3>Topic 2: Performance Metrics and Thresholds</h3>
+<p>Performance metrics and thresholds for each service level indicator, used to determine system performance and set targets.</p>
+<h3>Topic 3: Service Level Objective (SLO) and Architecture</h3>
+<p>Determining the Service Level Objective (SLO) to finesse architecture and meet customer expectations by addressing and controlling SLIs.</p>
+<h3>Topic 4: Cloud Services and Formal Business Contracts</h3>
+<p>Formal business contracts, such as Service Level Agreements (SLAs), needed for critical cloud services that guarantee a service level and compensate consumers if the service fails.</p>
+<h3>Topic 5: Service Levels Agreements (SLAs)</h3>
+<p>Defining how a given service or product should behave and be fit for, with specifications guaranteeing performance metrics such as availability.</p>
+<h3>Topic 6: User Experience and Application Performance</h3>
+<p>Determining user experience and application performance by measuring correct pain points when setting SLIs.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the first step in designing a good customer experience according to the text?
+Answer: Identifying what the customer expects from the service and what features and functions they care about.</p>
+</li>
+<li>
+<p>What do Service Level Indicators (SLIs) measure, as per the text?
+Answer: Performance metrics and thresholds for each SLI.</p>
+</li>
+<li>
+<p>Why are internal system metrics such as CPU utilization not suitable for measuring SLIs?
+Answer: Because users cannot directly relate to or measure these metrics, and they don't accurately reflect the usability of a system.</p>
+</li>
+<li>
+<p>What is the purpose of Service Level Agreements (SLAs) in the text?
+Answer: To guarantee a service level and compensate consumers if the service fails to meet expectations.</p>
+</li>
+<li>
+<p>According to the text, what determines the user's expectation from a service?
+Answer: The service levels, whether they are SLO or SLA, which manage customer minimum latency expectations.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do Service Level Indicators (SLIs) relate to application performance and customer experience? Provide examples.
+Answer: SLIs measure quantitative attributes of the service, such as error-rate, latency, or availability, which determine application performance and customer experience.</p>
+</li>
+<li>
+<p>What is the difference between a Service Level Objective (SLO) and a Service Level Agreement (SLA)? Explain with an example.
+Answer: An SLO is used within in-house operations and applications to set the level for application performance and customer experience, while an SLA is used for critical cloud services that require formal legal agreements.</p>
+</li>
+<li>
+<p>How do auto-scalars use service level indicators? What is their purpose?
+Answer: Auto-scalars use service level indicators to maintain a consistent user experience by deploying metrics such as utilization effectively.</p>
+</li>
+<li>
+<p>Why are Service Level Indicators (SLIs) important in designing a good customer experience?
+Answer: SLIs provide a real-world benchmark for users to decide whether the service is working properly, allowing designers to address and control performance metrics.</p>
+</li>
+<li>
+<p>What factors should be considered when selecting Service Level Indicators (SLIs)? Explain with examples.
+Answer: SLIs should be directly observable and measurable by users, representing quantitative attributes of the service that determine application performance and customer experience.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a Service Level Indicator (SLI) for an e-commerce website to measure its performance. Justify your choice.
+Answer: An example SLI could be "average response time" or "page load time," which measures the performance of the website's backend infrastructure.</p>
+</li>
+<li>
+<p>Create a Service Level Agreement (SLA) for a cloud-based service that guarantees 99.99% uptime. Explain the implications of this agreement on the provider and consumers.
+Answer: The SLA would require the provider to maintain high availability, ensuring minimal downtime, and compensate consumers if the service fails to meet expectations.</p>
+</li>
+<li>
+<p>Develop a strategy to improve application performance based on Service Level Indicators (SLIs). Provide examples.
+Answer: Improve server infrastructure, optimize database queries, and implement caching mechanisms to reduce latency and increase overall application performance.</p>
+</li>
+<li>
+<p>Design an SLI for a mobile app that measures its user experience. Justify your choice.
+Answer: An example SLI could be "average time to first screen" or "app launch time," which measures the performance of the app's startup process.</p>
+</li>
+<li>
+<p>Create a plan to implement Service Level Indicators (SLIs) in an organization's IT infrastructure. Explain the benefits and challenges involved.
+Answer: Implement SLIs by selecting relevant metrics, establishing thresholds, and monitoring performance regularly. Benefits include improved application performance and customer experience, while challenges involve data collection, analysis, and decision-making.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service Level Indicators (SLI)</td>
+<td>Metric/Performance Indicator</td>
+<td>"benchmarking each process and following through a function from start to finish"</td>
+<td>A quantitative measure of an attribute of the service, such as error-rate, latency, or availability. SLIs are used to determine the performance metrics and thresholds for each process.</td>
+</tr>
+<tr>
+<td>Service Level Objective (SLO)</td>
+<td>Metric/Performance Goal</td>
+<td>"determine the Service Level Objective or SLO"</td>
+<td>A specific target for system performance that is set by the designer to meet customer expectations. The SLO provides a major metric for application design and sets the level for application performance and customer experience within an organization.</td>
+</tr>
+<tr>
+<td>Service Level Agreement (SLA)</td>
+<td>Contract/Agreement</td>
+<td>"a formal business contract will be needed"</td>
+<td>A written agreement between the provider and consumers that guarantees a service level and compensates consumers if the service fails to meet this expectation. SLAs are used for critical cloud services that require a high level of reliability and performance.</td>
+</tr>
+<tr>
+<td>Service Level Indicators (SLI)</td>
+<td>Metric/Performance Indicator</td>
+<td>"the users will have a real-world benchmark to decide whether the service is working properly"</td>
+<td>A fixed indicator or target of system performance that allows users to measure the service's performance against a set threshold. This enables the designer to address and control the service level indicators to meet customer expectations.</td>
+</tr>
+<tr>
+<td>Customer Expectations</td>
+<td>Concept/Goal</td>
+<td>"what your customer expects from the service"</td>
+<td>The desired outcomes and experiences that customers expect from a service, such as responsiveness, reliability, and security. Understanding customer expectations is crucial for designing a good customer experience.</td>
+</tr>
+<tr>
+<td>Performance Metrics</td>
+<td>Metric/Quantitative Measure</td>
+<td>"performance metrics and the thresholds for each of these SLIS"</td>
+<td>Quantitative measures used to evaluate the performance of a system or process, such as CPU utilization, network bandwidth utilization, or error-rate. These metrics are used to determine the Service Level Objective (SLO) and ensure that the service meets customer expectations.</td>
+</tr>
+<tr>
+<td>Application Performance</td>
+<td>Concept/Goal</td>
+<td>"the user experience will be determined by application performance"</td>
+<td>The quality of an application's performance, including responsiveness, reliability, and security. Good application performance is essential for delivering a positive user experience.</td>
+</tr>
+<tr>
+<td>Cloud Services</td>
+<td>Concept/Product</td>
+<td>"some cloud services will be so critical to an organisation that a formal business contract will be needed"</td>
+<td>A type of service provided by a cloud computing provider, such as infrastructure-as-a-service (IaaS), platform-as-a-service (PaaS), or software-as-a-service (SaaS). Cloud services are used for various applications and require high levels of reliability and performance.</td>
+</tr>
+<tr>
+<td>Auto-Scaling</td>
+<td>Concept/Technology</td>
+<td>"utilization is best deployed as a metric by auto-scalars to maintain a consistent user experience"</td>
+<td>A technology used to automatically adjust the resources allocated to an application or service based on its current demand, ensuring that it can handle changes in traffic or usage without compromising performance.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

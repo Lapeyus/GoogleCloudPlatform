@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_132</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Storage
+        ## Overview
+        - Cloud Storage is designed for storing unstructured data at scale. It provides petabytes and even exabytes of capacity.
+        
+        ### Classes of Cloud Storage
+        - There are four classes of Cloud Storage:
+        - **Regional**: Suitable for frequently accessed data.
+        - **Multi-region**: Suitable for data that needs to be accessible from multiple regions.
+        - **Nearline**: Suitable for less frequently accessed data.
+        - **Coldline**: Suitable for archival data.
+        
+        ## Properties, Characteristics and Usability
+        - Cloud storage is perfect for unstructured data because it's simply a big bucket where you can store objects of variable size and type. This makes it the perfect staging point for ingress data into GCP.
+        
+        ### Storing Data in Cloud Storage
+        - Once you've uploaded data to GCP, you'll typically upload it to a cloud storage bucket before sending it to its final destination, such as Cloud SQL.
+        
+        ## Components of Cloud Storage
+        - **Buckets**: Required to have a globally unique name and cannot be nested. Objects within these buckets inherit the storage class of the bucket.
+        - **Objects**: Can be text files, doc files, video files, etc. There's no minimum size limit for objects in cloud storage.
+        - **Storage Classes**: Can be changed after creation, but some changes are not allowed (e.g., changing a regional bucket to a multi-regional one).
+        
+        ## Accessing Data in Cloud Storage
+        - Data can be accessed using the SDK tool commands in the console or through JSON or XML API's.
+        
+        ### Limitations of Cloud Storage
+        - There's no easy way to index all files like you would in a file system.
+        - Creating directories just points to other objects, defeating the purpose.
+        
+        ## Changing Storage Classes and Moving Objects
+        - You can change the default storage class of a bucket but not regional or multi-regional buckets to another type.
+        - Regional or multi-regional buckets can be changed to coldline and nearline storage classes.
+        - Objects can be moved from one bucket to another using the GCP console, but moving objects between different storage classes requires the gsutil command-line tool.
+
+      </script>
+    </div>
+  </body>
+</html>

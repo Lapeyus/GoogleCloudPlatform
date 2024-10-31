@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_125</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # IAM Roles
+        ## Types of IAM Roles
+        - Roles are task related bundles of necessary permissions, which defines who can do what on which resource. There are three specific types of roles in Cloud IAM; primitive roles, curator roles, and custom roles.
+        
+        ### Primitive Roles
+        - The most basic are the primitive roles and these are the original roles that were available in the GCP console. Specifically, these are the owner, editor, and the viewer roles.
+        #### Owner Role
+        - Full administrative access
+        - Ability to add and remove members and delete projects
+        
+        #### Editor Role
+        - Modify permission in conjunction with read access permission
+        - Suitable for a developer or operator that needs to deploy applications and modify or configure resources
+        
+        #### Viewer Role
+        - Read-only access
+        - Cannot modify any resource
+        - Suitable for an edit, manager, or project leader for audit purposes
+        
+        ### Concentric Roles
+        - All of these roles are concentric. This means the higher role includes the permission of the lower roles.
+        - Owner role is inclusive of all the permissions of the editor role
+        - Editor role is inclusive of all the permissions of the viewer role
+        
+        #### Billing Administrator Role
+        - Used to manage billing and add or remove administrators
+        - Suitable for a manager or project leader
+        
+        ### Curated Roles
+        - In addition to the primitive roles, Cloud IAM also provides additional more granular curated or pre-configured roles that give more refined access control to specific GCP resources. Granular roles also reduce the risk of inadvertently providing unwanted access to other resources.
+        
+        #### Examples of Curated Roles
+        - Not specified in the provided text
+        
+        ## Best Practice for IAM Roles
+        - The best practice recommends using groups instead of individual users for managing permissions.
+        - Create a DevSecOps group for your development and security operations team that has multiple roles
+        - Grant the security admin role to manage firewalls, and the log viewer role for auditing
+        - Adding new members to the group is more convenient and less error-prone than assigning roles individually
+        
+        #### Exceptions
+        - For high-risk areas, assign roles to individuals directly rather than using groups.
+
+      </script>
+    </div>
+  </body>
+</html>

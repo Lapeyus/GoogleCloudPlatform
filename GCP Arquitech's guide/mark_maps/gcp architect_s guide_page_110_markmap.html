@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_110</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Compute Engine
+        ## Free Usage Limits
+        - For those wanting to try out Compute Engine there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month.
+        
+        ## VM Security
+        - When we contemplate security issues with VMs it is important to remember that the creator of a VM has full root privileges instance. For example, if you consider a Linux VM, the creator will have SSH capability and they can then use the GCP console to grant SSH capability to other users.
+        - Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+        
+        ## IAM Roles
+        - granular control over the permissions that you can give a project,
+        - When you use IAM with Compute Engine  this  gives you very user, group  or resource. Indeed, every API method in Compute Engine  will require that  the identity that is making the API request does have  the prerequisite  privileges to use the Compute Engine resource . Privileges take the  form of permissions, which you can grant to  others by setting an  IAM policy.
+        
+        - The purpose of the IAM policy is  to grant roles to a member (user, group,  or service account)  of your project in a  consistent and reproducible manner .
+        
+        - In  addition to legacy roles (viewer, editor,  owner) ,  and the  custom roles that you  can configure  yourself there are the Compute Engine predefined  roles.
+        
+        - Predefined roles are normally sufficient  for most projects as  they have more granularity  than primitive roles and are more convenient  to use than custom roles. Indeed, predefined roles allow you to can  grant multiple roles to a project member on the same resource,  which provides a large measure of flexibility.
+        
+        - For example, 
+        - if you want to give an admin full control of all Compute Engine resources  you could give a user roles/compute.admin. However, you want  to be only providing permissions on the  least required principles  so you may want to select a role that serves more specific job functions. 
+        
+        - Compute Engine has many specific
+        - predefined roles such as;
+        - • 
+        - roles/compute.instanceAdmin - Permissions to create,
+        - modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+        - • 
+        - roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+        - • 
+        - roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_258</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_258_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_258</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Cloud IoT Core</h1>
+<h2>Overview</h2>
+<p>Cloud IoT Core is a fully managed service designed to:
+• Help connect, manage, and ingest data from globally dispersed devices.
+• Easily and securely ingest event streams from anywhere, at any scale, for simple, reliable, real-time stream analytics.</p>
+<h3>Features</h3>
+<h4>Protocol Bridges</h4>
+<p>• MQTT and HTTP protocol bridges that devices can use to connect to Google Cloud Platform.</p>
+<h4>Device Manager</h4>
+<p>A device manager for registering devices with the service, so you can then monitor and configure them.</p>
+<h2>Process</h2>
+<p>This is the stage where we will have to clean and store data for on-demand solutions that scale.</p>
+<h3>Data Processing</h3>
+<p>• Apply data extract transform and load (ETL) data with Cloud Dataflow.
+• Use Cloud Functions as a serverless solution for developers to create single-purpose independent functions that respond to specified events.</p>
+<h4>Storage Options</h4>
+<p>• Cloud Bigtable: ideal for storing very large amounts of single-keyed data with very low latency.
+• Cloud Storage: used for storing and accessing unstructured data objects on Google Cloud Platform.</p>
+<h2>Analyse</h2>
+<p>With Google cloud IoT platform we can analyse, predict outcomes and generate insightful actionable intelligence.</p>
+<h3>Key Service Modules</h3>
+<h4>BigQuery</h4>
+<p>A highly scalable enterprise data warehouse that enables you to perform OLAP style queries on large data sets.</p>
+<h4>Cloud Machine Learning (ML) Engine</h4>
+<p>A managed service, which enable you to build and access machine learning models.</p>
+<h2>Related Projects</h2>
+<p>• <a href="https://github.com/gera2ld/coc-markmap">coc-markmap</a> for Neovim.
+• <a href="https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode">markmap-vscode</a> for VSCode.
+• <a href="https://github.com/emacs-eaf/eaf-markmap">eaf-markmap</a> for Emacs</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Ingest
+Cloud loT Core is a fully managed service designed to help connect, manage, and ingest data from globally dispersed devices. Easily and securely ingest event streams from anywhere, at any scale, for simple, reliable, real-time stream analytics. Seamlessly move loT data across Google Cloud services. Ingest data with Cloud loT Core and distribute data with Cloud Pub/Sub.
+
+Cloud loT Core, using Cloud Pub/Sub, can combine device data that is widely distributed into a single global system. This single system integrates seamlessly with Google Cloud data analytics services.
+
+There are two main components of Cloud loT Core:
+A device manager for registering devices with the service, so you can then monitor and configure them.
+Two protocol bridges (MQTT and HTTP) that devices can use to connect to Google Cloud Platform.
+
+Cloud IoT provisioning service is an add-on service for Cloud loT Core that simplifies device creation and monitoring. It allows you to securely add devices to your network by using hardware-based security, enabling you to provision millions of devices to the right Cloud loT Core without human intervention.
+
+Process
+This stage involves cleaning and storing data for on-demand solutions that scale.
+You apply data extract transform and load (ETL) data with Cloud Dataflow. This is a simplified stream or batch data processing solution using Cloud Functions, which is a serverless solution for developers to create single-purpose independent functions that respond to specified events.
+
+Cloud Bigtable is ideal for storing very large amounts of single-keyed data with very low latency. It supports terrabytes of data and very high read/write throughput, making it ideal for MapReduce type operations. Cloud Storage is used for storing and accessing unstructured data objects on Google Cloud Platform.
+
+Analyse
+With the Google cloud loT platform, you can analyse, predict outcomes, and generate insightful actionable intelligence.
+The key service modules deployed here are:
+BigQuery is a highly scalable enterprise data warehouse that enables you to perform OLAP style queries on large data sets. Cloud Machine Learning (ML) Engine is a managed service, which enables you to build and access machine learning models.
+
+There are several other tools that GCP IoT provides that allow you to focus on data analysis. These integrated tools enable you to generate insights faster by rapidly identifying patterns in the data and surfacing and sharing trends across the business.
+For example, there is Cloud Datalab, which is based on open-source Jupyter data notebook. Datalab is an interactive tool used in large-scale data analysis and visualization. IoT data can be explored then combined with other data sources from outside the loT within Cloud Datalab to generate valuable data insights.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud IoT Core: A Fully Managed Service for IoT Data Management</h3>
+<p>Cloud IoT Core is a fully managed service designed to help connect, manage, and ingest data from globally dispersed devices. It enables easy and secure ingestion of event streams from anywhere, at any scale, for simple, reliable, real-time stream analytics.</p>
+<h4>Key Components</h4>
+<ul>
+<li><strong>Device Manager</strong>: Registers devices with the service, allowing monitoring and configuration.</li>
+<li><strong>Protocol Bridges (MQTT and HTTP)</strong>: Devices can connect to Google Cloud Platform using these bridges.</li>
+<li><strong>Cloud IoT Provisioning Service</strong>: Simplifies device creation and monitoring by using hardware-based security.</li>
+</ul>
+<h4>Data Processing and Storage</h4>
+<p>To process and store data for on-demand solutions that scale, the following services are used:</p>
+<ul>
+<li><strong>Cloud Dataflow</strong>: Applies data extract transform and load (ETL) with simplified stream or batch data processing.</li>
+<li><strong>Cloud Functions</strong>: A serverless solution for developers to create single-purpose independent functions.</li>
+<li><strong>Bigtable</strong>: Ideal for storing large amounts of single-keyed data with low latency, supporting terrabytes of data and high read/write throughput.</li>
+<li><strong>Cloud Storage</strong>: Used for storing and accessing unstructured data objects on Google Cloud Platform.</li>
+</ul>
+<h4>Data Analysis</h4>
+<p>With the Google cloud IoT platform, analysis, prediction, and generation of insightful actionable intelligence are possible. Key service modules include:</p>
+<ul>
+<li><strong>BigQuery</strong>: A highly scalable enterprise data warehouse for OLAP style queries on large data sets.</li>
+<li><strong>Cloud Machine Learning (ML) Engine</strong>: A managed service for building and accessing machine learning models.</li>
+<li><strong>Cloud Datalab</strong>: An interactive tool based on open-source Jupyter notebook, used in large-scale data analysis and visualization.</li>
+</ul>
+<h4>Benefits</h4>
+<p>The Google cloud IoT platform provides several benefits, including:</p>
+<ul>
+<li>Generating insights faster by rapidly identifying patterns in the data</li>
+<li>Surfacing and sharing trends across the business</li>
+<li>Combining IoT data with other data sources from outside the IoT within Cloud Datalab to generate valuable data insights</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Device Management and Provisioning</strong>
+Cloud IoT Core simplifies device creation and monitoring by using hardware-based security, enabling the secure addition of millions of devices to the network without human intervention.</p>
+<h3>Topic 2</h3>
+<p><strong>Data Ingestion and Processing</strong>
+Cloud loT Core helps connect, manage, and ingest data from globally dispersed devices, and provides a simplified stream or batch data processing solution with Cloud Dataflow and Cloud Functions.</p>
+<h3>Topic 3</h3>
+<p><strong>Data Storage and Analytics</strong>
+Cloud loT Core integrates seamlessly with Google Cloud data analytics services, using BigQuery for OLAP style queries on large data sets, and providing tools like Cloud Machine Learning Engine and Cloud Datalab for generating insights faster.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary function of Cloud IoT Core?
+Answer: Cloud IoT Core helps connect, manage, and ingest data from globally dispersed devices.</p>
+</li>
+<li>
+<p>How does Cloud IoT Core combine device data into a single global system?
+Answer: Cloud IoT Core uses Cloud Pub/Sub to combine device data that is widely distributed into a single global system.</p>
+</li>
+<li>
+<p>What are the two main components of Cloud IoT Core?
+Answer: The two main components of Cloud IoT Core are a device manager for registering devices with the service and two protocol bridges (MQTT and HTTP) that devices can use to connect to Google Cloud Platform.</p>
+</li>
+<li>
+<p>What is the purpose of the Cloud IoT Provisioning Service?
+Answer: The Cloud IoT Provisioning Service simplifies device creation and monitoring by using hardware-based security, enabling the secure addition of millions of devices to the network without human intervention.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Cloud IoT Core enable real-time stream analytics?
+Answer: Cloud IoT Core enables real-time stream analytics by allowing users to easily and securely ingest event streams from anywhere at any scale.</p>
+</li>
+<li>
+<p>What is the role of Cloud Dataflow in the process stage?
+Answer: Cloud Dataflow applies data extract transform and load (ETL) data, which simplifies stream or batch data processing.</p>
+</li>
+<li>
+<p>How does BigQuery enable data analysis in the Google Cloud IoT platform?
+Answer: BigQuery enables data analysis by performing OLAP style queries on large data sets, allowing users to perform complex analytics tasks.</p>
+</li>
+<li>
+<p>What is the benefit of using Cloud Datalab for large-scale data analysis and visualization?
+Answer: Cloud Datalab allows users to explore and combine IoT data with other data sources from outside the IoT, generating valuable insights and trends across the business.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>How can a company use Cloud IoT Core to analyze device data in real-time?
+Answer: A company can use Cloud IoT Core to ingest event streams from devices, apply ETL data with Cloud Dataflow, and then analyze the data using BigQuery or other integrated tools.</p>
+</li>
+<li>
+<p>What are some potential applications of the Google Cloud IoT platform for industries such as manufacturing or logistics?
+Answer: The Google Cloud IoT platform can be used in various industries such as manufacturing or logistics to monitor equipment performance, track inventory levels, and optimize supply chain operations.</p>
+</li>
+<li>
+<p>How can a developer use Cloud Functions to create single-purpose independent functions that respond to specified events?
+Answer: A developer can use Cloud Functions to create serverless solutions for data processing and analysis tasks, allowing them to focus on developing custom applications.</p>
+</li>
+<li>
+<p>What are some best practices for securing device data in the Google Cloud IoT platform?
+Answer: Best practices include using hardware-based security, implementing encryption, and regularly monitoring device activity to ensure secure data transmission and storage.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud loT Core</td>
+<td>Service/Platform</td>
+<td>"Cloud loT Core is a fully managed service designed to: ... Ingest data with Cloud loT Core and distribute data with Cloud Pub/Sub."</td>
+<td>Cloud loT Core is a cloud-based platform that enables the ingestion, processing, and analysis of IoT data. It provides a scalable and secure solution for managing and analyzing large amounts of device data.</td>
+</tr>
+<tr>
+<td>Globally dispersed devices</td>
+<td>Device/Device Type</td>
+<td>"... Help connect, manage, and ingest data from globally dispersed devices."</td>
+<td>Globally dispersed devices refer to devices that are located in different parts of the world, making it challenging to collect and analyze their data. Cloud loT Core helps to connect and manage these devices remotely.</td>
+</tr>
+<tr>
+<td>Event streams</td>
+<td>Data Stream/Data Type</td>
+<td>"... Easily and securely ingest event streams from anywhere, at any scale, for simple, reliable, real-time stream analytics."</td>
+<td>Event streams refer to the continuous flow of data generated by IoT devices. Cloud loT Core enables the ingestion of these event streams in a secure and scalable manner.</td>
+</tr>
+<tr>
+<td>Google Cloud Platform (GCP)</td>
+<td>Service/Platform</td>
+<td>"... Seamlessly move loT data across Google Cloud services."</td>
+<td>GCP refers to the suite of cloud-based services provided by Google, including Cloud loT Core, Cloud Pub/Sub, and others. It provides a comprehensive platform for IoT data management and analysis.</td>
+</tr>
+<tr>
+<td>Cloud Pub/Sub</td>
+<td>Service/Platform</td>
+<td>"... Ingest data with Cloud loT Core and distribute data with Cloud Pub/Sub."</td>
+<td>Cloud Pub/Sub is a messaging service that enables the ingestion and distribution of IoT data across different parts of the GCP ecosystem. It provides a scalable and reliable solution for event-driven data processing.</td>
+</tr>
+<tr>
+<td>Device manager</td>
+<td>Component/Component Type</td>
+<td>"... A device manager for registering devices with the service, so you can then monitor and configure them."</td>
+<td>The device manager is a component of Cloud loT Core that enables the registration, monitoring, and configuration of IoT devices remotely. It provides a centralized management interface for device management.</td>
+</tr>
+<tr>
+<td>MQTT and HTTP</td>
+<td>Protocol/Protocol Type</td>
+<td>"... Two protocol bridges (MQTT and HTTP) that devices can use to connect to Google Cloud Platform."</td>
+<td>MQTT and HTTP are protocols used by IoT devices to communicate with the cloud-based platform. They enable secure and reliable data transmission between devices and the GCP ecosystem.</td>
+</tr>
+<tr>
+<td>Cloud IoT Provisioning Service</td>
+<td>Add-on Service/Add-on Type</td>
+<td>"... Cloud IoT provisioning service is an add-on service for Cloud loT Core that simplifies device creation and monitoring."</td>
+<td>The Cloud IoT Provisioning Service is an add-on service that simplifies the process of creating and managing IoT devices. It enables secure device registration and configuration, making it easier to deploy large-scale IoT deployments.</td>
+</tr>
+<tr>
+<td>Data extract transform and load (ETL)</td>
+<td>Process/Process Type</td>
+<td>"... You apply data extract transform and load (ETL) data with Cloud Dataflow."</td>
+<td>ETL refers to the process of extracting data from various sources, transforming it into a standardized format, and loading it into a target system. Cloud Dataflow provides a serverless solution for ETL processing, enabling scalable and reliable data integration.</td>
+</tr>
+<tr>
+<td>Cloud Functions</td>
+<td>Service/Platform</td>
+<td>"... Cloud Functions is a serverless solution for developers to create single-purpose independent functions that respond to specified."</td>
+<td>Cloud Functions is a serverless platform that enables developers to create small, stateless functions that can be triggered by events or requests. It provides a scalable and reliable solution for event-driven data processing.</td>
+</tr>
+<tr>
+<td>Bigtable</td>
+<td>Data Storage/Data Type</td>
+<td>"... Cloud Bigtable is ideal for storing very large amounts of single-keyed data with very low latency."</td>
+<td>Bigtable is a NoSQL database service provided by GCP that enables the storage and management of large amounts of structured data. It provides a scalable and reliable solution for big data storage and analytics.</td>
+</tr>
+<tr>
+<td>Cloud Storage</td>
+<td>Service/Platform</td>
+<td>"... Cloud Storage is used for storing and accessing unstructured data objects on Google Cloud Platform."</td>
+<td>Cloud Storage refers to the object storage service provided by GCP that enables the storage, retrieval, and management of unstructured data objects. It provides a scalable and reliable solution for data archiving and backup.</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>Data Analytics/Data Type</td>
+<td>"... BigQuery is a highly scalable enterprise data warehouse that enables you to perform OLAP style queries on large data sets."</td>
+<td>BigQuery is a cloud-based data analytics service provided by GCP that enables the analysis of large datasets using SQL-like queries. It provides a scalable and reliable solution for big data analytics and reporting.</td>
+</tr>
+<tr>
+<td>Cloud Machine Learning (ML) Engine</td>
+<td>Service/Platform</td>
+<td>"... Cloud Machine Learning ( ML ) Engine is a managed service, which enable you to build and access machine learning models."</td>
+<td>Cloud ML Engine is a cloud-based machine learning platform provided by GCP that enables the building, training, and deployment of machine learning models. It provides a scalable and reliable solution for machine learning development and deployment.</td>
+</tr>
+<tr>
+<td>Cloud Datalab</td>
+<td>Service/Platform</td>
+<td>"... There is Cloud Datalab, which is based on open source Jupyter data notebook."</td>
+<td>Cloud Datalab is a cloud-based data science platform provided by GCP that enables the creation of interactive data notebooks using Jupyter. It provides a scalable and reliable solution for data exploration, visualization, and analysis.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

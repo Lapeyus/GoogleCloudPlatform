@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_202</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_202_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_202</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Autoscaling</h1>
+<h2>Overview</h2>
+<p>Autoscaling is used to automatically adjust the number of replicas in a deployment based on certain criteria.</p>
+<h3>Manual Configuration</h3>
+<p>Manually configuring and scaling our cluster has of course certain limitations so ideally we would want to autoscale the cluster to meet some preconfigured criteria. We can do this using a simple command:
+<code>bash
+kubectl autoscale deployment test-scale --max-6-min-4-cpu percent=50</code>
+Alternatively we can use the GKE Workloads menu in the console to achieve the same thing.</p>
+<h3>Horizontal Pod Autoscaler (HPA)</h3>
+<p>Regardless, what the autoscale command does is to create a scaling device known as an HPA object that targets a specified resource (called the scale target) and scales it to meet the desired objectives. Therefore in practice what the HPA does is to periodically check and adjust the number of replicas of the scale target to match the average CPU utilization that you specified.</p>
+<h2>Custom Metrics</h2>
+<p>We can also extend the metrics that we use for autoscaling by integration of Kubernetes Engine with Stackdriver.</p>
+<h3>Exporting Custom Metrics from Pods</h3>
+<p>There are two ways to autoscale with custom metrics:
+1. You can export a custom metric from every Pod in the Deployment and target the average value per Pod.
+2. You can export a custom metric from a single Pod outside of the Deployment and target the total value.</p>
+<h2>Key Metrics</h2>
+<p>Where Desired is the number of replicas that you configured; Current is the number presently active and healthy; Up-to-date is the number of replicas that have been updated so far in order to achieve this desired state; Available is the number of currently available replicas; and Age is a measure of the time that the application has been running in the cluster.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Where Desired is the number of replicas that you configured; Current is the number presently active and healthy; Up-to-date is the number of replicas that have been updated so far in order to achieve this desired state; Available is the number of currently available replicas; and Age is a measure of the time that the application has been running in the cluster.
+
+Autoscaling
+Manually configuring and scaling our cluster has certain limitations, ideally we would want to autoscale the cluster to meet some preconfigured criteria. We can do this using a simple command: kubectl autoscale deployment test-scale --max-6-min-4-cpu percent=50. Alternatively, we can use the GKE Workloads menu in the console to achieve the same thing.
+
+Regardless, what the autoscale command does is to create a scaling device known as an HPA (Horizontal PodAutoscaler) object that targets a specified resource called the scale target and scales it to meet the desired objectives. Therefore, in practice, what the HPA does is to periodically check and adjust the number of replicas of the scale target to match the average CPU utilization that you specified.
+
+In the example above, we set the desired level at a CPU utilisation level of 50% and with the constraints of a maximum of 6 replicas and a minimum of 4 replicas. 
+
+Custom Metrics
+We can also extend the metrics that we use for autoscaling by integration of Kubernetes Engine with Stackdriver. In this scenario, we can use metrics identified in Stackdriver to trigger the autoscale events.
+
+There are two ways to autoscale with custom metrics:
+1. You can export a custom metric from every Pod in the Deployment and target the average value per Pod.
+2. You can export a custom metric from a single Pod outside of the Deployment and target the total value.
+
+Where Desired is the number of replicas that you configured; Current is the number presently active and healthy; Up-to-date is the number of replicas that have been updated so far in order to achieve this desired state; Available is the number of currently available replicas; and Age is a measure of the time that the application has been running in the cluster.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Autoscaling in Kubernetes Clusters</h3>
+<p>Autoscaling allows clusters to dynamically adjust their resources based on preconfigured criteria, ensuring optimal performance and efficiency.</p>
+<h4>Configuring Autoscaling</h4>
+<p>To autoscale a cluster, use the <code>kubectl autoscale</code> command or the GKE Workloads menu in the console. The command creates an HPA (Horizontal Pod Autoscaler) object that targets a specified resource and scales it to meet desired objectives.</p>
+<p>Example:
+<code>bash
+kubectl autoscale deployment test-scale --max-6-min-4-cpu percent=50</code>
+This sets the desired level at 50% CPU utilization, with a maximum of 6 replicas and a minimum of 4 replicas.</p>
+<h4>HPA Object</h4>
+<p>The HPA object periodically checks and adjusts the number of replicas to match the average CPU utilization specified. The <code>scale target</code> is the resource being scaled, and the <code>desired</code> value represents the desired level of CPU utilization.</p>
+<h4>Custom Metrics</h4>
+<p>Kubernetes Engine can integrate with Stackdriver to extend autoscaling metrics. There are two ways to autoscale with custom metrics:</p>
+<ol>
+<li><strong>Targeting Average Value per Pod</strong>: Export a custom metric from every Pod in the Deployment and target the average value.</li>
+<li><strong>Targeting Total Value</strong>: Export a custom metric from a single Pod outside of the Deployment and target the total value.</li>
+</ol>
+<p>In both cases, the desired level is represented by <code>Desired</code>, <code>Current</code> is the number of replicas active and healthy, <code>Up-to-date</code> is the number of replicas updated to achieve the desired state, <code>Available</code> is the number of currently available replicas, and <code>Age</code> measures the time the application has been running in the cluster.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Desired replicas, current replicas, up-to-date replicas, available replicas, and age of the cluster.</p>
+<h3>Topic 2</h3>
+<p>Autoscaling with preconfigured criteria using HPA (Horizontal Pod Autoscaler) object.</p>
+<h3>Topic 3</h3>
+<p>Custom metrics for autoscaling using integration of Kubernetes Engine with Stackdriver.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Autoscaling in Kubernetes</h3>
+<h4>Comprehension Questions</h4>
+<ol>
+<li>What is the primary goal of using autoscaling in a Kubernetes cluster?
+Answer: To automatically adjust the number of replicas to meet preconfigured criteria.</li>
+<li>What is an HPA (Horizontal PodAutoscaler) object, and what does it do?
+Answer: An HPA object targets a specified resource and scales it to meet desired objectives by periodically checking and adjusting the number of replicas based on average CPU utilization.</li>
+<li>How can you use custom metrics with Kubernetes Engine and Stackdriver for autoscaling?
+Answer: You can export a custom metric from every Pod in the Deployment to target the average value per Pod, or export a custom metric from a single Pod outside of the Deployment to target the total value.</li>
+</ol>
+<h4>Analytical Questions</h4>
+<ol>
+<li>What are the limitations of manually configuring and scaling a Kubernetes cluster, and how does autoscaling address these limitations?
+Answer: Manual configuration has limitations, such as not being able to scale based on dynamic metrics or changing resource availability. Autoscaling addresses this by creating an HPA object that targets a specified resource and scales it to meet desired objectives.</li>
+<li>How do custom metrics with Kubernetes Engine and Stackdriver enhance the autoscaling process?
+Answer: Custom metrics allow for more precise scaling decisions, enabling you to target specific values or averages of metrics from individual Pods or the entire Deployment.</li>
+</ol>
+<h4>Application Questions</h4>
+<ol>
+<li>Suppose you want to scale your Deployment based on CPU utilization, but you also need to consider the number of available replicas. How would you configure this using an HPA object?
+Answer: You would set the desired level at a specific CPU utilization percentage and define constraints for the maximum and minimum number of replicas.</li>
+<li>If you have a custom metric that measures the response time of your application, how would you use it to trigger autoscale events in your Deployment?
+Answer: You would export this custom metric from every Pod in the Deployment and target the average value per Pod to scale the Deployment accordingly.</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desired, Current, Up-to-date, Available, Age</td>
+<td>Metrics</td>
+<td>In the context of autoscaling, these metrics are used to determine the optimal number of replicas for a deployment. The "Desired" metric represents the target number of replicas, while "Current" and "Up-to-date" represent the actual number of replicas that meet this desired state. "Available" refers to the total number of replicas in the cluster, and "Age" measures the time the application has been running in the cluster.</td>
+<td>These metrics are used to determine the optimal number of replicas for a deployment based on CPU utilization. The goal is to maintain a balance between resource usage and availability.</td>
+</tr>
+<tr>
+<td>Max-6-min-4-cpu percent=50</td>
+<td>Autoscaling Command</td>
+<td>This command is used to autoscale a deployment named "test-scale" with a maximum of 6 replicas, a minimum of 4 replicas, and a CPU utilization threshold of 50%.</td>
+<td>The command creates an HPA object that targets a specified resource (in this case, CPU utilization) and scales it to meet the desired objectives. The goal is to maintain a balance between resource usage and availability.</td>
+</tr>
+<tr>
+<td>HPA (Horizontal PodAutoscaler)</td>
+<td>Concept</td>
+<td>An HPA is a scaling device created by the autoscale command to target a specified resource and scale it to meet desired objectives.</td>
+<td>An HPA is a mechanism that periodically checks and adjusts the number of replicas of a scale target to match the average CPU utilization specified.</td>
+</tr>
+<tr>
+<td>GKE Workloads menu</td>
+<td>Tool/Interface</td>
+<td>This console interface allows users to configure and manage their Kubernetes Engine clusters, including autoscaling deployments.</td>
+<td>The GKE Workloads menu provides an intuitive way for users to configure and manage their cluster resources, including autoscaling deployments.</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Platform/Service</td>
+<td>Stackdriver is a Google Cloud platform that provides monitoring and logging capabilities for applications running on the cloud.</td>
+<td>Stackdriver is a comprehensive platform that enables users to monitor and analyze application performance, including CPU utilization, to inform autoscaling decisions.</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Entity</td>
+<td>A deployment represents a set of replicas of an application running in a Kubernetes cluster.</td>
+<td>A deployment is a fundamental unit of management in Kubernetes, representing a set of replicas of an application that can be scaled and managed independently.</td>
+</tr>
+<tr>
+<td>Pod</td>
+<td>Entity</td>
+<td>A pod represents a single instance of a containerized application running on a Kubernetes node.</td>
+<td>A pod represents a single instance of a containerized application, providing a logical grouping of containers that share the same network namespace and resources.</td>
+</tr>
+<tr>
+<td>Autoscale Events</td>
+<td>Concept</td>
+<td>Autoscale events are triggered by changes in CPU utilization or other custom metrics to scale deployments up or down.</td>
+<td>Autoscale events are a mechanism for triggering scaling actions based on changes in application performance or custom metrics, enabling dynamic adjustments to resource allocation.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

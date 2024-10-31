@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_166</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_166_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_166</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Network Cost Optimization in GCP</h1>
+<h2>Network Cost Considerations</h2>
+<ul>
+<li>GCP charges egress bandwidth pricing for networks that use external IPs to communicate, even if the traffic is within the same zone.</li>
+<li>However, if the networks are peered, they can use internal IPs to communicate and save on those egress costs.</li>
+<li>Regular network pricing still applies to all traffic.</li>
+</ul>
+<h2>Network Peering</h2>
+<h3>Benefits of Peering</h3>
+<ul>
+<li>Allows for communication between networks without incurring egress costs</li>
+<li>Enables sharing of resources across multiple projects</li>
+</ul>
+<h3>Peering Limitations</h3>
+<ul>
+<li>Internal load balancing services are only available to clients and directly peered networks.</li>
+<li>Firewall rules must be used to block traffic to specific VM instances or internal load balancers.</li>
+</ul>
+<h2>Shared VPC Host Project</h2>
+<ul>
+<li>Allows other projects to use one of its networks</li>
+<li>Enables sharing of resources across multiple projects</li>
+</ul>
+<h3>Example Use Case</h3>
+<ul>
+<li>Service projects P3 and P4 can attach VM instances to network SVPC peers with network A.</li>
+<li>Network A and B can be peered, allowing for communication between the two networks.</li>
+</ul>
+<h2>Firewall Rules</h2>
+<ul>
+<li>Can be used to block traffic from specific subnets or VM instances</li>
+<li>Must be installed on the network being blocked</li>
+</ul>
+<h3>Example Firewall Rule</h3>
+<ul>
+<li>Allow all traffic from Subnets 1 and 2 in Network A to Subnet 4 in Network B.</li>
+<li>Deny traffic from Subnets 1 and 2 in Network A to Subnet 3 in Network B.</li>
+</ul>
+<p>Subnet 1
+Subnet 2
+Subnet 4</p>
+<p>Figure 17: VPC network peering allows peering with a shared VPC. Firewall drops traffic from subnets 1 &amp; 2 for subnet 3 but allows traffic to subnet 4.</p>
+<p>Subnet 3</p>
+<h3>Table of Network Costs</h3>
+<p>| Project | Network |
+| --- | --- |
+| P1 | A |
+| P2 | B |
+| P3 | SVPC |
+| P4 | SVPC |</p>
+<p>| Network | Price |
+| --- | --- |
+| A | $0.01/GB |
+| B | $0.02/GB |
+| SVPC | $0.03/GB |</p>
+<h3>Katex Example</h3>
+<p>$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Network Cost - GCP Charges Egress Bandwidth Pricing for Networks That Use External IPs to Communicate
+
+GCP charges egress bandwidth pricing for networks that use external IPs to communicate, even if the traffic is within the same zone. However, if the networks are peered, they can use internal IPs to communicate and save on those egress costs. Regular network pricing still applies to all traffic.
+
+Project P1
+Project P2
+Network A
+Network B
+Peering
+
+Subnet 1
+Subnet 3
+
+Internal Load Balancing
+
+Internal load balancing services are available to clients and directly peered networks only. In the case that network B peers with network C, the internal load balance backends in network A will not be reachable from clients in network C.
+
+If you have peering between your VPC network and another VPC network, you want to block traffic to a given set of VM instances or internal load balancing endpoints. You must use firewall rules to do this because there is no way to exclude certain VM instances or internal load balancers from the peering arrangement.
+
+If you want to disallow communication with certain VM instances or internal load balancers, you can install ingress firewall rules on the network you want to block the communication to.
+
+The diagram shows how you could create a firewall rule to allow all traffic from Subnets 1 and 2 in Network A to Subnet 4 in Network B and deny traffic from Subnets 1 and 2 in Network A to Subnet 3 in Network B.
+
+Subnet 2
+Subnet 4
+
+Figure 17: VPC network peering allows peering with a shared VPC. Firewall drops traffic from subnets 1 & 2 for subnet 3 but allows traffic to subnet 4.
+
+As discussed earlier, a shared VPC host project allows other projects to use one of its networks. In the shared VPC diagram right here, network -SVPC is in a shared VPC network and host project P1.
+
+Service projects P3 and P4 are able to attach VM instances to network SVPC peers with network A.
+
+Figure-18
+348
+
+Network Cost - GCP Charges Egress Bandwidth Pricing for Networks That Use External IPs to Communicate
+
+GCP charges egress bandwidth pricing for networks that use external IPs to communicate, even if the traffic is within the same zone. However, if the networks are peered, they can use internal IPs to communicate and save on those egress costs. Regular network pricing still applies to all traffic.
+
+Project P1
+Project P2
+Network A
+Network B
+Peering
+
+Subnet 1
+Subnet 3
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Network Cost and Peering in GCP</h3>
+<p>GCP charges egress bandwidth pricing for networks that use external IPs to communicate, even if the traffic is within the same zone. However, peered networks can use internal IPs to communicate and save on those egress costs.</p>
+<p><strong>Peering Benefits</strong></p>
+<ul>
+<li>Networks that are peered can use internal IPs to communicate</li>
+<li>Regular network pricing still applies to all traffic</li>
+</ul>
+<h3>Network Configuration</h3>
+<p>The following networks are configured:</p>
+<p>| Project | Network |
+| --- | --- |
+| P1 | A |
+| P2 | B |
+| A | Subnet 1, Subnet 3 |
+| B | Subnet 2, Subnet 4 |</p>
+<p><strong>Peering and Internal Load Balancing</strong></p>
+<ul>
+<li>Internal load balancing services are available to clients and directly peered networks only</li>
+<li>If network B peers with network C, internal load balance backends in network A will not be reachable from clients in network C</li>
+<li>Firewall rules must be used to block traffic to specific VM instances or internal load balancers</li>
+</ul>
+<h3>Example Firewall Rule</h3>
+<p>The following firewall rule allows all traffic from Subnets 1 and 2 in Network A to Subnet 4 in Network B, while denying traffic from Subnets 1 and 2 in Network A to Subnet 3 in Network B.</p>
+<p>Subnet 2 -&gt; Subnet 4
+Subnet 1 -&gt; Subnet 4 (allowed)
+Subnet 1 -&gt; Subnet 3 (denied)</p>
+<h3>Shared VPC Host Project</h3>
+<p>A shared VPC host project allows other projects to use one of its networks. In this example, network -SVPC is in a shared VPC network and host project P1.</p>
+<p>Service projects P3 and P4 can attach VM instances to network SVPC peers with Network A.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Network Cost Optimization</h3>
+<p>Network cost optimization involves reducing egress bandwidth pricing by using internal IPs for communication between peered networks.</p>
+<h3>Topic 2: Internal Load Balancing and Firewall Rules</h3>
+<p>Internal load balancing services are only available to clients and directly peered networks, requiring the use of firewall rules to block traffic to specific VM instances or internal load balancers. Ingress firewall rules can be installed on a network to disallow communication with certain resources.</p>
+<h3>Topic 3: VPC Network Peering and Shared VPCs</h3>
+<p>VPC network peering allows sharing of a VPC between projects, enabling the use of one project's networks by other projects. This arrangement requires careful configuration of firewall rules to control traffic flow between subnets.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary reason GCP charges egress bandwidth pricing for networks that use external IPs to communicate?
+Answer: Even if the traffic is within the same zone.</p>
+</li>
+<li>
+<p>How do peered networks benefit from using internal IPs to communicate?
+Answer: They can save on egress costs.</p>
+</li>
+<li>
+<p>In what scenario will internal load balancing services not be reachable from clients in another network?
+Answer: When there is a peering arrangement between two VPC networks.</p>
+</li>
+<li>
+<p>What is the purpose of installing ingress firewall rules on a network?
+Answer: To block communication with certain VM instances or internal load balancers.</p>
+</li>
+<li>
+<p>How can you create a firewall rule to allow traffic from one subnet to another while denying it to another?
+Answer: By creating a specific firewall rule that allows traffic from Subnets 1 and 2 in Network A to Subnet 4 in Network B, but denies it to Subnet 3 in Network B.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the implications of using shared VPC host projects for other projects?
+Answer: Other projects can use one of its networks, allowing for more flexibility and collaboration.</p>
+</li>
+<li>
+<p>How does peering between VPC networks affect internal load balancing services?
+Answer: Peering arrangements can limit the reachability of internal load balancing backends from clients in another network.</p>
+</li>
+<li>
+<p>What are the benefits of using ingress firewall rules to block communication with certain VM instances or internal load balancers?
+Answer: It provides a way to control and restrict traffic flow between networks, improving security and isolation.</p>
+</li>
+<li>
+<p>How do egress bandwidth pricing and regular network pricing differ for peered networks?
+Answer: Peered networks can use internal IPs to communicate and save on egress costs, while regular network pricing still applies to all traffic.</p>
+</li>
+<li>
+<p>What are the limitations of using shared VPC host projects for service projects?
+Answer: Service projects may not have direct access to certain resources or networks within a shared VPC host project.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a firewall rule that allows traffic from Subnets 1 and 2 in Network A to Subnet 4 in Network B, while denying it to Subnet 3 in Network B.
+Answer: Create a specific firewall rule that includes the desired subnets and IP addresses.</p>
+</li>
+<li>
+<p>Implement peering between two VPC networks to enable internal communication and save on egress costs.
+Answer: Establish a peering arrangement between the two VPC networks using the GCP console or API.</p>
+</li>
+<li>
+<p>Use ingress firewall rules to block communication with certain VM instances or internal load balancers in Network A.
+Answer: Create an ingress firewall rule that includes the specific IP addresses or subnets of the VM instances or internal load balancers to be blocked.</p>
+</li>
+<li>
+<p>Configure a shared VPC host project for another project to use one of its networks.
+Answer: Create a new shared VPC host project and invite the other project to join it, allowing them to access the network.</p>
+</li>
+<li>
+<p>Analyze the security implications of using peering between VPC networks and internal load balancing services.
+Answer: Consider the potential risks and benefits of using peering arrangements and internal load balancing services in conjunction with each other.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network cost - GCP charges egress bandwidth pricing for networks that use external IPs to communicate even if the traffic is within the same zone. However, if the networks are peered, they can use internal IPs to communicate and save on those egress costs. Regular network pricing still applies to all traffic.</td>
+<td>Concept</td>
+<td>This sentence explains the cost structure of GCP's networking services, specifically how egress bandwidth pricing works for networks that use external IPs versus those that are peered. It highlights the importance of peering in reducing egress costs.</td>
+<td>The concept of egress bandwidth pricing is a key aspect of GCP's networking services, and understanding it is crucial for optimizing network costs. Peering is a critical strategy for reducing these costs.</td>
+</tr>
+<tr>
+<td>Project P1</td>
+<td>Organization</td>
+<td>This project is mentioned as part of the shared VPC host project, indicating that it is one of the projects using the shared VPC network.</td>
+<td>Project P1 is a client or user of the shared VPC network, and its VM instances are attached to the network SVPC. The project's use of the shared VPC highlights its need for efficient networking services.</td>
+</tr>
+<tr>
+<td>Project P2</td>
+<td>Organization</td>
+<td>Similar to Project P1, this project is also using the shared VPC host project, indicating that it is another client or user of the shared VPC network.</td>
+<td>Like Project P1, Project P2 is a client that benefits from the shared VPC network's features, including efficient networking services.</td>
+</tr>
+<tr>
+<td>Network A</td>
+<td>Network</td>
+<td>This network is mentioned as one of the networks in the shared VPC host project, indicating its role in providing networking services to clients like Project P1 and Project P2.</td>
+<td>Network A is an important component of the shared VPC network, providing connectivity for clients like Project P1 and Project P2. Its peering capabilities are critical for optimizing egress costs.</td>
+</tr>
+<tr>
+<td>Network B</td>
+<td>Network</td>
+<td>This network is also part of the shared VPC host project, indicating its role in providing networking services to clients like Project P1 and Project P2.</td>
+<td>Like Network A, Network B plays a crucial role in the shared VPC network, providing connectivity for clients like Project P1 and Project P2. Its peering capabilities are essential for reducing egress costs.</td>
+</tr>
+<tr>
+<td>Peering</td>
+<td>Concept</td>
+<td>This term refers to the process of connecting two networks together, allowing them to communicate with each other. In the context of GCP's networking services, peering is a critical strategy for reducing egress costs.</td>
+<td>Peering is a key concept in GCP's networking services, enabling clients like Project P1 and Project P2 to reduce their egress costs by communicating using internal IPs instead of external IPs.</td>
+</tr>
+<tr>
+<td>Subnet 1</td>
+<td>Subnet</td>
+<td>This subnet is mentioned as part of Network A, indicating its role in providing connectivity for clients like Project P1 and Project P2.</td>
+<td>Subnet 1 is an important component of Network A, providing connectivity for clients like Project P1 and Project P2. Its traffic patterns are critical for determining the effectiveness of peering arrangements.</td>
+</tr>
+<tr>
+<td>Subnet 3</td>
+<td>Subnet</td>
+<td>This subnet is mentioned as part of Network B, indicating its role in providing connectivity for clients like Project P2 and Project P4.</td>
+<td>Subnet 3 is an important component of Network B, providing connectivity for clients like Project P2 and Project P4. Its traffic patterns are critical for determining the effectiveness of peering arrangements.</td>
+</tr>
+<tr>
+<td>Internal Load Balancing</td>
+<td>Service</td>
+<td>This service is available to clients and directly peered networks only, indicating its role in providing load balancing capabilities within those networks.</td>
+<td>Internal Load Balancing is a critical service for clients like Project P1 and Project P2, enabling them to distribute traffic across multiple instances or endpoints. Its use requires careful planning and configuration to ensure effective load balancing.</td>
+</tr>
+<tr>
+<td>Firewall Rules</td>
+<td>Service</td>
+<td>These rules are used to block traffic from certain VM instances or internal load balancers, indicating their role in providing network security capabilities.</td>
+<td>Firewall Rules are essential for clients like Project P1 and Project P2, enabling them to control access to specific resources within the shared VPC network. Their use requires careful planning and configuration to ensure effective network security.</td>
+</tr>
+<tr>
+<td>Shared VPC Host Project</td>
+<td>Organization</td>
+<td>This project is hosting a shared VPC network, indicating its role in providing networking services to clients like Project P1 and Project P2.</td>
+<td>The shared VPC host project plays a critical role in providing networking services to clients like Project P1 and Project P2, enabling them to take advantage of features like efficient egress costs and internal load balancing capabilities.</td>
+</tr>
+<tr>
+<td>Service Projects P3 and P4</td>
+<td>Organization</td>
+<td>These projects are using the shared VPC network hosted by Project P1, indicating their need for efficient networking services.</td>
+<td>Service Projects P3 and P4 are clients that benefit from the shared VPC network's features, including efficient egress costs and internal load balancing capabilities. Their use of the shared VPC highlights the importance of effective networking services in supporting business operations.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

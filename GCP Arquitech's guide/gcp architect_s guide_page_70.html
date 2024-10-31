@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_70</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_70_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_70</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Functions</h1>
+<h2>Why Cloud Functions?</h2>
+<h3>Benefits of Cloud Functions</h3>
+<ul>
+<li>Relieve yourself from the chore of managing infrastructure, capacity planning and to build or extend your application.</li>
+</ul>
+<h3>How Cloud Functions Work</h3>
+<p>When you deploy applications through Cloud Functions, you only need to supply chunks of code for business logic, you set the event triggers and attach the code and it will get spun up on demand in response to specific events to create functions.</p>
+<h2>Microservices and Service Mesh</h2>
+<h3>Challenges with Microservices Architecture</h3>
+<ul>
+<li>Increased complexity as the process of decoupling a single-tier monolithic application into many smaller service modules introduces many design hurdles.</li>
+<li>Difficulty in monitoring, updating or securing microservices when you don't have visibility into what services are running.</li>
+</ul>
+<h3>Solution: Service Mesh</h3>
+<p>A service mesh is a software solution that helps you discover and make sense of all those thousands of interconnections between services. It also helps with orchestration, security, and collecting telemetry data across distributed microservices and containers.</p>
+<h2>Comparison to Other Options</h2>
+<ul>
+<li>Compute Engine: ideal for full control over deployment and management in virtual machines.</li>
+<li>Kubernetes Engine: defines a measure of control through clusters.</li>
+<li>App Engine: ideal for focusing on code and leaving infrastructure provisioning and management to Google.</li>
+<li>App Engine Flexible Environment: allows retaining some control of custom runtime environment.</li>
+</ul>
+<h3>Table: Comparison of Options</h3>
+<p>| Option | Control | Infrastructure Provisioning |
+| --- | --- | --- |
+| Compute Engine | Full | Yes |
+| Kubernetes Engine | Measure of control | No |
+| App Engine | Minimal | Yes |
+| App Engine Flexible Environment | Customizable | Yes |</p>
+<h2>Conclusion</h2>
+<p>Cloud Functions provides a way to deploy applications with minimal infrastructure management, while still allowing for some control over custom runtime environments. A service mesh can help address the challenges of microservices architecture by providing visibility, orchestration, security, and telemetry data collection.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Why Cloud Functions?
+
+If we cast our memory back to the first chapter, we mentioned a design issue where there's managed infrastructure at one end of the scale and extreme dynamic infrastructure at the other. However, you'll often come to the conclusion that you can choose where you want to be along that line. For example, you may choose to be further towards the Compute Engine if you want full control to deploy and manage your application in virtual machines that run on Google's infrastructure. Similarly, if you need control but want to use containers, then you can use the Kubernetes Engine as these clusters define a measure of control.
+
+On the other hand, you may well choose to relinquish much of the control and management burden and select to use the App Engine service as it is ideal if you just want to focus on your code and leave infrastructure provisioning and management to Google. Conversely, standard environment may be too restrictive as you may want to retain some control of your custom runtime environment, which is what the App Engine flexible environment lets you do.
+
+Of course, to relieve yourself from the chore of managing infrastructure, capacity planning, and building or extending your application, then you can use Cloud Functions. When you deploy applications through Cloud Functions, you only need to supply chunks of code for business logic, set the event triggers, and attach the code. It will get spun up on demand in response to specific events to create functions.
+
+Microservices and Service Mesh
+
+Adopting microservices architecture to decompose large monolithic applications can bring many benefits, including increased flexibility, independence, and modularity. However, these benefits often come at the expense of added complexity as the process of decoupling a single-tier monolithic application into many smaller service modules introduces many design hurdles.
+
+For example, when you decompose a monolith down to 1000s of autonomous microservices, how do you know what's running? Indeed, if you don't have visibility into what microservices are running, how do you monitor, update, or secure your microservices? To address these significant challenges, you can always deploy a service mesh.
+
+A service mesh is a software solution that helps you discover and make sense of all those thousands of interconnections between services. It also helps with orchestration, security, and collecting telemetry data across distributed microservices and containers.
+
+The way that a service mesh works is that it decouples your application's dependency from the network. Thus, it can monitor all traffic for your application, typically through a set of network proxies or sidecars that sit alongside each microservice. These sidecar proxies provide individual policy implementation and even language independence at the microservices level.
+
+This in turn allows local and remote development teams to work independently and be language agnostic.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Why Cloud Functions?</h3>
+<p>Cloud Functions offers a solution for developers who want to relinquish control over infrastructure provisioning and management but still need to focus on their code. By using Cloud Functions, you can deploy applications with only the necessary chunks of code for business logic, set event triggers, and have the function spun up on demand in response to specific events.</p>
+<h3>Microservices and Service Mesh</h3>
+<p>Adopting microservices architecture can bring benefits such as increased flexibility, independence, and modularity. However, this approach also introduces complexity, making it challenging to monitor, update, or secure individual microservices. To address these challenges, service meshes are deployed. A service mesh is a software solution that helps discover and make sense of interconnections between services, providing orchestration, security, and telemetry data collection.</p>
+<h3>Key Points</h3>
+<ul>
+<li>Cloud Functions allows developers to choose where they want to be along the infrastructure scale, from managed to dynamic.</li>
+<li>Microservices architecture can bring benefits but also introduces complexity, making it challenging to manage individual microservices.</li>
+<li>Service meshes are deployed to address these challenges, providing visibility, orchestration, security, and telemetry data collection across distributed services.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Managed Infrastructure</strong>
+Control over virtual machines running on Google's infrastructure.</p>
+<h3>Topic 2</h3>
+<p><strong>Custom Runtime Environment</strong>
+Ability to retain control of custom runtime environment.</p>
+<h3>Topic 3</h3>
+<p><strong>Event-Driven Architecture</strong>
+Deployment of applications through Cloud Functions, where only business logic code is supplied and event triggers are set.</p>
+<h3>Topic 4</h3>
+<p><strong>Service Mesh</strong>
+Software solution that helps discover and make sense of interconnections between services, providing visibility, orchestration, security, and telemetry data collection.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main design issue that Cloud Functions addresses?
+Answer: The main design issue that Cloud Functions addresses is the choice between managed infrastructure and extreme dynamic infrastructure.</p>
+</li>
+<li>
+<p>How does Cloud Functions differ from other Google services in terms of deployment and management?
+Answer: Cloud Functions differs from other Google services in that it allows developers to only supply chunks of code for business logic, set event triggers, and attach the code, without having to manage infrastructure or provisioning.</p>
+</li>
+<li>
+<p>What are some benefits of adopting microservices architecture, but also some challenges?
+Answer: Some benefits of adopting microservices architecture include increased flexibility, independence, and modularity. However, these benefits often come at the expense of added complexity, such as managing visibility into running services, monitoring, updating, or securing microservices.</p>
+</li>
+<li>
+<p>What is a service mesh, and how does it address some of the challenges of microservices architecture?
+Answer: A service mesh is a software solution that helps discover and make sense of interconnections between services, providing orchestration, security, and telemetry data collection across distributed microservices and containers.</p>
+</li>
+<li>
+<p>How do sidecar proxies in a service mesh provide individual policy implementation and language independence at the microservices level?
+Answer: Sidecar proxies provide for individual policy implementation and even language independence at the microservices level by allowing local and remote development teams to work independently and be language agnostic.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential trade-offs between using Cloud Functions, App Engine, Compute Engine, or Kubernetes Engine in terms of control and management?
+Answer: Depending on the specific use case, developers may need to choose between full control and management (Compute Engine), relinquishing control and management burden (App Engine), or a balance between the two (Cloud Functions).</p>
+</li>
+<li>
+<p>How does the adoption of microservices architecture impact the complexity of managing services in a distributed system?
+Answer: The adoption of microservices architecture can introduce significant design hurdles, such as managing visibility into running services, monitoring, updating, or securing individual microservices.</p>
+</li>
+<li>
+<p>What are some potential benefits and drawbacks of using a service mesh to address the challenges of microservices architecture?
+Answer: Benefits include improved orchestration, security, and telemetry data collection across distributed microservices and containers. Drawbacks may include increased complexity and overhead in managing the service mesh itself.</p>
+</li>
+<li>
+<p>How do sidecar proxies in a service mesh contribute to the overall flexibility and scalability of a distributed system?
+Answer: Sidecar proxies provide individual policy implementation and language independence at the microservices level, allowing local and remote development teams to work independently and be language agnostic.</p>
+</li>
+<li>
+<p>What are some potential implications of adopting a service mesh for managing services in a distributed system?
+Answer: Adopting a service mesh can have significant implications for managing services in a distributed system, including improved visibility into running services, monitoring, updating, or securing individual microservices, and potentially increased complexity and overhead in managing the service mesh itself.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Functions</td>
+<td>Service/Software</td>
+<td>"If we cast our memory back to the first chapter we mentioned the design issue whereby at one end of the scale there is managed infrastructure and at the other end an extreme dynamic infrastructure. However, you will often come to the conclusion that you can choose where you want to be along that line... Of course to relieve yourself from the chore of managing infrastructure, capacity planning and to build or extend your application, then you can use Cloud Functions."</td>
+<td>Cloud Functions is a service offered by Google that allows users to deploy applications without having to manage infrastructure. It provides a way for developers to focus on their code while leaving infrastructure provisioning and management to Google.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service/Software</td>
+<td>"For example, you may choose to be further towards the Compute Engine if you want full control to deploy and manage your application in virtual machines that run on Google's infrastructure."</td>
+<td>Compute Engine is a service offered by Google that allows users to deploy applications in virtual machines running on their infrastructure. It provides full control over deployment and management of applications.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Service/Software</td>
+<td>"Similarly, if you need control but want to use containers then you can use the Kubernetes Engine as these clusters define a measure of control."</td>
+<td>Kubernetes Engine is a service offered by Google that allows users to deploy applications in containerized environments. It provides a measure of control over deployment and management of applications.</td>
+</tr>
+<tr>
+<td>App Engine</td>
+<td>Service/Software</td>
+<td>"On the other hand you may well choose to relinquish much of the control and management burden and select to use the App Engine service as it is ideal if you just want to focus on your code and leave infrastructure provisioning and management to Google."</td>
+<td>App Engine is a service offered by Google that allows users to deploy applications without having to manage infrastructure. It provides a way for developers to focus on their code while leaving infrastructure provisioning and management to Google.</td>
+</tr>
+<tr>
+<td>Standard Environment</td>
+<td>Service/Software</td>
+<td>"Conversely, standard environment may be too restrictive as you may want to retain some control of your custom runtime environment and that is what the App Engine flexible environment lets you do."</td>
+<td>Standard Environment refers to a pre-configured environment for deploying applications on App Engine. It provides a limited level of control over deployment and management of applications.</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>Architecture/Pattern</td>
+<td>"Adopting microservices architecture in order to decompose large monolithic applications can bring many benefits, including increased flexibility, independence and modularity."</td>
+<td>Microservices is an architectural pattern that involves breaking down large applications into smaller, independent services. It provides a way for developers to work on individual components of the application independently.</td>
+</tr>
+<tr>
+<td>Service Mesh</td>
+<td>Software/Technology</td>
+<td>"To address to these significant challenges, you can always deploy a service mesh. This is a software solution that helps you discover and make sense of all those thousands of interconnections between services."</td>
+<td>Service Mesh is a software technology that helps developers understand and manage the interactions between microservices in a distributed application. It provides a way for developers to monitor, update, and secure their applications.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Software/Technology</td>
+<td>"This is a software solution that helps you discover and make sense of all those thousands of interconnections between services."</td>
+<td>Kubernetes is a software technology used to manage containerized environments. It provides a way for developers to deploy, manage, and orchestrate applications in a distributed environment.</td>
+</tr>
+<tr>
+<td>Network Proxies</td>
+<td>Technology/Infrastructure</td>
+<td>"Thus it can monitor all traffic for your application, typically through a set of network proxies or sidecars that sit alongside each microservice."</td>
+<td>Network Proxies are software components used to monitor and manage traffic between services in a distributed application. They provide a way for developers to understand the interactions between services.</td>
+</tr>
+<tr>
+<td>Sidecar Proxies</td>
+<td>Technology/Infrastructure</td>
+<td>"These sidecar proxies provide for individual policy implementation and even language independence at the microservices level."</td>
+<td>Sidecar Proxies are software components used to implement policies and manage language independence in microservices. They provide a way for developers to work independently on individual components of the application.</td>
+</tr>
+<tr>
+<td>Telemetry Data</td>
+<td>Data/Information</td>
+<td>"A service mesh also helps you with orchestration, security, and in collecting telemetry data across distributed microservices and containers."</td>
+<td>Telemetry Data refers to information collected about the performance and behavior of applications in a distributed environment. It provides insights into how applications are working and can be used to improve their performance and reliability.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

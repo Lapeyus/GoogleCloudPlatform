@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_124</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_124_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_124</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Resource Management</h1>
+<h2>Overview</h2>
+<p>Cloud resource management involves organizing resources into a hierarchical structure, with each level having its own set of roles and permissions.</p>
+<h3># Roles and Permissions</h3>
+<h4>## Folder Roles</h4>
+<ul>
+<li><strong>Admin</strong>: Full administrative control over all folders.</li>
+<li><strong>Creator</strong>: Browse folder hierarchy, create folders.</li>
+<li><strong>Viewer</strong>: View folders and projects, view sub-folders.</li>
+</ul>
+<h4>## Project Roles</h4>
+<ul>
+<li><strong>Owner</strong>: Create new products, automatically owner.</li>
+<li><strong>Project Leader</strong>: Deletion privileges for projects.</li>
+<li><strong>Viewer</strong>: View projects.</li>
+<li><strong>Editor</strong>: Edit projects.</li>
+</ul>
+<h3># Product-Specific Roles</h3>
+<ul>
+<li>Compute Engine's Instance Admin role: Create, modify, delete virtual machine instances and disks.</li>
+</ul>
+<h4>## Cloud IAM Policy</h4>
+<p>Resource Manager policies secure projects and resources. However, strict control over policy changes and group memberships is necessary to prevent permissions creep.</p>
+<h2>Benefits of Hierarchical Structure</h2>
+<ul>
+<li>Autonomy for teams and departments.</li>
+<li>Delegation of administration rights at the folder level.</li>
+<li>Restricted access to resources in particular folders.</li>
+</ul>
+<h3># Example Use Case</h3>
+<p>A company has a hierarchical structure with organizational, folder, project, and resource levels. Each level has its own set of roles and permissions, ensuring that users have the minimum necessary access to perform their tasks.</p>
+<h4>## Table: Roles and Permissions</h4>
+<p>| Role | Description |
+| --- | --- |
+| Admin | Full administrative control over all folders. |
+| Creator | Browse folder hierarchy, create folders. |
+| Viewer | View folders and projects, view sub-folders. |</p>
+<p>| Role | Description |
+| --- | --- |
+| Owner | Create new products, automatically owner. |
+| Project Leader | Deletion privileges for projects. |
+| Viewer | View projects. |
+| Editor | Edit projects. |</p>
+<h4>## Table: Product-Specific Roles</h4>
+<p>| Product | Role Description |
+| --- | --- |
+| Compute Engine | Instance Admin role: Create, modify, delete virtual machine instances and disks. |</p>
+<h3># Best Practice</h3>
+<ul>
+<li>Apply the minimum access required to perform a role.</li>
+<li>Strict control over policy changes and group memberships is necessary to prevent permissions creep.</li>
+</ul>
+<h4>## Table: Cloud IAM Policy</h4>
+<p>| Policy | Description |
+| --- | --- |
+| Resource Manager policies | Secure projects and resources. |
+| Strict control over policy changes and group memberships | Prevent permissions creep. |</p>
+<h3># Conclusion</h3>
+<p>Cloud resource management involves organizing resources into a hierarchical structure, with each level having its own set of roles and permissions. A well-designed hierarchy ensures that users have the minimum necessary access to perform their tasks, while preventing permissions creep.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Each team folder could contain several additional subfolders to represent different applications, development areas, test-beds, or staging areas. Folders also allow autonomy as they allow delegation of administration rights at the folder level. So, for example, each head of a department can be granted full viewer and auditing roles for all GCP resources that belong to their departments.
+
+Similarly, access privileges can also be restricted to prevent access to resources in particular folders. Users in one department only gain access and create GCP resources within their own folder.
+
+Resource Manager Roles can be applied while keeping in mind the best practice of applying the minimum access required to perform a role and that policies are inherited top to bottom. Indeed, we have seen this applied in the top-level organisational node. However, the folder node also has multiple roles that mimic the organisational roles, but are applied only to resources within a folder.
+
+There is an admin role that provides full administrative control over all folders. There is also a creator role, which enables browsing of the folder hierarchy and creating new folders. Additionally, there is a viewer role, which allows members to view folders and their projects and subfolders.
+
+Similarly, when we look at roles at the project level, we see that there is a creator role that allows a user to create new products, making that user automatically the owner. There's also a project leader role that grants deletion privileges for projects.
+
+Project Roles Overall, we have seen that at each level of the hierarchy such as at the organization, folder, project, and resource - we have specific roles. Project roles mimic the primitive roles in that there is a viewer, editor, and owner role, and all these roles are concentric. A project owner can also invite others to become project owners.
+
+Extending an invitation is done by sending an email from the GCP console and having the prospective project owner accept the invitation. This type of email invitation is only available for project owner roles and not for other roles.
+
+With regards to the many product-specific roles, like the Compute Engine's Instance Admin role, which provides permissions to create, modify, and delete virtual machine instances and disks. These are resource and product specific so each product or service has several of these roles.
+
+Cloud IAM Policy Resource Manager policies can secure your projects and their resources but you also want more granular control as to how users will gain access to resources through the application of IAM policies and group memberships. Without strict control over policy changes and group memberships, you tend towards permissions creep.
+
+This is what tends to happen in all environments and organisations when the users, typical due to changes in role, eventually and inadvertently gain more permissions than they need, which violates the principle of least privilege.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Organizational Structure and Access Control in GCP</h3>
+<p>Each team folder can contain multiple subfolders representing different applications, development areas, test-beds, or staging areas. This allows for autonomy at the folder level, enabling delegation of administration rights to department heads, who can be granted full viewer and auditing roles for all GCP resources within their departments.</p>
+<h3>Resource Manager Roles</h3>
+<p>Resource Manager Roles provide a hierarchical structure with multiple roles that mimic organizational roles but are applied only to resources within a folder. These roles include:</p>
+<ul>
+<li>Admin role: provides full administrative control over all folders</li>
+<li>Creator role: enables browsing the folder hierarchy and creating new folders</li>
+<li>Viewer role: allows members to view folders, projects, and subfolders</li>
+</ul>
+<h3>Project Roles</h3>
+<p>Project Roles follow a concentric structure with viewer, editor, and owner roles. A project owner can invite others to become project owners by sending an email invitation through the GCP console.</p>
+<h3>Product-Specific Roles</h3>
+<p>Product-specific roles, such as Compute Engine's Instance Admin role, provide permissions for specific resources and services. Each product or service has multiple roles that cater to different needs.</p>
+<h3>Cloud IAM Policy</h3>
+<p>Resource Manager policies can secure projects and resources but may not provide enough granular control over user access. Applying strict controls over policy changes and group memberships is crucial to prevent permissions creep, which violates the principle of least privilege.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Autonomy and Delegation
+Folders allow autonomy as they enable delegation of administration rights at the folder level.</p>
+<h3>Topic 2</h3>
+<p>Resource Manager Roles
+Roles that mimic organizational roles but are applied only to resources within a folder, including admin, creator, and viewer roles.</p>
+<h3>Topic 3</h3>
+<p>Project Roles
+Concentric roles for project owners, including viewer, editor, and owner roles, with the ability to invite others to become project owners.</p>
+<h3>Topic 4</h3>
+<p>Product-Specific Roles
+Resource and product-specific roles, such as Compute Engine's Instance Admin role, which provide permissions to create, modify, and delete virtual machine instances and disks.</p>
+<h3>Topic 5</h3>
+<p>Cloud IAM Policy
+Securing projects and resources through the application of IAM policies and group memberships, with a focus on preventing permissions creep.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are some additional subfolders that can be created within a team folder to represent different applications, development areas, test-beds, or staging areas?
+Answer: Different applications, development areas, test-beds, or staging areas.</p>
+</li>
+<li>
+<p>How do folders allow autonomy in administration rights?
+Answer: Folders allow delegation of administration rights at the folder level.</p>
+</li>
+<li>
+<p>What is the purpose of granting full viewer and auditing roles to department heads for all GCP resources that belong to their departments?
+Answer: To provide them with access to view and audit resources within their department.</p>
+</li>
+<li>
+<p>How do users in one department gain access to create GCP resources within their own folder?
+Answer: Access privileges are restricted to prevent access to resources in particular folders.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What is the best practice for applying Resource Manager Roles, and how does it relate to policies inherited top to bottom?
+Answer: The best practice is to apply the minimum access required to perform a role, and policies are inherited top to bottom.</p>
+</li>
+<li>
+<p>How do Project Roles mimic primitive roles, and what are the concentric roles involved?
+Answer: Project Roles mimic primitive roles with viewer, editor, and owner roles that are concentric.</p>
+</li>
+<li>
+<p>What is the purpose of sending an email invitation from the GCP console for a project owner role, and who can extend this invitation?
+Answer: The purpose is to invite others to become project owners, and only available for project owner roles.</p>
+</li>
+<li>
+<p>How do Cloud IAM Policies provide more granular control over user access to resources compared to Resource Manager policies?
+Answer: By applying IAM policies and group memberships, providing more control over policy changes and group memberships.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If a department head is granted full viewer and auditing roles for all GCP resources that belong to their department, what are the implications for resource security?
+Answer: The department head will have access to view and audit resources within their department, but may also be at risk of over-privileging.</p>
+</li>
+<li>
+<p>How can organizations prevent permissions creep when applying Cloud IAM Policies and group memberships?
+Answer: Organizations should implement strict control over policy changes and group memberships to prevent users from gaining more permissions than they need.</p>
+</li>
+<li>
+<p>If a user is granted the Project Leader role, what privileges do they have for projects?
+Answer: The Project Leader has deletion privileges for projects.</p>
+</li>
+<li>
+<p>How can organizations ensure that users only gain access to resources within their own folder?
+Answer: Organizations should restrict access privileges to prevent access to resources in particular folders.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each team folder could contain several additional sub folders to represent different applications, development areas, test-beds, or staging areas.</td>
+<td>Folder</td>
+<td>This sentence introduces the concept of folders in a team structure, highlighting their flexibility and autonomy. Folders are used to organize resources and provide delegation of administration rights at the folder level.</td>
+<td>The use of folders implies a hierarchical structure for organizing resources, allowing for different levels of access and control.</td>
+</tr>
+<tr>
+<td>development areas</td>
+<td>Folder Type</td>
+<td>This sentence specifies one type of subfolder that can be contained within a team folder. Development areas are likely used to organize projects or tasks related to software development.</td>
+<td>A specific type of subfolder is defined as "development areas", suggesting a structured approach to organizing resources for different purposes.</td>
+</tr>
+<tr>
+<td>test-beds</td>
+<td>Folder Type</td>
+<td>This sentence specifies another type of subfolder that can be contained within a team folder. Test-beds are likely used to organize projects or tasks related to testing and quality assurance.</td>
+<td>Another specific type of subfolder is defined as "test-beds", indicating a structured approach to organizing resources for different purposes, such as testing and validation.</td>
+</tr>
+<tr>
+<td>staging areas</td>
+<td>Folder Type</td>
+<td>This sentence specifies yet another type of subfolder that can be contained within a team folder. Staging areas are likely used to organize projects or tasks related to deployment and production readiness.</td>
+<td>A third specific type of subfolder is defined as "staging areas", suggesting a structured approach to organizing resources for different purposes, such as preparation for deployment.</td>
+</tr>
+<tr>
+<td>head of a department</td>
+<td>Person</td>
+<td>This sentence mentions the person responsible for managing a department within an organization. The head of a department can be granted full viewer and auditing roles for all GCP resources that belong to their departments.</td>
+<td>A specific role is defined as "head of a department", indicating a hierarchical structure within an organization, with clear lines of authority and responsibility.</td>
+</tr>
+<tr>
+<td>administration rights</td>
+<td>Concept</td>
+<td>This sentence highlights the importance of delegation of administration rights at the folder level. Folders allow autonomy and flexibility in managing resources.</td>
+<td>The concept of "administration rights" is defined as the ability to manage and control resources, highlighting the importance of delegation and autonomy in resource management.</td>
+</tr>
+<tr>
+<td>full viewer and auditing roles</td>
+<td>Role</td>
+<td>This sentence specifies a role that can be granted to individuals within a department. Full viewer and auditing roles provide access to view folders and their projects and subfolders.</td>
+<td>A specific role is defined as "full viewer and auditing roles", indicating the level of access and control provided to individuals, including the ability to view and audit resources.</td>
+</tr>
+<tr>
+<td>creator role</td>
+<td>Role</td>
+<td>This sentence specifies a role that allows users to create new products, making them automatically the owner. Creator roles provide permission to create new resources.</td>
+<td>A specific role is defined as "creator role", indicating the level of access and control provided to individuals, including the ability to create new resources.</td>
+</tr>
+<tr>
+<td>project leader role</td>
+<td>Role</td>
+<td>This sentence specifies a role that grants deletion privileges for projects. Project leader roles provide permission to delete projects.</td>
+<td>A specific role is defined as "project leader role", indicating the level of access and control provided to individuals, including the ability to delete projects.</td>
+</tr>
+<tr>
+<td>viewer role</td>
+<td>Role</td>
+<td>This sentence specifies a role that enables members to view folders and their projects and subfolders. Viewer roles provide limited access to resources.</td>
+<td>A specific role is defined as "viewer role", indicating the level of access and control provided to individuals, including limited access to resources.</td>
+</tr>
+<tr>
+<td>editor role</td>
+<td>Role</td>
+<td>This sentence is implied by the context, but not explicitly stated. Editor roles are likely a middle-level role that provides permission to edit resources.</td>
+<td>An implied role is defined as "editor role", suggesting a level of access and control between viewer and creator roles, allowing individuals to modify resources.</td>
+</tr>
+<tr>
+<td>owner role</td>
+<td>Role</td>
+<td>This sentence specifies a role that makes users automatically the owner of new products created by the creator role. Owner roles provide full control over resources.</td>
+<td>A specific role is defined as "owner role", indicating the level of access and control provided to individuals, including full control over resources.</td>
+</tr>
+<tr>
+<td>permissions creep</td>
+<td>Concept</td>
+<td>This sentence highlights the risk of granting too much access to users, leading to unintended consequences. Permissions creep refers to the gradual accumulation of unnecessary privileges.</td>
+<td>The concept of "permissions creep" is defined as the gradual accumulation of unnecessary privileges, highlighting the importance of careful role definition and access control.</td>
+</tr>
+<tr>
+<td>principle of least privilege</td>
+<td>Concept</td>
+<td>This sentence references a fundamental principle in security and access control, which states that users should only be granted the minimum necessary privileges to perform their tasks.</td>
+<td>The concept of "principle of least privilege" is referenced as a guiding principle for access control, emphasizing the importance of minimizing unnecessary privileges and reducing the risk of unauthorized access.</td>
+</tr>
+<tr>
+<td>Compute Engine's Instance Admin role</td>
+<td>Role</td>
+<td>This sentence specifies a product-specific role that provides permission to create, modify, and delete virtual machine instances and disks.</td>
+<td>A specific role is defined as "Compute Engine's Instance Admin role", indicating the level of access and control provided to individuals, including permission to manage virtual machines and disks.</td>
+</tr>
+<tr>
+<td>Product-specific roles</td>
+<td>Role Type</td>
+<td>This sentence specifies a type of role that is specific to a particular product or service. Product-specific roles are tailored to meet the unique needs of each product or service.</td>
+<td>A specific type of role is defined as "Product-specific roles", indicating that roles can be customized to meet the unique requirements of different products and services.</td>
+</tr>
+<tr>
+<td>IAM policies</td>
+<td>Policy Type</td>
+<td>This sentence references a type of policy used in Cloud IAM, which provides granular control over access to resources. IAM policies are used to define and manage access controls.</td>
+<td>A specific type of policy is defined as "IAM policies", indicating that policies can be used to define and manage access controls, providing a flexible and customizable approach to security and access management.</td>
+</tr>
+<tr>
+<td>Group memberships</td>
+<td>Concept</td>
+<td>This sentence references the practice of assigning users to groups based on their roles or responsibilities. Group memberships are used to simplify access control and reduce the risk of unauthorized access.</td>
+<td>The concept of "group memberships" is referenced as a way to simplify access control, allowing administrators to assign users to groups based on their roles or responsibilities, reducing the risk of unauthorized access.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

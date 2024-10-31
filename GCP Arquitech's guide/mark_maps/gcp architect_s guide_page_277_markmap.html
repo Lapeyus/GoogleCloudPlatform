@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_277</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cost Optimization in GCP
+        ## Introduction
+        
+        - In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data.
+        
+        ### Network Considerations
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Use Case-28a Cost & Sizing Scenario
+        
+        - in this scenario we will consider that the annual capacity planning for the coming year's budgets have been completed. The report details the growing VM capacity requirements. Now you need to determine would it be better to choose a bigger capacity VM, or is sticking with the current size VM the most cost-effective? However, before you submit the capacity planning report, you want to see if you can taking a actually do some cost optimization. This means optimization analysis.
+        
+        - a closer look at the VM options and performing some cost Hence we will try and optimized for cost and capacity on our video transcription application. The focus is on VM sizing and performance. So we want to try and determine if moving the current upload instances which are n1-standard-1 to n1-standard-4, will provide the required capacity and at what cost.
+        
+        ### Network Throughput Efficiency
+        
+        - Now thanks to our benchmarking we can see right away that there's some network throughput efficiency delivered by upgrading to four CPUs. Now from a network perspective that sounds great but is it cost effective, will we actually utilize this performance boost?
+        
+        - Therefore we need to check for the cost effectiveness of the VM upgrade of our peak of 576 servers.
+        
+        ### Network Considerations
+        
+        - Don't forget the network? In optimizing the network for pricing, you have to really understand how traffic flows across your network and where you're placing your data. For instance if you going for resiliency and availability and have a multi zone design, which is best practices , there are charges on the egress traffic between the multiple zones within the same region.
+        
+        - You can save money on that multi-zone design by deploying Google's or a partners CDN service. Alternatively you could get a dedicated network interconnect to Google, either through a partner interconnect or private interconnect, which will save you also 50 percent on your cost.
+        
+        - Now if you're egressing between regions, that's going to have the same standard egress charges as well as intercontinental egress expensive charges. In fact, intercontinental can sometimes be a little bit more expensive.
+        
+        ### Capacity Planning
+        
+        - The two of them together, capacity and pricing, provide another perspective on design options. You can modify the design for cost optimization or to limit resource usage. One important point is to apply dimensioning to your design after you've considered other functional aspects of the design.
+        
+        ## Step 1: Determine the current network configuration
+        - To optimize our video transcription application's performance and cost, we first need to understand our current network configuration. This includes identifying the number of servers, their locations, and any existing network infrastructure such as firewalls or load balancers.
+        
+        ## Step 2: Assess the current egress traffic charges
+        - Next, we should assess our current egress traffic charges. This will help us identify areas where we can optimize our costs by reducing unnecessary data transfer between regions.
+        
+        ## Step 3: Evaluate the benefits of upgrading to a larger VM size
+        - We need to evaluate whether upgrading to a larger VM size (e.g., from n1-standard-1 to n1-standard-4) would provide sufficient capacity for our application's requirements. This will help us determine if the increased cost is justified by the potential performance improvements.
+        
+        ## Step 4: Research alternative network optimization options
+        - We should research alternative network optimization options, such as deploying a content delivery network (CDN) or using a dedicated network interconnect to Google. These options may provide additional cost savings and improved performance.
+        
+        ## Step 5: Calculate the total cost of ownership for each option
+        - Once we have evaluated our current configuration, assessed egress traffic charges, evaluated VM size upgrades, and researched alternative optimization options, we can calculate the total cost of ownership (TCO) for each scenario. This will help us determine which option is most cost-effective.
+        
+        ## Step 6: Choose the optimal solution based on TCO analysis
+        - After calculating the TCO for each option, we can choose the solution that provides the best balance between performance and cost. This may involve a combination of upgrading VM sizes, optimizing egress traffic charges, and implementing alternative network optimization strategies.
+        
+        - The final answer is: $\boxed{1}$
+
+      </script>
+    </div>
+  </body>
+</html>

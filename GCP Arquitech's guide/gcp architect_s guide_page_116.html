@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_116</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_116_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_116</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Compute Engine Basics</h1>
+<h2>Regions and Zones</h2>
+<p>Google's proclivity for consistently deploying new hardware architectures may lead to different CPU architectures in different zones. This can result in a differential of up to three generations in processor types.</p>
+<h3>Considerations</h3>
+<ul>
+<li>If you need the latest high-end CPU or GPU, check the GCP website to see where those high-end processors have been deployed.</li>
+<li>Hosting resources in another region and zone will not have a detrimental effect on latency and customer experience.</li>
+<li>The billing perspective remains the same regardless of the individual CPU processor used.</li>
+</ul>
+<h2>Machine Types</h2>
+<p>Selecting the right machine type is crucial for your application's performance. Consider factors such as CPU, memory, and storage when making your selection.</p>
+<h3>Image Selection</h3>
+<p>When creating a virtual machine, you will have the option to choose from various OS images. These images include the boot loader, operating system, file system structure, preconfigured software, libraries, tools, and customizations for the specific version.</p>
+<h4>Public vs Custom Images</h4>
+<ul>
+<li>You can select either public or custom images.</li>
+<li>Some images are premium (e.g., Windows OS Server) and have per-second charges, except for SQL Server images which are charged per minute.</li>
+<li>Premium image prices vary with machine type but are global and do not change by region or zone.</li>
+</ul>
+<h4>Uploading Custom Images</h4>
+<ul>
+<li>You can upload and activate custom images on your VM.</li>
+<li>This is ideal for licensed enterprise versions of Windows Server that have been customized with preconfigured software authorized for your organization.</li>
+</ul>
+<h2>Disk Storage Management</h2>
+<p>After selecting an OS image, you will need a persistent disk to store and boot from. Additionally, you must have a durable storage solution for your applications' data.</p>
+<h3>Persistent Disks</h3>
+<ul>
+<li>You can use persistent disks to store and boot from.</li>
+<li>Consider factors such as size, performance, and durability when choosing the right persistent disk for your application.</li>
+</ul>
+<h4>Cloud Storage</h4>
+<ul>
+<li>Google Cloud Storage is used to store OS images.</li>
+<li>Images are stored as tar gzip'd files in a private area of Cloud Storage.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>However, there may be some other considerations such as Google's proclivity for consistently deploying new hardware architectures and these new hardware architectures are not deployed to all zones simultaneously.
+
+Therefore, you're going to find that there are different CPU architectures in different zones. In fact, it has been noted that there can be a differential of up to three generations in those processor types. Of course this will only be a concern if you need the latest high end CPU or GPU for your processor intensive application. So you might want to check the GCP website to see where those high end processors have been deployed before choosing your region and zone.
+
+Hosting your resources in another region and zone would have no detrimental effect from a latency and customer experience perspective, similarly from a billing perspective, you pay the exact same amount regardless of the type of individual CPU processor that you might be using. Google is constantly increasing the number of regions and zones and updating the supported CPU architecture. For an up to date list, go to cloud.google.com and search for regions and zones.
+
+The next step after selecting the machine type and then the region/zone is to decide upon an OS image. When creating a virtual machine, just like when you commission server on-premises, you will have the option of choosing the boot OS disk image. This image just like any physical OS boot CD will include, the boot loader, the operating system, the file system structure, any preconfigured software, libraries, tools, and any other features and customizations for the specific version.
+
+Furthermore, when you select an image from the drop-down menu in Compute Engine, the Google Cloud is included. These OS images are stored as tar gzip'd files, and are stored in a private area of Cloud Storage. Thus, when choosing an image, you can select either a public or custom image. And you can select from a wide choice of images, some of which will have a proprietary license so some of these images are premium images as indicated in parentheses with a 'p'. These images will have per second charges with the exception of SQL Server images, which are charged per minute.
+
+Premium image prices vary with the machine type. However, these prices are global and do not vary by region or zone. Furthermore, you are advised - just like with any proprietary software - of the billing fees before you select and activate the OS image. You can also use upload and activate on your VM a custom image. For example, if you have a licensed enterprise version of Windows Server that you have customized with preconfigured software that's been authorized for your particular organization for use in your data centre then you can upload and then create a VM using that custom image.
+
+You also have the option of importing images from another cloud provider.
+
+So you have selected an OS image but that needs some kind of persistent disk where it can be stored and booted. You will also need to have somewhere to store your applications data and that needs to be durable and that means it can survive if the VM terminates.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Selecting a Region, Zone, and Operating System Image for Your Compute Engine Virtual Machine</strong></p>
+<p>When creating a virtual machine in Google Cloud Platform's Compute Engine, you'll need to consider several factors to ensure optimal performance and cost-effectiveness.</p>
+<p><strong>Hardware Architecture Considerations</strong>
+Google frequently updates its hardware architectures, which may not be deployed simultaneously across all zones. This means that different CPU architectures can exist in different zones, with up to three generations of processor types available. If your application requires the latest high-end CPU or GPU, it's essential to check the GCP website for deployment information before selecting a region and zone.</p>
+<p><strong>Latency and Customer Experience</strong>
+Hosting resources in another region and zone will have no detrimental effect on latency and customer experience. Similarly, billing is unaffected by the type of individual CPU processor used.</p>
+<p><strong>Operating System Images</strong>
+When creating a virtual machine, you'll need to select an OS image from the drop-down menu in Compute Engine. These images are stored as tar gzip'd files in a private area of Cloud Storage. You can choose between public or custom images, with some premium images available for Windows Server and Linux. Premium images have per-second charges (except for SQL Server images), which vary by machine type but are global and do not depend on region or zone.</p>
+<p><strong>Custom Images</strong>
+You can also upload and activate a custom image, such as a licensed enterprise version of Windows Server customized with preconfigured software. Additionally, you can import images from another cloud provider.</p>
+<p><strong>Persistent Disk Storage</strong>
+After selecting an OS image, you'll need to choose a persistent disk for storage and booting. You'll also require durable storage for your applications data, which must survive if the VM terminates.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Hardware Architecture Considerations</h3>
+<p>Hardware architectures are not deployed simultaneously across all zones, resulting in different CPU architectures in different zones.</p>
+<h3>Topic 2: OS Image Selection</h3>
+<p>Choosing an OS image is crucial for virtual machine creation, as it includes the boot loader, operating system, file system structure, and preconfigured software.</p>
+<h3>Topic 3: Pricing and Licensing</h3>
+<p>Premium images have per-second charges (except for SQL Server images), which are global and do not vary by region or zone. It's essential to check billing fees before selecting an OS image.</p>
+<h3>Topic 4: Custom Image Upload and Activation</h3>
+<p>Custom images can be uploaded and activated on virtual machines, allowing users to use their own licensed enterprise versions of Windows Server with preconfigured software.</p>
+<h3>Topic 5: Disk Storage Management</h3>
+<p>Persistent disk storage is necessary for VMs, and durable storage is crucial to survive VM termination.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is a key consideration when choosing a region and zone for hosting resources in Google Cloud?
+Answer: The type of CPU architecture available in different zones, which may vary depending on the region.</p>
+</li>
+<li>
+<p>Why would you need to check the GCP website to see where high-end processors have been deployed before choosing your region and zone?
+Answer: To ensure compatibility with your processor-intensive application.</p>
+</li>
+<li>
+<p>What is a benefit of hosting resources in another region and zone?
+Answer: No detrimental effect on latency and customer experience, as well as no variation in billing costs.</p>
+</li>
+<li>
+<p>How are OS images stored in Compute Engine?
+Answer: As tar gzip'd files in a private area of Cloud Storage.</p>
+</li>
+<li>
+<p>What type of charges apply to premium images, except for SQL Server images?
+Answer: Per-second charges.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Google's proclivity for consistently deploying new hardware architectures impact the choice of region and zone for hosting resources?
+Answer: It may lead to differences in CPU architecture across zones, which can be a concern for processor-intensive applications.</p>
+</li>
+<li>
+<p>What are the implications of using premium images with per-second charges?
+Answer: The billing fees will vary depending on the machine type, but not by region or zone.</p>
+</li>
+<li>
+<p>How does the use of custom images impact the deployment process?
+Answer: It allows users to upload and activate their own customized OS images, which can be used for specific organizational needs.</p>
+</li>
+<li>
+<p>What are the benefits of importing images from another cloud provider?
+Answer: It provides an additional option for users to choose from a wider range of images.</p>
+</li>
+<li>
+<p>How does the choice of region and zone affect the durability of disk storage?
+Answer: The chosen region and zone will determine the type of persistent disk available, which must be durable enough to survive VM termination.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to deploy a processor-intensive application that requires high-end CPU architecture. Which region and zone should you choose?
+Answer: A region with the latest high-end CPU architecture deployment.</p>
+</li>
+<li>
+<p>How would you handle the situation where your organization has a customized Windows Server image that needs to be used in a specific data center?
+Answer: You can upload and activate the custom image on your VM, or import it from another cloud provider.</p>
+</li>
+<li>
+<p>What are the implications of using premium images with per-second charges for your application's disk storage?
+Answer: The billing fees will vary depending on the machine type, but not by region or zone.</p>
+</li>
+<li>
+<p>How would you ensure that your resource hosting is compatible with the CPU architecture required by your processor-intensive application?
+Answer: You should check the GCP website to see where high-end processors have been deployed before choosing your region and zone.</p>
+</li>
+<li>
+<p>What are the benefits of using a custom image for your OS, and how can it impact your deployment process?
+Answer: It allows users to upload and activate their own customized OS images, which can be used for specific organizational needs, and provides an additional option for users to choose from a wider range of images.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google's proclivity for consistently deploying new hardware architectures</td>
+<td>Organization</td>
+<td>"However, there may be some other considerations such as Google's proclivity for consistently deploying new hardware architectures..."</td>
+<td>This refers to Google's tendency to regularly update and introduce new hardware architectures. This is relevant because it affects the availability of different CPU architectures in various zones.</td>
+</tr>
+<tr>
+<td>Zones</td>
+<td>Location</td>
+<td>"...and these new hardware architectures are not deployed to all zones simultaneously."</td>
+<td>A zone is a geographical area within a region where resources can be hosted. The fact that new hardware architectures are not deployed uniformly across all zones has implications for choosing the right region and zone for hosting resources.</td>
+</tr>
+<tr>
+<td>CPU architectures</td>
+<td>Technology</td>
+<td>"In fact, it has been noted that there can be a differential of up to three generations in those processor types."</td>
+<td>This refers to the different versions or generations of CPU architectures available. The variation in CPU architectures across zones is relevant because it affects the performance and compatibility of applications running on resources hosted in those zones.</td>
+</tr>
+<tr>
+<td>High-end processors</td>
+<td>Technology</td>
+<td>"...if you need the latest high end CPU or GPU for your processor intensive application."</td>
+<td>This refers to the most advanced and powerful CPUs, which are typically used by resource-intensive applications. The availability of these processors in different zones is relevant because it affects the choice of region and zone for hosting resources that require them.</td>
+</tr>
+<tr>
+<td>Regions</td>
+<td>Location</td>
+<td>"hosting your resources in another region would have no In this scenario from a latency and customer experience perception detrimental effect."</td>
+<td>A region is a geographical area within Google Cloud where resources can be hosted. The fact that choosing a different region does not affect the latency or customer experience is relevant because it affects the choice of region for hosting resources.</td>
+</tr>
+<tr>
+<td>Billing perspective</td>
+<td>Financial</td>
+<td>"Similarly from a billing perspective, you pay the exact same amount regardless of the type of individual CPU processor that you might be using."</td>
+<td>This refers to the financial aspect of choosing between different CPU architectures and regions. The fact that the cost is the same regardless of the choice is relevant because it affects the decision-making process for resource allocation and budgeting.</td>
+</tr>
+<tr>
+<td>Cloud.google.com</td>
+<td>Website</td>
+<td>"For an up to date list, go to cloud.google.com and search for regions and zones."</td>
+<td>This refers to the official website of Google Cloud where users can find information about available regions and zones. The fact that this website provides up-to-date information is relevant because it affects the choice of region and zone for hosting resources.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service</td>
+<td>"When creating a virtual machine, just like when you commission server on-premises you will have the option of choosing the boot OS disk image."</td>
+<td>This refers to the service provided by Google Cloud that allows users to create and manage virtual machines. The fact that this service provides options for choosing an operating system image is relevant because it affects the choice of region and zone for hosting resources.</td>
+</tr>
+<tr>
+<td>Public images</td>
+<td>Technology</td>
+<td>"...you can select either a public or custom image."</td>
+<td>This refers to the types of images available for use with Compute Engine. Public images are pre-configured and widely available, while custom images require more configuration and customization. The fact that both options are available is relevant because it affects the choice of region and zone for hosting resources.</td>
+</tr>
+<tr>
+<td>Custom images</td>
+<td>Technology</td>
+<td>"...you can upload and then create a VM using that custom image."</td>
+<td>This refers to the process of creating a custom image for use with Compute Engine. The fact that this option is available is relevant because it affects the choice of region and zone for hosting resources.</td>
+</tr>
+<tr>
+<td>SQL Server images</td>
+<td>Technology</td>
+<td>"...except for SQL Server images, which are charged per minute."</td>
+<td>This refers to the pricing model for SQL Server images used with Compute Engine. The fact that SQL Server images have a different pricing structure is relevant because it affects the choice of region and zone for hosting resources.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

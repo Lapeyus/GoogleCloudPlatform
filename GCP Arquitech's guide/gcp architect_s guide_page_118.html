@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_118</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_118_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_118</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Disk Options for Virtual Machines</h1>
+<h2>Persistent Disks</h2>
+<ul>
+<li><strong>HDD</strong>: Suitable for capacity needs only, not high-performance requirements.</li>
+<li><strong>SDD</strong>: Offers data redundancy and persistence, suitable for high-performance needs.</li>
+</ul>
+<h3>Persistent SDD Disks</h3>
+<ul>
+<li>Provide higher performance than HDDs.</li>
+<li>Data is distributed across multiple physical disks for redundancy.</li>
+<li>Survive VM stop or termination.</li>
+</ul>
+<h2>Local SSDs</h2>
+<ul>
+<li>Suitable for applications requiring fast scratch pad storage.</li>
+<li>Data survives reset but not VM termination.</li>
+<li>Limited to 8 local SSDs with 375 GB each, totaling 3 TB.</li>
+</ul>
+<h3>RAM Disks</h3>
+<ul>
+<li>Fastest type of performance available for small data structures.</li>
+<li>Store data in memory.</li>
+<li>Most volatile and require persistent disk backup for data survival.</li>
+</ul>
+<h2>Key Considerations</h2>
+<ul>
+<li>Partitioning is required for operating system capacity allocation.</li>
+<li>Disk redundancy and encryption may be necessary, requiring additional setup.</li>
+<li>Persistent HDDs compete with network traffic throughput.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Therefore, these disks are ephemeral but provide very high IOPS offering 680,000 read input/output operations per second that need fast scratch pad storage but if you want to keep the data (IOPS) and 360,000 write IOPS. Local SSDs are suited to applications that require fast performance, but it's essential to copy the data to a persistent drive as it will not survive a VM termination.
+
+Currently, you can attach up to eight local SSD disks with 375 GB each, resulting in a total of three terabytes. However, the data on these disks will survive a reset, but they cannot be reattached to a different VM if terminated.
+
+A similar concept to the local SSD is a RAM disk where you store data in memory. This provides the fastest type of performance available if you only work with small data structures. If that's what your application requires, consider selecting a high-memory virtual machine along with a persistent disk to back up the RAM disk data.
+
+In summary, when it comes to selecting a disk drive, you have several options: persistent disks (HDD or SSD) can be rebooted and snapshotted, while local SSDs and RAM disks are ephemeral and volatile. It's best to stick with a persistent HDD disk if you don't need performance but just need capacity.
+
+Persistent SSD disks offer data redundancy by distributing the data across several physical disks. Local SSDs provide higher performance but without data redundancy or persistence. They survive a reboot but not a VM termination.
+
+RAM disks are the fastest of all, but also the most volatile. Just like local SSDs, there's a limit on how many can be attached to a VM, and persistent HDDs compete with network egress and ingress traffic throughput.
+
+There's a physical limit to the number of persistent drives that can be supported by a VM, depending on the number of CPUs it supports. For example, a VM with 8 CPUs can support up to 128 persistent drives, which is a colossal amount of storage.
+
+It's essential to understand the key differences between physical hard disks and persistent type disks. You'll need to partition hard disk drives for the operating system to get its own share of capacity, but this can be problematic if you want to expand the partition later. Additionally, creating redundant disk arrays or encrypting files before writing them to the disk may be necessary for data redundancy and security.
+
+Finally, persistent SSD disks offer high performance with data redundancy, while local SSDs provide higher performance without it. RAM disks are the fastest but also the most volatile.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Disk Drive Options for Virtual Machines</h3>
+<p>When it comes to selecting a disk drive for virtual machines (VMs), there are several options available, each with its own strengths and weaknesses.</p>
+<h4>Persistent Disks</h4>
+<p>Persistent disks, whether they are HDD or SSD, can be rebooted and snapshotted, allowing data to survive even a VM deletion. However, if you don't need performance but just need capacity, it's recommended to stick with a persistent HDD disk.</p>
+<h4>Local SSDs</h4>
+<p>Local SSDs provide high IOPS (input/output operations per second) and are suitable for applications that require fast scratch pad storage. However, the data on these disks will survive a reset but not a VM termination. Currently, up to eight local SSD disks can be attached to a VM, resulting in a total of three terabytes of storage.</p>
+<h4>RAM Disks</h4>
+<p>RAM disks store data in memory and offer the fastest type of performance available if you only work with small data structures. However, they are ephemeral and volatile, making them unsuitable for applications that require persistence.</p>
+<h3>Key Considerations</h3>
+<ul>
+<li>Persistent SSD disks offer data redundancy by distributing data across several physical disks.</li>
+<li>Local SSDs provide higher performance but without data redundancy or persistence.</li>
+<li>RAM disks are the fastest but also the most volatile.</li>
+<li>There is a limit on how many local SSDs and persistent disks can be attached to a VM, depending on the number of CPUs supported by the VM.</li>
+</ul>
+<h3>Key Differences Between Physical Hard Disks and Persistent Type Disks</h3>
+<ul>
+<li>Partitioning: You'll need to partition hard disk drives for the operating system to get its own share of capacity.</li>
+<li>Disk Redundancy: Creating a redundant disk array may be necessary for redundancy, while encryption requires encrypting files before writing them to the disk.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: High-Performance Storage Needs</h3>
+<p>High-performance storage solutions like local SSDs and RAM disks are ideal for applications requiring fast scratch pad storage.</p>
+<h3>Topic 2: Persistent Disk Options</h3>
+<p>Persistent disks, including HDD and SDD options, offer data redundancy and can survive even a VM deletion. They are suitable for scenarios where capacity is more important than performance.</p>
+<h3>Topic 3: Volatile Storage Solutions</h3>
+<p>Local SSDs and RAM disks are ephemeral and volatile, making them unsuitable for applications requiring persistent storage. However, they excel in providing fast performance for small data structures.</p>
+<h3>Topic 4: Network Interface Limitations</h3>
+<p>The number of persistent disks that can be connected to a VM through the network interface is limited by the number of CPUs supported by the VM. This limitation affects both HDD and SDD options.</p>
+<h3>Topic 5: Disk Management Considerations</h3>
+<p>Key differences between physical hard disk drives and persistent type disks include partitioning, redundancy, and encryption requirements. Proper management of these aspects is crucial to avoid data loss.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What type of storage provides high IOPS (input/output operations per second) and is suitable for applications that require fast scratch pad storage?
+Answer: Local SSDs.</p>
+</li>
+<li>
+<p>How many local SSD disks can be attached to a VM, with each disk resulting in 375 GB of storage?
+Answer: Up to eight local SSD disks, resulting in a total of three terabytes.</p>
+</li>
+<li>
+<p>What type of storage is suitable for applications that require high performance but do not need data redundancy or persistence?
+Answer: Local SSDs.</p>
+</li>
+<li>
+<p>How many persistent drives can a VM with 8 CPUs support?
+Answer: Up to 128 persistent drives.</p>
+</li>
+<li>
+<p>What is the main difference between a physical hard disk in a computer and a persistent type disk?
+Answer: A physical hard disk requires partitioning, while a persistent type disk is essentially a virtual network device.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>Compare and contrast local SSDs with persistent HDDs. How do their characteristics impact their suitability for different use cases?
+Answer: Local SSDs provide high performance but lack data redundancy and persistence, making them suitable for applications that require fast scratch pad storage but not long-term data retention. Persistent HDDs, on the other hand, offer data redundancy and persistence but at a lower performance level.</p>
+</li>
+<li>
+<p>Discuss the trade-offs between using RAM disks versus persistent disks. When would you choose each option?
+Answer: RAM disks provide the fastest performance available for small data structures, making them suitable for applications that require high-performance processing. Persistent disks, however, offer data redundancy and persistence, making them more suitable for applications that require long-term data retention.</p>
+</li>
+<li>
+<p>How do the characteristics of local SSDs impact their reattachability to a different VM?
+Answer: Local SSDs cannot be reattached to a different VM after termination, as they are tied to the specific VM's configuration.</p>
+</li>
+<li>
+<p>What are some key considerations when selecting a disk drive for a virtual machine?
+Answer: Considerations include performance requirements, data redundancy needs, persistence requirements, and compatibility with network egress/ingress traffic throughput.</p>
+</li>
+<li>
+<p>How do persistent SSD disks differ from local SSDs in terms of data redundancy and persistence?
+Answer: Persistent SSD disks offer data redundancy by distributing data across multiple physical disks, while local SSDs lack this feature and provide only high performance but no data redundancy or persistence.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>680,000 read input/output operations per second</td>
+<td>Number</td>
+<td>"Therefore, these disks are ephemeral but provide very high IOPS offering 680,000 read input/output operations per second that need fast scratch pad storage..."</td>
+<td>The entity represents a high performance metric for disk storage. It indicates the speed at which data can be read and written to the disk.</td>
+</tr>
+<tr>
+<td>Local SSDs</td>
+<td>Disk Type</td>
+<td>"...Local SSDs are suited to applications make sure to copy it to a persistent drive as it will not survive a VM termination."</td>
+<td>A type of disk that provides fast scratch pad storage but is ephemeral and volatile, meaning it does not survive a VM stop or terminate. It has high IOPS (input/output operations per second) capabilities.</td>
+</tr>
+<tr>
+<td>Persistent disks</td>
+<td>Disk Type</td>
+<td>"...Persistent disks, whether they are HDD or SDD can be rebooted and snapshotted and the data can survive even a VM deletion..."</td>
+<td>A type of disk that provides persistence and redundancy, meaning it survives a VM stop or terminate and can be reattached to a different VM. It is suitable for applications that require high performance but also need capacity.</td>
+</tr>
+<tr>
+<td>RAM disks</td>
+<td>Disk Type</td>
+<td>"A similar concept to the local SSD is a RAM disk where you store data in memory..."</td>
+<td>A type of disk that stores data in memory, providing the fastest type of performance available if only working with small data structures. It is volatile and ephemeral, meaning it does not survive a VM stop or terminate.</td>
+</tr>
+<tr>
+<td>Persistent HDDs</td>
+<td>Disk Type</td>
+<td>"...It is probably best to stick with a persistent HDD disk when you don't need performance but just need capacity..."</td>
+<td>A type of disk that provides persistence and redundancy, similar to persistent SSDs. It is suitable for applications that require capacity but not high performance.</td>
+</tr>
+<tr>
+<td>Network interface</td>
+<td>Device</td>
+<td>"...there is also limit on how many persistent disks you can SDD connect to the VM through the network interface so it will attach to a VM."</td>
+<td>A device that allows data transfer between a VM and the outside world, limiting the number of persistent disks that can be connected to a VM.</td>
+</tr>
+<tr>
+<td>CPUs</td>
+<td>Hardware Component</td>
+<td>"...For example a VM with 8 CPUs can support up to 128 persistent drives and that is a colossal amount of storage."</td>
+<td>A hardware component that determines the processing power of a system, affecting the maximum number of persistent drives that can be supported by a VM.</td>
+</tr>
+<tr>
+<td>Redundancy</td>
+<td>Data Protection</td>
+<td>"...if you want disk redundancy, then you might need to create a redundant disk array..."</td>
+<td>A measure to ensure data is protected against loss or corruption, requiring additional hardware and configuration to achieve.</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>Data Protection</td>
+<td>"...if you want encryption, you will need to encrypt files before writing them to the disk."</td>
+<td>A method to protect data from unauthorized access, requiring additional steps to be taken when writing data to a disk.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_188</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Standard Software Development Best Practices
+        ## Leveraging APIs and Infrastructure Complexity
+        
+        - Needless to say that standard software development best practice should apply even if it is only a development project. It is crucial to know that leveraging APIs via code does lead to rapid development and creation of infrastructure but it is just as important to realise that things can go wrong rapidly, requiring emergency maintenance on code.
+        
+        ## Understanding Infrastructure Complexity
+        
+        - Another issue is the difficulty in understanding the often hidden complexities of the infrastructure that we're building from the code. The more complex the infrastructure becomes, the more complicated the code and the less likely that anyone actual understands all of it so the more likely it is that errors would occur.
+        
+        - Clearly, we are going to need another level of organization. That's the purpose of Deployment Manager.
+        
+        ## Deployment Manager
+        ### Overview
+        
+        - In short, Deployment Manager uses highly structured templates and configuration files to document the infrastructure in an easily human readable and understandable format.
+        
+        - Deployment Manager does a good job of abstracting the complexity of the actual Cloud API calls. Therefore, there is no need for you to write code, which leaves you free to focus on the architecture of the infrastructure.
+        
+        ### Concepts
+        
+        - In this section, we will discuss concepts around Deployment Manager, configuration and introduce Cloud Launcher.
+        
+        #### Deployment Manager as an Infrastructure Automation Tool
+        
+        - Deployment Manager is an infrastructure automation tool, which allows you to automate the creation of GCP resources. In concept the Deployment Manager uses highly structured templates and configuration files to document the infrastructure. You can create these Deployment Manager templates within a cloud API enabled environment such as Cloud Shell, and then view the results and manage your deployments in the web console.
+        
+        #### Deployment Manager is Not Just for Documentation
+        
+        - Deployment Manager is not just a tool for documentation as it is a fully fledged declarative deployment orchestration tool specifically for Google Cloud platform. Indeed Deployment Manager is tightly coupled with the GCP so it allows you to integrate with other GCP core services such as Identity Access Management.
+        
+        ### Deployment Configurations
+        #### Creating a Deployment Configuration
+        
+        - Before we can start using Deployment Manager, we have to create a deployment configuration. A yaml file defines the basic configuration, and you can include an import in the yaml file to expand to full-featured templates written in Python or Jinja2.
+        
+        - Program configuration is bidirectional and interactive. Meaning that the configuration receives data like machine type and returns data like IP address.
+        
+        #### Previewing Deployment Configurations
+        
+        - You can also use the preview tag when creating a deployment configuration to validate it without actually launching it. All configurations are expanded on the server side within a controlled environment that Deployment Manager maintains. In order to prevent abuse, the environment is closely managed by Google's Deployment Manager team, so it does have some limitations.
+        
+        ### Cloud Launcher
+        #### Introduction
+        
+        - In this section, we will discuss concepts around Cloud Launcher and how it integrates with Deployment Manager.
+        
+        - Note: The introduction of Cloud Launcher was not covered in the original text.
+
+      </script>
+    </div>
+  </body>
+</html>

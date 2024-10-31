@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_101</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_101_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_101</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>GCP Firewall Configuration</h1>
+<h2>Overview of Virtual Routers and Firewalls</h2>
+<h3>Virtual Network Router Selection</h3>
+<p>The virtual network router selects the next hop for each packet by consulting the individual routing table for that instance.</p>
+<h3>GCP Firewall Rules</h3>
+<p>GCP firewall rules exist to protect your VM instances from unapproved connections in both the inbound and outbound directions - in firewall terms this is often known as ingress and egress respectively.</p>
+<h2>Distributed Firewall Concept</h2>
+<p>A firewall is not a physical device, but rather it is essentially the VPC network itself that functions as a distributed firewall. This means that firewall rules are applied to the network and connections are allowed or denied at the instance level.</p>
+<h3>Firewall Rule Parameters</h3>
+<p>Conceptually, a firewall rule is composed of the following parameters:
+- Direction (ingress or egress)
+- Protocol and port of the connection
+- Action (allow or deny)
+- Priority of the rule</p>
+<h2>Egress Firewall Rules</h2>
+<p>Egress allow rules are set to allow all by default. These rules permit a VM to initiate a connection that matches specific protocols, ports, and IP addresses.</p>
+<h3>Egress Deny Rules</h3>
+<p>Egress deny rules prevent instances from initiating connections that match non-permitted port, protocol, and IP source or destination ranges.</p>
+<h2>Ingress Firewall Rules</h2>
+<p>Ingress rules protect against incoming connections to the instance from any source. These rules are set as 'deny all' by default, requiring specific rules to be applied to allow ingress traffic.</p>
+<h3>Destination Ranges for Egress and Ingress Rules</h3>
+<p>Destination ranges can be used to protect from undesired connections initiated by a VM instance toward an external destination or specific VMs in another subnet.</p>
+<h2>Assigning Firewall Rules to Instances</h2>
+<p>By default, all rules are assigned to all instances. However, certain rules can be assigned to specific instances only.</p>
+<h3>Example Use Cases for Egress and Ingress Firewall Rules</h3>
+<ul>
+<li>Protect against incoming connections from any source by applying an ingress rule with a high priority.</li>
+<li>Allow outgoing connections to specific IP addresses or ranges using an egress rule.</li>
+<li>Deny incoming connections from specific IP addresses or ranges using an ingress rule.</li>
+</ul>
+<h3>Best Practices for GCP Firewall Configuration</h3>
+<ul>
+<li>Use destination ranges to protect against undesired connections initiated by VM instances toward external destinations or other VMs in the same subnet.</li>
+<li>Apply high-priority rules to allow incoming traffic and deny it by default.</li>
+<li>Regularly review and update firewall rules to ensure they align with changing network requirements.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Within GCP, there is a virtual router at the core of each network and every virtual machine instance in the network is directly connected to this router. In practice, all packets leaving a virtual machine instance are first directed to and handled by the network's own virtual router. It is only then they are forwarded on their next hop on their path.
+
+The virtual network router selects the next hop for each packet by consulting the individual routing table for that instance. GCP firewall rules exist to protect your VM instances from unapproved connections in both the inbound and outbound directions - in firewall terms, this is often known as ingress and egress respectively.
+
+However, a firewall is not a physical device; it is essentially the VPC network itself that functions as a distributed firewall. This is because the firewall rules are applied to the network and connections are allowed or denied at the instance level. Therefore, you should consider the firewall as existing not only between your VM instances and other networks but also between individual instances within the same network.
+
+If for some reason all firewall rules in a network are deleted, there's still an implied deny all ingress rule, and an implied allow all egress rule for the network. You can express your desired firewall configuration as a set of firewall rules. Conceptually, a firewall rule is composed of the following parameters:
+
+* The direction of the rule - Inbound connections are matched against ingress rules only, and outbound connections are matched against egress rules only.
+* There is the protocol and port of the connection, where any rule can be restricted to apply to specific protocols only or specific combinations of protocols and ports only.
+* There is the action of the rule, which allows or denies packets to match the direction protocol port and source or destination of the rule.
+* The priority of the rule which governs the order in which rules are evaluated, with the first matching rule being applied and the rule assignment being made.
+
+By default, all rules are assigned to all instances, but you can assign certain rules to specific instances only. GCP firewall use cases for both egress and ingress will be discussed next.
+
+Firstly, let us consider the way the Egress firewall rules work to control outgoing connections originated inside your GCP network. Egress allow rules are set to allow all by default, permitting a VM to initiate a connection that matches specific protocols, ports, and IP addresses. Egress deny rules are used to prevent instances from initiating connections that match non-permitted port, protocol, and IP source or destination ranges.
+
+For Egress firewall rules, destinations to which a rule applies may be specified using IPs or ranges. You can also use destination ranges to protect from undesired connections initiated by a VM instance toward an external destination or specific VMs in another subnet.
+
+On the other hand, Ingress firewall rules protect against incoming connections to the instance from any source. Ingress rules are set as 'deny all' by default, requiring you to apply specific rules to allow ingress traffic.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>GCP Firewall Fundamentals</h3>
+<p>Within Google Cloud Platform (GCP), a virtual router is present at the core of each network, directly connecting every virtual machine instance in the network. Packets leaving a virtual machine instance are first directed to and handled by this virtual router before being forwarded on their next hop.</p>
+<h3>Firewall vs Physical Device</h3>
+<p>A firewall is not a physical device but rather the VPC network itself that functions as a distributed firewall. This means that firewall rules are applied at the network level, allowing or denying connections based on instance-level configurations.</p>
+<h3>Firewall Rule Parameters</h3>
+<p>Firewall rules consist of several parameters:</p>
+<ul>
+<li>Direction (Inbound/Outbound)</li>
+<li>Protocol and Port</li>
+<li>Action (Allow/Deny)</li>
+<li>Priority</li>
+<li>Assignment (Instance-level)</li>
+</ul>
+<p>By default, all rules are assigned to all instances. However, specific rules can be assigned to certain instances only.</p>
+<h3>Egress vs Ingress Firewall Rules</h3>
+<p>Egress firewall rules control outgoing connections within the GCP network:</p>
+<ul>
+<li>Egress allow rules permit VMs to initiate connections matching specific protocols, ports, and IP addresses.</li>
+<li>Egress deny rules prevent instances from initiating non-permitted connections.</li>
+<li>Destinations can be specified using IPs or ranges.</li>
+</ul>
+<p>In contrast, Ingress firewall rules protect against incoming connections to instances from any source:</p>
+<ul>
+<li>Ingress rules are set as 'deny all' by default.</li>
+<li>Specific rules must be applied to allow ingress traffic.</li>
+</ul>
+<h3>Network Firewall Configuration</h3>
+<p>Firewall configuration is expressed as a set of firewall rules. These rules can be used to control network traffic based on various parameters, including protocol, port, and IP addresses.</p>
+<h3>Additional Considerations</h3>
+<p>If all firewall rules in a network are deleted, there's an implied deny-all ingress rule and an implied allow-all egress rule for the network. This means that even if no explicit rules exist, the network will still block incoming traffic by default and allow outgoing traffic.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Network Architecture and Virtual Routers
+The text discusses the virtual router at the core of each network in GCP, which directs packets from virtual machine instances to their next hop.</p>
+<h3>Topic 2</h3>
+<p>Firewall Rules and Network Protection
+Firewall rules protect VM instances from unapproved connections in both inbound and outbound directions. The firewall is not a physical device but rather the VPC network itself that functions as a distributed firewall.</p>
+<h3>Topic 3</h3>
+<p>Egress Firewall Rules for Outbound Connections
+Egress allow rules permit VMs to initiate connections with specific protocols, ports, and IP addresses. Egress deny rules prevent instances from initiating non-permitted connections.</p>
+<h3>Topic 4</h3>
+<p>Ingress Firewall Rules for Incoming Connections
+Ingress rules protect against incoming connections to instances from any source. Ingress rules are set as 'deny all' by default, requiring specific rules to be applied to allow ingress traffic.</p>
+<h3>Topic 5</h3>
+<p>Firewall Rule Parameters and Configuration
+A firewall rule is composed of direction, protocol and port, action, priority, and assignment parameters. The configuration can be expressed as a set of rules, with default settings applying to all instances unless specified otherwise.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the role of the virtual router in a GCP network?
+Answer: The virtual router selects the next hop for each packet by consulting the individual routing table for that instance.</p>
+</li>
+<li>
+<p>How do GCP firewall rules protect VM instances from unapproved connections?
+Answer: Firewall rules exist to protect against both inbound and outbound connections, known as ingress and egress respectively.</p>
+</li>
+<li>
+<p>What is the difference between a physical firewall device and a VPC network's distributed firewall?
+Answer: A firewall is not a physical device but rather the VPC network itself that functions as a distributed firewall.</p>
+</li>
+<li>
+<p>How do you express your desired firewall configuration in GCP?
+Answer: You can express your desired firewall configuration as a set of firewall rules, which are composed of parameters such as direction, protocol and port, action, priority, and rule assignment.</p>
+</li>
+<li>
+<p>What is the default behavior for Egress allow rules in GCP firewall?
+Answer: Egress allow rules are set to allow all by default.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do GCP firewall rules interact with the virtual network router? 
+ Explain how this interaction affects packet forwarding in a network.</p>
+</li>
+<li>
+<p>What are the implications of deleting all firewall rules in a network on the implied deny all ingress rule and allow all egress rule?
+ Explain how this scenario would affect network traffic.</p>
+</li>
+<li>
+<p>Compare and contrast Egress and Ingress firewall rules in GCP.
+ Discuss their purposes, parameters, and default behaviors.</p>
+</li>
+<li>
+<p>How do destination ranges work in Egress firewall rules? 
+ Provide examples of using destination ranges to protect against undesired connections.</p>
+</li>
+<li>
+<p>What are the benefits of considering the firewall as existing not only between VM instances and other networks but also between individual instances within the same network?
+ Explain how this perspective affects network security and configuration.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a simple GCP network with two subnets, each containing two VM instances.
+ Apply Egress and Ingress firewall rules to protect against undesired connections in both directions.</p>
+</li>
+<li>
+<p>Create a set of firewall rules for a specific use case, such as allowing incoming connections from a specific IP address or denying outgoing connections to a specific port.
+ Explain how these rules would be applied to the network.</p>
+</li>
+<li>
+<p>Implement a distributed firewall configuration in GCP using VPC networks and firewall rules.
+ Discuss the benefits and challenges of this approach.</p>
+</li>
+<li>
+<p>Develop a strategy for securing a GCP network with multiple subnets, each containing different types of VM instances.
+ Apply Egress and Ingress firewall rules to protect against undesired connections in both directions.</p>
+</li>
+<li>
+<p>Analyze the security implications of not applying firewall rules to a specific subnet or VM instance.
+ Discuss potential vulnerabilities and recommend mitigation strategies.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>virtual router</td>
+<td>Network Device</td>
+<td>"Therefore within GCP there is a virtual router at the core of each network and every virtual machine instance in the network is directly connected to this router."</td>
+<td>A virtual router is a software-based router that manages traffic between virtual machines in a network. It selects the next hop for each packet by consulting the individual routing table for that instance.</td>
+</tr>
+<tr>
+<td>virtual machine instance</td>
+<td>Virtual Machine</td>
+<td>"In practice all packets leaving a virtual machine instance are first directed to and handled by the network's own virtual router."</td>
+<td>A virtual machine instance is an isolated environment that runs on top of a hypervisor, providing a sandboxed environment for applications to run in. It is directly connected to the virtual router at its core.</td>
+</tr>
+<tr>
+<td>GCP firewall rules</td>
+<td>Network Security Policy</td>
+<td>"GCP firewall rules on the other hand exist to protect your VM instances from unapproved connections in both the inbound and outbound directions..."</td>
+<td>A firewall rule is a set of parameters that defines how traffic should be allowed or denied between networks, virtual machines, and applications. It consists of direction, protocol, port, source, destination, action, priority, and assignment.</td>
+</tr>
+<tr>
+<td>VPC network</td>
+<td>Virtual Private Cloud Network</td>
+<td>"However a firewall is not a physical device it is essentially the VPC network itself that functions as a distributed firewall."</td>
+<td>A VPC (Virtual Private Cloud) network is a virtual network that provides a secure environment for applications to run in. It functions as a distributed firewall, applying rules to traffic at the instance level.</td>
+</tr>
+<tr>
+<td>routing table</td>
+<td>Network Configuration</td>
+<td>"The virtual network router selects the next hop for each packet by consulting the individual routing table for that instance."</td>
+<td>A routing table is a data structure that maps IP addresses to their corresponding next-hop routers or interfaces on a network device. It determines how packets are forwarded between networks and devices.</td>
+</tr>
+<tr>
+<td>ingress rule</td>
+<td>Network Security Policy</td>
+<td>"Ingress rules are set as 'deny all' by default. Therefore you need to apply specific rules to allow ingress traffic."</td>
+<td>An ingress rule defines the conditions under which incoming traffic is allowed or denied. By default, it denies all incoming traffic, requiring specific rules to be applied to allow it.</td>
+</tr>
+<tr>
+<td>egress rule</td>
+<td>Network Security Policy</td>
+<td>"Egress deny rules are used to prevent instances from initiating connections that match non-permitted port, protocol, and IP source or destination ranges."</td>
+<td>An egress rule defines the conditions under which outgoing traffic is allowed or denied. It prevents instances from initiating connections that match non-permitted ports, protocols, or IP addresses.</td>
+</tr>
+<tr>
+<td>instance level</td>
+<td>Virtual Machine Configuration</td>
+<td>"By default, all rules are assigned to all instances, but you can assign certain rules to certain instances only."</td>
+<td>The instance level refers to the configuration of a virtual machine instance, including its network settings and security policies. Rules can be assigned to specific instances or applied globally.</td>
+</tr>
+<tr>
+<td>protocol</td>
+<td>Network Communication</td>
+<td>"There is the protocol and port of the connection..."</td>
+<td>A protocol defines how data is formatted and transmitted over a network. Ports are used to identify specific services or applications running on a device.</td>
+</tr>
+<tr>
+<td>port</td>
+<td>Network Communication</td>
+<td>"There is the protocol and port of the connection..."</td>
+<td>A port is a numerical identifier that corresponds to a specific service or application running on a device. It determines which traffic is allowed or denied based on the protocol being used.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

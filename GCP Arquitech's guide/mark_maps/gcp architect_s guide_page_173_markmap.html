@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_173</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # HTTP(S) Load Balancing
+        ## Overview
+        - The purpose of connection draining is to prevent disruption to active connections and user sessions. So it works by delaying the termination of an instance until all existing connections are closed. Thus, during the connection draining process no new connections are sent to the instance, but importantly the VM instance preserves existing sessions until they end or a designated timeout is reached. This process minimizes any interruptions to your users' active sessions.
+        
+        ## Global Load Balancing
+        - As we mentioned earlier there are three types of Global load balancing in the GCP. The first type or service is the HTTP(S) load balancer, which provides global load balancing for HTTP(S) requests destined for your web instances.
+        
+        ### URL Rules
+        - With the HHTP(S) load balancer you can configure some URL rules that will route traffic targeting that specific URL to one set of web instances and route other URLs to other instances.
+        
+        ### Request Routing
+        - Requests are always received by the closest point-of-presence to the user and this is done via Anycast IP addressing. This minimizes latency and increases efficiency. Thereafter, the request will be routed to the closest relevant instance group provided that the group has enough capacity to handle the request. If the closest appropriate group does not have enough capacity, the user's request will be redirected to the next closest group that does have sufficient capacity.
+        
+        ### IPv4 and IPv6 Support
+        - The HTTP(S) load balancers do support both IPv4 and IPv6 addressing for your client traffic. However, the client IPv6 traffic have their requests terminated at the global load balancer. Downstream the traffic is sent as requests over IPv4 to the backend services.
+        
+        ### HTTP Version Support
+        - It is not just IPv6 to IPv4 that the load balancer proxies. It must also handle diverse versions of HTTP. To accomplish this, the load balancer acts as an HTTP/2 to HTTP/1.1 translation layer. This means that the load balancers may receive requests in HTTP/1.0, 1.1 or 2.0 but the web servers always receive and respond to HTTP/1.1 requests.
+        
+        ### Use Case Scenario
+        - To get a better understanding of how the global HTTP(S) load balancing operates in practice, we need to consider a use case scenario. In this example, we will consider the situation where we have users in say three different geographical locations, such as the US, Europe and Asia who are simultaneously sending a request for the same web page URL.
+        
+        ### Anycast Addressing
+        - Now we know that the user's machine will try to resolve the URLs domain name to an IP address. The global DNS server will return all three users with the same public IP address. This so far is perfectly normal behavior, however, the difference soon becomes apparent. In our scenario, we have three users in diverse geographical regions all trying to simultaneous request the same service using the same public IP. However, GCP uses Anycast addressing on points-of-presence locations in each of the three regions.
+        
+        ### Regional Mirrors
+        - Consequently, our users in the US, Europe and Asia will connect to their own regional mirror thereby getting the lowest latency service.
+        
+        ### Forwarding Rules and URL Maps
+        - Now we will have to apply some forwarding rules based on IP address, protocol and port. We also have a target proxy that's going to be a URL map. With this, we can get a little bit more granular as it gives us something more specific to differentiate between the requests in the form of URLs that are being passed through to us.
+        
+        ### Conclusion
+        - The purpose of connection draining is to prevent disruption to active connections and user sessions. The HTTP(S) load balancer provides global load balancing for HTTP(S) requests destined for your web instances. It supports both IPv4 and IPv6 addressing, handles diverse versions of HTTP, and uses Anycast addressing to minimize latency and increase efficiency.
+
+      </script>
+    </div>
+  </body>
+</html>

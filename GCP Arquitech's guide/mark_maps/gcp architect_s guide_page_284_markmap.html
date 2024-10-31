@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_284</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Groups
+        ## Definition
+        - Groups allow you to aggregate metrics across a set of machines. These are dynamically defined in so much as groups are filtering driven, meaning any existing or future resources that match the criteria for group membership will be automatically included.
+        
+        ## Benefits
+        - These are useful for highly changeable environments because you don't have to alter or update the group membership or related dashboards/alerts every time that you add or move resources.
+        - Groups also serve another function in that they provide a neat way for you to separate your production from development services. In addition, you can filter Kubernetes engine data by name and custom tags for clusters.
+        
+        ## Dashboards
+        - Dashboards provide quick visualization of core metrics for insight. These dashboards are customizable, and are auto-generated for most common applications.
+        - For example there are many standard metrics that cover; Compute Engine, Cloud Pub/Sub, Cloud Storage and Cloud Datastore.
+        - If these standard metrics provided by Stackdriver Monitoring do not fit your needs, you can create your own custom metrics.
+        
+        ## Custom Metrics
+        - Possibly, you could take various perspectives, for example, if you were to take an infrastructure focus then you might consider monitoring the CPU load or the memory utilization.
+        - You might also consider looking at the network traffic load as these are all values that are somewhat correlated with the numbers of concurrent users.
+        - Nonetheless, you could use a custom metric where you could easily pass the current number of users directly from your application into Stackdriver.
+        
+        ## Securing Stackdriver
+        - We learned earlier that Stackdriver accounts have the capability to monitor all your GCP projects within a single account. But this in many situations can be problematic as it makes the account "a single pane of glass", which means that all Stackdriver users that have access to the account also have access to all the projects' data by default.
+        
+        - It also means that a Stackdriver role assigned to one person on one project applies equally to all projects monitored by that account.
+        - This is okay for an organization that monitors the network holistically from a centralised location such as a Network Operations Centre (NOC) as the agents can all be given access to Stackdriver in order to monitor all the projects and deny everyone else.
+        
+        - But most organisations will still want some local project monitoring, logging and diagnostic capability.
+        - In order to give people different roles per project, and to control visibility to data, consider placing the monitoring of those projects into a separate Stackdriver account that is configured to only monitor that host project/account.
+
+      </script>
+    </div>
+  </body>
+</html>

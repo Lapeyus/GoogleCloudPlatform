@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_112</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_112_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_112</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Compute Engine VM Management</h1>
+<h2>Overview</h2>
+<p>This document provides an overview of managing Virtual Machines (VMs) in Google Compute Engine.</p>
+<h3>Stopped State</h3>
+<p>When the instance enters the stopped state, it will run through any pre-configured shutdown scripts and then transition into the terminated state.</p>
+<p>From the terminated state, you have the options to either restart the instance which would bring it back to its provisioning state, or you can delete it.</p>
+<h2>Running State</h2>
+<p>When you are in the running state, you also have the option to reset a VM. This task is comparable to pressing the reset button on your computer. Hence, be aware that like resetting your computer, the memory contents of the VM will be lost. Reset also returns the virtual machine to its initial state.</p>
+<h2>Transitioning from Running State</h2>
+<p>There are several ways in which we transition a VM state from the running state. The most common method for admins is through the GCP console or through the gcloud command.</p>
+<p>However, other tasks which may be OS specific are performed from within the OS such as for reboot and shut down.</p>
+<p>It's important to know that changing state due to a shut down or reset is not instant so if you are rebooting, stopping, or restarting an instance, then the process will take about 90 seconds. However, there is a caveat that you should be aware of and it concerns pre-emptible VMs specifically.</p>
+<p>With a pre-emptible VM, if the instance does not stop after 30 seconds, then Compute Engine will force the shutdown. It does this by sending a hard 'off' signal to the operating system. So, you need to be aware of this behavior when writing shutdown scripts for pre-emptible VMs.</p>
+<h2>Availability Policies</h2>
+<p>A VM's availability policy determines how the instance behaves under certain tasks such as during a live migration event.</p>
+<p>We saw earlier how Google can live-migrate VMs from one host to another for maintenance purposes and the default maintenance behaviour for VMs is to live-migrate. However, that might not be what you want so you have the option to terminate your instance during maintenance events.</p>
+<p>If your VM is terminated due to maintenance events, then your VM's default behaviour is to try and automatically restart. This is great when the VM has crashed but probably not what you want during a maintenance event so this behaviour can also be changed.</p>
+<p>These changes are made through the availability policies. Changes in behaviour can be configured both during the VM creation and also while an instance is running by configuring the automatic restart on host maintenance options.</p>
+<h2>Terminated State</h2>
+<p>When a VM is terminated, you do not pay for the use of memory and CPU resources, however, you are charged for any attached disks and external IP addresses.</p>
+<p>In the terminated state, you can perform many of configuration tasks actions such as changing the machine type, but you cannot change the image of a stopped VM.</p>
+<p>Also, not all of the actions require you to stop a virtual machine. For example, VM availability policies can be changed while the VM is running.</p>
+<h2>Compute Engine Options for VM</h2>
+<p>When it comes to creating and configuring a VM through Compute Engine, there are three options:</p>
+<ul>
+<li>Web Console</li>
+<li>Cloudshell</li>
+<li>RESTful API</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>When the instance enters the stopped state, it will run through any pre-configured shutdown scripts and then transition into the terminated state. From the terminated state, you have the options to either restart the instance which would bring it back to its provisioning state, or you can delete it.
+
+When you are in the running state, you also have the option to reset a VM. This task is comparable to pressing the reset button on your computer. Hence, be aware that like resetting your computer, the memory contents of the VM will be lost. Reset also returns the virtual machine to its initial state.
+
+There are several ways in which we transition a VM state from the running state. The most common method for admins is through the GCP console or through the gcloud command. However, other tasks which may be OS specific are performed from within the OS such as for reboot and shut down.
+
+It's essential to know that changing state due to a shut down or reset is not instant. If you are rebooting, stopping, or restarting an instance, then the process will take about 90 seconds. However, there is a caveat that you should be aware of and it concerns pre-emptible VMs specifically.
+
+With a pre-emptible VM, if the instance does not stop after 30 seconds, then Compute Engine will force the shutdown. It does this by sending a hard 'off' signal to the operating system. So, you need to be aware of this behavior when writing shutdown scripts for pre-emptible VMs.
+
+Availability Policies
+
+A VM's availability policy determines how the instance behaves under certain tasks such as during a live migration event. We saw earlier how Google can live-migrate VMs from one host to another for maintenance purposes and the default maintenance behaviour for VMs is to live-migrate. However, that might not be what you want, so you have the option to terminate your instance during maintenance events.
+
+If your VM is terminated due to maintenance events, then your VM's default behaviour is to try and automatically restart. This is great when the VM has crashed but probably not what you want during a maintenance event, so this behaviour can also be changed. These changes are made through the availability policies. Changes in behaviour can be configured both during the VM creation and also while an instance is running by configuring the automatic restart on host maintenance options.
+
+When a VM is terminated, you do not pay for the use of memory and CPU resources, however, you are charged for any attached disks and external IP addresses.
+
+In the terminated state, you can perform many configuration tasks actions such as changing the machine type, but you cannot change the image of a stopped VM. Also, not all of the actions require you to stop a virtual machine. For example, VM availability policies can be changed while the VM is running.
+
+Compute Engine Options for VM
+
+When it comes to creating and configuring a VM through Compute Engine, there are three options: Web Console, Cloudshell, or the RESTful API.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>VM State Transition and Management</strong></p>
+<p>When an instance enters the stopped state, it will run through any pre-configured shutdown scripts and then transition into the terminated state. From this state, you have two options: either restart the instance, which would bring it back to its provisioning state, or delete it.</p>
+<p>In the running state, you can reset a VM by performing an action comparable to pressing the reset button on your computer. However, be aware that like resetting your computer, the memory contents of the VM will be lost. Reset also returns the virtual machine to its initial state.</p>
+<p>There are several ways to transition a VM state from the running state, with the most common methods being through the GCP console or gcloud command. Other tasks may require performing actions within the OS, such as rebooting and shutting down.</p>
+<p><strong>Pre-emptible VMs</strong></p>
+<p>It's essential to be aware of the behavior of pre-emptible VMs, which can be shut down by Compute Engine if they do not stop after 30 seconds. This is done by sending a hard 'off' signal to the operating system. When writing shutdown scripts for pre-emptible VMs, this behavior should be taken into account.</p>
+<p><strong>Availability Policies</strong></p>
+<p>A VM's availability policy determines how it behaves under certain tasks, such as during live migration events. The default maintenance behavior for VMs is to live-migrate, but you can configure the instance to terminate instead. If your VM is terminated due to maintenance events, its default behavior is to try and automatically restart.</p>
+<p>However, this behavior can be changed through availability policies, which can be configured both during VM creation and while an instance is running. Changes in behavior can also be made by configuring automatic restart on host maintenance options.</p>
+<p><strong>Terminated State</strong></p>
+<p>When a VM is terminated, you do not pay for the use of memory and CPU resources, but you are charged for any attached disks and external IP addresses. In the terminated state, you can perform many configuration tasks, such as changing the machine type, but you cannot change the image of a stopped VM.</p>
+<p>Additionally, some actions, like changing VM availability policies, do not require stopping the virtual machine.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Shutdown and Termination</h3>
+<p>Transitioning between states in a VM instance involves shutdown scripts and termination.</p>
+<h3>Topic 2: State Transition Methods</h3>
+<p>Admins can transition a VM state from the running state through various methods such as GCP console, gcloud command, or OS-specific tasks.</p>
+<h3>Topic 3: Pre-emptible VMs</h3>
+<p>Pre-emptible VMs have a specific behavior where Compute Engine forces shutdown after 30 seconds if the instance does not stop.</p>
+<h3>Topic 4: Availability Policies</h3>
+<p>VM availability policies determine how instances behave under certain tasks such as live migration events, and can be configured during creation or while running.</p>
+<h3>Topic 5: Configuration Tasks in Terminated State</h3>
+<p>In the terminated state, VMs can perform configuration tasks like changing machine type, but not image changes.</p>
+<h3>Topic 6: Compute Engine Options for VM</h3>
+<p>There are three options to create and configure a VM through Compute Engine: Web Console, Cloudshell, or RESTful API.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What happens to a pre-emptible VM if it does not stop after 30 seconds?
+Answer: Compute Engine will force the shutdown by sending a hard 'off' signal to the operating system.</p>
+</li>
+<li>
+<p>How long does changing state due to shut down or reset take for an instance?
+Answer: The process takes about 90 seconds, but this can vary depending on the specific task and VM type.</p>
+</li>
+<li>
+<p>What is the default maintenance behavior for VMs in Google Cloud?
+Answer: Live-migration.</p>
+</li>
+<li>
+<p>Can you change your VM's availability policy during creation or while it's running?
+Answer: Yes, changes can be made both during creation and while an instance is running by configuring automatic restart on host maintenance options.</p>
+</li>
+<li>
+<p>What happens to the memory and CPU resources of a terminated VM?
+Answer: You do not pay for their use, but you are charged for any attached disks and external IP addresses.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the availability policy affect the behavior of a VM during a live migration event? Provide an example.
+Answer: The availability policy determines how the instance behaves under certain tasks such as during a live migration event. For example, if you want to terminate your instance during maintenance events, you can configure this in the availability policies.</p>
+</li>
+<li>
+<p>What are some key differences between pre-emptible and non-pre-emptible VMs?
+Answer: Pre-emptible VMs have a hard 'off' signal sent to the operating system after 30 seconds if they do not stop, whereas non-pre-emptible VMs require manual shutdown or restart.</p>
+</li>
+<li>
+<p>How does resetting a VM compare to resetting a computer? What are the implications for memory contents?
+Answer: Resetting a VM is comparable to pressing the reset button on your computer, but it also loses its memory contents and returns to its initial state.</p>
+</li>
+<li>
+<p>What are some common methods for transitioning a VM state from the running state? Provide examples.
+Answer: Common methods include using the GCP console or gcloud command, performing tasks within the OS (e.g., rebooting), or using other OS-specific commands.</p>
+</li>
+<li>
+<p>How can you configure automatic restart on host maintenance options?
+Answer: This can be done through the availability policies during VM creation or while an instance is running by configuring automatic restart on host maintenance options.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stopped state</td>
+<td>State</td>
+<td>When the instance enters this state, it will run through any pre-configured shutdown scripts and then transition into the terminated state.</td>
+<td>The "stopped" state is a transitional phase where an instance's configuration is being finalized before it is deleted or restarted. This state allows for the execution of pre-configured shutdown scripts to ensure a clean termination.</td>
+</tr>
+<tr>
+<td>terminated state</td>
+<td>State</td>
+<td>From the stopped state, you have the options to either restart the instance which would bring it back to its provisioning state, or you can delete it.</td>
+<td>The "terminated" state represents the final stage of an instance's lifecycle, where it is no longer running and cannot be restarted. This state allows for deletion or further configuration before being deleted.</td>
+</tr>
+<tr>
+<td>restart</td>
+<td>Action</td>
+<td>When you are in the running state you also have the option to reset a VM. This task is comparable to pressing the reset button on your computer. Hence, be aware that like resetting your computer the memory contents of the VM will be lost. Reset also returns the virtual machine to its initial state.</td>
+<td>The "restart" action involves terminating and then re-provisioning an instance, effectively resetting it to its original configuration. This process can result in data loss due to the lack of persistence between instances.</td>
+</tr>
+<tr>
+<td>running state</td>
+<td>State</td>
+<td>When the instance enters this state you also have the option to reset a VM. This task is comparable to pressing the reset button on your computer. Hence, be aware that like resetting your computer the memory contents of the VM will be lost. Reset also returns the virtual machine to its initial state.</td>
+<td>The "running" state represents an instance's active and operational phase, where it can receive input and respond to requests. This state allows for the execution of actions such as resetting a VM.</td>
+</tr>
+<tr>
+<td>GCP console</td>
+<td>Tool</td>
+<td>The most common method for admins is through the GCP console or through the gcloud command.</td>
+<td>The GCP console provides an interface for managing Compute Engine resources, including instances. It offers various features and tools for configuring and monitoring instances.</td>
+</tr>
+<tr>
+<td>gcloud command</td>
+<td>Tool</td>
+<td>The most common method for admins is through the GCP console or through the gcloud command.</td>
+<td>The gcloud command-line tool allows administrators to interact with Compute Engine resources programmatically. It provides a range of commands for managing instances, including creation, deletion, and configuration.</td>
+</tr>
+<tr>
+<td>pre-emptible VMs</td>
+<td>Type</td>
+<td>With a pre-emptible VM if the instance does not stop after 30 seconds, then Compute Engine will force the shutdown. It does this by sending a hard 'off' signal to the operating system. So you need to be aware of this behaviour when writing shutdown scripts for pre-emptible VMs.</td>
+<td>Pre-emptible VMs are instances that can be terminated at any time without notice, as they may be preempted by other instances or resources. This type of instance requires special handling and consideration when configuring shutdown scripts.</td>
+</tr>
+<tr>
+<td>live migration</td>
+<td>Task</td>
+<td>A VMs availability policy determines how the instance behaves under certain tasks such as during a live migration event. We saw earlier how Google can live-migrate VMs from one host to another for maintenance purposes...</td>
+<td>Live migration involves transferring an instance's workload to a different host without disrupting its operation. This process requires careful planning and configuration to ensure minimal downtime and data loss.</td>
+</tr>
+<tr>
+<td>availability policies</td>
+<td>Configuration</td>
+<td>A VMs availability policy determines how the instance behaves under certain tasks such as during a live migration event. We saw earlier how Google can live-migrate VMs from one host to another for maintenance purposes...</td>
+<td>Availability policies define the behavior of an instance in response to various events, including live migrations. These policies can be configured to ensure that instances are handled consistently and predictably.</td>
+</tr>
+<tr>
+<td>automatic restart</td>
+<td>Configuration</td>
+<td>If your VM is terminated due to maintenance events, then your VM's default behaviour is to try and automatically restart. This is great when the VM has crashed but probably not what you want during a maintenance event so this behaviour can also be changed...</td>
+<td>Automatic restart allows instances to recover from termination without manual intervention. However, it may not always be desirable in certain situations, such as during maintenance events.</td>
+</tr>
+<tr>
+<td>disks</td>
+<td>Resource</td>
+<td>You are charged for any attached disks and external IP addresses.</td>
+<td>Disks represent persistent storage for instances, allowing data to be stored and retrieved even after the instance is terminated or deleted. Attaching disks can incur additional costs, depending on the provider's pricing model.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

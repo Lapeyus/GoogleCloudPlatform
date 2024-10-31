@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_213</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_213_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_213</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>User Personas</h1>
+<h2>Power User</h2>
+<ul>
+<li><strong>Description</strong>: A power user is someone who uses your service frequently and has a high level of expertise.</li>
+<li><strong>Goals</strong>: To optimize performance and efficiency.</li>
+</ul>
+<h2>Business User</h2>
+<ul>
+<li><strong>Description</strong>: A business user is someone who uses your service to support their daily operations.</li>
+<li><strong>Goals</strong>: To ensure reliability and availability.</li>
+</ul>
+<h2>Casual User</h2>
+<ul>
+<li><strong>Description</strong>: A casual user is someone who uses your service occasionally for personal or recreational purposes.</li>
+<li><strong>Goals</strong>: To have a good overall experience.</li>
+</ul>
+<h2>Impatient User</h2>
+<ul>
+<li><strong>Description</strong>: An impatient user is someone who expects fast response times and high performance.</li>
+<li><strong>Goals</strong>: To minimize wait times and maximize productivity.</li>
+</ul>
+<h1>Service Level Objectives (SLOs)</h1>
+<h2>Definition: SLOs define the thresholds of the user's pain tolerance to performance or availability issues from an internal operations team's perspective.</h2>
+<h2>Purpose: To measure the level of service provided by your organization.</h2>
+<h2>Key Concepts:</h2>
+<ul>
+<li><strong>Thresholds</strong>: The point at which action must be taken to improve reliability or performance.</li>
+<li><strong>Pain Tolerance</strong>: The acceptable level of degradation in service quality before taking corrective action.</li>
+</ul>
+<h1>Service Level Agreements (SLAs)</h1>
+<h2>Definition: SLAs are legally binding agreements that define the level of service provided by your organization to customers.</h2>
+<h2>Purpose: To ensure measurable and verifiable service quality for customers.</h2>
+<h2>Key Concepts:</h2>
+<ul>
+<li><strong>Legal Contract</strong>: A formal agreement between your organization and customers outlining the terms of service.</li>
+<li><strong>Measurable and Verifiable</strong>: SLAs must be quantifiable and trackable to ensure accountability.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Here is the reformatted text:
+
+However this raises an interesting question. If you so not know w customers, how do you know what they care about? The answer comes from the marketing concept used when developing user interfaces - the user persona.
+
+A user persona is an abstract representation of how a certain set of users will use your service. For instance, a user persona could be described as the power user, business user, casual user, and the impatient user.
+
+User personas can help you determine the SLIS and the SLOs for your service by understanding how each group will actually use your service. Also, once you've identified what the users' care about, we will need to quantify the individual SLI thresholds and then group them to form one overall service metric that is a reliable indication of system performance. This is represented as the Service Level Objective or SLO.
+
+The SLO is an internal measurement that has threshold values for individual SLI set at the lowest acceptable level of service. The Service Level Objectives are thresholds that represent the point at which action must be taken to improve the reliability or performance of the service. Sometimes, the thing you need to do isn't just fixing a component or a process. It might mean delaying an update or fast-tracking an upgrade or even a full engineering review.
+
+The SLO is an internal metric used to monitor system performance but sometimes a service is so critical we need to provide service level guarantees to the customer. This is often the case where a loss of the service could represent financial loss for the customer or even loss of life in extreme situations such as medical or emergency services.
+
+The key difference here is that the SLO is a soft target used internally by the support teams to measure the level of the service. The SLA, on the other hand, is a business contract that grants a customer some compensation should the contracted level of service fall below a certain threshold.
+
+Therefore, SLAs are set at a less restrictive and demanding level than the SLOS this is so that the operations team can strive to achieve the more demanding SLO, which will inherently meet the SLA target. To provide an accurate measurement of the latency a user would experience, we will sometimes need to monitor additional systems.
+
+For example, if we need to know the true latency of our application from the customer perspective we must account for the additional latency of all the system components that are in the customer path, such as the load balancer and the data server. Therefore, our SLIs will be based upon the total end-to-end latency from the front-end web load balancer through our service and then through to the data server.
+
+SLOS differ from SLAs as an SLO defines the thresholds of the user's pain tolerance to performance or availability issues but from an internal operations team's perspective, whereas an SLA is a legal contract. SLAs are known to the consumers of the service, and are measurable and verifiable.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Service Level Objectives (SLOs) and Service Level Agreements (SLAs)</h3>
+<h4>Defining User Personas</h4>
+<p>To determine what customers care about, we rely on the marketing concept of user personas. A user persona is an abstract representation of how a certain set of users will use your service. Examples include power users, business users, casual users, and impatient users.</p>
+<h4>Determining SLIs and SLOs</h4>
+<p>User personas help us understand how each group will actually use our service, enabling us to determine Service Level Indicators (SLIs) and Service Level Objectives (SLOs). By quantifying individual SLI thresholds and grouping them, we can form a reliable indication of system performance.</p>
+<h4>Service Level Objectives (SLOs)</h4>
+<p>An SLO is an internal measurement with threshold values for individual SLIs set at the lowest acceptable level of service. It represents the point at which action must be taken to improve reliability or performance. SLO thresholds are critical, as further deterioration would be detrimental to both the service and customer perception.</p>
+<h4>Service Level Agreements (SLAs)</h4>
+<p>An SLA is a business contract that grants customers compensation if the contracted level of service falls below a certain threshold. The key difference between SLOs and SLAs lies in their purpose: SLOs are soft targets used internally by support teams, while SLAs are legally binding agreements defined at an even more restrictive emergency services level.</p>
+<h4>Key Differences</h4>
+<ul>
+<li><strong>Purpose</strong>: SLOs measure internal service performance, while SLAs provide compensation to customers for service degradation.</li>
+<li><strong>Level of Service</strong>: SLAs are set at a less restrictive and demanding level than SLOs, allowing operations teams to strive for the more demanding SLO threshold.</li>
+<li><strong>Measurability</strong>: SLAs are measurable and verifiable, whereas SLOs are internal metrics.</li>
+</ul>
+<h4>Monitoring Latency</h4>
+<p>To accurately measure latency, we must account for additional system components in the customer path, such as load balancers and data servers. Our SLIs will be based on total end-to-end latency from the front-end web load balancer through our service and then to the data server.</p>
+<h4>Conclusion</h4>
+<p>Understanding SLOs and SLAs is crucial for ensuring reliable and high-quality services. By defining user personas, determining SLIs and SLOs, and understanding the key differences between these two concepts, we can provide better service to our customers while meeting their expectations.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>User Personas and Service Level Indicators (SLIs)
+The concept of user personas helps determine how different groups of users will use a service, which in turn informs the identification of SLIs.</p>
+<h3>Topic 2</h3>
+<p>Service Level Objectives (SLOs) vs. Service Level Agreements (SLAs)
+SLOs are internal metrics used to measure service performance, while SLAs are legally binding contracts that guarantee a certain level of service to customers.</p>
+<h3>Topic 3</h3>
+<p>Understanding Customer Pain Tolerance and Latency
+Identifying the pain tolerance thresholds for users is crucial in defining SLOs, which can lead to more demanding SLIs. Additionally, monitoring end-to-end latency from the front-end web load balancer through the service and data server is necessary to provide accurate measurements.</p>
+<h3>Topic 4</h3>
+<p>The Importance of Accounting for Additional Latency
+Accounting for additional system components like load balancers and data servers in measuring latency is essential to ensure accurate SLI calculations.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What is the primary purpose of creating user personas in the context of developing user interfaces?</li>
+<li>How do user personas help determine Service Level Indicators (SLIs) and Service Level Objectives (SLOs)?</li>
+<li>What is the main difference between a Service Level Objective (SLO) and a Service Level Agreement (SLA)?</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>Discuss the importance of understanding customer pain tolerance in setting SLO thresholds.</li>
+<li>Explain how SLIs are calculated, including the need to account for additional system components.</li>
+<li>Compare and contrast the roles of internal support teams and external customers in defining SLOs and SLAs.</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>Suppose you're developing a web application that requires high availability and low latency. How would you use user personas to inform your SLO and SLA definitions?</li>
+<li>A company has identified three primary user groups: power users, business users, and casual users. How would you create user personas for each group, and what implications would this have for SLO and SLA design?</li>
+<li>Consider a scenario where a critical service outage could result in significant financial losses for customers. How would you define an SLO and SLA to mitigate such risks?</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user persona</td>
+<td>Concept</td>
+<td>"the marketing concept used when developing user interfaces"</td>
+<td>A user persona is an abstract representation of how a certain set of users will use a service, helping to determine SLIS and SLOs. It provides context for understanding the needs and behaviors of different user groups. The power user, business user, casual user, and impatient user are examples of personas that can be used to develop user interfaces.</td>
+</tr>
+<tr>
+<td>Service Level Objective (SLO)</td>
+<td>Metric</td>
+<td>"an internal measurement that has threshold values for individual SLI"</td>
+<td>An SLO is an internal metric used to measure the level of service, setting thresholds for individual SLIs at the lowest acceptable level of service. It represents the point at which action must be taken to improve reliability or performance. The SLO threshold is critical in determining when further deterioration would be detrimental to the service and its customers.</td>
+</tr>
+<tr>
+<td>Service Level Agreement (SLA)</td>
+<td>Contract</td>
+<td>"a business contract that grants a customer some compensation"</td>
+<td>An SLA is a legally binding agreement that defines a more restrictive level of service than an SLO, providing guarantees to customers in case of service degradation. It is set at a less demanding level than the SLO to allow operations teams to strive for higher standards.</td>
+</tr>
+<tr>
+<td>Latency</td>
+<td>Metric</td>
+<td>"the true latency of our application from the customer perspective"</td>
+<td>Latency refers to the time it takes for data to travel through a system, affecting user experience. In this context, monitoring additional systems such as load balancers and data servers is necessary to accurately measure end-to-end latency.</td>
+</tr>
+<tr>
+<td>SLI (Service Level Indicator)</td>
+<td>Metric</td>
+<td>"threshold values for individual SLI set at the lowest acceptable level of service"</td>
+<td>An SLI is a threshold value that represents the point at which action must be taken to improve reliability or performance. It is used in conjunction with SLOs to determine when further deterioration would be detrimental to the service and its customers.</td>
+</tr>
+<tr>
+<td>Emergency services</td>
+<td>Concept</td>
+<td>"an even more restrictive level of service than an SLO"</td>
+<td>Emergency services refer to a higher level of service that provides guarantees to customers in critical situations, such as medical emergencies or financial losses. This level of service is more restrictive than an SLO, providing additional protection for customers.</td>
+</tr>
+<tr>
+<td>Compensation</td>
+<td>Concept</td>
+<td>"some compensation should the contracted level of service fall below a certain threshold"</td>
+<td>Compensation refers to the payment or benefits provided to customers when their contracted level of service falls below a certain threshold. It is an essential aspect of SLAs, ensuring that customers receive fair treatment in case of service degradation.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_244</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_244_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_244</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Denial of Service Protection</h1>
+<h2>Overview</h2>
+<p>Google provides various denial-of-service (DoS) protection measures to safeguard its network. These measures are not publicly disclosed due to the need for transparency, but they can be utilized by users behind a global load balancer.</p>
+<h2>Built-in Network Protection</h2>
+<p>The Google network already offers robust protection against distributed denial-of-service attacks through:</p>
+<ul>
+<li>Scale</li>
+<li>SDN (Software-Defined Networking)</li>
+<li>CDN (Content Delivery Network)</li>
+<li>Global Load Balancers</li>
+</ul>
+<p>These components work together to detect and mitigate DoS attacks.</p>
+<h2>Additional Measures for VPCs Behind Load Balancers</h2>
+<p>To further enhance protection, users can:</p>
+<ul>
+<li>Filter known bad traffic or specific countries using firewall rules</li>
+<li>Block traffic on different ports and protocols</li>
+<li>Utilize VM traffic throttling, which limits throughput per VM to approximately 10 Gbps for Ingress</li>
+</ul>
+<h2>Defending Against Infrastructure Attacks</h2>
+<p>In the event of a DoS attack that is not detected by network security controls:</p>
+<ul>
+<li>The infrastructure remains protected by cloud load balancers and auto scaling.</li>
+<li>To absorb the attack, users can scale up by adding more resources or split traffic between different regions using a global load balancer.</li>
+</ul>
+<h2>Example: Absorbing Traffic from Different Regions</h2>
+<p>If a user is subjected to a DoS attack originating from Asia but is based in the US:</p>
+<ul>
+<li>They can spin up a region in Asia to absorb the traffic and potentially thwart the attack.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>As we have already seen, there are a lot of denial-of-service protection actually built in to the Google network. However, there are others that Google has available to you if you are behind a global load balancer. These denial of service controls are not published and are against the ethos of transparency but that is deemed to be necessary in blocking these types of denial-of-services attacks.
+
+Often denial of service attacks may sometimes be indistinguishable from actual production traffic, so it requires careful monitoring. This is why Google takes responsibility for this type of attack using round-the-clock monitoring, quotas, and limits. Another interesting way that Google protects against DDoS at the edge is to provide Cloud CDN as it protects and maximizes available bandwidth.
+
+This is done through caching content at many points-of-present locations at the edge using Google Cloud CDN. However, once more you have to have a global load balancer to gain the benefit. This is because it's the load balancer that's automatically detects and terminates inbound connections. Typically, the load balancers will drop all UDP floods and also SYN floods which can exhaust the TCP connections pool.
+
+So, as we have seen, the network already protects against distributed denial-of-service attacks through its scale, SDN, CDN, and global load balancers. So put your VPC behind a load balancer protected by firewall rules so that you can filter any known bad traffic or certain countries you know won't be using your service. You can also block on different ports and protocols.
+
+In addition, there is a technique available called VM traffic throttling. This only allows about 10 gigs of throughput per VM for Ingress. The Google network protects VMs against large-scale and sustained VM attacks, but there's also built-in protections using quota and limits. So, that is something of a benefit, but as we said earlier, sometimes it's hard to determine natural production traffic from a denial-of-service attack especially if the increase in connections, CPU or memory usage and bandwidth consumption is gradual.
+
+Defending the Infrastructure
+Should a denial of service attack not be detected by the network security controls, the infrastructure is still protected by cloud load balancers and auto scaling. At some point, you may need to absorb the attack and it may be for a brief period of time. However, in this case, you can scale up by adding more resources, but that might be expensive.
+
+An alternative technique is to split traffic between different regions and you can do this if you're using a global load balancer. For example, if you are subjected to a denial-of-service attack which is originating from Asia and you're based in the US, you could literally spin up a region in Asia, this way you could absorb that traffic and that might help in thwarting that particular attack.
+
+Another technique available is VM traffic throttling, which only allows about 10 gigs of throughput per VM for Ingress. The Google network protects VMs against large-scale and sustained VM attacks, but there's also built-in protections using quota and limits. So, that is something of a benefit, but as we said earlier, sometimes it's hard to determine natural production traffic from a denial-of-service attack especially if the increase in connections, CPU or memory usage and bandwidth consumption is gradual.
+
+Defending the Infrastructure
+Should a denial of service attack not be detected by the network security controls, the infrastructure is still protected by cloud load balancers and auto scaling. At some point, you may need to absorb the attack and it may be for a brief period of time. However, in this case, you can scale up by adding more resources, but that might be expensive.
+
+An alternative technique is to split traffic between different regions and you can do this if you're using a global load balancer. For example, if you are subjected to a denial-of-service attack which is originating from Asia and you're based in the US, you could literally spin up a region in Asia, this way you could absorb that traffic and that might help in thwarting that particular attack.
+
+In addition, there is also the option of using VM traffic throttling, which can limit the throughput per VM for Ingress. The Google network protects VMs against large-scale and sustained VM attacks, but there's also built-in protections using quota and limits. So, that is something of a benefit, but as we said earlier, sometimes it's hard to determine natural production traffic from a denial-of-service attack especially if the increase in connections, CPU or memory usage and bandwidth consumption is gradual.
+
+Defending the Infrastructure
+Should a denial of service attack not be detected by the network security controls, the infrastructure is still protected by cloud load balancers and auto scaling. At some point, you may need to absorb the attack and it may be for a brief period of time. However, in this case, you can scale up by adding more resources, but that might be expensive.
+
+An alternative technique is to split traffic between different regions and you can do this if you're using a global load balancer. For example, if you are subjected to a denial-of-service attack which is originating from Asia and you're based in the US, you could literally spin up a region in Asia, this way you could absorb that traffic and that might help in thwarting that particular attack.
+
+In conclusion, Google provides various techniques for protecting against denial-of-service attacks. These include using Cloud CDN, VM traffic throttling, and splitting traffic between different regions. Each of these techniques has its own benefits and limitations, and it's essential to choose the right approach based on your specific needs and infrastructure.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Google's Denial of Service Protection Measures</h3>
+<p>Google has implemented various denial-of-service (DoS) protection measures to safeguard its network. While some of these measures are not publicly disclosed due to the need for transparency, others are available to users behind a global load balancer.</p>
+<h4>Network Protection</h4>
+<p>The Google network itself provides scale, SDN, CDN, and global load balancers as part of its defense against distributed denial-of-service attacks. These components work together to detect and mitigate traffic patterns that may indicate a DoS attack.</p>
+<h3>Additional Measures for Users Behind Global Load Balancers</h3>
+<p>For users behind a global load balancer, Google offers additional protection measures:</p>
+<ul>
+<li><strong>Cloud CDN</strong>: This service protects bandwidth by caching content at multiple edge locations. However, it requires a global load balancer to function effectively.</li>
+<li><strong>Firewall Rules</strong>: Users can filter known bad traffic or block access from specific countries using firewall rules.</li>
+<li><strong>VM Traffic Throttling</strong>: This technique limits the throughput of individual VMs for Ingress to approximately 10 Gbps. While this provides some protection, it may not always distinguish between legitimate and malicious traffic.</li>
+</ul>
+<h3>Defending Against Denial-of-Service Attacks</h3>
+<p>In the event of a DoS attack that is not detected by network security controls, the infrastructure remains protected by cloud load balancers and auto scaling. However, in cases where sustained attacks are involved, absorbing the traffic for an extended period may be expensive.</p>
+<p>An alternative approach is to split traffic between different regions using a global load balancer. For example, if an attack originates from Asia and the user is based in the US, spinning up a region in Asia can help absorb the traffic and potentially thwart the attack.</p>
+<h3>Key Takeaways</h3>
+<ul>
+<li>Google's network provides scale, SDN, CDN, and global load balancers to defend against distributed denial-of-service attacks.</li>
+<li>Additional protection measures are available for users behind global load balancers, including Cloud CDN, firewall rules, and VM traffic throttling.</li>
+<li>Defending against DoS attacks requires careful monitoring and may involve absorbing traffic for an extended period or splitting traffic between regions.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Denial of Service Protection</h3>
+<p>Google has built-in denial-of-service protection within its network, but also offers additional controls for those behind global load balancers.</p>
+<h3>Topic 2: Monitoring and Quotas</h3>
+<p>Careful monitoring is required to distinguish between actual production traffic and denial-of-service attacks, which is why Google takes responsibility for this type of attack using round-the-clock monitoring, quotas, and limits.</p>
+<h3>Topic 3: Cloud CDN Protection</h3>
+<p>Google provides Cloud CDN as an additional way to protect against DDoS at the edge by caching content at multiple points of presence locations at the edge, maximizing available bandwidth.</p>
+<h3>Topic 4: Load Balancer Detection</h3>
+<p>Load balancers automatically detect and terminate inbound connections, dropping UDP floods and SYN floods that can exhaust TCP connections pools.</p>
+<h3>Topic 5: VPC Protection with Load Balancers</h3>
+<p>Protecting a VPC behind a load balancer protected by firewall rules allows filtering of known bad traffic or certain countries, as well as blocking on different ports and protocols.</p>
+<h3>Topic 6: VM Traffic Throttling</h3>
+<p>VM traffic throttling limits throughput per VM for Ingress to about 10 gigs, while the Google network protects against large-scale sustained VMs with built-in protections using quota and limits.</p>
+<h3>Topic 7: Defending Infrastructure Against DDoS</h3>
+<p>In case a denial-of-service attack is not detected by network security controls, infrastructure remains protected by cloud load balancers and auto scaling.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What types of denial-of-service protection are built into the Google network?
+Answer: Various types, including scale, SDN, CDN, and global load balancers.</li>
+<li>Why is it necessary to have a global load balancer to gain the benefit of Cloud CDN?
+Answer: Because the load balancer automatically detects and terminates inbound connections.</li>
+<li>What is VM traffic throttling, and how much throughput can it allow per VM for Ingress?
+Answer: VM traffic throttling allows about 10 gigs of throughput per VM for Ingress.</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>How do denial-of-service attacks often be indistinguishable from actual production traffic, and what does this require in terms of monitoring?
+Answer: Denial-of-service attacks can be indistinguishable from actual production traffic due to gradual increases in connections, CPU or memory usage, and bandwidth consumption, requiring careful monitoring.</li>
+<li>What are the benefits and limitations of using a global load balancer to defend against denial-of-service attacks?
+Answer: Benefits include absorbing traffic and thwarting specific attacks, but limitations include potential costs associated with sustained attacks.</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>If you're experiencing a denial-of-service attack originating from Asia and your service is based in the US, what alternative technique can you use to absorb the traffic?
+Answer: You can split traffic between different regions using a global load balancer.</li>
+<li>How would you configure your VPC behind a load balancer protected by firewall rules to filter known bad traffic or certain countries?
+Answer: You would set up firewall rules to block specific ports, protocols, and countries.</li>
+</ol>
+<h3>Additional Questions</h3>
+<ol>
+<li>What is the purpose of quotas and limits in protecting against denial-of-service attacks?
+Answer: Quotas and limits help prevent excessive resource consumption during sustained attacks.</li>
+<li>How can you determine whether a sudden increase in connections or CPU/memory usage is due to a denial-of-service attack or natural production traffic?
+Answer: Careful monitoring and analysis are required to distinguish between the two scenarios.</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>denial-of-service protection</td>
+<td>concept</td>
+<td>"As we have already seen there are a lot of denial-of-service protection actually built in to the Google network..."</td>
+<td>Denial-of-service (DoS) attacks are attempts to make a computer or network resource unavailable by overwhelming it with traffic. The text mentions that Google has built-in protection against these types of attacks, but also notes that this protection is not published and may be necessary for blocking such attacks.</td>
+</tr>
+<tr>
+<td>global load balancer</td>
+<td>technology</td>
+<td>"...if you are behind a global load balancer..."</td>
+<td>A global load balancer is a type of network device that distributes incoming traffic across multiple servers to improve responsiveness and reliability. The text mentions that Google provides Cloud CDN as an alternative to traditional load balancing methods.</td>
+</tr>
+<tr>
+<td>Cloud CDN</td>
+<td>service</td>
+<td>"Another interesting way that Google protects against DDoS at the edge is to provide Cloud CDN..."</td>
+<td>Content Delivery Network (CDN) is a network of distributed servers that cache content to improve performance and availability. The text notes that Google's Cloud CDN provides protection against denial-of-service attacks by maximizing available bandwidth.</td>
+</tr>
+<tr>
+<td>SDN (Software-Defined Networking)</td>
+<td>technology</td>
+<td>"...the network already protects against distributed denial-of-service attack through its scale, SDN..."</td>
+<td>Software-defined networking is a type of networking architecture that uses software to manage and control network resources. The text mentions that Google's SDN provides protection against denial-of-service attacks by leveraging the network's scale.</td>
+</tr>
+<tr>
+<td>VPC (Virtual Private Cloud)</td>
+<td>technology</td>
+<td>"...put your VPC behind a load balancer protected by firewall rules..."</td>
+<td>A Virtual Private Cloud is a cloud computing environment that provides a secure and isolated space for applications to run. The text notes that using a VPC with a load balancer can help filter out known bad traffic or certain countries.</td>
+</tr>
+<tr>
+<td>VM traffic throttling</td>
+<td>technique</td>
+<td>"In addition there is a technique available called VM traffic throttling..."</td>
+<td>VM traffic throttling is a technique used to limit the amount of traffic that can be sent to a virtual machine (VM). The text notes that this technique allows for up to 16 gigs worth of throughput from the Google network, but may not always detect denial-of-service attacks.</td>
+</tr>
+<tr>
+<td>quota and limits</td>
+<td>concept</td>
+<td>"...the Google network protects VMs against large scale and sustained VM..."</td>
+<td>Quota and limits refer to the maximum amount of resources that can be allocated to a virtual machine or other resource. The text notes that Google's network provides built-in protections using quota and limits, but may not always detect denial-of-service attacks.</td>
+</tr>
+<tr>
+<td>auto scaling</td>
+<td>technology</td>
+<td>"...the infrastructure is still protected by the cloud load balancers and auto scaling..."</td>
+<td>Auto scaling is a technique used to automatically adjust the number of resources allocated to a virtual machine or other resource based on demand. The text notes that Google's network uses auto scaling to protect against denial-of-service attacks, but may not always detect such attacks.</td>
+</tr>
+<tr>
+<td>region splitting</td>
+<td>technique</td>
+<td>"An alternative technique is to split traffic between different regions..."</td>
+<td>Region splitting involves distributing traffic across multiple geographic locations to improve availability and performance. The text notes that this technique can be used with a global load balancer to absorb denial-of-service attacks.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

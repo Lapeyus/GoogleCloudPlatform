@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_138</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud SQL
+        ## Overview
+        - For example, Cloud SQL can scale to a high capacity database, which is capable of handling terabytes of storage. Accessing  and using the databases will be exactly the same as they are relational, which means  that you can simply run SQL type queries such as SELECT statements to read a field's data or INSERT statements to write a
+        - field's data.
+        
+        ## Features and Benefits
+        - In addition since Cloud SQL is a fully managed service, you can choose either MySQL, SQL Server or PostgreSQL database engines, the security patches and updates are automatically applied for you.
+        - Now, if we consider MySQL as an example we can see that Cloud SQL is not a simulation it is a real MySQL instance. This means that there will be no compatibility issues and you should be able to easily lift and shift the on-premise to the cloud without any issues.
+        
+        ### Generation 2
+        - Cloud SQL is available in two different generations. It is recommended to use the second generation unless you have some legacy constraints because it provides up to seven times the throughput and 20 times the storage capacity of the first generation.
+        - As a result the 2nd Generation provides up to 208 gigabytes of RAM and 10 terabytes of data storage.
+        
+        ### Generation 1
+        - On the other hand, the 1st  generation version provides with  MySQL 5.5. However, this generation does support the MyISAM  storage engine as  well as connections over both IPv4  and IPv6 addresses . In addition  it also supports the on-demand activation policy.
+        
+        ## Differences from On-Premise MySQL
+        - Regardless of the generation, the MySQL functionality provided by a Cloud SQL Instance is exactly the same as the functionality provided by a locally hosted MySQL Instance.
+        - However, there are a few differences between a Standard MySQL Instance and a Cloud SQL Instance. For example, user-defined functions are not supported in Cloud SQL and some additional services that are required to be enabled and configured in standard MySQL are automatically provided by Cloud SQL as part of the managed service.
+        
+        ### Replication
+        - For example, The MySQL replication feature, which requires considerable thought to the design and configuration in an on- premise standard MySQL deployment, can be enabled as part of the Cloud SQL managed service by just ticking a few checkboxes. The replication service will replicate data between multiple zones and provide automatic failover without loss of service if a service outage should occur in one of the regions.
+        
+        ### Backups
+        - In a similar vein Cloud SQL also provides automated and on demand backups with point in time recovery.
+
+      </script>
+    </div>
+  </body>
+</html>

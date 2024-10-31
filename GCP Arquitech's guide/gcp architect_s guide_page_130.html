@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_130</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_130_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_130</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Service Accounts Best Practices</h1>
+<h2>Introduction</h2>
+<p>When it comes to using service accounts, diligence is required when granting the service account user role, as it provides access to all the resources for which the service account has access.</p>
+<h3>Designing Service Accounts</h3>
+<p>Design the service accounts to be specific to a single task and give it an intuitive name that advertises its purpose. This shouldn't be done on a whim so there should be a coherent and common naming convention throughout Service Accounts.</p>
+<h4>Key Management</h4>
+<p>Service Accounts authenticate through private keys and unless there is a real need to do otherwise, let GCP manage the keys for you. If working in a high-security environment that dictates that you must manage the keys yourself, then you will have to secure the keys and store them in a safe place. You will also need to establish a key rotation policy as well as the methods.</p>
+<h4>Key Rotation</h4>
+<p>Key rotation may sound like a simple concept, however, implementing a common process in a way that is user convenient while simultaneously guaranteeing the security of the keys is not a trivial task. Also, you will have to regularly audit the keys using the <code>serviceAccount.keys.list</code> method.</p>
+<h3>Using Cloud Identity-Aware Proxy (Cloud IAP)</h3>
+<p>For applications accessed by HTTPS, it is recommended to use Cloud Identity-Aware Proxy (Cloud IAP) to establish a central authorization layer. IAP gives you access control at an application level rather than relying on network-level firewalls.</p>
+<h4>How IAP Works</h4>
+<p>Cloud IAP controls access to cloud applications and VMs running on Google Cloud Platform (GCP) by verifying the user identity and context of the request to determine if a user should be allowed to access an application or a VM. Cloud IAP is an enterprise security model that enables employees to work from untrusted networks without the use of a VPN.</p>
+<h4>Benefits of Using IAP</h4>
+<p>Cloud IAP provides a single point of control for managing user access to web applications, saving administrators time and providing effort. It also protects applications and resources by enforcing IAM access policies, which can only be accessed through the proxy by users and groups with the correct credentials.</p>
+<h3>Use Case - 14</h3>
+<p>You have an application running on Compute Engine VMs that are running a microservice called component-one and these are granted Editor access to project-A. However, you also have VMs running a microservice component-two that are to be granted 'object viewer' access to bucket-one in project A.</p>
+<h4>Solution</h4>
+<p>To isolate the permission and prevent unauthorized access using IAM, you can use Cloud IAP to grant fine-grained access control without the need of a VPN. This means that users will be subject to authentication and authorization checks when they connect to the proxy to access a secured resource.</p>
+<h3>Conclusion</h3>
+<p>By following these best practices for service accounts, you can ensure that your applications are secure and compliant with IAM policies. Remember to design your service accounts specifically, manage keys securely, and use Cloud IAP to establish a central authorization layer.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Here is the reformatted text:
+
+The Organisation.
+
+When it comes to using service accounts, here are some best practices. Diligence is required when granting the service account user role, as it provides access to all the resources for which the service account has access. Therefore, design the service accounts to be specific to a single task and give it an intuitive name that advertises its purpose. This shouldn't be done on a whim so there should be a coherent and common naming convention throughout Service Accounts authenticate through private keys and unless there is a real need to do otherwise let GCP manage the keys for you.
+
+If you are working in a high-security environment that dictates that you must manage the keys yourself, then you will have to secure the keys and store them in a safe place. You will also need to establish a key rotation policy as well as the methods. Key rotation may sound a simple concept, however, implementing a common process in a way that is user convenient while simultaneously guaranteeing the security of the keys is not a trivial task. Also, you will have to regularly audit the keys using the serviceAccount.keys.list method.
+
+It is a best practice to rotate your service account keys regularly. You rotate a key by creating a new key and then forcing applications to use the new key before you depreciate and then delete the old key. Use the serviceAccount.keys.create() method and serviceAccount.keys.delete() method together to automate the rotation.
+
+For applications accessed by HTTPS, it is recommended to use Cloud Identity-Aware Proxy (Cloud IAP) to establish a central authorization layer. IAP gives you access control at an application level rather than relying on network-level firewalls.
+
+Cloud Identity-Aware Proxy (Cloud IAP) controls access to cloud applications and VMs running on Google Cloud Platform (GCP) by verifying the user identity and context of the request to determine if a user should be allowed to access an application or a VM. Cloud IAP is an enterprise security model that enables employees to work from untrusted networks without the use of a VPN. Instead, end users simply point their web browser to an internet-accessible URL to access Cloud IAP-secured applications.
+
+As a result, Cloud IAP is a single point of control for managing user access to web applications that saves them and their administrators time and provides effort. Cloud IAP protects applications and resources by enforcing IAM access policies as these can only be accessed through the proxy by users and groups with the correct credentials. With Cloud IAP, you grant a user access to an application or resource based upon their IAM role. This means that they're subject to fine-grained access control without the need of a VPN.
+
+Use Case - 14
+You have an application running on Compute Engine VMs that are running a microservice called component-one and these are granted Editor access to project-A. However, you also have VMs running a microservice component-two that are to be granted 'object viewer' access to bucket-one in project A. How can you isolate the permission and prevent unauthorized access using IAM?
+
+Solution
+276
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Best Practices for Service Accounts</h3>
+<p>When using service accounts, it's essential to follow best practices to ensure security and control access.</p>
+<h4>Designing Service Accounts</h4>
+<ul>
+<li>Create service accounts specific to a single task with intuitive names that advertise their purpose.</li>
+<li>Establish a coherent and common naming convention throughout the organization.</li>
+<li>Authenticate through private keys; unless necessary, let GCP manage the keys for you.</li>
+</ul>
+<h4>Key Management</h4>
+<ul>
+<li>If managing keys yourself, secure them and store them in a safe place.</li>
+<li>Establish a key rotation policy and methods to ensure security.</li>
+<li>Regularly audit keys using <code>serviceAccount.keys.list</code>.</li>
+</ul>
+<h4>Rotating Service Account Keys</h4>
+<ul>
+<li>Rotate keys regularly by creating new keys and forcing applications to use the new key before deprecating and deleting the old key.</li>
+<li>Use <code>serviceAccount.keys.create()</code> and <code>serviceAccount.keys.delete()</code> methods together to automate rotation.</li>
+</ul>
+<h4>Cloud Identity-Aware Proxy (Cloud IAP)</h4>
+<ul>
+<li>Use Cloud IAP for applications accessed by HTTPS to establish a central authorization layer.</li>
+<li>Provides access control at an application level, enabling employees to work from untrusted networks without VPNs.</li>
+<li>Grants users access based on IAM roles, subjecting them to fine-grained access control.</li>
+</ul>
+<h4>Isolating Permissions with IAM</h4>
+<ul>
+<li>Grant Editor access to project-A for VMs running a microservice called component-one.</li>
+<li>Grant 'object viewer' access to bucket-one in project A for VMs running a microservice component-two.</li>
+<li>Use IAM to isolate permissions and prevent unauthorized access.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Service Account Management</h3>
+<p>Designing service accounts to be specific to a single task, giving them intuitive names that advertise their purpose, and establishing a coherent naming convention throughout.</p>
+<h3>Topic 2: Key Management and Rotation</h3>
+<p>Securing keys, storing them in a safe place, establishing key rotation policies, and regularly auditing keys using the <code>serviceAccount.keys.list</code> method.</p>
+<h3>Topic 3: Cloud Identity-Aware Proxy (Cloud IAP)</h3>
+<p>Establishing a central authorization layer for applications accessed by HTTPS, controlling access to cloud applications and VMs based on user identity and context, and enabling employees to work from untrusted networks without VPN.</p>
+<h3>Topic 4: IAM Access Control</h3>
+<p>Granting users access to applications or resources based upon their IAM role, enforcing fine-grained access control without the need for a VPN.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the recommended approach for designing service accounts, and why is it important to follow this best practice?
+Answer: The recommended approach is to design service accounts to be specific to a single task and give them an intuitive name that advertises their purpose. This is important because granting access to all resources can provide unnecessary privileges.</p>
+</li>
+<li>
+<p>What should be done with the private keys used by service accounts, and why is key rotation necessary?
+Answer: Private keys should be managed by GCP unless there is a real need to manage them manually. Key rotation is necessary to ensure security and prevent unauthorized access.</p>
+</li>
+<li>
+<p>How does Cloud Identity-Aware Proxy (Cloud IAP) provide access control for cloud applications and VMs running on Google Cloud Platform (GCP)?
+Answer: Cloud IAP provides access control by verifying user identity and context, enforcing IAM access policies, and granting users access based on their IAM role.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the implications of not following best practices when designing service accounts? Provide an example.
+Answer: Not following best practices can lead to unnecessary privileges being granted, compromising security. For instance, if a service account is granted Editor access to multiple projects without proper restriction, it can lead to unauthorized changes.</p>
+</li>
+<li>
+<p>How does key rotation impact the security of service accounts, and what are some common challenges in implementing this process?
+Answer: Key rotation ensures that old keys are removed and new ones are used, preventing unauthorized access. However, implementing a common process for key rotation while ensuring user convenience and security can be challenging.</p>
+</li>
+<li>
+<p>What is the primary advantage of using Cloud IAP over relying on network-level firewalls for access control?
+Answer: The primary advantage is that Cloud IAP provides fine-grained access control without requiring users to use a VPN, making it more convenient and secure.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a service account for a microservice called "data-reader" that needs to access a specific bucket in project A. Provide an intuitive name for the service account.
+Answer: The service account should be named "data-reader-bucket-access". This name clearly communicates its purpose and ensures that it is not used for other tasks.</p>
+</li>
+<li>
+<p>How would you implement key rotation for a service account using GCP's API?
+Answer: You can use the <code>serviceAccount.keys.create()</code> method to generate a new key, and then use the <code>serviceAccount.keys.delete()</code> method to remove the old key. This process should be automated to ensure regular key rotation.</p>
+</li>
+<li>
+<p>How would you configure Cloud IAP for an application running on Compute Engine VMs that needs to access multiple cloud applications?
+Answer: You can configure Cloud IAP by setting up IAM policies and roles for each application, ensuring that users are granted only the necessary permissions to access those resources.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service accounts</td>
+<td>Organization</td>
+<td>"When it comes to using service accounts, here are some best practices."</td>
+<td>Service accounts refer to a type of identity used by applications running on Google Cloud Platform (GCP) to access resources. They provide access to all the resources for which the service account has access, and therefore require careful design and management.</td>
+</tr>
+<tr>
+<td>user role</td>
+<td>Concept</td>
+<td>"Diligence is required when granting the service account user role..."</td>
+<td>A user role refers to a specific set of permissions that can be assigned to a service account. Granting the wrong user role can compromise security, so it's essential to carefully consider which roles to assign and how they should be used.</td>
+</tr>
+<tr>
+<td>single task</td>
+<td>Concept</td>
+<td>"...design the service accounts to be specific to a single task..."</td>
+<td>A single task refers to a specific, well-defined purpose that a service account should serve. This helps ensure that each service account has a clear and limited scope of access, reducing the risk of unauthorized access or misuse.</td>
+</tr>
+<tr>
+<td>intuitive name</td>
+<td>Concept</td>
+<td>"...give it an intuitive name that advertises its purpose."</td>
+<td>An intuitive name is a descriptive label that clearly communicates the purpose of a service account. This makes it easier to understand and manage the account's permissions and access.</td>
+</tr>
+<tr>
+<td>private keys</td>
+<td>Security Measure</td>
+<td>"Service Accounts authenticate through private keys..."</td>
+<td>Private keys are used by service accounts to authenticate with GCP resources. They provide an additional layer of security, as only authorized users can access resources using a valid private key.</td>
+</tr>
+<tr>
+<td>high-security environment</td>
+<td>Environment</td>
+<td>"...if you're working in a high-security environment that dictates that you must manage the keys yourself..."</td>
+<td>A high-security environment refers to a setting where sensitive data or operations require strict control and monitoring. In such environments, service account management becomes even more critical to ensure security.</td>
+</tr>
+<tr>
+<td>key rotation policy</td>
+<td>Security Measure</td>
+<td>"It is a best practice is to rotate your service account keys regularly."</td>
+<td>Key rotation policies refer to the process of periodically replacing or updating private keys used by service accounts. This helps maintain security and prevent unauthorized access.</td>
+</tr>
+<tr>
+<td>Cloud Identity-Aware Proxy (Cloud IAP)</td>
+<td>Organization</td>
+<td>"...For applications accessed by HTTPS it is recommended to use Cloud Identity-Aware Proxy..."</td>
+<td>Cloud IAP is a Google Cloud service that provides an additional layer of security for web applications running on GCP. It authenticates users and verifies their permissions before granting access to resources.</td>
+</tr>
+<tr>
+<td>enterprise security model</td>
+<td>Concept</td>
+<td>"Cloud IAP is an enterprise security model that enables employees to work from untrusted networks..."</td>
+<td>An enterprise security model refers to a comprehensive approach to managing security within an organization. Cloud IAP provides a secure way for employees to access web applications while working remotely, reducing the risk of unauthorized access or data breaches.</td>
+</tr>
+<tr>
+<td>IAM access policies</td>
+<td>Security Measure</td>
+<td>"Cloud IAP protects applications and resources by enforcing IAM access policies..."</td>
+<td>IAM (Identity and Access Management) access policies refer to the rules that govern which users or groups can access specific resources on GCP. Cloud IAP enforces these policies, ensuring that only authorized users can access resources.</td>
+</tr>
+<tr>
+<td>fine-grained access control</td>
+<td>Security Measure</td>
+<td>"...users are subject to fine-grained access control without the need of a VPN."</td>
+<td>Fine-grained access control refers to the ability to manage and restrict access to specific resources or actions within an organization. Cloud IAP provides this level of control, allowing administrators to define precise permissions for users and groups.</td>
+</tr>
+<tr>
+<td>Compute Engine VMs</td>
+<td>Infrastructure</td>
+<td>"...You have an application running on Compute Engine VMs that are running a microservice called component-one..."</td>
+<td>Compute Engine VMs refer to virtual machines running on Google Cloud Platform's Compute Engine service. These VMs provide a scalable and secure environment for applications to run in.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

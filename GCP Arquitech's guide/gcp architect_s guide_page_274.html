@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_274</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_274_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_274</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Network Capacity</h1>
+<h2>Limitations</h2>
+<ul>
+<li>Network throughput for VMs is limited by CPU cores.</li>
+<li>Quota is capped at 16 gigs maximum, requiring 8 cores.</li>
+</ul>
+<h2>Ingress vs Egress Traffic</h2>
+<ul>
+<li>16gigs is not simply the sum of egress and ingress traffic flow.</li>
+<li>There's another limit on ingress traffic set at 10 gigs.</li>
+</ul>
+<h2>Internal vs External IPs</h2>
+<ul>
+<li>All VMs come with both internal and external IPs.</li>
+<li>Internal IPs are on a much faster network, reducing latency.</li>
+</ul>
+<h2>Workload Estimation</h2>
+<ul>
+<li>Potential network throughput varies dramatically due to request types.</li>
+<li>Request types can be very verbose or small but chatty.</li>
+</ul>
+<h1>Resource Allocation</h1>
+<h2>Forecasting vs Allocation</h2>
+<ul>
+<li>Forecasting tells us how much capacity we're going to potentially allocate.</li>
+<li>Allocation tells us how much resource is necessary to provide that capacity.</li>
+</ul>
+<h2>Estimating Resources</h2>
+<ul>
+<li>Validate estimates with load testing.</li>
+<li>Calculate resources required based on capacity/resource ratio.</li>
+</ul>
+<h2>Example: Video Transcription Service</h2>
+<ul>
+<li>Demand for storage throughput increases by 30%.</li>
+<li>New QPS is 327,600.</li>
+<li>Divide QPS by 10,000 to determine Bigtable nodes needed (33).</li>
+</ul>
+<h2>Alternative Approaches</h2>
+<ul>
+<li>Consider enabling caching in Memcache or local SSD.</li>
+<li>Tune applications and processes to make them more efficient.</li>
+<li>Explore using better algorithms or alternative services.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Network Capacity
+When considering network capacity, remember that network throughput for VMs is limited by the number of CPU cores. So, you get 2 gigs of throughput for every CPU core, with a maximum quota of 16 gigs, which requires 8 cores. However, this 16gig throughput is not simply the sum of egress and ingress traffic flow, as there's another limit on ingress traffic set at 10 gigs.
+
+Network capacity planning also involves understanding that all VMs come with both internal and external IPs. Internal IPs are on a much faster network, as they don't have a lot of external overhead and inspection. If you benchmark the two, you'll see a large difference in latency between them, with internal networks always being faster.
+
+Workload estimation is crucial to get a firm understanding of potential network throughput. In practice, this can vary dramatically due to request types, such as some types being very verbose, others small but very chatty, and the size of the payload.
+
+Resource Allocation
+After forecasting, the next step is to allocate sufficient resources. Forecasting will tell you how much capacity you're going to potentially allocate. For its part, allocation will tell you how much resource is necessary to provide that capacity. For example, forecasting might say you need 1.5 terabytes of physical persistent disk, but allocation will tell you you need 2 terrabytes to realize the 1.5 terabytes usable capacity.
+
+To validate these estimates, load testing is essential. By researching or using new methods in some cases, it might not be clear, and we'll need to estimate and measure to calculate resources required based on the capacity/resource ratio. For instance, if your video transcription service's demand for storage throughput increases by 30%, you can determine a new number of Queries per Second (QPS) after adding another 30%. With this new QPS figure, you can then determine how many Bigtable nodes are needed.
+
+Google documentation on Bigtable and benchmarking reveals that you get about 10,000 QPS per Bigtable node - a 10,000 to 1 ratio. So, for every Bigtable node, you can do 10,000 QPS. In your case, dividing your QPS of 327,600 by 10,000 gives you an estimate of about 33 Bigtable nodes.
+
+Before adding more hardware, consider if there's another way to improve performance. For example, could you start enabling caching in Memcache or local SSD? It's also essential to consider the possibility of tuning your applications and processes to make them more efficient. You can explore using better algorithms or alternative services to optimize resource allocation.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Network Capacity and Resource Allocation for Scalable Systems</h3>
+<p>When planning a network capacity, it's essential to remember that VM throughput is limited by CPU cores, resulting in a quota of 16 GB maximum, which requires 8 cores. However, this quota only accounts for egress traffic, with an additional limit on ingress traffic set at 10 GB.</p>
+<h3>Internal vs. External Network Traffic</h3>
+<p>Internal IPs are typically on faster networks, as they don't have the same external overhead and inspection. Benchmarking these two types of networks reveals a significant difference in latency between them.</p>
+<h3>Workload Estimation</h3>
+<p>Accurate workload estimation is crucial to understand potential network throughput. However, this can vary dramatically due to request types, such as verbose or small but chatty requests, and payload sizes.</p>
+<h3>Resource Allocation</h3>
+<p>After forecasting capacity needs, resource allocation determines the necessary resources to provide that capacity. This involves validating estimates with load testing and considering the capacity/resource ratio.</p>
+<h3>Example Scenario</h3>
+<p>A video transcription service is expected to increase its storage throughput by 30%. With a current Queries per Second (QPS) of 327,600, dividing this by 10,000 QPS per Bigtable node yields approximately 33 nodes. However, before adding hardware, consider alternative approaches such as caching or optimizing applications and processes.</p>
+<h3>Key Considerations</h3>
+<ul>
+<li>Network capacity is limited by CPU cores.</li>
+<li>Internal IPs are on faster networks than external ones.</li>
+<li>Workload estimation can vary significantly due to request types and payload sizes.</li>
+<li>Resource allocation should validate estimates with load testing and consider the capacity/resource ratio.</li>
+<li>Alternative approaches, such as caching or optimizing applications and processes, may be more beneficial but cheaper.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Network Capacity Planning</h3>
+<p>Network capacity planning is crucial for VMs, with throughput limited by CPU cores. The quota is capped at 16 gigs maximum, requiring 8 cores, and there's an additional limit on ingress traffic set at 10 gigs.</p>
+<h3>Topic 2: Workload Estimation</h3>
+<p>Workload estimation is necessary to understand potential network throughput, which can vary dramatically due to request types, payload size, and other factors.</p>
+<h3>Topic 3: Resource Allocation Strategies</h3>
+<p>Resource allocation involves allocating sufficient resources based on capacity forecasts. It's essential to validate estimates with load testing and consider alternative strategies like caching, tuning applications, and exploring better algorithms or services.</p>
+<h3>Topic 4: Bigtable Node Requirements</h3>
+<p>For a given throughput capacity, the number of Bigtable nodes required can be estimated using the capacity/resource ratio. In this case, approximately 33 Bigtable nodes are needed to support 327,600 QPS.</p>
+<h3>Topic 5: Optimizing Resource Allocation</h3>
+<p>Before adding more hardware, consider alternative strategies like caching, tuning applications, and exploring better algorithms or services to optimize resource allocation and reduce costs.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>What is the relationship between network throughput for VMs and CPU cores?</h4>
+<p>The network throughput for VMs is limited by the number of CPU cores, with a quota of 2 gigs per core capped at 16 gigs maximum.</p>
+<h4>How do internal and external IPs affect network latency?</h4>
+<p>Internal IPs are on a much faster network than external IPs, resulting in a large difference in latency between them.</p>
+<h4>What is the main challenge in estimating workload for network capacity planning?</h4>
+<p>Workload estimation can vary dramatically due to request types, such as verbosity and payload size.</p>
+<h3>Analytical Questions</h3>
+<h4>How does the 10,000 QPS per Bigtable node ratio affect the calculation of required nodes?</h4>
+<p>The 10,000 QPS per Bigtable node ratio means that for every 327,600 QPS, approximately 33 Bigtable nodes are required.</p>
+<h4>What is the significance of validating estimates with load testing?</h4>
+<p>Load testing helps validate estimates and ensure that resources allocated can meet the forecasted capacity requirements.</p>
+<h4>How does caching data in Memcache or local SSD affect resource allocation?</h4>
+<p>Caching data in Memcache or local SSD can be a beneficial alternative to adding more hardware, potentially reducing costs while maintaining performance.</p>
+<h3>Application Questions</h3>
+<h4>What is an example of how workload estimation and resource allocation are used together in network capacity planning?</h4>
+<p>A video transcription service with increasing demand for storage throughput requires 1.5 terabytes of physical persistent disk, but actual allocation may require 2 terrabytes to realize the usable capacity.</p>
+<h4>How can tuning applications and processes improve network capacity planning?</h4>
+<p>Tuning applications and processes can make them more efficient, potentially reducing resource requirements and improving overall performance.</p>
+<h4>What is a sensible tip for considering before adding more hardware in network capacity planning?</h4>
+<p>Consider alternative approaches, such as caching or using better algorithms, to reduce costs while maintaining performance.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Network Capacity</td>
+<td>Concept</td>
+<td>"When considering network capacity you need to remember that"</td>
+<td>The concept of network capacity is discussed, highlighting its limitations and the importance of CPU cores in determining throughput. The text also mentions the cap on 16gigs maximum, which requires 8 cores, and the difference between internal and external IPs.</td>
+</tr>
+<tr>
+<td>CPU Cores</td>
+<td>Technical Term</td>
+<td>"So you get 2 gigs of throughput for every CPU core"</td>
+<td>CPU cores are discussed as a limiting factor in network capacity, with each core providing 2gigs of throughput. The text also mentions that 8 cores are required to reach the maximum quota of 16gigs.</td>
+</tr>
+<tr>
+<td>Internal IPs</td>
+<td>Technical Term</td>
+<td>"Internal IPs are on a much faster network"</td>
+<td>Internal IPs are mentioned as being on a faster network than external IPs, with a significant difference in latency between the two. This highlights the importance of considering internal and external traffic when planning networks.</td>
+</tr>
+<tr>
+<td>External IPs</td>
+<td>Technical Term</td>
+<td>"External IPs are on a much slower network"</td>
+<td>External IPs are discussed as being on a slower network than internal IPs, highlighting the need to consider the impact of external traffic on network capacity.</td>
+</tr>
+<tr>
+<td>Workload Estimation</td>
+<td>Concept</td>
+<td>"There is a need for workload estimation in order to get a firm understanding of the potential network throughput"</td>
+<td>The concept of workload estimation is discussed as crucial in determining potential network throughput. The text highlights the importance of considering request types, payload size, and other factors when estimating workload.</td>
+</tr>
+<tr>
+<td>Forecasting</td>
+<td>Process</td>
+<td>"Forecasting will tell us basically how much capacity we're going to potentially allocate"</td>
+<td>Forecasting is mentioned as a step in the process of allocating resources, providing an estimate of potential capacity. The text highlights the importance of validating these estimates with load testing.</td>
+</tr>
+<tr>
+<td>Allocation</td>
+<td>Process</td>
+<td>"Allocation is going to tell us how much resource is necessary to provide that capacity"</td>
+<td>Allocation is discussed as a step in the process of allocating resources, determining the amount of resource needed to meet the estimated capacity. The text highlights the importance of validating these estimates with load testing.</td>
+</tr>
+<tr>
+<td>Load Testing</td>
+<td>Process</td>
+<td>"Validate those estimates with load testing"</td>
+<td>Load testing is mentioned as an important step in validating estimates and ensuring that allocated resources can meet the required capacity. The text highlights the need for research and measurement to determine the required resources.</td>
+</tr>
+<tr>
+<td>Bigtable Nodes</td>
+<td>Technical Term</td>
+<td>"We have determined that the new throughput capacity is going to be 327,600 qps"</td>
+<td>Bigtable nodes are discussed as a technical term in determining throughput capacity, with each node capable of handling 10,000 QPS. The text highlights the importance of dividing the total QPS by this number to determine the required number of nodes.</td>
+</tr>
+<tr>
+<td>Caching</td>
+<td>Technical Term</td>
+<td>"Could you start enabling caching"</td>
+<td>Caching is mentioned as an alternative approach to increasing network capacity, potentially reducing the need for additional hardware or resources. The text highlights the potential benefits and cost-effectiveness of caching.</td>
+</tr>
+<tr>
+<td>Memcache</td>
+<td>Software</td>
+<td>"Could you cache data in Memcache"</td>
+<td>Memcache is discussed as a software solution that can be used for caching, potentially improving network performance and reducing the load on other systems. The text highlights its potential benefits and applications.</td>
+</tr>
+<tr>
+<td>Local SSD</td>
+<td>Technical Term</td>
+<td>"Could you cache data in local SSD"</td>
+<td>Local SSDs are mentioned as an alternative approach to caching, providing faster access times and potentially improved performance. The text highlights their potential benefits and cost-effectiveness.</td>
+</tr>
+<tr>
+<td>Algorithms</td>
+<td>Concept</td>
+<td>"You could also explore using better algorithms"</td>
+<td>Algorithms are discussed as a concept that can be used to improve network performance and capacity, potentially reducing the load on other systems. The text highlights the importance of exploring alternative approaches to achieve optimal results.</td>
+</tr>
+<tr>
+<td>Alternative Services</td>
+<td>Concept</td>
+<td>"You could also explore using alternative services"</td>
+<td>Alternative services are mentioned as a concept that can be used to improve network performance and capacity, potentially providing more efficient or cost-effective solutions. The text highlights the importance of considering alternative options when planning networks.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

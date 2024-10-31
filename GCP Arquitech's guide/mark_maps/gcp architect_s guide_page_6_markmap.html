@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_6</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Security Concerns in Cloud Adoption for Larger Organisations
+        
+        ## Introduction to Cloud Adoption Challenges
+        
+        - Security was the main obstacle to cloud adoption for larger organisations. Indeed even with SaaS there had been concerns regarding the multi-tenant models and data segregation between cloud customers.
+        
+        ## Complexity of Running Multi, Hybrid or Private Clouds
+        
+        - Another concern for big companies was regards the added complexity of running multi, hybrid or private clouds as there was not one single solution for businesses operating proprietary technologies. This can be demonstrated through the understandable concerns of moving mission critical databases or applications to a single cloud provider.
+        
+        ### Challenges in Migrating Proprietary Solutions
+        
+        - The easiest and generally best solutions would be the migration of the proprietary solutions such as Oracle, IBM and Microsoft databases and applications to their respective vendor clouds. However, for large enterprises these databases and applications are not just mission-critical they also tend to be huge. This makes them unsuitable for running within a VM due to their scale and performance requirements.
+        
+        ### Multi-Cloud Solutions Raise More Issues
+        
+        - But of course, a multi-cloud solution raises more issues as these applications and databases often need to communicate with one another so this added another layer of network latency and security complexity.
+        
+        ## Benefits of Cloud Adoption for Small Companies
+        
+        - On the other hand for small companies migrating to the cloud made perfect sense once they could be reassured of any security concerns. They could migrate their Oracle, IBM DB and SQL Server solutions easily as they could run them intact within VMs on the same cloud. This mitigated many of the security and inter-communications latency issues.
+        
+        ## Overcoming Hurdles for Enterprise Cloud Adoption
+        
+        - But for the enterprise there still was significant hurdles to be overcome, such as decomposing vast monolithic applications and huge databases, would take a lot of time and money with little in the way of obvious rewards. The major issue being was that organisations thought of moving to the cloud simply in terms of technology upgrade and an expensive upgrade at that.
+        
+        ### Lack of Business Differentiation
+        
+        - They did not see it as a business or cost differentiator as there was no barriers to entry, if you could do it so could anyone else. Furthermore the much heralded cost-efficiencies didn't really work at their scale.
+        
+        ## Shift in Enterprise IT Mindset with SDN, Microservices and Containers
+        
+        - The re-emergence of interest around 2010 in SDN, microservices and containers changed the enterprise IT mindset. For now the focus was on moving away from the 3-tier data centre structure and moving to faster layer-2 architecture.
+        
+        ### Benefits of Layer-2 Architecture
+        
+        - This model supported monolith applications and huge data bases on massive server clusters. However the 3-tier model also added latency between the layers as traffic had to pass through physical routers and often firewalls at the layer boundaries. The layer-2 model however was faster as there was no inter-layer communications as everything was on the same flat Ethernet network.
+        
+        ### Centralized Security and Virtual Firewall Rules
+        
+        - This meant everything could communicate directly with everything else - if it was permitted - on a common network with the security and virtual firewall rules enforced centrally by the SDN network.
+
+      </script>
+    </div>
+  </body>
+</html>

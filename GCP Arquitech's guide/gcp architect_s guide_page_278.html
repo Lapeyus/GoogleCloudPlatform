@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_278</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_278_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_278</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Auto Scaling with Perfkit and Google Cloud</h1>
+<h2>Overview</h2>
+<p>We've established our throughput for those servers with Perfkit, achieving 806 Gb peak per second. We can achieve the same results with 132 instances of n1-standard-4.</p>
+<h2>Cost Comparison</h2>
+<p>Using Google Cloud calculator, we see that 576 single core machines cost $1000 less than 132 quad-core machines, resulting in a savings of almost $12,000 per year.</p>
+<h2>Auto Scaling Benefits</h2>
+<p>As an auto-scaling template, this would be very easy to do. We're not updating all machines; instead, we're updating one template and managing our auto-scaling instance group.</p>
+<h2>Use Case - Dealing with Log Files</h2>
+<h3>Current State</h3>
+<p>Our current storage service is Bigtable, which handles log information for our video transcription application. With the projected doubling of demand in the coming year, we need to assess whether this will put stresses on Bigtable.</p>
+<h3>Calculations</h3>
+<p>We've calculated that our application will use 3,472 queries per second and require 1.8 megabytes per second of throughput. However, if we double everything, we'd require 6,944 queries per second and 3.6 megabytes per second, which can be handled by a single Bigtable node.</p>
+<h3>Bottlenecks</h3>
+<p>Our bottlenecks will be storage capacity, as our total disk capacity of the joint records will reach 55 terabytes per year. However, with the doubling of demand, we estimate that our storage capacity could reach 110 terabytes by the end of the second year.</p>
+<h2>Conclusion</h2>
+<p>With Perfkit and Google Cloud, we can achieve significant cost savings while maintaining high performance for our video transcription application. Our auto-scaling template will make it easy to manage our instance groups and take advantage of these savings.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>We've already established our throughput for those servers with Perfkit, so that basically comes out to 806 Gb peak per second. Now, if we actually take a look at the Perfkit Benchmark for the n1-standard-4, we can achieve the same results, the same throughput with 132 instances.
+
+Now let's go to the Google Cloud calculator. In this case, we can see the costs were 576 single core machines versus 132 quad-core actually come in with about a $1,100 price difference. So that's almost $12 thousand per year.
+
+Now sure, there's a little bit of work in actually adjusting and optimizing these, but as an auto-scaling template, this would be very easy to do. It's not like you're updating all machines, you're actually updating one template and updating your auto-scaling instance, manage instance group.
+
+So, actually this would be quite trivial, and we could start saving money immediately within the first 30 days.
+
+Use Case - Dealing with log files
+
+The video transcription application service design is now set to auto scale and grow for the projected doubling of demand in the coming year. However, that means the log information will also double. The current storage service is Bigtable. Will the additional demand both data and traffic put stresses on Bigtable? Will the system need an additional Bigtable node to handle the demand in the coming year?
+
+In our case, we're using 22 Bigtable nodes with SSD drops. We'll calculate the performance using queries per second or QPS, as well as throughput in megabytes.
+
+We know that the log data for the web, app, and data servers are all about the same size. We're joining the log data of the app and data servers on a common field which reduces the combined log to 552 bytes per transaction. We then estimated the amount of logs at 300 million entries per day, which comes out to about 154 gigabytes per day.
+
+Multiplying that by 365, we get about 55 terabytes of log data per year. Now comes the challenge, what would this service look like if the user base doubled in the coming year? What would our bottlenecks be?
+
+We ran the calculations to determine the number of queries per second our application will use. When we look at our request over time, we get 3,472 queries per second. We then calculated the throughput requirements to be 1.8 megabytes per second and our total disk capacity of the joint records will be 55 terabytes per year.
+
+If we were to double everything, we'd require 6,944 queries per second and 3.6 megabytes per second of throughput, which can be handled by a single Bigtable node. But we need to consider the storage capacity, which could reach 110 terabytes by the end of the second year.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Scaling with Google Cloud: A Cost-Effective Approach</h3>
+<p>We've established our throughput for servers using Perfkit, achieving 806 Gb peak per second. By utilizing the n1-standard-4 instance type, we can achieve the same results with 132 instances, a significant cost savings.</p>
+<p>Using the Google Cloud calculator, we compared costs between single-core and quad-core machines, finding that quad-core instances are approximately $1,100 cheaper per year, resulting in a potential annual savings of $12,000. This is achievable through auto-scaling templates, which require minimal adjustments and optimization.</p>
+<h3>Scaling with Auto-Scaling Templates</h3>
+<p>Auto-scaling templates allow for easy scaling without updating individual machines. Instead, we update one template and manage our instance groups, making it a trivial process to start saving money immediately within the first 30 days.</p>
+<h3>Dealing with Log Files: A Growing Challenge</h3>
+<p>As our video transcription application service design scales to meet projected demand, log information will also double. Our current storage service is Bigtable, which may face stresses from increased data and traffic demands.</p>
+<p>We're using 22 Bigtable nodes with SSD drops, but we need to determine if additional nodes are required to handle the doubled demand. We'll calculate performance using queries per second (QPS) and throughput in megabytes.</p>
+<h3>Calculating Performance Requirements</h3>
+<p>Our current application uses 3,472 QPS, requiring 1.8 megabytes per second of throughput. If we double everything, we'd need 6,944 QPS and 3.6 megabytes per second, which can be handled by a single Bigtable node. However, we must consider storage capacity, which could reach 110 terabytes by the end of the second year.</p>
+<h3>Conclusion</h3>
+<p>By leveraging auto-scaling templates and optimizing our infrastructure, we can significantly reduce costs while scaling our application to meet growing demands. With careful planning and consideration of performance requirements, we can ensure a seamless transition to increased log data storage without compromising system performance.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Auto-Scaling Templates and Cost Savings</h3>
+<p>This topic revolves around the benefits of using auto-scaling templates for server management, highlighting cost savings and ease of implementation.</p>
+<h3>Topic 2: Log File Management and Bigtable Scaling</h3>
+<p>This topic focuses on the challenges of managing log files in a growing application, particularly when scaling Bigtable nodes to handle increased data and traffic demands.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the estimated peak throughput for servers with Perfkit?
+Answer: 806 Gb per second.</p>
+</li>
+<li>
+<p>How many instances are required to achieve the same results as a single n1-standard-4 instance using Perfkit?
+Answer: 132 instances.</p>
+</li>
+<li>
+<p>What is the price difference between 576 single-core machines and 132 quad-core machines in Google Cloud Calculator?
+Answer: Approximately $1,100.</p>
+</li>
+<li>
+<p>What is the estimated log data size per day for the video transcription application service?
+Answer: 154 gigabytes per day.</p>
+</li>
+<li>
+<p>How many queries per second will the application require if the user base doubles?
+Answer: 6,944 queries per second.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the potential bottlenecks in handling increased log data and traffic on Bigtable?
+Answer: The potential bottlenecks include storage capacity, throughput requirements, and query performance.</p>
+</li>
+<li>
+<p>How does joining log data from different servers on a common field affect the combined log size?
+Answer: It reduces the combined log size to 552 bytes per transaction.</p>
+</li>
+<li>
+<p>What is the estimated total disk capacity required for the joint records in the first year?
+Answer: 55 terabytes per year.</p>
+</li>
+<li>
+<p>How will doubling the user base impact the storage capacity of Bigtable?
+Answer: The storage capacity could reach 110 terabytes by the end of the second year.</p>
+</li>
+<li>
+<p>What are the implications of using auto-scaling templates on Google Cloud infrastructure?
+Answer: It allows for easy scaling and optimization, reducing costs and enabling immediate savings within the first 30 days.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a strategy to handle increased log data and traffic on Bigtable when the user base doubles.
+Answer: This may involve adding more Bigtable nodes, optimizing query performance, and increasing storage capacity.</p>
+</li>
+<li>
+<p>How can the video transcription application service be optimized for better performance and scalability?
+Answer: This may involve adjusting instance types, configuring auto-scaling templates, and implementing data compression or caching techniques.</p>
+</li>
+<li>
+<p>What are the potential benefits of using Google Cloud Calculator to compare costs between different infrastructure options?
+Answer: It allows for easy comparison of costs, enabling informed decisions about infrastructure investments.</p>
+</li>
+<li>
+<p>How can the video transcription application service be designed to handle increased demand without compromising performance?
+Answer: This may involve implementing load balancing, caching, or content delivery networks (CDNs) to distribute traffic and reduce latency.</p>
+</li>
+<li>
+<p>What are the key considerations when selecting a storage solution for log data in a scalable infrastructure?
+Answer: Factors such as storage capacity, throughput requirements, query performance, and cost-effectiveness should be carefully considered when selecting a storage solution.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Perfkit Benchmark for n1-standard-4</td>
+<td>Tool/Resource</td>
+<td>"Now, if we actually take a look at the Perfkit Benchmark for the n1-standard-4, we can achieve the same results, the same throughput with 132 instances."</td>
+<td>The Perfkit Benchmark is a tool used to measure performance and throughput of Google Cloud resources. In this context, it is used to compare the performance of different configurations (single-core vs quad-core) and determine which one is more cost-effective.</td>
+</tr>
+<tr>
+<td>n1-standard-4</td>
+<td>Resource/Instance Type</td>
+<td>"We've already established our throughput for those servers with Perfkit, so that basically comes out to 806 Gb peak per second."</td>
+<td>The n1-standard-4 is a Google Cloud resource type (instance) used in the context of server performance and scalability. It is mentioned as a reference point for comparing different configurations.</td>
+</tr>
+<tr>
+<td>Auto-scaling template</td>
+<td>Concept/Strategy</td>
+<td>"Now sure, there's a little bit of work in actually adjusting and optimizing these, but as an auto-scaling template, this would be very easy to do."</td>
+<td>An auto-scaling template refers to a pre-configured set of resources and settings that can be easily deployed and managed using Google Cloud's auto-scaling feature. In this context, it is mentioned as a way to simplify the process of scaling up or down in response to changing demand.</td>
+</tr>
+<tr>
+<td>Bigtable</td>
+<td>Storage Service</td>
+<td>"The current storage service is Bigtable."</td>
+<td>Bigtable is a NoSQL database service provided by Google Cloud that stores large amounts of structured and semi-structured data. In this context, it is mentioned as the current storage solution for log data.</td>
+</tr>
+<tr>
+<td>SSD drops</td>
+<td>Storage Configuration</td>
+<td>"We're using 22 Bigtable nodes with SSD drops."</td>
+<td>SSD (Solid-State Drive) drops refer to a configuration option for Bigtable that uses solid-state drives instead of traditional hard disk drives. In this context, it is mentioned as the current storage configuration used by the application.</td>
+</tr>
+<tr>
+<td>Queries per second (QPS)</td>
+<td>Performance Metric</td>
+<td>"We'll calculate the performance using queries per second or QPS..."</td>
+<td>QPS refers to a measure of the number of requests or queries processed by a system within a given time period. In this context, it is mentioned as one of the metrics used to evaluate the performance of Bigtable.</td>
+</tr>
+<tr>
+<td>Throughput in megabytes</td>
+<td>Performance Metric</td>
+<td>"We'll calculate the throughput requirements to be 1.8 megabytes per second..."</td>
+<td>Throughput refers to the rate at which data is transferred or processed by a system. In this context, it is mentioned as one of the metrics used to evaluate the performance of Bigtable.</td>
+</tr>
+<tr>
+<td>User base</td>
+<td>Concept/Population</td>
+<td>"The video transcription application service design is now set to auto scale and grow for the projected doubling of demand in the coming year."</td>
+<td>The user base refers to the number of users or customers who are expected to use a particular application or service. In this context, it is mentioned as a factor that will impact the demand for log data storage.</td>
+</tr>
+<tr>
+<td>Log data</td>
+<td>Data Type</td>
+<td>"The current storage service is Bigtable. Will the additional demand both data and traffic put stresses on Bigtable?"</td>
+<td>Log data refers to the records of events or transactions generated by an application or system. In this context, it is mentioned as the type of data that will be stored in Bigtable.</td>
+</tr>
+<tr>
+<td>Storage capacity</td>
+<td>Resource Constraint</td>
+<td>"If we were to double everything, we'd require 6,944 queries per second and 3.6 megabytes per second of throughput, which can be handled by a single Bigtable node."</td>
+<td>Storage capacity refers to the maximum amount of data that can be stored in a system or resource. In this context, it is mentioned as a constraint that will impact the scalability of Bigtable.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

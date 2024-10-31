@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_207</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Architecture Design
+        ## Overview
+        - Maybe it's going to be a mix of both, perhaps it's going to be NoSQL or global relational databases we won't know until we have an understanding of our business logic and what the requirements of that may be.
+        
+        ## Business Logic
+        - For the business logic will also define exactly what our storage data layer is going to look like.
+        - The fourth and final tier is the security layer and no design or prototype should go online without thorough scrutiny of its security controls and its threat surface. Security should be encouraged at every stage of the design process from prototype to development through to production and should never be bolted on as an after-thought at the end.
+        
+        ## Security
+        - Indeed security along with identity and access management (IAM) should be contemplated throughout the design process and IAM integrated into the design where appropriate. You may also consider bastion hosts, service accounts, access-lists and firewall rules to bolster some vulnerable areas in the design.
+        - Once you have designed your logic, you understand what services you need, what components are going to make it work, the type of data storage you need, as well as the security controls that you need, and you have a working proof of concept, only then will it be time to start to expand the design.
+        
+        ## Reliability and Availability
+        - Once we have modelled the business logic and designed the underpinning network that connects all our functional components together we can start thinking about resiliency and capacity planning.
+        - For example it is at this stage that we might contemplate how resilient can the design be made in case of failures? What about the designs ability to scale above forecasted loads?
+        - 430
+        - We have forecast capacity and load and even overprovisioned for optimistic use-cases but are we prepared in case things fail or succeed well beyond expectations?
+        
+        ## Business Continuity and Disaster Recovery
+        - In order to answer that question sufficiently we need to understand the concepts and realities of business continuity and disaster recovery.
+        - This might mean a complete redesign, but that's why you recovery.
+        
+        ## Project Design Constraints
+        - In this chapter we are focusing on cloud service design and process
+        - but that discipline doesn't exist in a vacuum. Indeed you will have all the other tiresome constraints that every other IT project has to rail against.
+        - And as ever, and it has always been so, there's going to be a compromise on how much budget you have, versus the best most optimal design that you envisage that meets all of the service objectives that you're trying to achieve.
+        - Despite this we still need to forecast and plan for load and capacity regardless of what the budget might be.
+
+      </script>
+    </div>
+  </body>
+</html>

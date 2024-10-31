@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_215</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Design Methodology
+        ## Gathering Requirements
+        - An initial step in all project or design methodologies place importance into diligently gathering requirements. This is so that we understand what our design objectives might be.
+        
+        ### Identifying Stakeholders and Asking Questions
+        - Therefore we can consider that a design always starts by simply identifying the stakeholders and asking them questions.
+        - By asking stakeholders questions you can define the key service level objectives that are important to them and this will  be helpful in thinking through the design decisions later.
+        
+        ## Quantitative Requirements
+        - Once we have our answers as qualitative requirements it is now time to define them quantitatively, with relation to time, data, and users.
+        - In effect we will be defining how much time we will allow this system to be down. But this is quantitative so there must be logic backing up our decision.
+        
+        ### Cost of Data
+        - So we have to consider things such as:
+        - what is the cost of data?
+        - What this means is that how you handle data will come with related costs. For example, data replication for redundancy and data backups for business continuity and DR do not come cheap.
+        
+        ## User Location and Latency
+        - Another important design requirement will be where are the users located? Are they going to be close to the data? Or are they going to be all over the world?
+        - If it's the latter you will now have to starting to thinking about distributed caching, or about data replication across regions.
+        - The user's locations will define data storage requirements, and it also  defines the time element. The inherent delay in accessing  data storage  around the  world will determine where you  replicate your data  storage.
+        
+        ## Capacity Planning and Scaling
+        - So there is a lot to think about with storage alone let alone start contemplating capacity planning and; what happens if we had an unexpected growth?
+        - Then we would need some method of automatic scaling. In this case we will  have to start worrying about what resource constraints You will also  need to think about handling state, and where you are going to be important to the design stability?
+        
+        ## Business Logic
+        - Business Logic is the code that implements business rules, which in turn determines how the data is processed.
+        - 446
+
+      </script>
+    </div>
+  </body>
+</html>

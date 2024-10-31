@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_229</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Chapter 23 - Cloud Architecture Layers
+        ## Data Layer
+        ### Storage and Retrieval Mechanisms
+        #### Databases and File Systems
+        - **SQL**: Structured query language for managing relational databases
+        - **API's**: Application programming interfaces for accessing data services
+        
+        ### Data Layer Design
+        #### Persistent Mechanisms
+        - **Database Services**
+        - **Storage Services**
+        
+        #### Data Access Layer
+        - Encapsulates persistent mechanisms to expose data
+        
+        ## Characterizing Data
+        - **Structured vs Unstructured**
+        - **Persistent vs Ephemeral**
+        - Focus on user concerns: data accessibility and integrity
+        
+        ### Data Integrity
+        - Users care about:
+        -   - Data being accessible when needed
+        -   - Data not modified or deleted without notice
+        
+        ## Data Storage Design Methods
+        - Aim for persistence, proactive detection, and rapid recovery from users' perspective
+        - Consider versioning, replication, and live streaming backup mechanisms
+        
+        ## CAP Theorem
+        - Choose a balance between consistency, availability, and partition tolerance
+        - **BASE**: Basically Available Storage, prioritizing availability over consistency
+        
+        ### Trade-offs
+        - Consistency vs Availability vs Partition Tolerance
+        - BASE allows for quick data writing with eventual consistency
+
+      </script>
+    </div>
+  </body>
+</html>

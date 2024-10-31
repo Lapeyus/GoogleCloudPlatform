@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_105</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_105_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_105</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><p>Network 1</p>
+<h1>Realon A</h1>
+<h2>Resource Isolation</h2>
+<h3>Note that if blocks and lists appear at the same level, the lists will be ignored.</h3>
+<h4>Lists - <strong>strong</strong> ~~del~~ <em>italic</em> ==highlight== - <code>inline code</code> - [x] checkbox</h4>
+<ul>
+<li>Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold --></li>
+<li><a href="#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md">More Katex Examples</a></li>
+</ul>
+<h4>we can wrap very very very very long text based on <code>maxWidth</code> option</h4>
+<p>Network 1
+Realon A
+Resource Isolation</p>
+<h4>In this model our resources are now isolated, which prevents</h4>
+<p>compromise of one part from spreading to other parts, but also
+prevents them communicating with each other over private IP
+addresses. However, we can get around that inconvenience by
+using VPC network peering to allow these resources to
+communicate over a private address space.</p>
+<h4>Finally, in this last case, the VMs are isolated into separate</h4>
+<p>projects, but within the same zone. This can be useful for identity
+and access management.</p>
+<p>Network 1
+Region/zone A</p>
+<h4>Network 1 Region/zone A</h4>
+<h5>Projext A</h5>
+<h6>Resources</h6>
+<p>Network 2
+Region/zone A</p>
+<h4>Network 2 Region/zone A</h4>
+<h5>Projext B</h5>
+<h6>Resources</h6>
+<p>Communication Via Public IPs</p>
+<h4>For example, if software development is Project A, and test engineering</h4>
+<p>is Project B, you can assign different people to 
+different roles in 
+the projects for management 
+separation or what is 
+called separation of duties. To achieve 
+this  you  should consider segmenting 
+the system up into multiple projects to enable more granular 
+access control.</p>
+<h4>The issue here is that a network cannot span across</h4>
+<p>different projects. So using separate projects implies that 
+the VMs must communicate via external IP addresses 
+across
+the Internet.</p>
+<p>Bastion Host</p>
+<h4>Another common network design makes use of a bastion host to provide internal</h4>
+<p>resources and VMs with isolation from the internet.</p>
+<h4>Bastion hosts provide an external facing point of</h4>
+<p>entry into a network containing 
+private network instances.</p>
+<h5>In this scenario only the</h5>
+<p>bastion host is configured with a public external IP address on its interface 
+all the other internal VM instances use the private internal address space addresses.</p>
+<h4>The Bastion host is therefore acting like a proxy or gatekeeper for internet access for both</h4>
+<p>ingress
+and egress traffic.</p>
+<h4>This bastion host model can also be deployed to provide a single point for fortification or for network audit purposes, which is controllable as its SSH services can be either started or stopped to permit or block any inbound SSH connections coming from the Internet.</h4></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Network 1
+Realon A
+Resource Isolation
+
+In this model, our resources are now isolated, which prevents compromise of one part from spreading to other parts. However, we can get around that inconvenience by using VPC network peering to allow these resources to communicate over a private address space.
+
+Finally, in this last case, the VMs are isolated into separate projects, but within the same zone. This can be useful for identity and access management.
+
+Resource Isolation in Zones
+
+Network 1
+Region/zone A
+Projext A
+Resources
+
+Network 2
+Region/zone A
+Projext B
+Resources
+
+Communication Via Public IPs
+
+For example, if software development is Project A, and test engineering is Project B, you can assign different people to different roles in the projects for management separation or what is called separation of duties. To achieve this, you should consider segmenting the system up into multiple projects to enable more granular access control.
+
+The issue here is that a network cannot span across different projects. So using separate projects implies that the VMs must communicate via external IP addresses across the Internet.
+
+Bastion Host
+
+Another common network design makes use of a bastion host to provide internal resources and VMs with isolation from the internet. Bastion hosts provide an external facing point of entry into a network containing private network instances.
+
+In this scenario, only the bastion host is configured with a public external IP address on its interface, while all other internal VM instances use the private internal address space addresses. The bastion host is therefore acting like a proxy or gatekeeper for internet access for both ingress and egress traffic.
+
+This bastion host model can also be deployed to provide a single point for fortification or for network audit purposes, which is controllable as its SSH services can be either started or stopped to permit or block any inbound SSH connections coming from the Internet. For example, should you have an application or service running on an internal VM instance that is provided to an internal corporate audience but requires remote administrative access, then there's no need to provide this instance with an external IP address.
+
+Network 2
+Region B
+Projext A
+Project B
+Resources
+
+In this model, our resources are now isolated, which prevents compromise of one part from spreading to other parts. However, we can get around that inconvenience by using VPC network peering to allow these resources to communicate over a private address space.
+
+Finally, in this last case, the VMs are isolated into separate projects, but within the same zone. This can be useful for identity and access management.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Network Isolation Models for Resource Security</h3>
+<h4>Overview of Network Isolation</h4>
+<p>Network isolation is a crucial aspect of resource security, preventing the compromise of one part from spreading to other parts. This can be achieved through various models, including:</p>
+<ul>
+<li><strong>Resource Isolation</strong>: Resources are isolated to prevent communication between them over private IP addresses.</li>
+<li><strong>Communication Via Public IPs</strong>: VMs communicate via external IP addresses across the Internet.</li>
+<li><strong>Bastion Host</strong>: A bastion host provides internal resources and VMs with isolation from the internet.</li>
+</ul>
+<h4>Resource Isolation Models</h4>
+<p>Resource isolation models involve isolating resources to prevent communication between them. This can be achieved through:</p>
+<ul>
+<li><strong>VPC Network Peering</strong>: Allowing resources to communicate over a private address space.</li>
+<li><strong>Separate Projects</strong>: Isolating VMs into separate projects, but within the same zone.</li>
+</ul>
+<h4>Communication Via Public IPs</h4>
+<p>Communication via public IPs involves assigning different people to different roles in projects for management separation or separation of duties. This can be achieved by:</p>
+<ul>
+<li>Segmenting the system up into multiple projects.</li>
+<li>Using separate projects implies that VMs must communicate via external IP addresses across the Internet.</li>
+</ul>
+<h4>Bastion Host Model</h4>
+<p>The bastion host model provides internal resources and VMs with isolation from the internet. A bastion host is configured with a public external IP address on its interface, while other internal VM instances use private internal address space addresses.</p>
+<ul>
+<li><strong>Single Point for Fortification</strong>: The bastion host can be deployed as a single point for fortification or network audit purposes.</li>
+<li><strong>Controllable SSH Services</strong>: The bastion host's SSH services can be started or stopped to permit or block any inbound SSH connections coming from the Internet.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Resource Isolation and Network Segmentation
+The text discusses the importance of isolating resources in a network to prevent compromise and unauthorized communication. This is achieved through various methods, including using VPC network peering, segmenting systems into multiple projects, and deploying bastion hosts.</p>
+<h3>Topic 2</h3>
+<p>Communication Across Projects and Zones
+This topic highlights the challenges of communicating between different projects and zones within a network. It discusses how separate projects imply that VMs must communicate via external IP addresses across the Internet, and how this can be mitigated using VPC network peering or bastion hosts.</p>
+<h3>Topic 3</h3>
+<p>Bastion Host Deployment and Fortification
+The text explains the role of bastion hosts in providing internal resources and VMs with isolation from the internet. Bastion hosts act as a proxy or gatekeeper for internet access, controlling inbound SSH connections and allowing for fortification or network audit purposes.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main purpose of isolating resources in a network?
+Answer: To prevent compromise of one part from spreading to other parts, while also preventing them from communicating with each other over private IP addresses.</p>
+</li>
+<li>
+<p>How can VPC network peering be used to overcome the inconvenience of resource isolation?
+Answer: By allowing resources to communicate over a private address space, enabling them to share resources and data without compromising security.</p>
+</li>
+<li>
+<p>What is the benefit of isolating VMs into separate projects within the same zone for identity and access management?
+Answer: It enables more granular access control and separation of duties, making it easier to manage user roles and permissions.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of a bastion host affect the security of internal resources and VMs?
+Answer: By providing an external facing point of entry into the network, while keeping internal VM instances isolated from the internet, reducing the attack surface.</p>
+</li>
+<li>
+<p>What are the advantages of using separate projects to segment a system for access control?
+Answer: It enables more granular access control, separation of duties, and better management of user roles and permissions.</p>
+</li>
+<li>
+<p>How does VPC network peering impact the communication between resources in isolated networks?
+Answer: By allowing them to communicate over a private address space, enabling secure data sharing and collaboration without compromising security.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you have an application running on an internal VM instance that requires remote administrative access for corporate employees. How would you implement this using a bastion host model?
+Answer: You would configure the bastion host with a public external IP address, allowing only inbound SSH connections from the corporate audience, while keeping the internal VM instance isolated.</p>
+</li>
+<li>
+<p>What are some scenarios where resource isolation is crucial in network design?
+Answer: Examples include preventing compromise of one part from spreading to other parts, ensuring separation of duties, and providing secure access control for sensitive resources.</p>
+</li>
+<li>
+<p>How can you use VPC network peering to enable communication between resources in isolated networks?
+Answer: By creating a VPC network peering connection between the two networks, allowing them to share resources and data over a private address space.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Realon A</td>
+<td>Location/Network</td>
+<td>"Realon A" is mentioned as a location/network in Network 1, indicating a specific network or region. The context suggests that this is one of the networks being discussed.</td>
+<td>This entity represents a specific network or region, likely a physical or virtual location where resources are isolated.</td>
+</tr>
+<tr>
+<td>Region B</td>
+<td>Location/Network</td>
+<td>"Region B" is mentioned as a location/network in Network 2, indicating another specific network or region. The context suggests that this is another network or region being discussed.</td>
+<td>This entity represents a specific network or region, likely a physical or virtual location where resources are isolated.</td>
+</tr>
+<tr>
+<td>Project A</td>
+<td>Entity/Project</td>
+<td>"Projext A" is mentioned as a project in Network 1 and Region/zone A, indicating a specific project or set of resources within the network. The context suggests that this project is being discussed in relation to resource isolation.</td>
+<td>This entity represents a specific project or set of resources within a network, likely with its own isolated environment.</td>
+</tr>
+<tr>
+<td>Project B</td>
+<td>Entity/Project</td>
+<td>"Projext B" is mentioned as a project in Network 2 and Region/zone A, indicating another specific project or set of resources within the network. The context suggests that this project is being discussed in relation to resource isolation.</td>
+<td>This entity represents a specific project or set of resources within a network, likely with its own isolated environment.</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>Entity/Resource</td>
+<td>"Resources" is mentioned multiple times throughout the text, indicating a general term for assets or data within a network. The context suggests that these resources are being discussed in relation to isolation and communication.</td>
+<td>This entity represents a general term for assets or data within a network, likely including virtual machines, storage, or other digital resources.</td>
+</tr>
+<tr>
+<td>Resource Isolation</td>
+<td>Concept/Strategy</td>
+<td>"Resource Isolation" is mentioned multiple times throughout the text, indicating a specific strategy for isolating resources within a network. The context suggests that this concept is being discussed in relation to security and communication.</td>
+<td>This entity represents a specific strategy for isolating resources within a network, likely using techniques such as virtualization or segmentation.</td>
+</tr>
+<tr>
+<td>VPC Network Peering</td>
+<td>Concept/Strategy</td>
+<td>"VPC network peering" is mentioned as a way to allow resources to communicate over private IP addresses, indicating a specific technique for enabling communication between isolated resources. The context suggests that this concept is being discussed in relation to resource isolation and security.</td>
+<td>This entity represents a specific technique for enabling communication between isolated resources within a network, likely using virtual private cloud (VPC) peering.</td>
+</tr>
+<tr>
+<td>Zone A</td>
+<td>Location/Network</td>
+<td>"Region/zone A" is mentioned as a location/network in Network 1 and Network 2, indicating a specific physical or virtual location where resources are isolated. The context suggests that this zone is being discussed in relation to resource isolation.</td>
+<td>This entity represents a specific physical or virtual location within a network, likely with its own isolated environment.</td>
+</tr>
+<tr>
+<td>Bastion Host</td>
+<td>Concept/Strategy</td>
+<td>"Bastion host" is mentioned as a common network design, indicating a specific strategy for providing internal resources and VMs with isolation from the internet. The context suggests that this concept is being discussed in relation to security and communication.</td>
+<td>This entity represents a specific strategy for providing internal resources and VMs with isolation from the internet, likely using a single point of entry or gatekeeper.</td>
+</tr>
+<tr>
+<td>SSH Services</td>
+<td>Concept/Strategy</td>
+<td>"SSH services" are mentioned as controllable services on a bastion host, indicating a specific technique for managing access to isolated resources. The context suggests that this concept is being discussed in relation to security and communication.</td>
+<td>This entity represents a specific technique for managing access to isolated resources within a network, likely using secure shell (SSH) services.</td>
+</tr>
+<tr>
+<td>Internet</td>
+<td>Location/Network</td>
+<td>"Internet" is mentioned as the external facing point of entry into a network containing private network instances, indicating a specific location/network where communication occurs. The context suggests that this concept is being discussed in relation to resource isolation and security.</td>
+<td>This entity represents the external facing point of entry into a network, likely with its own isolated environment.</td>
+</tr>
+<tr>
+<td>Virtual Machine Instances</td>
+<td>Entity/Resource</td>
+<td>"VMs" are mentioned as internal resources within a network, indicating specific digital resources within the network. The context suggests that these resources are being discussed in relation to isolation and communication.</td>
+<td>This entity represents specific digital resources within a network, likely including virtual machines or other isolated environments.</td>
+</tr>
+<tr>
+<td>Ingress/Egress Traffic</td>
+<td>Concept/Strategy</td>
+<td>"Ingress" and "egress" traffic are mentioned as types of traffic within a network, indicating specific techniques for managing access to isolated resources. The context suggests that this concept is being discussed in relation to security and communication.</td>
+<td>This entity represents specific techniques for managing access to isolated resources within a network, likely using ingress and egress traffic management.</td>
+</tr>
+<tr>
+<td>Fortification/Network Audit</td>
+<td>Concept/Strategy</td>
+<td>"Fortification" and "network audit" are mentioned as purposes of the bastion host model, indicating specific strategies for securing and monitoring isolated resources. The context suggests that this concept is being discussed in relation to security and communication.</td>
+<td>This entity represents specific strategies for securing and monitoring isolated resources within a network, likely using techniques such as fortification or network auditing.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

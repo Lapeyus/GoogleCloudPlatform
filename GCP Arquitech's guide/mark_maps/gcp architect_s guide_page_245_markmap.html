@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_245</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Sharing and Isolation
+        ## Introduction
+        - The least secure and least resilient design is where everything is hosted within a single failure domain.
+        
+        ### Definition of Terms
+        - For cloud architects, sharing is an enabler for collaboration between components of the architecture.
+        - Isolation is a control that prevents the compromise of one part from spreading to the other.
+        
+        ### Decoupling Dependencies
+        - By decoupling dependencies on one another, we produce more private or fault-tolerant communication channels between them.
+        
+        #### Redesigning with Multiple Failure Domains
+        - One method is to redesign using multiple failure domains, which inherently provides better isolation and resiliency.
+        
+        - However, distribution of resources leads to increased latency.
+        
+        ### Network Topology Features
+        - Thankfully, Google Cloud Platform provides many network topology features you can use in your designs to provide different blends of resource sharing and isolation.
+        
+        ## Isolation Techniques
+        
+        ### Microservice Architecture
+        - Microservices do not really communicate with other services as they have no concept of downstream or upstream services. Therefore, there is no effective communication with which to compromise another service.
+        
+        - For example, if an exploiter gains access to one machine, they can't get into the others.
+        
+        #### Virtual Private Cloud (VPC)
+        - Using a VPC means that two different projects under different administrative control but needing to talk to each other will have their own private IP address. This isolates the two networks from each other and may not have authentication space or their own IAM.
+        
+        - So, any user with capabilities to do so can communicate between each party.
+        
+        #### VPN Tunnelling
+        - This is a more traditional networking technique of IP address-encrypted link between two or more projects. However, if you want projects to talk to each other privately, this is used regularly in on-premises networks.
+        
+        - They can use another private IP address subnet space to increase privacy and even encrypted communications.
+        
+        #### Cross-Project Virtual Private Cloud Network Peering
+        - This feature allows us to directly connect two projects together using a private IP address. This enables two different companies or organizations to share and collaborate on resources and in projects.
+        
+        - If you need to collaborate with an external partner, you can set identity access controls to control what kind of communication can occur between these two particular domains.
+        
+        #### Shared Private Cloud
+        - This is another option for sharing and collaboration on resources and in projects.
+
+      </script>
+    </div>
+  </body>
+</html>

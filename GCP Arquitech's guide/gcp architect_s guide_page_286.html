@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_286</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_286_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_286</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Stackdriver Logging</h1>
+<h2>Overview</h2>
+<p>You should be aware that log entries exported to Cloud Storage are batched and sent out approximately every hour. On the other hand, log entries exported to BigQuery and Cloud Pub/Sub are streamed to those destinations immediately.</p>
+<p>When exporting logs to different storage classes of cloud storage, you should consider how long and often you will need to access the data. This is because Stackdriver logging will only retain the logs for 30 days.</p>
+<h2>Features</h2>
+<ul>
+<li>Exporting logs allows you to perform search and then analyse the logs in BigQuery, Google's data warehouse for analytics.</li>
+<li>Exporting logs also lets you create advanced visualizations using Cloud Datalab.</li>
+<li>You can also stream logs to applications or endpoints using Cloud Pub/Sub messaging service.</li>
+</ul>
+<h3>Lists</h3>
+<ul>
+<li><strong>strong</strong> Best practices when it comes to Stackdriver logging are:
+  • Don't use substring matches on service names or resource types. Instead, use the equals operator for an exact match.
+  • Perform faster searches by targeting specific values of indexed fields.
+  • Finally, get accustomed to using and learning the advanced viewing interface.</li>
+</ul>
+<h3>Blocks</h3>
+<p><code>javascript
+console.log('hello, JavaScript')</code></p>
+<h2>Error Reporting</h2>
+<p>Stackdriver has another in-built feature that is extremely useful - error reporting. Indeed Stackdriver error reporting will count, analyse and aggregate all of the errors in all of your active cloud resources.</p>
+<p>This works because the Stackdriver probe or agent sends data to a centralized error management interface. The centralized error reporting node then collates and displays the results with granular sorting and filtering capabilities.</p>
+<p>Error reporting as a function is available for the App Engine Standard environment, the App Engine Flexible environment, and the Compute Engine services. Also, it is available in terms of programming languages, using Java, Python, JavaScript, Ruby, C#, PHP, and Go as the exceptions stack trace parser can handle these languages.</p>
+<h2>Tracing</h2>
+<p>Stackdriver Trace is a distributed tracing system that collects latency data from your applications and displays it in the GCP console. Using Stackdriver trace you can track how requests propagate through your application and receive detailed new real-time performance insights.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>You should also be aware that log entries exported to Cloud Storage are batched and sent out approximately every hour. On the other hand, log entries exported to BigQuery and Cloud Pub/Sub are streamed to those destinations immediately.
+
+When exporting logs to different storage classes of cloud storage, you should consider how long and often you will need to access the data. This is because Stackdriver logging will only retain the logs for 30 days. Also, exporting the logs allows you to perform search and then analyze the logs in BigQuery, Google's data warehouse for analytics. Finally, exporting the logs also lets you create advanced visualizations using Cloud Datalab, and you can also stream logs to applications or endpoints using Cloud Pub/Sub messaging service.
+
+Stackdriver Logging best practices
+The best practices when it comes to Stackdriver logging are:
+• Don't use substring matches on service names or resource types. For example, searching for the text 'abc' will match log entries containing 'abc', 'xyabcyx', and even 'ABC'. Instead, for an exact match, use the equals operator.
+Perform faster searches by targeting specific values of indexed fields. For example, specify your search for a log entry's name, resource type, or resource label. Using advanced filters will result in even more effective queries. You can add filters directly from log entries.
+• Finally, get accustomed to using and learning the advanced viewing interface. Start by setting up selections and filters in the basic interface, and then switch to the advanced interface.
+
+Error Reporting
+Stackdriver has another in-built feature that is extremely useful - error reporting. Indeed Stackdriver error reporting will count, analyze, and aggregate all of the errors in all of your active cloud resources. This works because the Stackdriver probe or agent collects data from a distributed collection point that sends it to a centralized error management interface. The centralized error reporting node then collates and displays the results. Furthermore, it does so with granular sorting and filtering capabilities, so that you can even configure and subsequently trigger notifications and alerts in real-time when predetermined anomalies are detected.
+
+Error reporting is available for the App Engine Standard environment, the App Engine Flexible environment, and the Compute Engine services. Also, it is available in terms of programming languages, using Java, Python, JavaScript, Ruby, C#, PHP, and Go as the exceptions stack trace parser can handle these languages.
+
+Tracing
+Stackdriver Trace is a distributed tracing system that collects latency data from your applications and displays it in the GCP console. Tracing is another function that Stackdriver integrates into the GCP. Using Stackdriver trace, you can track how requests propagate through your application and receive detailed new real-time performance insights.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Stackdriver Logging: Best Practices and Features</strong></h1>
+<p>When exporting logs to different storage classes of cloud storage, consider how long and often you will need to access the data. Stackdriver logging retains logs for 30 days.</p>
+<h2><strong>Exporting Logs</strong></h2>
+<ul>
+<li>Log entries exported to BigQuery and Cloud Pub/Sub are streamed immediately.</li>
+<li>Exporting logs allows search and analysis in BigQuery, Google's data warehouse for analytics.</li>
+<li>Exporting logs also enables advanced visualizations using Cloud Datalab and streaming to applications or endpoints using Cloud Pub/Sub messaging service.</li>
+</ul>
+<h2><strong>Stackdriver Logging Best Practices</strong></h2>
+<ul>
+<li>Avoid using substring matches on service names or resource types. Instead, use the equals operator for exact matches.</li>
+<li>Target specific values of indexed fields to perform faster searches.</li>
+<li>Use advanced filters to result in more effective queries and add filters directly from log entries.</li>
+<li>Get accustomed to using and learning the advanced viewing interface.</li>
+</ul>
+<h2><strong>Error Reporting</strong></h2>
+<p>Stackdriver error reporting counts, analyzes, and aggregates errors in all active cloud resources. It works with a centralized error management interface that displays results with granular sorting and filtering capabilities. Error reporting is available for App Engine Standard environment, App Engine Flexible environment, Compute Engine services, and programming languages such as Java, Python, JavaScript, Ruby, C#, PHP, and Go.</p>
+<h2><strong>Tracing</strong></h2>
+<p>Stackdriver Trace collects latency data from applications and displays it in the GCP console. It integrates tracing into the GCP to track requests and provide detailed real-time performance insights.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Log Export and Storage
+Consider the frequency of log access when exporting logs to different storage classes, as Stackdriver logging retains logs for only 30 days.</p>
+<h3>Topic 2</h3>
+<p>Best Practices for Stackdriver Logging
+Use exact matches instead of substring matches on service names or resource types, target specific values of indexed fields for faster searches, and learn the advanced viewing interface.</p>
+<h3>Topic 3</h3>
+<p>Error Reporting
+Utilize Stackdriver's in-built error reporting feature to count, analyze, and aggregate errors across active cloud resources with granular sorting and filtering capabilities.</p>
+<h3>Topic 4</h3>
+<p>Tracing
+Use Stackdriver Trace to collect latency data from applications, track request propagation, and receive real-time performance insights.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the main differences between log entries exported to Cloud Storage, BigQuery, and Cloud Pub/Sub?
+Answer: Log entries exported to Cloud Storage are batched and sent out approximately every hour, while those exported to BigQuery and Cloud Pub/Sub are streamed immediately.</p>
+</li>
+<li>
+<p>How long do Stackdriver logging retain logs in their storage?
+Answer: Stackdriver logging retains logs for 30 days.</p>
+</li>
+<li>
+<p>What is the purpose of exporting logs to different storage classes of cloud storage?
+Answer: Exporting logs allows you to perform search, analyze logs in BigQuery, create advanced visualizations using Cloud Datalab, and stream logs to applications or endpoints using Cloud Pub/Sub messaging service.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>Why is it recommended not to use substring matches on service names or resource types when searching for log entries?
+Answer: Using substring matches can lead to false positives, as the search will match log entries containing the specified text even if it's not an exact match.</p>
+</li>
+<li>
+<p>How does targeting specific values of indexed fields in a search query improve performance?
+Answer: Targeting specific values of indexed fields allows for more precise searches and reduces the number of irrelevant results, resulting in faster search times.</p>
+</li>
+<li>
+<p>What is the benefit of using advanced filters in log entry searches?
+Answer: Advanced filters enable more effective queries by allowing users to specify exact matches or narrow down search results based on specific criteria.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to analyze logs from your application for a period of 6 months. Which storage class would be most suitable for this purpose, and why?
+Answer: Cloud Storage would be the most suitable option because it allows for longer-term retention of logs, whereas Stackdriver logging retains logs for only 30 days.</p>
+</li>
+<li>
+<p>How can you use Cloud Datalab to create advanced visualizations from your log data?
+Answer: You can use Cloud Datalab's visualization tools to create interactive and dynamic dashboards that provide insights into your log data.</p>
+</li>
+<li>
+<p>What is the purpose of Stackdriver Trace, and how does it benefit your application performance?
+Answer: Stackdriver Trace is a distributed tracing system that collects latency data from applications and displays it in the GCP console, providing real-time performance insights to help identify bottlenecks and optimize application performance.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>log entries exported to Cloud Storage</td>
+<td>Storage Class</td>
+<td>"You should also be aware that log entries exported to Cloud Storage are batched and sent out approximately every hour."</td>
+<td>This refers to the frequency of data export from Cloud Storage, indicating a consideration for data access and retention.</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>Data Warehouse</td>
+<td>"...exporting logs allows you to perform search and then analyse the logs in BigQuery..."</td>
+<td>BigQuery is mentioned as a tool for analyzing logs, highlighting its importance in data analytics.</td>
+</tr>
+<tr>
+<td>Cloud Pub/Sub</td>
+<td>Messaging Service</td>
+<td>"...you can also stream logs to applications or endpoints using Cloud Pub/Sub messaging service."</td>
+<td>This indicates that Cloud Pub/Sub is used for streaming logs to applications, showcasing its utility in log management.</td>
+</tr>
+<tr>
+<td>Stackdriver Logging</td>
+<td>Logging Tool</td>
+<td>"Stackdriver Logging best practices" and subsequent sections</td>
+<td>The text discusses various aspects of Stackdriver Logging, including best practices, error reporting, tracing, and data retention.</td>
+</tr>
+<tr>
+<td>substring matches on service names or resource types</td>
+<td>Search Query</td>
+<td>"...Don't if you can avoid it use substring matches on service names or resource types."</td>
+<td>This highlights a potential issue with using substring matches for search queries, suggesting the need for more precise matching techniques.</td>
+</tr>
+<tr>
+<td>equals • operator</td>
+<td>Search Query</td>
+<td>"...Instead, for an exact match, use the equals • operator."</td>
+<td>The text recommends using the equals • operator for exact matches, implying that this is a more effective and efficient way to perform searches.</td>
+</tr>
+<tr>
+<td>indexed fields</td>
+<td>Data Field</td>
+<td>"Perform faster searches by targeting specific values of indexed fields."</td>
+<td>Indexed fields are mentioned as a means to improve search performance, indicating their importance in data management.</td>
+</tr>
+<tr>
+<td>advanced viewing interface</td>
+<td>User Interface</td>
+<td>"...get accustomed to using and learning the advanced viewing interface."</td>
+<td>The text suggests that users should familiarize themselves with the advanced viewing interface, highlighting its capabilities and benefits.</td>
+</tr>
+<tr>
+<td>Stackdriver Error Reporting</td>
+<td>Error Management Tool</td>
+<td>"Stackdriver has another in-built feature that is extremely useful- error reporting..."</td>
+<td>This refers to a built-in feature of Stackdriver for managing errors, showcasing its utility in error handling and management.</td>
+</tr>
+<tr>
+<td>centralized error management interface</td>
+<td>System Component</td>
+<td>"...acts as a centralized error management interface."</td>
+<td>The text describes the role of the centralized error management interface in collecting and displaying error data, highlighting its importance in error reporting.</td>
+</tr>
+<tr>
+<td>App Engine Standard environment</td>
+<td>Cloud Environment</td>
+<td>"Error reporting as a function is available for the App Engine Standard environment..."</td>
+<td>This mentions the availability of error reporting features in specific cloud environments, indicating their relevance to application development.</td>
+</tr>
+<tr>
+<td>Compute Engine services</td>
+<td>Cloud Service</td>
+<td>"...the Compute Engine services."</td>
+<td>The text references Compute Engine services as part of the context for error reporting, highlighting their importance in cloud computing.</td>
+</tr>
+<tr>
+<td>Stackdriver Trace</td>
+<td>Distributed Tracing System</td>
+<td>"Stackdriver Trace is a distributed tracing system..."</td>
+<td>This refers to a specific feature of Stackdriver that collects latency data from applications, showcasing its utility in performance monitoring and analysis.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

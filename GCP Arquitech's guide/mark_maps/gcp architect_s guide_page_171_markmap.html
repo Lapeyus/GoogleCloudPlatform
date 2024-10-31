@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_171</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Managed Instance Groups
+        ## Overview
+        - Managed Instance Groups can work with load balancing services to distribute network traffic to all of the instances in the group.
+        - Furthermore, using Managed Instance Groups provides a robust automated system for maintaining service availability.
+        
+        ## Key Features
+        - Automatically restarts if a VM instance in the group should stop, crash, or be accidentally deleted
+        - Recreated VM instance uses the same name and instance template as the previous instance
+        - Useful for identifying and recreating unhealthy instances in a group
+        
+        ## Creating Managed Instance Groups
+        ### Steps
+        - 1. Create an instance template using the console.
+        - 2. Use the instance template to create a managed instance group of 'n' specified instances.
+        - 3. Define specific rules to apply to the instance group, such as:
+        -   - Single or multi zoned?
+        -   - Location of instances?
+        -   - Ports allowed and load balanced?
+        -   - Auto scaling criteria?
+        -   - Minimum and maximum number of instances?
+        -   - Health check criteria?
+        
+        ### Rules for Health Check
+        - Configurable with complex criteria and thresholds
+        - Supports HTTP, HTTPS, TCP, and SSL or TLS
+        
+        ## Regional Managed Instance Groups
+        - Can distribute instances across multiple zones in the same region
+        - Used to support autoscaling, network load balancing, and HTTPS load balancing
+
+      </script>
+    </div>
+  </body>
+</html>

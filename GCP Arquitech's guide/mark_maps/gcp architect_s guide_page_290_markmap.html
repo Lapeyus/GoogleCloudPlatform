@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_290</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # 5Ys Methodology for Resiliency in Business Logic Layer
+        ## Introduction
+        
+        - The 5Ys methodology is a framework used to troubleshoot faults and understand what initially caused the failure. We will apply this same method to develop procedures that ensure resiliency when deploying revisions to production.
+        
+        ## Designing for the Future
+        
+        - We will design our business logic layer not based on forecasting, but on real production traffic. This will enable us to budget and modify our development more accurately.
+        
+        ## Evolution of Our Video Transcription Service
+        
+        - Our video transcription service initially started as a proof of concept hosted on a single box. It has since evolved into a complex array of specialist microservices and network components with IAM and security.
+        
+        ### Key Changes
+        
+        *   We changed the product's capabilities to become a production-ready system.
+        *   We added more capable and robust logging.
+        *   We changed to APIs to take advantage of native Google Cloud Services.
+        
+        ## Administration and Management Tasks
+        
+        - Administration and management tasks are crucial for best practices. This includes segregating control plane functions from data plane, automating functions, and removing unnecessary human out-of-bound management.
+        
+        ### Isolation and Automation
+        
+        - We will create internal VMS from the internet using a bastion host and communicate with them only through SSH connections. We can also deploy private sub-networks to segregate business and user logic from the outside world.
+        
+        ## Incident Response Plan
+        
+        - We need to build an incident response plan that contains guidelines for dealing with outages, such as understanding the severity of the issue and confirming the problem is still persisting.
+        
+        ### Short-term vs Long-term Solutions
+        
+        - When remediating problems, we must consider short-term versus long-term solutions. We may choose to immediate mitigate infrequent outages by restarting services rather than doing a code rewrite.
+        
+        ## Post-Mortem Analysis
+        
+        - Finally, we will perform post-mortem analysis to identify the post-fix, clean it, and escalate it to other support teams.
+        
+        ### Conclusion
+        
+        - By applying the 5Ys methodology, we can develop procedures that ensure resiliency when deploying revisions to production. This includes designing for the future, evolving our video transcription service, administering and managing tasks, building an incident response plan, and performing post-mortem analysis.
+
+      </script>
+    </div>
+  </body>
+</html>

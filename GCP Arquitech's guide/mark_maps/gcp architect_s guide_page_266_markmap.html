@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_266</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Migrating MySQL and PostgreSQL to Google Cloud Platform
+        
+        ## Overview
+        
+        - Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service. This means that migrating either of these databases to the cloud is going to be reasonably straightforward.
+        
+        ## Steps for Moving an On-Premises MySQL or PostgreSQL DB Instance to the Cloud SQL
+        
+        - 1. ## Select the Project
+        - Select the project you wish to use.
+        - 2. ## Create a Cloud SQL Instance
+        - From the navigation menu, select the "Storage -> SQL" menu item.
+        - Click the "Create instance" button.
+        - Choose between a "First Generation" or "Second Generation" instance. (2nd is advisable as it has better performance at a lower cost but doesn't support MySQL version older than 5.6)
+        - Create a DB instance ID
+        - Choose a location where you was your database to reside
+        - Choose a VM type
+        - Choose the storage capacity
+        
+        - 3. ## Configure Access Control and Users
+        - Click create
+        - From the instance page click on the DB instance ID
+        - Click the "Access control" tab and the "Authorization" sub-tab. Click the "Add network" button and enter the public IP address of the server
+        - On the same page, select the "Users" sub-tab. Click the "Change root password" button and enter a new password for the MySQL root user.
+        
+        - 4. ## Migrate Data Schema and Data
+        - You can now migrate your application database to Google Cloud SQL. However, before you do this, you must disable write access to the application so that the original and new databases stay in sync.
+        - The way that you copy over your data schema and data is to do a sqldump and then copy that up to a storage bucket in Cloud Storage . Then you can reference that bucket as the source for the database.
+        
+        - 5. ## Configure Replication (Optional)
+        - However, if you cannot take the on-premises SQL server offline during the SQLdump transfer then you will need to create a replication session on the master on-premises SQL server and make the cloud SQL server the slave. This will ensure that eventually the two will synchronise.
+        
+        - 6. ## Final Steps
+        - You then can stop the replication session or simply promote the cloud slave to a stand-alone instance.
+        - Disconnect the replication from master to slave.
+        - Restart your applications, which should now be pointing to the Cloud SQL instance.
+
+      </script>
+    </div>
+  </body>
+</html>

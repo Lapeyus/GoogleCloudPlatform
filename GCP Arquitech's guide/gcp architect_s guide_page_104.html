@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_104</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_104_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_104</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Designing the Network Architecture</h1>
+<h2>Introduction</h2>
+<p>We learned so far about projects, networks, subnetworks, regions, and zones now let's see how they are specifically used in common network designs.</p>
+<h2>Availability</h2>
+<p>A key design criterion for any network design is availability. Google Cloud Platform excels in the areas of reliability and availability because of its own highly reliable and robust SDN infrastructure that underpins all of Google's own applications and business activities but also due to its hierarchal design of regions and zones.</p>
+<h3>Creating High Availability</h3>
+<p>The fact that the SDN infrastructure allows subnetworks to communicate across zones makes creating a highly available application easy. Hence, should your application need increased availability for high business continuity, you could simply place two virtual machines into different zones within the same region and using the same subnetwork.</p>
+<h4>Benefits of High Availability</h4>
+<ul>
+<li>Very simple to deploy</li>
+<li>Very effective way to instantly create high availability and automated fail-over</li>
+<li>Convenient to secure as using a single subnetwork allows you to create a single firewall rule that is assigned across both zones</li>
+</ul>
+<h3>Globalization</h3>
+<p>However, if we want to present our application to users around the world then we need to look to solutions that have global scale. In the high availability solution we proposed earlier, we placed resources in different zones within a single region, which provided the required improvements in reliability and availability for business continuity.</p>
+<h4>Benefits of Globalization</h4>
+<ul>
+<li>Provides global redundancy and high availability worldwide</li>
+<li>Allows different geographical diverse failure domains</li>
+<li>Can make use of global or regional load balancer to route traffic to the region that is closest to the user</li>
+</ul>
+<h3>Further Segregation</h3>
+<p>If we now take this decomposition of our design and resources one step further by placing our application and resources in different regions within different networks and different projects, we will benefit from further segregation.</p>
+<h4>Benefits of Further Segregation</h4>
+<ul>
+<li>Provides additional security benefits</li>
+<li>Allows for more granular control over access to resources</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Designing a robust network architecture requires careful consideration of availability, scalability, and security. By using Google Cloud Platform's SDN infrastructure and its hierarchal design of regions and zones, we can create highly available applications that meet the needs of users around the world.</p>
+<h3>References</h3>
+<ul>
+<li><a href="https://cloud.google.com">Google Cloud Platform Documentation</a></li>
+<li><a href="https://cloud.google.com/tutorials">Google Cloud Platform Tutorials</a></li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Designing the Network Architecture
+
+We learned so far about projects, networks, subnetworks, regions, and zones. Now let's see how they are specifically used in common network designs. The goal here is to get an appreciation of how they all can work together to deliver a robust network design architecture.
+
+A key design criterion for any network design is availability. A network is of no use to us if we cannot access it. Let's take a look at the options at our disposal for delivering availability.
+
+Google Cloud Platform excels in the areas of reliability and availability because of its own highly reliable and robust SDN infrastructure that underpins all of Google's own applications and business activities, as well as its hierarchical design of regions and zones. The fact that the SDN infrastructure allows subnetworks to communicate across zones makes creating a highly available application easy.
+
+Should your application need increased availability for high business continuity, you could simply place two virtual machines into different zones within the same region and using the same subnetwork. This is very simple to deploy and very effective way to instantly create high availability and automated fail-over. However, it is not just simple to deploy; it is also convenient to secure as using a single subnetwork allows you to create a single firewall rule that is assigned across both zones.
+
+However, if we want to present our application to users around the world, then we need to look for solutions with global scale. In the high availability solution we proposed earlier, we placed resources in different zones within a single region, which provided the required improvements in reliability and availability for business continuity. The solution also provided you with the required isolation from many types of infrastructure, hardware, and software failures.
+
+Nonetheless, when we consider globalization, then putting our resources in different regions provides an even higher degree of redundancy and failure mitigation. Indeed, if we replicate our applications and resources across different regions, this will allow for different geographical diverse failure domains. Also, by replicating our design to create highly robust systems with resources spread across geographical regions, we can make use of global or regional load balancers, which we can use to route traffic to the region that is closest to the user.
+
+Globalization does give us global redundancy and high availability worldwide but unfortunately, we no longer benefit from the simplified security that we got with the multi-zone, single subnetwork model. However, if the VMs are in a single network, then they can still communicate through GCP's internal global network.
+
+If we now take this decomposition of our design and resources one step further by placing our application and resources in different regions within different networks and different projects, we will benefit from further segregation.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Network Architecture Design: A Robust Approach to Availability and Globalization</h3>
+<h4>Overview</h4>
+<p>Network designs rely on various components such as projects, networks, subnetworks, regions, and zones to deliver robust architectures. Understanding how these components work together is crucial for managing groups of resources with varying availability and access control requirements.</p>
+<h4>Key Considerations for Network Design</h4>
+<p>Availability is a critical design criterion for any network design. If the network is not available, it serves no purpose. Google Cloud Platform (GCP) excels in reliability and availability due to its highly reliable and robust SDN infrastructure, which underpins all of GCP's applications and business activities.</p>
+<h4>High Availability Solutions</h4>
+<p>To create high-availability applications, resources can be placed in different zones within a single region, providing improved reliability and availability for business continuity. This solution also provides isolation from various types of infrastructure, hardware, and software failures.</p>
+<p>However, when considering globalization, placing resources in different regions provides an even higher degree of redundancy and failure mitigation. Replicating applications and resources across different regions allows for diverse geographical failure domains and enables the use of global or regional load balancers to route traffic to the closest region.</p>
+<h4>Globalization and Segregation</h4>
+<p>Globalization offers global redundancy and high availability worldwide but sacrifices simplified security. However, if virtual machines (VMs) are in a single network, they can still communicate through GCP's internal global network.</p>
+<p>Taking this decomposition further by placing applications and resources in different regions within different networks and projects provides further segregation. This approach allows for even more robust network designs that cater to diverse requirements.</p>
+<h4>Key Takeaways</h4>
+<ul>
+<li>Network designs rely on various components such as projects, networks, subnetworks, regions, and zones.</li>
+<li>Availability is a critical design criterion for any network design.</li>
+<li>GCP excels in reliability and availability due to its highly reliable and robust SDN infrastructure.</li>
+<li>High-availability solutions can be achieved by placing resources in different zones within a single region or across multiple regions.</li>
+<li>Globalization offers global redundancy and high availability but sacrifices simplified security.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: High Availability and Robustness</h3>
+<p>High availability is a key design criterion for any network design. Google Cloud Platform excels in this area due to its highly reliable and robust SDN infrastructure that underpins all of Google's own applications and business activities.</p>
+<h3>Topic 2: Globalization and Redundancy</h3>
+<p>Globalization provides an even higher degree of redundancy and failure mitigation by replicating resources across different regions, allowing for different geographical diverse failure domains. This enables the use of global or regional load balancers to route traffic to the region closest to the user.</p>
+<h3>Topic 3: Security Complexity</h3>
+<p>Using a single subnetwork allows for easy security with a single firewall rule assigned across both zones, providing high availability without additional security complexity. However, when resources are placed in different regions, the simplified security of the multi-zone, single subnetwork model is lost.</p>
+<h3>Topic 4: Resource Segregation and Decomposition</h3>
+<p>Further segregation can be achieved by placing application and resources in different regions within different networks and projects, allowing for even more granular control over resource management and access control requirements.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary goal of designing a network architecture?
+Answer: To deliver a robust network design architecture that provides alternatives for managing groups of resources with varying availability and access control requirements.</p>
+</li>
+<li>
+<p>What are some key design criteria for any network design?
+Answer: Availability, reliability, scalability, security, and performance.</p>
+</li>
+<li>
+<p>How does Google Cloud Platform's SDN infrastructure contribute to its high availability features?
+Answer: The SDN infrastructure allows subnetworks to communicate across zones, making it easy to create highly available applications by placing virtual machines in different zones within the same region.</p>
+</li>
+<li>
+<p>What is the benefit of using a single subnetwork for deploying identical VMs on separate zones?
+Answer: It provides high-availability without additional security complexity.</p>
+</li>
+<li>
+<p>How does globalization impact the availability and redundancy of resources?
+Answer: Globalization provides global redundancy and high availability worldwide, but it also means that the simplified security benefits of the multi-zone, single subnetwork model are no longer available.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential trade-offs between high availability and security when designing a network architecture?
+Answer: There may be trade-offs between high availability and security, such as the need to sacrifice some level of security for increased availability in certain scenarios.</p>
+</li>
+<li>
+<p>How does the use of regions and zones contribute to the overall availability of resources in Google Cloud Platform?
+Answer: The hierarchical design of regions and zones allows for greater redundancy and failure mitigation, making it easier to achieve high availability worldwide.</p>
+</li>
+<li>
+<p>What are some potential benefits of using a global or regional load balancer in a network architecture?
+Answer: Using a global or regional load balancer can help route traffic to the region that is closest to the user, improving performance and reducing latency.</p>
+</li>
+<li>
+<p>How does the use of projects contribute to the overall availability and security of resources in Google Cloud Platform?
+Answer: Projects provide an additional layer of organization and isolation for resources, making it easier to manage and secure them.</p>
+</li>
+<li>
+<p>What are some potential challenges when designing a network architecture that balances high availability with security?
+Answer: Some potential challenges include ensuring that the design is scalable, reliable, and performant while also meeting security requirements.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a network architecture for an e-commerce application that requires high availability and scalability.
+Answer: This would involve using Google Cloud Platform's regions and zones to create a highly available and redundant infrastructure, with load balancing and traffic routing configured to ensure optimal performance.</p>
+</li>
+<li>
+<p>How might you use Google Cloud Platform's SDN infrastructure to improve the availability of a web application?
+Answer: By placing virtual machines in different zones within the same region and using the same subnetwork, you can create high-availability without additional security complexity.</p>
+</li>
+<li>
+<p>What are some potential benefits of using a global or regional load balancer for an e-commerce application?
+Answer: Using a global or regional load balancer can help improve performance and reduce latency by routing traffic to the region that is closest to the user.</p>
+</li>
+<li>
+<p>How might you use projects to manage and secure resources in Google Cloud Platform?
+Answer: By organizing resources into projects, you can create additional layers of isolation and security, making it easier to manage and secure them.</p>
+</li>
+<li>
+<p>What are some potential trade-offs between high availability and security when designing a network architecture for an e-commerce application?
+Answer: There may be trade-offs between high availability and security, such as the need to sacrifice some level of security for increased availability in certain scenarios.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Cloud Platform</td>
+<td>Organization</td>
+<td>"Google Cloud Platform excels in the areas of reliability and availability because of its own highly reliable and robust SDN infrastructure that underpins all of Google's own applications and business activities"</td>
+<td>The entity refers to a cloud computing platform, highlighting its reliability and availability features. It is used as an example to demonstrate its capabilities in delivering high availability.</td>
+</tr>
+<tr>
+<td>Regions</td>
+<td>Location</td>
+<td>"The fact that the SDN infrastructure allows subnetworks to communicate across zones makes creating a highly available application easy... Google Cloud Platform excels in the areas of reliability and availability because of its own hierarchal design of regions"</td>
+<td>A region is a geographical location where resources are deployed. It is used as part of the entity "Google Cloud Platform" to describe its hierarchical design, which enables communication between subnetworks across zones.</td>
+</tr>
+<tr>
+<td>Zones</td>
+<td>Location</td>
+<td>"...the fact that the SDN infrastructure allows subnetworks to communicate across zones makes creating a highly available application easy."</td>
+<td>A zone is a geographical location within a region where resources are deployed. It is used as part of the entity "Google Cloud Platform" to describe its design, which enables communication between subnetworks across zones.</td>
+</tr>
+<tr>
+<td>Subnetworks</td>
+<td>Network</td>
+<td>"...the fact that the SDN infrastructure allows subnetworks to communicate across zones makes creating a highly available application easy."</td>
+<td>A subnetwork is a network segment within a larger network. It is used as part of the entity "Google Cloud Platform" to describe its design, which enables communication between subnetworks across zones.</td>
+</tr>
+<tr>
+<td>Virtual Machines (VMs)</td>
+<td>Resource</td>
+<td>"...should your application need increased availability for high business continuity, you could simply place two virtual machines into different zones within the same region and using the same subnetwork."</td>
+<td>A VM is a software-based resource that can be deployed on a cloud platform. It is used as an example to demonstrate how resources can be deployed to achieve high availability.</td>
+</tr>
+<tr>
+<td>Projects</td>
+<td>Resource Management</td>
+<td>"...we learned so far about projects, networks, subnetworks, regions, and zones now let's see how they are specifically used in common network designs."</td>
+<td>A project is a resource management entity that groups related resources together. It is used as part of the entity "resource management" to describe how resources can be grouped and managed.</td>
+</tr>
+<tr>
+<td>Load Balancers</td>
+<td>Network</td>
+<td>"...we can make use of global or regional load balancer, which we can use to route traffic to the region that is closest to the user."</td>
+<td>A load balancer is a network device that distributes incoming traffic across multiple servers. It is used as an example to demonstrate how resources can be used to achieve high availability and scalability.</td>
+</tr>
+<tr>
+<td>Firewall Rules</td>
+<td>Security</td>
+<td>"...using a single firewall rule that is assigned across both zones, you will get high-availability without any more security complexity."</td>
+<td>A firewall rule is a security configuration that controls incoming and outgoing traffic. It is used as an example to demonstrate how security can be achieved while maintaining high availability.</td>
+</tr>
+<tr>
+<td>Global Network</td>
+<td>Network</td>
+<td>"...if the VMs are in a single network, then they can still communicate through GCP's internal global network."</td>
+<td>A global network refers to a network that spans multiple geographical locations. It is used as part of the entity "Google Cloud Platform" to describe its capabilities in providing connectivity between resources across different regions.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

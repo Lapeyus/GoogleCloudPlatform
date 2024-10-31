@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_278</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Auto Scaling with Perfkit and Google Cloud
+        ## Overview
+        
+        - We've established our throughput for those servers with Perfkit, achieving 806 Gb peak per second. We can achieve the same results with 132 instances of n1-standard-4.
+        
+        ## Cost Comparison
+        
+        - Using Google Cloud calculator, we see that 576 single core machines cost $1000 less than 132 quad-core machines, resulting in a savings of almost $12,000 per year.
+        
+        ## Auto Scaling Benefits
+        
+        - As an auto-scaling template, this would be very easy to do. We're not updating all machines; instead, we're updating one template and managing our auto-scaling instance group.
+        
+        ## Use Case - Dealing with Log Files
+        ### Current State
+        
+        - Our current storage service is Bigtable, which handles log information for our video transcription application. With the projected doubling of demand in the coming year, we need to assess whether this will put stresses on Bigtable.
+        
+        ### Calculations
+        
+        - We've calculated that our application will use 3,472 queries per second and require 1.8 megabytes per second of throughput. However, if we double everything, we'd require 6,944 queries per second and 3.6 megabytes per second, which can be handled by a single Bigtable node.
+        
+        ### Bottlenecks
+        
+        - Our bottlenecks will be storage capacity, as our total disk capacity of the joint records will reach 55 terabytes per year. However, with the doubling of demand, we estimate that our storage capacity could reach 110 terabytes by the end of the second year.
+        
+        ## Conclusion
+        
+        - With Perfkit and Google Cloud, we can achieve significant cost savings while maintaining high performance for our video transcription application. Our auto-scaling template will make it easy to manage our instance groups and take advantage of these savings.
+
+      </script>
+    </div>
+  </body>
+</html>

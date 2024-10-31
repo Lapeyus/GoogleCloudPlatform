@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_104</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Designing the Network Architecture
+        ## Introduction
+        - We learned so far about projects, networks, subnetworks, regions, and zones now let's see how they are specifically used in common network designs.
+        
+        ## Availability
+        - A key design criterion for any network design is availability. Google Cloud Platform excels in the areas of reliability and availability because of its own highly reliable and robust SDN infrastructure that underpins all of Google's own applications and business activities but also due to its hierarchal design of regions and zones.
+        
+        ### Creating High Availability
+        - The fact that the SDN infrastructure allows subnetworks to communicate across zones makes creating a highly available application easy. Hence, should your application need increased availability for high business continuity, you could simply place two virtual machines into different zones within the same region and using the same subnetwork.
+        
+        #### Benefits of High Availability
+        - Very simple to deploy
+        - Very effective way to instantly create high availability and automated fail-over
+        - Convenient to secure as using a single subnetwork allows you to create a single firewall rule that is assigned across both zones
+        
+        ### Globalization
+        - However, if we want to present our application to users around the world then we need to look to solutions that have global scale. In the high availability solution we proposed earlier, we placed resources in different zones within a single region, which provided the required improvements in reliability and availability for business continuity.
+        
+        #### Benefits of Globalization
+        - Provides global redundancy and high availability worldwide
+        - Allows different geographical diverse failure domains
+        - Can make use of global or regional load balancer to route traffic to the region that is closest to the user
+        
+        ### Further Segregation
+        - If we now take this decomposition of our design and resources one step further by placing our application and resources in different regions within different networks and different projects, we will benefit from further segregation.
+        
+        #### Benefits of Further Segregation
+        - Provides additional security benefits
+        - Allows for more granular control over access to resources
+        
+        ## Conclusion
+        - Designing a robust network architecture requires careful consideration of availability, scalability, and security. By using Google Cloud Platform's SDN infrastructure and its hierarchal design of regions and zones, we can create highly available applications that meet the needs of users around the world.
+        
+        ### References
+        - [Google Cloud Platform Documentation](https://cloud.google.com)
+        - [Google Cloud Platform Tutorials](https://cloud.google.com/tutorials)
+
+      </script>
+    </div>
+  </body>
+</html>

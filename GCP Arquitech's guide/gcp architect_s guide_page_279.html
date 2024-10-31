@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_279</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_279_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_279</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Monitoring, Alerting, &amp; Incident</h1>
+<h2>Design Considerations</h2>
+<p>Doing the math, 22 Bigtable servers using SSD drives won't be sufficient for the double growth that we're forecasting for the coming year as 110/22=5.5Tb per SSD. We could consider changing to HDD as their larger capacity would be more appropriate and our application is not latency of disk throughput sensitive.</p>
+<h2>Key Principles</h2>
+<p>A design team do not typically just design, deploy and commission and then immediately move on as there will be a period post deployment where they have to stabilise and perform a handover of the system to operations. This is because it is important to transfer the knowledge of the systems characteristics and operational best practices to the people who will be operating and maintaining the system.</p>
+<h2>SLO and SLI</h2>
+<p>This is where those SLO and SLI you've been developing and refining with each design iteration will provide an objective method to manage the newly deployed system. They will help to keep it running in production and meeting its operational objectives.</p>
+<h3>Continuous Improvement and Deployment</h3>
+<p>Moreover, the practice of iteratively reviewing the service indicators and objectives also flags when perhaps the production environment and the assumptions of the original design no longer meet the market or production conditions. Then it will be time to revisit the design and evolve the system and refit for purpose.</p>
+<h4>Key Point</h4>
+<p>Therefore, a key point in system design is don't just design your service to meet the project specifications, design it for operational manageability. To achieve this means you're going to be thinking about continuous improvement and deployment, monitoring and alerting, and incident response.</p>
+<h2>Case Study: Video Transcription Service</h2>
+<p>In order to demonstrate these techniques and methods we will revisit our video transcription service as we are now well into the stabilization and operation period.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Doing the math, 22 Bigtable servers using SSD drives won't be sufficient for the double growth that we're forecasting for the coming year as 110/22=5.5Tb per SSD. We could consider changing to HDD as their larger capacity would be more appropriate and our application is not latency of disk throughput sensitive.
+
+Chapter 29-Monitoring, Alerting, & Incident Response
+
+A design team does not typically just design, deploy, and commission, and then immediately move on. There will be a period post-deployment where they have to stabilize and perform a handover of the system to operations. This is because it's essential to transfer the knowledge of the system's characteristics and operational best practices to the people who will be operating and maintaining the system.
+
+This is where Service Level Objectives (SLO) and Service Level Indicators (SLI) come into play. These have been developed and refined with each design iteration, providing an objective method to manage the newly deployed system. They will help keep it running in production and meeting its operational objectives. Moreover, iteratively reviewing service indicators and objectives flags when perhaps the production environment and assumptions of the original design no longer meet market or production conditions.
+
+Then it's time to revisit the design and evolve the system, refitting for purpose. A key point in system design is not just designing your service to meet project specifications but designing it for operational manageability. To achieve this means thinking about continuous improvement and deployment, monitoring and alerting, and incident response.
+
+In order to demonstrate these techniques and methods, we will revisit our video transcription service as we are now well into the stabilization and operation period. Doing the math, 22 Bigtable servers using SSD drives won't be sufficient for the double growth that we're forecasting for the coming year as 110/22=5.5Tb per SSD. We could consider changing to HDD as their larger capacity would be more appropriate and our application is not latency of disk throughput sensitive.
+
+Chapter 29-Monitoring, Alerting, & Incident Response
+
+A design team does not typically just design, deploy, and commission, and then immediately move on. There will be a period post-deployment where they have to stabilize and perform a handover of the system to operations. This is because it's essential to transfer the knowledge of the system's characteristics and operational best practices to the people who will be operating and maintaining the system.
+
+This is where Service Level Objectives (SLO) and Service Level Indicators (SLI) come into play. These have been developed and refined with each design iteration, providing an objective method to manage the newly deployed system. They will help keep it running in production and meeting its operational objectives. Moreover, iteratively reviewing service indicators and objectives flags when perhaps the production environment and assumptions of the original design no longer meet market or production conditions.
+
+Then it's time to revisit the design and evolve the system, refitting for purpose. A key point in system design is not just designing your service to meet project specifications but designing it for operational manageability. To achieve this means thinking about continuous improvement and deployment, monitoring and alerting, and incident response.
+
+In order to demonstrate these techniques and methods, we will revisit our video transcription service as we are now well into the stabilization and operation period.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Key Points of Chapter 29: Monitoring, Alerting, &amp; Incident Response</h3>
+<h4>System Design Considerations</h4>
+<ul>
+<li><strong>Capacity Planning</strong>: With a forecasted double growth, 22 Bigtable servers using SSD drives won't be sufficient (5.5Tb per SSD). Considering HDD for larger capacity may be more appropriate due to non-latency and throughput sensitivity.</li>
+<li><strong>Operational Manageability</strong>: Key point in system design is not just meeting project specifications but designing for operational manageability.</li>
+</ul>
+<h4>Post-Deployment Considerations</h4>
+<ul>
+<li>A design team's work doesn't end with deployment; they must stabilize, perform handovers, and transfer knowledge to operations teams.</li>
+<li>SLO (Service Level Objectives) and SLI (Service Level Indicators) help manage newly deployed systems, ensuring they meet operational objectives.</li>
+<li>Iterative review of service indicators and objectives flags when the production environment no longer meets market or production conditions, prompting design evolution.</li>
+</ul>
+<h4>Importance of Continuous Improvement</h4>
+<ul>
+<li>Designing for continuous improvement, deployment, monitoring, alerting, and incident response is crucial for system manageability.</li>
+<li>The practice of iteratively reviewing service indicators and objectives ensures that systems adapt to changing conditions.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Storage Capacity Management
+The text discusses the need for adequate storage capacity in a system, specifically mentioning the limitations of using SSD drives with 22 Bigtable servers, which would not be sufficient to meet the forecasted double growth.</p>
+<h3>Topic 2</h3>
+<p>Operational Manageability
+Designing a service that prioritizes operational manageability is crucial, as it involves considering continuous improvement and deployment, monitoring and alerting, and incident response. This approach ensures the system can adapt to changing conditions and market demands.</p>
+<h3>Topic 3</h3>
+<p>Knowledge Transfer and Handover
+After deploying a new system, it's essential to transfer knowledge of its characteristics and operational best practices to the people who will operate and maintain it. This process involves stabilizing the system and performing a handover to ensure smooth operation in production.</p>
+<h3>Topic 4</h3>
+<p>Continuous Improvement and Evolution
+A well-designed service should be adaptable and evolve over time to meet changing market or production conditions. Regularly reviewing service indicators and objectives helps identify when the original design needs revision, ensuring the system remains relevant and effective.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>1. What is the expected growth in data storage needs for the Bigtable servers?</h4>
+<p>The expected growth in data storage needs for the Bigtable servers is 5.5Tb per SSD.</p>
+<h4>2. Why are HDD drives considered more appropriate than SSD drives for this application?</h4>
+<p>HDD drives are considered more appropriate because their larger capacity would be more suitable for the application, which is not latency or disk throughput sensitive.</p>
+<h4>3. What is the purpose of a design team's knowledge transfer to operations after deployment?</h4>
+<p>The purpose of transferring knowledge from the design team to operations is to ensure that the system is stabilized and maintained properly, and that its operational characteristics are understood by those who will be operating it.</p>
+<h3>Analytical Questions</h3>
+<h4>1. How does the concept of SLO (Service Level Objective) and SLI (Service Level Indicator) contribute to managing a newly deployed system?</h4>
+<p>SLO and SLI provide an objective method for managing a newly deployed system, helping to keep it running in production and meeting its operational objectives.</p>
+<h4>2. What is the significance of iteratively reviewing service indicators and objectives in system design?</h4>
+<p>Iterative review of service indicators and objectives helps identify when the production environment and original design assumptions no longer meet market or production conditions, prompting a revisit of the design to evolve the system.</p>
+<h4>3. How does continuous improvement and deployment relate to operational manageability in system design?</h4>
+<p>Continuous improvement and deployment are key aspects of operational manageability, as they enable the system to adapt to changing needs and ensure its ongoing stability and performance.</p>
+<h3>Application Questions</h3>
+<h4>1. What would be a potential consequence of not considering operational manageability in system design?</h4>
+<p>Not considering operational manageability could lead to difficulties in stabilizing and maintaining the system after deployment, potentially resulting in downtime or decreased performance.</p>
+<h4>2. How might the concept of continuous improvement and deployment apply to real-world scenarios beyond Bigtable servers?</h4>
+<p>Continuous improvement and deployment can be applied to various systems and applications, including software development, infrastructure management, and other areas where adaptability and responsiveness are crucial.</p>
+<h4>3. What role do monitoring and alerting play in ensuring operational manageability?</h4>
+<p>Monitoring and alerting are essential components of operational manageability, as they enable the detection of potential issues before they become major problems, allowing for swift action to be taken to mitigate their impact.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>22 Bigtable servers using SSD drives</td>
+<td>Technical Specification</td>
+<td>"Doing the math, 22 Bigtable servers using SSD drives won't be sufficient for the double growth that we're forecasting for the coming year..."</td>
+<td>The author is discussing the capacity of a system and how it will not meet future demands. The mention of specific numbers (22) and technical details (SSD drives) suggests that this is a technical specification.</td>
+</tr>
+<tr>
+<td>110/22=5.5Tb per SSD</td>
+<td>Technical Specification</td>
+<td>"...as 110/22=5.5Tb per SSD."</td>
+<td>This calculation shows the capacity required for each server, indicating that the system's growth will be significant. The use of specific numbers and technical terms (SSD) suggests a technical specification.</td>
+</tr>
+<tr>
+<td>HDD</td>
+<td>Technical Term</td>
+<td>"...We could consider changing to HDD as their larger capacity would be more appropriate..."</td>
+<td>HDD stands for Hard Disk Drive, which is a type of storage device. In this context, it's being considered as an alternative to SSD drives due to its larger capacity.</td>
+</tr>
+<tr>
+<td>Chapter 29-Monitoring, Alerting, &amp; Incident</td>
+<td>Book Title</td>
+<td>"Chapter 29-Monitoring, Alerting, &amp; Incident"</td>
+<td>This is the title of a chapter in a book, indicating that this text is part of a technical or instructional manual.</td>
+</tr>
+<tr>
+<td>A design team do not typically just design, deploy and commission</td>
+<td>General Statement</td>
+<td>"...A design team do not typically just design, deploy and commission..."</td>
+<td>This statement provides general information about the role of a design team in system development. It highlights the importance of knowledge transfer and operational manageability.</td>
+</tr>
+<tr>
+<td>SLO and SLI</td>
+<td>Acronym</td>
+<td>"...those SLO and SLI you've been developing and refining..."</td>
+<td>SLO stands for Service Level Objective, and SLI stands for Service Level Indicator. These are metrics used to measure the performance of a system. The author is discussing their development and refinement.</td>
+</tr>
+<tr>
+<td>System design</td>
+<td>Technical Topic</td>
+<td>"...a key point in system design is don't just design your service to meet the project specifications..."</td>
+<td>This topic is related to technical system development, focusing on the importance of operational manageability.</td>
+</tr>
+<tr>
+<td>Video transcription service</td>
+<td>Application/Service Name</td>
+<td>"In order to demonstrate these techniques and methods we will revisit our video transcription service as we are now well into the stabilization and operation period."</td>
+<td>The author is discussing a specific application or service (video transcription) that they will be using to demonstrate their techniques and methods.</td>
+</tr>
+<tr>
+<td>Stabilization and operation period</td>
+<td>Technical Term</td>
+<td>"...we are now well into the stabilization and operation period."</td>
+<td>This term refers to the phase of system development where the system is being used in production, with a focus on stability and operational performance.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

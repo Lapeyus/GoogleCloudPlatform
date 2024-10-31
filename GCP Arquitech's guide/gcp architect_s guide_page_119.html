@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_119</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_119_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_119</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Persistent Disks</h1>
+<h2>Overview</h2>
+<p>Cloud Persistent Disks provide a managed, cloud-persistent storage solution for virtual machines (VMs) in Google Compute Engine.</p>
+<h3>Features</h3>
+<ul>
+<li><strong>Redundancy</strong>: Data is automatically replicated across multiple zones within a region.</li>
+<li><strong>Data Encryption</strong>: Data at rest is encrypted using standard encryption keys provided by GCP. </li>
+<li><strong>Management</strong>: Disks can be resized as needed, and management of the disks is handled on the backend.</li>
+<li><strong>Decryption Keys</strong>: Users have control over decryption keys, ensuring that only authorized parties can access data.</li>
+</ul>
+<h2>Use Cases</h2>
+<h3>1. Data Backup</h3>
+<p>Snapshots are useful for periodic backups of data on persistent disks. They provide incremental backups, which means they backup only the data that has changed since the last snapshot. This approach is faster and cheaper than creating a full image of the disk.</p>
+<h3>2. Disk Upgrades</h3>
+<p>Snapshots can be used to transfer data from one type of disk to another (e.g., from standard HDD to SSD). This allows for easier upgrades without losing data.</p>
+<h3>3. Data Migration</h3>
+<p>Snapshots enable easy migration of data between zones within a region or across regions. This is particularly useful when moving VMs between different zones or regions.</p>
+<h2>Best Practices</h2>
+<ul>
+<li><strong>Consistency</strong>: Before taking a disk snapshot, it's recommended to freeze or unmount the file system to ensure snapshot consistency.</li>
+<li><strong>Security</strong>: Users should manage their own decryption keys to maintain control over data access.</li>
+</ul>
+<h3>2. Automating Disk Migrations</h3>
+<p>Compute Engine provides the <code>gcloud</code> command-line tool for automating VM migrations, including disk transfers using snapshots.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>is handled for you on the backend. You can simply expand disks and 
+On the other hand, with cloud-persistent disks all the management devices. Also, redundancy and data encryption on disks are resize the file system at will as the disks are virtual network performed automatically and the keys managed by GCP. However, if responsibility for managing the decryption keys that is risky but it will ensure that no party - even Google - can get to the data except you want you can use your own keys. You then have the flexibility to manage your data.
+
+We briefly mentioned earlier that Compute Engine can help you automate the migration of VMs between zones within a region. This is a pretty common occurrence and if you move your VM instance between zones within the same region, you can simply use the gcloud, 'move' command for the specified VM instance. However, if you should want to move your instance to a different zone in a different region, then this cannot be automated. In this scenario, you will need to manually move the VM. This is not difficult but it does require carefully following the procedure as you need to be careful how you move the VM's persistent drive's data to the new drive in the destination zone.
+
+This procedure involves some handy features with cloud-persistent drives such as making a snapshot of all the attached persistent disks. You can then create some new disks in the destination region, and move the data across regions using that snapshot. The next step is to create the new VM in the destination region and then attach the new persistent disks.
+
+Snapshots are very handy features that have several other use cases. For example, they can be used to backup critical data into a durable storage solution to meet your organization's business continuity requirements. These snapshots can then be stored in cloud storage, for data recovery purposes. Snapshots can also be used to simply transfer data from one zone to another.
+
+For instance, you might want to minimize latency by migrating data to a drive that can be locally attached in the zone where it is used. Another common snapshot use case is when transferring data to a different disk type. For example, if you want to improve disk performance, by upgrading from standard HDD to faster persistent SSDs, then you could simply transfer data from a standard HDD persistent disk to an SSD persistent disk using a snapshot of the data.
+
+A caveat that you should be aware of is that snapshots are available only to persistent disks and not to local SSDs. Snapshots are also very useful for periodic backup of the data on your persistent disk as they are incremental and automatically compressed. This means they are perfect for doing traditional incremental backups of data on a persistent disk.
+
+As snapshots are incremental backups, they are faster as they only backup data that has changed since the last snapshot. Also, if used regularly, backups by snapshots will be much quicker and cheaper than making a full image of the disk. However, it's essential to understand that snapshots are not the same thing as public images and custom images, which are used primarily to create VM instances or configure VM instance templates.
+
+Before taking a disk snapshot, you should freeze or unmounting the file system. This is not strictly necessary as you can take a snapshot of a persistent disk even while your applications write data to that disk. But it's the most reliable way to ensure snapshot consistency.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Cloud Persistent Disks and Snapshots: A Comprehensive Guide</strong></p>
+<p>Cloud persistent disks provide a convenient way to manage storage for virtual machines (VMs) in Google Cloud Platform (GCP). With cloud-persistent disks, you can expand disks and resize file systems at will, as the management devices are handled on the backend. Additionally, redundancy and data encryption on disks are performed automatically by GCP.</p>
+<p>However, if you want to manage decryption keys yourself, it's essential to understand that this comes with risks. On the other hand, using your own keys ensures that no party, including Google, can access your data except when you want them to.</p>
+<p><strong>Automating VM Migrations</strong></p>
+<p>Compute Engine can help automate the migration of VMs between zones within a region. If you move your VM instance between zones within the same region, you can use the <code>gcloud</code> command to perform the migration. However, if you need to move your instance to a different zone in a different region, manual intervention is required.</p>
+<p>To perform this task, you'll need to create a snapshot of all attached persistent disks, create new disks in the destination region, and then transfer data across regions using that snapshot. The next step is to create a new VM in the destination region and attach the new persistent disks.</p>
+<p><strong>Snapshots: A Handy Feature</strong></p>
+<p>Snapshots are a handy feature with several use cases. They can be used to backup critical data into a durable storage solution to meet business continuity requirements. Snapshots can also be used to transfer data from one zone to another, minimize latency by migrating data to locally attached drives, and improve disk performance by transferring data to faster persistent SSDs.</p>
+<p>Snapshots are incremental backups that only capture changes since the last snapshot, making them faster and more efficient than full disk images. However, it's essential to understand that snapshots are not the same as public images or custom images, which are used primarily to create VM instances or configure templates.</p>
+<p>Before taking a disk snapshot, it's recommended to freeze or unmount the file system to ensure snapshot consistency. This is not strictly necessary, but it provides the most reliable way to achieve this goal.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Cloud Persistent Disks Management</strong>
+This topic covers the management of cloud persistent disks, including resizing, redundancy, and data encryption.</p>
+<h3>Topic 2</h3>
+<p><strong>Automating VM Migrations</strong>
+This topic discusses how Compute Engine can help automate the migration of VMs between zones within a region, but highlights the need for manual intervention when moving instances to different regions.</p>
+<h3>Topic 3</h3>
+<p><strong>Snapshots in Cloud Persistent Disks</strong>
+This topic explains the use cases and benefits of snapshots in cloud persistent disks, including data transfer, backup, and incremental backups.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are cloud-persistent disks, and how do they differ from traditional disks?
+Answer: Cloud-persistent disks are virtual network-attached disks that can be managed by Google Cloud Platform (GCP). They allow for automatic resizing, redundancy, and data encryption.</p>
+</li>
+<li>
+<p>How does GCP handle the management of decryption keys for cloud-persistent disks?
+Answer: GCP manages the decryption keys for cloud-persistent disks, but users have the option to use their own keys for added security.</p>
+</li>
+<li>
+<p>What is the purpose of snapshots in cloud persistent drives?
+Answer: Snapshots are used to create a durable copy of data on a persistent disk, allowing for backup, transfer between zones or regions, and incremental backups.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do snapshots improve upon traditional full disk images for backup purposes?
+Answer: Snapshots are faster and more efficient than full disk images because they only capture changes since the last snapshot, reducing storage requirements and increasing backup speed.</p>
+</li>
+<li>
+<p>What is the difference between a snapshot and a public image or custom image in GCP?
+Answer: A snapshot contains all the data on a persistent disk, including application and user data, whereas public images and custom images are used primarily for creating VM instances or configuring templates.</p>
+</li>
+<li>
+<p>How do snapshots ensure consistency when taking a disk snapshot?
+Answer: Freezing or unmounting the file system before taking a snapshot is recommended to ensure snapshot consistency, although it's not strictly necessary.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What scenario would require manually moving a VM instance between zones in different regions?
+Answer: If you need to move your instance to a different zone in a different region, the 'move' command cannot be used automatically; instead, you must manually follow the procedure to transfer data using snapshots and create a new VM.</p>
+</li>
+<li>
+<p>How can snapshots improve disk performance by transferring data to a faster persistent SSD?
+Answer: By taking a snapshot of the data on a standard HDD persistent disk and transferring it to an SSD persistent disk, users can upgrade their disk type without losing data or disrupting operations.</p>
+</li>
+<li>
+<p>What is one common use case for snapshots in cloud storage?
+Answer: Snapshots can be used to store critical data in cloud storage for business continuity purposes, providing a durable copy of data that can be easily recovered in case of data loss or corruption.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>is handled for you on the backend</code></td>
+<td>Verb phrase</td>
+<td>"You can simply expand disks and On the other hand, with cloud-persistent disks all the management devices."</td>
+<td>The verb phrase indicates that some task is being performed automatically by the backend. In this context, it likely refers to disk management tasks.</td>
+</tr>
+<tr>
+<td><code>On the other hand</code></td>
+<td>Adverbial phrase</td>
+<td>"You can simply expand disks and On the other hand, with cloud-persistent disks all the management devices."</td>
+<td>This adverbial phrase introduces a contrast between two options for managing disks. It suggests that there are different approaches to disk management, one of which is more convenient or efficient.</td>
+</tr>
+<tr>
+<td><code>cloud-persistent disks</code></td>
+<td>Noun phrase</td>
+<td>"You can simply expand disks and On the other hand, with cloud-persistent disks all the management devices."</td>
+<td>Cloud-persistent disks refer to a type of storage solution that provides persistent data storage in the cloud. They offer several benefits, including automatic disk resizing and redundancy.</td>
+</tr>
+<tr>
+<td><code>management devices</code></td>
+<td>Noun phrase</td>
+<td>"You can simply expand disks and On the other hand, with cloud-persistent disks all the management devices."</td>
+<td>Management devices are tools or software used to manage and maintain computer systems. In this context, they likely refer to tools used for managing disk storage.</td>
+</tr>
+<tr>
+<td><code>resize the file system</code></td>
+<td>Verb phrase</td>
+<td>"Also, redundancy and data encryption on disks are resize the file system at will as the disks are virtual network."</td>
+<td>The verb phrase indicates that the file system can be resized automatically when necessary. This is a feature of cloud-persistent disks that allows for flexible disk management.</td>
+</tr>
+<tr>
+<td><code>redundancy</code></td>
+<td>Noun phrase</td>
+<td>"Also, redundancy and data encryption on disks are resize the file system at will as the disks are virtual network."</td>
+<td>Redundancy refers to the practice of duplicating data or systems to ensure availability in case of failure. In this context, it likely refers to the ability of cloud-persistent disks to provide redundant storage solutions.</td>
+</tr>
+<tr>
+<td><code>data encryption</code></td>
+<td>Noun phrase</td>
+<td>"Also, redundancy and data encryption on disks are resize the file system at will as the disks are virtual network."</td>
+<td>Data encryption is the practice of protecting data by converting it into an unreadable format. In this context, it likely refers to the ability of cloud-persistent disks to encrypt data for secure storage.</td>
+</tr>
+<tr>
+<td><code>virtual network</code></td>
+<td>Noun phrase</td>
+<td>"Also, redundancy and data encryption on disks are resize the file system at will as the disks are virtual network."</td>
+<td>A virtual network is a software-based network that provides a virtualized computing environment. In this context, it likely refers to the ability of cloud-persistent disks to provide a virtualized storage solution.</td>
+</tr>
+<tr>
+<td><code>automate</code></td>
+<td>Verb phrase</td>
+<td>"We briefly mentioned earlier that Compute Engine can help you automate the migration of VMs between zones within a region."</td>
+<td>The verb phrase indicates that a task is being performed automatically by the Compute Engine service. In this context, it likely refers to disk management tasks or other automated processes.</td>
+</tr>
+<tr>
+<td><code>Compute Engine</code></td>
+<td>Noun phrase</td>
+<td>"We briefly mentioned earlier that Compute Engine can help you automate the migration of VMs between zones within a region."</td>
+<td>Compute Engine is a cloud computing platform provided by Google Cloud Platform. It offers a range of services, including virtual machine (VM) management and disk storage management.</td>
+</tr>
+<tr>
+<td><code>gcloud</code></td>
+<td>Noun phrase</td>
+<td>"However, if you should want to move your instance to a different zone in a different region, then this cannot be automated. In this scenario you will need to manually move the VM. This is not difficult but it does require carefully following the procedure as you need to be careful how you move the VMs persistent drive's data to the new drive in the destination zone."</td>
+<td>gcloud is an open-source command-line tool for interacting with Google Cloud Platform services, including Compute Engine and disk storage management.</td>
+</tr>
+<tr>
+<td><code>move</code></td>
+<td>Verb phrase</td>
+<td>"However, if you should want to move your instance to a different zone in a different region, then this cannot be automated. In this scenario you will need to manually move the VM."</td>
+<td>The verb phrase indicates that a task is being performed manually by the user. In this context, it likely refers to moving a virtual machine (VM) to a different zone within a region.</td>
+</tr>
+<tr>
+<td><code>zone</code></td>
+<td>Noun phrase</td>
+<td>"However, if you should want to move your instance to a different zone in a different region, then this cannot be automated. In this scenario you will need to manually move the VM."</td>
+<td>A zone is a geographic location where data or systems are stored and managed. In this context, it likely refers to a specific location within a region where a virtual machine (VM) is hosted.</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td>Noun phrase</td>
+<td>"However, if you should want to move your instance to a different zone in a different region, then this cannot be automated."</td>
+<td>A region is a geographic area that contains multiple zones and data centers. In this context, it likely refers to the broader geographic area where a virtual machine (VM) is hosted.</td>
+</tr>
+<tr>
+<td><code>snapshot</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>A snapshot is a copy of data at a particular point in time, used for backup and recovery purposes. In this context, it likely refers to creating a snapshot of disk storage for backup or transfer purposes.</td>
+</tr>
+<tr>
+<td><code>attached</code></td>
+<td>Adjective phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>The adjective phrase indicates that the disks are connected or associated with other components, in this case, virtual machines (VMs).</td>
+</tr>
+<tr>
+<td><code>persistent</code></td>
+<td>Adjective phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>The adjective phrase indicates that the disk storage is available and accessible even after the VM has been shut down or deleted.</td>
+</tr>
+<tr>
+<td><code>cloud-persistent</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>Cloud-persistent refers to a type of storage solution that provides persistent data storage in the cloud. It offers several benefits, including automatic disk resizing and redundancy.</td>
+</tr>
+<tr>
+<td><code>drive</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>A drive is a device or component that stores data, such as a hard drive or solid-state drive (SSD). In this context, it likely refers to the disk storage component of a virtual machine (VM).</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>Data is information or content that is stored and managed. In this context, it likely refers to the data being backed up or transferred using snapshots.</td>
+</tr>
+<tr>
+<td><code>backup</code></td>
+<td>Verb phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>The verb phrase indicates that a task is being performed to preserve data for future use in case of loss or corruption. In this context, it likely refers to creating a backup copy of disk storage using snapshots.</td>
+</tr>
+<tr>
+<td><code>transfer</code></td>
+<td>Verb phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>The verb phrase indicates that a task is being performed to move data from one location to another, in this case, transferring data between virtual machines (VMs) or regions.</td>
+</tr>
+<tr>
+<td><code>recovery</code></td>
+<td>Verb phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>The verb phrase indicates that a task is being performed to restore data to a previous state in case of loss or corruption, in this case, using snapshots for recovery purposes.</td>
+</tr>
+<tr>
+<td><code>region</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>A region is a geographic area that contains multiple zones and data centers. In this context, it likely refers to the broader geographic area where disk storage is hosted.</td>
+</tr>
+<tr>
+<td><code>zone</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>A zone is a geographic location where data or systems are stored and managed. In this context, it likely refers to a specific location within a region where disk storage is hosted.</td>
+</tr>
+<tr>
+<td><code>disk</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>A disk is a device or component that stores data, such as a hard drive or solid-state drive (SSD). In this context, it likely refers to the storage component of a virtual machine (VM).</td>
+</tr>
+<tr>
+<td><code>storage</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>Storage refers to the capacity or space available for storing data. In this context, it likely refers to the disk storage component of a virtual machine (VM).</td>
+</tr>
+<tr>
+<td><code>cloud</code></td>
+<td>Noun phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>Cloud refers to a network of remote servers accessed over the internet. In this context, it likely refers to the cloud-based storage solution provided by Google Cloud Platform.</td>
+</tr>
+<tr>
+<td><code>persistent</code></td>
+<td>Adjective phrase</td>
+<td>"This procedure involves some handy features with cloud persistent drives such as making a snapshot of all the attached persistent disks."</td>
+<td>The adjective phrase indicates that the disk storage is available and accessible even after the VM has been shut down or deleted.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

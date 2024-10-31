@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_69</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_69_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_69</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><p>```markdown</p>
+<h1>Video Transcription and Storage Function</h1>
+<h2>Requirements</h2>
+<ul>
+<li>Cloud Functions</li>
+<li>Node.js environment</li>
+<li>Event trigger (e.g., Cloud Storage)</li>
+</ul>
+<h2>Function Description</h2>
+<p>Perform video transcription and storage tasks automatically whenever a user uploads a new video.</p>
+<h2>Code</h2>
+<p>```javascript
+const { Storage } = require('@google-cloud/storage');
+const speech = require('speech-synthesis');</p>
+<p>// Set up Cloud Storage client
+const storage = new Storage();</p>
+<p>// Set up event trigger (e.g., Cloud Storage)
+exports.transcribeVideo = async (req, res) =&gt; {
+    // Get uploaded video file from request
+    const file = req.file;</p>
+<pre><code>// Upload file to Cloud Storage
+const bucketName = 'your-bucket-name';
+const uploadOptions = {
+    destination: `uploads/${file.originalname}`,
+    metadata: { contentType: file.mimetype },
+};
+await storage.bucket(bucketName).upload(file, uploadOptions);
+
+// Perform video transcription using speech-to-text API
+const transcript = await transcribeVideoFile(file.destination);
+
+// Store transcript in Cloud Storage
+const transcriptBucketName = 'transcripts-bucket-name';
+const transcriptFile = `transcript-${Date.now()}.txt`;
+await storage.bucket(transcriptBucketName).upload(transcript, {
+    destination: transcriptFile,
+    metadata: { contentType: 'text/plain' },
+});
+
+// Generate audio file for speech synthesis
+const audioFile = `audio-${Date.now()}.mp3`;
+await generateAudioFile(file.destination, audioFile);
+
+// Synthesize speech from transcript
+const speechOptions = {
+    voice: 'en-US',
+    rate: 1,
+    volume: 1,
+};
+speech.speak(transcript, speechOptions);
+
+// Return success response
+res.status(200).send('Video transcription and storage complete.');
+</code></pre>
+<p>};</p>
+<p>// Helper function to transcribe video file using speech-to-text API
+async function transcribeVideoFile(file) {
+    const audioContext = new AudioContext();
+    const audioBuffer = await audioContext.decodeAudioData(file);
+    // Implement speech-to-text logic here
+}</p>
+<p>// Helper function to generate audio file from video file
+async function generateAudioFile(videoFile, audioFile) {
+    // Implement video-to-audio conversion logic here
+}
+```</p>
+<h2>Triggers</h2>
+<ul>
+<li>Cloud Storage: Triggered when a new video file is uploaded.</li>
+<li>Pub/Sub: Triggered when a message is received in the specified topic.</li>
+</ul>
+<h2>Notes</h2>
+<ul>
+<li>Make sure to replace <code>your-bucket-name</code> and <code>transcripts-bucket-name</code> with your actual bucket names.</li>
+<li>Implement speech-to-text logic in the <code>transcribeVideoFile</code> function using an API such as Google Cloud Speech-to-Text or Microsoft Azure Speech Services.</li>
+<li>Implement video-to-audio conversion logic in the <code>generateAudioFile</code> function using a library such as FFmpeg or Google Cloud Video Intelligence.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>What would be required is a single purpose function that could perform all the necessary video transcription and storage tasks. Then you would only need it to be triggered to run automatically whenever a user uploads a new video. And that is exactly what cloud functions lets you do.
+
+Introducing Cloud Functions
+The beauty of cloud functions is that you just pay whenever your functions run in 100 millisecond intervals. Also, you don't have to worry about servers or runtime binaries. You just write your code in JavaScript in a Node.js environment that GCP provides and then configure it to be triggered by an event. Cloud functions can trigger on events in cloud storage, Cloud Pub/Sub, or in an HTTP call.
+
+However, you only get billed when your event triggers your function and only then for the duration that it runs. Therefore, you no longer need to be concerned - from a capacity planning perspective - whether it runs once a day, once an hour, or once a millisecond as GCP is responsible for managing and providing the required resources.
+
+The way that you can deploy cloud functions is quite simple. You start by setting up a cloud function and choose which events you wish to act as triggers. For each event type, you declare to the cloud functions that this is the event that they react to. Then comes the difficult part - writing and attaching your application's JavaScript functions to your triggers.
+
+This ensures that should an event of interest trigger your function, it will subsequently be executed. After you have set up your application's functions with corresponding events and suitable triggers, your functions will run whenever the event occurs.
+
+Some applications, especially those based upon microservices architecture, can be implemented entirely in cloud functions, which make it very cost-effective. This makes deploying cloud functions a very efficient and easy-to-deploy application. Specifically when you are seeking to enhance an existing application, which may have variable demand, as it removes the worry about scaling.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud Functions for Automated Video Transcription and Storage</h3>
+<h4>Simplifying Tasks with Serverless Computing</h4>
+<p>A single-purpose function can perform all necessary video transcription and storage tasks. This is exactly what cloud functions enable.</p>
+<h4>Key Benefits of Cloud Functions</h4>
+<ul>
+<li>Pay-per-use model: billed only when the function runs in 100 millisecond intervals.</li>
+<li>No server or runtime binary management required.</li>
+<li>Write code in JavaScript using a Node.js environment provided by GCP.</li>
+<li>Configure triggers for events in cloud storage, Pub/Sub, or HTTP calls.</li>
+</ul>
+<h4>How Cloud Functions Work</h4>
+<ol>
+<li>Set up a cloud function and choose event triggers.</li>
+<li>Declare the event types that trigger the function.</li>
+<li>Write and attach JavaScript functions to the triggers.</li>
+<li>The function will run automatically when an event occurs.</li>
+</ol>
+<h4>Cost-Effective Deployment</h4>
+<p>Cloud functions are ideal for applications based on microservices architecture, making them cost-effective and easy to deploy. This approach removes worries about scaling, especially when enhancing existing applications with variable demand.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Video Transcription Automation
+The text discusses the need for a single-purpose function that can perform video transcription and storage tasks automatically whenever a user uploads a new video.</p>
+<h3>Topic 2</h3>
+<p>Cloud Functions Overview
+The beauty of cloud functions lies in their pay-per-use model, where users only pay for the duration their functions run. This eliminates concerns about capacity planning and server management.</p>
+<h3>Topic 3</h3>
+<p>Event-Driven Deployment
+Cloud functions can be triggered by events in cloud storage, Cloud Pub/Sub, or HTTP calls. Users must declare which event types trigger their functions and attach corresponding JavaScript code to ensure execution upon event occurrence.</p>
+<h3>Topic 4</h3>
+<p>Cost-Effective Microservices Architecture
+Some applications can be implemented entirely in cloud functions, making it a cost-effective and efficient deployment option, especially for enhancing existing applications with variable demand.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>What is the main purpose of Cloud Functions?</h4>
+<p>The main purpose of Cloud Functions is to perform a single task automatically whenever a user uploads a new video.</p>
+<h4>How does Cloud Functions handle billing?</h4>
+<p>Cloud Functions only bill for the duration that the function runs, and not for the frequency of execution.</p>
+<h3>Analytical Questions</h3>
+<h4>What are some benefits of using Cloud Functions in terms of capacity planning?</h4>
+<p>Using Cloud Functions eliminates the need to worry about scaling, as GCP manages and provides the required resources.</p>
+<h4>How does Cloud Functions handle event triggers?</h4>
+<p>Cloud Functions can be triggered by events in cloud storage, Cloud Pub/Sub, or HTTP calls, and must be configured to react to specific events.</p>
+<h3>Application Questions</h3>
+<h4>What is an example of a scenario where Cloud Functions can be particularly cost-effective?</h4>
+<p>Cloud Functions can be used to implement entire applications based on microservices architecture, making it very cost-effective for enhancing existing applications with variable demand.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cloud functions</td>
+<td>concept</td>
+<td>"what would be required is a single purpose function that could perform, in this example, all the necessary video transcription and storage tasks"</td>
+<td>Cloud Functions are a serverless computing service provided by Google Cloud Platform (GCP) that allows developers to run code in response to events. They provide a cost-effective way to deploy applications with variable demand.</td>
+</tr>
+<tr>
+<td>JavaScript</td>
+<td>programming language</td>
+<td>"You just write your code in JavaScript in a Node.js environment that GCP provides"</td>
+<td>JavaScript is a high-level, dynamic, and interpreted programming language used for client-side scripting on the web. In this context, it's used as the primary language for writing Cloud Functions.</td>
+</tr>
+<tr>
+<td>Node.js</td>
+<td>runtime environment</td>
+<td>"in a Node.js environment that GCP provides"</td>
+<td>Node.js is an open-source runtime environment that allows developers to run JavaScript on the server-side. It's used in conjunction with Cloud Functions to provide a seamless development experience.</td>
+</tr>
+<tr>
+<td>Google Cloud Platform (GCP)</td>
+<td>platform</td>
+<td>"provided by GCP"</td>
+<td>GCP is a suite of cloud computing services provided by Google. In this context, it's mentioned as the provider of Cloud Functions and other related services.</td>
+</tr>
+<tr>
+<td>Pub/Sub</td>
+<td>messaging service</td>
+<td>"We will introduce Pub/Sub to you in detail later"</td>
+<td>Pub/Sub (Publish/Subscribe) is a messaging service that allows developers to decouple applications and services from each other. It's used as an event trigger for Cloud Functions.</td>
+</tr>
+<tr>
+<td>HTTP call</td>
+<td>protocol</td>
+<td>"Cloud functions can trigger on events in cloud storage, Cloud Pub/Sub, or in an HTTP call"</td>
+<td>An HTTP call is a request sent over the Hypertext Transfer Protocol (HTTP) to communicate between applications and services. In this context, it's used as an event trigger for Cloud Functions.</td>
+</tr>
+<tr>
+<td>microservices architecture</td>
+<td>software design pattern</td>
+<td>"especially those that are based upon microservices architecture can be implemented entirely in cloud functions"</td>
+<td>Microservices architecture is a software design pattern that structures an application as a collection of small, independent services. In this context, it's mentioned as a way to implement Cloud Functions for cost-effective and efficient deployment.</td>
+</tr>
+<tr>
+<td>event trigger</td>
+<td>concept</td>
+<td>"choose which events that you wish to acts as triggers"</td>
+<td>An event trigger is a mechanism that allows developers to attach code to specific events or actions in their application. In this context, it's used to configure Cloud Functions to run in response to specific events.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

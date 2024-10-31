@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_279</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Monitoring, Alerting, & Incident
+        ## Design Considerations
+        
+        - Doing the math, 22 Bigtable servers using SSD drives won't be sufficient for the double growth that we're forecasting for the coming year as 110/22=5.5Tb per SSD. We could consider changing to HDD as their larger capacity would be more appropriate and our application is not latency of disk throughput sensitive.
+        
+        ## Key Principles
+        
+        - A design team do not typically just design, deploy and commission and then immediately move on as there will be a period post deployment where they have to stabilise and perform a handover of the system to operations. This is because it is important to transfer the knowledge of the systems characteristics and operational best practices to the people who will be operating and maintaining the system.
+        
+        ## SLO and SLI
+        
+        - This is where those SLO and SLI you've been developing and refining with each design iteration will provide an objective method to manage the newly deployed system. They will help to keep it running in production and meeting its operational objectives.
+        
+        ### Continuous Improvement and Deployment
+        
+        - Moreover, the practice of iteratively reviewing the service indicators and objectives also flags when perhaps the production environment and the assumptions of the original design no longer meet the market or production conditions. Then it will be time to revisit the design and evolve the system and refit for purpose.
+        
+        #### Key Point
+        
+        - Therefore, a key point in system design is don't just design your service to meet the project specifications, design it for operational manageability. To achieve this means you're going to be thinking about continuous improvement and deployment, monitoring and alerting, and incident response.
+        
+        ## Case Study: Video Transcription Service
+        
+        - In order to demonstrate these techniques and methods we will revisit our video transcription service as we are now well into the stabilization and operation period.
+
+      </script>
+    </div>
+  </body>
+</html>

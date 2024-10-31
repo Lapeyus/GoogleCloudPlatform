@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_126</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_126_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_126</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>IAM Concepts</h1>
+<h2>Permissions</h2>
+<p>The permissions themselves are classes and methods in the APIs. For example, compute instances start, can be broken down into service, resource, and verb, meaning that this permission is used to start a stopped Compute Engine instance.</p>
+<h2>Bundling Permissions</h2>
+<p>Bundling all the permissions together to perform this task and then present it as a pre-configured role makes life a lot easier for the admin and greatly reduces errors.</p>
+<h2>Custom Roles</h2>
+<p>IAM custom roles allow you to make your own roles if there is not a suitable preconfigured role. You can create a custom role and then bundle all the prerequisite permissions to fulfil that particular role. However, this is no easy task so you are advised to look for the closest preconfigured role and then edit it by adding or removing specific permissions in order to meet your requirements.</p>
+<h3>Custom Role Principles</h3>
+<p>Custom roles require a lot of testing and can be considered to be risky but sometimes there is no alternative. When making up your custom roles, you should keep in mind the principles of least privilege and separation of duties.</p>
+<h2>Members</h2>
+<p>Members define who can do what on which resource. There are different types of members. Basically there are users, and there are service accounts. We will look at both in turn.</p>
+<h3>Users</h3>
+<p>Users can be members but they must have an identity that can be securely authenticated so GCP provides several ways - Google accounts, G Suite domains, Google Groups, or Cloud Identity domains;</p>
+<h4>Google Accounts</h4>
+<p>A Google account would be used by a user such as a developer, administrator, or any person who interacts with GCP. An email address that is associated with a Google account such as a gmail.com address can serve as an identity.</p>
+<h4>G Suite Domains</h4>
+<p>A G Suite domain represents a virtual group of all the members in an organization. G Suite customers can associate their email accounts with an Internet domain name. When you do this, each email account takes the form of username @mydomain.com. You can specify an identity by using an Internet domain name that is associated with a G suite account.</p>
+<h4>Google Groups</h4>
+<p>A Google Group is a named collection of Google account and service accounts. Every group has a unique email address that is associated with the group. Like groupname@mydomain.com. Google Groups are a convenient way to apply and access policy to a collection of users.</p>
+<p>You can grant and change access controls for a whole group at once, instead of granting or changing access controls one at a time for individual users or service accounts.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The permissions themselves are classes and methods in the APIs. For example, compute instances start, can be broken down into service, resource, and verb, meaning that this permission is used to start a stopped Compute Engine instance.
+
+Bundling all the permissions together to perform this task and then present it as a pre-configured role makes life a lot easier for the admin and greatly reduces errors. Custom Roles
+IAM custom roles allow you to make your own roles if there is not a suitable preconfigured role. You can create a custom role and then bundle all the prerequisite permissions to fulfil that particular role. However, this is no easy task so you are advised to look for the closest preconfigured role and then edit it by adding or removing specific permissions in order to meet your requirements.
+
+Custom roles require a lot of testing and can be considered to be risky but sometimes there is no alternative. When making up your custom roles, you should keep in mind the principles of least privilege and separation of duties. After all, it would be very easy to give permissions to an employee or a group that enabled them to both raise invoices as well as to authorise payment on invoices.
+
+Therefore, you really need to think hard when creating custom permissions as to why they are required and whether what they are attempting to achieve is compliant with company policy and regulatory standards.
+
+Members
+Members define who can do what on which resource. There are different types of members. Basically, there are users, and there are service accounts. We will look at both in turn.
+
+Users can be members but they must have an identity that can be securely authenticated so GCP provides several ways - Google accounts, G Suite domains, Google Groups, or Cloud Identity domains.
+
+A Google account would be used by a user such as a developer, administrator, or any person who interacts with GCP. An email address that is associated with a Google account such as a gmail.com address can serve as an identity.
+
+A G Suite domain represents a virtual group of all the members in an organization. G Suite customers can associate their email accounts with an Internet domain name. When you do this, each email account takes the form of username @mydomain.com.
+
+You can specify an identity by using an Internet domain name that is associated with a G suite account. A Google Group is a named collection of Google account and service accounts. Every group has a unique email address that is associated with the group.
+
+Like groupname@mydomain.com. Google Groups are a convenient way to apply and access policy to a collection of users. You can grant and change access controls for a whole group at once, instead of granting or changing access controls one at a time for individual users or service accounts.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Permissions, Custom Roles, and Members in IAM</h3>
+<p>Permissions are classes and methods in the APIs that define what actions can be performed on resources. For example, <code>compute.instances.start</code> is used to start a stopped Compute Engine instance.</p>
+<p>Bundling all permissions together to perform a task makes life easier for admins and reduces errors. This approach also allows for pre-configured roles to be created, which are suitable alternatives when no custom role is required.</p>
+<p>However, creating custom roles can be challenging and requires careful consideration of the principles of least privilege and separation of duties. Custom roles must be thoroughly tested and designed with caution to avoid granting excessive permissions that could compromise security.</p>
+<h3>Members in IAM</h3>
+<p>Members define who can perform actions on specific resources. There are two main types of members: users and service accounts.</p>
+<h4>Users</h4>
+<p>Users require a secure identity, which can be authenticated through various methods provided by GCP, including:</p>
+<ul>
+<li>Google accounts (e.g., Gmail addresses)</li>
+<li>G Suite domains (virtual groups of organization members with email addresses in the form <code>username@mydomain.com</code>)</li>
+<li>Google Groups (named collections of users and service accounts with unique email addresses)</li>
+</ul>
+<p>Granting access controls for a group can be more efficient than individual users or service accounts.</p>
+<h4>Service Accounts</h4>
+<p>Service accounts are used by applications, scripts, or other services to authenticate and perform actions on behalf of the organization. They require a secure identity as well, which can be authenticated through GCP's methods.</p>
+<h3>Best Practices</h3>
+<p>When creating custom roles, it is essential to consider the following:</p>
+<ul>
+<li><strong>Least Privilege</strong>: Grant only necessary permissions to minimize risks.</li>
+<li><strong>Separation of Duties</strong>: Divide responsibilities among team members to prevent single points of failure.</li>
+<li><strong>Company Policy and Regulatory Standards</strong>: Ensure that custom roles comply with organizational policies and regulatory requirements.</li>
+</ul>
+<p>By understanding how permissions, custom roles, and members work in IAM, organizations can implement robust security measures and ensure compliance with industry standards.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Permissions and Roles in IAM</h3>
+<p>Permissions are classes and methods in the APIs, allowing admins to perform specific tasks. Pre-configured roles simplify this process by bundling permissions together.</p>
+<h3>Topic 2: Custom Roles in IAM</h3>
+<p>Custom roles enable admins to create their own roles if no pre-configured role is available. However, creating custom roles requires careful consideration of principles like least privilege and separation of duties to avoid potential risks.</p>
+<h3>Topic 3: Members in IAM</h3>
+<p>Members define who can perform actions on specific resources. There are two main types of members: users and service accounts. Users must have a secure identity, such as a Google account or G Suite domain, while service accounts can be part of a group with a unique email address.</p>
+<h3>Topic 4: Identity and Authentication in IAM</h3>
+<p>Identity refers to the authentication method used by users, which can include Google accounts, G Suite domains, Google Groups, or Cloud Identity domains. Each identity type has its own set of characteristics and benefits for applying access controls.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are permissions in the context of IAM, and how do they relate to APIs?
+Answer: Permissions are classes and methods in the APIs that define what actions can be performed on resources.</p>
+</li>
+<li>
+<p>What is the purpose of bundling permissions together into a pre-configured role?
+Answer: Bundling permissions together makes it easier for admins and reduces errors by providing a clear and concise way to manage access controls.</p>
+</li>
+<li>
+<p>What is an IAM custom role, and when would you create one?
+Answer: An IAM custom role allows you to create your own roles if there isn't a suitable pre-configured role. You should create one when you need to add or remove specific permissions from a pre-configured role.</p>
+</li>
+<li>
+<p>What are the principles of least privilege and separation of duties, and why are they important when creating custom roles?
+Answer: The principles of least privilege and separation of duties ensure that users have only the necessary permissions to perform their tasks, reducing the risk of errors or security breaches. It's essential to consider these principles when creating custom roles.</p>
+</li>
+<li>
+<p>What types of members can be defined in IAM, and how do they differ?
+Answer: Users and service accounts are two types of members that can be defined in IAM. Users must have a secure identity, while service accounts can be used for automation or other purposes.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of custom roles compare to using pre-configured roles? What are the advantages and disadvantages of each approach?
+Answer: Custom roles offer more flexibility but require more testing and expertise. Pre-configured roles provide a simpler way to manage access controls, but may not meet specific requirements.</p>
+</li>
+<li>
+<p>What are some potential risks associated with creating custom roles, and how can they be mitigated?
+Answer: Risks include errors or security breaches due to inadequate permission management. To mitigate these risks, it's essential to follow best practices for role creation, testing, and maintenance.</p>
+</li>
+<li>
+<p>How do Google accounts, G Suite domains, and Google Groups relate to IAM membership?
+Answer: Each of these options provides a way to securely authenticate users and define their roles in IAM. Google accounts provide individual identities, while G Suite domains represent virtual groups and Google Groups offer a convenient way to apply policy to collections of users.</p>
+</li>
+<li>
+<p>What is the significance of specifying an identity when creating members in IAM?
+Answer: Specifying an identity ensures that users can be securely authenticated and that access controls are applied correctly.</p>
+</li>
+<li>
+<p>How do service accounts differ from users in terms of their role in IAM?
+Answer: Service accounts are used for automation or other purposes, while users must have a secure identity to interact with GCP.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to create a custom role for an employee who needs access to both raise invoices and authorize payments on invoices. How would you approach this task?
+Answer: You would start by identifying the necessary permissions and then bundle them into a custom role, ensuring that it meets company policy and regulatory standards.</p>
+</li>
+<li>
+<p>If you're using pre-configured roles, how can you modify them to meet specific requirements?
+Answer: You can edit pre-configured roles by adding or removing specific permissions to create a new role that meets your needs.</p>
+</li>
+<li>
+<p>What are some best practices for creating custom roles in IAM?
+Answer: Best practices include following the principles of least privilege and separation of duties, thoroughly testing the role, and ensuring it complies with company policy and regulatory standards.</p>
+</li>
+<li>
+<p>How can you apply access controls to a collection of users using Google Groups?
+Answer: You can grant and change access controls for an entire group at once, making it easier to manage permissions for multiple users.</p>
+</li>
+<li>
+<p>What are some potential security risks associated with using service accounts in IAM?
+Answer: Potential security risks include unauthorized access or misuse of the account's permissions. It's essential to monitor and control service accounts closely to mitigate these risks.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compute instances start</td>
+<td>Permission</td>
+<td>"The permissions themselves are classes and methods in the APIs. For example, compute instances start..."</td>
+<td>This permission is used to start a stopped Compute Engine instance. It is part of a larger set of permissions that can be bundled together to perform specific tasks.</td>
+</tr>
+<tr>
+<td>service, resource, and verb</td>
+<td>Permission</td>
+<td>"...broken down into service, resource, and verb..."</td>
+<td>These are the components of a permission that define what action can be performed on a specific resource. Service refers to the type of resource, resource refers to the actual resource being accessed, and verb refers to the action being taken.</td>
+</tr>
+<tr>
+<td>pre-configured role</td>
+<td>Role</td>
+<td>"...present it as a pre-configured role makes life a lot easier for the admin..."</td>
+<td>A pre-configured role is a pre-defined set of permissions that can be assigned to users or service accounts. It simplifies the process of managing access and reduces errors.</td>
+</tr>
+<tr>
+<td>Custom Roles</td>
+<td>Role</td>
+<td>"IAM custom roles allow you to make your own roles if there is not a suitable preconfigured role."</td>
+<td>Custom roles are user-created roles that can be tailored to meet specific needs. They require careful planning and testing to ensure they do not introduce security risks.</td>
+</tr>
+<tr>
+<td>least privilege</td>
+<td>Principle</td>
+<td>"...when making up your custom roles you should keep in mind the principles of least privilege..."</td>
+<td>The principle of least privilege states that users or service accounts should only be granted the minimum level of access necessary to perform their tasks. This helps prevent unauthorized access and reduces the risk of security breaches.</td>
+</tr>
+<tr>
+<td>separation of duties</td>
+<td>Principle</td>
+<td>"...when making up your custom roles you should keep in mind the principles of least privilege and separation of duties..."</td>
+<td>Separation of duties refers to the practice of dividing tasks among different individuals or groups to prevent any one person from having too much control over a particular process. This helps ensure that security policies are followed and reduces the risk of abuse.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>Member Type</td>
+<td>"...Users can be members but they must have an identity that can be securely authenticated..."</td>
+<td>Users are individuals who interact with GCP, such as developers or administrators. They require a secure identity to access resources.</td>
+</tr>
+<tr>
+<td>Google accounts</td>
+<td>Identity Source</td>
+<td>"A Google account would be used by a user such as a developer, administrator, or any person who interacts with GCP."</td>
+<td>A Google account is an email address associated with a user's identity. It can serve as the primary means of authentication for accessing GCP resources.</td>
+</tr>
+<tr>
+<td>G Suite domains</td>
+<td>Identity Source</td>
+<td>"A G Suite domain represents a virtual group of all the members in an organization..."</td>
+<td>A G Suite domain is an internet domain name that is associated with an organization's email accounts. It provides a convenient way to manage access controls for multiple users at once.</td>
+</tr>
+<tr>
+<td>Google Groups</td>
+<td>Member Type</td>
+<td>"...Google Groups are a convenient way to apply and access policy to a collection of users."</td>
+<td>Google Groups are named collections of Google account and service accounts. They provide a convenient way to manage access controls for groups of users.</td>
+</tr>
+<tr>
+<td>Cloud Identity domains</td>
+<td>Identity Source</td>
+<td>"...GCP provides several ways - Google accounts, G Suite domains, Google Groups, or Cloud Identity domains..."</td>
+<td>Cloud Identity domains are another means of authenticating identities in GCP. They provide an additional layer of security and flexibility for managing user access.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

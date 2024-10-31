@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_98</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Networking in GCP
+        ## Overview
+        
+        - In Google Cloud Platform (GCP), networking is done differently compared to traditional IP networks. This document aims to explain the basics of networking in GCP.
+        
+        ### Subnets in GCP
+        
+        - Subnets are used to segment a network into smaller groups, each with its own IP address range. However, unlike traditional IP networks where subnets fit into an address hierarchy, GCP subnets do not have parent IP address ranges assigned to them.
+        
+        ## Communication Between VMs
+        
+        - When considering two virtual machines (VMs) in the same region but different zones, they can still communicate with each other using the same subnet IP address. This is because the first address in a subnet is reserved for the router address and the last address is reserved for the broadcast address.
+        
+        ### Google Edge Routers
+        
+        - However, when it comes to communication between VMs across different zones, traffic does not traverse the internet as one might think. Instead, it goes through the Google Edge routers, which have different billing, latency, and security criteria that need to be taken into consideration.
+        
+        ## Designing IP Plans in GCP
+        
+        - Typically, IP plans are designed with sub-networks in a top-down hierarchy. However, in GCP, networks do not have IP ranges, so you simply set up a network and create multiple subnets for different departments or teams.
+        
+        ### Benefits of Sub-Networks
+        
+        - Sub-networks can provide some rudimentary levels of security and manage resources. However, there are more flexible ways to achieve this using Cloud IAM, labels, tags, and managed instance groups.
+        
+        ## Example Use Case
+        
+        - Consider a scenario where you have multiple subnets for different departments or teams in your organization. Each subnet represents a separate network segment with its own IP address range.
+        
+        ```markdown
+        # Subnet 1 (Sales)
+        - | Products | Price |
+        - | --- | --- |
+        - | Apple | 4 |
+        - | Banana | 2 |
+        
+        # Subnet 2 (Finance)
+        - | Products | Price |
+        - | --- | --- |
+        - | Apple | 5 |
+        - | Banana | 3 |
+        
+        # Subnet 3 (Marketing)
+        - | Products | Price |
+        - | --- | --- |
+        - | Apple | 6 |
+        - | Banana | 4 |
+        
+        # Subnet 4 (Development)
+        - | Products | Price |
+        - | --- | --- |
+        - | Apple | 7 |
+        - | Banana | 5 |
+        ```
+        
+        - In this example, each subnet represents a separate network segment with its own IP address range. The first address in each subnet is reserved for the router address, and the last address is reserved for the broadcast address.
+        
+        ```markdown
+        # Subnet 1 (Sales)
+        - 172.168.0.1 - 172.168.0.254
+        
+        # Subnet 2 (Finance)
+        - 172.168.1.1 - 172.168.1.254
+        
+        # Subnet 3 (Marketing)
+        - 172.168.2.1 - 172.168.2.254
+        
+        # Subnet 4 (Development)
+        - 172.168.3.1 - 172.168.3.254
+        ```
+        
+        - In this example, each subnet has its own IP address range, and the first address in each subnet is reserved for the router address.
+        
+        ## Conclusion
+        
+        - Networking in GCP is done differently compared to traditional IP networks. Subnets are used to segment a network into smaller groups, but they do not fit into an address hierarchy like traditional IP networks. Google Edge routers play a crucial role in communication between VMs across different zones. Designing IP plans in GCP requires careful consideration of the benefits and limitations of sub-networks and other networking options.
+
+      </script>
+    </div>
+  </body>
+</html>

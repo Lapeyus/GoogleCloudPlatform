@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_124</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Resource Management
+        ## Overview
+        - Cloud resource management involves organizing resources into a hierarchical structure, with each level having its own set of roles and permissions.
+        
+        ### # Roles and Permissions
+        #### ## Folder Roles
+        - **Admin**: Full administrative control over all folders.
+        - **Creator**: Browse folder hierarchy, create folders.
+        - **Viewer**: View folders and projects, view sub-folders.
+        
+        #### ## Project Roles
+        - **Owner**: Create new products, automatically owner.
+        - **Project Leader**: Deletion privileges for projects.
+        - **Viewer**: View projects.
+        - **Editor**: Edit projects.
+        
+        ### # Product-Specific Roles
+        - Compute Engine's Instance Admin role: Create, modify, delete virtual machine instances and disks.
+        
+        #### ## Cloud IAM Policy
+        - Resource Manager policies secure projects and resources. However, strict control over policy changes and group memberships is necessary to prevent permissions creep.
+        
+        ## Benefits of Hierarchical Structure
+        - Autonomy for teams and departments.
+        - Delegation of administration rights at the folder level.
+        - Restricted access to resources in particular folders.
+        
+        ### # Example Use Case
+        - A company has a hierarchical structure with organizational, folder, project, and resource levels. Each level has its own set of roles and permissions, ensuring that users have the minimum necessary access to perform their tasks.
+        
+        #### ## Table: Roles and Permissions
+        
+        - | Role | Description |
+        - | --- | --- |
+        - | Admin | Full administrative control over all folders. |
+        - | Creator | Browse folder hierarchy, create folders. |
+        - | Viewer | View folders and projects, view sub-folders. |
+        
+        - | Role | Description |
+        - | --- | --- |
+        - | Owner | Create new products, automatically owner. |
+        - | Project Leader | Deletion privileges for projects. |
+        - | Viewer | View projects. |
+        - | Editor | Edit projects. |
+        
+        #### ## Table: Product-Specific Roles
+        
+        - | Product | Role Description |
+        - | --- | --- |
+        - | Compute Engine | Instance Admin role: Create, modify, delete virtual machine instances and disks. |
+        
+        ### # Best Practice
+        - Apply the minimum access required to perform a role.
+        - Strict control over policy changes and group memberships is necessary to prevent permissions creep.
+        
+        #### ## Table: Cloud IAM Policy
+        
+        - | Policy | Description |
+        - | --- | --- |
+        - | Resource Manager policies | Secure projects and resources. |
+        - | Strict control over policy changes and group memberships | Prevent permissions creep. |
+        
+        ### # Conclusion
+        - Cloud resource management involves organizing resources into a hierarchical structure, with each level having its own set of roles and permissions. A well-designed hierarchy ensures that users have the minimum necessary access to perform their tasks, while preventing permissions creep.
+
+      </script>
+    </div>
+  </body>
+</html>

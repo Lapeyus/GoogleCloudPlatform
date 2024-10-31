@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_132</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_132_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_132</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Storage</h1>
+<h2>Overview</h2>
+<p>Cloud Storage is designed for storing unstructured data at scale. It provides petabytes and even exabytes of capacity.</p>
+<h3>Classes of Cloud Storage</h3>
+<p>There are four classes of Cloud Storage:
+- <strong>Regional</strong>: Suitable for frequently accessed data.
+- <strong>Multi-region</strong>: Suitable for data that needs to be accessible from multiple regions.
+- <strong>Nearline</strong>: Suitable for less frequently accessed data.
+- <strong>Coldline</strong>: Suitable for archival data.</p>
+<h2>Properties, Characteristics and Usability</h2>
+<p>Cloud storage is perfect for unstructured data because it's simply a big bucket where you can store objects of variable size and type. This makes it the perfect staging point for ingress data into GCP.</p>
+<h3>Storing Data in Cloud Storage</h3>
+<p>Once you've uploaded data to GCP, you'll typically upload it to a cloud storage bucket before sending it to its final destination, such as Cloud SQL.</p>
+<h2>Components of Cloud Storage</h2>
+<ul>
+<li><strong>Buckets</strong>: Required to have a globally unique name and cannot be nested. Objects within these buckets inherit the storage class of the bucket.</li>
+<li><strong>Objects</strong>: Can be text files, doc files, video files, etc. There's no minimum size limit for objects in cloud storage.</li>
+<li><strong>Storage Classes</strong>: Can be changed after creation, but some changes are not allowed (e.g., changing a regional bucket to a multi-regional one).</li>
+</ul>
+<h2>Accessing Data in Cloud Storage</h2>
+<p>Data can be accessed using the SDK tool commands in the console or through JSON or XML API's.</p>
+<h3>Limitations of Cloud Storage</h3>
+<ul>
+<li>There's no easy way to index all files like you would in a file system.</li>
+<li>Creating directories just points to other objects, defeating the purpose.</li>
+</ul>
+<h2>Changing Storage Classes and Moving Objects</h2>
+<ul>
+<li>You can change the default storage class of a bucket but not regional or multi-regional buckets to another type.</li>
+<li>Regional or multi-regional buckets can be changed to coldline and nearline storage classes.</li>
+<li>Objects can be moved from one bucket to another using the GCP console, but moving objects between different storage classes requires the gsutil command-line tool.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Cloud Storage
+There are four classes of Cloud Storage: regional, multi-region, nearline, and Coldline. We have discussed these types earlier along with their properties, characteristics, and usability. In this chapter, we will look under the bonnet to see how they store and access data in their own specific ways. We will also see how we can control individual, group, or service accounts to protect the data and control the authorized access that they may require via IAM.
+
+Cloud storage is perfect for unstructured data because conceptually it is simply a big bucket where you store objects, which are unstructured blobs of variable size and type of data, in that bucket. This makes it the perfect staging point for ingress data into GCP. As a result when you upload data to GCP, you will typically initially upload it into a cloud storage bucket before it is sent to its final storage destination, such as Cloud SQL.
+
+So let's look at how cloud storage works and break it down into a couple of different components. First, there are buckets, which are required to have a globally unique name, and they cannot be nested. The data that you point to in those buckets are objects that inherit the storage class of the bucket, and those objects could be text files, doc files, video files, etc. There's no minimum size to those objects, and you can scale this as much as you want as long as your code allows it.
+
+To access the data, you can use the SDK tool commands in the console, or either the JSON or XML API's. We will look at how to access objects later in the chapter. This is because the concept of an unstructured data bucket where you simply dump your diverse data makes it very flexible and intuitive to use. Indeed, you don't have to worry about schemas; you just dump the data as it is, and Cloud storage provides you with a URL to access it.
+
+Conceptually, it is just a lump of data - a blob - so it can be anything from raw text such as log files to video files. It doesn't matter to cloud storage. There is no easy way to index all of these files like you would in a file system; all you have is a specific URL to access each object in the bucket. You can create directories, but that is just another object that points to the various objects in the bucket, so it kind of defeats the purpose.
+
+For now, let's consider that once you've created a bucket, you might want to change the storage class of that bucket. There are several caveats here that you should be aware of:
+
+* The first is that you can change the default storage classes of a bucket, but you cannot change a regional bucket to a multi-regional and vice-versa.
+* Second, a regional or a multi-regional can be changed to coldline and nearline storage classes.
+* Third, you are able to move objects from one bucket to another using the GCP console. However, moving objects to buckets of different storage classes requires using the gsutil command-line tool in the console.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Cloud Storage</h1>
+<h3>Overview</h3>
+<p>Cloud Storage is designed for storing unstructured data at scale. It provides four classes of storage: regional, multi-region, nearline, and Coldline.</p>
+<h3>Types of Cloud Storage</h3>
+<p>The four types of Cloud Storage are:</p>
+<ul>
+<li>Regional: suitable for frequently accessed data</li>
+<li>Multi-region: suitable for data that needs to be accessible from multiple regions</li>
+<li>Nearline: suitable for less frequently accessed data</li>
+<li>Coldline: suitable for archival data that is rarely accessed</li>
+</ul>
+<h3>How Cloud Storage Works</h3>
+<p>Cloud storage works by breaking down into two main components:</p>
+<ol>
+<li><strong>Buckets</strong>: required to have a globally unique name and cannot be nested.</li>
+<li><strong>Objects</strong>: stored in buckets and can be text files, doc files, video files, etc.</li>
+</ol>
+<h3>Accessing Data</h3>
+<p>Data can be accessed using the SDK tool commands in the console or either the JSON or XML API's.</p>
+<h3>Flexibility of Cloud Storage</h3>
+<p>Cloud storage is flexible because it allows you to dump your diverse data into a bucket without worrying about schemas. You simply upload the data and get a URL to access it.</p>
+<p>However, there are some limitations:</p>
+<ul>
+<li>There is no easy way to index all files like in a file system.</li>
+<li>Creating directories just points to other objects in the bucket, defeating the purpose.</li>
+</ul>
+<h3>Changing Storage Classes</h3>
+<p>You can change the storage class of a bucket, but there are caveats:</p>
+<ul>
+<li>You cannot change a regional bucket to a multi-regional and vice-versa.</li>
+<li>Regional or multi-regional buckets can be changed to coldline and nearline storage classes.</li>
+<li>Objects can be moved from one bucket to another using the GCP console, but moving objects to buckets of different storage classes requires using the gsutil command-line tool.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Cloud Storage Overview</strong></h3>
+<p>Cloud storage is designed for storing unstructured data at scale, with a focus on flexibility and intuitive use. It's perfect for staging data into GCP and provides a URL to access objects without worrying about schemas.</p>
+<h3>Topic 2: <strong>Bucket Structure and Object Storage</strong></h3>
+<p>Buckets are the core component of cloud storage, requiring globally unique names and cannot be nested. Objects within buckets inherit the storage class of the bucket and can be text files, doc files, video files, etc. with no minimum size limit for scaling.</p>
+<h3>Topic 3: <strong>Storage Class Management</strong></h3>
+<p>There are four classes of cloud storage: regional, multi-region, nearline, and Coldline. Changing the default storage class of a bucket is possible, but changing between regional and multi-regional buckets to coldline or nearline storage classes is not allowed. Moving objects between buckets requires using the gsutil command-line tool.</p>
+<h3>Topic 4: <strong>Accessing Data</strong></h3>
+<p>Data can be accessed through SDK tool commands in the console, JSON or XML API's, providing a flexible way to access unstructured data without worrying about schemas.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is cloud storage designed for?
+Answer: Cloud storage is designed for storing unstructured data at scale.</p>
+</li>
+<li>
+<p>What are the four classes of cloud storage mentioned in the text?
+Answer: The four classes of cloud storage are regional, multi-region, nearline, and Coldline.</p>
+</li>
+<li>
+<p>Why is cloud storage suitable for unstructured data?
+Answer: Cloud storage is suitable for unstructured data because it can store objects as blobs of variable size and type, making it flexible and intuitive to use.</p>
+</li>
+<li>
+<p>What is the purpose of creating a bucket in cloud storage?
+Answer: The purpose of creating a bucket is to store objects that inherit the storage class of the bucket.</p>
+</li>
+<li>
+<p>How do you access data in a cloud storage bucket?
+Answer: You can access data in a cloud storage bucket using SDK tool commands, JSON or XML API's, or by accessing the specific URL provided for each object.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages and disadvantages of using cloud storage for unstructured data?
+Answer: The advantages include flexibility and intuitiveness, while the disadvantages include the lack of indexing capabilities and the need to manage schema-less data.</p>
+</li>
+<li>
+<p>How does the concept of a bucket in cloud storage relate to traditional file systems?
+Answer: A bucket in cloud storage is similar to a directory in a traditional file system, but it has its own set of rules and limitations.</p>
+</li>
+<li>
+<p>What are the implications of changing the storage class of a bucket?
+Answer: Changing the storage class of a bucket can have significant implications for data access, management, and security.</p>
+</li>
+<li>
+<p>How does cloud storage handle object movement between buckets?
+Answer: Cloud storage allows moving objects from one bucket to another using the GCP console or the gsutil command-line tool.</p>
+</li>
+<li>
+<p>What are the limitations of using cloud storage for large-scale data storage?
+Answer: The limitations include scalability issues, data management complexities, and security concerns.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a cloud storage strategy for storing unstructured data in a scalable manner.
+Answer: This would involve creating multiple buckets with different storage classes, implementing data governance policies, and using IAM to manage access controls.</p>
+</li>
+<li>
+<p>Develop a plan for migrating existing file systems to cloud storage.
+Answer: This would involve assessing the current file system architecture, identifying compatible bucket structures, and developing a migration strategy that ensures minimal disruption to users.</p>
+</li>
+<li>
+<p>Implement a cloud storage security framework to protect sensitive data.
+Answer: This would involve setting up IAM policies, encrypting data at rest and in transit, and monitoring access logs to detect potential security breaches.</p>
+</li>
+<li>
+<p>Create a cloud storage backup and recovery plan for critical business data.
+Answer: This would involve implementing regular backups, storing them in multiple buckets with different storage classes, and developing a disaster recovery strategy that ensures minimal downtime.</p>
+</li>
+<li>
+<p>Develop a cloud storage compliance framework to meet regulatory requirements.
+Answer: This would involve assessing the regulatory requirements, identifying compatible bucket structures, and implementing policies and procedures to ensure data governance and security.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Storage</td>
+<td>Service/Technology</td>
+<td>"Cloud storage is designed for storing unstructured data at scale." and "Cloud storage is perfect for unstructured data because conceptually it is simply a big bucket"</td>
+<td>Cloud Storage refers to a service or technology that allows users to store large amounts of unstructured data. The concept of cloud storage is based on the idea of storing data in a virtual bucket, where objects can be stored without any schema or structure. This makes it flexible and intuitive to use.</td>
+</tr>
+<tr>
+<td>Buckets</td>
+<td>Data Structure/Container</td>
+<td>"First, there are buckets, which are required to have a globally unique name, and they cannot be nested." and "The data that you point to in those buckets are objects that inherit the storage class of the bucket"</td>
+<td>A bucket is a container used to store objects in cloud storage. It has a globally unique name and cannot be nested. The data stored in a bucket inherits the storage class of the bucket, which determines how the data is accessed and managed.</td>
+</tr>
+<tr>
+<td>Objects</td>
+<td>Data Entity/Item</td>
+<td>"The data that you point to in those buckets are objects that inherit the storage class of the bucket" and "objects could be text files, doc files, video files, etc."</td>
+<td>An object is a single item of data stored in a bucket. It can be of any type or size, such as text files, documents, videos, etc. The concept of an object is based on the idea of storing data without any schema or structure, making it flexible and intuitive to use.</td>
+</tr>
+<tr>
+<td>Storage Classes</td>
+<td>Data Management/Classification</td>
+<td>"For now, let's consider that once you've created a bucket, you might want to change the storage class of that bucket" and "There are several caveats here that you should be aware of; The first is that you can change the default storage classes of a bucket..."</td>
+<td>Storage classes refer to the way data is managed and classified in cloud storage. There are different types of storage classes, such as regional, multi-region, nearline, and coldline, which determine how the data is accessed and managed.</td>
+</tr>
+<tr>
+<td>IAM (Identity and Access Management)</td>
+<td>Security/Authentication Mechanism</td>
+<td>"Cloud storage is perfect for unstructured data because conceptually it is simply a big bucket" and "via IAM."</td>
+<td>IAM refers to a security and authentication mechanism used to manage access to cloud storage. It allows users to authenticate and authorize access to the data stored in the bucket, ensuring that only authorized users can access the data.</td>
+</tr>
+<tr>
+<td>GCP (Google Cloud Platform)</td>
+<td>Cloud Computing Platform</td>
+<td>"Cloud storage is perfect for unstructured data because conceptually it is simply a big bucket" and "As a result when you upload data to GCP you I will typically initially upload it into a cloud storage bucket..."</td>
+<td>GCP refers to the cloud computing platform used by Google. It provides a range of services, including cloud storage, which allows users to store large amounts of unstructured data in a virtual bucket.</td>
+</tr>
+<tr>
+<td>SDK (Software Development Kit)</td>
+<td>Development Tool/Toolset</td>
+<td>"To access the data, you can use the SDK tool commands in the console..." and "We will look at how to access objects later in the chapter."</td>
+<td>SDK refers to a set of tools and libraries used to develop applications that interact with cloud storage. It provides a way for developers to access and manage data stored in the bucket using various programming languages and APIs.</td>
+</tr>
+<tr>
+<td>JSON (JavaScript Object Notation)</td>
+<td>Data Format/Protocol</td>
+<td>"or either the JSON or XML API's"</td>
+<td>JSON refers to a lightweight data format used to represent data in a structured and easily readable format. It is often used as a protocol for exchanging data between applications and services, including cloud storage.</td>
+</tr>
+<tr>
+<td>XML (Extensible Markup Language)</td>
+<td>Data Format/Protocol</td>
+<td>"or either the JSON or XML API's"</td>
+<td>XML refers to a markup language used to represent data in a structured and easily readable format. It is often used as a protocol for exchanging data between applications and services, including cloud storage.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

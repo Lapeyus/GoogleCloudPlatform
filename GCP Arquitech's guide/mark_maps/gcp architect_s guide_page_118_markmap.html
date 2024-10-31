@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_118</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Disk Options for Virtual Machines
+        ## Persistent Disks
+        - **HDD**: Suitable for capacity needs only, not high-performance requirements.
+        - **SDD**: Offers data redundancy and persistence, suitable for high-performance needs.
+        
+        ### Persistent SDD Disks
+        - Provide higher performance than HDDs.
+        - Data is distributed across multiple physical disks for redundancy.
+        - Survive VM stop or termination.
+        
+        ## Local SSDs
+        - Suitable for applications requiring fast scratch pad storage.
+        - Data survives reset but not VM termination.
+        - Limited to 8 local SSDs with 375 GB each, totaling 3 TB.
+        
+        ### RAM Disks
+        - Fastest type of performance available for small data structures.
+        - Store data in memory.
+        - Most volatile and require persistent disk backup for data survival.
+        
+        ## Key Considerations
+        - Partitioning is required for operating system capacity allocation.
+        - Disk redundancy and encryption may be necessary, requiring additional setup.
+        - Persistent HDDs compete with network traffic throughput.
+
+      </script>
+    </div>
+  </body>
+</html>

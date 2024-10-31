@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_62</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_62_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_62</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Kubernetes Deployment</h1>
+<h2>Overview</h2>
+<p>Kubernetes provides a way to deploy and manage applications through deployments.</p>
+<h3>Containers in Pods</h3>
+<p>Typically, you only would place one container per pod, but if you have multiple containers with a hard dependency, you can package them into a single pod, and share networking and storage. The pod provides a unique network IP and the containers inside a pod can communicate with one another using the 'localhost' interface and the ports will remain fixed as they are started and stopped on different nodes.</p>
+<h2>Starting a Deployment</h2>
+<p>One way to run a container in a pod in Kubernetes is to use the <code>kubectl</code> run command. This starts a deployment of a container running in a pod. A deployment represents a group of replicas of the same pod and keeps your pod running even when nodes they run on fail.</p>
+<h3>Exposing a Deployment</h3>
+<p>To make them publicly available, you can connect a Load Balancer to your deployment by running the <code>kubectl</code> exposed command. In GKE, the Load Balancer is created as a network Load Balancer and Kubernetes creates a service with a fixed IP for your pods. Any client that hits that IP address will be routed to a pod behind the service.</p>
+<h3>Service Groups</h3>
+<p>A service group is set of pods, which provides a stable endpoint or fixed IP for them. For example, if you create two sets of pods called front-end and back-end, and you put them behind their own services, back-end pods IP addresses may change over time but the front-end pods are not aware of this, nor do they care, as they simply refer to the back-end service by name rather than by IP addresses.</p>
+<h2>Scaling a Deployment</h2>
+<p>To scale a deployment, run the <code>kubect!</code> scale command. In this case, three pods are created in your deployment, and they're placed behind the service and they will share one fixed IP.</p>
+<h3>Declarative Configuration</h3>
+<p>The real strength of Kubernetes comes when you work in a declarative way. Instead of issuing commands, you provide a configuration file that tells Kubernetes what you want your desired state to look like, and Kubernetes figures out how to do it.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://markmap.js.org/">Website</a></li>
+<li><a href="https://github.com/gera2ld/markmap">GitHub</a></li>
+<li><a href="https://github.com/gera2ld/coc-markup">coc-markmap</a></li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Typically, you only would place one container per pod, but if you have multiple containers with a hard dependency, you can package them into a single pod, and share networking and storage. The pod provides a unique network IP and the containers inside a pod can communicate with one another using the 'localhost' interface and the ports will remain fixed as they are started and stopped on different nodes.
+
+Starting a Deployment
+One way to run a container in a pod in Kubernetes is to use the 'kubectl' run command. This starts a deployment of a container running in a pod. A deployment represents a group of replicas of the same pod and keeps your pod running even when nodes they run on fail. It could represent a component of an application or an entire app. By default, pods in a deployment are only accessible inside your GKE cluster.
+
+Exposing a Deployment
+To make them publicly available, you can connect a Load Balancer to your deployment by running the 'kubectl' exposed command. In GKE, the Load Balancer is created as a network Load Balancer and Kubernetes creates a service with a fixed IP for your pods. Any client that hits that IP address will be routed to a pod behind the service. The Kubernetes service defines a logical set of pods and a policy by which to access them. It is an abstraction that enables you to separate the deployments - to create and destroy pods, allow them administration.
+
+Service Groups
+A service group is a set of pods that provides a stable endpoint or fixed IP for them. For example, if you create two sets of pods called front-end and back-end, and you put them behind their own services, back-end pods IP addresses may change over time but the front-end pods are not aware of this, nor do they care, as they simply refer to the back-end service by name rather than by IP addresses.
+
+Scaling a Deployment
+To scale a deployment, run the 'kubect!' scale command. In this case, three pods are created in your deployment, and they're placed behind the service and they will share one fixed IP. So far you have learned to run imperative commands like run, expose and scale. This works well to learn and test Kubernetes step by step. But the real strength of Kubernetes comes when you work in a declarative way. Instead of issuing commands, you provide a configuration file that tells Kubernetes what you want your desired state to look like, and Kubernetes figures out how to do it.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Running Containers in Pods with Kubernetes</h3>
+<p>Typically, one container is placed per pod, but if multiple containers have a hard dependency, they can be packaged into a single pod, sharing networking and storage. The pod provides a unique network IP, allowing containers within the pod to communicate using the 'localhost' interface, while ports remain fixed regardless of node restarts.</p>
+<h3>Starting a Deployment</h3>
+<p>To run a container in a pod using Kubernetes, use the <code>kubectl run</code> command, which starts a deployment of a container running in a pod. A deployment represents a group of replicas of the same pod and ensures it remains running even when nodes fail. By default, pods in a deployment are only accessible within your GKE cluster.</p>
+<h3>Exposing a Deployment</h3>
+<p>To make deployments publicly available, connect a Load Balancer to your deployment using <code>kubectl exposed</code>. In GKE, this creates a network Load Balancer and a service with a fixed IP for your pods. Any client hitting the service's IP address is routed to a pod behind the service. The Kubernetes service defines a logical set of pods and policies for accessing them, providing an abstraction for separating deployments.</p>
+<h3>Service Groups</h3>
+<p>To address the issue of unstable IP addresses, use service groups – a set of pods providing a stable endpoint or fixed IP. For example, creating two sets of pods (front-end and back-end) behind their own services ensures that front-end pods are not affected by changes in back-end pod IP addresses.</p>
+<h3>Scaling a Deployment</h3>
+<p>To scale a deployment, run <code>kubect! scale</code>. This creates three pods in the deployment, sharing one fixed IP. While imperative commands like <code>run</code>, <code>expose</code>, and <code>scale</code> work well for learning Kubernetes, its true strength lies in declarative configuration files that define desired states, allowing Kubernetes to figure out how to achieve them.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Networking and Pod Configuration
+The topic revolves around the concept of pods in Kubernetes, their networking capabilities, and pod configuration. It discusses the importance of unique network IP addresses for pods, sharing of containers within a pod, and the use of 'localhost' interface for communication between containers.</p>
+<h3>Topic 2</h3>
+<p>Deployment Management
+This topic focuses on deployment management in Kubernetes, including starting deployments using the 'kubectl run' command, creating deployments that represent groups of replicas, and keeping pods running even when nodes fail. It also touches upon the concept of deployments as components or entire applications.</p>
+<h3>Topic 3</h3>
+<p>Exposing Deployments
+The topic explores how to make deployments publicly accessible by connecting a Load Balancer to the deployment using the 'kubectl exposed' command. It discusses the creation of services with fixed IPs, service groups, and the stability of IP addresses over time.</p>
+<h3>Topic 4</h3>
+<p>Service Groups and Scaling
+This topic delves into the concept of service groups, which provide stable endpoints or fixed IPs for sets of pods. It also covers scaling deployments using the 'kubect!' scale command, creating multiple pods behind a service with a shared fixed IP address.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of packaging multiple containers with hard dependencies into a single pod in Kubernetes?
+Answer: To share networking and storage, while providing a unique network IP for communication between containers.</p>
+</li>
+<li>
+<p>How does a deployment in Kubernetes ensure that pods remain running even when nodes they run on fail?
+Answer: A deployment represents a group of replicas of the same pod, keeping your pod running even when nodes it runs on fail.</p>
+</li>
+<li>
+<p>What is the purpose of exposing a deployment in Kubernetes?
+Answer: To make deployments publicly available by connecting a Load Balancer to them.</p>
+</li>
+<li>
+<p>How does a service group provide stability for pods in Kubernetes?
+Answer: By providing a stable endpoint or fixed IP for a set of pods, allowing clients to access them without worrying about changing IP addresses.</p>
+</li>
+<li>
+<p>What is the difference between imperative and declarative commands in Kubernetes?
+Answer: Imperative commands issue specific commands to achieve a desired state, while declarative commands provide a configuration file that tells Kubernetes what you want your desired state to look like.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of pods with multiple containers affect the network configuration of a deployment in Kubernetes?
+Answer: Pods with multiple containers share networking and storage, while providing a unique network IP for communication between containers.</p>
+</li>
+<li>
+<p>What is the purpose of creating a service group in Kubernetes?
+Answer: To provide stability for pods by assigning a fixed IP address to them, allowing clients to access them without worrying about changing IP addresses.</p>
+</li>
+<li>
+<p>How does scaling a deployment in Kubernetes affect the number of pods running behind the service?
+Answer: Scaling a deployment creates or removes replicas of the same pod, placing them behind the service and sharing one fixed IP.</p>
+</li>
+<li>
+<p>What is the benefit of using declarative commands in Kubernetes compared to imperative commands?
+Answer: Declarative commands provide a more flexible and scalable way of managing deployments, as they allow you to define your desired state without specifying how to achieve it.</p>
+</li>
+<li>
+<p>How does the use of Load Balancers in Kubernetes affect the accessibility of deployments?
+Answer: Load Balancers make deployments publicly available by routing client requests to pods behind the service, providing a stable endpoint for clients to access them.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a deployment in Kubernetes that exposes a web application to the public internet.
+Answer: Create a deployment with multiple replicas of a pod running a web server, exposing it to the public internet using a Load Balancer and a service.</p>
+</li>
+<li>
+<p>Implement a service group in Kubernetes to provide stability for a set of pods running a database.
+Answer: Create a service group that assigns a fixed IP address to the database pods, allowing clients to access them without worrying about changing IP addresses.</p>
+</li>
+<li>
+<p>Write a configuration file for a deployment in Kubernetes that defines the desired state for a web application.
+Answer: Define the desired state for the web application, including the number of replicas, container images, and network configurations, using a YAML or JSON file.</p>
+</li>
+<li>
+<p>Describe how to scale a deployment in Kubernetes to handle increased traffic.
+Answer: Use the <code>kubectl</code> scale command to increase the number of replicas running behind the service, ensuring that the deployment can handle increased traffic.</p>
+</li>
+<li>
+<p>Explain how to use declarative commands in Kubernetes to manage deployments.
+Answer: Provide a configuration file that defines the desired state for the deployment, using YAML or JSON syntax, and let Kubernetes figure out how to achieve it.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pod</td>
+<td>Container</td>
+<td>"The pod provides a unique network IP and the containers inside a pod can communicate with one another using the 'localhost' interface"</td>
+<td>A pod is a logical host for one or more containers. It provides a unique network IP address that allows containers within the pod to communicate with each other. The pod also provides a fixed IP address that remains stable even when nodes are restarted.</td>
+</tr>
+<tr>
+<td>deployment</td>
+<td>Group of replicas</td>
+<td>"A deployment represents a group of replicas of the same pod and keeps your pod running even when nodes they run on fail"</td>
+<td>A deployment is a collection of replicas of a pod, which ensures that the pod remains available even if one or more nodes fail. It provides a way to manage the lifecycle of pods and ensure that they are always running.</td>
+</tr>
+<tr>
+<td>service</td>
+<td>Logical set of pods</td>
+<td>"The Kubernetes service defines a logical set of pods and a policy by which to access them"</td>
+<td>A service is an abstraction that enables you to separate deployments and manage their lifecycles. It provides a stable endpoint or fixed IP address for a group of pods, allowing clients to access them without knowing the individual pod addresses.</td>
+</tr>
+<tr>
+<td>Load Balancer</td>
+<td>Network Load Balancer</td>
+<td>"To make them publicly available, you can connect a Load Balancer to your deployment by running the 'kubectl' exposed command"</td>
+<td>A Load Balancer is a network component that distributes incoming traffic across multiple pods behind a service. It provides a stable IP address for clients to access the pods, and ensures that no single pod is overwhelmed with traffic.</td>
+</tr>
+<tr>
+<td>kubectl run</td>
+<td>Imperative command</td>
+<td>"One way to run a container in a pod in Kubernetes is to use the 'kubectl' run command"</td>
+<td>The <code>kubectl</code> run command is an imperative command that starts a deployment of a container running in a pod. It provides a way to create and manage pods, but can be inflexible and error-prone.</td>
+</tr>
+<tr>
+<td>kubect! scale</td>
+<td>Imperative command</td>
+<td>"To scale a deployment, run the 'kubect!' scale command"</td>
+<td>The <code>kubect!</code> scale command is an imperative command that scales a deployment by creating or removing replicas of a pod. It provides a way to manage the number of pods in a deployment, but can be inflexible and error-prone.</td>
+</tr>
+<tr>
+<td>configuration file</td>
+<td>Declarative specification</td>
+<td>"Instead of issuing commands, you provide a configuration file that tells Kubernetes what you want your desired state to look like"</td>
+<td>A configuration file is a declarative specification that describes the desired state of a Kubernetes cluster or deployment. It provides a flexible and efficient way to manage complex deployments and ensure consistency across multiple nodes.</td>
+</tr>
+<tr>
+<td>service group</td>
+<td>Set of pods</td>
+<td>"A service group is set of pods, which provides a stable endpoint or fixed IP for them"</td>
+<td>A service group is a collection of pods that provide a stable endpoint or fixed IP address for clients to access. It provides a way to manage the lifecycles of multiple pods and ensure consistency across multiple nodes.</td>
+</tr>
+<tr>
+<td>front-end and back-end</td>
+<td>Sets of pods</td>
+<td>"For example, if you create two sets of pods called front-end and back-end, and you put them behind their own services"</td>
+<td>Front-end and back-end are examples of service groups that provide a stable endpoint or fixed IP address for clients to access. They demonstrate how multiple pods can be grouped together to provide a consistent and scalable service.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

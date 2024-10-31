@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_95</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # GCP Networking
+        ## Overview
+        - GCP is one of the largest and fastest networks in the world and it runs upon a software defined network that is built upon Google's own global fibre infrastructure.
+        
+        ### Understanding Resources as Services
+        - When we talk about resources within the GCP, we should really consider them as services. This is because these resources are not hardware, for example, when you choose a persistent disk type and capacity for your VM it isn't really a physical device you are getting. Instead it's a service that you acquire from GCP and you connect and interact with it over a network.
+        
+        ## Virtual Private Cloud (VPC)
+        ### Global Reach
+        - VPCs are by communicating across Google's own internal network infrastructure without having to cross the public Internet. For example, you can share a connection between the VPC and your on-premises network without the need for a connection in every region.
+        
+        ### Expandable
+        - Google Cloud VPCs are expandable as you can easily increase the IP space of any of the subnets within the VPC without any disruption to running workloads. This means you can make IP configuration changes on the fly without any downtime and provides you with flexibility and future growth options.
+        
+        ## Virtual Private Cloud (VPC)
+        ### Overview
+        - With Google Cloud Platform, a VPC is your private cloud network, where you can provision your GCP resources, interconnect them or isolate them from one another in a virtual private cloud. Essentially, a VPC is a comprehensive set of Google managed networking objects, which provide isolation, segregation and security in a multi-tenant environment.
+        
+        ### Agility and Control
+        - A VPC can also give you the agility to control how your workloads can connect either locally, regionally or globally. When you connect your on-premises or remote resources to GCP, you will automatically have global connectivity to your VPCs without you having to make configuration changes in each region.
+        
+        ### Fine Grained Policies
+        - You can define fine-grained networking policies within the PVC, and between GCP and on-premises or other public clouds.
+        
+        ## Shareable Network Environments
+        - With a single VPC for an entire organization, teams can be segregated within projects and each has their own separate billing and quotas applied. However, they can still share a private IP subnet and have shared access to services such as VPN or to a Cloud Interconnect.
+        
+        ### Types of Networks
+        - Networks come in three different types: default, auto mode, and custom mode. You use sub-networks to allow you to divide or segregate your network environment.
+        
+        ## Conclusion
+        - A Virtual Private Cloud (VPC) is therefore a global private and isolated virtual network partition. The VPC provides managed networking functionality for your Google Cloud Platform (GCP) resources. Hence, you can think of a VPC as a virtual version of your traditional physical network.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_110</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_110_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_110</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Compute Engine</h1>
+<h2>Free Usage Limits</h2>
+<p>For those wanting to try out Compute Engine there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month.</p>
+<h2>VM Security</h2>
+<p>When we contemplate security issues with VMs it is important to remember that the creator of a VM has full root privileges instance. For example, if you consider a Linux VM, the creator will have SSH capability and they can then use the GCP console to grant SSH capability to other users.
+Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.</p>
+<h2>IAM Roles</h2>
+<p>granular control over the permissions that you can give a project,
+When you use IAM with Compute Engine  this  gives you very user, group  or resource. Indeed, every API method in Compute Engine  will require that  the identity that is making the API request does have  the prerequisite  privileges to use the Compute Engine resource . Privileges take the  form of permissions, which you can grant to  others by setting an  IAM policy.</p>
+<p>The purpose of the IAM policy is  to grant roles to a member (user, group,  or service account)  of your project in a  consistent and reproducible manner .</p>
+<p>In  addition to legacy roles (viewer, editor,  owner) ,  and the  custom roles that you  can configure  yourself there are the Compute Engine predefined  roles.</p>
+<p>Predefined roles are normally sufficient  for most projects as  they have more granularity  than primitive roles and are more convenient  to use than custom roles. Indeed, predefined roles allow you to can  grant multiple roles to a project member on the same resource,  which provides a large measure of flexibility.</p>
+<p>For example, 
+if you want to give an admin full control of all Compute Engine resources  you could give a user roles/compute.admin. However, you want  to be only providing permissions on the  least required principles  so you may want to select a role that serves more specific job functions. </p>
+<p>Compute Engine has many specific
+predefined roles such as;
+• 
+roles/compute.instanceAdmin - Permissions to create,
+modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• 
+roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• 
+roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only providing permissions on the least required principles so you may want to select a role that serves more specific job functions.
+
+Compute Engine has many specific predefined roles such as:
+
+• roles/compute.instanceAdmin - Permissions to create, modify, and delete virtual machine instances. This includes permissions to create, modify, and delete disks.
+• roles/compute.load BalancerAdmin - Permissions to create, modify, and delete load balancers and associate resources.
+• roles/compute.networkAdmin - Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.
+
+For those wanting to try out Compute Engine, there are also free usage limits. These free usage quotas provide one fl-micro instance, with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic, per month. At the other end of the usage spectrum, there are more attractive discounts for VM usage when you purchase committed use discounts.
+
+VM Security
+
+When contemplating security issues with VMs, it is essential to remember that the creator of a VM has full root privileges instance. For example, if considering a Linux VM, the creator will have SSH capability and can then use the GCP console to grant SSH capability to other users. Similarly, when creating a VM using a Windows OS, the creator can use the GCP console to generate a username and password. After that, anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client.
+
+A point to remember is that if you are using the default network type listed, then you don't need to define any firewall rules to allow access to the VM. However, if you are using manual or custom network types, you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance.
+
+IAM Roles
+
+Granular control over the permissions that you can give a project is provided when using IAM with Compute Engine. This gives you very fine-grained control over user, group, or resource permissions. Indeed, every API method in Compute Engine will require that the identity making the API request does have the prerequisite privileges to use the Compute Engine resource.
+
+Privileges take the form of permissions, which you can grant to others by setting an IAM policy. The purpose of the IAM policy is to grant roles to a member (user, group, or service account) of your project in a consistent and reproducible manner.
+
+In addition to legacy roles (viewer, editor, owner), and custom roles that you can configure yourself, there are Compute Engine predefined roles. Predefined roles are normally sufficient for most projects as they have more granularity than primitive roles and are more convenient to use than custom roles.
+
+Indeed, predefined roles allow you to grant multiple roles to a project member on the same resource, which provides a large measure of flexibility. For example, if you want to give an admin full control of all Compute Engine resources, you could give a user roles/compute.admin. However, you want to be only
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Compute Engine Overview</h3>
+<p>For those interested in trying out Compute Engine, there are free usage limits available. These quotas provide one fl-micro instance with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic per month. At the other end of the spectrum, more attractive discounts for VM usage can be obtained when purchasing committed use discounts.</p>
+<h3>VM Security</h3>
+<p>When considering security issues with VMs, it's essential to remember that the creator of a VM has full root privileges. This means they can grant SSH capability to other users and generate usernames and passwords for Windows-based VMs. However, if using manual or custom network types, firewall rules must be added for both SSH and RDP access.</p>
+<h3>IAM Roles</h3>
+<p>Using IAM with Compute Engine provides granular control over permissions for projects. Every API method requires the identity making the request to have the necessary privileges, which are granted through permissions set in an IAM policy. This allows for consistent and reproducible permission management.</p>
+<p>IAM roles offer flexibility by allowing multiple roles to be granted to a project member on the same resource. Predefined roles, such as <code>roles/compute.instanceAdmin</code>, provide more granularity than primitive roles and are more convenient to use. Compute Engine has many predefined roles, including:</p>
+<ul>
+<li><code>roles/compute.instanceAdmin</code>: Permissions to create, modify, and delete virtual machine instances.</li>
+<li><code>roles/compute.loadBalancerAdmin</code>: Permissions to create, modify, and delete load balancers and associate resources.</li>
+<li><code>roles/compute.networkAdmin</code>: Permissions to create, modify, and delete networking resources, except for firewall rules and SSL certificates.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>VM Security and Access Control
+The text discusses the security aspects of Virtual Machines (VMs) in Compute Engine, including the importance of root privileges, SSH capability, and firewall rules. It highlights the need to define access controls, such as firewall rules, when using custom or manual network types.</p>
+<h3>Topic 2</h3>
+<p>IAM Roles and Permissions
+The text explains the concept of Identity and Access Management (IAM) roles in Compute Engine, which provide granular control over permissions for projects. It discusses the importance of setting IAM policies to grant roles to project members, including predefined roles such as <code>compute.instanceAdmin</code>, <code>compute.loadBalancerAdmin</code>, and <code>compute.networkAdmin</code>.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the free usage limits provided by Compute Engine for those wanting to try it out?
+Answer: One fl-micro instance with up to 30 gigabytes of HDD persistent disk and up to one gigabyte of network egress traffic per month.</p>
+</li>
+<li>
+<p>What is the purpose of IAM roles in Compute Engine?
+Answer: To grant granular control over permissions that can be given to a project, allowing for consistent and reproducible access to resources.</p>
+</li>
+<li>
+<p>What are predefined roles in Compute Engine?
+Answer: Predefined roles are normaly sufficient for most projects, providing more granularity than primitive roles and being more convenient to use than custom roles.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do the creator of a VM have full root privileges on an instance?
+Answer: The creator can grant SSH capability to other users using the GCP console, allowing them to connect to the VM's OS using a remote desktop protocol or RDP client.</p>
+</li>
+<li>
+<p>What is the difference between default network types and manual/custom network types in Compute Engine?
+Answer: Default network types do not require firewall rules for access, while manual/custom network types require adding required firewall rules for both SSH and RDP.</p>
+</li>
+<li>
+<p>How can you grant multiple roles to a project member on the same resource using predefined roles?
+Answer: You can select a role that serves more specific job functions, such as roles/compute.instanceAdmin or roles/compute.loadBalancerAdmin.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you want to give an admin full control of all Compute Engine resources, what IAM role would you assign to them?
+Answer: Roles/compute.admin</p>
+</li>
+<li>
+<p>How can you ensure that only the least required principles are granted permissions on a resource using predefined roles?
+Answer: You can select a role that serves more specific job functions, such as roles/compute.instanceAdmin or roles/compute.loadBalancerAdmin.</p>
+</li>
+<li>
+<p>What is the benefit of using predefined roles over custom roles in Compute Engine?
+Answer: Predefined roles provide more granularity and are more convenient to use than custom roles.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>free usage limits</td>
+<td>Concept</td>
+<td>"For those wanting to try out Compute Engine there are also free usage limits."</td>
+<td>The concept of free usage limits provides a way for users to test Compute Engine without incurring costs. This limit includes one fl-micro instance, up to 30 gigabytes of HDD persistent disk, and up to one gigabyte of network egress traffic per month.</td>
+</tr>
+<tr>
+<td>VM (Virtual Machine)</td>
+<td>Concept</td>
+<td>"VM Security" and "When we contemplate security issues with VMs it is important to remember that the creator of a VM has full root privileges instance."</td>
+<td>A virtual machine is a self-contained computing environment that can be run on top of a host operating system. The creator of a VM has full control over the instance, including SSH capability and the ability to grant access to other users.</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Operating System</td>
+<td>"For example, if you consider a Linux VM, the creator will have SSH capability..."</td>
+<td>Linux is an open-source operating system that provides a robust and secure environment for running virtual machines. The creator of a Linux VM has full control over the instance, including SSH capability.</td>
+</tr>
+<tr>
+<td>Windows OS</td>
+<td>Operating System</td>
+<td>"...the creator can use the GCP console to generate a username and password."</td>
+<td>Windows OS is a proprietary operating system that provides a user-friendly interface for running virtual machines. The creator of a Windows OS VM can generate a username and password, allowing others to connect to the instance using RDP clients.</td>
+</tr>
+<tr>
+<td>SSH (Secure Shell)</td>
+<td>Protocol</td>
+<td>"...the creator will have SSH capability..."</td>
+<td>Secure Shell is a secure protocol used for remote access to virtual machines. It provides a secure way for users to connect to a VM's OS and execute commands.</td>
+</tr>
+<tr>
+<td>GCP console</td>
+<td>Interface</td>
+<td>"...they can then use the GCP console to grant SSH capability to other users."</td>
+<td>The GCP console is an interface provided by Google Cloud Platform that allows users to manage their virtual machines, including granting access to other users using SSH.</td>
+</tr>
+<tr>
+<td>RDP (Remote Desktop Protocol)</td>
+<td>Protocol</td>
+<td>"...anyone who knows the username and password can connect to the VM's OS using a remote desktop protocol or RDP client."</td>
+<td>Remote Desktop Protocol is a protocol used for remote access to virtual machines. It provides a user-friendly interface for connecting to a VM's OS and executing commands.</td>
+</tr>
+<tr>
+<td>Default network type</td>
+<td>Network Type</td>
+<td>"...if you are using the default network type listed then you don't need to define any firewall rules to allow access to the VM."</td>
+<td>The default network type is a pre-configured network setting that provides basic connectivity to virtual machines. It does not require additional firewall rules for access.</td>
+</tr>
+<tr>
+<td>Manual or custom network types</td>
+<td>Network Type</td>
+<td>"...if you are using manual or custom network types you will have to add the required firewall rules for both SSH and RDP in order to allow access to the instance."</td>
+<td>Manual or custom network types provide more advanced networking settings that require additional configuration, including firewall rules, to enable access to virtual machines.</td>
+</tr>
+<tr>
+<td>IAM (Identity and Access Management)</td>
+<td>Framework</td>
+<td>"granular control over the permissions that you can give a project..."</td>
+<td>Identity and Access Management is a framework provided by Google Cloud Platform that allows users to manage access to their projects, including granting roles to users or groups. It provides granular control over permissions, allowing users to define specific access levels for different resources.</td>
+</tr>
+<tr>
+<td>User</td>
+<td>Entity</td>
+<td>"...a user roles/compute.admin."</td>
+<td>A user is an entity that can be granted access to virtual machines and other resources within a project. The compute.admin role provides full control over Compute Engine resources.</td>
+</tr>
+<tr>
+<td>Group</td>
+<td>Entity</td>
+<td>"...a group or resource..."</td>
+<td>A group is an entity that can be granted access to virtual machines and other resources within a project. Groups provide a way to manage access to multiple users at once, making it easier to assign roles and permissions.</td>
+</tr>
+<tr>
+<td>Service account</td>
+<td>Entity</td>
+<td>"...a service account of your project in a consistent and reproducible manner."</td>
+<td>A service account is an entity that can be granted access to virtual machines and other resources within a project. It provides a way for automated tasks to interact with Compute Engine resources without requiring user intervention.</td>
+</tr>
+<tr>
+<td>Legacy roles</td>
+<td>Role</td>
+<td>"...legacy roles (viewer, editor, owner)"</td>
+<td>Legacy roles are pre-defined roles provided by Google Cloud Platform that provide basic access levels to virtual machines and other resources. They include viewer, editor, and owner roles, which provide varying levels of control over Compute Engine resources.</td>
+</tr>
+<tr>
+<td>Custom roles</td>
+<td>Role</td>
+<td>"...custom roles that you can configure yourself"</td>
+<td>Custom roles are pre-defined roles provided by Google Cloud Platform that allow users to define specific access levels for different resources within a project. They provide more granular control over permissions than legacy roles, making it easier to manage access to virtual machines and other resources.</td>
+</tr>
+<tr>
+<td>Compute Engine predefined roles</td>
+<td>Role</td>
+<td>"...Compute Engine predefined roles"</td>
+<td>Compute Engine predefined roles are pre-defined roles provided by Google Cloud Platform that provide specific access levels to virtual machines and other resources within a project. They include roles such as compute.instanceAdmin, loadBalancerAdmin, and networkAdmin, which provide varying levels of control over Compute Engine resources.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

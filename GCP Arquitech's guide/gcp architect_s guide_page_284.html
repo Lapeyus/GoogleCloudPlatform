@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_284</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_284_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_284</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Groups</h1>
+<h2>Definition</h2>
+<p>Groups allow you to aggregate metrics across a set of machines. These are dynamically defined in so much as groups are filtering driven, meaning any existing or future resources that match the criteria for group membership will be automatically included.</p>
+<h2>Benefits</h2>
+<p>These are useful for highly changeable environments because you don't have to alter or update the group membership or related dashboards/alerts every time that you add or move resources.
+Groups also serve another function in that they provide a neat way for you to separate your production from development services. In addition, you can filter Kubernetes engine data by name and custom tags for clusters.</p>
+<h2>Dashboards</h2>
+<p>Dashboards provide quick visualization of core metrics for insight. These dashboards are customizable, and are auto-generated for most common applications.
+For example there are many standard metrics that cover; Compute Engine, Cloud Pub/Sub, Cloud Storage and Cloud Datastore.
+If these standard metrics provided by Stackdriver Monitoring do not fit your needs, you can create your own custom metrics.</p>
+<h2>Custom Metrics</h2>
+<p>Possibly, you could take various perspectives, for example, if you were to take an infrastructure focus then you might consider monitoring the CPU load or the memory utilization.
+You might also consider looking at the network traffic load as these are all values that are somewhat correlated with the numbers of concurrent users.
+Nonetheless, you could use a custom metric where you could easily pass the current number of users directly from your application into Stackdriver.</p>
+<h2>Securing Stackdriver</h2>
+<p>We learned earlier that Stackdriver accounts have the capability to monitor all your GCP projects within a single account. But this in many situations can be problematic as it makes the account "a single pane of glass", which means that all Stackdriver users that have access to the account also have access to all the projects' data by default.</p>
+<p>It also means that a Stackdriver role assigned to one person on one project applies equally to all projects monitored by that account.
+This is okay for an organization that monitors the network holistically from a centralised location such as a Network Operations Centre (NOC) as the agents can all be given access to Stackdriver in order to monitor all the projects and deny everyone else.</p>
+<p>But most organisations will still want some local project monitoring, logging and diagnostic capability.
+In order to give people different roles per project, and to control visibility to data, consider placing the monitoring of those projects into a separate Stackdriver account that is configured to only monitor that host project/account.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Groups allow you to aggregate metrics across a set of machines. These are dynamically defined in so much as groups are filtering driven, meaning any existing or future resources that match the criteria for group membership will be automatically included.
+
+This means that you don't have to alter or update the group membership or related dashboards/alerts, every time that you add or move resources making groups useful for highly changeable environments. Groups also serve another function in that they provide a neat way for you to separate your production from development services. In addition, you can filter Kubernetes engine data by name and custom tags for clusters.
+
+Dashboards provide quick visualization of core metrics for insight. These dashboards are customizable, and are auto-generated for most common applications. For example, there are many standard metrics that cover; Compute Engine, Cloud Pub/Sub, Cloud Storage and Cloud Datastore. If these standard metrics provided by Stackdriver Monitoring do not fit your needs, you can create your own custom metrics.
+
+For instance, if you have a use case where a game server is going to be running your own gaming application but it has a known capacity of 1000 concurrent users, then you might consider what metric indicator you would use to trigger a scaling event. You could take various perspectives, such as taking an infrastructure focus and monitoring the CPU load or memory utilization.
+
+You might also consider looking at the network traffic load as these are all values that are somewhat correlated with the numbers of concurrent users. Nonetheless, you could use a custom metric where you could easily pass the current number of users directly from your application into Stackdriver.
+
+Securing Stackdriver
+
+We learned earlier that Stackdriver accounts have the capability to monitor all your GCP projects within a single account. However, this can be problematic as it makes the account "a single pane of glass", which means that all Stackdriver users that have access to the account also have access to all the projects' data by default.
+
+It also means that a Stackdriver role assigned to one person on one project applies equally to all projects monitored by that account. This is okay for an organization that monitors the network holistically from a centralised location such as a Network Operations Centre (NOC) as the agents can all be given access to Stackdriver in order to monitor all the projects and deny everyone else.
+
+However, most organisations will still want some local project monitoring, logging and diagnostic capability. In order to give people different roles per project, and to control visibility to data, consider placing the monitoring of those projects into a separate Stackdriver account that is configured to only monitor that host project/account.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Groups</h3>
+<p>Groups enable you to aggregate metrics across a set of machines by dynamically defining membership based on filtering criteria. This allows for easy updates and management in highly changeable environments.</p>
+<h3>Benefits of Groups</h3>
+<ul>
+<li>Separate production from development services.</li>
+<li>Filter Kubernetes engine data by name and custom tags for clusters.</li>
+</ul>
+<h3>Dashboards</h3>
+<ul>
+<li>Provide quick visualization of core metrics for insight.</li>
+<li>Customizable and auto-generated for most common applications.</li>
+<li>Include standard metrics for Compute Engine, Cloud Pub/Sub, Cloud Storage, and Cloud Datastore.</li>
+<li>Allow creation of custom metrics to fit specific use cases.</li>
+</ul>
+<h3>Example Use Case: Scaling a Game Server</h3>
+<p>Consider a game server with a known capacity of 1000 concurrent users. You might create a custom metric to trigger a scaling event based on the current number of users.</p>
+<h3>Perspectives for Custom Metrics</h3>
+<ul>
+<li>Infrastructure focus: monitor CPU load, memory utilization, or network traffic load.</li>
+<li>Consider using a custom metric that passes the current number of users directly from your application into Stackdriver.</li>
+</ul>
+<h3>Securing Stackdriver</h3>
+<ul>
+<li>Monitoring all GCP projects within a single account can be problematic due to security concerns.</li>
+<li>A single Stackdriver role assigned to one person on one project applies equally to all projects monitored by that account.</li>
+<li>Consider placing monitoring for specific projects into separate Stackdriver accounts with limited access and visibility.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Definition</strong>: Monitoring and management of multiple resources in a dynamic environment.
+<strong>Description</strong>: Groups allow for aggregation of metrics across machines, making it easier to manage highly changeable environments. They provide a way to separate production from development services and filter Kubernetes engine data by name and custom tags.</p>
+<h3>Topic 2</h3>
+<p><strong>Definition</strong>: Customizable dashboards for quick visualization of core metrics.
+<strong>Description</strong>: Dashboards are auto-generated for common applications and can be customized to fit specific needs. They provide insight into key metrics, such as CPU load, memory utilization, and network traffic load.</p>
+<h3>Topic 3</h3>
+<p><strong>Definition</strong>: Securing Stackdriver accounts to control access to projects' data.
+<strong>Description</strong>: To prevent the "single pane of glass" issue, separate Stackdriver accounts can be created for each project. This allows for different roles per project and controls visibility to data.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are groups in the context of Stackdriver Monitoring?
+Answer: Groups allow you to aggregate metrics across a set of machines, dynamically defined by filtering criteria.</p>
+</li>
+<li>
+<p>Why are groups useful for highly changeable environments?
+Answer: Because they don't require altering or updating group membership or related dashboards/alerts every time resources are added or moved.</p>
+</li>
+<li>
+<p>What is the purpose of separating production from development services using groups?
+Answer: To provide a neat way to separate these services and filter Kubernetes engine data by name and custom tags for clusters.</p>
+</li>
+<li>
+<p>How do dashboards in Stackdriver Monitoring provide insight?
+Answer: By providing quick visualization of core metrics, which are customizable and auto-generated for most common applications.</p>
+</li>
+<li>
+<p>What can be done if standard metrics provided by Stackdriver Monitoring do not fit your needs?
+Answer: Create custom metrics to meet specific use cases or requirements.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of groups relate to the idea of a "single pane of glass" in Stackdriver accounts?
+Answer: Groups allow for more granular control and visibility into project data, mitigating the issue of a single account having access to all projects' data by default.</p>
+</li>
+<li>
+<p>What are some potential drawbacks of using a single Stackdriver account for multiple projects?
+Answer: It can lead to security concerns, as users with access to one project may also have access to others, and roles assigned to one project may not be tailored to specific needs.</p>
+</li>
+<li>
+<p>How do separate Stackdriver accounts address these security concerns?
+Answer: By allowing organizations to create separate accounts for each project, which can be configured to only monitor that host project/account, providing more granular control over user access and data visibility.</p>
+</li>
+<li>
+<p>What is the significance of custom metrics in Stackdriver Monitoring?
+Answer: They enable users to tailor monitoring to specific use cases or requirements, rather than relying on standard metrics.</p>
+</li>
+<li>
+<p>How do custom metrics relate to scaling events in game servers?
+Answer: Custom metrics can be used to trigger scaling events based on known capacity and concurrent user numbers, ensuring optimal performance and resource allocation.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you have a game server running your own gaming application with a known capacity of 1000 concurrent users. How would you use custom metrics in Stackdriver Monitoring?
+Answer: You would create a custom metric to track the current number of users directly from your application, allowing for real-time monitoring and scaling events.</p>
+</li>
+<li>
+<p>If you were taking an infrastructure focus, what metrics would you consider monitoring for CPU load or memory utilization?
+Answer: CPU load and memory utilization are values that are somewhat correlated with the numbers of concurrent users, making them useful indicators for scaling events.</p>
+</li>
+<li>
+<p>How would you secure a Stackdriver account for multiple projects in an organization?
+Answer: By creating separate accounts for each project, configuring roles and access controls to ensure only authorized personnel have access to specific data, and using custom metrics to tailor monitoring to individual needs.</p>
+</li>
+<li>
+<p>What is the benefit of using groups in highly changeable environments?
+Answer: Groups enable dynamic aggregation of metrics across machines without requiring frequent updates or changes to group membership or related dashboards/alerts.</p>
+</li>
+<li>
+<p>How would you use separate Stackdriver accounts for local project monitoring, logging, and diagnostic capability?
+Answer: By creating a separate account for each host project/account, configuring roles and access controls to ensure only authorized personnel have access to specific data, and using custom metrics to tailor monitoring to individual needs.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Groups</td>
+<td>Concept</td>
+<td>"Groups allow you to aggregate metrics across a set of machines."</td>
+<td>A group is a collection of resources that are dynamically defined based on filtering criteria. This allows for easy addition or removal of resources without updating the group membership, making it suitable for highly changeable environments. Additionally, groups provide a way to separate production from development services and filter Kubernetes engine data by name and custom tags for clusters.</td>
+</tr>
+<tr>
+<td>Dashboards</td>
+<td>Concept</td>
+<td>"Dashboards provide quick visualization of core metrics for insight."</td>
+<td>A dashboard is a customizable visual representation of key metrics that provides insights into the performance of an application or system. Standard dashboards are auto-generated for common applications, but users can also create custom metrics to meet specific needs. The purpose of a dashboard is to facilitate decision-making by providing a clear and concise view of key performance indicators (KPIs).</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Software Tool</td>
+<td>"Stackdriver accounts have the capability to monitor all your GCP projects within a single account."</td>
+<td>Stackdriver is a monitoring tool provided by Google Cloud Platform (GCP) that allows users to monitor their applications, services, and infrastructure. It provides real-time insights into performance, security, and other key metrics, enabling users to make data-driven decisions. However, the all-in-one approach can be problematic if multiple projects require separate access controls and visibility.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Software Tool</td>
+<td>"Groups also serve another function in that they provide a neat way for you to separate your production from development services."</td>
+<td>Kubernetes is an open-source container orchestration system that automates the deployment, scaling, and management of containers across a cluster of machines. It provides a flexible and scalable platform for deploying applications, but can be complex to manage. The use of groups in Kubernetes allows users to isolate production environments from development environments, making it easier to manage and maintain different stages of application development.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Cloud Service</td>
+<td>"These dashboards are customizable, and are auto-generated for most common applications."</td>
+<td>Compute Engine is a cloud computing platform provided by GCP that allows users to create virtual machines (VMs) and deploy applications on them. It provides a scalable and flexible platform for deploying applications, but requires careful management to ensure optimal performance and security. The use of dashboards in Compute Engine enables users to monitor key metrics such as CPU utilization, memory usage, and network traffic load.</td>
+</tr>
+<tr>
+<td>Cloud Pub/Sub</td>
+<td>Cloud Service</td>
+<td>"These standard metrics that cover; Compute Engine, Cloud Pub/Sub, Cloud Storage and Cloud Datastore."</td>
+<td>Cloud Pub/Sub is a messaging service provided by GCP that allows users to publish and subscribe to messages between applications. It provides a scalable and reliable platform for real-time communication between applications, but requires careful configuration to ensure optimal performance. The use of dashboards in Cloud Pub/Sub enables users to monitor key metrics such as message delivery rates, latency, and error rates.</td>
+</tr>
+<tr>
+<td>Custom Metrics</td>
+<td>Concept</td>
+<td>"If these standard metrics provided by Stackdriver Monitoring do not fit your needs, you can create your own custom metrics."</td>
+<td>A custom metric is a user-defined metric that provides additional insights into the performance of an application or system. It allows users to track specific KPIs that are not covered by standard dashboards, enabling them to make more informed decisions about their applications and infrastructure. Custom metrics can be used to track a wide range of metrics, including user engagement, response times, and error rates.</td>
+</tr>
+<tr>
+<td>Network Traffic Load</td>
+<td>Metric</td>
+<td>"You might also consider looking at the network traffic load as these are all values that are somewhat correlated with the numbers of concurrent"</td>
+<td>Network traffic load refers to the amount of data being transmitted over a network in a given time period. It is an important metric for monitoring the performance and security of applications and infrastructure, as it can indicate issues such as congestion, packet loss, or denial-of-service attacks. The use of dashboards in Compute Engine enables users to monitor key metrics such as network traffic load, latency, and error rates.</td>
+</tr>
+<tr>
+<td>CPU Load</td>
+<td>Metric</td>
+<td>"If you were to take an infrastructure focus then you might consider monitoring the CPU load"</td>
+<td>CPU load refers to the amount of processing power being used by a system or application at any given time. It is an important metric for monitoring the performance and security of applications and infrastructure, as it can indicate issues such as overloading, throttling, or resource contention. The use of dashboards in Compute Engine enables users to monitor key metrics such as CPU load, memory usage, and network traffic load.</td>
+</tr>
+<tr>
+<td>Memory Utilization</td>
+<td>Metric</td>
+<td>"You might also consider looking at the memory utilization"</td>
+<td>Memory utilization refers to the amount of memory being used by a system or application at any given time. It is an important metric for monitoring the performance and security of applications and infrastructure, as it can indicate issues such as overloading, throttling, or resource contention. The use of dashboards in Compute Engine enables users to monitor key metrics such as memory utilization, CPU load, and network traffic load.</td>
+</tr>
+<tr>
+<td>Network Traffic</td>
+<td>Metric</td>
+<td>"You might also consider looking at the network traffic load as these are all values that are somewhat correlated with the numbers of concurrent"</td>
+<td>Network traffic refers to the amount of data being transmitted over a network in a given time period. It is an important metric for monitoring the performance and security of applications and infrastructure, as it can indicate issues such as congestion, packet loss, or denial-of-service attacks. The use of dashboards in Compute Engine enables users to monitor key metrics such as network traffic load, latency, and error rates.</td>
+</tr>
+<tr>
+<td>Role-Based Access Control</td>
+<td>Security Concept</td>
+<td>"This is okay for an organization that monitors the network holistically from a centralised location"</td>
+<td>Role-based access control (RBAC) refers to the practice of assigning specific roles or permissions to users based on their job functions or responsibilities. It provides a flexible and scalable way to manage access controls, enabling organizations to assign different levels of access to different users or groups. However, it can be challenging to implement RBAC in complex environments with multiple projects and teams. The use of separate Stackdriver accounts enables organizations to implement RBAC more effectively, by assigning specific roles and permissions to users based on their needs.</td>
+</tr>
+<tr>
+<td>Centralized Location</td>
+<td>Security Concept</td>
+<td>"as the agents can all be given access to Stackdriver in order to monitor all the projects and deny everyone else"</td>
+<td>A centralized location refers to a single point of control or management for an organization's resources, systems, or infrastructure. In the context of security, it refers to the practice of consolidating access controls and monitoring capabilities into a single platform or system. The use of a centralized location enables organizations to implement more effective security measures, such as RBAC, by assigning specific roles and permissions to users based on their needs.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

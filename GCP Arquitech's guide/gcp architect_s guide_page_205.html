@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_205</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_205_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_205</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Service Design</h1>
+<h2>Overview</h2>
+<p>Cloud service design is a critical component of cloud architecture, and this chapter introduces the layered and iterative approach to designing cloud services.</p>
+<h3>State</h3>
+<p>State refers to the current status of a system or application. In cloud service design, state is essential for understanding the current state of a system and identifying areas for improvement.</p>
+<h4>Measurement</h4>
+<p>Measurement involves collecting data on the performance and behavior of a system or application. This data can be used to identify trends, optimize performance, and make informed decisions about future development.</p>
+<h4>Requirements</h4>
+<p>Requirements are the needs and expectations of users, stakeholders, and other parties involved in the cloud service design process. These requirements must be understood and addressed throughout the design process to ensure that the final product meets the needs of all parties.</p>
+<h2>Cloud Service Design Process</h2>
+<p>The cloud service design process is iterative and layered, involving multiple stages and feedback loops. This approach allows designers to refine their designs over time, incorporating new information and insights as they become available.</p>
+<h3>App Engine Standard Environment</h3>
+<p>If developers do not require Docker containers in their application, the App Engine standard environment may be a better option. In this case, the developer simply deploys their code, and App Engine handles the infrastructure.</p>
+<h4>App Engine Flexible Environment</h4>
+<p>The App Engine flexible environment is a developer-focused, no-ops compute infrastructure platform that abstracts the underlying infrastructure to some extent in favor of developer friendliness.</p>
+<ul>
+<li><strong>Deployability</strong>: App Engine Flex makes it easy to deploy by running Docker containers in VMs.</li>
+<li><strong>Operations</strong>: App Engine-Flex handles much of the ops for you, including capturing logs, scaling, versioned upgrades, and traffic splitting.</li>
+</ul>
+<h4>Kubernetes Engine</h4>
+<p>If developers are familiar with Docker, containers, configuration, and settings, and want to run containerized workloads, then Kubernetes Engine is a better option. GKE provides more control but also requires an understanding of the underlying infrastructure and container orchestration concepts.</p>
+<ul>
+<li><strong>Control</strong>: GKE provides more control over the deployment and management of containerized applications.</li>
+<li><strong>Integration</strong>: GKE can work across a VPN to manage both on-premises and cloud environments, making it a better choice for organizations already running Kubernetes on premises.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Cloud service design is a critical component of cloud architecture, and this chapter introduces the layered and iterative approach to designing cloud services. By understanding the state, measurement, and requirements of a system or application, designers can create effective cloud service designs that meet the needs of users and stakeholders.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>However, if the developers don't need to use Docker containers in their application, App Engine standard environment might be a better option. In this case, they would simply deploy the code and App Engine will handle the infrastructure for them.
+
+On the other hand, there is also App Engine -Flexible environment which is a developer-focused, no-ops, compute infrastructure platform that abstracts the underlying infrastructure to an extent in favor of developer friendliness.
+
+App Engine Flex does not run on standard run-times but instead it runs Docker containers in VMs, which makes it easy to deploy. Further, App Engine-Flex handles much of the ops for you as it handles things such as capturing logs, scaling, versioned upgrades, and traffic splitting.
+
+Nonetheless, if the developers are familiar with Docker, containers, configuration, and settings, and they do want to run containerized workloads then Kubernetes Engine will be a better option. GKE provides for more control but also requires an understanding of the underlying infrastructure and of container orchestration concepts. Kubernetes Engine is also a better choice if you are already running Kubernetes on premises as it can work across a VPN to manage both on-premises and cloud environments.
+
+This should be sufficient to give the developers a better understanding of the best platform for deploying their containerized applications.
+
+Chapter 21-Cloud Service Design
+
+This chapter will describe the layered and iterative approach to cloud service design and process. In order to better understand the design process, we will undertake an architecture design challenge that is iterative and will expand to address particular issues that will be introduced with each subsequent chapter. By taking this iterative approach to the design, we will encounter issues that force us to take a new perspective, so that over time it will evolve from its humble origins as a prototype into a scalable, reliable, stable, and secure design.
+
+After introducing you to the concept of using a layered model for cloud service design, the chapter discusses the three concepts that are critical to design and to cloud architecture in particular: these are state, measurement, and requirements. It is by using these three key concepts along with our iterative approach that will let you start to design a solution.
+
+Importantly, in the beginning, we do not need to understand the exact process of how our design is going to evolve into a stabilized production environment. Indeed, we accept that we are not going to get it right first time. Thus, we just need to know that applying the three concepts iteratively within the design process will get us there eventually. What we do need to have confidence in is the knowledge that following design thinking principles will lead us to a solution.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Choosing the Right Platform for Containerized Applications</h3>
+<p>When it comes to deploying containerized applications, developers have several options to consider. The choice of platform depends on their specific needs and expertise.</p>
+<h4>App Engine Standard Environment</h4>
+<p>If developers don't need to use Docker containers in their application, App Engine standard environment might be a better option. In this case, they can simply deploy their code, and App Engine will handle the infrastructure for them.</p>
+<h4>App Engine Flexible Environment</h4>
+<p>On the other hand, there is also App Engine -Flexible environment, which is a developer-focused, no-ops compute infrastructure platform that abstracts the underlying infrastructure to some extent in favor of developer friendliness. This platform runs Docker containers in VMs, making it easy to deploy and handle operations such as logging, scaling, versioned upgrades, and traffic splitting.</p>
+<h4>Kubernetes Engine (GKE)</h4>
+<p>However, if developers are familiar with Docker, containers, configuration, and settings, and want to run containerized workloads, Kubernetes Engine will be a better option. GKE provides more control but also requires an understanding of the underlying infrastructure and container orchestration concepts. It is particularly suitable for developers already running Kubernetes on premises, as it can manage both on-premises and cloud environments across a VPN.</p>
+<h4>Choosing the Right Platform</h4>
+<p>In summary, the choice of platform depends on the developer's expertise and specific needs. App Engine standard environment is suitable for simple deployments, while App Engine Flexible Environment provides more flexibility and control. Kubernetes Engine is ideal for developers with experience in container orchestration and management.</p>
+<h3>Cloud Service Design Process</h3>
+<p>This chapter will describe the layered and iterative approach to cloud service design and process. The design process will be iterative, expanding to address particular issues introduced with each subsequent chapter. By taking this iterative approach, we will encounter issues that force us to take a new perspective, leading to an evolving design from its humble origins as a prototype into a scalable, reliable, stable, and secure solution.</p>
+<h4>Key Concepts in Cloud Service Design</h4>
+<p>The chapter discusses the three critical concepts in cloud service design: state, measurement, and requirements. By applying these concepts iteratively within the design process, we can start designing a solution. It is essential to have confidence in the knowledge that following design thinking principles will lead us to a solution.</p>
+<h4>Embracing Iteration and Design Thinking</h4>
+<p>Importantly, we do not need to understand the exact process of how our design is going to evolve into a stabilized production environment. We accept that we are not going to get it right first time. What we need to have confidence in is the knowledge that applying the three concepts iteratively within the design process will get us there eventually.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cloud Service Deployment Options</h3>
+<p>This topic discusses the different deployment options for cloud services, including App Engine standard environment, App Engine Flexible environment, and Kubernetes Engine.</p>
+<h3>Topic 2: Cloud Architecture Design Process</h3>
+<p>This topic introduces the layered and iterative approach to cloud service design and process. It highlights the importance of using a layered model, state, measurement, and requirements in designing a solution.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the main differences between App Engine standard environment and App Engine Flexible environment?
+Answer: The main difference is that App Engine standard environment handles infrastructure for developers, while App Engine Flexible environment abstracts underlying infrastructure in favor of developer friendliness.</p>
+</li>
+<li>
+<p>In what scenario would Kubernetes Engine be a better option than App Engine Flex?
+Answer: If the developers are familiar with Docker, containers, configuration, and settings, and want to run containerized workloads, Kubernetes Engine provides more control but also requires an understanding of the underlying infrastructure and container orchestration concepts.</p>
+</li>
+<li>
+<p>What is the main goal of using a layered model for cloud service design?
+Answer: The main goal is to design a solution that is scalable, reliable, stable, and secure by applying the three key concepts of state, measurement, and requirements iteratively within the design process.</p>
+</li>
+<li>
+<p>How does App Engine Flex handle operations compared to App Engine standard environment?
+Answer: App Engine Flex handles much of the ops for you, including capturing logs, scaling, versioned upgrades, and traffic splitting, making it easier to deploy.</p>
+</li>
+<li>
+<p>What is the iterative approach to cloud service design mentioned in Chapter 21?
+Answer: The iterative approach involves undertaking an architecture design challenge that expands to address particular issues with each subsequent chapter, forcing the designer to take a new perspective and evolve the design over time.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the layered model for cloud service design relate to the concept of design thinking principles?
+Answer: The layered model is based on design thinking principles, which emphasize iterative approaches and flexibility in the design process.</p>
+</li>
+<li>
+<p>What are the implications of not understanding the exact process of how a design will evolve into a stabilized production environment?
+Answer: It means that the designer should focus on applying the three key concepts iteratively within the design process, rather than worrying about the exact outcome.</p>
+</li>
+<li>
+<p>How does App Engine Flex's use of Docker containers compare to Kubernetes Engine's approach?
+Answer: Both use Docker containers, but App Engine Flex runs them in VMs, while Kubernetes Engine provides more control and requires an understanding of container orchestration concepts.</p>
+</li>
+<li>
+<p>What are the benefits of using a layered model for cloud service design?
+Answer: It allows designers to create scalable, reliable, stable, and secure solutions by applying the three key concepts iteratively within the design process.</p>
+</li>
+<li>
+<p>How does the iterative approach to cloud service design relate to the concept of scalability and reliability?
+Answer: The iterative approach ensures that the design evolves over time to become more scalable and reliable, as it addresses particular issues introduced with each subsequent chapter.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you are designing a cloud-based application for a company that requires high scalability and reliability, which platform would you recommend using?
+Answer: Based on the information provided, I would recommend using Kubernetes Engine, as it provides more control and allows for the management of both on-premises and cloud environments.</p>
+</li>
+<li>
+<p>How would you approach designing a cloud service architecture for an e-commerce company that requires high availability and security?
+Answer: I would use the layered model for cloud service design, applying the three key concepts iteratively within the design process to create a scalable, reliable, stable, and secure solution.</p>
+</li>
+<li>
+<p>If you are familiar with Docker, containers, configuration, and settings, but want to run containerized workloads in a cloud environment, which platform would you choose?
+Answer: I would choose Kubernetes Engine, as it provides more control and allows for the management of both on-premises and cloud environments.</p>
+</li>
+<li>
+<p>How would you handle the deployment of a cloud-based application that requires frequent updates and rollbacks?
+Answer: I would use App Engine Flex, as it handles much of the ops for you, including capturing logs, scaling, versioned upgrades, and traffic splitting, making it easier to deploy and manage.</p>
+</li>
+<li>
+<p>If you are designing a cloud service architecture for a company that requires high security and compliance, which platform would you recommend using?
+Answer: Based on the information provided, I would recommend using Kubernetes Engine, as it provides more control and allows for the management of both on-premises and cloud environments.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App Engine standard environment</td>
+<td>Platform/Service</td>
+<td>"However, if the developers don't need to use Docker containers in their application, App Engine standard environment might be a better option."</td>
+<td>This is an alternative deployment option for applications that do not require containerization. It provides a simpler deployment process with less infrastructure management required by the developer.</td>
+</tr>
+<tr>
+<td>App Engine -Flexible environment</td>
+<td>Platform/Service</td>
+<td>"On the other hand there is also App Engine -Flexible environment which is a developer focused, no ops, compute infrastructure platform..."</td>
+<td>This is a more advanced deployment option that abstracts the underlying infrastructure to provide greater developer friendliness. It allows for containerized workloads and provides automated operations management.</td>
+</tr>
+<tr>
+<td>Docker containers</td>
+<td>Technology/Concept</td>
+<td>"App Engine Flex does not run on standard run-times but instead it runs Docker containers in VMs, which makes it easy to deploy."</td>
+<td>Docker containers are a lightweight and portable way of packaging applications and their dependencies. They provide a consistent and reliable environment for deployment.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE)</td>
+<td>Platform/Service</td>
+<td>"Nonetheless, if the developers are familiar with Docker, containers, configuration , and settings and they do want to run containerized workloads then Kubernetes Engine will be a better option."</td>
+<td>GKE is a managed platform that provides more control over container orchestration compared to App Engine -Flexible environment. It requires an understanding of the underlying infrastructure and container orchestration concepts.</td>
+</tr>
+<tr>
+<td>Cloud Service Design</td>
+<td>Concept/Process</td>
+<td>"This chapter will describe the layered and iterative approach to cloud service design and process..."</td>
+<td>Cloud Service Design is a systematic approach to designing cloud-based services that ensures scalability, reliability, stability, and security. It involves using a layered model and iterative design principles.</td>
+</tr>
+<tr>
+<td>Layered Model</td>
+<td>Concept/Model</td>
+<td>"After introducing you to the concept of using a layered model for cloud service design..."</td>
+<td>The layered model is a conceptual framework used in Cloud Service Design to organize and structure the design process. It typically consists of multiple layers, each representing a different level of abstraction.</td>
+</tr>
+<tr>
+<td>State</td>
+<td>Concept</td>
+<td>"...the three concepts that are critical to design and to cloud architecture in particular: these are state, measurement and requirements."</td>
+<td>In the context of Cloud Service Design, state refers to the current status or condition of a system or service. It is an essential concept in understanding the behavior and performance of a system.</td>
+</tr>
+<tr>
+<td>Measurement</td>
+<td>Concept</td>
+<td>"...the three concepts that are critical to design and to cloud architecture in particular: these are state, measurement and requirements."</td>
+<td>In Cloud Service Design, measurement refers to the process of collecting data about a system or service to understand its behavior and performance. It is essential for making informed design decisions.</td>
+</tr>
+<tr>
+<td>Requirements</td>
+<td>Concept</td>
+<td>"...the three concepts that are critical to design and to cloud architecture in particular: these are state, measurement and requirements."</td>
+<td>In Cloud Service Design, requirements refer to the needs and constraints of a system or service. They provide the foundation for designing a solution that meets the needs of users and stakeholders.</td>
+</tr>
+<tr>
+<td>Design Thinking Principles</td>
+<td>Concept/Process</td>
+<td>"...we do need to have confidence in is the knowledge that following design thinking principles will lead us to a solution."</td>
+<td>Design thinking principles are a set of guidelines used in Cloud Service Design to ensure that solutions meet user needs and are effective. They involve empathy, ideation, prototyping, and testing.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

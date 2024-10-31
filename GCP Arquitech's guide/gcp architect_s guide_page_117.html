@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_117</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_117_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_117</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Persistent External Disk Types</h1>
+<h2>Understanding the Difference</h2>
+<p>When building a VM, you must select a persistent external disk type. This choice determines whether your data will be stored on a spinning hard disk drive (HDD) or a solid-state drive (SSD).</p>
+<h3>Persistent vs Non-Persistent Disks</h3>
+<p>Persistent disks are durable network storage devices that distribute data across several physical disks. They can survive even if the VM terminates, but they cannot be moved between regions.</p>
+<h4>Persistent HDD vs SSD</h4>
+<p>Standard persistent disks use standard spinning hard disk drives (HDD), while SSD persistent disks use solid-state drives (SSD). The main difference is that HDDs are more efficient and cost-effective for typical sequential read/write operations, while SSDs handle high rates of random input/output operations per second (IOPS) and offer extremely low millisecond latency.</p>
+<h3>Choosing the Right Disk Type</h3>
+<p>The choice between persistent HDD and SSD depends on your specific needs:</p>
+<ul>
+<li>Use HDD persistent disks for applications that require efficient sequential read/write operations.</li>
+<li>Use SSD persistent disks for applications that require high rates of random I/O operations or extremely low latency.</li>
+</ul>
+<h2>Key Considerations</h2>
+<p>When selecting a persistent external disk type, keep the following in mind:</p>
+<ul>
+<li>Persistent disks are dynamically resizable while running and attached to a VM.</li>
+<li>You can attach and share disks in read-only mode to multiple VMs.</li>
+<li>Persistent disks cannot be moved between regions; you must take a snapshot of your data before moving it to a new region.</li>
+</ul>
+<h2>Local SSDs vs Persistent Disks</h2>
+<p>Local SSDs are fundamentally different from persistent disks, as they are physically attached to the virtual machine. This means that local SSDs offer even lower latency and higher IOPS than persistent disks.</p>
+<h3>Conclusion</h3>
+<p>When building a VM, selecting the right persistent external disk type is crucial for ensuring data availability and performance. By understanding the differences between HDD and SSD persistent disks, you can choose the best option for your specific needs.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Therefore, you must select a persistent external disk type. The result is an interesting condition where you can terminate or delete the VM instance but retain its boot disk and data. To have a boot disk survive a VM deletion, the "Delete boot disk when instance is deleted" box needs to be cleared in the instances property.
+
+There are different types of disks and you should understand the difference as some are persistent and some are not. The first disk that we create is what we call an external persistent disk, this is where we will store and boot the OS image. What 'external' means is it not integrated within the VM it is going to be attached to the VM through the network interface. Its 'persistent' because the drive is not physically attached to the VM and neither is its data; they are independent of one another.
+
+This separation of disk and VM allows the disk to survive if the VM terminates. But we must not confuse a disk with a physical object; it is after all virtual storage. This delivers some handy features such as persistent disks being dynamically resizable even while they're running and attached to a VM. Also, you can attach and share a disk in read-only mode to multiple VMs. This lets you share static data between multiple instances which is much cheaper than replicating your data to unique disks for individual instances.
+
+However, there is a drawback as persistent disks are bounded to their region and they can't be moved between regions. This is why if you move a VM across regions, you need to first take a snapshot of the data and then copy it onto the new disk that you create in the destination region's zone.
+
+The choice that you have of disk storage when building your VM is between persistent HDD and persistent SSD disk, and this choice will be determined by cost or performance. By their nature, persistent disks are durable network storage devices as the data is distributed across several physical disks. It is Compute Engine's responsibility to manage the data distribution and to ensure redundancy and optimize performance for you.
+
+Indeed, you need not concern yourself with most disk management tasks such as disk partitioning, redundant disk arrays, or sub-volume management. However, to get the best performance, simply format your persistent disks with a single file system and no partition tables. However, if you need to separate your data into multiple unique volumes, then you should add more disks rather than create multiple partitions on the existing drives.
+
+Standard persistent disks are basically standard spinning hard disk drives (HDD) whereas SSD persistent disks are solid-state drives (SSD). The differentiator between these two disk types is that the standard HDD persistent disks compared against the SSD are more efficient and cost-effective when handling typical sequential read/write operations. However, SSD drives are designed to handle high rates of random input/output operations per second (IOPS).
+
+Thus, if your applications require very high rates of random IOPS, then you should use SSD persistent disks. This is also because SSD persistent disks are designed for extremely low millisecond latency in the single-digits.
+
+Now, there is another type of disk storage called local SSDs but these are fundamentally different from persistent disks in that they're physically attached to the virtual machine.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Selecting a Persistent External Disk Type</strong></h1>
+<p>When building a VM, you must select a persistent external disk type. This allows the disk to survive even if the VM is terminated.</p>
+<h2><strong>Understanding Persistent Disks</strong></h2>
+<p>A persistent disk is not part of the VM but is attached to it through the network interface. The separation between the disk and VM allows the disk to survive if the VM terminates. However, do not confuse a disk with a physical object; it's virtual storage.</p>
+<p>Persistent disks offer several benefits, including:</p>
+<ul>
+<li>Dynamically resizable while running and attached to a VM</li>
+<li>Ability to attach and share a disk in read-only mode to multiple VMs</li>
+<li>Sharing static data between multiple instances at a lower cost</li>
+</ul>
+<p>However, persistent disks have some drawbacks:</p>
+<ul>
+<li>Bounded to their region and cannot be moved between regions</li>
+<li>Require taking a snapshot of the data before moving to a new region's zone</li>
+</ul>
+<h2><strong>Choosing Between Persistent HDD and SSD Disks</strong></h2>
+<p>When building your VM, you have two options for disk storage: persistent HDD and persistent SSD disks. The choice depends on cost or performance.</p>
+<p>Persistent disks are durable network storage devices that distribute data across several physical disks. Compute Engine manages data distribution, redundancy, and performance.</p>
+<p>To get the best performance, format your persistent disks with a single file system and no partition tables. If you need to separate your data into multiple unique volumes, add more disks rather than creating multiple partitions on existing drives.</p>
+<h2><strong>Key Differences Between Persistent HDD and SSD Disks</strong></h2>
+<ul>
+<li>Standard persistent disks are spinning hard disk drives (HDD), while SSD persistent disks are solid-state drives (SSD).</li>
+<li>HDD persistent disks are more efficient and cost-effective for typical sequential read/write operations.</li>
+<li>SSD persistent disks handle high rates of random input/output operations per second (IOPS) and are designed for extremely low millisecond latency in the single-digits.</li>
+</ul>
+<h2><strong>Local SSDs: A Different Type of Disk Storage</strong></h2>
+<p>Local SSDs are fundamentally different from persistent disks, as they are physically attached to the virtual machine.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Persistent Disk Definition</strong>
+The text defines a persistent external disk as a virtual storage device that is not integrated within a VM and is instead attached through a network interface. It allows for dynamic resizing, sharing with multiple VMs in read-only mode, and is durable network storage.</p>
+<h3>Topic 2</h3>
+<p><strong>Disk Types and Characteristics</strong>
+The text explains the difference between standard HDD persistent disks and SSD persistent disks, highlighting their efficiency, cost-effectiveness, and performance capabilities. It also mentions local SSDs, which are physically attached to the virtual machine.</p>
+<h3>Topic 3</h3>
+<p><strong>Disk Management and Performance Optimization</strong>
+The text advises on disk management tasks such as partitioning, redundant disk arrays, and sub-volume management, emphasizing that Compute Engine handles these tasks. It provides guidance on formatting persistent disks for optimal performance and separating data into multiple unique volumes.</p>
+<h3>Topic 4</h3>
+<p><strong>Region and Disk Mobility</strong>
+The text notes that persistent disks are bounded to their region and cannot be moved between regions, requiring a snapshot and copy operation when moving a VM across regions.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What happens to a VM instance when you delete it, and how can you retain its boot disk and data?
+Answer: The VM instance is deleted, but you can retain its boot disk and data by clearing the "Delete boot disk when instance is deleted" box in the instances property.</p>
+</li>
+<li>
+<p>What type of disks are persistent and what makes them different from non-persistent disks?
+Answer: Persistent disks are independent of the VM and are not physically attached to it, making them durable network storage devices that can survive if the VM terminates.</p>
+</li>
+<li>
+<p>What are the benefits of using persistent disks in terms of data sharing between multiple instances?
+Answer: Persistent disks allow you to share static data between multiple instances at a lower cost than replicating data to unique disks for individual instances.</p>
+</li>
+<li>
+<p>Why is it necessary to take a snapshot of data when moving a VM across regions, and what happens next?
+Answer: It's necessary to take a snapshot of the data because persistent disks are bounded to their region and can't be moved between regions. After taking a snapshot, you need to copy the data onto the new disk created in the destination region's zone.</p>
+</li>
+<li>
+<p>What is the main difference between standard HDD persistent disks and SSD persistent disks?
+Answer: The main difference is that HDD persistent disks are more efficient and cost-effective for typical sequential read/write operations, while SSD persistent disks are designed to handle high rates of random IOPS and have extremely low millisecond latency.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the separation of disk and VM allow for data survival in case of VM termination?
+Answer: The separation allows the disk to survive independently of the VM, making it possible to retain data even if the VM is deleted.</p>
+</li>
+<li>
+<p>What are the implications of using persistent disks being bounded to their region?
+Answer: This limitation means that you need to take a snapshot and copy the data onto a new disk in the destination region's zone when moving a VM across regions.</p>
+</li>
+<li>
+<p>How do persistent disks handle random input/output operations per second (IOPS)?
+Answer: SSD persistent disks are designed to handle high rates of IOPS, making them suitable for applications that require low latency and high performance.</p>
+</li>
+<li>
+<p>What is the advantage of using a single file system and no partition tables on persistent disks?
+Answer: This configuration allows for optimal performance by minimizing disk management tasks and maximizing storage efficiency.</p>
+</li>
+<li>
+<p>How do local SSDs differ from persistent disks in terms of their physical attachment to the VM?
+Answer: Local SSDs are physically attached to the virtual machine, whereas persistent disks are independent of the VM and can be accessed remotely.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>When would you choose to use a persistent HDD disk over an SSD persistent disk?
+Answer: You would choose a persistent HDD disk when cost is a primary concern and typical sequential read/write operations are sufficient for your application's requirements.</p>
+</li>
+<li>
+<p>How can you optimize performance on persistent disks by formatting them with a single file system and no partition tables?
+Answer: By doing so, you minimize disk management tasks and maximize storage efficiency, resulting in optimal performance.</p>
+</li>
+<li>
+<p>What scenarios would require the use of local SSDs instead of persistent disks?
+Answer: Local SSDs are suitable for applications that require extremely low latency and high performance, such as real-time data processing or gaming.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>persistent external disk</td>
+<td>Disk Storage</td>
+<td>"Therefore you must select a persistent external disk type."</td>
+<td>A persistent external disk is a type of disk storage that is not integrated within a VM and is attached to it through the network interface. It allows for the separation of disk and VM, enabling the disk to survive if the VM terminates. Persistent disks are dynamically resizable and can be shared between multiple VMs in read-only mode. However, they are bounded to their region and cannot be moved between regions.</td>
+</tr>
+<tr>
+<td>external persistent disk</td>
+<td>Disk Storage</td>
+<td>"The first disk that we create is what we call an external persistent disk..."</td>
+<td>An external persistent disk is a type of disk storage that is not integrated within a VM and is attached to it through the network interface. It is used to store and boot the OS image. The term 'external' refers to its separation from the VM, allowing it to survive if the VM terminates.</td>
+</tr>
+<tr>
+<td>persistent HDD</td>
+<td>Disk Storage</td>
+<td>"Standard persistent disks are basically standard spinning hard disk drives (HDD)..."</td>
+<td>A persistent HDD is a type of disk storage that uses a standard spinning hard disk drive (HDD). It is more efficient and cost-effective when handling typical sequential read/write operations. However, it may not be suitable for applications requiring high rates of random input/output operations per second (IOPS).</td>
+</tr>
+<tr>
+<td>persistent SSD</td>
+<td>Disk Storage</td>
+<td>"Standard persistent disks are basically standard spinning hard disk drives (HDD) whereas SSD persistent disks are solid-state drives (SSD)..."</td>
+<td>A persistent SSD is a type of disk storage that uses a solid-state drive (SSD). It is more efficient and cost-effective when handling high rates of random input/output operations per second (IOPS). It also provides extremely low millisecond latency in the single-digits.</td>
+</tr>
+<tr>
+<td>local SSD</td>
+<td>Disk Storage</td>
+<td>"Now there is another type of disk storage called local SSDs but these are fundamentally different from persistent disks..."</td>
+<td>A local SSD is a type of disk storage that is physically attached to a virtual machine (VM). It is distinct from persistent disks, which are not integrated within the VM and are attached through the network interface.</td>
+</tr>
+<tr>
+<td>boot disk</td>
+<td>Disk Storage</td>
+<td>"To have a boot disk survive if the VM terminates..."</td>
+<td>A boot disk is a type of disk storage used to store the operating system and other essential files for a virtual machine (VM). It allows the VM to boot even if the underlying hardware fails or is terminated. The term 'boot' refers to its primary function in enabling the VM to start up.</td>
+</tr>
+<tr>
+<td>network interface</td>
+<td>Network</td>
+<td>"The choice that you have of disk storage when building your VM is between persistent HDD and persistent SSD disk and this choice will be determined by cost or performance..."</td>
+<td>A network interface is a component that enables communication between two devices over a network. In the context of virtual machines, it refers to the connection between the VM and the underlying network infrastructure.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>Geographic Location</td>
+<td>"But there is a drawback as persistent disks are bounded to their region and they can't be moved between regions..."</td>
+<td>A region refers to a geographic location or area where data is stored. In the context of cloud computing, it refers to a specific area within a larger geographic region where data is stored and processed. Persistent disks are tied to a specific region and cannot be moved to another region without taking additional steps.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

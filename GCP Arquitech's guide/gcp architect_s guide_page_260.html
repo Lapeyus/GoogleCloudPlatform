@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_260</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_260_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_260</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Migration Benefits</h1>
+<h2>Scalability and Agility</h2>
+<p>The ability to scale up and down as required is very appealing to nearly all teams across the organisation at it eliminates the burden of carrying surplus capacity, as well as provides more agility.</p>
+<h2>Visibility and Governance</h2>
+<p>Despite existing concerns with governance in the cloud in general, GCP's features and tools can offer even more visibility, and thus provide better governance into the IT ecosystem. Indeed increased visibility saves on the proliferation of storage buckets and unnecessary running instances.</p>
+<h2>Cost Effectiveness</h2>
+<p>The major cost benefits that a cloud migration could bring a company, particularly start-ups is well understood as it can significantly reduce capital expenditure on hardware but so can virtualisation however it is the operation expenditure that is not so easily understood. Virtualisation does not reduce the operational, maintenance, management and provisioning cost overheads. Cloud environments does significantly reduce these sometimes significantly if you opt for a fully managed service.</p>
+<h2>Talent and Innovation</h2>
+<p>Google cloud managed services allow IT pros to be less burdened by tedious tasks and housekeeping, which allowed them more time for involvement in projects that produced real business value.</p>
+<h2>Modernisation</h2>
+<p>The migration of systems and data to the cloud is a major project that gives you the chance to re-evaluate applications and their databases. Perhaps some of these are now legacy or even if they still are mission critical systems they could perhaps be due a modernisation. During any system migration project there will be some systems that will require to be re-architected or re-factored to make them suitable for the cloud.</p>
+<h2>Planning the Workload Migration</h2>
+<p>The task of moving enterprise data and applications from inside the secure data center outside into the cloud can be particularly daunting. That is why it must be entered into iteratively in manageable steps following a fully prepared migration strategy. The strategy will differ from organisations in other industry but the core steps should be much the same.</p>
+<h3>Consider Application Suitability</h3>
+<p>Unfortunately not every application is suitable for the cloud and it might require refactoring. It's also important to consider the amount of resources each application uses. The public cloud is a multi-tenant environment, which means applications share resources. And while autoscaling in the public cloud scales resources up or down based on demand, noisy neighbours can be an issue.</p>
+<h3>Evaluate Costs</h3>
+<p>Evaluate costs and consider the potential impact on operation expenditure. Cloud environments can significantly reduce these sometimes significantly if you opt for a fully managed service.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The ability to scale up and down as required is very appealing to nearly all teams across the organisation, eliminating the burden of overprovisioning resources and providing more agility.
+
+Visibility and governance are also key benefits, with GCP's features and tools offering even more visibility into the IT ecosystem. This increased visibility saves on the proliferation of storage buckets and unnecessary running instances.
+
+Cloud migration can bring significant cost savings to a company, particularly start-ups. The major cost benefits include reduced capital expenditure on hardware, as well as operation expenditure that is not so easily understood. Cloud environments significantly reduce operational, maintenance, management, and provisioning cost overheads, especially when opting for a fully managed service. Google cloud also provides visibility into billing and offers tools and advice via reports to reduce unnecessary expenditure due to over-sizing.
+
+Google cloud managed services allow IT pros to be less burdened by tedious tasks and housekeeping, allowing them more time for involvement in projects that produce real business value.
+
+The migration of systems and data to the cloud is a major project that gives you the chance to re-evaluate applications and their databases. Perhaps some of these are now legacy or even if they still are mission critical systems, they could perhaps be due a modernisation. During any system migration project, there will be some systems that require to be re-architected or re-factored to make them suitable for the cloud.
+
+Planning the Workload Migration
+
+The task of moving enterprise data and applications from inside the secure data center outside into the cloud can be particularly daunting. That is why it must be entered into iteratively in manageable steps following a fully prepared migration strategy. The strategy will differ from organisations in other industry but the core steps should be much the same.
+
+1. Consider the application's suitability for the cloud. Unfortunately, not every application is suitable for the cloud and may require refactoring. It's also important to consider the amount of resources each application uses. The public cloud is a multi-tenant environment, which means applications share resources. While autoscaling in the public cloud scales resources up or down based on demand, noisy neighbours can be an issue.
+
+2. Evaluate costs
+
+The ability to scale up and down as required is very appealing to nearly all teams across the organisation, eliminating the burden of overprovisioning resources and providing more agility.
+
+Visibility and governance are also key benefits, with GCP's features and tools offering even more visibility into the IT ecosystem. This increased visibility saves on the proliferation of storage buckets and unnecessary running instances.
+
+Cloud migration can bring significant cost savings to a company, particularly start-ups. The major cost benefits include reduced capital expenditure on hardware, as well as operation expenditure that is not so easily understood. Cloud environments significantly reduce operational, maintenance, management, and provisioning cost overheads, especially when opting for a fully managed service. Google cloud also provides visibility into billing and offers tools and advice via reports to reduce unnecessary expenditure due to over-sizing.
+
+Google cloud managed services allow IT pros to be less burdened by tedious tasks and housekeeping, allowing them more time for involvement in projects that produce real business value.
+
+The migration of systems and data to the cloud is a major project that gives you the chance to re-evaluate applications and their databases. Perhaps some of these are now legacy or even if they still are mission critical systems, they could perhaps be due a modernisation. During any system migration project, there will be some systems that require to be re-architected or re-factored to make them suitable for the cloud.
+
+Planning the Workload Migration
+
+The task of moving enterprise data and applications from inside the secure data center outside into the cloud can be particularly daunting. That is why it must be entered into iteratively in manageable steps following a fully prepared migration strategy. The strategy will differ from organisations in other industry but the core steps should be much the same.
+
+1. Consider the application's suitability for the cloud. Unfortunately, not every application is suitable for the cloud and may require refactoring. It's also important to consider the amount of resources each application uses. The public cloud is a multi-tenant environment, which means applications share resources. While autoscaling in the public cloud scales resources up or down based on demand, noisy neighbours can be an issue.
+
+2. Evaluate costs
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Benefits of Cloud Migration for Teams, Cost Effectiveness, Talent, Innovation, and Modernisation</h3>
+<p>The ability to scale up and down as required is highly appealing to nearly all teams across the organisation, eliminating the burden of overprovisioning resources and providing more agility.</p>
+<h4>Visibility and Governance</h4>
+<p>GCP's features and tools offer even more visibility, enabling better governance into the IT ecosystem. This increased visibility saves on storage buckets and unnecessary running instances.</p>
+<h4>Cost Effectiveness</h4>
+<p>Cloud migration can significantly reduce capital expenditure on hardware, but operation expenditure is not as easily understood. Cloud environments reduce operational costs, especially with fully managed services. Google Cloud provides visibility into billing and offers tools to reduce unnecessary expenditure due to over-sizing.</p>
+<h4>Talent and Innovation</h4>
+<p>Google Cloud managed services allow IT pros to focus on projects that produce real business value, reducing tedious tasks and housekeeping.</p>
+<h4>Modernisation</h4>
+<p>The migration of systems and data to the cloud is a major project that allows re-evaluation of applications and databases. This presents an opportunity to address long-term issues with existing systems, whether moving them to the cloud or not.</p>
+<h3>Planning the Workload Migration</h3>
+<ol>
+<li><strong>Consider Application Suitability</strong>: Not every application is suitable for the cloud, requiring refactoring. Consider resource usage, as public cloud environments are multi-tenant and share resources.</li>
+<li><strong>Evaluate Costs</strong>: Assess costs to ensure a smooth migration process.</li>
+</ol></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Agility and Cost Efficiency</h3>
+<p>Appealing to nearly all teams, scaling up and down as required eliminates the burden of overprovisioning resources, provides more agility, and reduces operational expenditure.</p>
+<h3>Topic 2: Visibility and Governance</h3>
+<p>GCP's features and tools offer better governance into the IT ecosystem, providing increased visibility that saves on storage buckets and unnecessary running instances.</p>
+<h3>Topic 3: Talent and Innovation</h3>
+<p>Google cloud managed services allow IT pros to focus on projects producing real business value by reducing tedious tasks and housekeeping.</p>
+<h3>Topic 4: Modernisation and System Re-architecture</h3>
+<p>The migration to the cloud provides an opportunity to re-evaluate applications, databases, and legacy systems, addressing long-term issues and modernising them for the cloud.</p>
+<h3>Topic 5: Application Suitability and Resource Management</h3>
+<p>Not every application is suitable for the cloud, requiring refactoring or consideration of resource usage in a multi-tenant environment with potential noisy neighbours and bandwidth cost issues.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is one of the main benefits of scaling up and down as required in a cloud environment?
+Answer: It eliminates the burden of overprovisioning resources and provides more agility.</p>
+</li>
+<li>
+<p>How does Google Cloud Platform's (GCP) features and tools address concerns with governance in the cloud?
+Answer: GCP offers better visibility, which saves on the proliferation of storage buckets and unnecessary running instances.</p>
+</li>
+<li>
+<p>What is one way that cloud environments can reduce operational expenditure?
+Answer: By providing a fully managed service, which significantly reduces operational, maintenance, management, and provisioning cost overheads.</p>
+</li>
+<li>
+<p>How do Google Cloud managed services benefit IT professionals?
+Answer: They allow IT pros to be less burdened by tedious tasks and housekeeping, allowing them more time for involvement in projects that produce real business value.</p>
+</li>
+<li>
+<p>What is a major opportunity presented by migrating systems and data to the cloud?
+Answer: The chance to re-evaluate applications and their databases, potentially addressing long-term issues with existing systems.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the public cloud's multi-tenant environment impact application performance? 
+Answer: Noisy neighbours can be an issue, while high spikes in demand can run up bandwidth costs and hinder an app's performance.</p>
+</li>
+<li>
+<p>What is a key consideration when evaluating the suitability of an application for the cloud?
+Answer: The amount of resources each application uses, as well as potential refactoring requirements.</p>
+</li>
+<li>
+<p>How does virtualization compare to cloud environments in terms of reducing operational expenditure?
+Answer: Virtualization does not reduce operational expenditure, whereas cloud environments can significantly reduce these costs with a fully managed service.</p>
+</li>
+<li>
+<p>What is the primary benefit of migrating systems and data to the cloud for start-ups?
+Answer: Significant reduction in capital expenditure on hardware.</p>
+</li>
+<li>
+<p>How should workload migration be approached?
+Answer: Iteratively in manageable steps following a fully prepared migration strategy, which may differ from other industries but shares core steps.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are an IT manager considering migrating your company's data and applications to the cloud. What is one key consideration you should prioritize? 
+Answer: Evaluating the suitability of each application for the cloud, including potential refactoring requirements.</p>
+</li>
+<li>
+<p>A start-up company is considering migrating its systems and data to the cloud. How can this move potentially benefit their business?
+Answer: Significant reduction in capital expenditure on hardware, as well as increased agility and reduced operational expenditure.</p>
+</li>
+<li>
+<p>What is one way that Google Cloud Platform's features and tools can help organizations improve governance in the IT ecosystem? 
+Answer: Providing better visibility into storage buckets and running instances, which saves on unnecessary costs.</p>
+</li>
+<li>
+<p>How can cloud environments reduce operational expenditure for a company?
+Answer: By providing a fully managed service, which significantly reduces operational, maintenance, management, and provisioning cost overheads.</p>
+</li>
+<li>
+<p>What is one opportunity presented by migrating systems and data to the cloud that may not be immediately apparent? 
+Answer: The chance to re-evaluate applications and their databases, potentially addressing long-term issues with existing systems.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>scaling up and down as required</td>
+<td>Concept</td>
+<td>"The ability to scale up and down as required is very appealing to nearly all teams across the organisation..."</td>
+<td>The concept of scalability is a key benefit of cloud computing, allowing organizations to adapt to changing demands without having to over-provision resources. This flexibility is particularly appealing to teams that require rapid adjustments to their workload.</td>
+</tr>
+<tr>
+<td>burden</td>
+<td>Concept</td>
+<td>"...eliminates the burden of carrying surplus capacity..."</td>
+<td>The term "burden" refers to the weight or responsibility associated with managing excess resources, such as spare computing power or storage capacity. In this context, cloud computing eliminates this burden by providing a more efficient and cost-effective way to manage resources.</td>
+</tr>
+<tr>
+<td>overprovisioning</td>
+<td>Concept</td>
+<td>"...carrying surplus capacity..."</td>
+<td>Overprovisioning refers to the practice of allocating more resources than are actually needed, often to account for uncertainty or potential future growth. In the context of cloud computing, this concept is relevant because it can lead to unnecessary costs and inefficiencies.</td>
+</tr>
+<tr>
+<td>agility</td>
+<td>Concept</td>
+<td>"...and provides more agility."</td>
+<td>Agility refers to the ability to quickly adapt to changing circumstances or demands. In the context of cloud computing, scalability and flexibility enable organizations to respond rapidly to changes in their workload, making them more agile.</td>
+</tr>
+<tr>
+<td>visibility</td>
+<td>Concept</td>
+<td>"Despite existing concerns with governance in the cloud in general, GCP's features and tools can offer even more visibility..."</td>
+<td>Visibility refers to the ability to see and understand what is happening within a system or process. In this context, Google Cloud Platform (GCP) provides enhanced visibility into its IT ecosystem, enabling organizations to better manage their resources and reduce unnecessary costs.</td>
+</tr>
+<tr>
+<td>governance</td>
+<td>Concept</td>
+<td>"...provide better governance into the IT ecosystem."</td>
+<td>Governance refers to the processes and procedures that ensure an organization's systems and data are managed effectively and in accordance with established policies and standards. In this context, GCP provides features and tools that enhance governance capabilities, enabling organizations to better manage their IT resources.</td>
+</tr>
+<tr>
+<td>storage buckets</td>
+<td>Concept</td>
+<td>"...proliferation of storage buckets..."</td>
+<td>Storage buckets refer to containers used to store and organize data in cloud-based systems. The proliferation of storage buckets can lead to unnecessary costs and inefficiencies, as they may not be fully utilized or optimized. In this context, GCP's features and tools help reduce the proliferation of storage buckets, making it easier to manage resources effectively.</td>
+</tr>
+<tr>
+<td>instances</td>
+<td>Concept</td>
+<td>"...unnecessary running instances."</td>
+<td>Running instances refer to virtual machines or other computing resources that are actively being used by an application or service. Unnecessary running instances can lead to wasted resources and unnecessary costs. In this context, GCP's features and tools help reduce the number of unnecessary running instances, making it easier to manage resources effectively.</td>
+</tr>
+<tr>
+<td>cost effectiveness</td>
+<td>Concept</td>
+<td>"The major cost benefits that a cloud migration could bring a company..."</td>
+<td>Cost effectiveness refers to the ability to achieve significant reductions in costs while maintaining or improving performance and efficiency. In this context, cloud computing can provide substantial cost savings for organizations, particularly start-ups, by reducing capital expenditure on hardware and operational expenditures associated with managing resources.</td>
+</tr>
+<tr>
+<td>virtual machines</td>
+<td>Concept</td>
+<td>"...reduce capital expenditure on hardware..."</td>
+<td>Virtual machines refer to software-based computing environments that can be easily created, managed, and scaled up or down as needed. By using virtual machines, organizations can reduce their reliance on physical hardware, leading to cost savings and improved flexibility.</td>
+</tr>
+<tr>
+<td>databases</td>
+<td>Concept</td>
+<td>"...re-evaluate applications and their databases."</td>
+<td>Databases refer to collections of data that are organized and stored in a way that makes them easily accessible and usable by an application or service. Re-evaluating databases can help organizations optimize their data management practices, improve performance, and reduce costs.</td>
+</tr>
+<tr>
+<td>legacy systems</td>
+<td>Concept</td>
+<td>"...legacy or even if they still are mission critical systems..."</td>
+<td>Legacy systems refer to outdated or obsolete software applications or systems that continue to be used despite being no longer supported or maintained. In this context, re-evaluating legacy systems can help organizations identify opportunities for modernization and improvement, reducing costs and improving performance over time.</td>
+</tr>
+<tr>
+<td>modernisation</td>
+<td>Concept</td>
+<td>"...a tremendous opportunity to address some long term issues with existing systems..."</td>
+<td>Modernisation refers to the process of updating or replacing outdated or obsolete software applications or systems with newer, more efficient, and effective alternatives. In this context, re-evaluating legacy systems provides an opportunity for organisations to identify areas where modernisation can improve performance, reduce costs, and enhance overall system efficiency.</td>
+</tr>
+<tr>
+<td>workload migration</td>
+<td>Concept</td>
+<td>"...moving enterprise data and applications from inside the secure data center outside into the cloud..."</td>
+<td>Workload migration refers to the process of transferring or moving existing software applications or systems from one environment to another, often to a cloud-based platform. In this context, workload migration can be a complex and challenging process that requires careful planning and execution to ensure minimal disruption to business operations.</td>
+</tr>
+<tr>
+<td>autoscaling</td>
+<td>Concept</td>
+<td>"...while autoscaling in the public cloud scales resources up or down based on demand..."</td>
+<td>Autoscaling refers to the ability of a system or application to automatically adjust its resource allocation in response to changes in demand or workload. In this context, autoscaling is an important feature of cloud computing platforms like GCP, enabling organisations to quickly respond to changing demands and avoid over-provisioning resources.</td>
+</tr>
+<tr>
+<td>noisy neighbours</td>
+<td>Concept</td>
+<td>"...noisy neighbours can be an issue."</td>
+<td>Noisy neighbours refer to other applications or services that are competing for shared resources in a multi-tenant environment, such as a cloud-based platform. In this context, noisy neighbours can lead to performance issues and decreased efficiency, making it essential to carefully manage resource allocation and prioritization.</td>
+</tr>
+<tr>
+<td>bandwidth costs</td>
+<td>Concept</td>
+<td>"...high spikes in demand can also run up bandwidth costs..."</td>
+<td>Bandwidth costs refer to the expenses associated with transmitting data over a network or internet connection. In this context, high spikes in demand can lead to increased bandwidth costs, making it essential for organisations to carefully manage their resource allocation and prioritization to avoid unnecessary costs.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

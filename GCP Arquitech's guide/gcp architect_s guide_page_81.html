@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_81</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_81_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_81</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Big Data Processing on Google Cloud Platform</h1>
+<h2>Overview</h2>
+<p>Cloud Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive, and Pig on Google Cloud Platform.</p>
+<h3>Benefits of Using Cloud Dataproc</h3>
+<ul>
+<li>No capital investment (CapEx) required</li>
+<li>Only pay for hardware resources used during the life of the cluster</li>
+<li>Built in 90 seconds or less on top of Compute Engine virtual machines</li>
+<li>Scale up or down at will to adjust processing power</li>
+</ul>
+<h2>Features and Capabilities</h2>
+<h3>Hadoop, Spark, Hive, and Pig Support</h3>
+<ul>
+<li>Use default configuration or customize for specific needs</li>
+<li>Monitor cluster using Stackdriver</li>
+</ul>
+<h3>Cost-Effective Solution</h3>
+<ul>
+<li>No need for major capital hardware investment</li>
+<li>Pay only for used resources to reduce operational costs</li>
+</ul>
+<h3>Performance and Reliability</h3>
+<ul>
+<li>Built in 90 seconds or less on top of Compute Engine virtual machines</li>
+<li>Scale up or down at will to adjust processing power</li>
+</ul>
+<h2>Alternatives to Cloud Dataproc</h2>
+<ul>
+<li><strong>Cloud Dataflow</strong>: A fully-managed ETL (Extract, Transform and Load) service that can handle streaming data in real time and/or historical data in batch mode.<ul>
+<li>Serverless architecture with no need for resource provisioning and management</li>
+<li>Supports expressive SQL, Java, and Python APIs in the Apache Beam SDK</li>
+<li>Can handle both batch and streaming data with equal reliability</li>
+</ul>
+</li>
+</ul>
+<h2>Choosing Between Cloud Dataproc and Cloud Dataflow</h2>
+<ul>
+<li><strong>Use Cloud Dataproc</strong> when:<ul>
+<li>You need to run Hadoop, Spark, Hive, or Pig on Google Cloud Platform.</li>
+<li>You require a managed service for Big Data processing.</li>
+</ul>
+</li>
+<li><strong>Use Cloud Dataflow</strong> when:<ul>
+<li>You need to handle streaming data in real time and/or historical data in batch mode.</li>
+<li>You prefer a serverless architecture with no need for resource provisioning and management.</li>
+</ul>
+</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Cloud Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive, and Pig on Google Cloud Platform. All you have to do is request a Hadoop cluster. It will be built for you in 90 seconds or less on top of Compute Engine virtual machines whose number and type you may control. If you need more or less processing power while your cluster is running, you can scale it up or down at will.
+
+You can use the default configuration for the Hadoop software in your cluster or you can customize it. Also, you can monitor your cluster using Stackdriver. A significant attraction to running Big Data and Dataproc is that when running Hadoop on-premises, it requires a major capital hardware investment and considerable operational costs. On the other hand, running these Hadoop jobs in Cloud Dataproc allows you to only pay for hardware resources used during the life of the cluster you create, so there is no capital investment (CapEx) and little in comparison to on-premises operation expenditure (OpEx).
+
+Although the rate for pricing is based on the hour, Cloud Dataproc is built by the second. GCP's Cloud Dataproc clusters are built in one-second clock time increments and subject to a one-minute minimum billing. So, remember when you're finished using your cluster, you should delete it as then the billing stops. This is a much more agile use of resources than on-premises hardware assets.
+
+You can also save money by telling Cloud Dataproc to use pre-emptible Compute Engine instances for your batch processing. However, you must make sure that your jobs can be restarted cleanly if they're terminated. But if they can be stopped gracefully restarted, then you can get a significant discount in the cost of running the VM instances - around 80 percent cheaper.
+
+Be aware that the cost of the Compute Engine instances isn't the only component of the cost of a Dataproc cluster, but it's a significant one. Once your data is in a cluster, you can use Spark and Spark SQL to do data mining. And you can use MLib, which are Apache Spark's machine learning libraries to discover patterns through machine learning.
+
+Cloud Dataproc is great when you have a data set of known size or when you want to manage your cluster size yourself. However, what if your data shows up in real-time or its arrival is of unpredictable size or rate? That's where Cloud Dataflow is a particularly good choice.
+
+Cloud Dataflow is a fully-managed ETL (Extract, Transform and Load) service that is equally capable of handling streaming data in real-time and/or historical data in batch mode. Cloud Dataflow is serverless, which means there is no need for resource provisioning and management, Google handles all this for you. However, with Dataflow, you still have access to almost infinite capacity to leverage against your toughest data processing and analysis challenges.
+
+You can use Dataflow to build data pipelines via expressive SQL, Java, and Python APIs in the Apache Beam SDK, and these pipelines work for both batch and streaming data with equal reliability. There's no need to spin up a cluster or to size instances as Cloud Dataflow will fully automate the management of whatever processing resources are required.
+
+Cloud Dataflow frees you from operational tasks like resource management and performance optimization.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Google Cloud Platform's Managed Big Data Services: Dataproc and Dataflow</strong></p>
+<p>Google Cloud Platform offers two managed big data services, Dataproc and Dataflow, to help users process and analyze large datasets efficiently.</p>
+<p><strong>Dataproc: A Fast and Easy Way to Run Hadoop, Spark, Hive, and Pig</strong></p>
+<p>Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive, and Pig on Google Cloud Platform. Users can request a Hadoop cluster in under 90 seconds, which can be scaled up or down as needed. Dataproc allows users to customize the configuration of their cluster and monitor it using Stackdriver.</p>
+<p>A significant advantage of running big data workloads on Dataproc is that it eliminates the need for major capital hardware investments and operational costs associated with on-premises infrastructure. Users only pay for the resources used during the life of the cluster, making it a cost-effective solution.</p>
+<p><strong>Dataproc Pricing</strong></p>
+<p>While the pricing for Dataproc is based on hourly rates, the service is built by the second, allowing for precise billing. However, users should be aware that Compute Engine instances are just one component of the overall cost of a Dataproc cluster.</p>
+<p><strong>Cost Savings with Preemptible Instances</strong></p>
+<p>Users can save up to 80% on costs by using preemptible Compute Engine instances for batch processing. However, they must ensure that their jobs can be restarted cleanly if terminated.</p>
+<p><strong>Cloud Dataflow: A Fully-Managed ETL Service</strong></p>
+<p>Cloud Dataflow is a fully-managed ETL (Extract, Transform and Load) service that can handle both streaming data in real-time and historical data in batch mode. It is serverless, eliminating the need for resource provisioning and management.</p>
+<p>Users can build data pipelines using expressive SQL, Java, and Python APIs in the Apache Beam SDK, which work for both batch and streaming data with equal reliability. Cloud Dataflow automates the management of processing resources required, freeing users from operational tasks like resource management and performance optimization.</p>
+<p><strong>Choosing Between Dataproc and Dataflow</strong></p>
+<p>Dataproc is suitable for users who have a known dataset size or want to manage their cluster size themselves. However, if your data arrives in real-time or has an unpredictable arrival rate, Cloud Dataflow is a better choice due to its ability to handle streaming data and provide infinite capacity for complex data processing challenges.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Managed Big Data Services</strong></h3>
+<p>This topic covers the benefits of using managed big data services, such as Cloud Dataproc, which allows users to run Hadoop, Spark, Hive, and Pig on Google Cloud Platform without requiring significant capital investments or operational costs.</p>
+<h3>Topic 2: <strong>Cost-Effective Solutions</strong></h3>
+<p>This topic highlights the cost-effectiveness of using Cloud Dataproc, including the ability to only pay for hardware resources used during the life of the cluster, making it a more agile use of resources than on-premise hardware assets.</p>
+<h3>Topic 3: <strong>Real-Time Data Processing</strong></h3>
+<p>This topic discusses the limitations of using Cloud Dataproc for real-time data processing and highlights the benefits of using Cloud Dataflow, which is capable of handling streaming data in real time and/or historical data in batch mode.</p>
+<h3>Topic 4: <strong>Serverless ETL Services</strong></h3>
+<p>This topic covers the features and benefits of Cloud Dataflow, a fully-managed ETL service that allows users to build data pipelines via expressive SQL, Java, and Python APIs without requiring resource provisioning or management.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Cloud Dataproc, and what services can it run on Google Cloud Platform?
+Answer: Cloud Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive, and Pig on Google Cloud Platform.</p>
+</li>
+<li>
+<p>How long does it take for GCP's Cloud Dataproc clusters to be built after requesting a Hadoop cluster?
+Answer: It takes 90 seconds or less for the cluster to be built.</p>
+</li>
+<li>
+<p>What is the benefit of using Cloud Dataproc over running Big Data and Hadoop on-premises?
+Answer: Running Hadoop jobs in Cloud Dataproc allows you to only pay for hardware resources used during the life of the cluster, eliminating capital investment (CapEx) and operational costs (OpEx).</p>
+</li>
+<li>
+<p>How does GCP's pricing model work for Cloud Dataproc?
+Answer: The rate is based on the hour, but Cloud Dataproc is built by the second.</p>
+</li>
+<li>
+<p>What happens to billing when you're finished using your Cloud Dataproc cluster?
+Answer: Billing stops after deleting the cluster.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Cloud Dataflow differ from Cloud Dataproc in terms of resource management and operational tasks?
+Answer: Cloud Dataflow is serverless, meaning Google handles all resource provisioning and management, while Cloud Dataproc requires manual management.</p>
+</li>
+<li>
+<p>What are some benefits of using pre-emptible Compute Engine instances for batch processing in Cloud Dataproc?
+Answer: You can save up to 80% on the cost of running VM instances if your jobs can be restarted cleanly after termination.</p>
+</li>
+<li>
+<p>How does Cloud Dataflow handle streaming data and real-time data processing?
+Answer: It is equally capable of handling both streaming data in real time and historical data in batch mode.</p>
+</li>
+<li>
+<p>What are some advantages of using Cloud Dataflow over Cloud Dataproc for certain use cases?
+Answer: Cloud Dataflow offers more flexibility, scalability, and automation for complex data processing and analysis tasks.</p>
+</li>
+<li>
+<p>How does the cost of Compute Engine instances impact the overall cost of a Cloud Dataproc cluster?
+Answer: The cost is a significant component of the total cost, but it can be mitigated by using pre-emptible instances and optimizing resource usage.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you have a large dataset that requires frequent processing and analysis. Which service would you recommend for this use case?
+Answer: Cloud Dataflow due to its ability to handle streaming data and real-time processing, as well as its scalability and automation features.</p>
+</li>
+<li>
+<p>If you need to manage your own cluster size and resources in Cloud Dataproc, which service would be more suitable?
+Answer: Cloud Dataproc, as it allows for manual management of resources and clusters.</p>
+</li>
+<li>
+<p>How can you optimize the cost of running a Cloud Dataproc cluster by using pre-emptible instances?
+Answer: Ensure that your jobs can be restarted cleanly after termination to take advantage of the 80% discount on VM instance costs.</p>
+</li>
+<li>
+<p>What are some potential challenges when using Cloud Dataflow for complex data processing and analysis tasks?
+Answer: Potential challenges include managing large datasets, handling complex workflows, and ensuring data quality and integrity.</p>
+</li>
+<li>
+<p>How can you integrate Cloud Dataflow with other Google Cloud services to enhance your data processing and analysis capabilities?
+Answer: You can integrate Cloud Dataflow with other services such as BigQuery, Cloud Storage, and Cloud Pub/Sub to create a comprehensive data pipeline.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Dataproc</td>
+<td>Service/Platform</td>
+<td>"Cloud Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive, and Pig on Google Cloud Platform."</td>
+<td>Cloud Dataproc is a cloud-based platform that allows users to run big data processing workloads such as Hadoop, Spark, and Hive. It provides a managed service for running these workloads, eliminating the need for capital investment in hardware and operational costs.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Virtual Machine/Infrastructure</td>
+<td>"Cloud Dataproc clusters are built on top of Compute Engine virtual machines..."</td>
+<td>Compute Engine is a virtual machine infrastructure provided by Google Cloud Platform that can be used to build cloud-based applications and services such as Cloud Dataproc. It provides scalable and flexible computing resources for users.</td>
+</tr>
+<tr>
+<td>Hadoop</td>
+<td>Big Data Processing/Technology</td>
+<td>"Cloud Dataproc is a fast, easy, and managed way to run Hadoop..."</td>
+<td>Hadoop is an open-source big data processing technology that allows users to process large amounts of data across distributed systems. Cloud Dataproc provides a managed service for running Hadoop workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>Spark</td>
+<td>Big Data Processing/Technology</td>
+<td>"Once your data is in a cluster, you can use Spark and Spark SQL..."</td>
+<td>Spark is an open-source big data processing technology that allows users to process large amounts of data across distributed systems. Cloud Dataproc provides a managed service for running Spark workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>Hive</td>
+<td>Big Data Processing/Technology</td>
+<td>"Cloud Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive..."</td>
+<td>Hive is an open-source big data processing technology that allows users to query and analyze large datasets using SQL-like syntax. Cloud Dataproc provides a managed service for running Hive workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>Pig</td>
+<td>Big Data Processing/Technology</td>
+<td>"Cloud Dataproc is a fast, easy, and managed way to run Hadoop, Spark, Hive, and Pig..."</td>
+<td>Pig is an open-source big data processing technology that allows users to process large amounts of data across distributed systems using a high-level language called Pig Latin. Cloud Dataproc provides a managed service for running Pig workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>CapEx</td>
+<td>Cost/Financial</td>
+<td>"Running Hadoop on-premises will require a major capital hardware investment..."</td>
+<td>CapEx refers to the cost of purchasing or leasing long-term assets such as hardware and equipment. Cloud Dataproc eliminates the need for CapEx by providing a managed service that allows users to only pay for the resources they use.</td>
+</tr>
+<tr>
+<td>OpEx</td>
+<td>Cost/Financial</td>
+<td>"On the other hand, running these Hadoop jobs in Cloud Dataproc..."</td>
+<td>OpEx refers to the cost of operating and maintaining assets such as software licenses, maintenance contracts, and personnel costs. Cloud Dataproc eliminates the need for OpEx by providing a managed service that allows users to only pay for the resources they use.</td>
+</tr>
+<tr>
+<td>Dataflow</td>
+<td>Service/Platform</td>
+<td>"That's where Cloud Dataflow is a particularly good choice..."</td>
+<td>Cloud Dataflow is a fully-managed ETL (Extract, Transform and Load) service provided by Google Cloud Platform that allows users to process large amounts of data across distributed systems. It provides a serverless architecture that eliminates the need for resource provisioning and management.</td>
+</tr>
+<tr>
+<td>Apache Beam</td>
+<td>Framework/Technology</td>
+<td>"You can use Dataflow to build data pipelines via expressive SQL, Java, and Python APIs in the Apache Beam SDK..."</td>
+<td>Apache Beam is an open-source framework for building data pipelines that allows users to process large amounts of data across distributed systems. Cloud Dataflow provides a managed service for running Apache Beam workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>ETL</td>
+<td>Extract, Transform and Load/Process</td>
+<td>"Cloud Dataflow is a fully-managed ETL (Extract, Transform and Load) service..."</td>
+<td>ETL refers to the process of extracting data from a source system, transforming it into a format suitable for analysis or processing, and loading it into a target system. Cloud Dataflow provides a managed service for running ETL workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>Streaming Data</td>
+<td>Big Data/Processing</td>
+<td>"Cloud Dataflow is equally capable of handling streaming data in real time..."</td>
+<td>Streaming data refers to large amounts of data that are generated continuously over time. Cloud Dataflow provides a managed service for processing streaming data in real-time, allowing users to respond quickly to changing business conditions.</td>
+</tr>
+<tr>
+<td>Batch Mode</td>
+<td>Big Data/Processing</td>
+<td>"Cloud Dataflow is equally capable of handling historical data in batch mode..."</td>
+<td>Batch mode refers to the process of processing large amounts of data in batches or chunks, rather than in real-time. Cloud Dataflow provides a managed service for running batch-mode workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>SQL</td>
+<td>Query Language/Technology</td>
+<td>"You can use Spark and Spark SQL to do data mining..."</td>
+<td>SQL is a standard query language used for managing and analyzing relational databases. Cloud Dataproc provides a managed service for running SQL queries on large datasets, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td>Artificial Intelligence/Technology</td>
+<td>"And you can use MLib, which are Apache Spark's machine learning libraries..."</td>
+<td>Machine learning refers to the process of using algorithms and statistical models to enable machines to learn from data and make predictions or decisions. Cloud Dataproc provides a managed service for running machine learning workloads, making it easier to deploy and manage.</td>
+</tr>
+<tr>
+<td>CapEx Savings</td>
+<td>Cost/Financial</td>
+<td>"However if your jobs can be stopped gracefully restarted then you can get a significant discount in the cost of running the VM instances..."</td>
+<td>CapEx savings refer to the reduction in capital expenses resulting from using cloud-based services such as Cloud Dataproc. By eliminating the need for hardware and operational costs, users can save on CapEx.</td>
+</tr>
+<tr>
+<td>OpEx Savings</td>
+<td>Cost/Financial</td>
+<td>"However if your jobs can be stopped gracefully restarted then you can get a significant discount in the cost of running the VM instances..."</td>
+<td>OpEx savings refer to the reduction in operating expenses resulting from using cloud-based services such as Cloud Dataproc. By eliminating the need for personnel costs and maintenance contracts, users can save on OpEx.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

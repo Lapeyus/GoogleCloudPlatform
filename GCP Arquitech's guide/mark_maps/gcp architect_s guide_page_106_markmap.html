@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_106</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Network Design for Collaboration
+        
+        ## Introduction
+        
+        - To enable collaboration between different business units in various zones and regions, while maintaining isolation between them, a robust network design is required.
+        
+        ## Bastion Host Network Design
+        
+        - In order to gain access to this instance, the admin can create a maintenance host known as a bastion host with an external IP on an internet-facing interface. The admin could then restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM.
+        
+        ## Network Address Translation (NAT) Gateway Isolation
+        
+        - A similar but technical variation of the bastion host network design is a network address translation, for NAT gateway isolation. Similar to the previous design, we have VM instances that do not need an external IP address for their primary purpose but remote maintenance is frequently required. In this case, rather than give each instance an expensive external IP, you can configure another VM instance in the same network with an external IP and have it serve as a NAT gateway configured with IP forwarding to serve the entire network.
+        
+        ## VPC Peering
+        
+        - You could propose to use VPC peering. By using VPC peering, you effectively form interconnects across the Google internal network using private IP addresses. A VPC can peer with several peers but only directly peered VPC can communicate there is no transitive communication allowed. Because peering is set up independently at separate VPC peering also works on GCE, GKE and GAE-Flexible.
+        
+        ### Caveats
+        
+        *   Auto-network types cannot peer as their IP address ranges could clash so they will need to be converted to custom-mode first.
+        *   When VPC peers all subnet routes are exchanged if this is not desirable you may need to set up firewall rules to filter access.
+        
+        ## Use Case - 12
+        
+        - A client ABC wishes to allow collaboration with other organisational unit in different zones and regions. These units are independently controlled and in their own VPCs, which are isolated from the ABC VPC. The other business units are keen to collaborate with ABB via their VPC but would like to remain isolated from one another.
+        
+        ### Solution
+        
+        - To achieve this, you can use a combination of bastion host network design, NAT gateway isolation, and VPC peering. By setting up a bastion host with an external IP, restricting access to the internal VM instance, and configuring a NAT gateway, you can enable collaboration between ABB and other business units while maintaining their isolation from each other.
+        
+        ```plain
+        # Bastion Host Network Design
+        
+        - In order to gain access to this instance, the admin can create a maintenance host known as a bastion host with an external IP on an internet-facing interface. The admin could then restrict access to the internal VM instance by creating a firewall ingress rule to allow SSH traffic on port 22 to the private address IP of the VM.
+        
+        # Network Address Translation (NAT) Gateway Isolation
+        
+        - A similar but technical variation of the bastion host network design is a network address translation, for NAT gateway isolation. Similar to the previous design, we have VM instances that do not need an external IP address for their primary purpose but remote maintenance is frequently required. In this case, rather than give each instance an expensive external IP you can configure another VM instance in the same network with an external IP and have it serve as a NAT gateway configured with IP forwarding to serve the entire network.
+        
+        # VPC Peering
+        
+        - You could propose to use VPC peering. By using VPC peering you effective form interconnects across the Google internal network using private IP addresses. A VPC can peer with several peers but only directly peered VPC can communicate there is no transitive communication allowed. Because peering is set up independently at separate VPC peering also works on GCE, GKE and GAE-Flexible.
+        
+        # Caveats
+        
+        *   Auto-network types cannot peer as their IP address ranges could clash so they will need to be converted to custom-mode first.
+        *   When VPC peers all subnet routes are exchanged if this is not desirable you may need to set up firewall rules to filter access.
+        
+        ```
+
+      </script>
+    </div>
+  </body>
+</html>

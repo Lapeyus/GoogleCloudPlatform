@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_64</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Chapter 7 - App Engine
+        ## Overview
+        - So far we have discussed two GCP products that provide the compute infrastructure for applications: 
+        ### Virtual Machines
+        - virtual machines for Compute Engine and 
+        ### Containers
+        - containers for Kubernetes Engine.
+        
+        - But perhaps you just want a Platform as a Service so that you can
+        - focus on your application code and not have to concern yourself
+        - with infrastructure. Well that is why there is Google's PaaS, the
+        
+        - Cloud App Engine.
+        
+        ## What is App Engine?
+        - App Engine is what is known as a platform as a service. In GCP, the
+        - App Engine platform manages the hardware and networking
+        - infrastructure required to run your code. What this means is that
+        - when you want to deploy an application on App Engine, you just
+        - handle the application's code and the App Engine service will give
+        - you access to the platform runtime and libraries of your choice and
+        - provision and manage the infrastructure on your behalf.
+        
+        ## Built-in Services
+        - To accomplish this, App Engine provides you with the built-in
+        - services that many web applications require by default, such as:
+        * a NoSQL database
+        * in-memory caching
+        * load balancing
+        * health checks
+        * logging
+        * a way to authenticate users
+        
+        - But there are no servers for you to provision or maintain as everything is handled transparently within App Engine.
+        
+        ## Concept and Scaling
+        - The concept behind App Engine is that you code your application to
+        - take advantage of 
+        - these services and App Engine will provide them
+        - for you. Moreover, App 
+        - Engine will automatically scale your
+        - application's 
+        - resources in response to the demand and amount 
+        - of traffic but you will only 
+        - pay for those resources that you use.
+        
+        ## Environments
+        - App Engine offers two choices of environments, standard and flexible.
+        - Of the two App Engine Environments, Standard is 
+        - the simpler. It offers a simpler deployment experience than the Flexible environment.
+        
+        - However the most notable difference is that with the Standard Environment your low utilization applications might be able to run at no charge as it offers a free daily usage quota for the use of some services.
+        
+        ## Deployment
+        - In order to assist in the deployment of code to the cloud App Engine Google provides an App Engine SDK. These are available in several languages and provide you with simple commands for deployment and an environment for testing your application locally before you upload it to the GCP's App Engine service.
+        
+        ## Runtime Environment
+        - Now, what often intrigues people is the question of what does the application code actually run on?
+        - App Engine Standard Environment
+        - The short answer to that is it runs in App Engine on an executable binary called a runtime.
+        - In App Engine Standard Environment, you use a runtime provided by Google. Also the Standard Environment provides runtimes for specific versions of Java, Python, PHP and Go. As well as the libraries that supports all the App Engine APIs.
+        
+        ## Conclusion
+        - App Engine is a powerful platform as a service that can help you focus on your application code while automating the infrastructure management. By understanding how it works and its features, you can build scalable and efficient applications with ease.
+
+      </script>
+    </div>
+  </body>
+</html>

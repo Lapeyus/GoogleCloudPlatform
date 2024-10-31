@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_164</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_164_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_164</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>High-Performance Applications</h1>
+<h2>Benefits of Direct Connection</h2>
+<p>In another use case, we can see the benefits of a direct connection in the hosting of high-performance, latency-sensitive applications. For example, you might have VPC webservers that benefit from GCP load balancers, but they may still be pulling data from on-premise database servers.</p>
+<h2>Peering with Google</h2>
+<p>This could be because the data is highly sensitive and you are not permitted to store it in the cloud. However, by peering with Google across a direct connection will ensure that you have the lowest latency possible between the two locations.</p>
+<h2>Cloud Interconnect</h2>
+<p>Finally, Cloud Interconnect allows you to take full advantage of your own, your partners, or Google's Content Delivery Network (CDN).</p>
+<h3>Direct Peering</h3>
+<p>Direct peering is a private connection between your network and Google's network, where you will exchange BGP autonomous system numbers. An autonomous system number is your registered identity on the internet that represents your block of public IP addresses.</p>
+<h4>How it Works</h4>
+<p>Your co-located router and Google's edge router will form a BGP session as peers. With this established connection, you can exchange routing updates and pass internet traffic between your network and Google.</p>
+<h3>Direct Connection through a Partner</h3>
+<p>In some locations it might not be technically feasible to meet at a Google edge point-of-presence. In that case you can go through one of Google's partner's locations.</p>
+<h4>Benefits</h4>
+<p>Carrier peering allows you to obtain the same benefits of enterprise-grade network services that connect your infrastructure to Google. You can also make connections with higher availability and lower latency using one or more links.</p>
+<h3>Shared &amp; Network VPC</h3>
+<p>In large organizations, you may need to put different departments or different applications into different projects for purposes of separating budgeting, access control, or for privacy.</p>
+<h4>Benefits</h4>
+<p>However, with GCP you can share a VPC networks across projects in your cloud organization using shared VPC. With shared VPC, cloud organization administrators can give multiple projects permission to use a single shared VPC network and corresponding networking resources.</p>
+<h2>Conclusion</h2>
+<p>In conclusion, direct connection is an essential feature for high-performance applications. By peering with Google across a direct connection, you can ensure the lowest latency possible between the two locations. Additionally, Cloud Interconnect allows you to take full advantage of your own, your partners, or Google's Content Delivery Network (CDN).</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>In another use case, we can see the benefits of a direct connection in the hosting of high-performance, latency-sensitive applications. For example, you might have VPC webservers that benefit from GCP load balancers, but they may still be pulling data from on-premise database servers. This could be because the data is highly sensitive and you are not permitted to store it in the cloud. However, by peering with Google across a direct connection will ensure that you have the lowest latency possible between the two locations.
+
+Finally, Cloud Interconnect allows you to take full advantage of your own, your partners, or Google's Content Delivery Network (CDN). Knowing some basics about why you may want to use GCP services to achieve external peering let's look into how it can be done in practice.
+
+Direct peering is a private connection between your network and Google's network, where you will exchange BGP autonomous system numbers. An autonomous system number is your registered identity on the internet that represents your block of public IP addresses. Your co-located router and Google's edge router will form a BGP session as peers. With this established connection, you can exchange routing updates and pass internet traffic between your network and Google.
+
+After a direct peering connection is in place, you can use it to reach all of Google's services including the full suite of Google Cloud platform products.
+
+In some locations, it might not be technically feasible to meet at a Google edge point-of-presence. In that case, you can go through one of Google's partner's locations. It's a similar setup, but you have a service provider, a so-called middleman hosting the co-location on your and Google's behalf.
+
+Carrier peering allows you to obtain the same benefits of enterprise-grade network services that connect your infrastructure to Google. You can also make connections with higher availability and lower latency using one or more links.
+
+In large organizations, you may need to put different departments or different applications into different projects for purposes of separating budgeting, access control, or for privacy. However, it is often not the desire to strictly isolate these departments; it is only to control access and manage resources. Sometimes, it is likely that you will want to share some information or services with other departments.
+
+Indeed, sharing resources would actually be highly beneficial to the organization as it prevents them from being duplicated unnecessarily in every project. Also, it would reduce resource spread and reduce costs if projects could share common resources. However, with GCP, you can share a VPC network across projects in your cloud organization using shared VPC.
+
+With shared VPC, cloud organization administrators can give multiple projects permission to use a single shared VPC network and corresponding networking resources.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Direct Connection for High-Performance Applications and Shared VPCs</h3>
+<p>Direct connection is beneficial in hosting high-performance, latency-sensitive applications. For instance, VPC webservers may benefit from GCP load balancers but still pull data from on-premise database servers due to sensitive data constraints.</p>
+<p>By peering with Google across a direct connection, you can ensure the lowest latency possible between locations. Cloud Interconnect allows you to utilize your own, partners', or Google's Content Delivery Network (CDN).</p>
+<h3>Direct Peering</h3>
+<p>Direct peering is a private connection between your network and Google's network, exchanging BGP autonomous system numbers. This establishes a BGP session as peers, allowing for routing updates and internet traffic exchange.</p>
+<p>With direct peering, you can reach all of Google's services, including the full suite of Google Cloud platform products.</p>
+<h3>Direct Connection through a Partner</h3>
+<p>In some locations, meeting at a Google edge point-of-presence may not be feasible. You can go through one of Google's partner locations, hosting co-location on your and Google's behalf. This setup provides enterprise-grade network services with higher availability and lower latency using one or more links.</p>
+<h3>Shared &amp; Network VPC</h3>
+<p>In large organizations, separating departments into different projects for budgeting, access control, or privacy may not be desired. Instead, controlling access and managing resources is often the goal. Sharing resources can benefit the organization by preventing duplication, reducing resource spread, and lowering costs.</p>
+<p>GCP's shared VPC allows cloud organization administrators to share a VPC network across projects, giving multiple projects permission to use a single shared VPC network and corresponding networking resources.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: High-Performance Applications and Direct Peering</h3>
+<p>Direct peering is a private connection between networks that enables low latency and high-performance applications.</p>
+<h3>Topic 2: Cloud Interconnect and Content Delivery Network (CDN)</h3>
+<p>Cloud Interconnect allows organizations to take full advantage of their own, partners', or Google's CDN for improved performance and reduced latency.</p>
+<h3>Topic 3: Carrier Peering and Enterprise-Grade Network Services</h3>
+<p>Carrier peering enables organizations to connect their infrastructure to Google with enterprise-grade network services, offering higher availability and lower latency.</p>
+<h3>Topic 4: Shared VPC Networks and Resource Sharing</h3>
+<p>Shared VPC networks allow cloud organization administrators to share resources across projects, reducing duplication, resource spread, and costs while maintaining control over access.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary benefit of establishing a direct peering connection between your network and Google's network?
+Answer: The primary benefit is that you can exchange routing updates and pass internet traffic between your network and Google, allowing you to reach all of Google's services.</p>
+</li>
+<li>
+<p>In what scenario would it not be technically feasible to establish a direct peering connection at a Google edge point-of-presence?
+Answer: It might not be possible due to geographical or technical constraints, requiring the use of a partner location instead.</p>
+</li>
+<li>
+<p>What is the purpose of shared VPC in large organizations with multiple projects?
+Answer: To allow cloud organization administrators to share VPC networks across projects, controlling access and managing resources while preventing duplicated resources.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does direct peering compare to carrier peering in terms of network services and latency?
+Answer: Direct peering provides enterprise-grade network services with higher availability and lower latency compared to carrier peering.</p>
+</li>
+<li>
+<p>What are the advantages of using shared VPC networks across projects in a cloud organization?
+Answer: Shared VPC networks allow for resource sharing, reducing duplication and costs, while maintaining control over access and management.</p>
+</li>
+<li>
+<p>How does Cloud Interconnect enable organizations to take full advantage of Google's Content Delivery Network (CDN)?
+Answer: Cloud Interconnect allows organizations to use Google's CDN, ensuring the lowest latency possible between locations.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you have a high-performance application that requires low latency, and you're currently using on-premise database servers. How would direct peering with Google help?
+Answer: Direct peering would ensure the lowest latency possible between your network and Google's network, improving performance for your high-performance application.</p>
+</li>
+<li>
+<p>If you need to share resources across different departments in a large organization, what GCP service can help?
+Answer: Shared VPC networks can be used to share VPC networks across projects, allowing for resource sharing while maintaining control over access and management.</p>
+</li>
+<li>
+<p>How would you use Cloud Interconnect to improve the performance of your organization's applications?
+Answer: You would establish a direct peering connection with Google's network using Cloud Interconnect, enabling you to reach all of Google's services and take full advantage of their Content Delivery Network (CDN).</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>high-performance, latency-sensitive applications</td>
+<td>Application</td>
+<td>"In another use case, we can see the benefits of a direct connection in the hosting of high-performance, latency-sensitive applications."</td>
+<td>These are applications that require low latency and high performance, making them suitable for direct connections with Google's network.</td>
+</tr>
+<tr>
+<td>VPC webservers</td>
+<td>Network Device</td>
+<td>"For example, you might have VPC webservers that benefit from GCP load balancers..."</td>
+<td>Virtual Private Cloud (VPC) webservers are servers within a virtual private cloud that can be accessed through a load balancer for improved performance and security.</td>
+</tr>
+<tr>
+<td>on-premise database servers</td>
+<td>Network Device</td>
+<td>"...but they may still be pulling data from on-premise database servers."</td>
+<td>On-premise database servers are physical or virtual servers located in the organization's premises, which may not be suitable for cloud storage due to sensitivity reasons.</td>
+</tr>
+<tr>
+<td>GCP load balancers</td>
+<td>Load Balancer</td>
+<td>"VPC webservers that benefit from GCP load balancers..."</td>
+<td>Google Cloud Platform (GCP) load balancers distribute incoming traffic across multiple servers to improve performance and availability.</td>
+</tr>
+<tr>
+<td>Content Delivery Network (CDN)</td>
+<td>Service</td>
+<td>"...Cloud Interconnect allows you to take full advantage of your own, your partners', or Google's, Content Delivery Network."</td>
+<td>A Content Delivery Network (CDN) is a network of servers distributed across multiple locations that cache and distribute content to reduce latency and improve performance.</td>
+</tr>
+<tr>
+<td>BGP autonomous system numbers</td>
+<td>Networking Concept</td>
+<td>"Direct peering is a private connection between your network and Google's network, where you will exchange BGP autonomous system numbers."</td>
+<td>BGP (Border Gateway Protocol) autonomous system numbers are used to identify and route traffic between networks on the internet.</td>
+</tr>
+<tr>
+<td>co-located router</td>
+<td>Network Device</td>
+<td>"...Your co-located router and Google's edge router will form a BGP session as peers."</td>
+<td>A co-located router is a physical or virtual router located in the same location as another network device, which can be used to establish a connection between networks.</td>
+</tr>
+<tr>
+<td>Google Cloud platform products</td>
+<td>Service</td>
+<td>"After a direct peering connection is in place, you can use it to reach all of Google's services including the full suite of Google Cloud platform products."</td>
+<td>The Google Cloud Platform (GCP) offers a range of cloud-based services, including computing, storage, and networking services.</td>
+</tr>
+<tr>
+<td>service provider</td>
+<td>Organization</td>
+<td>"In that case you can go through one of Google's partner's locations..."</td>
+<td>A service provider is an organization that provides network services or infrastructure to other organizations.</td>
+</tr>
+<tr>
+<td>Carrier peering</td>
+<td>Networking Concept</td>
+<td>"...Carrier peering allows you to obtain the same benefits of enterprise-grade network services that connect your infrastructure to Google."</td>
+<td>Carrier peering refers to the process of establishing a connection between networks to exchange traffic and routing information.</td>
+</tr>
+<tr>
+<td>Shared VPC</td>
+<td>Network Concept</td>
+<td>"However, with GCP you can share a VPC networks across projects in your cloud organization using shared VPC..."</td>
+<td>A Shared Virtual Private Cloud (Shared VPC) is a network concept that allows multiple projects within an organization to share the same virtual private cloud resources and networking configuration.</td>
+</tr>
+<tr>
+<td>Content Delivery Network (CDN)</td>
+<td>Service</td>
+<td>"...Cloud Interconnect allows you to take full advantage of your own, your partners', or Google's, Content Delivery Network."</td>
+<td>A Content Delivery Network (CDN) is a network of servers distributed across multiple locations that cache and distribute content to reduce latency and improve performance.</td>
+</tr>
+<tr>
+<td>Load balancer</td>
+<td>Networking Device</td>
+<td>"VPC webservers that benefit from GCP load balancers..."</td>
+<td>A load balancer is a networking device that distributes incoming traffic across multiple servers to improve performance and availability.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

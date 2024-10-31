@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_253</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # IoT Architecture on Google Cloud Platform
+        ## Introduction
+        - When it comes to demonstrating the power and utility of GCP, a very good use case is when building IoT architecture. The Internet of Things (IoT) is not just about connecting sensors and manageable devices to the cloud in a scalable fashion although that in itself is challenging. It is also about ingesting, processing, and analyzing sometimes vast amounts of real-time data.
+        
+        ## Requirements
+        - To build an effective IoT cloud architecture, we need to consider the following requirements:
+        
+        ### Real-Time Data Streaming and Processing
+        
+        *   **Machine Control Data**: Signals that monitor and control the speed of a motor require instant processing.
+        *   **Real-Time Data Analysis**: IoT devices generate vast amounts of data constantly from machine, systems, and processes.
+        
+        ### Batch Processing
+        
+        *   **Quality Control Data**: Can be analyzed at leisure to improve the process.
+        *   **Data Storage**: Requires batch processing for efficient storage and analysis.
+        
+        ## Architecture Components
+        - The following components will make up the physical aspects of an IoT network:
+        
+        ### Cloud Services
+        
+        - | Service | Description |
+        - | --- | --- |
+        - | GCS (Google Cloud Storage) | Data Storage |
+        - | GCF (Google Cloud Functions) | Real-Time Data Processing |
+        - | Load Balancer | Scalable Load Balancing |
+        - | HTTPS Load Balancer | Secure Load Balancing |
+        
+        ### Networking Components
+        
+        - | Component | Description |
+        - | --- | --- |
+        - | Shared VPC | Scalable Network Architecture |
+        - | Private Subnet 1 | Secure Data Storage |
+        - | Private Subnet 2 | Secure Data Processing |
+        - | Multi-Interfaces | Flexible Network Configuration |
+        
+        ## Chapter 26-Building an Architecture for IoT
+        - This chapter will describe how to build a robust IoT cloud architecture using GCP services.
+        
+        ### Industrial Internet of Things (IIoT) and Industry 4.0
+        
+        - Interconnectivity between sensors, devices, and systems is fundamental to extracting and ingesting data for further processing and analysis in IIoT and Industry 4.0.
+        
+        ### DevOps and Peered Networks
+        
+        *   **DevOps**: Ensures efficient deployment and management of IoT applications.
+        *   **Peered Networks**: Enables secure communication between IoT devices and the cloud.
+        
+        ### Partnerships and Chapter Summary
+        
+        - Partnerships with industry leaders are crucial for building a robust IoT ecosystem. This chapter concludes by summarizing the key components of an effective IoT architecture on GCP.
+        
+        - | Region: US-east-1 | Zone: US-east-1a |
+        - | --- | --- |
+        - | Public IP | HTTPS Load Balancer |
+        - | Webserver Cluster | Shared VPC - Host Project |
+        - | Service Projects (Staging, Production) | Log Storage |
+        - | Multi-Interfaces | Load Balancer |
+        - | GCS (Data Storage) | GPS |
+        - | GCF (Private Subnet 1) | GBT |
+        - | Private Subnet 2 | Applications Cluster |
+        - | DevOps | Peered Networks |
+        - | Partners | Chapter 26-Building an Architecture for IoT |
+        
+        ### References
+        
+        *   [An Introduction to IOT on Google Cloud Platform](#?d=gist:af76a4c245b302206b16aec503dbe07b:iot.md)
+        *   [Chapter 26-Building an Architecture for loT](#?d=gist:af76a4c245b302206b16aec503dbe07b:chapter26.md)
+
+      </script>
+    </div>
+  </body>
+</html>

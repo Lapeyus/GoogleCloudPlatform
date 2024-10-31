@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_228</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_228_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_228</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Design Overview</h1>
+<h2>Region: US-east-1</h2>
+<h3>HTTP(S)</h3>
+<h4>Zone:: US-east-1a</h4>
+<h4>SSH</h4>
+<h4>Default network</h4>
+<h4>PHP</h4>
+<h4>Apache</h4>
+<h4>VM 1= 2 x CPU</h4>
+<h4>7.5GB</h4>
+<h4>RAM</h4>
+<h4>MtSQL</h4>
+<h4>DB1</h4>
+<h4>Linux</h4>
+<h2>Revised Design</h2>
+<p>HTTP(S)
+PHP
+Region: US-east-1
+Zone:: US-east-1a
+Default network
+Apache webserver
+VM 1=2x CPU
+7.5GB RAM
+DB2
+VM2 2x CPU
+7.5GB RAM
+MtSQL
+HDD Storage for Log Files
+Linux
+Logserver
+VM 3-2 x CPU
+7.5GB RAM</p>
+<h2>Design Challenges</h2>
+<h3>Splitting Logging Process</h3>
+<h4>Frontend and Backend</h4>
+<h4>Difficulty in Processing Logs</h4>
+<h4>Solution: Common Session ID Field</h4>
+<h2>Log Aggregation Service</h2>
+<h3>Purpose: Match Session IDs and Stitch Together into a Single Log File</h3>
+<h4>Ingest Log Files from Both Sources</h4>
+<h4>Combine Log Files into a Single Log File</h4>
+<h4>Transform File to Sort Data by Unique Session ID</h4>
+<h4>Output: Aggregated Log Files</h4>
+<h4>Cron Job: Run Every 24 Hours</h4></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Region: US-east-1
+
+HTTP(S)
+
+Zone:: US-east-1a
+
+SSH
+
+Default network
+
+PHP
+
+Apache
+
+VM 1= 2 x CPU
+7.5GB 
+RAM
+
+MtSQL
+
+DB1
+
+Linux
+
+This isn't a particularly good design but it is simple and sufficient for our needs and meets the design specifications for scale. Thus our revised design looks like this:
+
+HTTP(S)
+
+PHP
+
+Region: US-east-1
+Zone:: US-east-1a
+Default network
+
+Apache webserver
+
+VM 1=2x CPU
+7.5GB RAM
+
+DB2
+
+VM2 2x CPU
+7.5GB RAM
+
+MtSQL
+
+HDD Storage for Log Files
+
+Linux
+
+Logserver
+
+VM 3-2 x CPU
+7.5GB RAM
+
+However, by separating our design, we bring about another design challenge and that is that in doing so, we have split the process of logging across the frontend and the backend. This means processing the logs is more difficult as they are now stored on different servers. Fortunately, they do share a common session ID field, so we need to have a process that will join those logs together for analysis during troubleshooting.
+
+Hence, the new design challenge is to address log aggregation. What we now have to do is have a service that will match the session IDs and stitch them together into a single log file. In this case, we have logs on two different servers, and the goal is to aggregate them into a single log file. Hence, what we need here is a logging server that's sole purpose will be to accept logs using something like a daily cron job that's going to take all these log files and aggregate them.
+
+VM2=2x CPU
+7.5GB RAM
+
+HDD Storage for Log Files
+
+Consolidated Logs
+
+The way it will do this will be to ingest log files from both sources, then combine them in a single log file. But we also need to transform the file so that all the data is sorted by the unique session ID, so we need to join the log files together based on that session ID.
+
+Fortunately, the logs are simply a Session ID, a Timestamp, and a Payload of maximum 256 bytes. Hence, we want to match on the session IDs on both the web server and apps server logs and then append them together via a simple transform process. The logging service output will then be the aggregated log files we require. Then the cron job will go ahead and run every 24 hours.
+
+Region: US-east-1
+HTTP(S)
+Zone:: US-east-1a
+SSH
+Default network
+PHP
+Apache
+VM 1= 2 x CPU 7.5GB  RAM
+MtSQL
+DB1
+Linux
+
+This isn't a particularly good design but it is simple and sufficient for our needs and meets the design specifications for scale. Thus our revised design looks like this:
+
+HTTP(S)
+PHP
+Region: US-east-1
+Zone:: US-east-1a
+Default network
+
+Apache webserver
+
+VM 1=2x CPU
+7.5GB RAM
+
+DB2
+
+VM2 2x CPU
+7.5GB RAM
+
+MtSQL
+
+HDD Storage for Log Files
+
+Linux
+
+Logserver
+
+VM 3-2 x CPU
+7.5GB RAM
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Revised Design for Log Aggregation</h3>
+<p>The original design was simplified to meet scale requirements, but it introduced a new challenge: separating logging across frontend and backend servers.</p>
+<h4>Key Components</h4>
+<ul>
+<li><strong>HTTP(S)</strong>: PHP, Apache</li>
+<li><strong>Region</strong>: US-east-1</li>
+<li><strong>Zone</strong>: US-east-1a</li>
+<li><strong>Default Network</strong></li>
+<li><strong>VM 1</strong>: 2x CPU, 7.5GB RAM (Apache)</li>
+<li><strong>DB2</strong>: VM2, 2x CPU, 7.5GB RAM (MtSQL)</li>
+<li><strong>MtSQL</strong>: HDD Storage for Log Files</li>
+<li><strong>Linux</strong>: Logserver (VM3), 2x CPU, 7.5GB RAM</li>
+</ul>
+<h4>Design Challenge: Log Aggregation</h4>
+<p>The separation of logging across servers makes it difficult to process logs, as they are now stored on different servers. However, the common session ID field allows us to join the logs together for analysis during troubleshooting.</p>
+<h4>Solution: Logging Server</h4>
+<p>To address this challenge, we need a service that will match session IDs and stitch them together into a single log file. This logging server will:</p>
+<ul>
+<li>Ingest log files from both sources</li>
+<li>Combine them in a single log file</li>
+<li>Transform the data to sort by unique session ID</li>
+<li>Join the log files together based on the session ID</li>
+</ul>
+<p>The logging service output will be the aggregated log files, which will then be processed by a cron job running every 24 hours.</p>
+<h4>Revised Design</h4>
+<p>| Component | Description |
+| --- | --- |
+| HTTP(S) | PHP, Apache |
+| Region | US-east-1 |
+| Zone | US-east-1a |
+| Default Network | |
+| VM 1 | 2x CPU, 7.5GB RAM (Apache) |
+| DB2 | VM2, 2x CPU, 7.5GB RAM (MtSQL) |
+| MtSQL | HDD Storage for Log Files |
+| Linux | Logserver (VM3), 2x CPU, 7.5GB RAM |</p>
+<h4>Additional Requirements</h4>
+<ul>
+<li>VM2: 2x CPU, 7.5GB RAM</li>
+<li>HDD Storage for Log Files</li>
+<li>Consolidated Logs</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Design Simplification and Scalability
+The text discusses a design simplification to meet scalability requirements, separating concerns across frontend and backend servers.</p>
+<h3>Topic 2</h3>
+<p>Log Aggregation Challenge
+The revised design introduces a new challenge: log aggregation, requiring a service to match session IDs and stitch together logs from different servers.</p>
+<h3>Topic 3</h3>
+<p>Logging Server Requirements
+A logging server is needed to accept logs via a daily cron job, aggregate them into a single log file, and transform the data for sorting by unique session ID.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main design challenge introduced by separating the logging process across frontend and backend servers?
+Answer: The main design challenge is that processing logs becomes more difficult as they are now stored on different servers.</p>
+</li>
+<li>
+<p>Why do the logs need to be aggregated into a single log file?
+Answer: The logs need to be aggregated because they are stored on two different servers, making it difficult to process them together for analysis during troubleshooting.</p>
+</li>
+<li>
+<p>What is the purpose of the logging server in this design?
+Answer: The logging server's sole purpose is to accept logs using a daily cron job and aggregate them into a single log file.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the logging service plan to transform the aggregated log files so that all data is sorted by unique session IDs?
+Answer: The logging service plans to join the log files together based on the session ID, which will sort the data accordingly.</p>
+</li>
+<li>
+<p>What is the expected output of the logging service in this design?
+Answer: The logging service's output will be the aggregated log files, which are required for analysis during troubleshooting.</p>
+</li>
+<li>
+<p>Why do the logs have a maximum payload size of 256 bytes?
+Answer: This information is not explicitly stated in the text, but it can be inferred that the payload size is limited to prevent excessive data from being stored or transmitted.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you were tasked with implementing this logging design, how would you ensure that the cron job runs successfully every 24 hours?
+Answer: You would likely use a scheduling tool like <code>cron</code> on Linux systems or a similar equivalent on other operating systems to schedule the cron job to run daily at a specific time.</p>
+</li>
+<li>
+<p>How would you handle errors or inconsistencies in the log data during the aggregation process?
+Answer: You might implement error handling mechanisms, such as logging errors separately or using a more robust logging system that can handle inconsistencies and errors.</p>
+</li>
+<li>
+<p>What are some potential security considerations when implementing this logging design, especially with regards to storing sensitive session IDs?
+Answer: You would need to consider secure storage options for the log files, such as encryption or access controls, to protect sensitive data like session IDs from unauthorized access.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-east-1</td>
+<td>Region</td>
+<td>"Region: US-east-1" is mentioned as a region for an AWS deployment. The context suggests that it's being used to specify the geographical location of the deployment.</td>
+<td>This entity refers to a specific geographic region where the deployment will be hosted, likely for scalability and performance reasons.</td>
+</tr>
+<tr>
+<td>HTTP(S)</td>
+<td>Protocol</td>
+<td>"HTTP(S)" is mentioned in multiple places as the protocol used for communication between servers. The context suggests that it's being used to specify the type of communication.</td>
+<td>This entity refers to a secure communication protocol used over the internet, providing encryption and authentication for data transfer.</td>
+</tr>
+<tr>
+<td>Zone:: US-east-1a</td>
+<td>Subnet</td>
+<td>"Zone:: US-east-1a" is mentioned as a subnet within the region. The context suggests that it's being used to specify the specific network location of the deployment.</td>
+<td>This entity refers to a specific sub-network within the region, likely for scalability and performance reasons.</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>Protocol</td>
+<td>"SSH" is mentioned in multiple places as a protocol used for secure access to servers. The context suggests that it's being used to specify the method of accessing servers.</td>
+<td>This entity refers to a secure communication protocol used for remote access to servers, providing encryption and authentication for data transfer.</td>
+</tr>
+<tr>
+<td>Default network</td>
+<td>Network</td>
+<td>"Default network" is mentioned in multiple places as the default network configuration. The context suggests that it's being used to specify the default network settings.</td>
+<td>This entity refers to the default network configuration, likely specifying the primary network interface or settings for the deployment.</td>
+</tr>
+<tr>
+<td>PHP</td>
+<td>Programming Language</td>
+<td>"PHP" is mentioned in multiple places as a programming language used for web development. The context suggests that it's being used to specify the programming language used for web development.</td>
+<td>This entity refers to a server-side scripting language used for web development, providing dynamic content and functionality.</td>
+</tr>
+<tr>
+<td>Apache</td>
+<td>Web Server</td>
+<td>"Apache" is mentioned in multiple places as a web server software. The context suggests that it's being used to specify the web server software used for deployment.</td>
+<td>This entity refers to a popular open-source web server software, providing HTTP and HTTPS services for web applications.</td>
+</tr>
+<tr>
+<td>VM 1= 2 x CPU</td>
+<td>Virtual Machine</td>
+<td>"VM 1= 2 x CPU" is mentioned as a virtual machine configuration. The context suggests that it's being used to specify the hardware specifications of the virtual machine.</td>
+<td>This entity refers to a virtual machine with specific hardware configurations, likely specifying the number and type of CPUs allocated to the VM.</td>
+</tr>
+<tr>
+<td>7.5GB RAM</td>
+<td>Virtual Machine</td>
+<td>"7.5GB RAM" is mentioned as the amount of RAM allocated to the virtual machine. The context suggests that it's being used to specify the memory allocation for the VM.</td>
+<td>This entity refers to a specific amount of random access memory (RAM) allocated to the virtual machine, likely specifying the amount of memory available for applications and services.</td>
+</tr>
+<tr>
+<td>MtSQL</td>
+<td>Database Management System</td>
+<td>"MtSQL" is mentioned as a database management system. The context suggests that it's being used to specify the database software used for deployment.</td>
+<td>This entity refers to a specific database management system, likely providing features such as data modeling, query optimization, and data security.</td>
+</tr>
+<tr>
+<td>DB1</td>
+<td>Database</td>
+<td>"DB1" is mentioned as a database instance. The context suggests that it's being used to specify the name or identifier of the database instance.</td>
+<td>This entity refers to a specific database instance, likely specifying the unique identifier for the database.</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>Operating System</td>
+<td>"Linux" is mentioned in multiple places as an operating system used for deployment. The context suggests that it's being used to specify the operating system software used for deployment.</td>
+<td>This entity refers to a popular open-source operating system, providing a platform for applications and services.</td>
+</tr>
+<tr>
+<td>Consolidated Logs</td>
+<td>Log File</td>
+<td>"Consolidated Logs" is mentioned as a log file containing aggregated data from multiple sources. The context suggests that it's being used to specify the purpose of the log file.</td>
+<td>This entity refers to a log file containing aggregated data from multiple sources, likely providing insights into system performance and application behavior.</td>
+</tr>
+<tr>
+<td>Session ID</td>
+<td>Identifier</td>
+<td>"Session ID" is mentioned as an identifier for a user session. The context suggests that it's being used to specify the unique identifier for a user session.</td>
+<td>This entity refers to a unique identifier assigned to a user session, likely specifying the specific session or request being processed.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>Date/Time</td>
+<td>"Timestamp" is mentioned as a date and time value. The context suggests that it's being used to specify the timing of an event or action.</td>
+<td>This entity refers to a specific point in time, likely specifying the moment when an event or action occurred.</td>
+</tr>
+<tr>
+<td>Payload</td>
+<td>Data Transfer</td>
+<td>"Payload" is mentioned as data transferred between systems. The context suggests that it's being used to specify the type of data being transferred.</td>
+<td>This entity refers to the actual data being transferred between systems, likely specifying the content and format of the data transfer.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

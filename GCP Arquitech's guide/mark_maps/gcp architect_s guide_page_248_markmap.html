@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_248</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        - The article discusses the importance of controlling and monitoring service accounts in Google Cloud Platform (GCP). Here are the main points:
+        
+        **Control**
+        
+        - 1. Each resource or application should have its own service account.
+        - 2. Service accounts should have specific roles assigned to them, with a maximum of 10-20 roles per account.
+        - 3. If a service account has too many roles, it's a concentration risk and may need to be decomposed into smaller modules.
+        - 4. Service accounts should have verbose identifiers (e.g., email addresses) that clearly indicate their function or role.
+        - 5. Assigning multiple roles to a single service account can lead to security risks, as group members may inherit all the permissions.
+        
+        **Mitigating Risks**
+        
+        - 1. Use strong naming conventions to identify service accounts as "service accounts" in logs and reports.
+        - 2. Include the function or role of the service account in its name for easier understanding during troubleshooting.
+        - 3. Limit the roles and permissions assigned to each service account to specific resources and tasks.
+        
+        **Visibility**
+        
+        - 1. Don't rely on default service accounts, as they are not immutable and their roles and permissions can be deprecated at any time.
+        - 2. Use tools like logs, Stackdriver, and Forseti Security to discover who or what service accounts can access resources and with what permissions.
+        - 3. Having visibility into the underlying permissions matrix is crucial for understanding what's going on and who's doing what.
+        
+        **Forseti Security**
+        
+        - 1. GCP uses an open-source product called Forseti Security to answer questions about access policies and user permissions.
+        - 2. Forseti works by building a model from your access policy and providing a query interface to ask questions like "who can delete this VM?" or "what resources can this user access?"
+        
+        - Overall, the article emphasizes the importance of controlling and monitoring service accounts in GCP to prevent security risks and ensure visibility into permissions and access.
+
+      </script>
+    </div>
+  </body>
+</html>

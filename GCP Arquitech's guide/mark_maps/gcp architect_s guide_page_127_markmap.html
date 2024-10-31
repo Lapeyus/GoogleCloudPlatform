@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_127</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud Platform (GCP) Memberships
+        ## Types of Memberships
+        ### 1. Google Groups
+        - You can easily add members to and remove members from a Google group instead of updating a cloud IM policy to add or remove users.
+        
+        ### 2. Service Accounts
+        - A service account is a type of account that belongs to your service or application, used in automation scenarios where you want the application to interact with a resource without human intervention.
+        
+        ## Service Account Types
+        - There are three types of service accounts:
+        - **User Creator/Custom**: More flexibility than the default service account but require more management.
+        - **Built-in**: The built-in Compute Engine default service account and the Google Cloud platform API service account, which is automatically granted the editor role on the project.
+        - **Google APIs Service Account**
+        
+        ## Built-in Service Accounts
+        - All projects have the built-in Compute Engine default service account and the Google Cloud platform API service account.
+        
+        ### 1. Default Service Account
+        - The default account is automatically created for every project and is identifiable by the email `projectnumber@cloudservices.gserviceaccount.com`.
+        
+        ### 2. Custom Service Account
+        - You can start an instance with a custom service account, providing more flexibility than the default service account but requiring more management.
+        
+        ## Access Scopes
+        - Authorization is the process of determining what permissions and privileges an authenticated identity has on a set of specified resources. Scopes are the mechanisms used to determine if an authenticated identity is authorized.
+        
+        ### 1. Adding Members to Google Groups
+        - You can easily add members to and remove members from a Google group instead of updating a cloud IM policy to add or remove users.
+        
+        ### 2. Authorization Process
+        - The authorization process determines what permissions and privileges an authenticated identity has on a set of specified resources.
+        
+        ## Accessing Cloud Resources with Service Accounts
+        - To access cloud resources, you need to authenticate using a service account. You can enable the service account on a VM instance and grant read/write access to obtain credentials from the service account.
+        
+        ### 1. Enabling Service Accounts
+        - You can enable a custom service account on a VM instance or disable service accounts for that VM instance.
+        
+        ### 2. Obtaining Credentials from Service Account
+        - To authenticate to cloud resources, you need to obtain credentials from the service account using the `GOOGLE_APPLICATION_CREDENTIALS` environment variable.
+        
+        ## Conclusion
+        - Google Cloud Platform (GCP) memberships are essential for managing access to cloud resources. Understanding the different types of memberships and how to use them effectively is crucial for securing your applications and data.
+
+      </script>
+    </div>
+  </body>
+</html>

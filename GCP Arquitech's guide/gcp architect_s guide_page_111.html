@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_111</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_111_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_111</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Compute Engine Roles</h1>
+<h2>Overview</h2>
+<p>Compute Engine roles provide access to various features and functionalities within the platform.</p>
+<h3>Roles</h3>
+<ul>
+<li><strong>roles/compute.networkUser</strong>: Provides access to a shared VPC network once granted, service owners can use VPC networks and subnets that belong to the host project.</li>
+<li><strong>roles/compute.orgSecurityPolicyAdmin</strong>: Full control of Compute Engine Organization Security Policies.</li>
+<li><strong>roles/compute.storageAdmin</strong>: Permissions to create, modify, and delete disks, images, and snapshots.</li>
+</ul>
+<h3>Combining Roles</h3>
+<p>Roles can be combined to give users or groups specific permissions. For example, granting roles/compute.networkAdmin and roles/compute.securityAdmin allows a networking team to manage networks and apply firewall rules.</p>
+<h1>VM Lifecycle</h1>
+<h2>Overview</h2>
+<p>Understanding the lifecycle of a VM is crucial for knowing its status at any given time, especially for billing purposes.</p>
+<h3>Stages</h3>
+<ul>
+<li><strong>Provisioning State</strong>: The initial stage after configuring VM properties. Resources are reserved but the VM itself isn't running.</li>
+<li><strong>Staging State</strong>: The next stage where resources are moved from being reserved to acquired and the instance is prepared for launch.</li>
+<li><strong>Running State</strong>: Where the VM starts doing useful work, executing pre-configured startup scripts, and enabling SSH or RDP access.</li>
+</ul>
+<h3>Benefits</h3>
+<p>The running state offers flexibility with tasks such as:
+- Moving VMs to different zones
+- Taking snapshots of persistent disks for backup or migration purposes
+- Exporting system images
+- Re-configuring metadata</p>
+<p>However, some admin tasks require stopping the virtual machine.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>⚫roles/compute.networkUser - Provides access to a shared VPC network once granted, service owners can use VPC networks and subnets that belong to the host project.
+
+Roles in Compute Engine
+These are just some of the predefined roles within Compute Engine that serve specific job functions and roles. However, you can combine several roles and give them to a user or group. For example, if your networking team is responsible for managing the network and applying firewall rules, you can grant roles/compute.networkAdmin and roles/compute.securityAdmin to allow the networking team to do only those specific tasks.
+
+VM Lifecycle
+It is essential to understand the lifecycle of a VM so that you know the exact status of the VM at any given time - for billing purposes. The lifecycle of a VM is represented by different stages and their related status.
+
+The initial stage is the provisioning state, which occurs after configuring all properties of a VM such as CPU, memory, disk, OS, and clicking create. Once the VM goes through the internal build process, it enters the provisioning state. At this point, all the VM's resources such as CPU, memory, and disks are being reserved, but the VM itself isn't running at this stage.
+
+The next stage is when the newly provisioned VM moves to the staging state. This is where the resources have been moved from being reserved to acquired, and the instance is prepared for launch. It is in this staging state that the Compute Engine is configuring the resources and adding IP addresses as well as starting the booting up process for the OS image.
+
+Once the staging stage completes and the system has booted, the VM is now in the running state. This is the state where it will start doing useful work such as executing pre-configured startup scripts and enabling SSH or RDP access. The running state is where the VM is fully operational and can do all the tasks that any physical server could manage.
+
+However, a VM can do a lot of things that you can't achieve on a physical server. For example, you can live-migrate your virtual machine from one host to another host in the same zone instead of requiring an instance to be rebooted.
+
+This feature is not only beneficial to you as it also allows Google to perform maintenance tasks critical to keeping the infrastructure running. Indeed, the live migration feature may work transparently to you as Google works behind the scenes to keep the infrastructure protected and reliable without any interruption to your service on any of your VMs.
+
+The great thing from an administration perspective is that there are many tasks you can complete while the VM is running. These include the ability to move your VM to a different zone, take a snapshot of the VM's persistent disk for backup or for VM migration purposes, exporting the system image, or re-configuring metadata. However, not all admin tasks can be performed on the fly as some actions require you to stop your virtual machine. Some of the tasks that will require you to enter the stopped state are if you want to upgrade your machine by adding more CPUs.
+
+238
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Compute Engine Roles and VM Lifecycle</h3>
+<p>Compute Engine provides several predefined roles that serve specific job functions, such as managing networks, security policies, and storage. These roles can be combined to grant users or groups access to specific tasks.</p>
+<h4>Roles</h4>
+<ul>
+<li><code>roles/compute.networkUser</code>: Provides access to a shared VPC network once granted.</li>
+<li><code>roles/compute.orgSecurityPolicyAdmin</code>: Full control of Compute Engine Organization Security Policies.</li>
+<li><code>roles/compute.storageAdmin</code>: Permissions to create, modify, and delete disks, images, and snapshots.</li>
+</ul>
+<p>These roles can be combined to grant users or groups specific permissions. For example, a networking team can be granted <code>roles/compute.networkAdmin</code> and <code>roles/compute.securityAdmin</code> to manage networks and apply firewall rules.</p>
+<h3>VM Lifecycle</h3>
+<p>Understanding the lifecycle of a VM is crucial for billing purposes and administration tasks. The lifecycle consists of several stages:</p>
+<ol>
+<li><strong>Provisioning State</strong>: After configuring all properties, such as CPU, memory, disk, OS, and clicking create.</li>
+<li><strong>Staging State</strong>: Resources are reserved, but the VM itself isn't running. This stage includes configuration and booting up process for the OS image.</li>
+<li><strong>Running State</strong>: The VM is fully operational, executing pre-configured startup scripts, and enabling SSH or RDP access.</li>
+</ol>
+<p>The running state allows for live migration of virtual machines from one host to another in the same zone without requiring a reboot. This feature is beneficial for administration tasks, such as moving VMs to different zones, taking snapshots, exporting system images, or re-configuring metadata.</p>
+<p>However, not all admin tasks can be performed on the fly, and some actions require stopping the virtual machine. Upgrading machines by adding more CPUs requires entering the stopped state.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Compute Engine Roles and Permissions</strong>
+This topic revolves around predefined roles within Compute Engine, such as <code>roles/compute.networkUser</code>, <code>roles/compute.orgSecurityPolicyAdmin</code>, and <code>roles/compute.storageAdmin</code>. These roles provide access to specific features and functionalities of the Compute Engine service.</p>
+<h3>Topic 2</h3>
+<p><strong>VM Lifecycle Stages</strong>
+This topic discusses the different stages of a Virtual Machine (VM) lifecycle, including provisioning, staging, and running states. It explains how each stage is related to the status of the VM and its resources, such as CPU, memory, and disks.</p>
+<h3>Topic 3</h3>
+<p><strong>Live Migration and Administration Tasks</strong>
+This topic highlights the benefits of live migration in Compute Engine, allowing for seamless movement of virtual machines between hosts without requiring a reboot. It also discusses various administration tasks that can be performed on running VMs, including zone changes, disk snapshots, system image exports, and metadata reconfiguration.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Compute Engine Roles and VM Lifecycle</h3>
+<h4>Comprehension Questions</h4>
+<ol>
+<li>What is the purpose of the <code>roles/compute.networkUser</code> role in Compute Engine?
+Answer: This role provides access to a shared VPC network once granted, allowing service owners to use VPC networks and subnets that belong to the host project.</li>
+<li>Describe the initial stage of a VM lifecycle in Compute Engine.
+Answer: The initial stage is the provisioning state, where all VM resources are being reserved but the VM itself isn't running.</li>
+</ol>
+<h4>Analytical Questions</h4>
+<ol>
+<li>How can service owners combine predefined roles to give specific tasks to users or groups?
+Answer: Service owners can grant multiple roles to users or groups, such as <code>roles/compute.networkAdmin</code> and <code>roles/compute.securityAdmin</code>, to allow them to perform specific tasks.</li>
+<li>What is the benefit of live migration in Compute Engine from an administration perspective?
+Answer: Live migration allows administrators to complete many tasks while the VM is running, including moving the VM to a different zone or taking snapshots for backup.</li>
+</ol>
+<h4>Application Questions</h4>
+<ol>
+<li>If you want to upgrade your machine by adding more CPUs, what state must you enter to perform this action?
+Answer: You must stop your virtual machine.</li>
+<li>How can you use Compute Engine roles and VM lifecycle stages to improve your billing accuracy?
+Answer: By understanding the exact status of your VM at any given time, including its provisioning, staging, and running states, you can ensure accurate billing for your resources.</li>
+</ol>
+<h4>Critical Thinking Questions</h4>
+<ol>
+<li>What are some potential security risks associated with granting multiple roles to users or groups in Compute Engine?
+Answer: Granting multiple roles could potentially lead to unauthorized access to sensitive resources or data.</li>
+<li>How can you use Compute Engine's live migration feature to improve the reliability and availability of your applications?
+Answer: By using live migration, you can ensure that your applications remain available even during maintenance tasks or infrastructure changes without requiring instance rebooting.</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>roles/compute.networkUser</td>
+<td>Role</td>
+<td>"Provides access to a shared VPC network once granted, service owners can use VPC networks and subnets that belong to the host project."</td>
+<td>This role grants permission to access and manage VPC networks and subnets. It is used for networking tasks such as managing firewalls and applying security rules. The context suggests that this role is part of a larger set of predefined roles within Compute Engine, allowing users to assign specific permissions to individuals or groups.</td>
+</tr>
+<tr>
+<td>roles/compute.orgSecurityPolicyAdmin</td>
+<td>Role</td>
+<td>"Full control of Compute Engine Organization Security Policies."</td>
+<td>This role grants full control over organization-level security policies in Compute Engine. It implies that the user has complete authority to manage security settings for their organization's resources. The context suggests that this role is part of a larger set of predefined roles within Compute Engine, allowing users to assign specific permissions to individuals or groups.</td>
+</tr>
+<tr>
+<td>roles/compute.storageAdmin</td>
+<td>Role</td>
+<td>"Permissions to create, modify, and delete disks, images, and snapshots."</td>
+<td>This role grants permission to perform storage-related tasks such as creating, modifying, and deleting disks, images, and snapshots. It implies that the user has control over storage resources within Compute Engine. The context suggests that this role is part of a larger set of predefined roles within Compute Engine, allowing users to assign specific permissions to individuals or groups.</td>
+</tr>
+<tr>
+<td>compute.networkUser</td>
+<td>Role</td>
+<td>"Provides access to a shared VPC network once granted, service owners can use VPC networks and subnets that belong to the host project."</td>
+<td>This role grants permission to access and manage VPC networks and subnets. It is used for networking tasks such as managing firewalls and applying security rules. The context suggests that this role is part of a larger set of predefined roles within Compute Engine, allowing users to assign specific permissions to individuals or groups.</td>
+</tr>
+<tr>
+<td>compute.orgSecurityPolicyAdmin</td>
+<td>Role</td>
+<td>"Full control of Compute Engine Organization Security Policies."</td>
+<td>This role grants full control over organization-level security policies in Compute Engine. It implies that the user has complete authority to manage security settings for their organization's resources. The context suggests that this role is part of a larger set of predefined roles within Compute Engine, allowing users to assign specific permissions to individuals or groups.</td>
+</tr>
+<tr>
+<td>compute.storageAdmin</td>
+<td>Role</td>
+<td>"Permissions to create, modify, and delete disks, images, and snapshots."</td>
+<td>This role grants permission to perform storage-related tasks such as creating, modifying, and deleting disks, images, and snapshots. It implies that the user has control over storage resources within Compute Engine. The context suggests that this role is part of a larger set of predefined roles within Compute Engine, allowing users to assign specific permissions to individuals or groups.</td>
+</tr>
+<tr>
+<td>provisioning state</td>
+<td>Stage</td>
+<td>"The initial stage is the provisioning state..."</td>
+<td>This stage represents the initial phase of a virtual machine's lifecycle, where resources are reserved but the VM itself is not running. It implies that the user has configured all necessary properties for the VM and clicked create. The context suggests that this stage is followed by the staging state, where the Compute Engine configures resources and starts booting up the OS image.</td>
+</tr>
+<tr>
+<td>staging state</td>
+<td>Stage</td>
+<td>"...the next stage is when the newly provisioned VM moves to the from being reserved to acquired..."</td>
+<td>This stage represents a transitional phase in the virtual machine's lifecycle, where resources are acquired and the VM is prepared for launch. It implies that the Compute Engine is configuring resources and starting up the OS image. The context suggests that this stage is followed by the running state, where the VM starts executing useful work.</td>
+</tr>
+<tr>
+<td>running state</td>
+<td>Stage</td>
+<td>"...the system has booted the VM is now in the running state..."</td>
+<td>This stage represents the final phase of a virtual machine's lifecycle, where the VM is fully operational and can execute tasks similar to those of a physical server. It implies that the VM has started executing pre-configured startup scripts and enabling SSH or RDP access. The context suggests that this stage offers flexibility in managing the VM, including live migration to different hosts within the same zone.</td>
+</tr>
+<tr>
+<td>live migration</td>
+<td>Feature</td>
+<td>"...you can live-migrate your virtual machine from one host to another host in the same zone..."</td>
+<td>This feature allows users to move a running VM to a different host within the same zone without requiring an instance reboot. It implies that the user has flexibility in managing their resources and can take advantage of this feature for high availability or scalability purposes. The context suggests that this feature is beneficial for both users and Google, as it enables seamless management of infrastructure while maintaining service uptime.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

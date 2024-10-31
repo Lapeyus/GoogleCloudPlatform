@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_113</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_113_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_113</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Overview of Compute Engine VM Configuration Methods</h1>
+<h2>Introduction</h2>
+<p>There are several methods for configuring Virtual Machines (VMs) in Google Cloud Platform's Compute Engine. Each method has its own advantages and disadvantages, and the choice of method depends on the specific needs of the project.</p>
+<h2>Web Console vs Cloudshell</h2>
+<p>The Web Console is a graphical interface that makes it easy to build VMs, especially for beginners or inexperienced admins. However, as the number of VMs increases, the manual repetition required can become tedious. In this case, Cloudshell may be a more preferred method.</p>
+<p>Cloudshell is the command line for the SDK, which can be accessed through the Web Console or installed locally on a laptop. Running commands to build VMs using Cloudshell is faster and less tedious than using the Web Console, especially when building multiple VMs.</p>
+<h2>Automation with RESTful API</h2>
+<p>If manual running of commands or complex configurations is not desired, the RESTful API can be used to automate the process. The API programmatically configures VMs by defining all the different options for environments and runs automatically with minimum intervention required.</p>
+<h2>Choosing the Right Machine Type</h2>
+<p>When deciding on a machine type, it's essential to consider the balance between CPU and memory usage. The standard machine type is best suited for applications that have a good balance between these two resources. Other machine types, such as high memory and high CPU, are better suited for specific use cases.</p>
+<h2>Comparison of Machine Types</h2>
+<p>| Machine Type | Virtual CPUs per GB of Memory |
+| --- | --- |
+| Standard | 3.75:1 |
+| High Memory | 1:1 |
+| High CPU | 4:1 |
+| Shared Core | 2:1 |</p>
+<p>Note: The ratios may vary depending on the specific configuration.</p>
+<h2>Conclusion</h2>
+<p>In conclusion, there is no one-size-fits-all approach to configuring VMs in Compute Engine. The choice of method depends on the specific needs of the project, including the number of VMs, the level of automation required, and the balance between CPU and memory usage. By understanding the advantages and disadvantages of each method, developers can make informed decisions about which configuration method is best for their projects.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>There is no preferred method or one method being better than another as they all have their specific uses. For example, the Web Console is a tremendous method for beginners or inexperienced admins as it is a graphical interface with check boxes and drop-down selection menus. This makes it very easy to build a VM as you have all the options available to you and are led through the build process in an intuitive manner.
+
+However, if you are building a few VMs, the web console soon becomes tedious due to the manual repetition required when configuring each VM in turn. In that case, Cloudshell may be the preferred method. Cloudshell is the command line for the SDK which can be conveniently accessed through the web console or if you want, you could install the SDK locally on your laptop.
+
+Regardless of how you access the SDK, you will soon find that running commands to build VMs is far quicker and less tedious when building multiple VMs than using the web console. The advantage of Cloudshell is that you can run scripts or pre-configured multi-line configuration commands to build your VMs. These scripts can be readily edited and customized for example changing the VM name and then run with a simple cut and paste on the command line.
+
+However, if you don't want to be manually running commands or the scripts are complex configurations, then you would probably eventually want to automate the process. In this case, you might want to use the RESTful API. The API will programmatically configure your VMs by defining all the different options for your environments and then run automatically with minimum intervention required.
+
+A good tip for using either the Cloudshell command line or the RESTful API is to configure the first VM instance through the Web Console, and then ask Compute Engine for the equivalent REST request or command line code. Then you can copy and paste this into your own scripts or commands. This way, you not only avoid any typos but you can soon build up a library of scripts for each VM.
+
+Regardless of the method you use to interface with the Compute type that matches your environment, Engine you are still going to first decide on the VM parameters that your application or service requires. The first step is to decide on which of the different machine types that are currently available fits your needs. These predefined machine types are managed by Compute Engine and come in four classes: standard, high memory, Shared core machines or the micro VMs as they are often called are high CPU, and shared core memory machines.
+
+Great in development environments especially when prototyping solutions because they are cost-effective for running small non-resource intensive applications. However, these are unlikely to be sufficient for production environments, for that you would need to look to the other three alternatives; standard, high memory and high CPU machine types.
+
+The difference between the machine types listed is the ratio of number of virtual CPUs to the amount of memory. The standard machine type is best suited to applications that have a good balance between CPU and memory usage. Specifically, standard machine types start out at 3.75 gigs of RAM per virtual CPU, but they can go all the way up to 64 virtual CPUs with 240 gigs of RAM.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Choosing the Right Method for Building Virtual Machines</strong></p>
+<p>There is no one-size-fits-all approach when it comes to building virtual machines (VMs). Each method has its specific uses and advantages. The Web Console is a great starting point for beginners or inexperienced administrators, offering an intuitive graphical interface with check boxes and drop-down selection menus. However, as the number of VMs increases, the manual repetition required can become tedious.</p>
+<p><strong>Cloudshell: A Command-Line Solution</strong></p>
+<p>Cloudshell is the command-line interface for the SDK, which can be accessed through the Web Console or installed locally on your laptop. Running commands to build VMs using Cloudshell is significantly faster and less tedious than using the Web Console, especially when building multiple VMs. The advantage of Cloudshell lies in its ability to run scripts or pre-configured multi-line configuration commands to build VMs.</p>
+<p><strong>Automating the Process with RESTful API</strong></p>
+<p>If you don't want to manually run commands or have complex configurations, consider using the RESTful API. This will programmatically configure your VMs by defining all the different options for your environments and running automatically with minimum intervention required.</p>
+<p><strong>Tips for Using Cloudshell and RESTful API</strong></p>
+<ul>
+<li>Configure the first VM instance through the Web Console and then ask Compute Engine for the equivalent REST request or command-line code.</li>
+<li>Copy and paste this into your own scripts or commands to avoid typos and build up a library of scripts for each VM.</li>
+<li>Regardless of the method you use, decide on the VM parameters that your application or service requires first.</li>
+</ul>
+<p><strong>Choosing the Right Machine Type</strong></p>
+<p>The predefined machine types offered by Compute Engine come in four classes: standard, high memory, Shared core machines (micro VMs), and high CPU. The standard machine type is best suited for applications with a good balance between CPU and memory usage. Specifically, standard machine types start at 3.75 gigs of RAM per virtual CPU, but can go up to 64 virtual CPUs with 240 gigs of RAM.</p>
+<p>Ultimately, the choice of method depends on your specific needs and environment. By understanding the advantages and disadvantages of each approach, you can make an informed decision and optimize your VM building process.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Introduction to Cloud Computing Tools</h3>
+<p>The text discusses various tools and methods for building and managing Virtual Machines (VMs) in a cloud computing environment. It highlights the importance of choosing the right tool or method based on specific needs.</p>
+<h3>Topic 2: Web Console vs Cloudshell</h3>
+<p>The web console is described as a user-friendly interface for beginners, while Cloudshell is presented as a more efficient option for building multiple VMs due to its command-line capabilities and ability to run scripts.</p>
+<h3>Topic 3: RESTful API Automation</h3>
+<p>The text mentions the use of the RESTful API for automating the process of configuring VMs, allowing for programmatically defined configurations with minimal intervention required.</p>
+<h3>Topic 4: Choosing Machine Types</h3>
+<p>The article explains that Compute Engine offers four machine types (standard, high memory, shared core, and micro VMs) each with its own characteristics and suitability for different use cases. The standard machine type is recommended for applications requiring a balance between CPU and memory usage.</p>
+<h3>Topic 5: Development Environments</h3>
+<p>The text notes that the micro VMs are particularly well-suited for development environments due to their cost-effectiveness and ability to run small, non-resource-intensive applications.</p>
+<h3>Topic 6: Production Environments</h3>
+<p>For production environments, more powerful machine types (standard, high memory, and high CPU) are required to handle increased workload and resource demands.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main idea of the text?
+Answer: The text discusses the different methods for building and configuring Virtual Machines (VMs) in Google Compute Engine, including the Web Console, Cloudshell, and RESTful API.</p>
+</li>
+<li>
+<p>Which method is recommended for beginners or inexperienced admins?
+Answer: The Web Console is a tremendous method for beginners or inexperienced admins due to its graphical interface with check boxes and drop-down selection menus.</p>
+</li>
+<li>
+<p>What is the advantage of using Cloudshell over the Web Console?
+Answer: Running commands to build VMs is far quicker and less tedious when building multiple VMs than using the Web Console.</p>
+</li>
+<li>
+<p>How can scripts be used in Cloudshell?
+Answer: Scripts or pre-configured multi-line configuration commands can be run to build VMs, which can be readily edited and customized.</p>
+</li>
+<li>
+<p>What is the purpose of the RESTful API?
+Answer: The API will programmatically configure VMs by defining all the different options for your environments and then run automatically with minimum intervention required.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the Web Console become tedious when building multiple VMs? Provide an example.
+Answer: The manual repetition required when configuring each VM in turn becomes tedious, making Cloudshell a preferred method.</p>
+</li>
+<li>
+<p>What is the difference between standard machine types and other machine types?
+Answer: Standard machine types have a ratio of 3.75 gigs of RAM per virtual CPU, while other machine types (high memory, shared core machines, micro VMs) have different ratios.</p>
+</li>
+<li>
+<p>Why are standard machine types best suited for applications with a good balance between CPU and memory usage?
+Answer: They start out at 3.75 gigs of RAM per virtual CPU, making them suitable for applications that require a balance between CPU and memory usage.</p>
+</li>
+<li>
+<p>What is the advantage of using scripts in Cloudshell?
+Answer: Scripts can be readily edited and customized, allowing users to automate the process of building VMs.</p>
+</li>
+<li>
+<p>How does the RESTful API compare to other methods in terms of automation?
+Answer: The API allows for programmatically configuring VMs with minimum intervention required, making it a convenient option for automating the process.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you want to build multiple VMs with different configurations. Which method would you recommend and why?
+Answer: Cloudshell would be recommended because running commands is far quicker and less tedious than using the Web Console.</p>
+</li>
+<li>
+<p>How can you use the RESTful API to automate the process of building VMs?
+Answer: You can configure the first VM instance through the Web Console, then ask Compute Engine for the equivalent REST request or command line code, which can be copied and pasted into your own scripts or commands.</p>
+</li>
+<li>
+<p>What are some scenarios where standard machine types may not be sufficient?
+Answer: Standard machine types may not be sufficient for production environments that require more resources than what is available in these machine types.</p>
+</li>
+<li>
+<p>How can you choose the right machine type for your application?
+Answer: You need to decide on which of the different machine types currently available fits your needs, considering factors such as CPU and memory requirements.</p>
+</li>
+<li>
+<p>What are some benefits of using scripts in Cloudshell?
+Answer: Scripts allow users to automate the process of building VMs, reducing manual repetition and increasing efficiency.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Web Console</td>
+<td>Interface</td>
+<td>"For beginners or inexperienced admins as it is a graphical interface..."</td>
+<td>The Web Console is a user-friendly interface for building and configuring VMs, ideal for simple tasks. However, it becomes tedious when performing repetitive tasks.</td>
+</tr>
+<tr>
+<td>Cloudshell</td>
+<td>Command Line Interface</td>
+<td>"...Cloudshell may be the preferred method...for running commands to build VMs"</td>
+<td>Cloudshell is a command line interface that allows users to run scripts or pre-configured multi-line configuration commands to build VMs, making it more efficient than the Web Console for multiple VM builds.</td>
+</tr>
+<tr>
+<td>RESTful API</td>
+<td>Programmable Interface</td>
+<td>"...you might want to use the RESTful API...to automate the process"</td>
+<td>The RESTful API is a programmable interface that allows users to configure VMs automatically by defining all the different options for their environments, eliminating manual intervention required.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Cloud Service</td>
+<td>"You are still going to first decide on the VM parameters that your application or service requires..."</td>
+<td>Compute Engine is a cloud service that provides virtual machines (VMs) and other resources, allowing users to choose from predefined machine types based on their specific needs.</td>
+</tr>
+<tr>
+<td>Machine Types</td>
+<td>Predefined Options</td>
+<td>"...the four classes: standard, high memory, Shared core machines or the micro VMs..."</td>
+<td>The machine types are predefined options that cater to different use cases, such as development environments (micro VMs) and production environments (standard, high memory, and high CPU). Each type has a specific ratio of virtual CPUs to memory.</td>
+</tr>
+<tr>
+<td>Virtual CPUs</td>
+<td>Resource Allocation</td>
+<td>"...the standard machine type is best suited to applications that have a good balance between CPU and memory usage..."</td>
+<td>Virtual CPUs are a resource allocation unit in Compute Engine, allowing users to allocate resources (CPU) to their VMs. The standard machine type has a specific ratio of virtual CPUs to RAM.</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>Memory Allocation</td>
+<td>"...standard machine types start out at 3.75 gigs of RAM per virtual CPU..."</td>
+<td>RAM is a memory allocation unit in Compute Engine, providing users with the ability to allocate memory resources (RAM) to their VMs. The standard machine type has a specific ratio of RAM to virtual CPUs.</td>
+</tr>
+<tr>
+<td>Scripts</td>
+<td>Customizable Code</td>
+<td>"...these scripts can be readily edited and customised for example changing the VM name..."</td>
+<td>Scripts are customizable code that allows users to automate tasks, such as building VMs, by defining pre-configured multi-line configuration commands. Users can edit these scripts to suit their specific needs.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

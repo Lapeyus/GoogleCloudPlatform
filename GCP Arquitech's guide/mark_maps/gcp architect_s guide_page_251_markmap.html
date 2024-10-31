@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_251</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Security Vulnerability Audit
+        ## Introduction
+        
+        - When trying to identify any security vulnerabilities, you start by auditing your existing architecture. To do this, you could use the Cloud Security Scanner to surface known vulnerabilities and then work through those identified to remediate any issues.
+        
+        ## Architecture Review
+        
+        - Now we never addressed security as part of the initial design because there are several important GCP vulnerability controls in place. For example, GCP built-in security within the network, with HTTP Global Load Balancing, in Cloud Load Balancing, and default VPC configurations.
+        
+        ### Security Controls
+        
+        - Nonetheless, we really haven't specified any internal IP addresses, private networks, firewall rules, or any other security controls.
+        
+        ## Front-end Security
+        
+        - The first pass of the security audit surfaces an issue with the front-end security so we need to lock-down the external facing webservers.
+        
+        ### Security Techniques
+        
+        - Nonetheless, there are some security techniques already deployed for us such as the default firewall and its rules when we created our webserver VMs. We also have built-in network protections because of those Global Load Balancers as they protect against major denial-of-service attacks.
+        
+        ## Denial of Service (DoS) Security
+        
+        - We could bolster DoS security further by adding Cloud CDN and Cloud DNS to the design but what we do need to consider is implementing auto-scaling for the front-end cluster to absorb the attack by adding additional servers.
+        
+        ### Risk Assessment
+        
+        - gaining unauthorised access to sensitive user information. However, our other major risk is hackers gaining access and potentially we already have a Virtual Private Cloud, and so we are using private Psubnet range, this prevents a hacker getting directly inside from the internet.
+        
+        ## Isolation and Access Control
+        
+        - Therefore, the first layer of defence must be to prevent hackers gaining a foothold on the public facing webservers. After all, we don't want them using the webservers as a launching pad for attacks on the internal application servers.
+        
+        ### Private IP Addressing
+        
+        - To isolate the upload web servers by using private IP addressing g on their internal interfaces. By giving them private IPs means that if these web servers are going to talk to the back end, they are going to need a secondary NIC in the same private network as the back end servers.
+        
+        ## Firewall and Access Control
+        
+        - We have added firewalls and firewall rules to restrict access to only certain ports. We have also addressed the denial of service risk by making the design more scalable and reliable by adding auto-scaling to the front-end group.
+        
+        ### Private Addresses and Zones
+        
+        - We have restricted access to the backend servers by giving them private addresses which are inaccessible from the internet. Hence, they can only be accessed via the frontend servers secondary interface that resides in the private address space. Also, as the design is now in separate zones, we can isolate against fault tolerances.
+        
+        ## IAM and Security Accounts
+        
+        - However, there is also assumed implicit trust between all components on the network so we should consider utilizing security accounts via IAM.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_103</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Interconnectivity
+        ## When You Need It
+        - GCP also offers a variety of ways for you to interconnect your on-premises or other cloud networks with your Google VPC. 
+        - It's simple to set up a VPN but you will have to manually update the routing add subnets.
+        
+        ### Using Cloud Router
+        - But if you want to use dynamic routing so that all new subnets will be auto-discovered and propagated then you will need to use, cloud router.
+        - This option makes the update of routing tables dynamic as it will manage the BGP routing updates between your site and the GCP.
+        
+        ## Peering with Google
+        - You can also peer with Google, through many worldwide points of presence either directly or through a carrier partner. 
+        - Or if you need a service level agreement and can adopt one of their required network topologies, then you are best to use the Dedicated Interconnect.
+        
+        ### Network Billing
+        #### Ingress and Egress Traffic
+        - It is important that you understand the usage conditions you will be billed for on GCP's network;
+        - • First of all, ingress or traffic coming into GCP's network is not billable it's free of charge. 
+        - In addition, all egress traffic within the same zone, to a different GCP service within the same region, or to other Google products like YouTube, Maps, Drive, and Gmail from a VM in GCP with a public or private IP address is not charged either.
+        
+        #### Egress Traffic Charges
+        - However, there is a charge for egress between zones in the same region and between regions.
+        - These rules apply to charges only for egress traffic through internal IP addresses.
+        
+        #### External IP Addresses
+        - It is important to realise that there are different billing charges for egress through external IP address, regardless of whether the instances are in the same zone. 
+        - Hence there is no free transfer of egress traffic between VMs in the same zone when using public external IP addresses.
+        
+        ## Designing Your Network
+        - Another thing to consider when designing your network is your throughput and round-trip latency between virtual machines.
+        - This is going to vary by location, so check your applications requirements against the current specifications for the VPC when choosing where to place the VMs.
+        
+        ### Performance Comparison
+        - For example, VM to VM communication within a single zone has much more consistent performance than VM to VM communication between regions across continents.
+
+      </script>
+    </div>
+  </body>
+</html>

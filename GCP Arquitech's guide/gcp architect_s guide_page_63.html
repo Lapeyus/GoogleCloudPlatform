@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_63</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_63_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_63</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Use Case -6</h1>
+<h2>A Client's Dilemma</h2>
+<p>A client wants to build apps using containers, embracing a continuous improvement and rapid deployment culture. However, their current infrastructure isn't flexible enough, and they're unsure how to manage the change.</p>
+<h2>Solution</h2>
+<p>There are two parts to this question:</p>
+<h3>Part 1: Cloud Development Environment</h3>
+<p>Creating a development environment in the cloud would be a highly flexible and agile solution. Developers can spin-up VMs and other resources in seconds without capital outlay or provisioning delays, making development fast and flexible. This also reduces the internal burden on networks and IT, as they no longer need to be involved every time a developer wants to spin up an instance.</p>
+<h3>Part 2: Building Apps Using Containers</h3>
+<p>When considering building apps using containers, there are a few key factors to take into account:</p>
+<h4>Skills and Experience</h4>
+<p>The development team needs to have the required skills or experience in creating and managing containers. We can only advise on which platform they could use that supports containers.</p>
+<h4>Platform Options</h4>
+<p>They have a choice of App Engine Flexible Environment, Compute Engine, or Kubernetes Engine. Each has its place, but if they're serious about containers, Kubernetes is the optimal platform for handling and managing containers at scale.</p>
+<h2>Conclusion</h2>
+<p>Building apps using containers can be a great way to embrace continuous improvement and rapid deployment culture. However, it's essential to consider the development team's skills and experience, as well as choosing the right platform that supports containers.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Use Case -6
+
+A client has come to you requesting your advice on whether they should build their apps using containers. They explain they are keen to take advantage of container technology as they want to embrace a continuous improvement and rapid deployment culture. The problem is that their current infrastructure isn't very flexible and they are not sure how to manage the change, would a cloud development environment be fit for purpose?
+
+There are actually two parts to this question, first there is the issue of building apps using containers and secondly whether to build a development environment in the cloud. If we address the second point first, we can propose that creating the development environment in the cloud would be a highly flexible and agile solution.
+
+This is because developers can spin-up VMs and other resources in seconds without any capital outlay or provisioning delays. This makes development fast and flexible. Moving the development to the cloud also lessens the internal burden on networks and IT as they no longer will need to be involved every time a developer wants to spin up an instance.
+
+So long as it is managed and audited frequently to ensure there is no proliferation of zombie VMs around it, can be a cost-effective solution. 
+
+Regards the point about containers, we need to take a few things into consideration. One of the points is whether the development team has the required skills or any experience in creating and managing containers.
+
+That of course is not for us to say so we can only advise on which platform they could use that supports containers. Here they have a choice of App Engine Flexible Environment, Compute Engine, or of course the specialist platform Kubernetes Engine.
+
+Each has their place but if they are serious about containers then Kubernetes is the optimal platform for handling and managing containers at scale.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Building Apps with Containers: A Cloud Development Environment</strong></p>
+<p>A client seeks advice on whether to build their apps using containers, aiming to adopt a continuous improvement and rapid deployment culture. However, their current infrastructure lacks flexibility, making it uncertain how to manage the change.</p>
+<p><strong>Addressing the Second Point: Cloud Development Environment</strong></p>
+<p>Creating a development environment in the cloud can be a highly flexible and agile solution. Developers can spin-up VMs and other resources in seconds without capital outlay or provisioning delays, making development fast and efficient. This shift also reduces the internal burden on networks and IT, as they no longer need to be involved every time a developer wants to spin up an instance.</p>
+<p><strong>Key Considerations for Containers</strong></p>
+<p>When building apps with containers, several factors must be taken into account:</p>
+<ul>
+<li><strong>Development Team Skills</strong>: The client's development team should assess their required skills or experience in creating and managing containers. While this is not the advisor's decision, they can recommend platforms that support containers.</li>
+<li><strong>Platform Choice</strong>: The client has a choice of platforms to use for container management:<ul>
+<li>App Engine Flexible Environment</li>
+<li>Compute Engine</li>
+<li>Kubernetes Engine (the optimal platform for handling and managing containers at scale)</li>
+</ul>
+</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Cloud Development Environment</strong>
+A highly flexible and agile solution that allows developers to spin-up VMs and other resources in seconds without capital outlay or provisioning delays.</p>
+<h3>Topic 2</h3>
+<p><strong>Container Technology</strong>
+Consideration of whether the development team has the required skills or experience in creating and managing containers, with a recommendation for using Kubernetes Engine as the optimal platform for handling and managing containers at scale.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main concern of the client regarding building apps using containers?
+Answer: The client's current infrastructure isn't very flexible, making it difficult to manage change.</p>
+</li>
+<li>
+<p>According to the solution, what are the two parts of the question being addressed?
+Answer: Building apps using containers and whether to build a development environment in the cloud.</p>
+</li>
+<li>
+<p>What benefits does creating a development environment in the cloud offer?
+Answer: It provides a highly flexible and agile solution, allowing developers to spin up resources quickly without capital outlay or provisioning delays.</p>
+</li>
+<li>
+<p>How does moving the development environment to the cloud affect internal networks and IT?
+Answer: It lessens their burden as they no longer need to be involved every time a developer wants to spin up an instance.</p>
+</li>
+<li>
+<p>What is the primary consideration when evaluating container technology for building apps?
+Answer: The development team's required skills or experience in creating and managing containers.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the solution address the client's concern about flexibility in their current infrastructure?
+Answer: By proposing a cloud-based development environment that can spin up resources quickly without capital outlay or provisioning delays.</p>
+</li>
+<li>
+<p>What are some potential drawbacks to using Kubernetes Engine for container management?
+Answer: None mentioned in the text, but it could be argued that it may require more expertise and resources than other options.</p>
+</li>
+<li>
+<p>How does the solution balance the need for flexibility with the risk of proliferation of zombie VMs in a cloud-based development environment?
+Answer: By emphasizing the importance of frequent management and auditing to mitigate this risk.</p>
+</li>
+<li>
+<p>What are some potential alternatives to Kubernetes Engine for container management?
+Answer: App Engine Flexible Environment and Compute Engine, although each has its own strengths and weaknesses.</p>
+</li>
+<li>
+<p>How does the solution address the client's concern about managing change in their current infrastructure?
+Answer: By proposing a cloud-based development environment that can adapt quickly to changing needs without requiring significant changes to internal infrastructure.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you were advising a similar client, what would be your first step in addressing their concerns about building apps using containers?
+Answer: I would recommend evaluating the development team's skills and experience with container technology and recommending a suitable platform (e.g., Kubernetes Engine).</p>
+</li>
+<li>
+<p>How might a cloud-based development environment impact the workflow of a development team?
+Answer: It could enable faster iteration and deployment, as well as reduced administrative burdens on internal networks and IT.</p>
+</li>
+<li>
+<p>What are some potential benefits to using a cloud-based development environment for building apps that use containers?
+Answer: Increased flexibility, agility, and cost-effectiveness, as well as reduced administrative burdens on internal teams.</p>
+</li>
+<li>
+<p>How might a client's current infrastructure be modified or extended to support the use of container technology?
+Answer: This would likely involve upgrading or replacing existing infrastructure with more flexible and scalable components.</p>
+</li>
+<li>
+<p>What are some potential risks or challenges associated with using a cloud-based development environment for building apps that use containers?
+Answer: None explicitly mentioned in the text, but could include issues related to security, compliance, and data ownership.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A client has come to you requesting your advice on whether they should build their apps using containers.</td>
+<td>Person/Organization</td>
+<td>The text begins with a statement from the client, expressing their request for advice.</td>
+<td>The client is seeking guidance on container technology and its application in their development process.</td>
+</tr>
+<tr>
+<td>They explain they are keen to take advantage of container technology as they want to embrace a continuous improvement and rapid deployment culture.</td>
+<td>Organization/Person</td>
+<td>The client explains their motivation for using container technology, highlighting the benefits of continuous improvement and rapid deployment.</td>
+<td>The client's goal is to adopt a culture that values continuous improvement and rapid deployment, which container technology can facilitate.</td>
+</tr>
+<tr>
+<td>The problem is that their current infrastructure isn't very flexible and they are not sure how to manage the change, would a cloud development environment be fit for purpose?</td>
+<td>Problem/Question</td>
+<td>The client expresses a concern about their current infrastructure's flexibility and their uncertainty about managing changes.</td>
+<td>The client is uncertain about how to adapt to changes in their infrastructure and seeks advice on whether a cloud development environment can address this issue.</td>
+</tr>
+<tr>
+<td>There are actually two parts to this question, first there is the issue of building apps using containers and secondly whether to build a development environment in the cloud.</td>
+<td>Statement/Question</td>
+<td>The solution addresses the client's request by breaking it down into two separate questions.</td>
+<td>The solution acknowledges that the client's request involves two distinct issues: container technology and cloud development environments.</td>
+</tr>
+<tr>
+<td>If we address the second point first we can propose that creating the development environment in the cloud would be a highly flexible and agile solution.</td>
+<td>Statement/Proposal</td>
+<td>The solution proposes using a cloud development environment as a flexible and agile solution.</td>
+<td>The solution suggests that a cloud development environment can provide flexibility and agility, addressing the client's concerns about managing changes.</td>
+</tr>
+<tr>
+<td>This is because developers can spin-up VMs and other resources in seconds without any capital outlay or provisioning delays.</td>
+<td>Statement/Fact</td>
+<td>The solution explains how cloud development environments work, highlighting their benefits.</td>
+<td>Cloud development environments enable rapid resource allocation, reducing capital outlay and provisioning delays.</td>
+</tr>
+<tr>
+<td>This makes development fast and flexible. Moving the development to the cloud also lessens the internal burden on networks and IT as they no longer will need to be involved every time a developer wants to spin up an instance.</td>
+<td>Statement/Fact</td>
+<td>The solution explains how cloud development environments benefit development teams, reducing their workload.</td>
+<td>Cloud development environments reduce the workload of development teams by automating resource allocation and minimizing IT involvement.</td>
+</tr>
+<tr>
+<td>So long as it is managed and audited frequently to ensure there is no proliferation of zombie VMs around it can be a cost effective solution.</td>
+<td>Statement/Caveat</td>
+<td>The solution acknowledges potential risks associated with cloud development environments, emphasizing the need for management and auditing.</td>
+<td>Cloud development environments require regular management and auditing to prevent issues like zombie VMs, which can impact cost-effectiveness.</td>
+</tr>
+<tr>
+<td>Regards the point about containers, we need to take a few things into consideration.</td>
+<td>Transition/Introduction</td>
+<td>The solution shifts focus to container technology, highlighting its importance.</td>
+<td>The solution acknowledges that container technology is a critical aspect of the client's request and requires careful consideration.</td>
+</tr>
+<tr>
+<td>One of the points is whether the development team has the required skills or any experience in creating and managing containers.</td>
+<td>Statement/Fact</td>
+<td>The solution identifies one key factor affecting the adoption of container technology.</td>
+<td>The success of container technology depends on the development team's skills and experience in creating and managing containers.</td>
+</tr>
+<tr>
+<td>That of course is not for us to say so we can only advice on which platform they could use that supports containers.</td>
+<td>Statement/Advice</td>
+<td>The solution advises the client on potential platforms for container technology, emphasizing its limitations.</td>
+<td>The solution provides guidance on suitable platforms for container technology but acknowledges its inability to assess the development team's capabilities.</td>
+</tr>
+<tr>
+<td>Here they have a choice of App Engine Flexible Environment, Compute Engine or of course the specialist platform Kubernetes Engine.</td>
+<td>Statement/List</td>
+<td>The solution presents options for container technology platforms.</td>
+<td>The client has several choices for container technology platforms, including App Engine, Compute Engine, and Kubernetes Engine.</td>
+</tr>
+<tr>
+<td>Each has their place but if they are serious about containers then Kubernetes is the optimal platform for handling and managing containers at scale.</td>
+<td>Statement/Recommendation</td>
+<td>The solution recommends a specific platform for container technology based on its capabilities.</td>
+<td>Kubernetes Engine is the recommended platform for container technology due to its scalability and management capabilities.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_102</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_102_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_102</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Ingress and Firewall</h1>
+<h2>Allow Rules</h2>
+<p>• Ingress allow rules, allow specified protocol, ports, and IP addresses to connect in
+• The firewall prevents instances from receiving connections on non-permitted ports and protocols</p>
+<h2>Source Protection</h2>
+<p>Rules can be restricted to only affect particular sources
+Source CIDR ranges can be used to protect from undesired connections coming to an instance either from external networks or from GCP IP set of ranges
+In addition, source tags can be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag.</p>
+<h2>Load Balancing</h2>
+<p>The GCP offers a variety of ways to load balance in-bound (ingress) traffic from sources across the internet.
+You can use the default Global HTTPS load balancing service to put your Web application behind a single anycast IP address across the entire Internet.
+Load balancing is tightly integrated with GCP's Content Delivery Network, giving you the option to cache many types of content close to your regional customers around the globe.</p>
+<h2>Regional Load Balancers</h2>
+<p>For UDP traffic or for the SSL Proxy, you will also use the regional load balancer.
+Finally, to load balance the internal ingress traffic within the VPC for example between tiers of a multi-tier application you will use the internal load balancer.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Ingress Allow Rules and Firewall
+Ingress allow rules allow specified protocol, ports, and IP addresses to connect in. The firewall prevents instances from receiving connections on non-permitted ports and protocols.
+
+Rules can be restricted to only affect particular sources. Source CIDR ranges can be used to protect from undesired connections coming to an instance either from external networks or from GCP IP set of ranges. In addition, source tags can be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag.
+
+This enables a VM to receive a connection from an external address and deny another VM from receiving a connection from a VM in the same network. You can control ingress connections from a VM instance by constructing inbound connection conditions using source addresses, protocols, ports, and source tags on instances. However, Source Tags can only be used for VM to VM connections.
+
+Load Balancing
+The GCP offers a variety of ways to load balance in-bound (ingress) traffic from sources across the internet. You can use the default Global HTTPS load balancing service to put your Web application behind a single anycast IP address across the entire Internet.
+
+The way that works is simply that you deploy the same public IP (an anycast address) across all the diverse Google points of presence (POP). The way that anycast works is that the address is advertised as the unique address for a service across the global network.
+
+Every region in the global network. The idea being that due to the it is not unique as it is presented, advertised and replicated across vast distances and latency involved a user will always connect to the closest PoP advertising that external IP address.
+
+The other geographically diverse PoP instances of that IP address will serve as automatic failover for redundancy. This is because; the user will always connect to the closest geographical point of presence that the IP address determines, so they will also get the best customer experience and lowest latency.
+
+Moreover, the network will load balance traffic for the application among all your back-end instances in the closest region but if necessary it can reach other backends around the world. Load balancing is tightly integrated with GCP's Content Delivery Network.
+
+This gives you the option to cache many types of content close to your regional customers around the globe. To take advantage of Content Deliver Network all you have to do is set up HTTP(S) Load Balancing and then simply enable Cloud CDN with a single checkbox.
+
+However, you may well be wishing to load balance protocols other than HTTPS. In that case, you can use the regional load balancer for global TCP for traffic on many other optional ports. For UDP traffic or for the SSL Proxy, you will also use the regional load balancer. Finally, to load balance the internal ingress traffic within the VPC for example between tiers of a multi-tier application, you will use the internal load balancer.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Ingress and Load Balancing in GCP</h3>
+<h4>Ingress Control</h4>
+<p>In Google Cloud Platform (GCP), ingress control allows specific rules, protocols, ports, and IP addresses to connect to instances. The firewall prevents instances from receiving connections on non-permitted ports and protocols.</p>
+<ul>
+<li>Rules can be restricted to only affect particular sources.</li>
+<li>Source CIDR ranges can be used to protect from undesired connections coming to an instance either from external networks or from GCP IP set of ranges.</li>
+<li>In addition, source tags can be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag.</li>
+</ul>
+<h4>Load Balancing</h4>
+<p>GCP offers various ways to load balance in-bound (ingress) traffic from sources across the internet. The default Global HTTPS load balancing service puts your Web application behind a single anycast IP address across the entire Internet.</p>
+<ul>
+<li>Anycast works by advertising a unique address for a service across the global network, which is replicated across diverse Google points of presence (POPs).</li>
+<li>Users will always connect to the closest POP based on the IP address, providing redundancy and low latency.</li>
+<li>Load balancing is tightly integrated with GCP's Content Delivery Network (CDN), allowing caching of content close to regional customers around the globe.</li>
+</ul>
+<h4>Regional Load Balancers</h4>
+<p>Regional load balancers can be used for global TCP traffic on many other optional ports, including UDP traffic or SSL Proxy. They are also used for internal load balancing within a VPC for multi-tier applications.</p>
+<ul>
+<li>Internal load balancers allow for load balancing of internal traffic within a VPC.</li>
+<li>Regional load balancers provide redundancy and low latency for external traffic.</li>
+<li>Load balancing with regional load balancers can be used to distribute traffic across multiple instances in different regions.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Ingress and Firewall Configuration
+The text discusses the configuration of ingress rules, firewall settings, and source tags to control incoming connections to instances. It explains how to restrict access to specific ports, protocols, and IP addresses, as well as use source tags to protect instances from undesired connections.</p>
+<h3>Topic 2</h3>
+<p>Load Balancing Overview
+This topic covers the basics of load balancing in GCP, including the use of anycast IP addresses, regional load balancers, and Content Delivery Networks (CDNs). It explains how load balancing works, its benefits, and how it can be used to distribute traffic across multiple backends.</p>
+<h3>Topic 3</h3>
+<p>Load Balancing Protocols and Services
+This topic delves deeper into the various protocols and services available for load balancing in GCP. It covers HTTPS load balancing, regional load balancers for TCP and UDP traffic, and internal load balancers for VPC-based applications.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary function of an Ingress rule in GCP?
+Answer: An Ingress rule allows specified protocol, ports, and IP addresses to connect into a resource.</p>
+</li>
+<li>
+<p>How does the firewall prevent instances from receiving connections on non-permitted ports and protocols?
+Answer: The firewall prevents instances from receiving connections by blocking traffic on non-permitted ports and protocols.</p>
+</li>
+<li>
+<p>What is the purpose of using Source CIDR ranges in Ingress rules?
+Answer: Source CIDR ranges are used to protect an instance from undesired connections coming from external networks or GCP IP set of ranges.</p>
+</li>
+<li>
+<p>How can source tags be used to control ingress connections on a VM instance?
+Answer: Source tags can be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag, enabling a VM to receive a connection from an external address and deny another VM from receiving a connection.</p>
+</li>
+<li>
+<p>What is the primary function of Load Balancing in GCP?
+Answer: The primary function of Load Balancing is to distribute incoming traffic across multiple backend instances or services.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does anycast IP addressing work, and what are its benefits for load balancing?
+Answer: Anycast IP addressing works by deploying the same public IP address across all diverse Google points of presence (POPs), which allows users to connect to the closest POP based on latency, providing a better customer experience and lowest latency.</p>
+</li>
+<li>
+<p>What is the difference between HTTP(S) Load Balancing and regional load balancers?
+Answer: HTTP(S) Load Balancing provides caching capabilities through Cloud CDN, while regional load balancers offer more flexibility in terms of protocol support (TCP, UDP, SSL Proxy) and port options.</p>
+</li>
+<li>
+<p>How does GCP's Content Delivery Network (CDN) integrate with Load Balancing?
+Answer: GCP's CDN is tightly integrated with Load Balancing, allowing users to cache content close to their regional customers around the globe by simply enabling Cloud CDN with a single checkbox.</p>
+</li>
+<li>
+<p>What are some scenarios where internal load balancers are used in GCP?
+Answer: Internal load balancers are used for load balancing internal ingress traffic within a VPC, such as between tiers of a multi-tier application.</p>
+</li>
+<li>
+<p>How can source tags be used to control VM-to-VM connections in GCP?
+Answer: Source tags can only be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag, enabling a VM to receive a connection from an external address and deny another VM from receiving a connection.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design an Ingress rule for a web application that allows incoming traffic on port 80 (HTTP) and IP addresses in the range 192.168.1.0/24.
+Answer: Create an Ingress rule with protocol HTTP, ports 80, and source IP addresses in the range 192.168.1.0/24.</p>
+</li>
+<li>
+<p>Implement Load Balancing for a web application using regional load balancers to distribute traffic across multiple backend instances.
+Answer: Set up regional load balancing with TCP protocol support on port 443 (HTTPS) and enable Cloud CDN for caching capabilities.</p>
+</li>
+<li>
+<p>Configure source tags to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag.
+Answer: Create source tags for the desired VM instances and apply them to the Ingress rule, ensuring that only authorized traffic is allowed to reach the instance.</p>
+</li>
+<li>
+<p>Design a VPC network architecture that includes internal load balancing for a multi-tier application.
+Answer: Set up an internal load balancer within the VPC network, connecting multiple backend instances or services, and configure routing rules to ensure efficient traffic distribution.</p>
+</li>
+<li>
+<p>Implement anycast IP addressing for a web application with multiple POPs located across different regions.
+Answer: Deploy the same public IP address across all diverse Google points of presence (POPs), ensuring that users connect to the closest POP based on latency, providing a better customer experience and lowest latency.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingress allow rules</td>
+<td>Rule</td>
+<td>"Ingress allow rules, allow specified protocol, ports, and IP addresses to connect in"</td>
+<td>This rule allows specific protocols, ports, and IP addresses to establish connections with instances. It is a security measure to control incoming traffic.</td>
+</tr>
+<tr>
+<td>Firewall</td>
+<td>Security Measure</td>
+<td>"The firewall prevents instances from receiving connections on non-permitted ports and protocols"</td>
+<td>The firewall acts as a barrier to prevent instances from receiving unwanted connections on certain ports or protocols. This ensures that only authorized traffic can reach the instance.</td>
+</tr>
+<tr>
+<td>Source CIDR ranges</td>
+<td>IP Address Range</td>
+<td>"Source CIDR ranges can be used to protect from undesired connections coming to an instance either from external networks or from GCP IP set of ranges"</td>
+<td>A source CIDR range is a way to restrict incoming traffic to specific IP addresses or subnets, preventing unwanted connections. This helps in securing instances by limiting access from external networks and GCP IP sets.</td>
+</tr>
+<tr>
+<td>Source tags</td>
+<td>Tagging System</td>
+<td>"In addition, source tags can be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag"</td>
+<td>Source tags are used to identify specific virtual machines (VMs) and restrict incoming traffic to those VMs. This allows for more granular control over access to instances by using tags to filter traffic.</td>
+</tr>
+<tr>
+<td>Load Balancing</td>
+<td>Service</td>
+<td>"The GCP offers a variety of ways to load balance in-bound (ingress) traffic from sources across the internet"</td>
+<td>Load balancing is a service that distributes incoming traffic across multiple servers or instances, ensuring that no single point becomes overwhelmed and providing better performance and reliability.</td>
+</tr>
+<tr>
+<td>Global HTTPS load balancing service</td>
+<td>Service</td>
+<td>"You can use the default Global HTTPS load balancing service to put your Web application behind a single anycast IP address across the entire Internet"</td>
+<td>The global HTTPS load balancing service provides a way to distribute incoming traffic for web applications across multiple regions, using a single public IP address (anycast). This ensures that users are directed to the closest available instance.</td>
+</tr>
+<tr>
+<td>Anycast</td>
+<td>Addressing System</td>
+<td>"The way that anycast works is that the address is advertised as the unique address for a service across the global network"</td>
+<td>Anycast is an addressing system where multiple servers or instances share the same public IP address, but each server responds to requests from its own region. This allows users to connect to the closest available instance, reducing latency and improving performance.</td>
+</tr>
+<tr>
+<td>Content Delivery Network (CDN)</td>
+<td>Service</td>
+<td>"Load balancing is tightly integrated with GCP's Content Delivery Network"</td>
+<td>The CDN service provides a way to cache content at edge locations closer to users, reducing latency and improving performance for web applications. It can be enabled alongside HTTP(S) Load Balancing with a single checkbox.</td>
+</tr>
+<tr>
+<td>Regional load balancer</td>
+<td>Service</td>
+<td>"However you may well be wishing to load balance protocols other than HTTPS"</td>
+<td>The regional load balancer provides a way to distribute incoming traffic across multiple instances or servers, using specific ports and protocols (e.g., TCP, UDP, SSL). It can also be used for internal load balancing within VPCs.</td>
+</tr>
+<tr>
+<td>Internal load balancer</td>
+<td>Service</td>
+<td>"Finally, to load balance the internal ingress traffic within the VPC for example between tiers of a multi-tier application you will use the internal load balancer"</td>
+<td>The internal load balancer provides a way to distribute incoming traffic across multiple instances or servers within a Virtual Private Cloud (VPC), ensuring that traffic is routed correctly between tiers of a multi-tier application.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

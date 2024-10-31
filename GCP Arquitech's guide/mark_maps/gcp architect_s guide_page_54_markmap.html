@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_54</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Bigtable
+        ## What is NoSQL?
+        ### Definition
+        - The term NoSQL with regards database technology means that it is 'Not Only SQL' and the difference between NoSQL and traditional SQL relational databases is that the former is better suited to today's application data loads and development lifecycles.
+        
+        ## Relational Databases vs. NoSQL Databases
+        ### Schema-Defined vs. Schema-Free
+        - Relational databases require that schemas be defined before you can add data. A schema is a collection of relational tables that consist of records and fields. However, this pre-configuration and planning of the database schema fits poorly with modern agile development approaches.
+        
+        ## Modern Approach to Database Development
+        ### NoSQL Databases
+        - The modern approach is to use NoSQL databases, which are built to allow the insertion of data without any predefined schema. That makes it easy to make significant application changes in real-time, without worrying about service interruptions - which means development is faster, code integration is more reliable, and less database administrator time is needed.
+        
+        ## Advantages of NoSQL Databases
+        ### Flexibility and Scalability
+        - NoSQL databases are better suited for modern applications that require flexibility and scalability. They can handle large amounts of data and scale horizontally without downtime.
+        
+        ## Cloud Bigtable
+        ### Overview
+        - Cloud Bigtable is a fully managed NoSQL database service offered by Google Cloud Platform (GCP). It provides a scalable and flexible way to store and manage large amounts of data.
+        
+        ## Key Features of Cloud Bigtable
+        ### Scalability
+        - Cloud Bigtable can scale horizontally without downtime, making it an ideal choice for applications that require high availability and scalability.
+        
+        ### High Throughput
+        - Cloud Bigtable supports high throughput, both read and write, making it suitable for operational and analytical applications.
+        
+        ### Petabyte-Scale Data Storage
+        - Cloud Bigtable allows you to store petabytes of data in a single table, making it an ideal choice for large-scale data storage needs.
+        
+        ## Comparison with HBase
+        ### API Compatibility
+        - Cloud Bigtable is offered through the same open source API as HBase, which is the native database for the Apache Hadoop project. This enables the portability of applications between HBase and Bigtable.
+        
+        ### Scalability
+        - While HBase can scale horizontally, Cloud Bigtable provides easier scalability without downtime, making it a better choice for large-scale data storage needs.
+
+      </script>
+    </div>
+  </body>
+</html>

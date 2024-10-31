@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_289</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_289_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_289</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Incident Response</h1>
+<h2>Definition</h2>
+<p>Incident response is defined as the human behaviour that results in system stability when things don't go as planned.</p>
+<h2>Importance of Consistency</h2>
+<p>In responding to incidents, consistency is key. We need to minimize the frequency and duration of outage downtimes. Transparency about the root cause of the incident and sharing with others what we have done to fix it is crucial.</p>
+<h3>Benefits of Consistency</h3>
+<ul>
+<li>Minimizes downtime</li>
+<li>Ensures transparency and communication</li>
+<li>Allows team members to learn quickly from incidents</li>
+</ul>
+<h2>Creating a Structured Incident Response Policy</h2>
+<p>To address consistency, we need to reduce duplication of effort. We can look to Google's Site Reliability Engineering (SRE) culture for best practices.</p>
+<h3>Key Principles of SRE Culture</h3>
+<ul>
+<li>Collaboration and communication</li>
+<li>Learning and open source sharing of designs</li>
+<li>Publishing best practices under open source via research.google.com and other blog posts</li>
+</ul>
+<h2>Developing an Incident Response Policy</h2>
+<p>We must treat our incident response policy in the same way as we consider business logic for our app. The process should be step-by-step, following a flow that includes:</p>
+<ol>
+<li><strong>Information gathering</strong></li>
+<li><strong>Notification of stakeholders and customers</strong></li>
+<li><strong>Post-mortem analysis and documentation update</strong></li>
+</ol>
+<h3>Key Steps in the Process</h3>
+<ul>
+<li>Monitoring service with alerting and dashboard</li>
+<li>Notification of support on-call, stakeholders, and customers</li>
+<li>Proactive planning for automated fail-over, auto-scale, or rollback mechanisms</li>
+</ul>
+<h2>Root Cause Analysis</h2>
+<p>Our business logic layer is where we start to work through our root cause analysis.</p>
+<h3>Example Use Case</h3>
+<ul>
+<li>Incident response policy in place</li>
+<li>Monitoring service with alerting and dashboard</li>
+<li>Notification of stakeholders and customers</li>
+<li>Post-mortem analysis and documentation update</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Incident response is defined as the human behavior that results in system stability when things don't go as planned. After all, we've set up alerts, we're doing dashboards, and now we've got health checks, but how will we respond to an incident? In responding to incidents you will need to be consistent as you need to be able to minimize the frequency and the duration of those outage downtimes. You also need to be transparent about the root cause of the incident and share with others what you have done to fix it.
+
+By sharing with the team what you have identified and how you responded lets them learn quickly from this outage. It is therefore imperative that you do so in a consistent and repeatable manner, and hence consequently we will want to create a structured incident response policy. This should result in the team being prepared, able to respond and fix rapidly as they will know what to do ahead of time.
+
+To address consistency you will need to reduce the duplication of effort. We need to ensure that there is not multiple occurrences of the same thing going on which could delay our response. For a best practice we can look to Google and their Site Reliability Engineering (SRE) culture. Within SRE the focus is on collaboration and communication, learning, open source and sharing of designs.
+
+This culture is demonstrated by Google's willingness to publish best practices and anything they believe to be of value to the community under open source via the research.google.com site as well as through many other blog posts. In developing a strict incidence response policy we must treat it in the same way as we consider the business logic for our app, organized flow, step by step following a flow of information and subsequent customer notifications.
+
+Therefore we must fully identify the flow and then put the steps in place to say this is our first level communication, this is our conclusion, then once we're back online you must take the time to follow up with a post-mortem, which will update the documentation. This typically involves three steps: monitoring service setup, notification of support on-call, stakeholders, and customers, and root cause analysis.
+
+For the first step, we require a monitoring service with alerting as well as a dashboard and have the metrics in place to understand the scope of what has been affected. As we have already in place an alerting policy, the question now is how we are going to notify the support on-call, stakeholders, and customers. None of that can happen without you having planned the incident response policy and put in place the communication tools for responding to the issue.
+
+However, you also have to consider if this needs to be done if you already have in place robust mechanisms for automated fail-over, auto-scale or even automated rollback mechanisms. Regardless, you will have to proactively put in place some method to prepare for these situations. Our business logic layer is where we start to work through our root cause analysis.
+
+In developing a structured incident response policy, consistency and collaboration are key. By reducing duplication of effort and sharing knowledge, the team can respond more effectively to incidents and minimize downtime.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Incident Response: A Structured Approach</strong></h1>
+<p>Incident response refers to the human behavior that results in system stability when things don't go as planned. To achieve this, it's essential to have a consistent and repeatable approach to responding to incidents.</p>
+<p><strong>Key Principles of Incident Response</strong></p>
+<ul>
+<li>Consistency: Minimize frequency and duration of outage downtimes</li>
+<li>Transparency: Share root cause of the incident and how it was fixed with others</li>
+<li>Collaboration: Ensure team is prepared, able to respond, and fix rapidly</li>
+</ul>
+<h2><strong>Reducing Duplication of Effort</strong></h2>
+<p>To address consistency, reduce duplication of effort by:</p>
+<ul>
+<li>Ensuring there's not multiple occurrences of the same thing going on</li>
+<li>Following best practices from organizations like Google's Site Reliability Engineering (SRE) culture</li>
+</ul>
+<h2><strong>Developing a Structured Incident Response Policy</strong></h2>
+<ol>
+<li><strong>Identify Flow and Steps</strong>: Fully identify the flow and put steps in place for first-level communication, conclusion, and post-mortem.</li>
+<li><strong>Determine Each Step's Address</strong>: Determine what each step will address, such as:<ul>
+<li>Monitoring service with alerting and dashboard</li>
+<li>Notification of support on-call, stakeholders, and customers</li>
+</ul>
+</li>
+<li><strong>Consider Robust Mechanisms</strong>: Consider if existing mechanisms for automated fail-over, auto-scale, or automated rollback are in place.</li>
+<li><strong>Proactively Prepare</strong>: Proactively put in place a method to prepare for these situations.</li>
+</ol>
+<h2><strong>Business Logic Layer: Root Cause Analysis</strong></h2>
+<p>The business logic layer is where root cause analysis begins. By following this structured approach, teams can learn quickly from incidents and improve their incident response capabilities.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Incident Response Policy Development</h3>
+<p>Developing a structured incident response policy is crucial for consistency and transparency. It involves identifying the flow of events, creating a three-step process (notification, resolution, and post-mortem), and ensuring collaboration and communication among team members.</p>
+<h3>Topic 2: Collaboration and Communication in SRE Culture</h3>
+<p>The Site Reliability Engineering (SRE) culture at Google emphasizes collaboration, communication, learning, open source, and sharing designs. This approach is demonstrated through the publication of best practices and community engagement via research.google.com and other blog posts.</p>
+<h3>Topic 3: Business Logic Layer and Root Cause Analysis</h3>
+<p>In the business logic layer, root cause analysis is conducted to identify the underlying issue causing the incident. This step is critical in developing an effective incident response policy and ensuring that the team can respond rapidly and efficiently.</p>
+<h3>Topic 4: Robust Mechanisms for Automated Fail-over and Rollback</h3>
+<p>The presence of robust mechanisms for automated fail-over, auto-scale, or automated rollback may impact the need for a formal incident response policy. However, proactive planning is still necessary to prepare for such situations and ensure that the team can respond effectively.</p>
+<h3>Topic 5: Notification and Communication with Stakeholders</h3>
+<p>Effective notification and communication with stakeholders (support on-call, stakeholders, and customers) are essential in an incident response scenario. This involves having a clear plan in place for notifying these parties and ensuring that they receive timely and accurate information.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is incident response defined as?
+Answer: The human behavior that results in system stability when things don't go as planned.</p>
+</li>
+<li>
+<p>Why is it essential to have a structured incident response policy?
+Answer: To ensure the team is prepared, able to respond and fix rapidly, and to minimize the frequency and duration of outage downtimes.</p>
+</li>
+<li>
+<p>What is the focus of Google's Site Reliability Engineering (SRE) culture?
+Answer: Collaboration, communication, learning, open source, and sharing of designs.</p>
+</li>
+<li>
+<p>What are the three steps in a typical incident response process?
+Answer: First level communication, conclusion, and post-mortem.</p>
+</li>
+<li>
+<p>What is the purpose of a post-mortem analysis?
+Answer: To update documentation and reflect on what went wrong to improve future incident responses.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does having a structured incident response policy help minimize downtime?
+Answer: By ensuring the team knows what to do ahead of time, reducing duplication of effort, and improving communication.</p>
+</li>
+<li>
+<p>What role does collaboration play in Google's SRE culture?
+Answer: Collaboration is essential for sharing designs, learning from each other, and publishing best practices.</p>
+</li>
+<li>
+<p>How can a business logic layer help with root cause analysis?
+Answer: By identifying the flow of events leading to an incident, it helps pinpoint the root cause.</p>
+</li>
+<li>
+<p>What are some potential benefits of having automated fail-over, auto-scale, or automated rollback mechanisms?
+Answer: They can reduce the need for manual intervention during incidents and improve overall system reliability.</p>
+</li>
+<li>
+<p>How does a structured incident response policy help with transparency and communication?
+Answer: By sharing what has been done to fix an incident with others, it promotes transparency and learning from the team.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What steps would you take to develop a structured incident response policy for your organization?
+Answer: Identify the flow of events, put in place monitoring services and alerting systems, notify support on-call, stakeholders, and customers, and proactively prepare for automated fail-over mechanisms.</p>
+</li>
+<li>
+<p>How can a company ensure consistency in its incident response process?
+Answer: By reducing duplication of effort, using collaboration tools, and following a structured process.</p>
+</li>
+<li>
+<p>What are some potential challenges when implementing an incident response policy?
+Answer: Ensuring the team is prepared, addressing existing robust mechanisms for automated fail-over or other systems, and proactively preparing for situations.</p>
+</li>
+<li>
+<p>How can a company use open source resources to improve its incident response capabilities?
+Answer: By leveraging Google's research.google.com site and other blog posts to learn from best practices and share designs.</p>
+</li>
+<li>
+<p>What are some key metrics that should be tracked during an incident response process?
+Answer: Monitoring services, alerting systems, dashboard metrics, and customer notification metrics.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Incident response</td>
+<td>Concept</td>
+<td>The human behavior that results in system stability when things don't go as planned.</td>
+<td>Incident response refers to the actions taken by an organization to mitigate and recover from a disruption or outage. It involves being prepared, consistent, and transparent in responding to incidents.</td>
+</tr>
+<tr>
+<td>Alerts</td>
+<td>System component</td>
+<td>We've set up alerts, we're doing dashboards, and now we've got health checks.</td>
+<td>Alerts are notifications sent to users when a specific condition is met, such as a system failure or anomaly. In this context, alerts are used to trigger incident response.</td>
+</tr>
+<tr>
+<td>Dashboards</td>
+<td>System component</td>
+<td>We've set up alerts, we're doing dashboards, and now we've got health checks.</td>
+<td>Dashboards provide a visual representation of system performance and data. They help teams monitor and respond to incidents more effectively.</td>
+</tr>
+<tr>
+<td>Health checks</td>
+<td>System component</td>
+<td>We've set up alerts, we're doing dashboards, and now we've got health checks.</td>
+<td>Health checks are automated tests that verify the normal functioning of systems or applications. In this context, health checks ensure that systems are operating correctly before an incident occurs.</td>
+</tr>
+<tr>
+<td>Site Reliability Engineering (SRE) culture</td>
+<td>Concept</td>
+<td>For a best practice, we can look to Google's SRE culture.</td>
+<td>SRE is a culture that emphasizes collaboration, communication, learning, and open-source sharing of designs. It promotes a proactive approach to system reliability and incident response.</td>
+</tr>
+<tr>
+<td>Business logic layer</td>
+<td>System component</td>
+<td>Our business logic layer is where we start to work through our root cause analysis.</td>
+<td>The business logic layer refers to the underlying rules and processes that govern an organization's operations. In this context, it's used to analyze the root cause of incidents and develop a plan for recovery.</td>
+</tr>
+<tr>
+<td>Post-mortem</td>
+<td>Process</td>
+<td>We must take the time to follow up with a post-mortem, which will update the documentation.</td>
+<td>A post-mortem is a review of what went wrong during an incident, often conducted after the issue has been resolved. It helps identify areas for improvement and updates documentation to prevent similar incidents in the future.</td>
+</tr>
+<tr>
+<td>Robust mechanisms</td>
+<td>System component</td>
+<td>We have robust mechanisms for automated fail-over, auto-scale or even automated rollback mechanisms.</td>
+<td>Robust mechanisms refer to automated systems that can detect failures and take corrective action without human intervention. In this context, they are used to mitigate the impact of incidents.</td>
+</tr>
+<tr>
+<td>Automated fail-over</td>
+<td>Mechanism</td>
+<td>We have robust mechanisms for automated fail-over, auto-scale or even automated rollback mechanisms.</td>
+<td>Automated fail-over is a mechanism that automatically switches to a backup system or resource when the primary system fails. It helps minimize downtime and ensure high availability.</td>
+</tr>
+<tr>
+<td>Auto-scale</td>
+<td>Mechanism</td>
+<td>We have robust mechanisms for automated fail-over, auto-scale or even automated rollback mechanisms.</td>
+<td>Auto-scale refers to the ability of systems to dynamically adjust resources based on demand. In this context, it's used to quickly scale up or down in response to changing system requirements.</td>
+</tr>
+<tr>
+<td>Automated rollback</td>
+<td>Mechanism</td>
+<td>We have robust mechanisms for automated fail-over, auto-scale or even automated rollback mechanisms.</td>
+<td>Automated rollback is a mechanism that automatically switches back to the previous version of a system or application when an issue occurs. It helps prevent data loss and ensures system stability.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

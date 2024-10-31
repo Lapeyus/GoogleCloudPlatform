@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_60</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_60_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_60</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_60_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Containers</h1>
+<h2>Benefits</h2>
+<ul>
+<li>Highly portable code</li>
+<li>Rapid and continuous deployment</li>
+<li>Scalable horizontally</li>
+</ul>
+<h2>Types of Containers</h2>
+<h3>Hypervisor Type-2</h3>
+<ul>
+<li>Host OS</li>
+<li>Guest OS</li>
+</ul>
+<h2>Building Containers</h2>
+<h4>Docker or Google Container Builder</h4>
+<ul>
+<li>Bundling application, dependencies, and machine specific settings into a container</li>
+<li>Using docker build command to build the container</li>
+<li>Saving and uploading image into a container registry service</li>
+</ul>
+<h2>Applications in Containers</h2>
+<h3>Microservices</h3>
+<ul>
+<li>Modular, easy and quick to deploy</li>
+<li>Scale independently across a group of hosts</li>
+</ul>
+<h4>Example</h4>
+<p><code>js
+console('hello, JavaScript')</code></p>
+<p>| Products | Price |
+| --- | --- |
+| Apple | 4 |
+| Banana | 2 |</p>
+<p><img alt="" src="/favicon.png" /></p></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_60_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Figure -7
+
+App A
+App B
+Bins & Libraries
+Bins & Libraries
+Guest OS
+Guest OS
+Hypervisor Type-2
+Host OS
+VM
+Containers Vs. VM
+App A
+App B
+d
+400KL
+k
+Bins &
+e
+Bins & Libraries Libraries
+Host OS
+Server Hardware
+Server Hardware
+Container
+
+To run your application in a container, all you need on each host is an OS kernel that supports containers and a container runtime. In essence, you're virtualizing the OS; it scales well and also gives you nearly the same flexibility as laaS. However, a huge benefit with containers is that through this abstraction of the underlying OS, your code is now highly portable, so you can deploy it readily on any OS or hardware.
+
+This means you no longer have to make different versions of your app to support different OS, which means you can rapidly and continuous deploy your application. Thus, you will go from development, to staging, to production, and deployment to the cloud without reconfiguring or rebuilding the application. This is a tremendous boon for rapid and continuous deployment in DevOps environments.
+
+Containers scale well horizontally, so if you were running a web server, you can scale your application in seconds and as many containers as you need, depending on the size of your workload, on a single host. However, that's not the best way to go about it. With containers, you'll want to shift away from running an application on a single container and instead build your application using lots of containers each performing their own function like microservices.
+
+If you take this approach to building your app using single-function microservices or micro-apps and deploying them in containers connected via the network, this will make them modular, easy, and quick to deploy, and they will scale independently across a group of hosts. Building Containers is the first step in this process.
+
+The most common way to use is an open-source tool called Docker or Google Container Builder. These tools define a format for bundling your application, its dependencies, and machine-specific settings into a container. When you use the docker build command to build the container, it builds and stores the container locally as a runnable image. You can save and upload the image into a container registry service and share or download it from there.
+
+Then, you will use the docker run command to run the image. Nonetheless, the tasks involved in building and packaging applications into containers are only a small part; the vast majority of the work is associated with application configuration, service discovery, managing updates, monitoring, and orchestration.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_60_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><p><strong>Understanding Containers and Their Benefits</strong></p>
+<p>To deploy an application in a container, you need an OS kernel that supports containers and a container runtime. This abstraction provides flexibility similar to laaS (Lightweight Application Accelerator) while scaling well horizontally.</p>
+<p>A significant benefit of containers is their portability, allowing code deployment on any OS or hardware without reconfiguring or rebuilding the application. This enables rapid and continuous deployment in DevOps environments, reducing the time from development to production.</p>
+<p><strong>Key Characteristics of Containers</strong></p>
+<ul>
+<li><strong>Portability</strong>: Code can be deployed on any OS or hardware.</li>
+<li><strong>Scalability</strong>: Containers scale horizontally, allowing for quick scaling of applications based on workload size.</li>
+<li><strong>Modularity</strong>: Applications are built using single-function microservices or micro-apps, making them modular and easy to deploy.</li>
+</ul>
+<p><strong>Building and Running Containers</strong></p>
+<p>The most common way to build containers is using an open-source tool like Docker or Google Container Builder. These tools define a format for bundling applications, dependencies, and machine-specific settings into a container.</p>
+<ul>
+<li><strong>Docker Build Command</strong>: Builds and stores the container locally as a runnable image.</li>
+<li><strong>Docker Run Command</strong>: Runs the image.</li>
+</ul>
+<p><strong>Additional Considerations</strong></p>
+<p>While building containers is essential, it's only a small part of the work involved. The majority of tasks are associated with application configuration, service discovery, managing updates, monitoring, and orchestration.</p>
+<p><strong>Comparison to Virtual Machines (VMs)</strong></p>
+<p>Containers offer similar flexibility to VMs but with better portability and scalability. However, running an application in a single container may not be the best approach, as it can lead to performance issues. Instead, building applications using multiple containers each performing a specific function like microservices is recommended.</p>
+<p><strong>Key Takeaways</strong></p>
+<ul>
+<li>Containers provide portability, scalability, and modularity for applications.</li>
+<li>Building containers requires tools like Docker or Google Container Builder.</li>
+<li>Application configuration, service discovery, and orchestration are essential tasks beyond container building.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Definition: Virtualization of the OS for scalability and flexibility.</p>
+<h3>Topic 2</h3>
+<p>Definition: Portability of code through abstraction of the underlying OS, allowing deployment on any OS or hardware without reconfiguring or rebuilding the application.</p>
+<h3>Topic 3</h3>
+<p>Definition: Containerized application using multiple containers performing different functions like microservices, making them modular, easy to deploy, and scalable across a group of hosts.</p>
+<h3>Topic 4</h3>
+<p>Definition: Building and packaging applications into containers, including bundling application, dependencies, and machine-specific settings into a container image.</p>
+<h3>Topic 5</h3>
+<p>Definition: Application configuration, service discovery, managing updates, monitoring, and orchestration tasks involved in using containers.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_60_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><p><strong>Understanding Containers</strong></p>
+<ol>
+<li>
+<p>What are the two main requirements to run an application in a container on each host?
+Answer: An OS kernel that supports containers and a container runtime.</p>
+</li>
+<li>
+<p>How does containerization provide flexibility for deploying applications?
+Answer: By allowing code to be highly portable across different OS and hardware, making it easier to rapidly and continuously deploy applications without reconfiguring or rebuilding them.</p>
+</li>
+<li>
+<p>What is the benefit of using multiple containers instead of a single container for scaling an application?
+Answer: It allows for independent scaling across a group of hosts, making the application more modular, easy to deploy, and quick to scale.</p>
+</li>
+</ol>
+<p><strong>Building Containers</strong></p>
+<ol>
+<li>
+<p>What is the most common way to build and run containers?
+Answer: Using an open-source tool called Docker or Google Container Builder.</p>
+</li>
+<li>
+<p>How does the <code>docker build</code> command work when building a container?
+Answer: It builds and stores the container locally as a runnable image, which can be saved, uploaded, shared, or downloaded from a container registry service.</p>
+</li>
+<li>
+<p>What is the primary task involved in building and packaging applications into containers?
+Answer: Application configuration, service discovery, managing updates, monitoring, and orchestration.</p>
+</li>
+</ol>
+<p><strong>Containerization vs. Virtual Machines</strong></p>
+<ol>
+<li>
+<p>How does containerization compare to virtual machines in terms of flexibility?
+Answer: Containerization provides nearly the same flexibility as virtual machines, but with a smaller footprint and faster deployment times.</p>
+</li>
+<li>
+<p>What is the main difference between running an application on a single container versus multiple containers?
+Answer: Multiple containers allow for independent scaling across hosts, making it easier to deploy and manage applications.</p>
+</li>
+</ol>
+<p><strong>Best Practices</strong></p>
+<ol>
+<li>
+<p>Why should you shift away from running an application on a single container?
+Answer: To benefit from the ability to scale independently across hosts, making it easier to deploy and manage applications.</p>
+</li>
+<li>
+<p>What is the advantage of using microservices or micro-apps with containers?
+Answer: It makes them modular, easy to deploy, and quick to scale, while also allowing for independent scaling across hosts.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_60_entities.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Figure -7</td>
+<td>Image</td>
+<td>The text mentions "Figure -7" as a reference to an image that illustrates the concept of containers.</td>
+<td>This figure is likely used to visually represent the benefits and concepts discussed in the text, such as containerization and its advantages over traditional virtualization methods.</td>
+</tr>
+<tr>
+<td>App A</td>
+<td>Application</td>
+<td>Appears multiple times in the text, referring to a specific application being deployed using containers.</td>
+<td>The text uses "App A" as an example of an application that can be deployed using containers, highlighting the benefits of portability and rapid deployment.</td>
+</tr>
+<tr>
+<td>App B</td>
+<td>Application</td>
+<td>Appears multiple times in the text, referring to another specific application being deployed using containers.</td>
+<td>Similar to "App A", "App B" is used as a second example of an application that can be deployed using containers, further emphasizing the advantages of containerization.</td>
+</tr>
+<tr>
+<td>Bins &amp; Libraries</td>
+<td>Container Component</td>
+<td>Appears twice in the text, referring to the components that make up a container.</td>
+<td>The text highlights the importance of bins and libraries in containerization, noting that they are essential for bundling an application's dependencies and machine-specific settings into a container.</td>
+</tr>
+<tr>
+<td>Containers Vs. VM</td>
+<td>Comparison Topic</td>
+<td>Used as a comparison topic between containers and virtual machines (VMs).</td>
+<td>The text discusses the differences between containers and VMs, highlighting the benefits of containers in terms of portability, scalability, and rapid deployment.</td>
+</tr>
+<tr>
+<td>Guest OS</td>
+<td>Operating System</td>
+<td>Appears twice in the text, referring to an operating system that can be used as a guest OS for containerization.</td>
+<td>The text notes that a guest OS is required for containerization, but emphasizes that this does not require a separate installation of the OS, rather it uses the existing OS kernel and runtime.</td>
+</tr>
+<tr>
+<td>Hypervisor Type-2</td>
+<td>Virtualization Type</td>
+<td>Used to describe the type of virtualization used in containers.</td>
+<td>The text explains that containers use a hypervisor-type 2 approach, which provides a layer of abstraction between the host OS and the containerized application.</td>
+</tr>
+<tr>
+<td>Host OS</td>
+<td>Operating System</td>
+<td>Appears multiple times in the text, referring to the operating system on which containers are run.</td>
+<td>The text highlights the importance of having an OS kernel that supports containers and a container runtime for running applications in containers.</td>
+</tr>
+<tr>
+<td>VM</td>
+<td>Virtual Machine</td>
+<td>Used as a comparison topic between containers and virtual machines (VMs).</td>
+<td>The text discusses the differences between containers and VMs, highlighting the benefits of containers in terms of portability, scalability, and rapid deployment.</td>
+</tr>
+<tr>
+<td>d</td>
+<td>Unknown Entity</td>
+<td>Appears once in the text, referring to an unknown entity or value.</td>
+<td>This entity is not clearly defined in the text, but may refer to a specific value or metric related to containerization.</td>
+</tr>
+<tr>
+<td>400KL</td>
+<td>Unknown Unit</td>
+<td>Appears once in the text, referring to an unknown unit of measurement.</td>
+<td>This unit is not clearly defined in the text, but may refer to a specific size or capacity related to server hardware.</td>
+</tr>
+<tr>
+<td>k</td>
+<td>Unknown Entity</td>
+<td>Appears once in the text, referring to an unknown entity or value.</td>
+<td>Similar to "d", this entity is not clearly defined in the text, but may refer to a specific value or metric related to containerization.</td>
+</tr>
+<tr>
+<td>e</td>
+<td>Unknown Entity</td>
+<td>Appears once in the text, referring to an unknown entity or value.</td>
+<td>This entity is not clearly defined in the text, but may refer to a specific value or metric related to containerization.</td>
+</tr>
+<tr>
+<td>Bins &amp; Libraries Libraries</td>
+<td>Container Component</td>
+<td>Appears twice in the text, referring to the components that make up a container.</td>
+<td>The text highlights the importance of bins and libraries in containerization, noting that they are essential for bundling an application's dependencies and machine-specific settings into a container.</td>
+</tr>
+<tr>
+<td>Google Container Builder</td>
+<td>Tool</td>
+<td>Used as an alternative to Docker for building containers.</td>
+<td>The text mentions Google Container Builder as an open-source tool that can be used for building containers, providing an alternative to the popular Docker platform.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

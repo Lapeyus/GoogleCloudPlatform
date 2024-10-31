@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_12</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_12_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_12</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Zones are grouped into regions</h1>
+<h2>What is a Region?</h2>
+<p>As we have seen, zones are segments in larger independent geographic areas called regions.</p>
+<h3>Selecting Regions for GCP Resources</h3>
+<p>This means that you can select what zone and region you're GCP resources reside in.</p>
+<h4>Benefits of Fast Network Connectivity within Regions</h4>
+<p>Importantly, all the zones within a region have very fast and very low latency interconnected network connectivity among them as they operate much like an Ethernet switch at layer-2 in the data communications protocol stack.</p>
+<h4>Intercommunication between Zones within a Region</h4>
+<p>Intercommunication between Zones within a region will typically have round trip network latencies of under-five milliseconds, which is very fast when you consider the devices may be 100 km apart or more.</p>
+<h3>Single Broadcast Domain and Failure Domain</h3>
+<p>What this means is that zones within a region can be considered to be from a data network perspective both a single broadcast domain as well as a single failure domain.</p>
+<h4>Importance for Fault Tolerant Applications</h4>
+<p>This is important when you contemplate building a fault tolerant application, as you can easily spread the application's resources across multiple zones within a region. This is because they share a common subnet so the fail-over from one server to another will be seamless.</p>
+<h3>Synchronised or Mirrored Resources in Different Regions</h3>
+<p>Furthermore, you can run synchronised or mirrored resources in different regions if you want greater security against natural disasters.</p>
+<h4>Benefits for Business Continuity and Disaster Recovery</h4>
+<p>However it is not just for business continuity or disaster recovery that you may want to mirror infrastructure across regions as many organizations choose to do this in order to deliver content to customers' at the most convenient point of presence.</p>
+<h3>Delivering Content Closer to Customer Base</h3>
+<p>Thus you may choose to use regions to deliver content closer to your customer base. For example, this is how Google brings their applications closer to their users wherever they may be in the world.</p>
+<h4>Diversifying Across Regions for Security and Convenience</h4>
+<p>Diversifying across regions also protects against the loss of an entire region, say, due to a submarine fibre cable being severed or some natural disaster.</p>
+<h3>Multi-Regional Configuration</h3>
+<p>Sometimes you will find that some Google Cloud platform services do support placing resources in what we call a Multi-Regional configuration. Currently the GCP is configured to support 15 regions.</p>
+<h4>Storing Data Across Regions within Parent Region</h4>
+<p>What this means is that data may well be stored across regions within the parent region. For example, data may be redundantly stored across several geographically diverse locations within the US Multi-Region.</p>
+<h4>Regulatory Compliance for Data Storage</h4>
+<p>You may want to look into this if you are located in Europe or Asia for example as some nations despite being in the same broad geographical region may not wish or be allowed to store data out with their own borders. If that is the case then you can easily stipulate the regions and zones you wish your data to be backed-up that meet your nation's regulatory compliance.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Zones are grouped into regions
+As we have seen, zones are segments in larger independent geographic areas called regions. This means that you can select what zone and region your GCP resources reside in.
+
+Importantly, all the zones within a region have very fast and very low latency interconnected network connectivity among them as they operate much like an Ethernet switch at layer-2 in the data communications protocol stack. Intercommunication between Zones within a region will typically have round trip network latencies of under-five milliseconds, which is very fast when you consider the devices may be 100 km apart or more.
+
+What this means is that zones within a region can be considered to be from a data network perspective both a single broadcast domain as well as a single failure domain. This is important when you contemplate building a fault tolerant application, as you can easily spread the application's resources across multiple zones within a region. This is because they share a common subnet so the fail-over from one server to another will be seamless.
+
+Sharing a common layer-2 domain helps protect against unexpected failures as well as greatly assist in real-time synchronization or replication of data between cluster peers or master/slave models despite the fact they may be 100s of miles apart. Furthermore, you can run synchronised or mirrored resources in different regions if you want greater security against natural disasters.
+
+However, it is not just for business continuity or disaster recovery that you may want to mirror infrastructure across regions as many organizations choose to do this in order to deliver content to customers' at the most convenient point of presence. Thus, you may choose to use regions to deliver content closer to your customer base. For example, this is how Google brings their applications closer to their users wherever they may be in the world.
+
+Diversifying across regions also protects against the loss of an entire region, say, due to a submarine fibre cable being severed or some natural disaster. Sometimes you will find that some Google Cloud platform services do support placing resources in what we call a Multi-Regional configuration. Currently, the GCP is configured to support 15 regions.
+
+What this means is that data may well be stored across regions within the parent region. For example, data may be redundantly stored across several geographically diverse locations within the US Multi-Region. In practice, this means that there is a copy of the data stored in at least two geographic locations, separated by at least 160 kilometres within the US.
+
+You may want to look into this if you are located in Europe or Asia for example as some nations despite being in the same broad geographical region may not wish or be allowed to store data out with their own borders. If that is the case then you can easily stipulate the regions and zones you wish your data to be backed-up that meet your nation's regulatory compliance.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Zones and Regions in Google Cloud Platform (GCP)</h3>
+<p>Zones are segments within larger independent geographic areas called <strong>regions</strong>. This allows users to select specific zones where their GCP resources reside.</p>
+<h3>Key Characteristics of Zones within a Region</h3>
+<ul>
+<li>Fast and low latency interconnected network connectivity among zones, operating similarly to an Ethernet switch at layer-2 in the data communications protocol stack.</li>
+<li>Intercommunication between zones within a region typically has round-trip network latencies under 5 milliseconds, even when devices are 100 km apart or more.</li>
+</ul>
+<h3>Benefits of Zones within a Region</h3>
+<ul>
+<li>Can be considered as both a single broadcast domain and a single failure domain from a data network perspective.</li>
+<li>Allows for seamless fail-over between servers in different zones within the same region due to shared common subnets.</li>
+<li>Provides protection against unexpected failures and assists in real-time synchronization or replication of data between cluster peers or master/slave models.</li>
+</ul>
+<h3>Using Regions for Greater Security and Flexibility</h3>
+<ul>
+<li>Can run synchronized or mirrored resources in different regions for greater security against natural disasters.</li>
+<li>Useful for business continuity, disaster recovery, delivering content to customers at the most convenient point of presence, and protecting against the loss of an entire region due to a submarine fibre cable being severed or some natural disaster.</li>
+</ul>
+<h3>Multi-Regional Configuration</h3>
+<ul>
+<li>Some GCP services support placing resources in a <strong>Multi-Regional</strong> configuration.</li>
+<li>Currently, the GCP is configured to support 15 regions.</li>
+<li>Data may be stored across regions within the parent region, with at least two geographic locations separated by 160 km.</li>
+<li>Useful for organizations located in Europe or Asia that require data storage compliance with their nation's regulatory requirements.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Data Network Perspective</p>
+<h3>Topic 2</h3>
+<p>Fault Tolerance and Failover</p>
+<h3>Topic 3</h3>
+<p>Geographic Distribution and Security</p>
+<h3>Topic 4</h3>
+<p>Multi-Regional Configuration and Data Storage</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are zones in Google Cloud Platform (GCP) and how do they relate to regions?
+Answer: Zones are segments within larger independent geographic areas called regions.</p>
+</li>
+<li>
+<p>How do zones within a region communicate with each other?
+Answer: Intercommunication between zones within a region typically has round-trip network latencies of under five milliseconds, making them very fast for devices that may be 100 km apart or more.</p>
+</li>
+<li>
+<p>What is the benefit of using zones within a region for building fault-tolerant applications?
+Answer: Zones within a region can be considered as a single broadcast domain and failure domain, allowing easy spreading of application resources across multiple zones for seamless fail-over and real-time synchronization.</p>
+</li>
+<li>
+<p>Why might organizations choose to mirror infrastructure across regions?
+Answer: Organizations may want to mirror infrastructure across regions for business continuity or disaster recovery, delivering content closer to their customer base, or to protect against the loss of an entire region due to natural disasters or submarine fibre cable failures.</p>
+</li>
+<li>
+<p>What is a Multi-Regional configuration in GCP and how does it work?
+Answer: A Multi-Regional configuration allows data to be stored across regions within a parent region, with at least two geographic locations separated by 160 km, providing redundancy and compliance with regional regulations.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do the characteristics of zones within a region contribute to their reliability as a single broadcast domain?
+Answer: The fast and low latency connectivity among zones within a region enables seamless communication and synchronization across devices that may be far apart.</p>
+</li>
+<li>
+<p>What are the implications of using zones within a region for delivering content closer to customer bases?
+Answer: Using regions can provide faster delivery times, improved user experience, and increased competitiveness in the market.</p>
+</li>
+<li>
+<p>How does the Multi-Regional configuration address concerns about data storage and compliance with regional regulations?
+Answer: The Multi-Regional configuration allows organizations to store data across multiple regions within a parent region, ensuring compliance with regional regulations while providing redundancy and protection against data loss.</p>
+</li>
+<li>
+<p>What are the benefits of using zones within a region for building fault-tolerant applications in terms of scalability and reliability?
+Answer: Zones within a region can be easily scaled up or down to meet changing application needs, providing high availability and reliability for critical systems.</p>
+</li>
+<li>
+<p>How does the use of regions and zones within GCP impact the organization's ability to deliver content closer to their customer base?
+Answer: The use of regions and zones within GCP enables organizations to deliver content faster, more reliably, and with greater control over data storage and delivery, improving overall customer experience and competitiveness.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a fault-tolerant application using zones within a region for a company that operates in multiple countries.
+Answer: The design should include multiple instances of critical resources across different zones within the same region, ensuring seamless fail-over and real-time synchronization.</p>
+</li>
+<li>
+<p>How would you configure a Multi-Regional configuration to meet the data storage needs of an organization with operations in Europe and Asia?
+Answer: The organization would need to select regions that comply with regional regulations and ensure data is stored across at least two geographic locations separated by 160 km, providing redundancy and protection against data loss.</p>
+</li>
+<li>
+<p>What are the implications of using zones within a region for delivering content closer to customer bases, and how can organizations optimize this approach?
+Answer: Organizations should consider factors such as latency, bandwidth, and regulatory compliance when optimizing content delivery, ensuring that resources are allocated efficiently and effectively.</p>
+</li>
+<li>
+<p>How would you evaluate the reliability and scalability of a zone-based architecture in GCP for a critical application?
+Answer: The evaluation should include assessing the performance of zones within a region, evaluating the scalability of the architecture, and testing the reliability of the system under various failure scenarios.</p>
+</li>
+<li>
+<p>What are the benefits of using regions and zones within GCP for building fault-tolerant applications, and how can organizations leverage these features to improve overall system availability?
+Answer: The use of regions and zones within GCP enables organizations to build highly available and scalable systems, providing improved reliability, performance, and control over data storage and delivery.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zones are grouped into regions</td>
+<td>Geographic Area</td>
+<td>This sentence introduces the concept of regions as larger independent geographic areas, grouping zones together.</td>
+<td>The term "regions" refers to a larger geographic area that contains multiple zones. This is an important distinction, as it implies that zones within a region share common characteristics and resources.</td>
+</tr>
+<tr>
+<td>Regions</td>
+<td>Geographic Area</td>
+<td>This sentence explains that regions are larger independent geographic areas that contain multiple zones.</td>
+<td>A region is a larger geographic area that encompasses multiple zones. The term "independent" suggests that each region operates autonomously, with its own set of rules and regulations.</td>
+</tr>
+<tr>
+<td>GCP resources reside in what zone and region</td>
+<td>Resource Location</td>
+<td>This sentence explains how users can select the location of their GCP resources within a region.</td>
+<td>The phrase "GCP resources reside in" indicates that the resources are located within a specific zone and region. This implies that the user has control over where their resources are deployed.</td>
+</tr>
+<tr>
+<td>Interconnected network connectivity among zones within a region</td>
+<td>Network Connectivity</td>
+<td>This sentence explains the fast and low latency network connectivity between zones within a region.</td>
+<td>The term "interconnected" suggests that the zones within a region are connected to each other, allowing for seamless communication and data transfer. The phrase "round trip network latencies of under-five milliseconds" implies that the network connectivity is extremely fast, even when devices are 100 km apart or more.</td>
+</tr>
+<tr>
+<td>Single broadcast domain</td>
+<td>Data Network Perspective</td>
+<td>This sentence explains that zones within a region can be considered as a single broadcast domain from a data network perspective.</td>
+<td>The term "broadcast domain" refers to a network segment where all devices can receive broadcast traffic. In this context, the phrase suggests that zones within a region share a common broadcast domain, allowing for seamless communication and data transfer between devices.</td>
+</tr>
+<tr>
+<td>Single failure domain</td>
+<td>Data Network Perspective</td>
+<td>This sentence explains that zones within a region can be considered as a single failure domain from a data network perspective.</td>
+<td>The term "failure domain" refers to a network segment where all devices are connected and can fail together. In this context, the phrase suggests that zones within a region share a common failure domain, allowing for seamless failover and recovery between devices.</td>
+</tr>
+<tr>
+<td>Fault tolerant application</td>
+<td>Application Type</td>
+<td>This sentence explains how users can build fault-tolerant applications using multiple zones within a region.</td>
+<td>The term "fault-tolerant" refers to an application that can continue to function even in the event of a failure or outage. In this context, the phrase suggests that users can build such applications by deploying resources across multiple zones within a region, allowing for seamless failover and recovery.</td>
+</tr>
+<tr>
+<td>Common subnet</td>
+<td>Data Network Perspective</td>
+<td>This sentence explains how sharing a common subnet helps protect against unexpected failures and facilitates real-time synchronization or replication of data between cluster peers or master/slave models.</td>
+<td>The term "subnet" refers to a network segment that is used to divide a larger network into smaller, more manageable segments. In this context, the phrase suggests that sharing a common subnet allows for seamless communication and data transfer between devices within a region.</td>
+</tr>
+<tr>
+<td>Synchronised or mirrored resources in different regions</td>
+<td>Data Replication</td>
+<td>This sentence explains how users can run synchronised or mirrored resources in different regions to achieve greater security against natural disasters.</td>
+<td>The term "synchronised" refers to the process of keeping two or more systems in sync with each other. In this context, the phrase suggests that users can achieve this by deploying resources in multiple regions, allowing for seamless replication and synchronization of data between devices.</td>
+</tr>
+<tr>
+<td>Business continuity or disaster recovery</td>
+<td>Disaster Recovery Strategy</td>
+<td>This sentence explains how users can use regions to deliver content closer to their customer base and protect against the loss of an entire region due to a submarine fibre cable being severed or some natural disaster.</td>
+<td>The term "business continuity" refers to the ability of an organization to continue operating in the event of a disaster or outage. In this context, the phrase suggests that users can achieve this by deploying resources in multiple regions, allowing for seamless failover and recovery.</td>
+</tr>
+<tr>
+<td>Multi-Regional configuration</td>
+<td>Data Replication Strategy</td>
+<td>This sentence explains how some Google Cloud platform services support placing resources in a Multi-Regional configuration to store data across regions within a parent region.</td>
+<td>The term "Multi-Regional" refers to a data replication strategy that involves storing data across multiple regions within a parent region. In this context, the phrase suggests that users can achieve this by deploying resources in a specific configuration, allowing for seamless replication and synchronization of data between devices.</td>
+</tr>
+<tr>
+<td>Data stored in at least two geographic locations</td>
+<td>Data Replication Strategy</td>
+<td>This sentence explains how data is redundantly stored across several geographically diverse locations within a US Multi-Region.</td>
+<td>The term "redundant" refers to the practice of storing data in multiple locations to ensure availability and reliability. In this context, the phrase suggests that users can achieve this by deploying resources in a specific configuration, allowing for seamless replication and synchronization of data between devices.</td>
+</tr>
+<tr>
+<td>Geographic diversity</td>
+<td>Data Replication Strategy</td>
+<td>This sentence explains how some nations may not wish or be allowed to store data out with their own borders due to regulatory compliance issues.</td>
+<td>The term "geographic diversity" refers to the practice of storing data in multiple locations across different geographic regions. In this context, the phrase suggests that users must consider regulatory compliance issues when deploying resources in a specific region.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

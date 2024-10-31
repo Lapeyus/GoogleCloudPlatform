@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_273</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_273_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_273</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Migration to Google Cloud</h1>
+<h2>Considerations</h2>
+<ul>
+<li><strong>Load Testing</strong>: Monitor and measure failure scenarios and perform load testing, especially when comparing on-premise to cloud.</li>
+<li><strong>Hardware Architecture</strong>: Understand that replacing a physical CPU with virtual cores requires consideration of instruction sets and hardware architecture.</li>
+</ul>
+<h3>Choosing the Right CPU Platform Type</h3>
+<ul>
+<li>Go to Compute Engine &gt; Create VM &gt; Customize</li>
+<li>Choose a CPU platform type for optimal performance</li>
+<li>Benchmark application running on different processor types to determine benefits</li>
+</ul>
+<h3>OS Image Selection</h3>
+<ul>
+<li><strong>Google's Published Benchmarks</strong>: Compare with Google's published benchmarks or run your own tests to find the most optimal OS image.</li>
+<li><strong>Ubuntu vs. Other OS Versions</strong>: Typically, Ubuntu runs better over GCP than other OS versions.</li>
+</ul>
+<h3>Persistent Disk Storage</h3>
+<ul>
+<li><strong>Standard Persistent Disks</strong>: 10 GB fixed performance</li>
+<li><strong>Increasing Capacity</strong>: Performance increases as storage scales due to Google's quotas</li>
+<li><strong>I/O Bursts</strong>: Consider I/O bursts when trading up for performance over capacity, and choose between faster SSDs or standard HDs.</li>
+</ul>
+<h3>CPU Requirements</h3>
+<ul>
+<li><strong>Capacity Planning</strong>: A higher amount of CPU is necessary to drive larger storage capacity and reap higher disk IOPS.</li>
+<li><strong>Bottleneck Prevention</strong>: Ensure enough CPU to drive disk I/O to prevent bottlenecks.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Monitoring and Measuring Failure Scenarios in Google Cloud
+=================================================================
+
+Of course we will need to monitor and measure these failure scenarios and it's recommended to perform some load testing especially if you're comparing on-premise to the cloud. AN important aspect to bear in mind when migrating systems from an on-premise network to the cloud is that replacing a physical CPU with, say, eight cores, actually will require a CPU with 16 virtual cores inside of the Google cloud platform.
+
+Understanding hardware architecture is essential and something to bear in mind is that different zones often have different hardware components available. This is due to the diversity of Google's data centres' hardware across the many different technologies. If you go to Compute Engine and click on create VM and then Customize, you can actually choose a CPU platform type.
+
+It is important to give this some considerations as your application may actually benefit from running on a newer instruction set. So you may want to benchmark your application running on each one of these different processor types, to determine which may or may not benefit. You're going to pay the same price but you may well see a surprising difference in your performance benchmarking.
+
+Another thing to consider benchmarking is the OS image that you are running. Google has done a lot of research into this for you and typically Ubuntu runs better over the GCP than other OS versions. But you should either compare Google's published benchmarks or run your own to determine the most optimal for your design.
+
+Regardless of your choice of OS image, you can certainly turn off the OS firewall as Google's firewalls come with the VM instance, and that alone will realize a considerable difference. Additionally, standard persistent disk storage is also crucial to consider when migrating to the cloud.
+
+If you're running something like Windows, which is well known for swapping data to a page file, consider using a local SSD if you can afford it. This is simply because local SSD is much faster than standard hard drives. When considering which persistent disk to use, remember that IOPS are constrained by potential CPU. This means that although you can scale storage, it may have an effect on disk IOPS.
+
+But the interesting thing with Google cloud persistent disk is that the disk IOPS grows as the storage scales. You can see this by looking under Disks in the console and if you choose a standard persistent disk, you get a choice of 10 gigs, and you get a fixed performance. But if you then increase the capacity to 100 gigs, you'll notice that the performance will continue to increase.
+
+Now this is of interest as it's not magic - it's simply because Google has used quotas to enable that larger capacity disk to perform to that higher level. Do keep in mind if you don't have enough CPU to drive the disk I/O, well, then that could potentially be a bottleneck. A rule of thumb when capacity planning is that a higher amount of CPU is necessary to drive larger storage capacity and reap higher disk IOPS.
+
+So also consider I/O bursts, because although the Google network is very, very consistent and almost deterministic in nature, you can still get big spikes, especially if you're flushing data to disk for a database. So remember, if you're trading up for performance over capacity, you need to determine whether you're going to choose the faster SSD over the standard HDs.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Migrating to Google Cloud: Key Considerations</strong></p>
+<p>When migrating systems from an on-premise network to the cloud, it's essential to consider several key factors. <strong>Monitoring and measuring failure scenarios is crucial</strong>, and performing load testing is highly recommended, especially when comparing on-premise to cloud infrastructure.</p>
+<p><strong>Hardware Architecture Matters</strong></p>
+<p>Replacing a physical CPU with eight cores requires a CPU with 16 virtual cores in the Google Cloud Platform, as every virtual CPU is a single hyper thread. Understanding hardware architecture is vital, as different zones have varying hardware components available due to Google's diverse data centers' technologies.</p>
+<p><strong>CPU Platform Type and OS Image</strong></p>
+<p>When creating a VM instance, you can choose a CPU platform type, which may benefit your application depending on the instruction set. <strong>Benchmarking your application on each processor type</strong> is recommended to determine the best choice. Additionally, consider the OS image, as Google has researched optimal versions (typically Ubuntu) for GCP. You can also turn off the OS firewall, which alone will realize a significant difference.</p>
+<p><strong>Persistent Disk Storage</strong></p>
+<p>When choosing persistent disk storage, remember that IOPS are constrained by potential CPU. <strong>Google Cloud Persistent Disks' performance grows with capacity</strong>, but ensure you have enough CPU to drive disk I/O. Consider I/O bursts, as big spikes can occur, especially when flushing data to disk for databases.</p>
+<p><strong>Capacity Planning and Bottlenecks</strong></p>
+<p>A higher amount of CPU is necessary to drive larger storage capacity and reap higher disk IOPS. When trading up for performance over capacity, determine whether to choose a faster SSD or standard HDs based on your specific needs.</p>
+<p>By considering these key factors, you can ensure a successful migration to the Google Cloud Platform and optimize your infrastructure for optimal performance.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Hardware Architecture and Performance Considerations</h3>
+<p>Understanding the importance of hardware architecture when migrating systems to the cloud.</p>
+<h3>Topic 2: Persistent Disk Storage and IOPS</h3>
+<p>Exploring the impact of persistent disk storage on performance, including IOPS and CPU constraints.</p>
+<h3>Topic 3: Load Testing and Failure Scenarios</h3>
+<p>Emphasizing the need for load testing and monitoring failure scenarios in cloud migration.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is an important aspect to consider when migrating systems from an on-premise network to the cloud?
+Answer: Replacing a physical CPU with virtual cores, as every virtual CPU is a single hyper thread.</p>
+</li>
+<li>
+<p>Why is it essential to benchmark your application running on different processor types?
+Answer: To determine which instruction set may benefit your application and see a surprising difference in performance.</p>
+</li>
+<li>
+<p>What is the recommended approach for choosing an OS image for your design?
+Answer: Compare Google's published benchmarks or run your own to determine the most optimal for your design.</p>
+</li>
+<li>
+<p>Why should you consider using a local SSD if running Windows?
+Answer: Because local SSD is much faster than standard persistent disk storage, and it can help improve IOPS.</p>
+</li>
+<li>
+<p>What happens to disk IOPS as you increase the capacity of a Google Cloud persistent disk?
+Answer: The performance continues to increase due to quotas used by Google to enable larger capacity disks to perform at higher levels.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the number of virtual cores in a CPU affect the performance of an application running on the Google Cloud Platform?
+Answer: It can significantly impact performance, as every virtual CPU is a single hyper thread.</p>
+</li>
+<li>
+<p>What are some factors to consider when planning capacity for persistent disk storage in the cloud?
+Answer: IOPS, CPU power, and potential I/O bursts, as scaling storage may have an effect on disk IOPS.</p>
+</li>
+<li>
+<p>How does the Google Cloud network's consistency affect I/O performance?
+Answer: Although it is very consistent and deterministic, big spikes can still occur, especially when flushing data to disk for a database.</p>
+</li>
+<li>
+<p>What is the relationship between CPU power and disk IOPS in the cloud?
+Answer: A higher amount of CPU is necessary to drive larger storage capacity and reap higher disk IOPS.</p>
+</li>
+<li>
+<p>How does using quotas enable larger capacity disks to perform at higher levels?
+Answer: It allows Google Cloud to provide better performance for larger capacity disks, making them more suitable for applications that require high IOPS.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you're running an application on the Google Cloud Platform and notice a significant difference in performance when switching between different processor types, what should you do next?
+Answer: Benchmark your application further to determine which processor type is providing the best performance.</p>
+</li>
+<li>
+<p>Suppose you're planning to deploy a database on the Google Cloud Platform and want to ensure optimal IOPS. What steps would you take?
+Answer: Choose a local SSD if running Windows, benchmark your application for different OS images, and consider using quotas-enabled larger capacity disks.</p>
+</li>
+<li>
+<p>If you're experiencing I/O bottlenecks in your cloud-based application, what are some potential causes and solutions?
+Answer: Potential causes include insufficient CPU power or unexpected I/O bursts. Solutions include scaling storage, choosing a local SSD if running Windows, and considering quotas-enabled larger capacity disks.</p>
+</li>
+<li>
+<p>How can you optimize the performance of an application running on the Google Cloud Platform by selecting the optimal OS image?
+Answer: Compare Google's published benchmarks or run your own to determine the most optimal OS image for your design.</p>
+</li>
+<li>
+<p>If you're planning to deploy a high-traffic application on the Google Cloud Platform, what factors should you consider when choosing persistent disk storage?
+Answer: IOPS, CPU power, and potential I/O bursts, as scaling storage may have an effect on disk IOPS.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>failure scenarios</td>
+<td>Concept</td>
+<td>"Of course we will need to monitor and measure these failure scenarios..."</td>
+<td>The text highlights the importance of monitoring and measuring potential failures when migrating systems to the cloud. Failure scenarios refer to unexpected events or issues that may arise during system migration, such as hardware or software problems, data loss, or security breaches.</td>
+</tr>
+<tr>
+<td>load testing</td>
+<td>Procedure</td>
+<td>"...perform some load testing especially if you're comparing on-premise to the cloud."</td>
+<td>Load testing is a process of simulating heavy loads on a system to test its performance and scalability under various conditions. In this context, it's recommended to perform load testing when migrating systems from an on-premise network to the cloud.</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Hardware Component</td>
+<td>"...replacing a physical CPU with, say, eight cores, actually will require a CPU with 16 virtual cores..."</td>
+<td>A CPU (Central Processing Unit) is a critical component of a computer system responsible for executing instructions. In this text, it's mentioned that replacing a physical CPU with an equivalent number of virtual cores requires a specific configuration in the Google Cloud Platform.</td>
+</tr>
+<tr>
+<td>hyper thread</td>
+<td>Technical Term</td>
+<td>"...every virtual CPU is a single hyper thread."</td>
+<td>A hyper-threading (or hyper-thread) is a technology that allows a physical CPU core to handle multiple threads simultaneously, improving system performance and efficiency. In this context, it's explained that every virtual CPU in the Google Cloud Platform is equivalent to a single hyper-threaded core.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service</td>
+<td>"...if you go to Compute Engine and click on create VM..."</td>
+<td>Compute Engine is a service offered by Google Cloud Platform for creating and managing virtual machines (VMs). In this text, it's mentioned that users can choose from various CPU platform types when creating a VM instance.</td>
+</tr>
+<tr>
+<td>processor type</td>
+<td>Technical Term</td>
+<td>"...choose a CPU platform type."</td>
+<td>Processor type refers to the specific type of CPU architecture used in a system. In this context, it's recommended to consider different processor types and benchmark applications to determine which one may benefit from running on a newer instruction set.</td>
+</tr>
+<tr>
+<td>OS image</td>
+<td>Software Component</td>
+<td>"...Google has done a lot of research into this for you and typically Ubuntu runs better over the GCP..."</td>
+<td>An OS (Operating System) image is a pre-configured version of an operating system that can be used to create a new system or VM instance. In this text, it's mentioned that Google has conducted research on optimal OS images for use with the GCP, with Ubuntu being a recommended choice.</td>
+</tr>
+<tr>
+<td>persistent disk storage</td>
+<td>Storage Solution</td>
+<td>"...standard persistent disk storage."</td>
+<td>Persistent disk storage refers to a type of storage solution that provides durable and long-lasting storage for data. In this text, it's mentioned that Google Cloud Platform offers standard persistent disk storage options, which can be scaled up or down as needed.</td>
+</tr>
+<tr>
+<td>IOPS</td>
+<td>Performance Metric</td>
+<td>"...IOPS are constrained by potential CPU."</td>
+<td>IOPS (Input/Output Operations Per Second) is a performance metric used to measure the number of input/output operations performed on a system per second. In this context, it's explained that IOPS are affected by the availability and capacity of the underlying CPU.</td>
+</tr>
+<tr>
+<td>SSD</td>
+<td>Storage Solution</td>
+<td>"...consider using a local SSD if you can afford it."</td>
+<td>SSD (Solid-State Drive) is a type of storage solution that uses flash memory to store data, providing faster read and write speeds compared to traditional hard disk drives. In this text, it's recommended to use a local SSD for improved performance when running applications like Windows.</td>
+</tr>
+<tr>
+<td>page file</td>
+<td>Storage Solution</td>
+<td>"...Windows, which is well known For swapping data to a page file..."</td>
+<td>A page file (also known as a swap file) is a temporary storage area used by an operating system to store data that doesn't fit in physical memory. In this context, it's mentioned that Windows uses the page file for swapping data, and using a local SSD can improve performance.</td>
+</tr>
+<tr>
+<td>capacity planning</td>
+<td>Planning Process</td>
+<td>"...a rule of thumb when capacity planning..."</td>
+<td>Capacity planning is a process used to determine the optimal amount of resources (such as CPU, memory, or storage) required by a system to meet its performance requirements. In this text, it's mentioned that a higher amount of CPU is necessary to drive larger storage capacity and reap higher disk IOPS.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

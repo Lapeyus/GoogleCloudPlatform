@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_48</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_48_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_48</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_48_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Google Cloud Storage</h1>
+<h2>Overview</h2>
+<p>Google Cloud Storage (GCS) is an object file storage system that stores data as arbitrary bytes - blobs - and addresses them with unique keys. This allows for web-friendly interactions and doesn't require provisioning capacity or developing a schema.</p>
+<h3>Key Features</h3>
+<h4><strong>Immutable Objects</strong></h4>
+<p>Storage objects within a bucket are immutable, meaning they cannot be edited in place. Instead, new versions are created.</p>
+<h4><strong>Encryption</strong></h4>
+<p>Data is encrypted on the server side before writing to disk, and encryption is applied by default at rest and when data is in-transit using HTTPS.</p>
+<h3>Use Cases</h3>
+<ul>
+<li>Serving website content</li>
+<li>Archiving data</li>
+<li>Disaster recovery</li>
+</ul>
+<h2>Benefits</h2>
+<ul>
+<li>No need to provision capacity or develop a schema</li>
+<li>High durability and availability</li>
+<li>Web-friendly with URL-based access</li>
+</ul>
+<h2>Best Practices</h2>
+<ul>
+<li>Choose a location close to your customer base for minimal latency</li>
+<li>Consider legal restrictions on data storage in certain countries</li>
+</ul>
+<h3>Storage Buckets</h3>
+<ul>
+<li>Create a globally unique name for the bucket</li>
+<li>Specify a geographic location for storage</li>
+<li>Choose a default storage class</li>
+</ul>
+<h3>Security</h3>
+<ul>
+<li>Data is encrypted on the server side before writing to disk</li>
+<li>Encryption is applied by default at rest and when data is in-transit using HTTPS</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_48_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Google Cloud Storage
+This is GCP's object file storage which means that instead of storing data in a schema or a file system it stores your data as an arbitrary bunch of bytes - a blob - and the storage system lets you address it with a unique key. Typically these unique keys are in the form of URL's which means object storage interacts nicely with Web technologies.
+
+This is how Google's Cloud Storage works and as it is a form of object storage you don't have to provision capacity or develop a schema before you use it. What this means is that you simply make objects and the service stores them with high durability and high availability and references them via a URL.
+
+Cloud Storage is suitable for many types of data storage requirements such as when serving website content, storing data for archival and even for storing data for disaster recovery. Cloud Storage as we have seen is very web friendly as each of your objects in Cloud Storage has a URL this makes it an ideal method for making available to your end users large data objects via web download.
+
+Google's Cloud Storage is a managed service and it stores your data for you in storage areas called buckets. You will initially create and configure your unique storage bucket then use it to hold your storage objects. The storage objects stored within a bucket are actually immutable, which means that you cannot edit them in place but instead you create new versions.
+
+In addition Cloud Storage always encrypts your data on the server side before it is written to disk and you don't pay extra for that. Furthermore, in a Cloud storage bucket encryption is applied by default at rest and when data is in-transit using HTTPS. This makes it a convenient and secure way to initially move data from your on- premises servers or your computer into GCP.
+
+In this way Cloud Storage acts as an ideal landing post for your data before you move it onwards to other GCP storage services. This is a good way to upload data into GCP as your Cloud Storage objects will be securely stored and organized into buckets. When you create a bucket, you give it a globally unique name and you specify a geographic location where the bucket and its contents are to be stored.
+
+You also choose a default storage class. Therefore, you need to consider a few things before you go ahead and pick a location as ideally you will want a location close to your customer base that will minimizes latency for your application and your end users. In other words, if most of your users are in Europe, you probably want to pick a European location.
+
+There are also legal restrictions about where your customers' data can be stored so for example in the European Union you must store their data within the EU unless you have their explicit permission to store it outside the EU. Therefore, it's best if you operate in Europe or have a large European user base to store your data in a region and zone in Europe.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_48_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Google Cloud Storage Overview</h3>
+<p>Google Cloud Storage (GCS) is an object file storage service that stores data as arbitrary bytes - blobs - and addresses them with unique keys, typically in the form of URLs. This makes it suitable for various data storage requirements, such as serving website content, archival, and disaster recovery.</p>
+<h4>Key Features</h4>
+<ul>
+<li><strong>No schema or capacity provisioning required</strong>: Simply create objects, and the service stores them with high durability and availability.</li>
+<li><strong>Immutable storage objects</strong>: Objects within a bucket are immutable, requiring new versions to be created instead of edited in place.</li>
+<li><strong>Server-side encryption</strong>: Data is encrypted on the server side before writing to disk, without additional cost.</li>
+<li><strong>Default encryption at rest and in-transit using HTTPS</strong>: Ensures secure data transfer and storage.</li>
+</ul>
+<h4>Benefits</h4>
+<ul>
+<li><strong>Convenient landing post for data</strong>: Acts as an ideal location for initial data upload into GCP, providing secure storage and organization.</li>
+<li><strong>Geographic location consideration</strong>: Choose a location close to your customer base to minimize latency and comply with regional data storage regulations.</li>
+</ul>
+<h4>Best Practices</h4>
+<ul>
+<li><strong>Select a suitable location</strong>: Consider the geographic location of your users and ensure compliance with local data storage regulations.</li>
+<li><strong>Choose a default storage class</strong>: Select a storage class that meets your application's requirements for durability, availability, and cost.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Overview of Google Cloud Storage</strong></h3>
+<p>This topic covers the basics of Google Cloud Storage, including its object file storage model, unique key usage, and web-friendly interface.</p>
+<h3>Topic 2: <strong>Key Features and Benefits of Cloud Storage</strong></h3>
+<p>This topic highlights the features and benefits of using Cloud Storage, such as high durability, high availability, immutability, encryption at rest and in-transit, and secure data organization into buckets.</p>
+<h3>Topic 3: <strong>Choosing a Location for Your Data</strong></h3>
+<p>This topic emphasizes the importance of selecting a suitable location for storing data in Cloud Storage, considering factors such as proximity to customer base, latency minimization, and compliance with local regulations.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What type of storage does Google Cloud Storage provide?
+Answer: Object file storage.</p>
+</li>
+<li>
+<p>How do objects in Cloud Storage interact with Web technologies?
+Answer: They can be addressed using unique keys in the form of URLs, making it ideal for serving large data objects via web download.</p>
+</li>
+<li>
+<p>What is the purpose of a bucket in Cloud Storage?
+Answer: To hold and organize storage objects, which are immutable and stored securely.</p>
+</li>
+<li>
+<p>How does encryption work in Cloud Storage?
+Answer: Encryption is applied by default at rest and when data is in-transit using HTTPS, making it a convenient and secure way to move data into GCP.</p>
+</li>
+<li>
+<p>What factors should be considered when choosing a location for a bucket in Cloud Storage?
+Answer: Location proximity to the customer base, latency minimization, and compliance with local laws and regulations regarding data storage.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Cloud Storage differ from traditional file systems or schema-based storage solutions?
+Answer: Cloud Storage stores data as an arbitrary bunch of bytes (blobs) without requiring provisioning capacity or developing a schema beforehand.</p>
+</li>
+<li>
+<p>What are the benefits of using Cloud Storage for serving website content, archival, and disaster recovery purposes?
+Answer: It provides high durability, high availability, web-friendly URLs, and secure encryption, making it suitable for various data storage requirements.</p>
+</li>
+<li>
+<p>How does Cloud Storage's managed service aspect impact its users?
+Answer: The service stores data for the user in storage areas called buckets, handles encryption, and ensures high security and organization of data.</p>
+</li>
+<li>
+<p>What are some potential challenges or considerations when using Cloud Storage for international customers?
+Answer: Compliance with local laws and regulations regarding data storage, choosing a location close to the customer base to minimize latency, and ensuring secure data transfer.</p>
+</li>
+<li>
+<p>How does Cloud Storage's object-based storage model impact its scalability and flexibility?
+Answer: It allows users to easily create, manage, and store large amounts of data without requiring significant upfront planning or infrastructure investments.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you're building a web application that requires storing large images for user uploads. Which type of storage would be most suitable for this use case?
+Answer: Cloud Storage's object file storage, specifically its ability to serve large data objects via web download using URLs.</p>
+</li>
+<li>
+<p>If you're developing an e-commerce platform with customers worldwide, how would you choose the optimal location for your Cloud Storage bucket?
+Answer: You would consider locations close to major customer bases to minimize latency and ensure compliance with local laws and regulations regarding data storage.</p>
+</li>
+<li>
+<p>How might a company use Cloud Storage as an initial landing post for its data before moving it to other GCP storage services?
+Answer: By using Cloud Storage's secure encryption, high availability, and web-friendly URLs, companies can easily move their data into GCP while ensuring the security and organization of their data.</p>
+</li>
+<li>
+<p>What are some potential benefits or drawbacks of using Cloud Storage for disaster recovery purposes?
+Answer: Benefits include high durability and availability, while drawbacks might include additional costs and complexity in setting up and managing disaster recovery scenarios.</p>
+</li>
+<li>
+<p>How does Cloud Storage's object-based storage model impact its integration with other GCP services?
+Answer: It allows for seamless integration with other GCP services, such as Bigtable or Datastore, by providing a standardized way of addressing and storing data.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Cloud Storage</td>
+<td>Service/Platform</td>
+<td>This is GCP's object file storage...</td>
+<td>Google Cloud Storage is a managed service that stores data in an object-based format, allowing for flexible and scalable storage needs. The service provides high durability and availability, making it suitable for various use cases such as serving website content, archival, and disaster recovery.</td>
+</tr>
+<tr>
+<td>Object Storage</td>
+<td>Technology/Concept</td>
+<td>...stores your data as an arbitrary bunch of bytes - a blob...</td>
+<td>Object storage is a type of storage that stores data in a binary format, allowing for efficient and flexible storage needs. It provides a unique key to address the stored data, making it easily accessible and retrievable.</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>Data Format/Protocol</td>
+<td>Typically these unique keys are in the form of URL's...</td>
+<td>URLs (Uniform Resource Locators) are used as unique identifiers to access and retrieve data stored in object storage. They provide a standardized way to locate and address data, enabling easy integration with web technologies.</td>
+</tr>
+<tr>
+<td>Bucket</td>
+<td>Storage Unit</td>
+<td>You will initially create and configure your unique storage bucket...</td>
+<td>A bucket is a storage unit that contains objects stored in object storage. It provides a unique name and geographic location for the bucket and its contents, making it easier to manage and organize data.</td>
+</tr>
+<tr>
+<td>Encryption</td>
+<td>Security Measure</td>
+<td>Cloud Storage always encrypts your data on the server side before it is written to disk...</td>
+<td>Encryption is a security measure used to protect data from unauthorized access. In this context, encryption is applied by default at rest (when data is stored) and in-transit (when data is being transferred), ensuring that data is secure and protected from potential threats.</td>
+</tr>
+<tr>
+<td>HTTPS</td>
+<td>Security Protocol</td>
+<td>...using HTTPS. This makes it a convenient and secure way to initially move data...</td>
+<td>HTTPS (Hypertext Transfer Protocol Secure) is a security protocol used to encrypt data transmitted over the internet, providing a secure connection between the client and server. In this context, HTTPS is used to ensure secure data transfer during encryption.</td>
+</tr>
+<tr>
+<td>On-premises Servers</td>
+<td>Infrastructure/Environment</td>
+<td>...move data from your on- premises servers or your computer into GCP...</td>
+<td>On-premises servers refer to physical servers located within an organization's premises. They provide a secure and controlled environment for storing and processing data. In this context, on-premises servers are used as a source of data to be moved to Google Cloud Storage.</td>
+</tr>
+<tr>
+<td>Data Archival</td>
+<td>Use Case/Use Case</td>
+<td>...storing data for archival...</td>
+<td>Data archival refers to the process of storing data in a long-term storage solution, often for historical or compliance purposes. In this context, data archival is one of the use cases for Google Cloud Storage, providing a secure and scalable solution for storing and managing archived data.</td>
+</tr>
+<tr>
+<td>Disaster Recovery</td>
+<td>Use Case/Use Case</td>
+<td>...storing data for disaster recovery...</td>
+<td>Disaster recovery refers to the process of restoring data and systems after a disaster or outage. In this context, disaster recovery is one of the use cases for Google Cloud Storage, providing a secure and scalable solution for storing and managing critical data in case of an emergency.</td>
+</tr>
+<tr>
+<td>Europe</td>
+<td>Region/Location</td>
+<td>...if most of your users are in Europe...</td>
+<td>Europe refers to a continent and region where data storage regulations and laws may vary. In this context, choosing a European location is important for ensuring compliance with local regulations and minimizing latency for end-users.</td>
+</tr>
+<tr>
+<td>EU</td>
+<td>Regulatory Body/Regulation</td>
+<td>...in the European Union you must store their data within the EU unless...</td>
+<td>The European Union (EU) refers to a regulatory body that enforces laws and regulations related to data protection, privacy, and security. In this context, the EU is mentioned as a regulatory body that requires data storage within its borders for certain organizations.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

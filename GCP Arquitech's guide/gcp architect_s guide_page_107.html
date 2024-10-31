@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_107</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_107_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_107</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Part II-Essential Cloud Infrastructure Core</h1>
+<h2>Services</h2>
+<h3>Chapter 13 - VMs in Compute Engine deep-dive</h3>
+<p>In this chapter, we will take a deeper dive into some of the core services that we introduced in Part 1, which provided you with a high-level introduction to Google Cloud Platform. The first core service that we will examine in far more detail than previously is Compute Engine's VMs.</p>
+<h3>Compute Engine VM</h3>
+<h4>Overview</h4>
+<p>In GCP when it comes to compute and processing options the most commonly used is the traditional virtual machine instance. This is typically because Compute Engine gives you the utmost in flexibility when making a VM instance. For example, you are free to run whatever OS or language that you want as this is a pure laaS - infrastructure as a service - model.</p>
+<h4>Key Features</h4>
+<ul>
+<li>You get a VM and an operating system, and it's up to you to manage it and handle aspects such as auto-scaling and firewall rules.</li>
+<li>The primary work-case of Compute Engine is pretty much any general workload, especially enterprise applications that were designed to run on a server infrastructure. This makes Compute Engine very portable and easy to run in the cloud.</li>
+</ul>
+<h4>Types and Configurations</h4>
+<p>Earlier you learned that when using Compute Engine to make a type, the former offers you a selection of commonly used models, new VM instance you can use either predefined or custom machine. The latter allows you to choose how much memory and how much CPU you want. You can also select the type and capacity of disk you require, such as standard hard drives, SSDs, or local SSDs.</p>
+<p>You can even configure the networking as well as run a combination of Linux Windows machines.</p>
+<h4>Customizing the VM</h4>
+<p>A good starting point when discussing VMs is to consider how many CPUs you will require. To this end, the Compute Engine provides a large selection of predetermined machine configurations that would be suitable for most use cases.</p>
+<p>Specifically, there are predefined micro, medium or high CPU, low to high memory, and standard and shared-core machine types.</p>
+<p>But importantly, should those machine types not be suitable, you can also customize your own machine.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Part II-Essential Cloud Infrastructure Core
+
+Services
+
+Chapter 13 - VMs in Compute Engine deep-dive
+
+In this chapter, we will take a deeper dive into some of the core services that we introduced in Part 1, which provided you with a high-level introduction to Google Cloud Platform. The first core service that we will examine in far more detail than previously is Compute Engine's VMs.
+
+Compute Engine VM
+In GCP when it comes to compute and processing options, the most commonly used is the traditional virtual machine instance. This is typically because Compute Engine gives you the utmost in flexibility when making a VM instance. For example, you are free to run whatever OS or language that you want as this is a pure IaaS - infrastructure as a service - model.
+
+With laaS, you get a VM and an operating system, and it's up to you to manage it and handle aspects such as auto-scaling and firewall rules. The primary work-case of Compute Engine is pretty much any general workload, especially enterprise applications that were designed to run on a server infrastructure. This makes Compute Engine very portable and easy to run in the cloud.
+
+Earlier you learned that when using Compute Engine to make a type, the former offers you a selection of commonly used models, new VM instance you can use either predefined or custom machine. The latter allows you to choose how much memory and how much CPU you want. You can also select the type and capacity of disk you require, such as standard hard drives, SSDs, or local SSDs. You can even configure the networking as well as run a combination of Linux and Windows machines.
+
+In this chapter, now that we understand more about security, networking, and load balancing, we're going to cover several of the other features that we can configure differently, including availability policies, pricing options, and usage discounts, such as start-up scripts, machine rightsizing, firewall rules, and customizing the VM.
+
+Customizing the VM
+A good starting point when discussing VMs is to consider how many CPUs you will require. To this end, Compute Engine provides a large selection of predetermined machine configurations that would be suitable for most use cases. Specifically, there are predefined micro, medium, or high CPU, low to high memory, and standard and shared-core machine types.
+
+But importantly, should those machine types not be suitable, you can also customize your own machine.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Compute Engine's VMs: A Deep Dive</h3>
+<h4>Overview of Virtual Machine Instances</h4>
+<p>In Google Cloud Platform (GCP), the traditional virtual machine instance is the most commonly used compute and processing option. This is due to Compute Engine's flexibility in creating a VM instance, allowing users to run any OS or language they choose.</p>
+<h4>Pure IaaS Model</h4>
+<p>Compute Engine operates on a pure Infrastructure as a Service (IaaS) model, where users receive a VM and an operating system, with full control over management aspects such as auto-scaling and firewall rules.</p>
+<h4>Primary Workload</h4>
+<p>The primary workload of Compute Engine is general workloads, especially enterprise applications designed for server infrastructure. This makes it portable and easy to run in the cloud.</p>
+<h4>Predefined vs. Custom Machine Types</h4>
+<p>When creating a VM instance, users can choose from predefined or custom machine types. The latter allows users to select memory, CPU, disk type, and networking configuration, as well as run a combination of Linux and Windows machines.</p>
+<h4>Features for Configuration</h4>
+<p>In addition to security, networking, and load balancing, Compute Engine offers features such as:</p>
+<ul>
+<li>Availability policies</li>
+<li>Pricing options</li>
+<li>Usage discounts (e.g., start-up scripts, machine rightsizing, firewall rules)</li>
+</ul>
+<h3>Customizing the VM</h3>
+<p>When discussing VMs, it's essential to consider CPU requirements. Compute Engine provides a range of predetermined machine configurations suitable for most use cases, including micro, medium, high CPU, low to high memory, and standard and shared-core machine types.</p>
+<p>However, if these machine types are not suitable, users can customize their own machine by selecting specific parameters such as CPU, memory, disk type, and networking configuration.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Compute Engine VMs</h3>
+<p>The primary focus of this topic is on the virtual machines (VMs) provided by Google Cloud Platform's Compute Engine service. It discusses the flexibility offered by Compute Engine, allowing users to run their preferred operating system and language.</p>
+<h3>Topic 2: Flexibility in VM Configuration</h3>
+<p>This topic highlights the flexibility in configuring VMs, including selecting from predefined models or customizing machine configurations to choose memory, CPU, disk type, and networking settings.</p>
+<h3>Topic 3: Security, Networking, and Load Balancing</h3>
+<p>Although not a primary focus of this chapter, security, networking, and load balancing are mentioned as related topics that will be covered in future chapters. This topic is more about setting the stage for discussing these features rather than delving into them deeply.</p>
+<h3>Topic 4: Customizing VMs</h3>
+<p>This topic emphasizes the importance of considering CPU requirements when selecting a VM configuration. It also discusses how Compute Engine provides predefined machine configurations but allows users to customize their own machines if needed.</p>
+<h3>Topic 5: Availability Policies and Pricing Options</h3>
+<p>This topic touches on the various features that can be configured differently, including availability policies, pricing options, and usage discounts.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary work-case of Compute Engine?
+Answer: Pretty much any general workload, especially enterprise applications that were designed to run on a server infrastructure.</p>
+</li>
+<li>
+<p>What type of model does Compute Engine offer for new VM instances?
+Answer: Predefined or custom machine types.</p>
+</li>
+<li>
+<p>What are some common disk options available in Compute Engine?
+Answer: Standard hard drives, SSDs, and local SSDs.</p>
+</li>
+<li>
+<p>How can you configure the networking settings in Compute Engine?
+Answer: You can configure the networking settings as well as run a combination of Linux and Windows machines.</p>
+</li>
+<li>
+<p>What is the purpose of start-up scripts in Compute Engine?
+Answer: To automate tasks that need to be performed when the VM starts up.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Compute Engine's flexibility model impact its suitability for different types of workloads?
+Answer: Compute Engine's flexibility model allows it to be suitable for a wide range of workloads, making it a versatile option for general workload and enterprise applications.</p>
+</li>
+<li>
+<p>What are the advantages of using custom machine configurations in Compute Engine?
+Answer: Custom machine configurations allow users to tailor their VMs to specific needs, providing more control over resources and performance.</p>
+</li>
+<li>
+<p>How does Compute Engine's pricing model impact its cost-effectiveness?
+Answer: Compute Engine's pricing model offers various options for usage discounts, start-up scripts, and machine rightsizing, making it a cost-effective option for many use cases.</p>
+</li>
+<li>
+<p>What are the implications of using shared-core machine types in Compute Engine?
+Answer: Shared-core machine types can provide better performance and resource utilization, but may also increase costs and complexity.</p>
+</li>
+<li>
+<p>How does Compute Engine's availability policies impact its reliability and uptime?
+Answer: Compute Engine's availability policies ensure high uptime and reliability, providing a stable foundation for applications and workloads.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a VM configuration for a web application that requires 4 CPU cores, 16 GB of RAM, and a standard hard drive.
+Answer: Use the predefined medium CPU machine type with 4 vCPUs, 16 GB of RAM, and a standard hard drive.</p>
+</li>
+<li>
+<p>Create a start-up script to automate the installation of a database on a new VM instance in Compute Engine.
+Answer: Write a script that installs the database software, configures the database settings, and starts the database service.</p>
+</li>
+<li>
+<p>Calculate the cost savings of using Compute Engine's usage discounts for a workload that runs 24/7.
+Answer: Use the Compute Engine pricing calculator to estimate the cost savings based on the workload's usage patterns and the applicable discounts.</p>
+</li>
+<li>
+<p>Implement machine rightsizing in Compute Engine to optimize resource utilization for a high-performance computing application.
+Answer: Monitor the application's performance and adjust the VM instance type, CPU, and memory as needed to achieve optimal resource utilization.</p>
+</li>
+<li>
+<p>Design a network configuration for a distributed application that requires multiple VM instances with different IP addresses and firewall rules.
+Answer: Use Compute Engine's networking features to create separate networks for each VM instance, configure firewall rules to allow traffic between instances, and use load balancing to distribute traffic across the instances.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compute Engine's VMs</td>
+<td>Service/Technology</td>
+<td>"In this chapter, we will take a deeper dive into some of the core services that we introduced in Part 1..."</td>
+<td>A virtual machine service offered by Google Cloud Platform (GCP) that provides flexibility and portability for general workloads and enterprise applications. The service allows users to choose from predefined or custom machine types, configure disk storage, networking, and operating systems.</td>
+</tr>
+<tr>
+<td>Virtual Machine Instance</td>
+<td>Technology/Concept</td>
+<td>"...the most commonly used is the traditional virtual machine instance..."</td>
+<td>A type of virtualization technology that provides a self-contained environment for running an operating system and applications. In GCP, Compute Engine VMs are based on this concept, offering users the ability to run their own OS and applications in a managed environment.</td>
+</tr>
+<tr>
+<td>Infrastructure as a Service (IaaS)</td>
+<td>Technology/Model</td>
+<td>"...this is a pure laas - infrastructure as a service - model..."</td>
+<td>A cloud computing model that provides users with virtualized computing resources over the internet, allowing them to manage their own infrastructure. In GCP, Compute Engine VMs operate on this IaaS model, giving users control over their environment and the ability to customize their machines.</td>
+</tr>
+<tr>
+<td>Auto-Scaling</td>
+<td>Feature/Concept</td>
+<td>"...handle aspects such as auto-scaling..."</td>
+<td>A feature that automatically adjusts the number of resources (e.g., instances) based on demand or other predefined criteria. In GCP, Compute Engine VMs can be configured for auto-scaling, allowing users to dynamically adjust their resource allocation in response to changing workloads.</td>
+</tr>
+<tr>
+<td>Firewall Rules</td>
+<td>Feature/Concept</td>
+<td>"...handle aspects such as auto-scaling and the firewall rules..."</td>
+<td>A security feature that controls incoming and outgoing network traffic based on predefined rules. In GCP, Compute Engine VMs can be configured with custom firewall rules, allowing users to control access to their resources and protect against unauthorized traffic.</td>
+</tr>
+<tr>
+<td>Predefined Machine Configurations</td>
+<td>Feature/Concept</td>
+<td>"...a large selection of predetermined machine configurations..."</td>
+<td>A set of pre-configured virtual machine instances that cater to common use cases. In GCP, Compute Engine VMs offer a range of predefined machine types (e.g., micro, medium, high CPU) that can be used as a starting point for customizing machines.</td>
+</tr>
+<tr>
+<td>Custom Machine Configuration</td>
+<td>Feature/Concept</td>
+<td>"...you can also customize your own machine..."</td>
+<td>The ability to create a customized virtual machine instance based on specific requirements (e.g., CPU, memory, disk storage). In GCP, Compute Engine VMs allow users to configure their machines from scratch, providing flexibility and control over their environment.</td>
+</tr>
+<tr>
+<td>Machine Rightsizing</td>
+<td>Feature/Concept</td>
+<td>"...machine rightsizing..."</td>
+<td>The process of adjusting the resources allocated to a virtual machine instance based on changing workload demands or other factors. In GCP, Compute Engine VMs can be configured for machine rightsizing, allowing users to dynamically adjust their resource allocation in response to changing workloads.</td>
+</tr>
+<tr>
+<td>Start-up Scripts</td>
+<td>Feature/Concept</td>
+<td>"...start-up scripts..."</td>
+<td>A feature that allows users to execute custom scripts during the boot process of a virtual machine instance. In GCP, Compute Engine VMs can be configured with start-up scripts, enabling users to automate tasks and customize their environment at startup.</td>
+</tr>
+<tr>
+<td>Availability Policies</td>
+<td>Feature/Concept</td>
+<td>"...availability policies..."</td>
+<td>A feature that ensures high availability for virtual machine instances by automatically replicating or distributing resources across multiple locations. In GCP, Compute Engine VMs can be configured with availability policies, providing users with a reliable and fault-tolerant environment.</td>
+</tr>
+<tr>
+<td>Pricing Options</td>
+<td>Feature/Concept</td>
+<td>"...pricing options..."</td>
+<td>A feature that allows users to customize the pricing model for their virtual machine instances based on specific requirements (e.g., usage discounts). In GCP, Compute Engine VMs offer pricing options, enabling users to optimize their costs and budget accordingly.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

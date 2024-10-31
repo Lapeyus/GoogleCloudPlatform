@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_205</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Service Design
+        ## Overview
+        - Cloud service design is a critical component of cloud architecture, and this chapter introduces the layered and iterative approach to designing cloud services.
+        
+        ### State
+        - State refers to the current status of a system or application. In cloud service design, state is essential for understanding the current state of a system and identifying areas for improvement.
+        
+        #### Measurement
+        - Measurement involves collecting data on the performance and behavior of a system or application. This data can be used to identify trends, optimize performance, and make informed decisions about future development.
+        
+        #### Requirements
+        - Requirements are the needs and expectations of users, stakeholders, and other parties involved in the cloud service design process. These requirements must be understood and addressed throughout the design process to ensure that the final product meets the needs of all parties.
+        
+        ## Cloud Service Design Process
+        - The cloud service design process is iterative and layered, involving multiple stages and feedback loops. This approach allows designers to refine their designs over time, incorporating new information and insights as they become available.
+        
+        ### App Engine Standard Environment
+        - If developers do not require Docker containers in their application, the App Engine standard environment may be a better option. In this case, the developer simply deploys their code, and App Engine handles the infrastructure.
+        
+        #### App Engine Flexible Environment
+        - The App Engine flexible environment is a developer-focused, no-ops compute infrastructure platform that abstracts the underlying infrastructure to some extent in favor of developer friendliness.
+        
+        *   **Deployability**: App Engine Flex makes it easy to deploy by running Docker containers in VMs.
+        *   **Operations**: App Engine-Flex handles much of the ops for you, including capturing logs, scaling, versioned upgrades, and traffic splitting.
+        
+        #### Kubernetes Engine
+        - If developers are familiar with Docker, containers, configuration, and settings, and want to run containerized workloads, then Kubernetes Engine is a better option. GKE provides more control but also requires an understanding of the underlying infrastructure and container orchestration concepts.
+        
+        *   **Control**: GKE provides more control over the deployment and management of containerized applications.
+        *   **Integration**: GKE can work across a VPN to manage both on-premises and cloud environments, making it a better choice for organizations already running Kubernetes on premises.
+        
+        ## Conclusion
+        - Cloud service design is a critical component of cloud architecture, and this chapter introduces the layered and iterative approach to designing cloud services. By understanding the state, measurement, and requirements of a system or application, designers can create effective cloud service designs that meet the needs of users and stakeholders.
+
+      </script>
+    </div>
+  </body>
+</html>

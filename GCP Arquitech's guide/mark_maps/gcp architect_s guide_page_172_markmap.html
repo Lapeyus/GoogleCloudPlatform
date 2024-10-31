@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_172</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Managed Instance Groups
+        ## Benefits
+        - Auto healing: Automatically recreates an instance where a service has failed.
+        - Redundancy: GCP replicates each health checker to ensure high availability.
+        - Autoscaling: Automatically adds or removes instances based on load.
+        
+        ## How Autoscaling Works
+        ### Scaling Up
+        - Adds instances when resources are required under heavy load.
+        - Automatically scales up based on policy and current measured load.
+        
+        ### Scaling Down
+        - Removes instances when traffic is lower, reducing costs.
+        - Automatically scales down based on policy and current measured load.
+        
+        ## Connection Draining
+        - A technique to close down an instance gracefully without interruption to users.
+        - Used in downscaling to ensure a smooth transition.
+
+      </script>
+    </div>
+  </body>
+</html>

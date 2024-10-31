@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_129</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud IAM Best Practices
+        ## User-Managed Keys
+        ### Overview
+        - These keys cannot be downloaded but Google will keep the keys.
+        
+        - User-managed keys are created, downloadable, and managed by users. When you create a new key pair, you download the private key, which is not retained by Google. With external keys, you are responsible for key privacy and secure storage of the private key and other management operational chores, such as key rotation.
+        
+        ### Key Rotation
+        - Each service account can support one or more keys and these are used to authenticate with Google Cloud APIs. The specific keys should be periodically rotated, which involves a process where you will generate a new version of the key. This is because the fact that you may well be distributing the key amongst users will make it susceptible to leakage so it is better to rotate the keys regularly and remove the old version of a key.
+        
+        ### IAM Best Practices
+        #### Understanding GCP IAM Resource Hierarchy
+        - Before we close this chapter on IAM we will summarise some of the Cloud IAM best practices that we have discussed in order to assist you in designing your own IAM policies.
+        - boundary.
+        - Initially, when designing your own IAM policy you must have a good understanding  of the GCP IAM resource hierarchy. This is critical as It lets you  leverage the concepts  of  inheritance and isolation, which can  be established between the  various  tiers in the hierarchy.
+        
+        #### Policy Inheritance
+        - Specifically , you should be looking to establish projects  in order to  group and share resources that have the same trust With regard to the concept of policy inheritance make sure you recognize  the effects of inheritance and use the principle of least privilege  when granting roles. This is especially important at the highest levels  because a child tier cannot rescind permissions  given at a parent  tier.
+        
+        #### Auditing and Least Privilege
+        - To minimise the risk of permission creep and enforce  the policy of least privilege establish audit policies  using Cloud audit  logs and regularly audit the memberships of groups used in policies.
+        ### Group-Based Role Assignment
+        - To make administration easier it is generally best to grant roles to groups instead of individuals. Doing this doesn't just ease the administration burden it also importantly reduces error.
+        
+        - An exception to this is when allocating permissions for high-risk tasks in high security environments, in which case you should assign rights to the user rather than the group. Typically, it is preferable to update the group membership than change a Cloud IAM policy.
+        
+        - Therefore, you can sub-divide specific roles into multiple groups so that you can assign privileges more granularly for finer control. Therefore look at groups as a method for assigning specific roles with the concept of least privileges to a more specialised group.
+
+      </script>
+    </div>
+  </body>
+</html>

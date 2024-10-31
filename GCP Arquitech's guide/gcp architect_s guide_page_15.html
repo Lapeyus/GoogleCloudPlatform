@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_15</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_15_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_15</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Cloud Pricing</h1>
+<h2>Overview</h2>
+<p>Indeed, all cloud providers follow this pay-as-you-use model but it was Google that first introduced billing by the second rather than rounding up to the minute for the virtual machines that you use.</p>
+<h3>Initiatives and Features</h3>
+<p>Initiatives such as charging by the second can have a large impact on monthly billing if you are running thousands of VM instances. However, the per second model for billing is not restricted to the use of virtual machines through the Compute Engine as it is also available for several other services as well:
+• Kubernetes Engine, which is GCP's container managed platform
+• Infrastructure as a Service,
+Cloud Dataproc. which is GCP's open source Big Data system
+Hadoop as a service, and
+•App Engine Flexible Environment which is GCP's platform as a service.
+Cloud Spanner, which is GCPS vastly scalable SQL relational database</p>
+<p>Moreover GCP has several other cost reducing or cost management initiatives that you should be aware of and take into consideration when planning deployments of services. For example, Compute Engine offers you discounts based upon consistent use of a VM resource. These discounts are automatically applied to reward sustained usage, i.e. these are automatic discounts for running a virtual machine for more than 25% of the billing month.</p>
+<h3>Savings Strategies</h3>
+<p>Savings can also be made through diligent sizing of the VM that you create. This is because when you initially provision a VM you will select among other things, the memory size and how many virtual CPUs you require. In most cases customers will pick a reconfigured VM from a drop down menu but you can customize your VM.</p>
+<p>Because Compute Engine allows you to select the required memory or virtual CPUs when provisioning the VM this enables you to fine-tune the VM to tailor the pricing to match your workloads. Moreover, if you are in development you might want to take advantage of the micro VMs that GCP offers within Compute Engine. These are minimal VMs that are ideal for building prototypes or proof-of-concept models.</p>
+<p>By using micro VMs in development you can reduce the cost significantly. Another way is to use pre-emptive VMs to reduce costs. A pre-emptive VM is one that Google can reclaim at any time so they are only suitable for certain applications but the pricing is significantly reduced.</p>
+<h2>Avoiding Vendor Lock-In</h2>
+<p>Earlier in this chapter we highlighted some of the reasons why customers are moving their IT operations to the cloud and to Google Cloud in particular. However not every IT customer was initially enamoured with the prospect of potentially losing control of their data's security and integrity.</p>
+<p>That was the major factor amongst customers for not migrating operations to the cloud but there was another common reason and that was the fear of vendor lock-in.</p>
+<p>Many companies were concerned that if they migrated their workloads to the cloud they might become so dependent on the providers service that they became effectively locked into a particular vendor. This is a common concern amongst IT leaders.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Indeed, all cloud providers follow this pay-as-you-use model but it was Google that first introduced billing by the second rather than rounding up to the minute for virtual machines that you configure as part of the Compute Engine service on monthly billing if you are running thousands of VM instances. However, the per second model for billing is not restricted to the use of virtual machines through the Compute Engine as it is also available for several other services such as Kubernetes Engine, which is GCP's container managed platform; Infrastructure as a Service; Cloud Dataproc, which is GCP's open source Big Data system; Hadoop as a service; and App Engine Flexible Environment, which is GCP's platform as a service. Additionally, Cloud Spanner, which is GCP's vastly scalable SQL relational database, also offers this per second billing model.
+
+Moreover, GCP has several other cost reducing or cost management initiatives that you should be aware of and take into consideration when planning deployments of services. For example, Compute Engine offers discounts based upon consistent use of a VM resource. These discounts are automatically applied to reward sustained usage, i.e., automatic discounts for running a virtual machine for more than 25% of the billing month. This discount translates to a significant saving for every incremental minute you use it over the 25% threshold.
+
+Savings can also be made through diligent sizing of the VM that you create. When initially provisioning a VM, you will select among other things, the memory size and how many virtual CPUs you require. In most cases, customers will pick a reconfigured VM from a drop-down menu, but you can customize your VM. Because Compute Engine allows you to select the required memory or virtual CPUs when provisioning the VM, this enables you to fine-tune the VM to tailor the pricing to match your workloads.
+
+Furthermore, if you are in development, you might want to take advantage of the micro VMs that GCP offers within Compute Engine. These are minimal VMs that are ideal for building prototypes or proof-of-concept models. By using micro VMs in development, you can reduce the cost significantly. Another way is to use pre-emptive VMs to reduce costs. A pre-emptive VM is one that Google can reclaim at any time, so they are only suitable for certain applications but the pricing is significantly reduced.
+
+Avoiding Vendor Lock-In
+
+Earlier in this chapter, we highlighted some of the reasons why customers are moving their IT operations to the cloud and to Google Cloud in particular. However, not every IT customer was initially enamoured with the prospect of potentially losing control of their data's security and integrity. That was the major factor amongst customers for not migrating operations to the cloud but there was another common reason and that was the fear of vendor lock-in.
+
+Many companies were concerned that if they migrated their workloads to the cloud, they might become so dependent on the provider's service that they became effectively locked into a particular vendor. This is a common concern amongst IT leaders.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Pay-as-You-Use Billing Model in Google Cloud</h3>
+<p>Google Cloud follows a pay-as-you-use model, where customers only pay for the resources they use. However, it was Google that first introduced billing by the second rather than rounding up to the minute for virtual machines.</p>
+<h3>Impact of Per Second Billing on Monthly Billing</h3>
+<p>Initiatives such as charging by the second can have a significant impact on monthly billing, especially when running thousands of VM instances. The per second model is not restricted to Compute Engine and is also available for other services like Kubernetes Engine, Infrastructure as a Service, Cloud Dataproc, Hadoop as a service, App Engine Flexible Environment, and Cloud Spanner.</p>
+<h3>Cost-Reducing Initiatives</h3>
+<p>Google Cloud offers several cost-reducing initiatives that customers should be aware of:</p>
+<ul>
+<li>Discounts based on consistent use of VM resources, with automatic discounts applied for running a virtual machine for more than 25% of the billing month.</li>
+<li>Diligent sizing of VMs to reduce costs, as customers can customize their VMs to fine-tune pricing to match workloads.</li>
+<li>Use of micro VMs in development to reduce costs significantly.</li>
+<li>Pre-emptive VMs, which are suitable for certain applications but offer significantly reduced pricing.</li>
+</ul>
+<h3>Avoiding Vendor Lock-In</h3>
+<p>The fear of vendor lock-in was a common concern among IT leaders when considering cloud migration. However, Google Cloud's pay-as-you-use model and cost-reducing initiatives can help mitigate this risk. By understanding the billing models and cost-saving opportunities available, customers can make informed decisions about their cloud usage and avoid potential vendor lock-in.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Cloud Pricing Models</strong>
+The text discusses various pricing models used by Google Cloud, including pay-as-you-use and per-second billing for virtual machines.</p>
+<h3>Topic 2</h3>
+<p><strong>Cost Optimization Strategies</strong>
+The text highlights several cost optimization strategies offered by GCP, such as discounts for consistent use of VM resources, diligent sizing of VMs, micro VMs for development, and pre-emptive VMs.</p>
+<h3>Topic 3</h3>
+<p><strong>Vendor Lock-In Concerns</strong>
+The text addresses the concern of vendor lock-in among IT leaders, who fear that migrating to the cloud may lead to dependence on a particular provider's service.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What was Google's innovation in billing for virtual machines, and how did it impact monthly billing?
+Answer: Google introduced billing by the second rather than rounding up to the minute for virtual machines, which can have a significant impact on monthly billing when running thousands of VM instances.</p>
+</li>
+<li>
+<p>Which GCP services offer per-second billing models besides Compute Engine?
+Answer: Kubernetes Engine, Infrastructure as a Service, Cloud Dataproc, Hadoop as a service, and App Engine Flexible Environment.</p>
+</li>
+<li>
+<p>What is the benefit of using pre-emptive VMs in terms of pricing?
+Answer: Pre-emptive VMs are priced significantly reduced because Google can reclaim them at any time.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the pay-as-you-use model for cloud providers like GCP impact the cost of running virtual machines, and what are the implications for customers?
+Answer: The pay-as-you-use model allows customers to only pay for the resources they use, which can lead to significant cost savings. However, it also means that customers must carefully manage their usage to avoid unexpected charges.</p>
+</li>
+<li>
+<p>What are some strategies that customers can use to reduce costs when using GCP services like Compute Engine?
+Answer: Customers can use micro VMs in development, pre-emptive VMs for certain applications, and fine-tune their VM configurations to match their workloads and take advantage of discounts for sustained usage.</p>
+</li>
+<li>
+<p>How does the fear of vendor lock-in impact customers' decisions to migrate their IT operations to the cloud?
+Answer: The fear of becoming dependent on a particular vendor's service can be a significant barrier to adoption, as it may limit customers' flexibility and ability to switch providers if needed.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are planning to deploy a new application on GCP using Compute Engine. How would you take advantage of the pay-as-you-use model to reduce costs?
+Answer: You would carefully manage your VM configuration to match your workload, use micro VMs in development, and consider pre-emptive VMs for certain applications.</p>
+</li>
+<li>
+<p>If you are concerned about vendor lock-in when migrating to GCP, what steps can you take to mitigate this risk?
+Answer: You can research alternative cloud providers, develop skills that would be transferable to other vendors, and establish relationships with multiple cloud providers to ensure flexibility in the future.</p>
+</li>
+<li>
+<p>How might a company use GCP's cost management initiatives, such as discounts for sustained usage, to optimize its cloud spending?
+Answer: A company could monitor its usage patterns closely, adjust its VM configurations accordingly, and take advantage of discounts for sustained usage to reduce costs and improve profitability.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google</td>
+<td>Organization</td>
+<td>"Indeed, all cloud providers follow this pay-as-you-use model but it was Google that first introduced billing by the second..."</td>
+<td>The entity refers to a specific organization (Google) that introduced a new billing model for virtual machines. This highlights Google's innovation in the field of cloud computing.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service</td>
+<td>"...configure as part of the Compute Engine service."</td>
+<td>Compute Engine is a service offered by Google Cloud Platform, which allows users to configure and manage their virtual machines. The entity is a specific service within the larger GCP ecosystem.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Service</td>
+<td>"...the per second model for billing is not restricted to the use of virtual machines through the Compute Engine as it is also available for several other services..."</td>
+<td>Kubernetes Engine is another service offered by Google Cloud Platform, which provides container management capabilities. The entity highlights the flexibility and scalability of GCP's services.</td>
+</tr>
+<tr>
+<td>Infrastructure as a Service</td>
+<td>Service Category</td>
+<td>"...Infrastructure as a Service..."</td>
+<td>This entity refers to a category of cloud computing services that provide users with virtualized computing resources over the internet. It is a broader concept within the GCP ecosystem.</td>
+</tr>
+<tr>
+<td>Cloud Dataproc</td>
+<td>Service</td>
+<td>"...Cloud Dataproc. which is GCP's open source Big Data system"</td>
+<td>Cloud Dataproc is a service offered by Google Cloud Platform, which provides an open-source big data processing platform for users to analyze and process large datasets. The entity highlights the capabilities of GCP in the field of big data analytics.</td>
+</tr>
+<tr>
+<td>Hadoop as a Service</td>
+<td>Service Category</td>
+<td>"...Hadoop as a service..."</td>
+<td>This entity refers to a category of cloud computing services that provide users with access to the Hadoop distributed computing framework, which is commonly used for big data processing and analysis. It is a broader concept within the GCP ecosystem.</td>
+</tr>
+<tr>
+<td>App Engine Flexible Environment</td>
+<td>Service</td>
+<td>"...App Engine Flexible Environment which is GCP's platform as a service"</td>
+<td>App Engine Flexible Environment is a service offered by Google Cloud Platform, which provides users with a scalable and flexible platform for building web applications. The entity highlights the capabilities of GCP in the field of web application development.</td>
+</tr>
+<tr>
+<td>Cloud Spanner</td>
+<td>Service</td>
+<td>"...Cloud Spanner, which is GCPS vastly scalable SQL relational database"</td>
+<td>Cloud Spanner is a service offered by Google Cloud Platform, which provides users with a highly scalable and reliable SQL relational database for their applications. The entity highlights the capabilities of GCP in the field of database management.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Service</td>
+<td>"...the per second model for billing is not restricted to the use of virtual machines through the Compute Engine as it is also available for several other services..."</td>
+<td>This entity refers to a specific service offered by Google Cloud Platform, which provides container management capabilities. The entity highlights the flexibility and scalability of GCP's services.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Technology</td>
+<td>"...container management capabilities"</td>
+<td>Kubernetes is an open-source container orchestration system that automates the deployment, scaling, and management of containerized applications. It is a key technology in the field of cloud computing and DevOps.</td>
+</tr>
+<tr>
+<td>Cloud Computing</td>
+<td>Field</td>
+<td>"cloud computing"</td>
+<td>This entity refers to a broad field of computing that involves delivering computing services over the internet, rather than through a local network. It encompasses various services, including infrastructure as a service, platform as a service, and software as a service.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_12</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Zones are grouped into regions
+        ## What is a Region?
+        - As we have seen, zones are segments in larger independent geographic areas called regions.
+        
+        ### Selecting Regions for GCP Resources
+        - This means that you can select what zone and region you're GCP resources reside in.
+        
+        #### Benefits of Fast Network Connectivity within Regions
+        - Importantly, all the zones within a region have very fast and very low latency interconnected network connectivity among them as they operate much like an Ethernet switch at layer-2 in the data communications protocol stack.
+        
+        #### Intercommunication between Zones within a Region
+        - Intercommunication between Zones within a region will typically have round trip network latencies of under-five milliseconds, which is very fast when you consider the devices may be 100 km apart or more.
+        
+        ### Single Broadcast Domain and Failure Domain
+        - What this means is that zones within a region can be considered to be from a data network perspective both a single broadcast domain as well as a single failure domain.
+        
+        #### Importance for Fault Tolerant Applications
+        - This is important when you contemplate building a fault tolerant application, as you can easily spread the application's resources across multiple zones within a region. This is because they share a common subnet so the fail-over from one server to another will be seamless.
+        
+        ### Synchronised or Mirrored Resources in Different Regions
+        - Furthermore, you can run synchronised or mirrored resources in different regions if you want greater security against natural disasters.
+        
+        #### Benefits for Business Continuity and Disaster Recovery
+        - However it is not just for business continuity or disaster recovery that you may want to mirror infrastructure across regions as many organizations choose to do this in order to deliver content to customers' at the most convenient point of presence.
+        
+        ### Delivering Content Closer to Customer Base
+        - Thus you may choose to use regions to deliver content closer to your customer base. For example, this is how Google brings their applications closer to their users wherever they may be in the world.
+        
+        #### Diversifying Across Regions for Security and Convenience
+        - Diversifying across regions also protects against the loss of an entire region, say, due to a submarine fibre cable being severed or some natural disaster.
+        
+        ### Multi-Regional Configuration
+        - Sometimes you will find that some Google Cloud platform services do support placing resources in what we call a Multi-Regional configuration. Currently the GCP is configured to support 15 regions.
+        
+        #### Storing Data Across Regions within Parent Region
+        - What this means is that data may well be stored across regions within the parent region. For example, data may be redundantly stored across several geographically diverse locations within the US Multi-Region.
+        
+        #### Regulatory Compliance for Data Storage
+        - You may want to look into this if you are located in Europe or Asia for example as some nations despite being in the same broad geographical region may not wish or be allowed to store data out with their own borders. If that is the case then you can easily stipulate the regions and zones you wish your data to be backed-up that meet your nation's regulatory compliance.
+
+      </script>
+    </div>
+  </body>
+</html>

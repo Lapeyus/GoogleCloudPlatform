@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_16</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_16_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_16</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Cloud Platform</h1>
+<h2>Introduction to GCP</h2>
+<h3>Benefits of Cloud Computing</h3>
+<h3>Core Service Offerings</h3>
+<h4>Compute Services</h4>
+<h4>Storage Services</h4>
+<h4>Big Data Services</h4>
+<h4>Machine Learning Services</h4>
+<h4>Networking Services</h4>
+<h4>Security Services</h4>
+<h4>Operations and Tools Services</h4>
+<h3>GCP's Commitment to Open Source</h3>
+<h4>Compatibility with Open Source Products</h4>
+<h4>Use of Open Source Licenses</h4>
+<h4>Integration of Open Source Projects into GCP</h4>
+<h4>Examples:</h4>
+<ul>
+<li>Cloud Bigtable: uses Apache HBase interface for code portability</li>
+<li>Cloud Dataproc: offers managed Hadoop environment</li>
+<li>TensorFlow: open source machine learning library</li>
+</ul>
+<h3>Security and Interoperability</h3>
+<h4>Google's Commitment to Security</h4>
+<h4>Kubernetes: provides tools for mixing microservices across clouds</h4>
+<h4>Google Stackdriver: monitoring and management application with open source tools</h4>
+<h2>Summary</h2>
+<p>GCP's services can be leveraged for computing, storage, Big Data, machine learning, and application services. GCP is an internet-scale solution with global reach, high availability, and reliability. It is also cost-effective and designed for business continuity and security.</p>
+<h3>References</h3>
+<ul>
+<li><a href="https://cloud.google.com/">Google Cloud Platform</a></li>
+<li><a href="https://hbase.apache.org/">Apache HBase</a></li>
+<li><a href="https://www.tensorflow.org/">TensorFlow</a></li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Google recognizes this concern and provides customers with the ability to run their applications elsewhere should the GCP no longer be the most suitable service provider. For examples of how GCP allows customers to avoid being locked in, Google has designed the GCP services to be compatible with open source products.
+
+For example, if we consider GCP's Cloud Bigtable, which is a massive database, what is important is that it uses the same interface as the open source database Apache HBase, giving customers the benefit of code portability. Another example is GCP's Cloud Dataproc, which offers the same open source Big Data environment Hadoop, as a managed service.
+
+In addition, Google is committed to the open source community and projects, regularly publishing key elements of technology using open source licenses. By doing so, Google participates in creating and supporting open source ecosystems. These open source communities and systems provide customers with options other than Google.
+
+For instance, TensorFlow, an open source software library for machine learning, was originally developed inside Google but is now a robust open source ecosystem. Furthermore, Google is making efforts to integrate open source projects into GCP to provide maximum interoperability.
+
+For example, Kubernetes provides GCP customers with the tools to mix and match microservices running on-premises or even on other clouds. Additionally, there is Google Stackdriver, which is GCP's monitoring and management application, a collection of open source tools that allows customers to monitor workloads across multiple cloud providers, such as Amazon's AWS.
+
+Summary
+
+In this chapter - An Introduction to the Google Cloud Platform, we described the benefits of cloud computing in general and then specifically the GCP. We were introduced to some of the GCP core service offerings, which can be broadly categorized into compute, storage, Big Data, machine learning, networking, security, operations, and tools.
+
+Hence, GCP's services can be leveraged to utilize computing, storage, Big Data, machine learning, and application services and functionality for web, mobile, analytics, and backend solutions. We also demonstrated that GCP is an internet-scale solution with global reach, high availability, and reliability yet it remains cost-effective.
+
+Furthermore, GCP is open source friendly and designed for business continuity and security in mind. In the next chapter, we will take a deeper dive into each of the compute services and storage services, explaining how customers can best use them. Additionally, because Google has seven major cloud services supporting over a billion users, this makes security in the GCP paramount and ensures that the GCP is designed with security in mind.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Google Cloud Platform's Open Source Friendly Approach</h3>
+<p>Google recognizes the concern of being locked into a single service provider, hence providing customers with the ability to run their applications elsewhere if needed. To address this, Google has designed its services to be compatible with open source products.</p>
+<h4>Compatibility with Open Source Products</h4>
+<p>GCP services are designed to work seamlessly with popular open source databases and tools. For instance:</p>
+<ul>
+<li><strong>Cloud Bigtable</strong> uses the same interface as Apache HBase, offering code portability.</li>
+<li><strong>Cloud Dataproc</strong> provides a managed service for Hadoop, allowing customers to leverage the power of big data analytics.</li>
+</ul>
+<h4>Commitment to Open Source Community</h4>
+<p>Google is deeply committed to the open source community and regularly publishes key elements of technology using open source licenses. This participation helps create and support open source ecosystems, providing customers with options beyond Google's services.</p>
+<ul>
+<li><strong>TensorFlow</strong>, an open source software library for machine learning, was originally developed inside Google but has since become a robust open source ecosystem.</li>
+<li><strong>Kubernetes</strong> provides GCP customers with tools to mix and match microservices across on-premises, other clouds, or hybrid environments.</li>
+<li><strong>Google Stackdriver</strong> is a collection of open source tools that enables customers to monitor workloads across multiple cloud providers.</li>
+</ul>
+<h4>Interoperability Efforts</h4>
+<p>To provide maximum interoperability, Google is integrating open source projects into its services. This allows customers to seamlessly integrate GCP with other cloud platforms and on-premises environments.</p>
+<ul>
+<li><strong>Kubernetes</strong> provides the necessary tools for mixing and matching microservices across different environments.</li>
+<li><strong>Google Stackdriver</strong> enables customers to monitor workloads across multiple cloud providers, including Amazon's AWS.</li>
+</ul>
+<h4>Summary</h4>
+<p>In this chapter, we introduced the benefits of cloud computing and specifically highlighted Google Cloud Platform (GCP). We discussed GCP's core service offerings, which cater to various use cases such as computing, storage, Big Data, machine learning, networking, security, operations, and tools. GCP is designed with business continuity and security in mind, making it an attractive option for businesses.</p>
+<p>The chapter also emphasized Google's commitment to open source and its efforts to integrate open source projects into GCP. This approach provides customers with flexibility and options beyond traditional cloud services.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Cloud Computing Benefits</strong>
+The text highlights the benefits of cloud computing, including cost-effectiveness, scalability, high availability, and reliability.</p>
+<h3>Topic 2</h3>
+<p><strong>Google Cloud Platform (GCP) Overview</strong>
+GCP's core service offerings are categorized into compute, storage, Big Data, machine learning, networking, security, operations, and tools. The text emphasizes GCP's internet-scale solution with global reach, high availability, and reliability.</p>
+<h3>Topic 3</h3>
+<p><strong>Open Source Compatibility</strong>
+GCP services are designed to be compatible with open-source products, providing customers with the benefit of code portability. Examples include Cloud Bigtable using Apache HBase and Cloud Dataproc offering a managed service for Hadoop.</p>
+<h3>Topic 4</h3>
+<p><strong>Google's Commitment to Open Source</strong>
+Google is committed to the open source community, regularly publishing key elements of technology under open-source licenses. This commitment creates and supports open source ecosystems, providing customers with options other than Google.</p>
+<h3>Topic 5</h3>
+<p><strong>Interoperability and Security</strong>
+GCP integrates open source projects to provide maximum interoperability. Examples include Kubernetes allowing customers to mix and match microservices across clouds and Google Stackdriver's monitoring and management application using open-source tools.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is one way that Google Cloud Platform (GCP) allows customers to avoid being locked into their service provider?
+Answer: By designing its services to be compatible with open-source products.</p>
+</li>
+<li>
+<p>Which open-source database does GCP's Cloud Bigtable use the same interface as, providing customers with code portability?
+Answer: Apache HBase.</p>
+</li>
+<li>
+<p>What is an example of a managed service offered by GCP that provides an open-source Big Data environment?
+Answer: Cloud Dataproc.</p>
+</li>
+<li>
+<p>How does Google participate in creating and supporting open source ecosystems through its projects and licenses?
+Answer: By regularly publishing key elements of technology using open source licenses.</p>
+</li>
+<li>
+<p>Which open-source software library for machine learning was originally developed inside Google but is now a robust open-source ecosystem?
+Answer: TensorFlow.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the benefits of GCP's commitment to open-source projects, and how do they impact customers?
+Answer: The benefits include providing customers with options other than Google, creating and supporting open source ecosystems, and enabling maximum interoperability between different systems and services.</p>
+</li>
+<li>
+<p>How does GCP's use of open-source technologies like Kubernetes and Stackdriver enhance its overall value proposition to customers?
+Answer: By allowing customers to mix and match microservices running on-premises or on other clouds, and providing a collection of open-source tools for monitoring workloads across multiple cloud providers.</p>
+</li>
+<li>
+<p>What are some potential security benefits that arise from GCP's design with business continuity and security in mind?
+Answer: The ability to ensure high availability and reliability while maintaining cost-effectiveness, as well as the use of seven major cloud services supporting over a billion users.</p>
+</li>
+<li>
+<p>How does GCP's focus on open-source projects impact its overall scalability and reach?
+Answer: By enabling customers to leverage computing, storage, Big Data, machine learning, and application services and functionality for their web, mobile, analytics, and backend solutions, while also providing an internet-scale solution with global reach.</p>
+</li>
+<li>
+<p>What are some potential challenges or limitations that arise from GCP's commitment to open-source projects?
+Answer: None explicitly stated in the provided text, but could include issues related to compatibility, support, and maintenance of open-source technologies.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google recognizes this concern and provides customers with the ability to run their applications elsewhere should the GCP no longer be the most suitable service provider.</td>
+<td>Organization</td>
+<td>The text is discussing the benefits of using Google Cloud Platform (GCP) and addressing a potential concern about being locked into it.</td>
+<td>This sentence highlights Google's commitment to customer flexibility and freedom, emphasizing that customers can choose to use alternative services if needed.</td>
+</tr>
+<tr>
+<td>For examples of how GCP allows customers to avoid being locked in</td>
+<td>Organization</td>
+<td>The text is providing examples of how GCP enables customers to switch to other services if desired.</td>
+<td>This phrase indicates that the text will provide concrete examples of how GCP accommodates customer flexibility, showcasing its compatibility with open-source products.</td>
+</tr>
+<tr>
+<td>Google has designed the GCP services to be compatible with open source products.</td>
+<td>Organization</td>
+<td>The text is discussing the design of GCP services and their compatibility with open-source products.</td>
+<td>This sentence highlights GCP's commitment to openness and compatibility, emphasizing that customers can easily integrate it with existing open-source solutions.</td>
+</tr>
+<tr>
+<td>Cloud Bigtable uses the same interface as the open source database Apache HBase, which gives customers the benefit of code portability.</td>
+<td>Service/Product</td>
+<td>The text is discussing specific GCP services and their compatibility with open-source products.</td>
+<td>This sentence explains how Cloud Bigtable's interface allows for seamless integration with Apache HBase, providing customers with the flexibility to use either service.</td>
+</tr>
+<tr>
+<td>Cloud Dataproc offers the same open source Big Data environment Hadoop, as a managed service.</td>
+<td>Service/Product</td>
+<td>The text is discussing specific GCP services and their compatibility with open-source products.</td>
+<td>This sentence highlights how Cloud Dataproc provides a managed service for Hadoop, allowing customers to leverage the benefits of open-source Big Data environments while still using GCP.</td>
+</tr>
+<tr>
+<td>Google is committed to the open source community and projects and regularly publishes key elements of technology using open source licenses.</td>
+<td>Organization</td>
+<td>The text is discussing Google's commitment to openness and its role in creating open-source ecosystems.</td>
+<td>This sentence emphasizes Google's dedication to the open-source community, highlighting its efforts to promote and support open-source technologies through licensing agreements.</td>
+</tr>
+<tr>
+<td>TensorFlow, which is an open source software library for machine learning was originally developed inside Google, but is now a robust open source ecosystem.</td>
+<td>Software/Library</td>
+<td>The text is discussing specific open-source projects and their evolution within GCP.</td>
+<td>This sentence explains how TensorFlow originated within Google but has since become a standalone open-source project, demonstrating the growth of open-source ecosystems supported by GCP.</td>
+</tr>
+<tr>
+<td>Kubernetes provides GCP customers with the tools to mix and match microservices running on-premises or even on other clouds.</td>
+<td>Technology/Platform</td>
+<td>The text is discussing specific technologies used in GCP services.</td>
+<td>This sentence highlights how Kubernetes enables seamless integration across different cloud environments, providing customers with flexibility in deploying their applications.</td>
+</tr>
+<tr>
+<td>Google Stackdriver, which is GCP's monitoring and management application, which is a collection of open source tools that allows customers to monitor workloads across multiple cloud providers, such as Amazon's AWS.</td>
+<td>Service/Product</td>
+<td>The text is discussing specific GCP services and their capabilities.</td>
+<td>This sentence explains how Google Stackdriver provides an integrated monitoring and management solution for customers, allowing them to track workloads across various cloud providers, including AWS.</td>
+</tr>
+<tr>
+<td>In this chapter - An Introduction to the Google Cloud Platform we described the benefits of cloud computing in general and then specifically the GCP, We were introduced to some of the GCP core service offerings which can be broadly categorized as compute, storage, Big Data, machine learning, networking, security, operations and tools.</td>
+<td>Document/Chapter Title</td>
+<td>The text is providing an overview of the chapter's content and categorizing GCP services into broad categories.</td>
+<td>This sentence serves as a summary of the chapter's introduction, highlighting the various service offerings within GCP and their respective categories.</td>
+</tr>
+<tr>
+<td>Hence, GCP's services can be leveraged to utilise computing, storage, Big Data, machine learning and application services and functionality for your web, mobile, analytics and backend solutions.</td>
+<td>Service/Product Description</td>
+<td>The text is discussing the capabilities of GCP services in supporting various types of applications.</td>
+<td>This sentence explains how GCP services can be used to support a wide range of applications, including web, mobile, analytics, and backend solutions, highlighting their versatility and flexibility.</td>
+</tr>
+<tr>
+<td>We also demonstrated that GCP is an internet-scale solution, that has global reach, high availability and reliability yet it is still cost effective</td>
+<td>Organization/Service Description</td>
+<td>The text is discussing the characteristics of GCP as a cloud platform.</td>
+<td>This sentence highlights GCP's scalability, accessibility, and reliability while emphasizing its affordability, demonstrating its suitability for various use cases.</td>
+</tr>
+<tr>
+<td>Furthermore GCP is open source friendly and it's designed for business continuity and security in mind.</td>
+<td>Organization/Service Description</td>
+<td>The text is discussing the design principles of GCP services.</td>
+<td>This sentence emphasizes GCP's commitment to openness and its focus on ensuring business continuity and security, highlighting these values as core aspects of its service offerings.</td>
+</tr>
+<tr>
+<td>In the next chapter we will take a deeper dive into each of the compute services and the storage services, how these services and how customers can best use them.</td>
+<td>Document/Chapter Title</td>
+<td>The text is providing an overview of the chapter's content and outlining future topics for discussion.</td>
+<td>This sentence serves as a summary of the chapter's conclusion, highlighting the upcoming topics that will delve deeper into specific GCP services and their usage.</td>
+</tr>
+<tr>
+<td>Also because Google has itself seven major cloud services supporting over a billion users then this makes security in the GCP paramount and ensures that the GCP is designed with security in mind.</td>
+<td>Organization/Service Description</td>
+<td>The text is discussing the scale of GCP's user base and its implications for security.</td>
+<td>This sentence emphasizes the importance of security within GCP, highlighting the platform's commitment to protecting users' data and applications due to its massive user base and widespread adoption.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

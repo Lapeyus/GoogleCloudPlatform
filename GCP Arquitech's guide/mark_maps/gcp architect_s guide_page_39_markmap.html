@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_39</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Default Network
+        ## Subnet
+        - subnet 10.2.0.0/16
+        
+        ## Zones
+        - Zone: US-east-1a
+        - Zone: US-east-1b
+        
+        ## Creating a VM
+        - Figure -4
+        
+        ## Interconnection
+        - VM-1
+        - VM-2
+        - 10.2.0.2
+        - 10.2.0.3
+        
+        - So far, it has one subnet defined in GCP us-east1 region. Notice that 
+        - it has two Compute Engine VMs attached to it.
+        - They are neighbours on the same subnet even though they are in 
+        - different zones.
+        
+        ## The Fundamentals of Compute Engine and VMs
+        ### Overview
+        - Compute Engine is the GCP service that allows you to create and run virtual machines on Google infrastructure. In contrast to on- 
+        - premises servers there are no upfront investments and you can provision and run thousands of virtual CPUs on a system. Moreover 
+        - the systems are designed to be fast and to offer consistent performance.
+        
+        ### Creating VMs
+        - You can create a virtual machine instance by using the Google cloud platform console or the gcloud command line tool and you can run Linux and Windows Server images that are provided by Google or use your own customized versions of these images. For example 
+        - you can even import your corporate custom server images from your physical servers.
+        
+        ### CPU
+        - When you create a VM, the first decision is to pick a machine type which determines how much memory and how many virtual CPUs it has. These selectable choices range in size from micro to behemoth but if you can't find a suitable predefined type that meets your needs perfectly, you can always make a custom VM.
+        
+        - Speaking of using custom processing power, if you have workloads like machine learning and heavy data processing that can take 
+        - advantage of GPUs and even TPUs, then you should be aware that GCP provides GPUs as well as Google's own TPUs (Tensor 
+        - Processing Units) and these are also available for you to use. The Google developed TPU is their custom application-specific 
+        - integrated circuit (ASIC) tailored for machine learning workloads on TensorFlow it was developed as a cloud based rival to Nvidia's GPU for handling heavy machine learning workloads.
+        
+        ### Storage
+        - The next decision is what type of storage you want your VM to use. VM are like physical computers they need disks to store persistent data. You can choose two kinds of persistent storage, standard or SSD.
+        
+        - The importance of the term persistent is that it lets us know that the data will survive the termination or deletion of the host VM. For example, a persistent drive is actually an external storage area which we can separate from the VM itself. For example we can elect to delete a VM but to retain its data i.e. the persistent disk.
+        
+        ## Interconnection
+        - VM-1
+        - VM-2
+        - 10.2.0.2
+        - 10.2.0.3
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_49</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Securing Your Data
+        
+        ## Access Control
+        ### Cloud IAM
+        - Assign roles to users for authentication and authorization
+        - Roles inherit permissions from project to bucket to object
+        - Use ACLs for finer control over specific users
+        
+        ### Access Control Lists (ACLS)
+        - Define who has access to buckets and objects
+        - Define what actions can be performed (e.g. read, write)
+        
+        ## Versioning
+        - Turn on object versioning to keep track of modifications
+        - List archived versions of an object
+        - Restore an object to an older state or permanently delete a version
+        
+        ### Life-Cycle Management Policies
+        - Keep only the three most recent versions of each object
+        - Delete objects older than 365 days or before a certain date
+        
+        ## Storage Classes
+        ### Regional vs. Multi-Regional
+        - Regional storage: cheaper, less redundancy
+        - Multi-regional storage: more expensive, higher redundancy
+        
+        #### Regional Storage
+        - Create bucket in a specific GCP region (e.g. US Central)
+        - Store data in the chosen region for high performance and lower cost
+        
+        #### Nearline and Coldline Storage
+        - Designed for infrequent access (backup and archival storage)
+        - Priced accordingly, with nearline being more expensive than coldline
+
+      </script>
+    </div>
+  </body>
+</html>

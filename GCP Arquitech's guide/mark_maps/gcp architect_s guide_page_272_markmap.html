@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_272</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Capacity Planning Cycle
+        ## Overview
+        
+        - The capacity planning cycle involves several stages, including forecasting, resource allocation, deployment, monitoring, and iteration.
+        
+        ### Forecasting
+        
+        - 1. **Initial Forecast**: Based on project plan, marketing data, or previous industry/product knowledge.
+        - 2. **Resource Allocation**: Determine necessary resources and obtain approval.
+        - 3. **Deployment**: Deploy resources due to cloud deployments being more influenced by operation expense (OpEx) than upfront capital expense (CapEx).
+        
+        ### Monitoring and Measurement
+        
+        - 1. **Testing and Commissioning**: Start monitoring indicators during testing and commissioning.
+        - 2. **Real-World Conditions**: Monitor indicators in production, adjusting forecasts and optimizing accordingly.
+        
+        ### Iterative Forecasts
+        
+        - 1. **Compare Actuals with Forecasts**: Compare actual measured conditions with forecasts to determine accuracy.
+        - 2. **Adjust and Refine**: Adjust forecasts based on previous errors and refine predictions for future growth.
+        
+        ## Error Budget and Overprovisioning
+        
+        - 1. **Error Budget**: Include additional resources to cater for unforeseen happenings, known as an error budget.
+        - 2. **Overprovisioning**: Allocate a generous amount of capacity to account for unknown overheads and potential cascading failures.
+        
+        ### Capacity Allocation
+        
+        - 1. **Instance Overhead Estimation**: Estimate instance overheads, considering production overheads and inherent capacity overheads within a VM.
+        - 2. **Capacity Allocation**: Allocate 30% of capacity for partial load, accounting for fail-over in managed instances, and leaving 10% spare capacity to avoid cascading failures.
+        
+        ## Conclusion
+        
+        - The capacity planning cycle involves iterative forecasting, resource allocation, deployment, monitoring, and iteration to ensure accurate predictions and optimal resource utilization.
+
+      </script>
+    </div>
+  </body>
+</html>

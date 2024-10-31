@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_264</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Migration
+        ## Business and Project Details
+        ### On-Premises to Cloud Migration
+        #### Containerization Refactoring
+        - The concept behind this is that the applications execute within the containers.
+        - The container however also enables developers to insert cloud-native features and it also improves portability.
+        - The costs and refactoring times also go down due to the wide acceptance of containers within IT.
+        
+        ## Technical Issues
+        ### Webservers
+        - Many open source applications will work on the me first technical challenge is going to be in migrating applications AMP stack, which we can readily deploy using a preconfigured image in Cloud Launcher.
+        - Similarly we can do the same with Windows Server instances so deploying applications and services directly into VM instances is straightforward.
+        
+        ## Workflow Migration
+        ### Prioritizing Machines
+        - When first planning workflow migration you need to prioritize the machines you want to move.
+        - In order to do this with confidence you will need to understand your application's dependencies.
+        - Then, you need to batch these dependencies within the same migration stage.
+        - For example: If an application depends on multiple VMs, migrate all of those VMs at the same time.
+        
+        ### Points to Consider
+        - • Move the VM to GCP and once this is done perform validation testing and resolve any issues.
+        - • Migrate the application storage to GCP
+        
+        ## Serverless Application Refactoring
+        - There is another modern trend towards serverless application refactor but this has similar issues to containerization such as in having to learn new tools and technologies.
+        - However, with serverless refactoring there will be some code modifications required to make the application work.
+        
+        ### Note
+        - In summary, you should be aware that in migration to the cloud most applications and data sets will require at least some refactoring if they are to reap the clouds benefits. However, this should be economically viable with some firm deadlines in place to ensure that most of the refactoring work will have a faster return on the investment.
+        
+        ### Additional Considerations
+        - After determining that you can rely on the VMs in the cloud, schedule downtime to cut over your application to GCP.
+        - This happens in two stages:
+
+      </script>
+    </div>
+  </body>
+</html>

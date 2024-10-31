@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_161</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Router with Subnetworks
+        ## Use Case
+        - If you are a developer working within your organisations VPC and you want to spin up a new environment for the purpose of analytics. When you create the resources within that environment they will interconnect over a network that will use a new subnet range.
+        
+        ## Benefits
+        - Now you can connect to it fine as you are connecting through GCP but how will others in your organisation connect to your new dashboards as it on a newly created subnet.
+        - Well you could update every router in the on-premise network with a static route to the new subnet or you could use cloud router to advertise the subnet for you.
+        
+        ## How it Works
+        - Cloud router will advertise the subnet through its peering arrangement with a remote neighbour on the on-premise peering network.
+        - Cloud router's BGP protocol will announce to its neighbour that the new subnet is now available . Then the neighbour BGP router on- premise, will update its routing tables and any of its peer's so that all internal on-premises routers will now know how to get to this new allocated subnet. Now any departments that want to access your new analytics dashboards can do so.
+        
+        ## Importance
+        - Importantly this process works in both directions so if your data centre adds a new w physical rack and it goes online with a new range of subnets, the VPC resources will need to know about them.
+        - This is because any hosts on this new range of subnets will be able to reach your new analytics dashboard okay but the VPC network will not know how to return the traffic as it knows nothing about the new range of subnets. However with cloud router the on-premises BGP process will discover the new range of subnets and it will tell the BGP neighbour on the cloud side that a new network exists. Now they will have a route to return traffic from that new range of subnets.
+        
+        ## Configuration
+        - As Cloud Router uses the Border Gateway Protocol (BGP) to dynamically exchange routes between your Virtual Private Cloud network and your on-premises network you will need to configure an interface and a BGP peer for your on-premises router.
+        - The interface and BGP peer configuration together form a BGP session. However, when configuring BGP you must stipulate an autonomous system number; this is a unique BGP identifier for the organization.
+        
+        ## Types of ASN
+        - There are two types of ASN:
+        - A public ASN is unique like IP addresses and are registered to your organization so if you already have a public ASN you are likely running BGP on your routers already.
+        - A private ASN, which like private IP addresses are only unique within the organization and so are not valid on the internet. Fortunately, you can use a private ASN within private networks such as when operation a VPN connection.
+        
+        ## GCP Resources
+        - Within GCP, a Cloud Router interface connects to exactly one of the following GCP resources:
+        - • A traditional VPN tunnel that is using dynamic routing (you use a private ASN)
+        - • A HA (High Availability) VPN tunnel that will be using dynamic routing (you use a private ASN)
+
+      </script>
+    </div>
+  </body>
+</html>

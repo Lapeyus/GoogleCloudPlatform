@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_253</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_253_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_253</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>IoT Architecture on Google Cloud Platform</h1>
+<h2>Introduction</h2>
+<p>When it comes to demonstrating the power and utility of GCP, a very good use case is when building IoT architecture. The Internet of Things (IoT) is not just about connecting sensors and manageable devices to the cloud in a scalable fashion although that in itself is challenging. It is also about ingesting, processing, and analyzing sometimes vast amounts of real-time data.</p>
+<h2>Requirements</h2>
+<p>To build an effective IoT cloud architecture, we need to consider the following requirements:</p>
+<h3>Real-Time Data Streaming and Processing</h3>
+<ul>
+<li><strong>Machine Control Data</strong>: Signals that monitor and control the speed of a motor require instant processing.</li>
+<li><strong>Real-Time Data Analysis</strong>: IoT devices generate vast amounts of data constantly from machine, systems, and processes.</li>
+</ul>
+<h3>Batch Processing</h3>
+<ul>
+<li><strong>Quality Control Data</strong>: Can be analyzed at leisure to improve the process.</li>
+<li><strong>Data Storage</strong>: Requires batch processing for efficient storage and analysis.</li>
+</ul>
+<h2>Architecture Components</h2>
+<p>The following components will make up the physical aspects of an IoT network:</p>
+<h3>Cloud Services</h3>
+<p>| Service | Description |
+| --- | --- |
+| GCS (Google Cloud Storage) | Data Storage |
+| GCF (Google Cloud Functions) | Real-Time Data Processing |
+| Load Balancer | Scalable Load Balancing |
+| HTTPS Load Balancer | Secure Load Balancing |</p>
+<h3>Networking Components</h3>
+<p>| Component | Description |
+| --- | --- |
+| Shared VPC | Scalable Network Architecture |
+| Private Subnet 1 | Secure Data Storage |
+| Private Subnet 2 | Secure Data Processing |
+| Multi-Interfaces | Flexible Network Configuration |</p>
+<h2>Chapter 26-Building an Architecture for IoT</h2>
+<p>This chapter will describe how to build a robust IoT cloud architecture using GCP services.</p>
+<h3>Industrial Internet of Things (IIoT) and Industry 4.0</h3>
+<p>Interconnectivity between sensors, devices, and systems is fundamental to extracting and ingesting data for further processing and analysis in IIoT and Industry 4.0.</p>
+<h3>DevOps and Peered Networks</h3>
+<ul>
+<li><strong>DevOps</strong>: Ensures efficient deployment and management of IoT applications.</li>
+<li><strong>Peered Networks</strong>: Enables secure communication between IoT devices and the cloud.</li>
+</ul>
+<h3>Partnerships and Chapter Summary</h3>
+<p>Partnerships with industry leaders are crucial for building a robust IoT ecosystem. This chapter concludes by summarizing the key components of an effective IoT architecture on GCP.</p>
+<p>| Region: US-east-1 | Zone: US-east-1a |
+| --- | --- |
+| Public IP | HTTPS Load Balancer |
+| Webserver Cluster | Shared VPC - Host Project |
+| Service Projects (Staging, Production) | Log Storage |
+| Multi-Interfaces | Load Balancer |
+| GCS (Data Storage) | GPS |
+| GCF (Private Subnet 1) | GBT |
+| Private Subnet 2 | Applications Cluster |
+| DevOps | Peered Networks |
+| Partners | Chapter 26-Building an Architecture for IoT |</p>
+<h3>References</h3>
+<ul>
+<li><a href="#?d=gist:af76a4c245b302206b16aec503dbe07b:iot.md">An Introduction to IOT on Google Cloud Platform</a></li>
+<li><a href="#?d=gist:af76a4c245b302206b16aec503dbe07b:chapter26.md">Chapter 26-Building an Architecture for loT</a></li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Finally, after our security tweaks, we have a design that looks like this:
+
+| Region: US-east-1
+Zone: US-east-1a
+
+Public IP
+HTTPS Load Balancer
+Webserver Cluster
+Shared VPC - Host Project
+Service Projects
+Staging
+Production
+
+Log Storage
+Multi Interfaces
+Load Balancer
+GCS
+Data Storage
+
+GPS
+GBT
+GCF
+Private Subnet 2
+
+000
+Applications Cluster
+Private Subnet 1
+
+DevOps
+Peered Networks
+Partners
+
+Chapter 26 - Building an Architecture for IoT
+
+An Introduction to IoT on Google Cloud Platform
+
+When it comes to demonstrating the power and utility of GCP, a very good use case is when building IoT architecture. The Internet of Things is not just about connecting sensors and manageable devices to the cloud in a scalable fashion, although that in itself is challenging. It is also about ingesting, processing, and analyzing sometimes vast amounts of real-time data. To do this effectively requires a robust IoT cloud architecture.
+
+So, in this chapter, we will describe how to build such an architecture using many of the services we have already learned about that we will use to make up the physical aspects of an IoT network.
+
+In the Industrial Internet of Things as well as in Industry 4.0, interconnectivity between sensors, devices, and systems are fundamental to extracting and ingesting data for further processing and analysis. Data can come in many forms and is being created and captured constantly from machines, systems, and processes.
+
+Some data can be ingested and stored for processing at a later time using batch processing whereas other types need real-time data streaming and processing. An example of data that can be batched processed is quality control data as it can be analyzed at leisure to improve the process. Data that needs instant processing would be machine control data, such as the signals that monitor and control the speed of a motor.
+
+Chapter 26-Building an Architecture for IoT
+
+An Introduction to IoT on Google Cloud Platform
+
+When it comes to demonstrating the power and utility of GCP, a very good use case is when building IoT architecture. The Internet of Things is not just about connecting sensors and manageable devices to the cloud in a scalable fashion although that in itself is challenging. It is also about ingesting, processing and analyzing sometimes vast amounts of realtime data. To do this effectively requires a robust loT cloud architecture. So in this chapter we will describe how to build such an architectures using many of the services we have already learned about that we will use to make up the physical aspects of an loT network.
+
+In the Industrial Internet of Things as well as in Industry 4.0 interconnectivity between sensors, devices and systems are fundamental to extracting and ingesting data for further processing and analysis. Data can come in many forms and it is being created and captured constantly from machine, systems and processes.
+
+Some data can be ingested and stored for processing at a later time using batch processing whereas other types need real time data streaming and processing. An example of data that can be batched processed is quality control data as it can be analysed at leisure to improve the process. Data that needs instant processing  would be machine control data for example the signals that monitor and control the speed of a motor.
+
+Chapter 26-Building an Architecture for IoT
+An Introduction to IOT on Google Cloud Platform
+
+When it comes to demonstrating the power and utility of GCP, a very good use case is when building loT architecture. The Internet of Things is not just about connecting sensors and manageable devices to the cloud in a scalable fashion although that in itself is challenging. It is also about ingesting, processing and analysing sometimes vast amounts of realtime data. To do this effectively requires a robust loT cloud architecture. So in this chapter we will describe how to build such an architectures using many of the services we have already learned about that we will use to make up the physical aspects of an loT network.
+
+In the Industrial Internet of Things as well as in Industry 4.0 interconnectivity between sensors, devices and systems are fundamental to extracting and ingesting data for further processing and analysis. Data can come 
+in many forms and it is being created and captured constantly from machine, systems and processes.
+Some data can be ingested and stored for processing at a later time using batch processing whereas other types need real time data streaming and processing. An example of data that can be batched processed is quality control data as it can be analysed at leisure to improve the process. Data that needs instant processing  would be machine control data for example the signals that monitor and control the speed of a motor.
+522
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Building an IoT Architecture on Google Cloud Platform</h3>
+<p>When demonstrating the power and utility of GCP, a very good use case is building an IoT architecture. The Internet of Things (IoT) is not just about connecting sensors and devices to the cloud in a scalable fashion, but also about ingesting, processing, and analyzing vast amounts of real-time data.</p>
+<h3>Key Challenges</h3>
+<ul>
+<li>Ingesting and processing large amounts of real-time data</li>
+<li>Extracting insights from IoT data for further analysis and decision-making</li>
+</ul>
+<h3>Robust IoT Cloud Architecture</h3>
+<p>To build an effective IoT cloud architecture, several GCP services can be utilized:</p>
+<h4>Physical Aspects of the Network</h4>
+<ul>
+<li><strong>Shared VPC</strong>: Host Project and Service Projects enable secure and scalable network infrastructure</li>
+<li><strong>Load Balancers</strong>: Public IP and HTTPS Load Balancer ensure high availability and scalability for web servers</li>
+<li><strong>Webserver Cluster</strong>: Scalable and secure web server cluster for IoT data processing and analysis</li>
+<li><strong>GCS (Google Cloud Storage)</strong>: Data Storage for storing and managing large amounts of IoT data</li>
+<li><strong>GPS (Google Public Observatory Service)</strong>: Real-time data ingestion and processing for IoT devices</li>
+</ul>
+<h4>Private Subnets and Security</h4>
+<ul>
+<li><strong>Private Subnet 2</strong>: Securely isolating IoT devices from the public internet</li>
+<li><strong>Private Subnet 1</strong>: Securely isolating IoT applications from the rest of the network</li>
+<li><strong>DevOps</strong>: Ensuring secure and efficient deployment of IoT applications</li>
+<li><strong>Peered Networks</strong>: Establishing secure connections between IoT devices and the cloud</li>
+</ul>
+<h4>Industry Applications</h4>
+<p>IoT architecture can be applied to various industries, including:</p>
+<ul>
+<li>Industrial Internet of Things (IIoT)</li>
+<li>Industry 4.0: Interconnectivity between sensors, devices, and systems is fundamental for extracting and ingesting data for further processing and analysis.</li>
+</ul>
+<h3>Real-time Data Processing and Analysis</h3>
+<p>To process and analyze IoT data in real-time, batch processing can be used for data that can be analyzed at leisure, such as quality control data. However, machine control data requires instant processing, which can be achieved using real-time data streaming and processing services.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>IoT Architecture and Cloud Services
+The text discusses building an IoT architecture on Google Cloud Platform (GCP) using various services such as Load Balancers, Webserver Clusters, Shared VPCs, and more. It highlights the importance of ingesting, processing, and analyzing vast amounts of real-time data in IoT.</p>
+<h3>Topic 2</h3>
+<p>Industrial Internet of Things and Industry 4.0
+The text touches upon the Industrial Internet of Things (IIoT) and Industry 4.0, emphasizing the need for interconnectivity between sensors, devices, and systems to extract and ingest data for further processing and analysis.</p>
+<h3>Topic 3</h3>
+<p>Data Processing and Analysis
+The text discusses the different types of data that can be processed and analyzed in IoT, including batch-processed data (e.g., quality control) and real-time data streaming and processing (e.g., machine control data).</p>
+<h3>Topic 4</h3>
+<p>Google Cloud Platform Services
+The text mentions various GCP services used to build an IoT architecture, such as GCS (Google Cloud Storage), GPS, GBT, and more. It highlights the importance of using these services to make up the physical aspects of an IoT network.</p>
+<h3>Topic 5</h3>
+<p>Security and Architecture Design
+The text mentions security tweaks and a design that looks like a diagram, indicating the importance of designing a secure architecture for IoT applications on GCP.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary focus of building an IoT architecture on Google Cloud Platform?
+Answer: The primary focus is to ingest, process, and analyze vast amounts of real-time data.</p>
+</li>
+<li>
+<p>What are some examples of data that can be batch-processed versus data that requires real-time processing?
+Answer: Batch-processed data includes quality control data, which can be analyzed at leisure, while real-time data streaming and processing is required for machine control data, such as motor speed signals.</p>
+</li>
+<li>
+<p>What is the significance of interconnectivity between sensors, devices, and systems in IoT architecture?
+Answer: Interconnectivity is fundamental to extracting and ingesting data for further processing and analysis.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the author differentiate between batch-processed data and real-time data streaming and processing in the context of IoT architecture?
+Answer: The author highlights that batch-processed data can be analyzed at leisure, whereas real-time data requires instant processing to ensure timely decision-making.</p>
+</li>
+<li>
+<p>What role do services like GCS, Data Storage, GPS, and GBT play in building a robust IoT cloud architecture?
+Answer: These services provide the necessary infrastructure for storing, managing, and analyzing vast amounts of data generated by IoT devices.</p>
+</li>
+<li>
+<p>How does the author's approach to building an IoT architecture on Google Cloud Platform relate to Industry 4.0 and the Industrial Internet of Things?
+Answer: The author's approach is relevant to both Industry 4.0 and the Industrial Internet of Things, as it emphasizes the importance of interconnectivity between sensors, devices, and systems for data extraction and analysis.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a basic IoT architecture using Google Cloud Platform services that can ingest, process, and analyze real-time data from industrial sensors.
+Answer: This would involve setting up a Shared VPC with multiple subnets, deploying a Load Balancer and Webserver Cluster, and utilizing services like GCS, Data Storage, GPS, and GBT to manage and analyze the data.</p>
+</li>
+<li>
+<p>How can you implement batch processing for quality control data in an IoT architecture on Google Cloud Platform?
+Answer: This would involve setting up a separate service project with a Shared VPC, deploying a Load Balancer and Webserver Cluster, and utilizing services like GCS and Data Storage to store and process the batch-processed data.</p>
+</li>
+<li>
+<p>What security measures can be implemented to protect real-time data streaming and processing in an IoT architecture on Google Cloud Platform?
+Answer: This would involve implementing additional security tweaks, such as encryption and access controls, to ensure that sensitive data is protected from unauthorized access and tampering.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>US-east-1</td>
+<td>Region</td>
+<td>The text mentions "Region: US-east-1" as part of the design, indicating the geographical location of the infrastructure.</td>
+<td>This region is likely to be used for hosting and managing various Google Cloud Platform (GCP) services.</td>
+</tr>
+<tr>
+<td>Zone US-east-1a</td>
+<td>Zone</td>
+<td>The text mentions "Zone US-east-1a" as part of the design, indicating a specific area within the region where resources can be deployed.</td>
+<td>A zone is a subdivision of a region, providing additional isolation and redundancy for GCP services.</td>
+</tr>
+<tr>
+<td>Public IP</td>
+<td>Network Component</td>
+<td>The text mentions "Public IP" as part of the design, indicating a publicly accessible IP address that can be used to access GCP services.</td>
+<td>A public IP address allows external access to GCP services, enabling communication with devices or applications outside the network.</td>
+</tr>
+<tr>
+<td>HTTPS Load Balancer</td>
+<td>Load Balancing Service</td>
+<td>The text mentions "HTTPS Load Balancer" as part of the design, indicating a service for distributing incoming traffic across multiple instances of a web application.</td>
+<td>A load balancer helps distribute traffic efficiently, ensuring that no single instance is overwhelmed and becomes a bottleneck in the system.</td>
+</tr>
+<tr>
+<td>Webserver Cluster</td>
+<td>Application Component</td>
+<td>The text mentions "Webserver Cluster" as part of the design, indicating a group of web servers that work together to serve web applications.</td>
+<td>A web server cluster provides scalability and high availability for web applications, allowing them to handle increased traffic and requests.</td>
+</tr>
+<tr>
+<td>Shared VPC</td>
+<td>Networking Service</td>
+<td>The text mentions "Shared VPC" as part of the design, indicating a shared network infrastructure that can be used by multiple projects or organizations.</td>
+<td>A shared VPC allows multiple projects to share the same virtual network, reducing costs and improving security.</td>
+</tr>
+<tr>
+<td>Host Project</td>
+<td>Project Management</td>
+<td>The text mentions "Host Project" as part of the design, indicating a project that is responsible for managing and deploying GCP services.</td>
+<td>A host project is used to manage and deploy GCP services, providing a centralized location for project management and resource allocation.</td>
+</tr>
+<tr>
+<td>Service Projects</td>
+<td>Project Management</td>
+<td>The text mentions "Service Projects" as part of the design, indicating projects that are focused on specific services or applications.</td>
+<td>Service projects provide a way to organize and manage GCP services, allowing developers to focus on specific tasks or applications.</td>
+</tr>
+<tr>
+<td>Staging</td>
+<td>Deployment Environment</td>
+<td>The text mentions "Staging" as part of the design, indicating a testing environment for deploying and validating new applications or services.</td>
+<td>A staging environment provides a safe space to test and validate new applications or services before deploying them to production.</td>
+</tr>
+<tr>
+<td>Production</td>
+<td>Deployment Environment</td>
+<td>The text mentions "Production" as part of the design, indicating the live environment where applications or services are deployed to users.</td>
+<td>A production environment is the final stage of deployment, providing a live and accessible environment for users to interact with applications or services.</td>
+</tr>
+<tr>
+<td>Log Storage</td>
+<td>Logging Service</td>
+<td>The text mentions "Log Storage" as part of the design, indicating a service for storing and managing log data from GCP services.</td>
+<td>Log storage provides a centralized location for storing and managing log data, allowing developers to monitor and troubleshoot their applications or services.</td>
+</tr>
+<tr>
+<td>Multi Interfaces</td>
+<td>Networking Service</td>
+<td>The text mentions "Multi Interfaces" as part of the design, indicating a service that allows multiple network interfaces to be connected to a single VPC.</td>
+<td>A multi-interfaces service provides flexibility in networking configurations, allowing developers to connect multiple network interfaces to a single VPC.</td>
+</tr>
+<tr>
+<td>Load Balancer</td>
+<td>Load Balancing Service</td>
+<td>The text mentions "Load Balancer" as part of the design, indicating a service for distributing incoming traffic across multiple instances of a web application.</td>
+<td>A load balancer helps distribute traffic efficiently, ensuring that no single instance is overwhelmed and becomes a bottleneck in the system.</td>
+</tr>
+<tr>
+<td>GCS</td>
+<td>Cloud Storage</td>
+<td>The text mentions "GCS" as part of the design, indicating a cloud storage service provided by Google Cloud Platform.</td>
+<td>GCS provides a scalable and secure location for storing and managing data, allowing developers to access their data from anywhere.</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Data Storage</td>
+<td>The text mentions "Data" as part of the design, indicating a general term for stored information or data.</td>
+<td>Data refers to any type of information or content that is stored, processed, or transmitted by GCP services.</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>Data Storage</td>
+<td>The text mentions "Storage" as part of the design, indicating a service for storing and managing data.</td>
+<td>Storage provides a location for storing and managing data, allowing developers to access their data from anywhere.</td>
+</tr>
+<tr>
+<td>GPS</td>
+<td>IoT Service</td>
+<td>The text mentions "GPS" as part of the design, indicating a service for tracking and monitoring devices or applications in real-time.</td>
+<td>A GPS service provides location-based information, enabling developers to track and monitor devices or applications in real-time.</td>
+</tr>
+<tr>
+<td>GBT</td>
+<td>IoT Service</td>
+<td>The text mentions "GBT" as part of the design, indicating a service for transmitting data from devices or applications to the cloud.</td>
+<td>A GBT service provides a way to transmit data from devices or applications to the cloud, enabling real-time monitoring and tracking.</td>
+</tr>
+<tr>
+<td>Web Application</td>
+<td>Application Component</td>
+<td>The text mentions "Web Application" as part of the design, indicating a software application that runs on web servers and is accessed through a web browser.</td>
+<td>A web application provides a user interface for interacting with data or services, allowing users to access and manipulate information online.</td>
+</tr>
+<tr>
+<td>IoT Service</td>
+<td>Internet of Things Service</td>
+<td>The text mentions "IoT Service" as part of the design, indicating a service for managing and monitoring devices or applications in real-time.</td>
+<td>An IoT service provides a way to track and monitor devices or applications, enabling real-time monitoring and tracking.</td>
+</tr>
+<tr>
+<td>Cloud Platform</td>
+<td>Overall Service</td>
+<td>The text mentions "Cloud Platform" as part of the design, indicating the overall suite of services provided by Google Cloud Platform.</td>
+<td>A cloud platform provides a comprehensive set of services for deploying, managing, and scaling applications or services, allowing developers to focus on their core business.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

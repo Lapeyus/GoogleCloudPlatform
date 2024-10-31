@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_62</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Kubernetes Deployment
+        ## Overview
+        - Kubernetes provides a way to deploy and manage applications through deployments.
+        
+        ### Containers in Pods
+        - Typically, you only would place one container per pod, but if you have multiple containers with a hard dependency, you can package them into a single pod, and share networking and storage. The pod provides a unique network IP and the containers inside a pod can communicate with one another using the 'localhost' interface and the ports will remain fixed as they are started and stopped on different nodes.
+        
+        ## Starting a Deployment
+        - One way to run a container in a pod in Kubernetes is to use the `kubectl` run command. This starts a deployment of a container running in a pod. A deployment represents a group of replicas of the same pod and keeps your pod running even when nodes they run on fail.
+        
+        ### Exposing a Deployment
+        - To make them publicly available, you can connect a Load Balancer to your deployment by running the `kubectl` exposed command. In GKE, the Load Balancer is created as a network Load Balancer and Kubernetes creates a service with a fixed IP for your pods. Any client that hits that IP address will be routed to a pod behind the service.
+        
+        ### Service Groups
+        - A service group is set of pods, which provides a stable endpoint or fixed IP for them. For example, if you create two sets of pods called front-end and back-end, and you put them behind their own services, back-end pods IP addresses may change over time but the front-end pods are not aware of this, nor do they care, as they simply refer to the back-end service by name rather than by IP addresses.
+        
+        ## Scaling a Deployment
+        - To scale a deployment, run the `kubect!` scale command. In this case, three pods are created in your deployment, and they're placed behind the service and they will share one fixed IP.
+        
+        ### Declarative Configuration
+        - The real strength of Kubernetes comes when you work in a declarative way. Instead of issuing commands, you provide a configuration file that tells Kubernetes what you want your desired state to look like, and Kubernetes figures out how to do it.
+        
+        ## References
+        
+        - [Website](https://markmap.js.org/)
+        - [GitHub](https://github.com/gera2ld/markmap)
+        - [coc-markmap](https://github.com/gera2ld/coc-markup)
+
+      </script>
+    </div>
+  </body>
+</html>

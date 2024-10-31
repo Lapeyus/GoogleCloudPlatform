@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_49</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_49_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_49</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_49_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Securing Your Data</h1>
+<h2>Access Control</h2>
+<h3>Cloud IAM</h3>
+<ul>
+<li>Assign roles to users for authentication and authorization</li>
+<li>Roles inherit permissions from project to bucket to object</li>
+<li>Use ACLs for finer control over specific users</li>
+</ul>
+<h3>Access Control Lists (ACLS)</h3>
+<ul>
+<li>Define who has access to buckets and objects</li>
+<li>Define what actions can be performed (e.g. read, write)</li>
+</ul>
+<h2>Versioning</h2>
+<ul>
+<li>Turn on object versioning to keep track of modifications</li>
+<li>List archived versions of an object</li>
+<li>Restore an object to an older state or permanently delete a version</li>
+</ul>
+<h3>Life-Cycle Management Policies</h3>
+<ul>
+<li>Keep only the three most recent versions of each object</li>
+<li>Delete objects older than 365 days or before a certain date</li>
+</ul>
+<h2>Storage Classes</h2>
+<h3>Regional vs. Multi-Regional</h3>
+<ul>
+<li>Regional storage: cheaper, less redundancy</li>
+<li>Multi-regional storage: more expensive, higher redundancy</li>
+</ul>
+<h4>Regional Storage</h4>
+<ul>
+<li>Create bucket in a specific GCP region (e.g. US Central)</li>
+<li>Store data in the chosen region for high performance and lower cost</li>
+</ul>
+<h4>Nearline and Coldline Storage</h4>
+<ul>
+<li>Designed for infrequent access (backup and archival storage)</li>
+<li>Priced accordingly, with nearline being more expensive than coldline</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_49_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Securing Your Data
+
+Your objects will be stored as encrypted data when it is at rest or in-flight, but there will usually be others that need to access the data. Therefore, GCP provides several ways to control access to your objects and buckets. The preferred way to control access and assign user permissions is to use Cloud IAM. When you deploy IAM to authenticate and authorize users, the most efficient way is for you to assign roles and the permission attached to each of the roles is inherited from project to bucket to object.
+
+In some cases, you may feel that you need finer control, in which case you can create access control lists (ACLS) that offer greater granularity for specific users. Typically, you will use ACLs to define who has access to your buckets and objects and then what they are authorized to do. Each ACL you configure consists of a scope that defines who can perform the specified actions, which can be a specific user or group of users, and a permission that defines what actions can be performed. For example, read or write.
+
+However, when data is stored in a bucket, that Cloud Storage object becomes immutable, so if you need to change the object, you have to create a new version. To help you keep track of the versions, you can turn on object versioning on your buckets. If you activate versioning, then Cloud Storage keeps a history of modifications. You can list the archived versions of an object, restore an object to an older state, or permanently delete a version as needed.
+
+However, with versioning, there is the risk of junk accumulating, so Cloud Storage also offers life-cycle management policies. In this case, you could instruct Cloud Storage to keep only the three most recent versions of each object in a bucket that has versioning enabled. But the policies can be flexible, and you could also delete objects older than 365 days or create a policy that will delete objects created before a certain date.
+
+Cloud Storage Classes
+
+Another important consideration when using Cloud storage is that you must choose the type of storage class that best suits your needs. There are four different types of storage classes: regional, multi-regional, nearline, and coldline. All of the storage classes are accessed in comparable ways using the cloud storage API and they all offer millisecond access types. However, that's where the similarity ends.
+
+Multi-regional and regional are high-performance object storage designed for frequent access, whereas nearline and coldline are designed for infrequent access for backup and archival storage, and as we will learn, they are priced accordingly. You must be clear on the storage classes or you could pay over the odds for the wrong service class.
+
+Regional vs. Multi Regional
+
+Regional storage allows you to create your bucket and store your data in a specific GCP region, such as US Central, Europe West, or Asia East. It's cheaper than multi-regional storage but offers less redundancy.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_49_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Securing Your Data with Cloud Storage</h1>
+<p>To control access to your objects and buckets, use Cloud IAM, which provides a preferred way to assign user permissions. Assign roles and the attached permission is inherited from project to bucket to object.</p>
+<p>For finer control, create access control lists (ACLS) that offer greater granularity for specific users. Each ACL consists of a scope defining who can perform actions and a permission defining what actions can be performed.</p>
+<p>When data is stored in a bucket, it becomes immutable, so creating new versions is necessary. To keep track of versions, turn on object versioning, which keeps a history of modifications. You can list archived versions, restore objects to older states, or permanently delete versions as needed.</p>
+<p>However, with versioning comes the risk of junk accumulating. Cloud Storage offers life-cycle management policies to mitigate this risk. Policies can be set to keep only the three most recent versions of each object, delete objects older than 365 days, or create policies that will delete objects created before a certain date.</p>
+<h2>Choosing the Right Storage Class</h2>
+<p>When using Cloud storage, choose the type of storage class that best suits your needs. There are four different types:</p>
+<ul>
+<li>Regional: High-performance object storage for frequent access.</li>
+<li>Multi-regional: Also high-performance object storage but with more redundancy.</li>
+<li>Nearline: Designed for infrequent access for backup and archival storage.</li>
+<li>Coldline: The most cost-effective option for long-term archival storage.</li>
+</ul>
+<p>Be clear on the storage classes to avoid paying over the odds for the wrong service class.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Data Security and Access Control</h3>
+<p>Control over access to objects and buckets is crucial for securing data.</p>
+<h3>Topic 2: Cloud IAM and Role-Based Access Control</h3>
+<p>Using Cloud IAM provides a preferred way to control access and assign user permissions, with roles inheriting permissions from project to bucket to object.</p>
+<h3>Topic 3: Fine-Grained Access Control using ACLs</h3>
+<p>Creating access control lists (ACLS) offers greater granularity for specific users, defining who can perform actions and what actions they are authorized to do.</p>
+<h3>Topic 4: Object Versioning and Management</h3>
+<p>Object versioning helps keep track of modifications, allowing listing archived versions, restoring objects to older states, or permanently deleting versions as needed.</p>
+<h3>Topic 5: Life-Cycle Management Policies for Object Versioning</h3>
+<p>Cloud Storage offers life-cycle management policies to manage the retention of object versions, such as keeping only the three most recent versions or deleting objects older than a certain date.</p>
+<h3>Topic 6: Choosing the Right Storage Class</h3>
+<p>Selecting the correct storage class is essential, with four options available (regional, multi-regional, nearline, and coldline), each designed for different use cases and offering varying levels of performance and redundancy.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the preferred way to control access to objects and buckets in GCP?
+Answer: Using Cloud IAM with roles and permissions assigned from project to bucket to object.</p>
+</li>
+<li>
+<p>What is the purpose of access control lists (ACLS) in GCP?
+Answer: To offer greater granularity for specific users, defining who has access to buckets and objects and what actions they are authorized to perform.</p>
+</li>
+<li>
+<p>What happens when data is stored in a bucket without versioning enabled?
+Answer: A new version always overrides an older version.</p>
+</li>
+<li>
+<p>What is the risk associated with not using object versioning in GCP?
+Answer: Junk accumulating, as newer versions of objects can overwrite older ones.</p>
+</li>
+<li>
+<p>How does Cloud Storage's life-cycle management policy work?
+Answer: It allows you to instruct Cloud Storage to keep only a certain number of recent versions of each object, or delete objects older than a specified date or time.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages and disadvantages of using regional storage compared to multi-regional storage in GCP?
+Answer: Regional storage is cheaper but offers less redundancy, while multi-regional storage provides more redundancy but is more expensive.</p>
+</li>
+<li>
+<p>How does object versioning impact data management in GCP?
+Answer: It allows for tracking changes to objects, listing archived versions, restoring older states, and permanently deleting versions as needed.</p>
+</li>
+<li>
+<p>What are the differences between nearline and coldline storage classes in GCP?
+Answer: Nearline is designed for infrequent access with faster access times, while coldline is also designed for infrequent access but with slower access times due to its lower performance requirements.</p>
+</li>
+<li>
+<p>How can using the wrong storage class in GCP impact costs?
+Answer: It can result in paying over the odds for a service that does not meet your needs, leading to unnecessary expenses.</p>
+</li>
+<li>
+<p>What are some scenarios where ACLs might be more suitable than roles and permissions assigned through Cloud IAM?
+Answer: When you need finer control over access to specific users or groups of users, or when you require more granular permission settings.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you want to store sensitive data in a bucket that requires high security measures. Which GCP service would you recommend using, and why?
+Answer: Cloud IAM with roles and permissions assigned from project to bucket to object, as it provides the most efficient way to control access and authenticate users.</p>
+</li>
+<li>
+<p>If you're planning to use nearline storage for infrequent data access, how can you optimize your data management strategy?
+Answer: By implementing life-cycle management policies that automatically delete older versions of objects after a specified period or date, reducing storage costs and improving data efficiency.</p>
+</li>
+<li>
+<p>How would you handle the situation where an employee leaves the company and no longer needs access to sensitive data stored in a bucket?
+Answer: You would remove their access permissions using Cloud IAM or ACLs, and potentially update the bucket's permissions to ensure only authorized personnel have access to the data.</p>
+</li>
+<li>
+<p>If you're planning to use multi-regional storage for frequent data access, how can you ensure that your data is redundant across multiple regions?
+Answer: By configuring Cloud Storage to replicate data across multiple regions, using features such as replication groups and regional buckets with automatic replication enabled.</p>
+</li>
+<li>
+<p>Suppose you want to implement a data retention policy in GCP that automatically deletes objects older than 365 days. What steps would you take?
+Answer: You would create a life-cycle management policy that specifies the retention period (e.g., 365 days) and configure Cloud Storage to enforce this policy, ensuring that older versions of objects are deleted as needed.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud IAM</td>
+<td>System</td>
+<td>"The preferred way to control access and assign user permissions is to use Cloud IAM."</td>
+<td>Cloud IAM is a service provided by GCP that allows users to manage access to their objects and buckets. It provides a secure way to authenticate and authorize users, and is the recommended method for controlling access.</td>
+</tr>
+<tr>
+<td>Access Control Lists (ACLS)</td>
+<td>System</td>
+<td>"In some cases you feel that you need finer control, in that case you can create access control lists (ACLS)"</td>
+<td>ACLs are a way to provide greater granularity for specific users, allowing them to define who has access to their buckets and objects, and what actions they are authorized to perform. They offer more flexibility than Cloud IAM, but require more configuration.</td>
+</tr>
+<tr>
+<td>Object Versioning</td>
+<td>Feature</td>
+<td>"To help you keep track of the versions you can turn on object versioning on your buckets"</td>
+<td>Object versioning is a feature that allows users to keep a history of modifications made to an object. It provides a way to list archived versions, restore objects to older states, and permanently delete versions as needed.</td>
+</tr>
+<tr>
+<td>Life-Cycle Management Policies</td>
+<td>Feature</td>
+<td>"However with versioning there is the risk of junk accumulating so Cloud Storage also offers life-cycle management policies"</td>
+<td>Life-cycle management policies are a feature that allows users to automatically manage their object storage by deleting old or unused objects. They can be configured to delete objects older than a certain date, or after a certain number of days.</td>
+</tr>
+<tr>
+<td>Regional Storage</td>
+<td>Storage Class</td>
+<td>"Regional storage allows you to create your bucket and store your data in a specific GCP region"</td>
+<td>Regional storage is a type of storage class that stores data in a specific GCP region. It offers faster access times than multi-regional storage, but provides less redundancy.</td>
+</tr>
+<tr>
+<td>Multi-Regional Storage</td>
+<td>Storage Class</td>
+<td>"Multi regional and regional are high performance object storage designed for frequent access"</td>
+<td>Multi-regional storage is a type of storage class that stores data across multiple regions. It offers higher performance and redundancy than regional storage, but at a higher cost.</td>
+</tr>
+<tr>
+<td>Nearline Storage</td>
+<td>Storage Class</td>
+<td>"nearline and coldline are designed for infrequent access for backup and archival storage"</td>
+<td>Nearline storage is a type of storage class that stores data in a cold state, making it suitable for infrequent access or backup purposes. It offers lower costs than regional or multi-regional storage, but with slower access times.</td>
+</tr>
+<tr>
+<td>Coldline Storage</td>
+<td>Storage Class</td>
+<td>"nearline and coldline are designed for infrequent access for backup and archival storage"</td>
+<td>Coldline storage is a type of storage class that stores data in an even colder state than nearline storage, making it suitable for long-term archival purposes. It offers the lowest costs among all storage classes, but with the slowest access times.</td>
+</tr>
+<tr>
+<td>Cloud Storage API</td>
+<td>System</td>
+<td>"All of the storage classes are accessed in comparable ways using the cloud storage API"</td>
+<td>The Cloud Storage API is a service provided by GCP that allows users to interact with their object storage. It provides a standardized way to perform operations such as creating, reading, and deleting objects.</td>
+</tr>
+<tr>
+<td>Object Storage</td>
+<td>Service</td>
+<td>"You must be clear on the storage classes or you could pay over the odds for the wrong service class"</td>
+<td>Object storage is a service provided by GCP that allows users to store and manage their data in a scalable and secure manner. It provides a range of features and options, including different storage classes, to suit various use cases and requirements.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

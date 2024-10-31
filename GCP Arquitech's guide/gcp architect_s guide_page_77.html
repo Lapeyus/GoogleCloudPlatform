@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_77</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_77_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_77</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Anthos</h1>
+<h2>Overview</h2>
+<p>Anthos is a collection of complementary services that helps manage containers in either cloud or on-premises environments.</p>
+<h3>Benefits for Developers</h3>
+<ul>
+<li><strong>Kubernetes Container Management Platform</strong>: Enables developers to deploy containers and microservices based architectures.</li>
+<li><strong>Git-compliant Management and CI/CD Workflows</strong>: Provides code for deploying Anthos Configuration Management and code-free protection of services via mTLS and instrumentation using Istio and Stackdriver.</li>
+<li><strong>GCP Marketplace Support</strong>: Allows easy deployment of off-the-shelf products into clusters.</li>
+</ul>
+<h2>Operations</h2>
+<h3>Centralized Management</h3>
+<ul>
+<li><strong>Centralized, Efficient, and Deployment Templates</strong>: Enables single command deployment of new clusters with GKE and GKE On-Prem (gkectl).</li>
+<li><strong>Single Pane of Glass Visibility</strong>: Provides centralized configuration management and compliance, simplified deployment, and roll back via Anthos Config Management and Git check-ins.</li>
+<li><strong>Stackdriver Integration</strong>: Offers visibility across all clusters from infrastructure through to application performance and topology.</li>
+</ul>
+<h2>Security</h2>
+<h3>Enforcing Security Standards</h3>
+<ul>
+<li><strong>Cluster Security</strong>: Enforces security standards on clusters, deployed applications, and configuration management.</li>
+<li><strong>Centralized Audit Point</strong>: Provides a central point for audit and secured workflow via Git compliant repositories.</li>
+<li><strong>Compliance Enforcement</strong>: Uses namespaces and labels to enforce compliance of cluster configurations and secures microservices via Istio and in-cluster mTLS certificates.</li>
+</ul>
+<h3>Anthos Migrate</h3>
+<ul>
+<li><strong>Automated VM Migration</strong>: Allows easy migration of VMs from on-premises or other clouds directly into containers in GKE.</li>
+<li><strong>Infrastructure Management</strong>: Frees operations from managing housekeeping tasks, allowing focus on managing and developing applications.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Anthos is a collection of complementary services that helps manage containers in either cloud or on-premises environments. Anthos brings benefits to all areas of the business.
+
+From a developer's perspective, we can consider Anthos as supplying a Kubernetes container management platform. It enables developers to deploy containers and microservices-based architectures. It does this by providing Git-compliant management and CI/CD workflows for configuration. Additionally, it provides the code for deploying Anthos Configuration Management as well as code-free protection of services via mTLS and instrumentation using Istio and Stackdriver.
+
+Anthos also has inbuilt support for GCP Marketplace, allowing developers to easily drop off-the-shelf products into clusters.
+
+When considering Operations, Anthos provides centralized, efficient, and deployment templates as well as the management of clusters. The benefit to operators is that Anthos enables them to use single command deployment of new clusters with GKE and GKE On-Prem (gkectl). It also provides a platform for centralized configuration management and compliance, as well as simplified deployment and roll back via Anthos Config Management and Git check-ins.
+
+As a result, Anthos provides operators with a single pane of glass visibility across all clusters from infrastructure through to application performance and topology with Stackdriver.
+
+From a security perspective, we can consider Anthos to enforce security standards on clusters, deployed applications, and even configuration management. Anthos provides a central point for audit and a secured workflow via Git-compliant repositories. It also provides compliance enforcement of cluster configurations using namespaces and labels as well as inherited configurations and the securing of microservices via Istio and in-cluster mTLS certificates.
+
+Furthermore, with Anthos Migrate, you can now let Anthos auto-migrate your VMs from on-premises or other clouds directly into containers in GKE. This new migration technology lets you easily and quickly migrate your infrastructure without modifications to the original VMs or applications.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p>Anthos is a comprehensive collection of complementary services designed to manage containers in both cloud and on-premises environments. From a developer's perspective, Anthos serves as a Kubernetes container management platform, providing a robust environment for deploying containers and microservices-based architectures.</p>
+<p>Key benefits for developers include:</p>
+<ul>
+<li>Git-compliant management and CI/CD workflows for configuration</li>
+<li>Code deployment for Anthos Configuration Management</li>
+<li>Code-free protection of services via mTLS and instrumentation using Istio and Stackdriver</li>
+<li>Inbuilt support for GCP Marketplace, allowing easy integration of off-the-shelf products into clusters</li>
+</ul>
+<p>For operations teams, Anthos offers:</p>
+<ul>
+<li>Centralized management of clusters with efficient deployment templates</li>
+<li>Single command deployment of new clusters with GKE and GKE On-Prem (gkectl)</li>
+<li>Simplified configuration management and compliance via Anthos Config Management and Git check-ins</li>
+<li>A single pane of glass visibility across all clusters, from infrastructure to application performance and topology using Stackdriver</li>
+</ul>
+<p>From a security perspective, Anthos:</p>
+<ul>
+<li>Enforces security standards on clusters, deployed applications, and configuration management</li>
+<li>Provides a central point for audit and secured workflow via Git compliant repositories</li>
+<li>Enables compliance enforcement of cluster configurations using namespaces and labels</li>
+<li>Secures microservices via Istio and in-cluster mTLS certificates</li>
+</ul>
+<p>Additionally, Anthos Migrate allows for the automated migration of VMs from on-premises or other clouds directly into containers in GKE, freeing up operations teams to focus on managing and developing applications.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Container Management Platform</strong>
+Enables developers to deploy containers and microservices based architectures with Git-compliant management and CI/CD workflows for configuration.</p>
+<h3>Topic 2</h3>
+<p><strong>Centralized Cluster Management</strong>
+Provides centralized, efficient, and deployment templates as well as the management of clusters, enabling single command deployment of new clusters with GKE and GKE On-Prem (gkectl).</p>
+<h3>Topic 3</h3>
+<p><strong>Security Standards Enforcement</strong>
+Enforces security standards on clusters, deployed applications, and configuration management, providing a central point for audit and secured workflow via Git compliant repositories.</p>
+<h3>Topic 4</h3>
+<p><strong>Infrastructure Migration</strong>
+Automatically migrates VMs from on-premises or other clouds directly into containers in GKE, freeing up operations to focus on managing and developing applications.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>1. What is Anthos?</h4>
+<p>Anthos is a collection of complementary services that helps manage containers in either cloud or on-premises environments.</p>
+<h4>2. What benefits does Anthos bring to the business?</h4>
+<p>Anthos brings benefits to all areas of the business, including developers and operations teams.</p>
+<h4>3. How does Anthos support developers?</h4>
+<p>Anthos provides a Kubernetes container management platform, enabling developers to deploy containers and microservices-based architectures with Git-compliant management and CI/CD workflows.</p>
+<h3>Analytical Questions</h3>
+<h4>1. What are some key features of Anthos that make it beneficial for operations teams?</h4>
+<p>Anthos provides centralized, efficient, and deployment templates as well as the management of clusters, enabling operators to use single command deployment of new clusters with GKE and GKE On-Prem (gkectl).</p>
+<h4>2. How does Anthos enforce security standards on clusters, deployed applications, and configuration management?</h4>
+<p>Anthos provides a central point for audit and a secured workflow via Git compliant repositories, as well as compliance enforcement of cluster configurations using namespaces and labels.</p>
+<h4>3. What is the purpose of Anthos Migrate, and how does it benefit operations teams?</h4>
+<p>Anthos Migrate allows for easy and quick migration of VMs from on-premises or other clouds directly into containers in GKE, freeing up operations from managing housekeeping tasks like VM maintenance and OS patching.</p>
+<h3>Application Questions</h3>
+<h4>1. How can developers use Anthos to deploy containers and microservices-based architectures?</h4>
+<p>Developers can use Anthos to deploy containers and microservices-based architectures by providing Git-compliant management and CI/CD workflows for configuration, as well as code-free protection of services via mTLS and instrumentation using Istio and Stackdriver.</p>
+<h4>2. How can operations teams use Anthos to manage clusters and ensure compliance?</h4>
+<p>Operations teams can use Anthos to manage clusters and ensure compliance by using single command deployment of new clusters with GKE and GKE On-Prem (gkectl), as well as centralized configuration management and compliance via Anthos Config Management and Git check-ins.</p>
+<h4>3. How can Anthos help organizations improve their security posture?</h4>
+<p>Anthos helps organizations improve their security posture by enforcing security standards on clusters, deployed applications, and configuration management, providing a central point for audit and secured workflow via Git compliant repositories.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anthos</td>
+<td>Service/Platform</td>
+<td>"Anthos is a collection of complementary services..."</td>
+<td>Anthos is a comprehensive platform that provides various services to manage containers in cloud or on-premises environments. It brings benefits to all areas of the business, including development, operations, and security. The platform enables developers to deploy containers and microservices-based architectures, while providing efficient management and deployment templates for operators. From a security perspective, Anthos enforces security standards on clusters, deployed applications, and configuration management.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Technology/Platform</td>
+<td>"From a developer's perspective, we can consider Anthos as supplying a Kubernetes container management platform."</td>
+<td>Kubernetes is an open-source container orchestration system that automates the deployment, scaling, and management of containers. Anthos provides a Kubernetes-based container management platform for developers to deploy containers and microservices-based architectures.</td>
+</tr>
+<tr>
+<td>GCP Marketplace</td>
+<td>Service/Platform</td>
+<td>"However it has also got inbuilt support for GCP Marketplace..."</td>
+<td>GCP Marketplace is a service provided by Google Cloud Platform that allows users to easily deploy pre-built products into their clusters. Anthos provides this feature, enabling developers to drop off-the-shelf products into clusters with minimal configuration.</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Version Control System</td>
+<td>"It does this though providing Git-compliant management and CI/CD workflows for configuration."</td>
+<td>Git is a version control system that allows developers to track changes in code repositories. Anthos uses Git-compliant management and CI/CD workflows to provide efficient configuration management and deployment of containers and microservices-based architectures.</td>
+</tr>
+<tr>
+<td>CI/CD</td>
+<td>Process/Methodology</td>
+<td>"It does this though providing Git-compliant management and CI/CD workflows for configuration."</td>
+<td>CI/CD stands for Continuous Integration and Continuous Deployment, which is a software development process that aims to improve the speed and quality of software releases. Anthos provides CI/CD workflows to automate the deployment of containers and microservices-based architectures.</td>
+</tr>
+<tr>
+<td>GKE (Google Kubernetes Engine)</td>
+<td>Cloud Service</td>
+<td>"It also provides the code for deploying Anthos Configuration Management as well as code-free protection of services via mTLS and instrumentation using Istio and Stackdriver."</td>
+<td>GKE is a managed container service provided by Google Cloud Platform that allows users to deploy, manage, and scale containers. Anthos integrates with GKE to provide efficient management and deployment of containers.</td>
+</tr>
+<tr>
+<td>GKE On-Prem (gkectl)</td>
+<td>Cloud Service</td>
+<td>"It also provides a platform for the centralized configuration management and compliance as well as simplified deployment and roll back via Anthos Config Management and Git check-ins."</td>
+<td>gkectl is a command-line tool provided by Google Kubernetes Engine that allows users to manage and deploy clusters. Anthos integrates with gkectl to provide efficient cluster management and deployment.</td>
+</tr>
+<tr>
+<td>Istio</td>
+<td>Security/Networking</td>
+<td>"It also provides for compliance enforcement of cluster configurations using namespaces and labels as well as inherited configurations and the securing of microservices via Istio and in-cluster mTLS certificates."</td>
+<td>Istio is a service mesh that provides security, observability, and networking features for containerized applications. Anthos uses Istio to provide secure communication between services and enforce compliance standards on cluster configurations.</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Monitoring/Security</td>
+<td>"As a result Anthos provides operators with a single pane of glass visibility across all clusters from infrastructure through to application performance and topology with Stackdriver."</td>
+<td>Stackdriver is a monitoring and security platform provided by Google Cloud Platform that allows users to monitor and secure their applications. Anthos integrates with Stackdriver to provide real-time visibility into cluster performance and topology.</td>
+</tr>
+<tr>
+<td>mTLS (Mutual Transport Layer Security)</td>
+<td>Security/Networking</td>
+<td>"It also provides for compliance enforcement of cluster configurations using namespaces and labels as well as inherited configurations and the securing of microservices via Istio and in-cluster mTLS certificates."</td>
+<td>mTLS is a security protocol that provides secure communication between services. Anthos uses mTLS to provide secure communication between services and enforce compliance standards on cluster configurations.</td>
+</tr>
+<tr>
+<td>VMs (Virtual Machines)</td>
+<td>Infrastructure/Computing</td>
+<td>"Furthermore with Anthos Migrate you can now let Anthos auto-migrate your VMs from on-premises, or other clouds, directly into containers in GKE."</td>
+<td>VMs are virtual machines that run on physical hardware. Anthos provides a migration technology that allows users to migrate their VMs from on-premises or other clouds into containers in GKE without modifications to the original VMs or applications.</td>
+</tr>
+<tr>
+<td>GCP (Google Cloud Platform)</td>
+<td>Cloud Service/Platform</td>
+<td>"Anthos has also got inbuilt support for GCP Marketplace..."</td>
+<td>GCP is a cloud service and platform provided by Google that allows users to deploy, manage, and scale various services. Anthos integrates with GCP Marketplace to provide pre-built products into clusters.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

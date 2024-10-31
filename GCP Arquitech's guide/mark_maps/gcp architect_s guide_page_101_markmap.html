@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_101</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # GCP Firewall Configuration
+        ## Overview of Virtual Routers and Firewalls
+        ### Virtual Network Router Selection
+        - The virtual network router selects the next hop for each packet by consulting the individual routing table for that instance.
+        
+        ### GCP Firewall Rules
+        - GCP firewall rules exist to protect your VM instances from unapproved connections in both the inbound and outbound directions - in firewall terms this is often known as ingress and egress respectively.
+        
+        ## Distributed Firewall Concept
+        - A firewall is not a physical device, but rather it is essentially the VPC network itself that functions as a distributed firewall. This means that firewall rules are applied to the network and connections are allowed or denied at the instance level.
+        
+        ### Firewall Rule Parameters
+        - Conceptually, a firewall rule is composed of the following parameters:
+        - Direction (ingress or egress)
+        - Protocol and port of the connection
+        - Action (allow or deny)
+        - Priority of the rule
+        
+        ## Egress Firewall Rules
+        - Egress allow rules are set to allow all by default. These rules permit a VM to initiate a connection that matches specific protocols, ports, and IP addresses.
+        
+        ### Egress Deny Rules
+        - Egress deny rules prevent instances from initiating connections that match non-permitted port, protocol, and IP source or destination ranges.
+        
+        ## Ingress Firewall Rules
+        - Ingress rules protect against incoming connections to the instance from any source. These rules are set as 'deny all' by default, requiring specific rules to be applied to allow ingress traffic.
+        
+        ### Destination Ranges for Egress and Ingress Rules
+        - Destination ranges can be used to protect from undesired connections initiated by a VM instance toward an external destination or specific VMs in another subnet.
+        
+        ## Assigning Firewall Rules to Instances
+        - By default, all rules are assigned to all instances. However, certain rules can be assigned to specific instances only.
+        
+        ### Example Use Cases for Egress and Ingress Firewall Rules
+        
+        *   Protect against incoming connections from any source by applying an ingress rule with a high priority.
+        *   Allow outgoing connections to specific IP addresses or ranges using an egress rule.
+        *   Deny incoming connections from specific IP addresses or ranges using an ingress rule.
+        
+        ### Best Practices for GCP Firewall Configuration
+        *   Use destination ranges to protect against undesired connections initiated by VM instances toward external destinations or other VMs in the same subnet.
+        *   Apply high-priority rules to allow incoming traffic and deny it by default.
+        *   Regularly review and update firewall rules to ensure they align with changing network requirements.
+
+      </script>
+    </div>
+  </body>
+</html>

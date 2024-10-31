@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_244</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Denial of Service Protection
+        ## Overview
+        
+        - Google provides various denial-of-service (DoS) protection measures to safeguard its network. These measures are not publicly disclosed due to the need for transparency, but they can be utilized by users behind a global load balancer.
+        
+        ## Built-in Network Protection
+        
+        - The Google network already offers robust protection against distributed denial-of-service attacks through:
+        
+        *   Scale
+        *   SDN (Software-Defined Networking)
+        *   CDN (Content Delivery Network)
+        *   Global Load Balancers
+        
+        - These components work together to detect and mitigate DoS attacks.
+        
+        ## Additional Measures for VPCs Behind Load Balancers
+        
+        - To further enhance protection, users can:
+        
+        *   Filter known bad traffic or specific countries using firewall rules
+        *   Block traffic on different ports and protocols
+        *   Utilize VM traffic throttling, which limits throughput per VM to approximately 10 Gbps for Ingress
+        
+        ## Defending Against Infrastructure Attacks
+        
+        - In the event of a DoS attack that is not detected by network security controls:
+        
+        *   The infrastructure remains protected by cloud load balancers and auto scaling.
+        *   To absorb the attack, users can scale up by adding more resources or split traffic between different regions using a global load balancer.
+        
+        ## Example: Absorbing Traffic from Different Regions
+        
+        - If a user is subjected to a DoS attack originating from Asia but is based in the US:
+        
+        *   They can spin up a region in Asia to absorb the traffic and potentially thwart the attack.
+
+      </script>
+    </div>
+  </body>
+</html>

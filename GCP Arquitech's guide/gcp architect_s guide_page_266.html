@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_266</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_266_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_266</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Migrating MySQL and PostgreSQL to Google Cloud Platform</h1>
+<h2>Overview</h2>
+<p>Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service. This means that migrating either of these databases to the cloud is going to be reasonably straightforward.</p>
+<h2>Steps for Moving an On-Premises MySQL or PostgreSQL DB Instance to the Cloud SQL</h2>
+<ol>
+<li>
+<h2>Select the Project</h2>
+Select the project you wish to use.</li>
+<li>
+<h2>Create a Cloud SQL Instance</h2>
+<p>From the navigation menu, select the "Storage -&gt; SQL" menu item.
+Click the "Create instance" button.
+Choose between a "First Generation" or "Second Generation" instance. (2nd is advisable as it has better performance at a lower cost but doesn't support MySQL version older than 5.6)
+Create a DB instance ID
+Choose a location where you was your database to reside
+Choose a VM type
+Choose the storage capacity</p>
+</li>
+<li>
+<h2>Configure Access Control and Users</h2>
+<p>Click create
+From the instance page click on the DB instance ID
+Click the "Access control" tab and the "Authorization" sub-tab. Click the "Add network" button and enter the public IP address of the server
+On the same page, select the "Users" sub-tab. Click the "Change root password" button and enter a new password for the MySQL root user.</p>
+</li>
+<li>
+<h2>Migrate Data Schema and Data</h2>
+<p>You can now migrate your application database to Google Cloud SQL. However, before you do this, you must disable write access to the application so that the original and new databases stay in sync.
+The way that you copy over your data schema and data is to do a sqldump and then copy that up to a storage bucket in Cloud Storage . Then you can reference that bucket as the source for the database.</p>
+</li>
+<li>
+<h2>Configure Replication (Optional)</h2>
+<p>However, if you cannot take the on-premises SQL server offline during the SQLdump transfer then you will need to create a replication session on the master on-premises SQL server and make the cloud SQL server the slave. This will ensure that eventually the two will synchronise.</p>
+</li>
+<li>
+<h2>Final Steps</h2>
+<p>You then can stop the replication session or simply promote the cloud slave to a stand-alone instance.
+Disconnect the replication from master to slave.
+Restart your applications, which should now be pointing to the Cloud SQL instance.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Migrating MySQL and PostgreSQL to Google Cloud Platform
+Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service. Moreover, these are not just compatible versions they are the actual databases that you would deploy on-premises. This means that migrating either of MySQL or PostgreSQL is going to be reasonably straightforward.
+
+Steps for Moving an On-Premises MySQL or PostgreSQL DB Instance to the Cloud SQL:
+
+1. Select the project you wish to use.
+2. From the navigation menu, select the "Storage -> SQL" menu item.
+3. Click the "Create instance" button.
+4. Choose between a "First Generation" or "Second Generation" instance. (2nd is advisable as it has better performance at a lower cost but doesn't support MySQL version older than 5.6)
+5. Create a DB instance ID
+6. Choose a location where you was your database to reside
+7. Choose a VM type
+8. Choose the storage capacity
+9. Click create
+
+From the instance page, click on the DB instance ID and then:
+
+11. Click the "Access control" tab and the "Authorization" sub-tab. Click the "Add network" button and enter the public IP address of the server.
+12. On the same page, select the "Users" sub-tab. Click the "Change root password" button and enter a new password for the MySQL root user.
+
+You can now migrate your application database to Google Cloud SQL. However, before you do this, you must disable write access to the application so that the original and new databases stay in sync.
+
+Copying Over Data Schema and Data
+The way that you copy over your data schema and data is to do a sqldump and then copy that up to a storage bucket in Cloud Storage. Then you can reference that bucket as the source for the database. However, if you cannot take the on-premises SQL server offline during the SQLdump transfer, then you will need to create a replication session on the master on-premises SQL server and make the cloud SQL server the slave.
+
+This procedure requires you to complete the following high-level steps:
+
+1. Configure your source on-premises database server for replication to Cloud SQL.
+2. Make the on-premises SQL server the master and the cloud SQL the slave (replica).
+3. When the cloud-based slave is fully synchronized with the source database server, take your applications offline, and update the applications to point to the cloud SQL database instance.
+4. Disconnect the replication from master to slave.
+5. Restart your applications, which should now be pointing to the Cloud SQL instance.
+
+Note: The steps for migrating MySQL and PostgreSQL are similar, but there are some differences in the requirements and procedures.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Migrating MySQL and PostgreSQL to Google Cloud Platform (GCP)</h1>
+<p>Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service. These databases are not just compatible versions but actual databases that can be deployed on-premises.</p>
+<p><strong>Reasonably Straightforward Process</strong></p>
+<p>Typically, migrating an on-premises MySQL or PostgreSQL database to the cloud is a straightforward process. The steps involved are:</p>
+<ol>
+<li><strong>Select Project and Create Instance</strong><ul>
+<li>Select the project you wish to use.</li>
+<li>From the navigation menu, select "Storage -&gt; SQL".</li>
+<li>Click the "Create instance" button.</li>
+<li>Choose between a "First Generation" or "Second Generation" instance (2nd is advisable for better performance at a lower cost).</li>
+</ul>
+</li>
+<li><strong>Configure Instance Settings</strong><ul>
+<li>Create a DB instance ID.</li>
+<li>Choose a location where your database will reside.</li>
+<li>Choose a VM type and storage capacity.</li>
+</ul>
+</li>
+<li><strong>Access Control and Security</strong><ul>
+<li>Click the "Access control" tab and select the "Authorization" sub-tab.</li>
+<li>Click the "Add network" button and enter the public IP address of the server.</li>
+<li>Select the "Users" sub-tab and click the "Change root password" button to update the MySQL root user's password.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Migrating Data Schema and Data</strong></p>
+<p>To migrate your data schema and data, follow these steps:</p>
+<ol>
+<li><strong>Sqldump</strong>: Perform a sqldump of your on-premises database.</li>
+<li><strong>Copy to Cloud Storage</strong>: Copy the sqldump to a storage bucket in Cloud Storage.</li>
+<li><strong>Reference Bucket as Source</strong>: Reference the bucket as the source for your cloud SQL instance.</li>
+</ol>
+<p>However, if you cannot take your on-premises SQL server offline during the SQLdump transfer, you will need to create a replication session on the master on-premises SQL server and make the cloud SQL server the slave. This ensures that eventually, the two databases will synchronize.</p>
+<p><strong>High-Level Steps for Replication</strong></p>
+<p>To complete the replication process:</p>
+<ol>
+<li><strong>Configure Source Database Server</strong>: Configure your source on-premises database server for replication to Cloud SQL.</li>
+<li><strong>Make On-Premises Server Master and Cloud SQL Slave</strong>: Make the on-premises SQL server the master and the cloud SQL server the slave (replica).</li>
+<li><strong>Synchronize Databases</strong>: Wait for the cloud-based slave to be fully synchronized with the source database server.</li>
+<li><strong>Take Applications Offline</strong>: Take your applications offline and update them to point to the cloud SQL database instance.</li>
+<li><strong>Disconnect Replication</strong>: Disconnect the replication from master to slave.</li>
+<li><strong>Restart Applications</strong>: Restart your applications, which should now be pointing to the Cloud SQL instance.</li>
+</ol></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Migration Process Overview</h3>
+<p>The text discusses the process of migrating MySQL or PostgreSQL databases to Google Cloud Platform's Cloud SQL service.</p>
+<h3>Topic 2: Creating a Cloud SQL Instance</h3>
+<p>Steps involved in creating a Cloud SQL instance include selecting a project, choosing an instance type, creating a DB instance ID, and configuring access control.</p>
+<h3>Topic 3: Configuring Replication for SQL Dump Transfer</h3>
+<p>When the on-premises SQL server cannot be taken offline during the SQL dump transfer, a replication session must be configured to ensure synchronization between the source database server and the cloud SQL server.</p>
+<h3>Topic 4: High-Level Steps for Migrating Databases</h3>
+<p>The high-level steps required for migrating databases include configuring the source on-premises database server for replication, making the on-premises SQL server the master and the cloud SQL the slave, updating applications to point to the cloud SQL instance, disconnecting the replication from master to slave, and restarting applications.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Google Cloud Platform's native support for MySQL and PostgreSQL?
+Answer: Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service.</p>
+</li>
+<li>
+<p>Which version of MySQL is not supported by 2nd Generation instances in GCP?
+Answer: Mysql version older than 5.6.</p>
+</li>
+<li>
+<p>What is the recommended instance type to use when migrating a database to GCP?
+Answer: Second Generation (2nd) instance, which has better performance at a lower cost.</p>
+</li>
+<li>
+<p>Where should you create a DB instance ID during the migration process?
+Answer: From the instance page after clicking "Create instance".</p>
+</li>
+<li>
+<p>What is the purpose of disabling write access to the application before migrating to GCP?
+Answer: To ensure that the original and new databases stay in sync with data schema.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>Compare the steps required for configuring replication between an on-premises SQL server and Cloud SQL.
+Answer: The steps include configuring the source database server for replication, making the on-premises SQL server the master and the cloud SQL the slave (replica), waiting for synchronization, taking applications offline, updating applications to point to the cloud SQL instance, disconnecting replication from master to slave, and restarting applications.</p>
+</li>
+<li>
+<p>How does creating a replication session on the master on-premises SQL server affect the migration process?
+Answer: It ensures that eventually the two databases will synchronize, allowing you to stop the replication session or promote the cloud slave to a standalone instance.</p>
+</li>
+<li>
+<p>What is the benefit of using Second Generation instances in GCP for database migrations?
+Answer: Better performance at a lower cost.</p>
+</li>
+<li>
+<p>How does disabling write access to the application impact the migration process?
+Answer: It ensures that the original and new databases stay in sync with data schema, preventing potential inconsistencies.</p>
+</li>
+<li>
+<p>What are the high-level steps required for configuring replication between an on-premises SQL server and Cloud SQL?
+Answer: Configure your source on-premises database server for replication to Cloud SQL, make the on-premises SQL server the master and the cloud SQL the slave (replica), wait for synchronization, take applications offline, update applications to point to the cloud SQL instance, disconnect replication from master to slave, and restart applications.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are migrating an existing MySQL database to GCP using Cloud SQL. What is the first step in this process?
+Answer: Selecting the project you wish to use.</p>
+</li>
+<li>
+<p>If you cannot take the on-premises SQL server offline during the SQLdump transfer, what alternative method should you use to migrate the data schema and data?
+Answer: Creating a replication session on the master on-premises SQL server and making the cloud SQL server the slave (replica).</p>
+</li>
+<li>
+<p>How can you ensure that your applications are updated to point to the new cloud SQL instance after migration?
+Answer: By taking applications offline, updating them to point to the cloud SQL database instance.</p>
+</li>
+<li>
+<p>What is the recommended storage capacity for a Cloud SQL instance in GCP?
+Answer: The recommended storage capacity depends on the specific requirements of the database and the available resources.</p>
+</li>
+<li>
+<p>How can you secure your Cloud SQL instance by setting a new password for the MySQL root user?
+Answer: By clicking the "Change root password" button and entering a new password for the MySQL root user.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Cloud Platform</td>
+<td>Organization</td>
+<td>"Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service."</td>
+<td>Refers to a cloud computing platform that provides support for MySQL and PostgreSQL databases.</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>Database Management System</td>
+<td>"Google Cloud Platform natively supports MySQL and PostgreSQL"</td>
+<td>A popular open-source relational database management system.</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Database Management System</td>
+<td>"Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service."</td>
+<td>An open-source, object-relational database management system.</td>
+</tr>
+<tr>
+<td>Cloud SQL</td>
+<td>Service</td>
+<td>"Google Cloud Platform natively supports MySQL and PostgreSQL within its Cloud SQL service"</td>
+<td>A fully managed relational database service provided by Google Cloud Platform.</td>
+</tr>
+<tr>
+<td>First Generation instance</td>
+<td>Instance Type</td>
+<td>"Choose between a 'First Generation' or 'Second Generation' instance."</td>
+<td>An older generation of instances with lower performance but lower cost.</td>
+</tr>
+<tr>
+<td>Second Generation instance</td>
+<td>Instance Type</td>
+<td>"Choose between a 'First Generation' or 'Second Generation' instance."</td>
+<td>A newer generation of instances with better performance at a lower cost, but not compatible with MySQL versions older than 5.6.</td>
+</tr>
+<tr>
+<td>DB instance ID</td>
+<td>Identifier</td>
+<td>"Create a DB instance ID"</td>
+<td>A unique identifier for the database instance in Cloud SQL.</td>
+</tr>
+<tr>
+<td>Storage -&gt; SQL menu item</td>
+<td>Navigation Menu Item</td>
+<td>"From the navigation menu, select the 'Storage -&gt; SQL' menu item."</td>
+<td>A menu item that allows users to access and manage their storage and SQL instances in Google Cloud Platform.</td>
+</tr>
+<tr>
+<td>Create instance button</td>
+<td>UI Element</td>
+<td>"click the 'Create instance' button."</td>
+<td>A button that allows users to create a new database instance in Cloud SQL.</td>
+</tr>
+<tr>
+<td>VM type</td>
+<td>Instance Configuration</td>
+<td>"Choose a VM type"</td>
+<td>The type of virtual machine used to host the database instance.</td>
+</tr>
+<tr>
+<td>Storage capacity</td>
+<td>Instance Configuration</td>
+<td>"Choose the storage capacity"</td>
+<td>The amount of storage allocated to the database instance.</td>
+</tr>
+<tr>
+<td>Access control tab</td>
+<td>UI Element</td>
+<td>"click the 'Access control' tab and the 'Authorization' sub-tab."</td>
+<td>A tab that allows users to manage access controls for their database instances in Cloud SQL.</td>
+</tr>
+<tr>
+<td>Authorization sub-tab</td>
+<td>UI Element</td>
+<td>"Click the 'Add network' button and enter the public IP address of the server"</td>
+<td>A sub-tab that allows users to add networks to their database instance's authorization settings.</td>
+</tr>
+<tr>
+<td>Users sub-tab</td>
+<td>UI Element</td>
+<td>"Select the 'Users' sub-tab."</td>
+<td>A tab that allows users to manage user accounts for their database instances in Cloud SQL.</td>
+</tr>
+<tr>
+<td>Change root password button</td>
+<td>UI Element</td>
+<td>"Click the 'Change root password' button and enter a new password for the MySQL root user."</td>
+<td>A button that allows users to change the root password for their MySQL instance in Cloud SQL.</td>
+</tr>
+<tr>
+<td>sqldump</td>
+<td>Command</td>
+<td>"The way that you copy over your data schema and data is to do a sqldump"</td>
+<td>A command used to export the database schema and data from a MySQL or PostgreSQL instance.</td>
+</tr>
+<tr>
+<td>Storage bucket</td>
+<td>Data Store</td>
+<td>"copy that up to a storage bucket in Cloud Storage."</td>
+<td>A container used to store data in Google Cloud Platform, such as files, images, and videos.</td>
+</tr>
+<tr>
+<td>Replication session</td>
+<td>Configuration Option</td>
+<td>"Create a replication session on the master on-premises SQL server"</td>
+<td>A configuration option that allows users to replicate their database instance from an on-premises server to a cloud-based server.</td>
+</tr>
+<tr>
+<td>Master-slave configuration</td>
+<td>Database Configuration</td>
+<td>"Make the on-premises SQL server the master and the cloud SQL the slave (replica)"</td>
+<td>A configuration option that allows users to set up a master-slave replication relationship between their on-premises database instance and a cloud-based instance.</td>
+</tr>
+<tr>
+<td>Standalone instance</td>
+<td>Instance Type</td>
+<td>"promote the cloud slave to a stand-alone instance"</td>
+<td>An instance type that is not part of a replication group, but can be used as a standalone database instance.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

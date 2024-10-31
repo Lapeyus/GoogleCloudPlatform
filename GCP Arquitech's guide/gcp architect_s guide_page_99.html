@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_99</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_99_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_99</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>IP Addresses</h1>
+<h2>Internal IP Addresses</h2>
+<ul>
+<li>Every VM that you make and any service that depends on virtual machines gets an internal IP address.</li>
+<li>The internal IP address is allocated via DHCP internally and is used as an internal IP address.</li>
+<li>The internal IP address can change as it's assigned dynamically by DHCP.</li>
+</ul>
+<h2>External IP Addresses</h2>
+<ul>
+<li>The external IP address is optional.</li>
+<li>You would only need to assign an external IP address if your device or machine is accessed publicly over the internet.</li>
+<li>The public or external IP address can either be assigned from a pool, making it dynamic and ephemeral or it can be statically assigned a reserved external IP address.</li>
+</ul>
+<h3>Ephemeral vs Static External IP Addresses</h3>
+<ul>
+<li>Whether you use an ephemeral or static IP address, the external address is unknown to the OS of the VM.</li>
+<li>The external IP address is mapped to the VM's internal address transparently by VPC.</li>
+</ul>
+<h2>DNS and External IP Addresses</h2>
+<ul>
+<li>Each VM instance has a symbolic name, used as the hostname, which can be resolved by DNS to an internal IP address.</li>
+<li>The DNS service translates web URLs and VM names of hosts in the same network.</li>
+<li>However, it cannot translate hostnames from VMs in a different network.</li>
+</ul>
+<h3>Public DNS Records</h3>
+<ul>
+<li>The public DNS records pointing to instances are not published automatically.</li>
+<li>By default, an admin has to publish these using existing DNS servers.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>IP Addresses
+
+A virtual machine in GCP can support two IP addresses. One of the IP addresses is allocated via DHCP internally and is used as an internal IP address. Every VM that you make and then any service, such as App Engine, that depends on virtual machines gets an internal IP address. Hence upon creation of the VMs their symbolic name is registered by GCP with an internal DNS service. The DNS is scoped to the network so that it can translate the symbolic name to the internal IP address. Using DNS it can translate web URLs and VM names of hosts in the same network, but it can't translate hostnames from VMs in a different network.
+
+The other IP address that can be assigned is the external IP address which is optional. You would only need to assign an external IP address if your device or machine is accessed publicly over the internet. The public or external IP address can either be assigned from a pool, making it dynamic and ephemeral or it can be statically assigned a reserved external IP address.
+
+The point to understand is that you will be billed for reserving external IP addresses this applies even when they're not attached to a running VM. Also, whether you use an ephemeral or static IP address, the external address is unknown to the OS of the VM. This is because the external IP address is mapped to the VM's internal address transparently by VPC.
+
+You can demonstrate this yourself by running the internal command 'IP Config', within a VM in GCP; you will find that it only returns the internal IP address. To understand why this is we need to understand how the DNS service works.
+
+As we know, each VM instance has a symbolic name, used as the hostname, which can be resolved by DNS to an internal IP address. Moreover, there is also an internal fully qualified domain name, or FQDN for the VM that uses the format hostname.c.project-id.internal.
+
+However, should you delete and recreate a VM instance, the internal IP address can change as it's assigned dynamically by DHCP. This change in IP address can cause disruption in active connections from other Google Compute Engine resources as if their connection is lost they must obtain the new IP address via DNS before they can connect again. Hence, the DNS name always points to a specific instance no matter what the internal IP address is.
+
+The way that this works is that each VM instance has a metadata server that handles all DNS queries for local network resources, so it acts as a DNS Resolver for that instance. The metadata server also handles all other non-internal queries by sending them to Google's public DNS servers for public name resolution.
+
+However, as we have already noted, the VM instance is not aware of any external IP address assigned to it. Instead, the network stores a look up table that matches the external IP address with the internal IP address. A VM instances with an external IP addresses is allowed to accept connections from hosts outside of the project. Indeed, that is how users outside the project access your application by calling it directly using the external IP address.
+
+However, there are a few caveats here as for one, the public DNS records pointing to instances are not published automatically. Indeed, by default an admin has to publish these using existing DNS servers.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Understanding IP Addresses in GCP</strong></p>
+<p>A virtual machine in Google Cloud Platform (GCP) can support two IP addresses: an internal IP address and an external IP address.</p>
+<p>The <strong>internal IP address</strong> is allocated via DHCP internally and is used as a hostname, which can be resolved by DNS to an internal IP address. This allows for translation of web URLs and VM names within the same network. However, this does not translate hostnames from VMs in different networks.</p>
+<p>The <strong>external IP address</strong> is optional and can be assigned dynamically or statically. It is used when a device or machine is accessed publicly over the internet. The external IP address is unknown to the OS of the VM, as it is mapped transparently by VPC (Virtual Private Cloud). This means that running <code>IP Config</code> within a VM in GCP will only return the internal IP address.</p>
+<p><strong>How DNS Works</strong></p>
+<p>Each VM instance has a symbolic name (hostname) and an internal fully qualified domain name (FQDN) that uses the format <code>hostname.c.project-id.internal</code>. The DNS service works by having each VM instance act as a DNS resolver for local network resources, handling all DNS queries for local network resources. It also sends non-internal queries to Google's public DNS servers for public name resolution.</p>
+<p><strong>Caveats</strong></p>
+<p>There are a few caveats to consider:</p>
+<ul>
+<li>Public DNS records pointing to instances are not published automatically and must be published using existing DNS servers.</li>
+<li>The external IP address is only used when the VM instance is accessed publicly over the internet, and it is not aware of this IP address itself.</li>
+<li>Deleting and recreating a VM instance can cause disruption in active connections from other Google Compute Engine resources if the internal IP address changes.</li>
+</ul>
+<p>In summary, GCP provides two types of IP addresses for virtual machines: internal and external. The internal IP address is used for hostname resolution within the same network, while the external IP address is used when accessing the internet publicly. Understanding how DNS works and these caveats is essential to manage your GCP resources effectively.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Internal IP Addresses and DHCP</h3>
+<p>Internal IP addresses are allocated via DHCP internally and used as internal IP addresses for virtual machines (VMs) in GCP.</p>
+<h3>Topic 2: External IP Addresses and VPC</h3>
+<p>External IP addresses can be assigned to VMs, but they are optional. The external IP address is mapped to the VM's internal address transparently by VPC.</p>
+<h3>Topic 3: DNS Resolution and Metadata Server</h3>
+<p>DNS resolution works for local network resources, with each VM instance having a metadata server that handles all DNS queries. The metadata server acts as a DNS resolver for the instance.</p>
+<h3>Topic 4: Public DNS Records and External IP Addresses</h3>
+<p>Public DNS records pointing to instances are not published automatically. Instead, an admin must publish these using existing DNS servers.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of allocating two IP addresses to a virtual machine in GCP?
+Answer: One IP address is allocated internally via DHCP for use as an internal IP address, and the other IP address can be assigned externally if the device or machine is accessed publicly over the internet.</p>
+</li>
+<li>
+<p>How does DNS work within a network in GCP?
+Answer: DNS translates symbolic names to internal IP addresses, allowing translation of web URLs and VM names within the same network, but not hostnames from different networks.</p>
+</li>
+<li>
+<p>What happens when you delete and recreate a VM instance?
+Answer: The internal IP address can change due to dynamic assignment by DHCP, causing disruption in active connections with other Google Compute Engine resources until they obtain the new IP address via DNS.</p>
+</li>
+<li>
+<p>How does VPC handle external IP addresses for VM instances?
+Answer: External IP addresses are mapped transparently to the VM's internal address, making them unknown to the OS of the VM.</p>
+</li>
+<li>
+<p>What is the purpose of a metadata server in GCP?
+Answer: The metadata server handles all DNS queries for local network resources and acts as a DNS Resolver for that instance.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of ephemeral vs. static external IP addresses affect billing in GCP?
+Answer: You will be billed for reserving external IP addresses, regardless of whether they are assigned dynamically or statically.</p>
+</li>
+<li>
+<p>What is the difference between internal and external DNS records in GCP?
+Answer: Internal DNS records translate symbolic names to internal IP addresses within the same network, while external DNS records point to instances and can be used by users outside the project to access applications directly.</p>
+</li>
+<li>
+<p>How does VPC handle look up tables for matching external IP addresses with internal IP addresses?
+Answer: The network stores a look up table that matches the external IP address with the internal IP address, allowing VM instances with external IP addresses to accept connections from hosts outside of the project.</p>
+</li>
+<li>
+<p>What are some caveats when using public DNS records pointing to instances in GCP?
+Answer: Public DNS records are not published automatically and must be published by an admin using existing DNS servers.</p>
+</li>
+<li>
+<p>How does the use of internal fully qualified domain names (FQDNs) for VMs affect DNS resolution in GCP?
+Answer: FQDNs provide a more specific and unique name for each VM instance, allowing for better DNS resolution and translation to internal IP addresses.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>IP Addresses</td>
+<td>Concept</td>
+<td>"A virtual machine in GCP can support two IP addresses."</td>
+<td>The concept of IP addresses is central to the text, referring to both internal and external IP addresses. Internal IP addresses are allocated via DHCP and used for local network connections, while external IP addresses are optional and assigned dynamically or statically.</td>
+</tr>
+<tr>
+<td>DHCP</td>
+<td>Protocol</td>
+<td>"One of the IP addresses is allocated via DHCP internally..."</td>
+<td>DHCP (Dynamic Host Configuration Protocol) is a protocol used to assign IP addresses automatically to devices on a network. In this context, it's used to allocate internal IP addresses to virtual machines in GCP.</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Service</td>
+<td>"...their symbolic name is registered by GCP with an internal DNS service."</td>
+<td>DNS (Domain Name System) is a service that translates domain names into IP addresses. In this text, it's used to translate the symbolic name of a virtual machine to its internal IP address.</td>
+</tr>
+<tr>
+<td>VPC</td>
+<td>Network</td>
+<td>"The external IP address is mapped to the VM's internal address transparently by VPC."</td>
+<td>VPC (Virtual Private Cloud) is a network that provides a secure and isolated environment for virtual machines in GCP. In this context, it's used to map an external IP address to a virtual machine's internal IP address.</td>
+</tr>
+<tr>
+<td>Hostname</td>
+<td>Concept</td>
+<td>"Each VM instance has a symbolic name, used as the hostname..."</td>
+<td>A hostname is a unique identifier assigned to a device on a network. In this text, it's used to refer to the symbolic name of a virtual machine.</td>
+</tr>
+<tr>
+<td>FQDN</td>
+<td>Format</td>
+<td>"...an internal fully qualified domain name, or FQDN for the VM that uses the format hostname.c.project-id.internal."</td>
+<td>FQDN (Fully Qualified Domain Name) is a format used to specify a domain name with its top-level domain. In this text, it's used to describe the format of an internal fully qualified domain name for a virtual machine.</td>
+</tr>
+<tr>
+<td>Metadata Server</td>
+<td>Service</td>
+<td>"The metadata server handles all DNS queries for local network resources..."</td>
+<td>A metadata server is a service that provides information about a device or resource on a network. In this context, it's used to handle DNS queries for local network resources and provide the internal IP address of a virtual machine.</td>
+</tr>
+<tr>
+<td>Public DNS Servers</td>
+<td>Service</td>
+<td>"...sending them to Google's public DNS servers for public name resolution."</td>
+<td>Public DNS servers are services that provide domain name resolution for external networks. In this text, they're mentioned as the destination for DNS queries from metadata servers.</td>
+</tr>
+<tr>
+<td>External IP Address</td>
+<td>Concept</td>
+<td>"The point to understand is that you will be billed for reserving external IP addresses..."</td>
+<td>An external IP address is a unique identifier assigned to a device on an external network. In this text, it's used to refer to the optional IP address assigned to a virtual machine in GCP.</td>
+</tr>
+<tr>
+<td>Project ID</td>
+<td>Concept</td>
+<td>"...hostname.c.project-id.internal."</td>
+<td>A project ID is a unique identifier assigned to a project or organization in GCP. In this text, it's used as part of the fully qualified domain name for an internal fully qualified domain name.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

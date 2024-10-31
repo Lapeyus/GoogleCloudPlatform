@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_204</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_204_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_204</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Kubernetes Engine Clusters</h1>
+<h2>Advantages</h2>
+<ul>
+<li>Can scale automatically to meet demand, saving on unused nodes and reducing waste.</li>
+<li>Using pre-emptive VMs (PVM) can provide significant cost savings for batch jobs and fault-tolerant workloads.</li>
+</ul>
+<h2>Disadvantages</h2>
+<ul>
+<li>PVMs are only available for up to 24 hours and have a limited lifespan.</li>
+<li>Designing two pools of nodes, one with standard VMs and the other with PVMs, is often necessary to ensure availability.</li>
+</ul>
+<h2>Features</h2>
+<h3>Lists</h3>
+<ul>
+<li><strong>strong</strong> Autoscaling works well with PVMs, allowing for spin-up of replacements or standard VM nodes as needed.</li>
+<li><em>italic</em> PMVS with GPUs can become affordable due to large discounts (approx. 50%).</li>
+<li><code>inline code</code> Estafette GKE Pre-emptible Killer is an open-source solution that spreads out the termination of PVMs, preventing simultaneous deletion.</li>
+</ul>
+<h3>Blocks</h3>
+<p><code>js
+console.log('hello, JavaScript');</code></p>
+<h2>Use Cases</h2>
+<h3>Kubernetes Engine Clusters</h3>
+<h4>Deployment Considerations</h4>
+<p>When deciding which Cloud Platform to deploy a containerized application, consider:
+- <strong>Kubernetes Engine</strong>: Ideal for control over VM resources and Docker image development.
+- <strong>App Engine-Flex</strong>: Suitable for flexible and scalable applications.
+- <strong>Compute Engine</strong>: Good choice when absolute control over VM resources is required.</p>
+<h4>Solution</h4>
+<p>Advise developers to weigh the pros and cons of each platform, considering their specific needs and requirements.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The advantages of using Kubernetes Engine clusters are that they can scale automatically to meet demand, allowing you to only pay for the nodes that are being used. This can save a significant amount of waste and provide major cost savings.
+
+Pre-emptive VMs (PVMs) are affordable, short-lived compute instances suitable for batch jobs and fault-tolerant workloads. They offer the same machine types and options as regular compute instances but have a limited lifespan of up to 24 hours. However, some workloads may not be suitable or benefit from PVMs.
+
+To address this, it's common to build two pools of nodes into the cluster: one for standard VMs (pool-a) and another for PVMs (pool-b). This ensures that there will always be nodes available to meet the workload. The advantage is that PMVS with GPUs can become affordable due to large discounts (approximately 50%).
+
+Autoscaler works well with PVMs, allowing them to spin up replacements if available or spin up a standard VM node as a fallback. By using PVMs, you can also choose CPU or Memory optimized machine types, which are now affordable and suitable for your workloads.
+
+However, it's essential to be aware that PVMs only last 24 hours maximum. If provisioned in the same pool, they will terminate at the same time. To mitigate this, an open-source solution like Estafette GKE Pre-emptible Killer can spread out the termination of PVMs, ensuring they don't all get deleted simultaneously.
+
+A basic architect for a Kubernetes Engine cluster with PVMs might look like this:
+
+Kubernetes Engine Cluster
+Master Node
+Zone-A
+Instance
+Zone-B Instance
+Group PVM-pool
+Group PVM-pool
+Instance Group Default-
+Instance
+Group Default-
+pool
+pool
+Zone-A
+Zone-B
+Google Kubernetes Engine
+
+When advising developers on which Cloud Platform to deploy their containerized application, consider the following:
+
+* Kubernetes Engine: Suitable for applications that require control over VM resources and benefit from Docker image development.
+* App Engine-Flex: A good choice when you want to decouple your application from the underlying infrastructure and focus on developing your application.
+
+Ultimately, the decision depends on the specific needs of your application and the considerations mentioned above.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Kubernetes Engine Clusters: Advantages and Considerations</h3>
+<p>Kubernetes Engine clusters offer several advantages, including automatic scaling to meet demand, which can save costs by only paying for used nodes. This approach reduces waste and allows for more efficient use of resources.</p>
+<p>Pre-emptive VMs (PVMs) provide significant cost savings, especially when combined with GPUs. However, they have a limited lifespan of 24 hours and should be designed to run in parallel with standard VMs to ensure availability. To mitigate this limitation, an open-source solution called Estafette GKE Pre-emptible Killer can be used to spread out the termination of PVMs.</p>
+<h3>Choosing the Right Cloud Platform for Containerized Applications</h3>
+<p>When deciding which cloud platform to deploy containerized applications, several considerations and differentiators should be taken into account. The main options are:</p>
+<ul>
+<li><strong>Kubernetes Engine</strong>: Offers automatic scaling, cost savings through pre-emptive VMs, and control over VM resources.</li>
+<li><strong>App Engine-Flex</strong>: Provides a managed environment for running containers, but may not offer the same level of control as Kubernetes Engine.</li>
+<li><strong>Compute Engine</strong>: Allows for absolute control over VM resources, making it suitable for applications that require customized environments.</li>
+</ul>
+<p>Ultimately, the choice of platform depends on the specific needs and requirements of the application.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Cost Optimization and Scalability</strong>
+The text highlights the importance of cost optimization and scalability in cloud computing, particularly with Kubernetes Engine clusters. It discusses how pre-emptive VMs (PVMs) can provide significant cost savings by only paying for used resources.</p>
+<h3>Topic 2</h3>
+<p><strong>Container Deployment and Platform Choice</strong>
+The text addresses the challenge of deciding which cloud platform to deploy a containerized application on, specifically comparing Kubernetes Engine, App Engine-Flex, and Compute Engine. It emphasizes the need to consider factors such as control over VM resources and Docker image development when making this decision.</p>
+<h3>Topic 3</h3>
+<p><strong>Autoscaling and PVM Management</strong>
+The text touches on the importance of autoscaling and managing pre-emptive VMs (PVMs) in a Kubernetes Engine cluster. It discusses how PVMs can provide cost savings but have limitations, such as a maximum lifespan of 24 hours, and highlights the need for solutions like Estafette GKE Pre-emptible Killer to mitigate these issues.</p>
+<h3>Topic 4</h3>
+<p><strong>Cloud Platform Differentiators</strong>
+The text briefly mentions differentiators between Kubernetes Engine, App Engine-Flex, and Compute Engine, highlighting their respective strengths and use cases. It suggests that running containers on Compute Engine is a good choice when control over VM resources is desired.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are some advantages of using Kubernetes Engine clusters, and how do they benefit users?
+Answer: Kubernetes Engine clusters can scale automatically to meet demand, saving users money by only paying for used nodes, and providing cost savings through pre-emptive VMs (PVMs).</p>
+</li>
+<li>
+<p>What is the main difference between regular compute instances and pre-emptible VMs (PVMs)?
+Answer: PVMs are short-lived, affordable compute instances suitable for batch jobs and fault-tolerant workloads, but they only last up to 24 hours.</p>
+</li>
+<li>
+<p>How do developers decide which Cloud Platform to deploy their containerized applications?
+Answer: Developers should consider the considerations and differentiators of Kubernetes Engine, App Engine-Flex, and Compute Engine when deciding where to deploy their proposed containerized applications.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential drawbacks of using pre-emptible VMs (PVMs) in a Kubernetes Engine cluster?
+Answer: PVMs only last up to 24 hours, which can be a limitation if they are provisioned in the same pool at the same time.</p>
+</li>
+<li>
+<p>How does Estafette GKE Pre-emptible Killer help address the issue of PVM termination?
+Answer: Estafette spreads out the termination of PVMs so they don't all get deleted simultaneously.</p>
+</li>
+<li>
+<p>What are some factors to consider when deciding between Kubernetes Engine, App Engine-Flex, and Compute Engine for containerized applications?
+Answer: Users should consider their needs for control over VM resources, Docker image development, and cost savings.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If a company wants to deploy a containerized application with high control over VM resources, which Cloud Platform would be the best choice?
+Answer: Compute Engine would be the best choice because it provides absolute control over VM resources while also benefiting from Docker image development.</p>
+</li>
+<li>
+<p>How can developers ensure that their PVMs do not terminate simultaneously if they are provisioned in the same pool at the same time?
+Answer: Developers can use Estafette GKE Pre-emptible Killer to spread out the termination of PVMs.</p>
+</li>
+<li>
+<p>What is a potential benefit of using pre-emptible VMs (PVMs) for batch jobs and fault-tolerant workloads?
+Answer: PVMs provide cost savings through large discounts (approx. 50%) on PMVS with GPUs.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kubernetes Engine clusters can scale automatically to meet demand so that you don't need to pay for nodes that are sitting doing nothing.</td>
+<td>Technology/Platform</td>
+<td>This sentence describes the benefits of using Kubernetes Engine clusters, highlighting their ability to scale and save costs by only paying for used resources.</td>
+<td>The concept of scaling and cost savings is a key advantage of using Kubernetes Engine clusters, allowing users to optimize their resource usage and reduce waste.</td>
+</tr>
+<tr>
+<td>Pre-emptive VMs (PVM) are affordable, short-lived compute instances suitable for batch jobs and fault-tolerant workloads.</td>
+<td>Technology/Platform</td>
+<td>This sentence describes the characteristics of pre-emptive VMs, highlighting their affordability and suitability for specific types of workloads.</td>
+<td>The use of pre-emptive VMs offers cost savings and flexibility in terms of workload selection, but also comes with limitations such as short lifetimes and potential for termination.</td>
+</tr>
+<tr>
+<td>Pool-a consists of standard VMs and pool-b of PVMs.</td>
+<td>Architecture/Design</td>
+<td>This sentence describes a design approach that combines standard VMs and pre-emptive VMs to ensure availability and meet different workload requirements.</td>
+<td>The use of two pools with different types of VMs allows for flexibility in meeting workload demands while ensuring availability, but also requires careful planning and management.</td>
+</tr>
+<tr>
+<td>PMVS with GPUs can then become affordable as you will benefit from large discounts (approx. 50%).</td>
+<td>Technology/Platform</td>
+<td>This sentence describes the potential cost savings of using pre-emptive VMs with GPUs, highlighting the benefits of large discounts.</td>
+<td>The use of pre-emptive VMs with GPUs offers significant cost savings, making it an attractive option for workloads that benefit from these resources.</td>
+</tr>
+<tr>
+<td>Autoscaler works well with PVMs as they can spin up replacements if they are available failing that they will spin up a standard VM node.</td>
+<td>Technology/Platform</td>
+<td>This sentence describes the functionality of autoscaling in conjunction with pre-emptive VMs, highlighting their ability to adapt to changing workload demands.</td>
+<td>The use of autoscaling with pre-emptive VMs allows for dynamic resource allocation and adaptation to changing workloads, but also requires careful management to avoid termination issues.</td>
+</tr>
+<tr>
+<td>Estafette GKE Pre-emptible Killer is an open-source solution that can spread out the termination of our PVMs so they don't all get deleted simultaneously.</td>
+<td>Technology/Platform</td>
+<td>This sentence describes a specific tool used to manage pre-emptive VMs, highlighting its ability to mitigate termination issues.</td>
+<td>The use of Estafette GKE Pre-emptible Killer provides a solution for managing pre-emptive VMs and mitigating the risk of simultaneous termination, allowing for more reliable and efficient resource allocation.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine Cluster</td>
+<td>Technology/Platform</td>
+<td>This sentence describes the overall architecture of the system, highlighting its use of Kubernetes Engine clusters.</td>
+<td>The concept of using Kubernetes Engine clusters as a foundation for the system highlights their ability to provide scalability, flexibility, and cost savings.</td>
+</tr>
+<tr>
+<td>Master Node</td>
+<td>Component/Component Type</td>
+<td>This sentence describes a specific component within the Kubernetes Engine cluster, highlighting its role in managing the cluster.</td>
+<td>The use of a master node emphasizes the importance of centralized management and control within the cluster, allowing for efficient resource allocation and scaling.</td>
+</tr>
+<tr>
+<td>Zone-A and Zone-B</td>
+<td>Location/Geographic Region</td>
+<td>These sentences describe specific geographic regions where instances are located, highlighting their geographical distribution.</td>
+<td>The use of zone-based instance placement highlights the importance of considering geographical location in terms of latency, availability, and cost savings.</td>
+</tr>
+<tr>
+<td>PVM-pool and Default-</td>
+<td>Component/Component Type</td>
+<td>These sentences describe specific components within the system, highlighting their role in managing pre-emptive VMs and default instances.</td>
+<td>The use of pool-based instance management highlights the importance of efficient resource allocation and scaling, while also emphasizing the need for careful planning and management to avoid termination issues.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Technology/Platform</td>
+<td>This sentence describes a specific technology platform used within the system, highlighting its role in providing scalable and flexible computing resources.</td>
+<td>The use of Compute Engine emphasizes the importance of choosing the right platform for meeting workload demands, offering flexibility and scalability while also considering cost savings and reliability.</td>
+</tr>
+<tr>
+<td>Docker image development</td>
+<td>Process/Activity</td>
+<td>This sentence describes a specific process or activity involved in deploying containerized applications, highlighting its importance in terms of efficiency and flexibility.</td>
+<td>The use of Docker image development highlights the importance of efficient and flexible deployment processes, allowing for rapid scaling and adaptation to changing workload demands.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

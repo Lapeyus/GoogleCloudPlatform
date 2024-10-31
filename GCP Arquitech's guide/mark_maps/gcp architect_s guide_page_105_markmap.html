@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_105</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        - Network 1
+        # Realon A
+        ## Resource Isolation
+        ### Note that if blocks and lists appear at the same level, the lists will be ignored.
+        
+        #### Lists - **strong** ~~del~~ *italic* ==highlight== - `inline code` - [x] checkbox
+        - Katex: $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$ <!-- markmap: fold -->
+        - [More Katex Examples](#?d=gist:af76a4c245b302206b16aec503dbe07b:katex.md)
+        #### we can wrap very very very very long text based on `maxWidth` option
+        
+        - Network 1
+        - Realon A
+        - Resource Isolation
+        
+        #### In this model our resources are now isolated, which prevents
+        - compromise of one part from spreading to other parts, but also
+        - prevents them communicating with each other over private IP
+        - addresses. However, we can get around that inconvenience by
+        - using VPC network peering to allow these resources to
+        - communicate over a private address space.
+        
+        #### Finally, in this last case, the VMs are isolated into separate
+        - projects, but within the same zone. This can be useful for identity
+        - and access management.
+        
+        - Network 1
+        - Region/zone A
+        
+        #### Network 1 Region/zone A
+        ##### Projext A
+        ###### Resources
+        
+        - Network 2
+        - Region/zone A
+        
+        #### Network 2 Region/zone A
+        ##### Projext B
+        ###### Resources
+        
+        - Communication Via Public IPs
+        
+        #### For example, if software development is Project A, and test engineering 
+        - is Project B, you can assign different people to 
+        - different roles in 
+        - the projects for management 
+        - separation or what is 
+        - called separation of duties. To achieve 
+        - this  you  should consider segmenting 
+        - the system up into multiple projects to enable more granular 
+        - access control.
+        
+        #### The issue here is that a network cannot span across 
+        - different projects. So using separate projects implies that 
+        - the VMs must communicate via external IP addresses 
+        - across
+        - the Internet.
+        
+        - Bastion Host
+        
+        #### Another common network design makes use of a bastion host to provide internal 
+        - resources and VMs with isolation from the internet.
+        #### Bastion hosts provide an external facing point of 
+        - entry into a network containing 
+        - private network instances.
+        
+        ##### In this scenario only the 
+        - bastion host is configured with a public external IP address on its interface 
+        - all the other internal VM instances use the private internal address space addresses.
+        
+        #### The Bastion host is therefore acting like a proxy or gatekeeper for internet access for both 
+        - ingress
+        - and egress traffic.
+        #### This bastion host model can also be deployed to provide a single point for fortification or for network audit purposes, which is controllable as its SSH services can be either started or stopped to permit or block any inbound SSH connections coming from the Internet.
+
+      </script>
+    </div>
+  </body>
+</html>

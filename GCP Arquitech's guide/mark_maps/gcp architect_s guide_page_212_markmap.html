@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_212</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Service Level
+        ## Introduction
+        - In order to define a service level, you must first identify what your customer expects from the service and what features and functions that they care about.
+        
+        ## Service Level Indicators (SLIs)
+        ### Definition
+        - Service Level Indicators or SLIs are directly observable and measurable by users. They should be quantitative measures of an attribute of the service.
+        
+        #### Examples
+        - Error-rate
+        - Latency
+        - Availability
+        
+        ### Importance
+        - Measuring internal system metrics such as CPU utilization or network bandwidth utilization is not effective for determining user experience. Instead, SLIs should be used to measure attributes that affect user experience, such as excessive delay, application hanging, or failure to complete a process.
+        
+        ## Service Level Objective (SLO)
+        ### Definition
+        - The Service Level Objective or SLO is a target of system performance and a set threshold to measure against. It allows designers to use SLIs to meet customer expectations by addressing and controlling service level indicators.
+        
+        ### Use Cases
+        - Typically used within in-house operations and applications.
+        - May be required for formal business contracts with cloud services providers.
+        
+        ## Service Level Agreement (SLA)
+        ### Definition
+        - A Service Level Agreement or SLA is a formal agreement between a provider and consumer that guarantees a certain level of service performance. It outlines the expected levels of service quality, including availability, response times, and error rates.
+        
+        #### Examples
+        - Guarantee 99.99% uptime.
+        - Specify performance thresholds for latency, error-rate, and other attributes.
+        
+        ### Importance
+        - SLAs provide a clear understanding of what is expected from a service provider and help manage customer expectations. They are particularly important for critical cloud services that require high levels of reliability and performance.
+
+      </script>
+    </div>
+  </body>
+</html>

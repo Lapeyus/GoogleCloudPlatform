@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_11</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_11_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_11</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud-Native Architecture</h1>
+<h2>Principles of Good Architectural Design</h2>
+<h3>Similarities with Traditional Infrastructure</h3>
+<p>What we actually will find 
+is that the cloud is not much different
+is made of the 
+same fabric of servers, disks and networks that makes up 
+traditional infrastructure. This means that almost all 
+of
+the principles of good 
+architectural design still apply for cloud-
+native architecture.</p>
+<h2>Non-Functional Aspects</h2>
+<p>While many of the functional aspects remain the same regardless a to on-premises or cloud  the latter is often more challenging  when it comes to the non- functional aspects. These do often result in design constraints. Indeed,  some of the fundamental  assumptions about  how the infrastructure fabric performs do change when you're in the cloud.</p>
+<h3>Speed and Flexibility</h3>
+<p>The differences are in speed and flexibility. For instance, provisioning a replacement server can take weeks  in traditional environments, even in VM environments it still takes a day, whereas in the cloud, it takes seconds. Hence in the cloud it's much easier to provision a full application stack with fully automated scaling and fail-over scenarios than on-premises.</p>
+<h2>Requirements for Cloud-Native Architecture</h2>
+<p>However in order to take advantage of these properties it is a requirement that the cloud provider has many application and vendor partners. To this end Google Cloud Platform support a very large partner network, which allows you to provision both proprietary and open source solutions with a single click via the Cloud Launcher service.</p>
+<h2>Key Characteristics of Cloud-Native Architecture</h2>
+<p>Google's SDN network facilitates a cloud-native design, which also tends to focus on key metrics such as resilience, horizontal scaling, distributed processing, and automation. So we need to take these characteristics into account when you are evaluating other cloud- native architectures that are not based on Google's own SDN cloud
+network.</p>
+<h2>Google Cloud Platform Architecture</h2>
+<p>The Google Cloud Platform is organized as a software defined network, now that might sound confusing but it's not really and we will consider the architecture later in some detail. But for now all you need to know is that Google's global network is defined by segments and its smallest entity is a Zone, which can be defined as a deployment area for Google Cloud Platform Resources.</p>
+<h3>Zones</h3>
+<p>It could be simplified to mean a data centre but that is not always the case as a zone could have several points of presence within a local zone. However a zone works as one large switch operating within a common subnet so entities within a zone communicate at layer-2 or the Ethernet data layer - which we will cover later - but it means latency is minimal and configuration negligible.</p>
+<h3>Selecting Local Zones</h3>
+<p>When you launch a virtual machine for example, in a GCP zone using Compute Engine, you will be prompted to select a local zone. This is the local area where you wish the application or service to run. Hence you would select the closest zone to where you want the application or service to run. This will ensure that the associated compute, storage and network resources are local and close to the area they serve to deliver low latency and high performance.</p>
+<h3>Redundancy and Business Continuity</h3>
+<p>However zones, as we have seen, can be large geographical areas that contain several data centres which are many kilometres apart and this allows for a measure of redundancy and business continuity planning. For instance you could mirror your infrastructure across two zones perhaps 100 km apart to give you a measure of mitigation for disaster recovery or business continuity should one zone's data centre suffer a natural catastrophe.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>from the on-premises data centre. This is simply because the cloud
+What we actually will find 
+is that the cloud is not much different
+is made of the 
+same fabric of servers, disks and networks that makes up 
+traditional infrastructure. This means that almost all 
+of
+the principles of good 
+architectural design still apply for cloud-native architecture.
+
+While many of the functional aspects remain the same regardless a to on-premises or cloud 
+the latter is often more challenging 
+when it comes to the non-functional aspects. These do often result in design constraints. Indeed, 
+some of the fundamental 
+assumptions about 
+how the infrastructure fabric performs do change when you're in the cloud. The differences are in speed and flexibility. For instance, provisioning a replacement server can take weeks 
+in traditional environments, even in VM environments it still takes a day, whereas in the cloud, it takes seconds. Hence in the cloud it's much easier to provision a full application stack with fully automated scaling and fail-over scenarios than on-premises.
+
+However in order to take advantage of these properties it is a requirement that the cloud provider has many application and vendor partners. To this end Google Cloud Platform support a very large partner network, which allows you to provision both proprietary and open source solutions with a single click via the Cloud Launcher service.
+
+Google's SDN network facilitates a cloud-native design, which also tends to focus on key metrics such as resilience, horizontal scaling, distributed processing, and automation. So we need to take these characteristics into account when you are evaluating other cloud-native architectures that are not based on Google's own SDN cloud
+network.
+
+The Google Cloud Platform is organized as a software defined network, now that might sound confusing but it's not really and we will consider the architecture later in some detail. But for now all you need to know is that Google's global network is defined by segments and its smallest entity is a Zone, which can be defined as a deployment area for Google Cloud Platform Resources.
+
+A zone works as one large switch operating within a common subnet so entities within a zone communicate at layer-2 or the Ethernet data layer - which we will cover later - but it means latency is minimal and configuration negligible. When you launch a virtual machine for example, in a GCP zone using Compute Engine, you will be prompted to select a local zone.
+
+This is the local area where you wish the application or service to run. Hence you would select the closest zone to where you want the application or service to run. This will ensure that the associated compute, storage and network resources are local and close to the area they serve to deliver low latency and high performance.
+
+However zones, as we have seen, can be large geographical areas that contain several data centres which are many kilometres apart and this allows for a measure of redundancy and business continuity planning. For instance you could mirror your infrastructure across two zones perhaps 100 km apart to give you a measure of mitigation for disaster recovery or business continuity should one zone's data centre suffer a natural catastrophe.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud-Native Architecture: A Synthesis</h3>
+<p>The cloud is not significantly different from traditional on-premises data centers in terms of its underlying infrastructure, comprising servers, disks, and networks. As such, the principles of good architectural design still apply to cloud-native architecture.</p>
+<p>However, the non-functional aspects of the cloud often result in design constraints. The differences in speed and flexibility are notable, with provisioning a replacement server taking seconds in the cloud compared to weeks or days in traditional environments. This enables easier application stack provisioning with automated scaling and fail-over scenarios.</p>
+<p>To take advantage of these properties, it is essential that the cloud provider has a large partner network, which Google Cloud Platform (GCP) supports through its Cloud Launcher service. This allows for easy provisioning of both proprietary and open-source solutions.</p>
+<h3>Key Characteristics of GCP's SDN Network</h3>
+<p>GCP's software-defined network (SDN) facilitates a cloud-native design focused on key metrics such as:</p>
+<ul>
+<li>Resilience</li>
+<li>Horizontal scaling</li>
+<li>Distributed processing</li>
+<li>Automation</li>
+</ul>
+<p>When evaluating other cloud-native architectures, it is crucial to consider these characteristics.</p>
+<h3>Understanding GCP's Zone-Based Architecture</h3>
+<p>GCP's global network is defined by segments, with the smallest entity being a <strong>Zone</strong>. A zone can be thought of as a deployment area for Google Cloud Platform resources and may not always correspond to a single data center. However, zones operate as one large switch within a common subnet, ensuring minimal latency and negligible configuration.</p>
+<p>When launching a virtual machine using Compute Engine, users are prompted to select a local zone, which determines the location of the associated compute, storage, and network resources. This ensures low latency and high performance for applications or services running in that zone.</p>
+<p>Zones can also be large geographical areas containing multiple data centers, allowing for redundancy and business continuity planning. For instance, mirroring infrastructure across two zones 100 km apart provides a measure of mitigation for disaster recovery or business continuity in case one zone's data center suffers a natural catastrophe.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>The cloud is not much different from traditional infrastructure in terms of its underlying fabric, and good architectural design principles still apply.</p>
+<h3>Topic 2</h3>
+<p>Non-functional aspects of the cloud, such as speed and flexibility, are often more challenging to manage than their on-premises counterparts, leading to design constraints.</p>
+<h3>Topic 3</h3>
+<p>Cloud providers require a large network of application and vendor partners to take advantage of their properties, with Google Cloud Platform having a large partner network for provisioning solutions.</p>
+<h3>Topic 4</h3>
+<p>Google's Software Defined Network (SDN) facilitates cloud-native designs that focus on key metrics such as resilience, horizontal scaling, distributed processing, and automation.</p>
+<h3>Topic 5</h3>
+<p>The Google Cloud Platform is organized into segments defined by zones, which are deployment areas for resources and can be thought of as a data centre but may contain multiple points of presence.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main idea of the text regarding cloud-native architecture?
+Answer: The cloud is not much different from traditional infrastructure in terms of its underlying fabric, and good architectural design principles still apply.</p>
+</li>
+<li>
+<p>How does provisioning a replacement server differ between on-premises and cloud environments?
+Answer: Provisioning a replacement server takes weeks or days in traditional environments, but only seconds in the cloud.</p>
+</li>
+<li>
+<p>What is the significance of Google's SDN network in facilitating cloud-native design?
+Answer: It focuses on key metrics such as resilience, horizontal scaling, distributed processing, and automation.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do the differences between on-premises and cloud environments impact the non-functional aspects of infrastructure design?
+Answer: The cloud is often more challenging due to speed and flexibility differences, resulting in design constraints.</p>
+</li>
+<li>
+<p>What are some key characteristics of a zone in Google's SDN network?
+Answer: A zone is a deployment area for Google Cloud Platform Resources, with minimal latency and negligible configuration.</p>
+</li>
+<li>
+<p>How can mirroring infrastructure across zones provide redundancy and business continuity planning?
+Answer: It allows for disaster recovery or business continuity by having multiple data centers with redundant systems.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What are some requirements for taking advantage of cloud-native properties in a cloud environment?
+Answer: A large partner network is necessary to provision proprietary and open-source solutions with ease.</p>
+</li>
+<li>
+<p>How can evaluating other cloud-native architectures that are not based on Google's SDN cloud network be approached?
+Answer: Consider key metrics such as resilience, horizontal scaling, distributed processing, and automation when evaluating alternative cloud-native architectures.</p>
+</li>
+<li>
+<p>What benefits does selecting a local zone for launching a virtual machine provide in terms of performance?
+Answer: It ensures low latency and high performance by deploying compute, storage, and network resources close to the area they serve.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from the on-premises data centre</td>
+<td>Location</td>
+<td>This sentence is used to introduce the comparison between cloud and traditional infrastructure, highlighting that the cloud is not much different from the on-premises data centre. The entity "on-premises data centre" refers to a physical location where data is stored and processed.</td>
+<td></td>
+</tr>
+<tr>
+<td>What we actually will find</td>
+<td>Verb Phrase</td>
+<td>This phrase indicates the outcome of comparing cloud and traditional infrastructure, suggesting that the speaker's expectations were met or exceeded. The verb "will find" implies discovery or revelation.</td>
+<td></td>
+</tr>
+<tr>
+<td>is that the cloud</td>
+<td>Subordinating Conjunction</td>
+<td>This sentence introduces a contrast between what was expected (the on-premises data centre) and what is actually found (the cloud). The entity "cloud" refers to a remote computing environment where resources are provided over the internet.</td>
+<td></td>
+</tr>
+<tr>
+<td>is not much different</td>
+<td>Adverbial Phrase</td>
+<td>This phrase emphasizes that the speaker's expectations were met, and the cloud is similar to the on-premises data centre in terms of its underlying infrastructure. The adverb "not much" downplays the differences between the two.</td>
+<td></td>
+</tr>
+<tr>
+<td>is made of the same fabric of servers, disks and networks that makes up traditional infrastructure</td>
+<td>Noun Phrase</td>
+<td>This phrase describes the underlying components of both cloud and traditional infrastructure, highlighting their similarities. The entity "fabric" refers to the underlying structure or foundation of a system.</td>
+<td></td>
+</tr>
+<tr>
+<td>This means that almost all of the principles of good architectural design still apply for cloud-native architecture</td>
+<td>Relative Clause</td>
+<td>This sentence explains the implications of the previous statement, emphasizing that many of the same design principles can be applied to cloud-based systems as well. The entity "principles of good architectural design" refers to established guidelines or best practices for designing systems.</td>
+<td></td>
+</tr>
+<tr>
+<td>While many of the functional aspects remain the same regardless a to on-premises or cloud</td>
+<td>Subordinating Conjunction</td>
+<td>This sentence introduces a contrast between functional and non-functional aspects, highlighting that while some aspects are similar, others differ significantly. The entity "a" refers to an indefinite article used to introduce a noun phrase.</td>
+<td></td>
+</tr>
+<tr>
+<td>the latter is often more challenging when it comes to the non-functional aspects</td>
+<td>Relative Clause</td>
+<td>This sentence explains why cloud-based systems can be more challenging than traditional infrastructure in terms of non-functional aspects (e.g., performance, security). The entity "non-functional aspects" refers to characteristics that are not directly related to the primary function of a system.</td>
+<td></td>
+</tr>
+<tr>
+<td>These do often result in design constraints</td>
+<td>Verb Phrase</td>
+<td>This phrase describes the consequences of the differences between cloud and traditional infrastructure, highlighting that they can lead to limitations or restrictions on system design. The verb "do" implies action or consequence.</td>
+<td></td>
+</tr>
+<tr>
+<td>However in order to take advantage of these properties it is a requirement that the cloud provider has many application and vendor partners</td>
+<td>Relative Clause</td>
+<td>This sentence explains why cloud-based systems require a large network of partners, highlighting the importance of collaboration and interoperability between different systems and providers. The entity "cloud provider" refers to an organization or company that offers cloud computing services.</td>
+<td></td>
+</tr>
+<tr>
+<td>To this end Google Cloud Platform support a very large partner network, which allows you to provision both proprietary and open source solutions with a single click via the Cloud Launcher service</td>
+<td>Independent Clause</td>
+<td>This sentence describes how Google Cloud Platform addresses the need for partnerships, highlighting its extensive network of partners and the ease of use of its services. The entity "Cloud Launcher" refers to a tool or interface used to deploy cloud-based applications.</td>
+<td></td>
+</tr>
+<tr>
+<td>Google's SDN network facilitates a cloud-native design, which also tends to focus on key metrics such as resilience, horizontal scaling, distributed processing, and automation</td>
+<td>Relative Clause</td>
+<td>This sentence explains how Google Cloud Platform's software-defined networking (SDN) architecture enables cloud-native designs that prioritize certain key characteristics or features. The entity "cloud-native design" refers to a system design approach that is optimized for cloud computing environments.</td>
+<td></td>
+</tr>
+<tr>
+<td>So we need to take these characteristics into account when you are evaluating other cloud-native architectures that are not based on Google's own SDN cloud network</td>
+<td>Relative Clause</td>
+<td>This sentence emphasizes the importance of considering the key characteristics or features of cloud-based systems when evaluating alternative architectures, highlighting the value of learning from Google Cloud Platform's approach.</td>
+<td></td>
+</tr>
+<tr>
+<td>The Google Cloud Platform is organized as a software defined network, now that might sound confusing but it's not really</td>
+<td>Independent Clause</td>
+<td>This sentence introduces the topic of Google Cloud Platform's architecture, acknowledging potential confusion and providing clarification on its underlying structure. The entity "software-defined network" refers to a type of computer networking architecture that uses virtualization technology to manage networks.</td>
+<td></td>
+</tr>
+<tr>
+<td>But for now all you need to know is that Google's global network is defined by segments</td>
+<td>Relative Clause</td>
+<td>This sentence provides an overview of how Google Cloud Platform's global network is structured, highlighting its segmentation approach. The entity "segments" refers to a division or grouping of resources within the network.</td>
+<td></td>
+</tr>
+<tr>
+<td>and its smallest entity is a Zone, which can be defined as a deployment area for Google Cloud Platform Resources</td>
+<td>Noun Phrase</td>
+<td>This phrase describes the basic building blocks of Google Cloud Platform's architecture, highlighting the concept of zones and their role in managing resources. The entity "Zone" refers to a specific geographic location within the network where resources are deployed.</td>
+<td></td>
+</tr>
+<tr>
+<td>It could be simplified to mean a data centre but that is not always the case as a zone could have several points of presence within a local zone</td>
+<td>Relative Clause</td>
+<td>This sentence provides additional context on what a zone represents, highlighting its potential similarity to a traditional data center and the possibility of multiple points of presence within a single zone. The entity "points of presence" refers to physical locations where resources are deployed or accessed.</td>
+<td></td>
+</tr>
+<tr>
+<td>However a zone works as one large switch operating within a common subnet</td>
+<td>Relative Clause</td>
+<td>This sentence explains how zones function within Google Cloud Platform's architecture, highlighting their role in managing network traffic and communication between resources. The entity "common subnet" refers to a shared network segment that is used by multiple resources or zones.</td>
+<td></td>
+</tr>
+<tr>
+<td>so entities within a zone communicate at layer-2 or the Ethernet data layer - which we will cover later</td>
+<td>Relative Clause</td>
+<td>This sentence provides additional context on how zones manage network communication, highlighting their focus on layer 2 networking and the importance of understanding this aspect in more detail. The entity "layer-2" refers to a specific layer of the OSI model that deals with data link-layer protocols.</td>
+<td></td>
+</tr>
+<tr>
+<td>but it means latency is minimal and configuration negligible</td>
+<td>Relative Clause</td>
+<td>This sentence explains the benefits of using zones within Google Cloud Platform's architecture, highlighting their potential to reduce latency and simplify network configurations. The entity "minimal" refers to a state or condition characterized by little or no effect.</td>
+<td></td>
+</tr>
+<tr>
+<td>When you launch a virtual machine for example, in a GCP zone using Compute Engine, you will be prompted to select a local zone</td>
+<td>Independent Clause</td>
+<td>This sentence describes the process of launching a virtual machine within Google Cloud Platform's architecture, highlighting the importance of selecting an appropriate zone based on the desired location or performance characteristics. The entity "GCP" refers to Google Cloud Platform.</td>
+<td></td>
+</tr>
+<tr>
+<td>This is the local area where you wish the application or service to run</td>
+<td>Relative Clause</td>
+<td>This sentence explains why selecting a specific zone is important, highlighting its role in determining the location and performance of resources within the system. The entity "local area" refers to a geographic region or location that is close to the user or application.</td>
+<td></td>
+</tr>
+<tr>
+<td>Hence you would select the closest zone to where you want the application or service to run</td>
+<td>Relative Clause</td>
+<td>This sentence provides additional context on why selecting an appropriate zone is important, highlighting its role in determining the performance and availability of resources within the system. The entity "closest" refers to a location that is nearest or most suitable for a particular purpose.</td>
+<td></td>
+</tr>
+<tr>
+<td>To provision both proprietary and open source solutions with a single click via the Cloud Launcher service</td>
+<td>Relative Clause</td>
+<td>This sentence describes how Google Cloud Platform's services can be used to deploy cloud-based applications, highlighting their ease of use and flexibility. The entity "Cloud Launcher" refers to a tool or interface used to deploy cloud-based applications.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

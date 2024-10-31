@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_17</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_17_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_17</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Use Case: 1</h1>
+<h2>Business Overview</h2>
+<p>ABC Technology, a start-up business, has sent an RFC (Request for Proposal) for a proposal to accommodate growth, business continuity, and disaster recovery for their entire operation.</p>
+<h2>Current Architecture</h2>
+<p>Their current architecture consists of:
+- On-premises hardware supporting a three-tier web application
+- Three set-ups: production, development/testing, and data storage/archive</p>
+<h2>Proposed Solution</h2>
+<p>As a first stage, propose mirroring their on-premises architecture to Google Cloud Platform (GCP) using VMs in Compute Engine.</p>
+<h3>Benefits</h3>
+<ul>
+<li>Quickly prototyped for demonstration</li>
+<li>Mirrors current architecture with minimal changes</li>
+<li>Solves business continuity and disaster recovery requirements</li>
+</ul>
+<h3>Cost Effectiveness</h3>
+<ul>
+<li>Requires ascertaining desired level of continuity requirement (RTO)</li>
+<li>How much down-time and data loss can the business accept?</li>
+<li>Possible to build a warm DR cloud environment if flexible on RTO</li>
+<li>Not insignificant financial consequences for building entire cloud architecture 24/7</li>
+</ul>
+<h3>Accommodating Growth and Scale</h3>
+<ul>
+<li>Suggest switching to GCP after first stage completion</li>
+<li>Use on-premises as backup site for local storage and archiving of data</li>
+<li>Utilize GCP's elasticity and high scalability for automatic hardware scaling</li>
+</ul>
+<h3>Third Stage</h3>
+<ul>
+<li>Retire on-premises data centre altogether</li>
+<li>Replicate everything in the cloud and mirror infrastructure and storage across two zones or regions</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Use Case: 1
+
+A start-up business ABC Technology has sent an RFC (Request for Proposal) for a proposal to accommodate growth, business continuity, and disaster recovery for the business, their applications, and data. Their entire operation is presently dependent on on-premises hardware that supports a three-tier web application consisting of webserver, application server, and a database. They have three set-ups: one for production, another for development and testing, and another for data storage/archive. They are looking for a cost-effective and high-performance solution.
+
+Solution
+
+As a first stage, you could propose that the client mirrors their on-premises architecture to Google Cloud Platform (GCP) by using Virtual Machines (VMs) in Compute Engine. This is readily achievable and can be quickly prototyped for demonstration. All that would be required is to reproduce their current architecture to GCP using VMs and lift and shift the code and data.
+
+By mirroring and then replicating the databases to the cloud, you will have solved their business continuity and disaster recovery requirements with an easy-to-implement solution. However, it's essential to address the cost-effectiveness of this solution. To do so, we would need to ascertain the desired level of continuity requirement, such as how much downtime and data loss can the business accept.
+
+If the client is flexible regarding their recovery time objectives (RTO), it would be possible to build and test a warm DR cloud environment. In this case, you would build the cloud infrastructure replicate the databases and leave them active but tear down everything else after copying the configuration into a deployment manager template.
+
+This would mean that you could rapidly recreate the environment on demand. However, if the RTO is zero, we would need to build and run the entire cloud architecture 24/7, which would have significant financial consequences. Nevertheless, addressing the issue of accommodating growth and scale is crucial.
+
+To achieve this, you might suggest that after the first stage is complete and the client is happy with the cloud infrastructure, they switch over to using it exclusively for local storage and archiving of data. As GCP is elastic and highly scalable, this would provide automatic scalability of the hardware needed for forecasted growth.
+
+You could also detail a third stage whereby they later retire the on-premises data centre altogether and replicate everything in the cloud and mirror the infrastructure and storage across two zones or regions. This solution would meet all their objectives for handling growth.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Proposal for Architectural Change to Accommodate Growth, Business Continuity, and Disaster Recovery</strong></p>
+<p>ABC Technology has sent an RFC for a proposal to address their growing needs for business continuity, disaster recovery, and scalability. Their current on-premises infrastructure supports a three-tier web application with limited room for growth.</p>
+<p><strong>Initial Proposal: Mirroring On-Premises Architecture to Google Cloud Platform (GCP)</strong></p>
+<p>As a first stage, propose mirroring their on-premises architecture to GCP using VMs in Compute Engine. This approach is readily achievable and can be quickly prototyped for demonstration. By lifting and shifting the code and data, you will have solved their business continuity and disaster recovery requirements with an easy-to-implement solution.</p>
+<p><strong>Cost Effectiveness Considerations</strong></p>
+<p>To address cost effectiveness, it's essential to determine the desired level of continuity requirement, including acceptable downtime and data loss. If the client is flexible regarding recovery time objectives (RTO), a warm DR cloud environment can be built, replicating databases while leaving other components active. This approach allows for rapid recreation of the environment on demand.</p>
+<p>However, if RTO is zero, building and running the entire cloud architecture 24/7 would have significant financial consequences. To address growth and scalability, suggest switching to using GCP as the primary infrastructure after completing the first stage, with on-premises serving as a backup site for local storage and archiving of data.</p>
+<p><strong>Long-Term Solution</strong></p>
+<p>Propose a third stage where the on-premises data center is retired, and everything is replicated in the cloud. Mirroring the infrastructure and storage across two zones or regions would ensure business continuity and disaster recovery while providing automatic scalability to accommodate forecasted growth.</p>
+<p>This solution meets all of ABC Technology's objectives for handling growth, ensuring a cost-effective and high-performance solution that addresses their evolving needs.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Business Continuity and Disaster Recovery Requirements</p>
+<h3>Topic 2</h3>
+<p>Cloud Migration and Scalability</p>
+<h3>Topic 3</h3>
+<p>Cost Effectiveness and ROI Considerations</p>
+<h3>Topic 4</h3>
+<p>On-Premises vs Cloud Infrastructure Comparison</p>
+<h3>Topic 5</h3>
+<p>Growth and Scale Accommodation Strategies</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the current architecture of ABC Technology's business, and what are they looking to change?
+Answer: ABC Technology's business currently relies on on-premises hardware supporting a three-tier web application consisting of webserver, application server, and database. They have three set-ups for production, development/testing, and data storage/archive.</p>
+</li>
+<li>
+<p>What is the primary goal of the proposed architectural change?
+Answer: The primary goal is to accommodate growth, ensure business continuity, and implement disaster recovery for the business, applications, and data.</p>
+</li>
+<li>
+<p>Which cloud platform does the client want to mirror their on-premises architecture to?
+Answer: Google Cloud Platform (GCP).</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the potential benefits of mirroring ABC Technology's on-premises architecture to GCP using VMs in Compute Engine?
+Answer: The benefits include a cost-effective solution, high performance, and easy implementation.</p>
+</li>
+<li>
+<p>How does the desired level of continuity requirement impact the proposed solution?
+Answer: It affects the cost-effectiveness of the solution, as a zero RTO would require 24/7 cloud architecture, which has significant financial consequences.</p>
+</li>
+<li>
+<p>What are the implications of using GCP's elastic and highly scalable infrastructure for accommodating growth and scale?
+Answer: It provides automatic scalability of hardware needed for forecasted growth, making it an ideal solution for handling growth.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If ABC Technology can be flexible regarding their recovery time objectives (RTO), what would be the outcome of building a warm DR cloud environment?
+Answer: They could rapidly recreate the environment on demand after copying the configuration into a deployment manager template.</p>
+</li>
+<li>
+<p>How would you propose that ABC Technology switch over to using the cloud infrastructure and only use the on-premises as the backup site for local storage and archiving of data?
+Answer: After the first stage is complete, they should switch over to using the cloud infrastructure and utilize the on-premises as a backup site for local storage and archiving of data.</p>
+</li>
+<li>
+<p>What would be the outcome if ABC Technology later retires their on-premises data centre altogether and replicates everything in the cloud?
+Answer: They would mirror the infrastructure and storage across two zones or regions, meeting all their objectives for handling growth.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ABC Technology</td>
+<td>Organization</td>
+<td>A start up business that has sent an RFC for a proposal for architectural change to accommodate growth, business continuity and disaster recovery.</td>
+<td>The organization is looking for a cost-effective and high-performance solution to handle their growth, business continuity, and disaster recovery requirements. They currently rely on on-premises hardware supporting a three-tier web application.</td>
+</tr>
+<tr>
+<td>Google Cloud Platform (GCP)</td>
+<td>Cloud Platform</td>
+<td>A cloud platform that can be used to mirror the client's current architecture.</td>
+<td>GCP is a scalable and highly performant cloud platform that can provide a cost-effective solution for the client's business continuity and disaster recovery requirements. The client can use VMs in Compute Engine to replicate their on-premises architecture.</td>
+</tr>
+<tr>
+<td>VMs (Virtual Machines)</td>
+<td>Computing Resource</td>
+<td>A virtual machine used to replicate the client's current architecture on GCP.</td>
+<td>VMs are a key component of the proposed solution, allowing the client to lift and shift their code and data to GCP while mirroring their on-premises architecture.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Cloud Service</td>
+<td>A cloud service provided by GCP that allows users to run virtual machines.</td>
+<td>Compute Engine is a scalable and highly performant cloud service that can provide the necessary resources for the client's business continuity and disaster recovery requirements.</td>
+</tr>
+<tr>
+<td>Deployment Manager</td>
+<td>Cloud Management Tool</td>
+<td>A tool used to manage and deploy cloud infrastructure.</td>
+<td>Deployment Manager is a key component of the proposed solution, allowing users to quickly recreate the environment on demand by copying configuration into a template.</td>
+</tr>
+<tr>
+<td>RTO (Recovery Time Objective)</td>
+<td>Business Continuity Requirement</td>
+<td>The desired level of continuity requirement for the client's business operations.</td>
+<td>The client needs to determine their RTO in order to build and test a warm DR cloud environment or run the entire cloud architecture 24/7.</td>
+</tr>
+<tr>
+<td>Cloud Infrastructure</td>
+<td>Cloud Architecture</td>
+<td>The underlying infrastructure of GCP that supports the proposed solution.</td>
+<td>The cloud infrastructure is scalable and highly performant, providing the necessary resources for the client's business continuity and disaster recovery requirements.</td>
+</tr>
+<tr>
+<td>Data Storage/Archive</td>
+<td>Data Management Service</td>
+<td>A service used to store and manage data.</td>
+<td>The client needs a cost-effective and high-performance solution for data storage and archiving, which can be provided by GCP's data management services.</td>
+</tr>
+<tr>
+<td>On-premises Hardware</td>
+<td>Existing Infrastructure</td>
+<td>The client's existing hardware supporting their three-tier web application.</td>
+<td>The client needs to transition away from on-premises hardware in order to take advantage of the scalability and high performance of GCP.</td>
+</tr>
+<tr>
+<td>Business Continuity</td>
+<td>Disaster Recovery Requirement</td>
+<td>The requirement for the client to have a plan in place to ensure business continuity in the event of an outage or disaster.</td>
+<td>The proposed solution addresses this requirement by providing a warm DR cloud environment that can be rapidly recreated on demand.</td>
+</tr>
+<tr>
+<td>Growth</td>
+<td>Scalability Requirement</td>
+<td>The requirement for the client's business to scale and grow.</td>
+<td>The proposed solution provides automatic scalability of the hardware needed for growth, using GCP's elastic and highly scalable infrastructure.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

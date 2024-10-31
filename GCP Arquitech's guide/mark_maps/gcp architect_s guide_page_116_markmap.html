@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_116</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Compute Engine Basics
+        
+        ## Regions and Zones
+        - Google's proclivity for consistently deploying new hardware architectures may lead to different CPU architectures in different zones. This can result in a differential of up to three generations in processor types.
+        
+        ### Considerations
+        - If you need the latest high-end CPU or GPU, check the GCP website to see where those high-end processors have been deployed.
+        - Hosting resources in another region and zone will not have a detrimental effect on latency and customer experience.
+        - The billing perspective remains the same regardless of the individual CPU processor used.
+        
+        ## Machine Types
+        - Selecting the right machine type is crucial for your application's performance. Consider factors such as CPU, memory, and storage when making your selection.
+        
+        ### Image Selection
+        - When creating a virtual machine, you will have the option to choose from various OS images. These images include the boot loader, operating system, file system structure, preconfigured software, libraries, tools, and customizations for the specific version.
+        
+        #### Public vs Custom Images
+        - You can select either public or custom images.
+        - Some images are premium (e.g., Windows OS Server) and have per-second charges, except for SQL Server images which are charged per minute.
+        - Premium image prices vary with machine type but are global and do not change by region or zone.
+        
+        #### Uploading Custom Images
+        - You can upload and activate custom images on your VM.
+        - This is ideal for licensed enterprise versions of Windows Server that have been customized with preconfigured software authorized for your organization.
+        
+        ## Disk Storage Management
+        - After selecting an OS image, you will need a persistent disk to store and boot from. Additionally, you must have a durable storage solution for your applications' data.
+        
+        ### Persistent Disks
+        - You can use persistent disks to store and boot from.
+        - Consider factors such as size, performance, and durability when choosing the right persistent disk for your application.
+        
+        #### Cloud Storage
+        - Google Cloud Storage is used to store OS images.
+        - Images are stored as tar gzip'd files in a private area of Cloud Storage.
+
+      </script>
+    </div>
+  </body>
+</html>

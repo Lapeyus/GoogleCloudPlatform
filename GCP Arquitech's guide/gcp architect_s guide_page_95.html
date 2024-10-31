@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_95</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_95_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_95</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>GCP Networking</h1>
+<h2>Overview</h2>
+<p>GCP is one of the largest and fastest networks in the world and it runs upon a software defined network that is built upon Google's own global fibre infrastructure.</p>
+<h3>Understanding Resources as Services</h3>
+<p>When we talk about resources within the GCP, we should really consider them as services. This is because these resources are not hardware, for example, when you choose a persistent disk type and capacity for your VM it isn't really a physical device you are getting. Instead it's a service that you acquire from GCP and you connect and interact with it over a network.</p>
+<h2>Virtual Private Cloud (VPC)</h2>
+<h3>Global Reach</h3>
+<p>VPCs are by communicating across Google's own internal network infrastructure without having to cross the public Internet. For example, you can share a connection between the VPC and your on-premises network without the need for a connection in every region.</p>
+<h3>Expandable</h3>
+<p>Google Cloud VPCs are expandable as you can easily increase the IP space of any of the subnets within the VPC without any disruption to running workloads. This means you can make IP configuration changes on the fly without any downtime and provides you with flexibility and future growth options.</p>
+<h2>Virtual Private Cloud (VPC)</h2>
+<h3>Overview</h3>
+<p>With Google Cloud Platform, a VPC is your private cloud network, where you can provision your GCP resources, interconnect them or isolate them from one another in a virtual private cloud. Essentially, a VPC is a comprehensive set of Google managed networking objects, which provide isolation, segregation and security in a multi-tenant environment.</p>
+<h3>Agility and Control</h3>
+<p>A VPC can also give you the agility to control how your workloads can connect either locally, regionally or globally. When you connect your on-premises or remote resources to GCP, you will automatically have global connectivity to your VPCs without you having to make configuration changes in each region.</p>
+<h3>Fine Grained Policies</h3>
+<p>You can define fine-grained networking policies within the PVC, and between GCP and on-premises or other public clouds.</p>
+<h2>Shareable Network Environments</h2>
+<p>With a single VPC for an entire organization, teams can be segregated within projects and each has their own separate billing and quotas applied. However, they can still share a private IP subnet and have shared access to services such as VPN or to a Cloud Interconnect.</p>
+<h3>Types of Networks</h3>
+<p>Networks come in three different types: default, auto mode, and custom mode. You use sub-networks to allow you to divide or segregate your network environment.</p>
+<h2>Conclusion</h2>
+<p>A Virtual Private Cloud (VPC) is therefore a global private and isolated virtual network partition. The VPC provides managed networking functionality for your Google Cloud Platform (GCP) resources. Hence, you can think of a VPC as a virtual version of your traditional physical network.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>GCP is one of the largest and fastest networks in the world and it runs upon a software defined network that is built upon Google's own global fibre infrastructure. The important thing to understand is when we talk about resources within the GCP, we should really consider them as services. This is because these resources are not hardware, for example, when you choose a persistent disk type and capacity for your VM it isn't really a physical device you are getting. Instead it's a service that you acquire from GCP and you connect and interact with it over a network.
+
+Therefore we need to have a good understanding of how GCP has implemented networking. Hence, we will start by taking a deeper dive into the Virtual Private Cloud or VPC which we introduced at a high level earlier as it is Google's managed networking functionality for your Cloud Platform resources.
+
+Global Reach
+VPCs are designed to communicate across Google's own internal network infrastructure without having to cross the public Internet. For example, you can share a connection between the VPC and your on-premises network without the need for a connection in every region.
+
+Expandable
+Google Cloud VPCs are expandable as you can easily increase the IP space of any of the subnets within the VPC without any disruption to running workloads. This means you can make IP configuration changes on the fly without any downtime and provides you with flexibility and future growth options.
+
+Virtual Private Cloud
+With Google Cloud Platform, a VPC is your private cloud network where you can provision your GCP resources, interconnect them or isolate them from one another in a virtual private cloud. Essentially, a VPC is a comprehensive set of Google managed networking objects that provide isolation, segregation and security in a multi-tenant environment.
+
+A VPC can also give you the agility to control how your workloads can connect either locally, regionally or globally. When you connect your on-premises or remote resources to GCP, you will automatically have global connectivity to your VPCs without you having to make configuration changes in each region. You can define fine-grained networking policies within the VPC and between GCP and on-premises or other public clouds.
+
+Shareable
+With a single VPC for an entire organization, teams can be segregated within projects and each has their own separate billing and quotas applied. However, they can still share a private IP subnet and have shared access to services such as VPN or to a Cloud Interconnect.
+
+A Virtual Private Cloud (VPC) is therefore a global private and isolated virtual network partition that provides managed networking functionality for your Google Cloud Platform resources. You can think of a VPC as a virtual version of your traditional physical network, providing IP addresses for internal and external use along with granular IP address range selections. Networks come in three different types: default, auto mode, and custom mode.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Google Cloud Platform's Networking</h3>
+<p>GCP is one of the largest and fastest networks in the world, built upon a software-defined network that leverages Google's global fibre infrastructure. When discussing resources within GCP, it's essential to consider them as services rather than hardware. This means understanding how GCP implements networking.</p>
+<h3>Virtual Private Cloud (VPC)</h3>
+<p>A VPC is Google's managed networking functionality for your Cloud Platform resources. It provides a comprehensive set of managed networking objects that offer isolation, segregation, and security in a multi-tenant environment. A VPC allows you to control how your workloads connect locally, regionally, or globally.</p>
+<h4>Key Features</h4>
+<ul>
+<li><strong>Global Reach</strong>: VPCs communicate across Google's internal network infrastructure without crossing the public Internet.</li>
+<li><strong>Expandable</strong>: You can easily increase the IP space of any subnet within a VPC without disrupting running workloads.</li>
+<li><strong>Virtual Private Cloud</strong>: A VPC is your private cloud network, where you can provision GCP resources, interconnect them, or isolate them from one another.</li>
+<li><strong>Shareable</strong>: Teams can be segregated within projects, each with their own billing and quotas applied, while still sharing a private IP subnet and access to services like VPN or Cloud Interconnect.</li>
+</ul>
+<h4>Network Types</h4>
+<p>VPCs come in three different types:</p>
+<ul>
+<li>Default</li>
+<li>Auto Mode</li>
+<li>Custom Mode</li>
+</ul>
+<p>Sub-networks allow you to divide or segregate your network environment.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Understanding GCP Resources as Services</strong>
+The text emphasizes that resources within the Google Cloud Platform (GCP) should be considered as services rather than hardware. This is because resources like persistent disk types and VMs are not physical devices but rather services acquired from GCP.</p>
+<h3>Topic 2</h3>
+<p><strong>Google's Managed Networking Functionality - VPC</strong>
+VPC is Google's managed networking functionality for Cloud Platform resources, providing a comprehensive set of managed networking objects that offer isolation, segregation, and security in a multi-tenant environment.</p>
+<h3>Topic 3</h3>
+<p><strong>Global Reach and Expandability of VPCs</strong>
+VPCs enable global reach by communicating across Google's internal network infrastructure without crossing the public Internet. They are also expandable, allowing for easy increase of IP space within subnets without disruption to running workloads.</p>
+<h3>Topic 4</h3>
+<p><strong>Virtual Private Cloud - A Global Private Network Partition</strong>
+A Virtual Private Cloud (VPC) is a global private and isolated virtual network partition that provides managed networking functionality for GCP resources. It offers fine-grained networking policies, granular IP address range selections, and allows teams to be segregated within projects while sharing access to services.</p>
+<h3>Topic 5</h3>
+<p><strong>Types of Networks in VPC</strong>
+VPCs come in three different types: default, auto mode, and custom mode. Sub-networks are used to divide or segregate the network environment, allowing for more flexibility and control over networking policies.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary characteristic of resources within GCP that users should consider when interacting with them?
+Answer: Resources in GCP are considered services, not hardware.</p>
+</li>
+<li>
+<p>How does Google Cloud VPC enable communication between different networks without crossing the public Internet?
+Answer: VPCs communicate across Google's internal network infrastructure.</p>
+</li>
+<li>
+<p>What is the primary benefit of using a Virtual Private Cloud (VPC) in GCP?
+Answer: A VPC provides managed networking functionality for resources, providing isolation, segregation, and security.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of a Virtual Private Cloud (VPC) relate to traditional physical networks? 
+Answer: A VPC is a virtual version of a traditional physical network, providing similar functionality but in a cloud-based environment.</p>
+</li>
+<li>
+<p>What are the three types of networking modes available for GCP networks?
+Answer: Default, auto mode, and custom mode.</p>
+</li>
+<li>
+<p>How does the use of sub-networks enable segregation within a network environment?
+Answer: Sub-networks allow users to divide or segregate their network environment.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to connect your on-premises network to GCP without having to make configuration changes in each region. What would be the best approach for achieving this?
+Answer: Using a Virtual Private Cloud (VPC) with global connectivity would enable automatic connection across regions.</p>
+</li>
+<li>
+<p>How can teams within an organization use VPCs to segregate their resources and services while still sharing access to certain features?
+Answer: Teams can use separate billing and quotas, as well as shared private IP subnets and access to VPN or Cloud Interconnect services.</p>
+</li>
+<li>
+<p>What are the implications of using a VPC for your GCP resources in terms of scalability and flexibility?
+Answer: VPCs provide expandable IP space, allowing users to make IP configuration changes on the fly without downtime, providing flexibility and future growth options.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCP</td>
+<td>Cloud Platform</td>
+<td>"GCP is one of the largest and fastest networks in the world and it runs upon a software defined network that is built upon Google's own global fibre infrastructure."</td>
+<td>Refers to Google Cloud Platform, a cloud computing platform provided by Google. It is described as having a large and fast network infrastructure.</td>
+</tr>
+<tr>
+<td>Virtual Private Cloud (VPC)</td>
+<td>Networking Functionality</td>
+<td>"Hence, we will start by taking a deeper dive into the Virtual Private Cloud or VPC which we introduced at a high level earlier..."</td>
+<td>A managed networking functionality for Google Cloud Platform resources, providing isolation, segregation, and security in a multi-tenant environment.</td>
+</tr>
+<tr>
+<td>Software Defined Network (SDN)</td>
+<td>Networking Infrastructure</td>
+<td>"GCP is one of the largest and fastest networks in the world and it runs upon a software defined network that is built upon Google's own global fibre infrastructure."</td>
+<td>A type of networking infrastructure that uses software to manage and control network resources, allowing for greater flexibility and scalability.</td>
+</tr>
+<tr>
+<td>Global Fibre Infrastructure</td>
+<td>Networking Infrastructure</td>
+<td>"GCP is one of the largest and fastest networks in the world and it runs upon a software defined network that is built upon Google's own global fibre infrastructure."</td>
+<td>A physical networking infrastructure consisting of a large-scale network of fiber-optic cables, providing high-speed connectivity.</td>
+</tr>
+<tr>
+<td>Resources</td>
+<td>Cloud Computing Concepts</td>
+<td>"When we talk about resources within the GCP we should really consider them as services..."</td>
+<td>In the context of cloud computing, resources refer to the various services and assets provided by a cloud platform, such as virtual machines, storage, and networking. They are not physical devices but rather services that can be acquired and used over a network.</td>
+</tr>
+<tr>
+<td>Persistent Disk Type</td>
+<td>Cloud Computing Services</td>
+<td>"When you choose a persistent disk type and capacity for your VM it isn't really a physical device you are getting..."</td>
+<td>A service provided by a cloud platform that allows users to store data on virtual disks, which can be scaled up or down as needed. It is not a physical device but rather a managed resource.</td>
+</tr>
+<tr>
+<td>VM (Virtual Machine)</td>
+<td>Cloud Computing Services</td>
+<td>"When you choose a persistent disk type and capacity for your VM it isn't really a physical device you are getting..."</td>
+<td>A virtualized computer environment that runs on cloud computing infrastructure, providing users with a scalable and on-demand computing resource.</td>
+</tr>
+<tr>
+<td>Networking Policies</td>
+<td>Cloud Computing Security</td>
+<td>"...define fine grained networking policies within the PVC, and between GCP and on-premises or other public clouds."</td>
+<td>Rules and regulations that govern how data is transmitted and accessed over a network, providing security and control over cloud computing resources.</td>
+</tr>
+<tr>
+<td>VPN (Virtual Private Network)</td>
+<td>Cloud Computing Services</td>
+<td>"With a single VPC for an entire organization, teams can be segregated within projects and each has their own separate billing and quotas applied... However, they can still share a private IP subnet and have shared access to services such as VPN or to a Cloud Interconnect."</td>
+<td>A secure network connection that allows users to access cloud computing resources over the internet, providing a secure and private connection.</td>
+</tr>
+<tr>
+<td>Cloud Interconnect</td>
+<td>Cloud Computing Services</td>
+<td>"With a single VPC for an entire organization, teams can be segregated within projects and each has their own separate billing and quotas applied... However, they can still share a private IP subnet and have shared access to services such as VPN or to a Cloud Interconnect."</td>
+<td>A service that allows users to connect their on-premises network to cloud computing resources over the internet, providing a secure and reliable connection.</td>
+</tr>
+<tr>
+<td>Sub-networks</td>
+<td>Networking Infrastructure</td>
+<td>"You use sub-networks to allow you to divide or segregate your network environment."</td>
+<td>Smaller networks within a larger network, used to segment and isolate different parts of a network, providing greater control and security.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

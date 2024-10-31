@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_28</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_28_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_28</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud IAM Custom Roles and Service Accounts</h1>
+<h2>Introduction</h2>
+<p>Cloud IAM provides custom roles that allow you to fine-tune permissions for specific users or groups. This section will cover the benefits, caveats, and usage guidelines for custom roles.</p>
+<h3>Benefits</h3>
+<ul>
+<li>Fine-grained control over permissions</li>
+<li>Suitable for organizations adhering to a least privileged access model</li>
+<li>Can be used at project or organization levels</li>
+</ul>
+<h2>Custom Roles</h2>
+<p>Custom roles are created to address specific requirements that may not be met by predefined roles. To create a custom role, you can add or remove permissions from an existing role.</p>
+<h3>Example: Instance Operator Role</h3>
+<p>InstanceOperator:
+  * compute.instances.get
+  * compute.instances.list
+  * compute.instances.start
+  * compute.instances.stop
+  * compute.instances.setMachineType
+  * compute.instances.setDisks
+  * compute.instances.setNetworkInterfaces</p>
+<h2>Caveats</h2>
+<ul>
+<li>Custom roles require manual permission management, which can be complex and unpredictable.</li>
+<li>Interaction between permissions can lead to error-prone and security-risky configurations.</li>
+</ul>
+<h3>Auditing Custom Roles</h3>
+<p>Some companies require custom roles to be thoroughly audited by a third party or peer review before assignment. Others prefer to stick with predefined roles due to the risks associated with custom roles.</p>
+<h2>Service Accounts</h2>
+<p>Service accounts are used to grant permissions to resources, rather than users. This is useful for automating processes that interact with multiple resources.</p>
+<h3>Example: Granting Permissions to a Compute Engine Virtual Machine</h3>
+<ul>
+<li>Create a service account with the necessary permissions</li>
+<li>Assign the service account to the virtual machine</li>
+<li>Use the service account to automate tasks and interact with the virtual machine</li>
+</ul>
+<h2>Usage Guidelines</h2>
+<ul>
+<li>Custom roles can only be used at project or organization levels.</li>
+<li>Service accounts are suitable for automating processes that interact with multiple resources.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>By applying refined roles for example those provided for the Compute Engines VMs such as the InstanceAdmin Role, you can pass the required permissions to anyone designated that role to perform a certain set of actions on virtual machines. Thus they will be able to list all VMs within that project, read and modify their configurations, as well as change their state by starting and stopping them.
+
+Custom Roles
+
+However, if you designate a user to be in the InstantAdmin role for VMs that will apply to all instances of VMs within that project, it may still be too broad. To address this requirement, Cloud IAM introduces custom roles. The requirement for custom roles is driven by many companies adhering to a least privileged access model in which each person in the organization has the minimum amount of privilege needed to do their job.
+
+So, for example, maybe you will need to define a Role that has the inherent permissions to allow a user to start and stop Compute Engine and virtual machines, but not be allowed to reconfigure them. This would be a suitable case for an Instance Operator role. Because of this requirement, Cloud IAM allows us to make custom roles, which allow you to customize a similar role by adding or removing some permission.
+
+There is however a couple of caveats we need to be aware of when using custom roles. First, if you decide to use custom roles, you will need to manage their permissions manually. This can make custom roles error prone and even security risks. As a result, some companies require any custom roles to be thoroughly audited by a third party or a peer review before being assigned.
+
+Another thing to be aware of is that custom roles can only be used at the project or organization levels, which rules them out at the folder level.
+
+Service Accounts
+
+So far in our discussion regarding Cloud IAM, we have been addressing the situation where a user or a group of users require identification, authentication and then given access to a resource to perform tasks compatible with their role. However, there is also the very common scenario where one resource needs to interact and communicate with another resource.
+
+For example, you may need to give permissions to a Compute Engine virtual machine, rather than to a person, in order to automate a process. The way this is done is by using a service account.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Custom Roles and Service Accounts in Cloud IAM</h3>
+<p>Cloud IAM introduces custom roles to address the requirement for highly specific and fine-grained roles. This is driven by companies adhering to a least privileged access model, where each person has the minimum amount of privilege needed to do their job.</p>
+<h4>Custom Roles</h4>
+<p>Custom roles allow you to customize a similar role by adding or removing permissions. For example, you can create an Instance Operator role that has the inherent permissions to start and stop Compute Engine and virtual machines, but not reconfigure them.</p>
+<p>However, custom roles have some caveats:</p>
+<ul>
+<li>You need to manage their permissions manually, which can be complex and unpredictable.</li>
+<li>Custom roles can only be used at the project or organization levels, ruling them out at the folder level.</li>
+<li>Some companies require custom roles to be thoroughly audited by a third party or peer review before being assigned.</li>
+</ul>
+<h4>Service Accounts</h4>
+<p>Service accounts are used when one resource needs to interact and communicate with another resource. For example, you may need to give permissions to a Compute Engine virtual machine rather than to a person to automate a process.</p>
+<p>By using service accounts, you can pass the required permissions to anyone designated that role to perform certain actions on virtual machines, such as listing all VMs within a project, reading and modifying their configurations, and changing their state by starting and stopping them.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Definition: Fine-grained access control for managing virtual machines and their configurations.</p>
+<h3>Topic 2</h3>
+<p>Definition: Custom roles that allow users to have specific permissions tailored to their job requirements, reducing unnecessary privileges and potential security risks.</p>
+<h3>Topic 3</h3>
+<p>Definition: A way to manage permissions for a Compute Engine virtual machine without assigning individual permissions to a user or group, instead using a service account to interact with the resource.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of custom roles in Cloud IAM?
+Answer: Custom roles allow you to create fine-grained roles that can be tailored to specific needs, providing more control over access and permissions.</p>
+</li>
+<li>
+<p>Why do companies adhere to a least privileged access model when using Cloud IAM?
+Answer: Companies follow this model to ensure each person has the minimum amount of privilege needed to perform their job, reducing security risks and errors.</p>
+</li>
+<li>
+<p>What is the main difference between custom roles and predefined roles in Cloud IAM?
+Answer: Custom roles can be tailored to specific needs by adding or removing permissions, while predefined roles are pre-configured with a set of standard permissions.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do custom roles address the issue of broad permissions for users assigned to the InstantAdmin role?
+Answer: Custom roles provide more fine-grained control over access and permissions, allowing companies to tailor roles to specific needs and reduce security risks.</p>
+</li>
+<li>
+<p>What are some potential security risks associated with using custom roles in Cloud IAM?
+Answer: Custom roles can be error-prone and introduce security risks if not properly managed, requiring thorough auditing or peer review before assignment.</p>
+</li>
+<li>
+<p>How do service accounts address the need for interaction between resources in Cloud IAM?
+Answer: Service accounts provide a way to grant permissions to virtual machines rather than users, enabling automation of processes and improving resource interaction.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to create a custom role that allows users to start and stop Compute Engine instances but not reconfigure them. What steps would you take?
+Answer: You would define the custom role by adding or removing permissions from an existing role, such as InstanceAdmin or InstanceOperator, to achieve the desired level of access.</p>
+</li>
+<li>
+<p>How might companies use service accounts to automate processes in Cloud IAM?
+Answer: Companies can grant permissions to virtual machines using service accounts, enabling automation of tasks and improving resource interaction without exposing sensitive data.</p>
+</li>
+<li>
+<p>What are some best practices for managing custom roles in Cloud IAM?
+Answer: Companies should thoroughly audit or peer-review custom roles before assignment, manage permissions manually, and consider the limitations of custom roles (e.g., only available at project or organization levels).</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>InstanceAdmin Role</td>
+<td>Custom Role</td>
+<td>"By applying refined roles for example those provided for the Compute Engines VMs such as the InstanceAdmin Role lets you pass the required permissions to anyone designated that role to perform a certain set of actions on virtual machines."</td>
+<td>The InstanceAdmin Role is a custom role in Cloud IAM that grants permission to manage virtual machines, including listing, reading and modifying configurations, and changing states.</td>
+</tr>
+<tr>
+<td>InstantAdmin Role</td>
+<td>Custom Role</td>
+<td>"However, as we have seen if you designate a user to be in the InstantAdmin role for VMs that will apply to all instances of VMs within that project."</td>
+<td>The InstantAdmin Role is a custom role that grants broad permissions to manage virtual machines across an entire project.</td>
+</tr>
+<tr>
+<td>Instance Operator Role</td>
+<td>Custom Role</td>
+<td>"So, for example, maybe you will need to define a Role that has the inherent permissions to allow a user to start and stop Compute Engine and virtual machines, but not be allowed to reconfigure them."</td>
+<td>The Instance Operator Role is a custom role that grants permission to manage virtual machines, including starting and stopping, but not modifying configurations.</td>
+</tr>
+<tr>
+<td>Custom Roles</td>
+<td>Concept</td>
+<td>"To address the requirements for highly specific and fine-grained roles Cloud IAM introduces custom roles."</td>
+<td>Custom Roles are tailored permissions granted to users or groups to perform specific tasks within Cloud IAM. They allow for more granular control over access and can be used in conjunction with predefined roles.</td>
+</tr>
+<tr>
+<td>Least Privileged Access Model</td>
+<td>Concept</td>
+<td>"The requirement for custom roles is driven by many companies adhering to a least privileged access model in which each person in the organization has the minimum amount of privilege needed to do his or her job."</td>
+<td>The Least Privileged Access Model is an organizational approach that grants users only the necessary permissions to perform their jobs, reducing the risk of unauthorized access and improving security.</td>
+</tr>
+<tr>
+<td>Permissions</td>
+<td>Concept</td>
+<td>"The interaction between permissions can be complex and unpredictable."</td>
+<td>Permissions are specific rights granted to users or groups to access or modify resources within Cloud IAM. They can be combined in various ways to create custom roles and fine-tune access control.</td>
+</tr>
+<tr>
+<td>Service Accounts</td>
+<td>Concept</td>
+<td>"So far in our discussion regards the Cloud IAM we have been addressing the situation where a user or a group of users require identification, authentication and then given access to a resource to perform tasks compatible with their role."</td>
+<td>A Service Account is an entity that represents a service or application within Cloud IAM. It can be used to grant permissions to resources without requiring human intervention, allowing for automation and integration between services.</td>
+</tr>
+<tr>
+<td>Folder Level</td>
+<td>Location</td>
+<td>"Another thing to be aware of is that custom roles can only be used at the project or organization levels, which rules them out at the folder level."</td>
+<td>The Folder Level refers to a specific organizational unit within Cloud IAM where custom roles cannot be applied. This limitation restricts the use of custom roles to projects and organizations.</td>
+</tr>
+<tr>
+<td>Organization Levels</td>
+<td>Location</td>
+<td>"Another thing to be aware of is that custom roles can only be used at the project or organization levels, which rules them out at the folder level."</td>
+<td>The Organization Levels refer to the hierarchical structure within Cloud IAM where custom roles are applied. Projects and Organizations are the primary locations for custom role application, while Folder Level is not supported.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

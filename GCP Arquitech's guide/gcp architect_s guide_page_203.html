@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_203</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_203_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_203</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Metrics and Scaling</h1>
+<h2>Understanding Custom Metrics</h2>
+<p>The purpose of custom metrics is to get a Deployment to scale its replicated Pods based on the given metric value. However, metrics with a total target value should always be defined only when the effects of the scaling will bring the updated value of the metric closer to the target value.</p>
+<h2>Scaling a Frontend Application</h2>
+<p>We can see this better by considering how we might go about scaling a frontend application. We could do this by choosing a custom metric based on the queries-per-second metric. Thus, we are expecting that when the metric value increases, the number of Pods should scale up, with each Pod serving a similar amount of traffic as before.</p>
+<h2>Importance of Average vs Total Value</h2>
+<p>However, if we had exported from each pod the total number of queries-per-second and then set instead of an average but a total target value for this metric, it will not work as we hoped. This is because increasing the number of Pods doesn't have any effect on the total traffic value so the HPA will not scale the deployment based upon that metric.</p>
+<h2>Use Case - High Performance Computing</h2>
+<p>A University comes to you seeking your advice as how to run an High Performance Computing analytics project on a vast internet-based dataset. It is a collaborative project and the application is being shared across several participating Universities.</p>
+<h2>Solution Overview</h2>
+<p>The place to start is if their application is in container technology already, then they could look for a highly scalable architecture based Kubernetes Engine clusters with auto scale and pre-emptive upon VMs.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The metrics that you use can have unexpected results so you must be aware as to how they work in practice. This is important because the metrics are not always intuitive.
+
+For example, the purpose of a custom metric is to get a Deployment to scale its replicated Pods based on the given metric value. However, metrics with a total target value should always be defined only when the effects of the scaling will bring the updated value of the metric closer to the target value.
+
+We can see this better by considering how we might go about scaling a frontend application. We could do this by choosing a custom metric based on the queries-per-second metric. Thus, we are expecting that when the metric value increases, the number of Pods should scale up, with each Pod serving a similar amount of traffic as before.
+
+Now, we could go about this by exporting from each pod the queries-per-second value and setting a desired target average value results. This results in the desired behavior that we are looking for. However, if we had exported from each pod the total number of queries-per-second and then set instead of an average but a total target value for this metric, it will not work as we hoped.
+
+This is because increasing the number of Pods doesn't have any effect on the total traffic value so the HPA will not scale the deployment based upon that metric.
+
+Use Case - 20a
+
+A University comes to you seeking your advice as how to run an High Performance Computing analytics project on a vast internet-based dataset. It is a collaborative project and the application is being shared across several participating Universities. They do not have the on-premises infrastructure to host such a project so would like to host it in the cloud as then they could share the access and the costs.
+
+The application that they have developed in-house has a processing and an analytical function but it has already been ported to Docker containers for portability between partner Universities. The problem is that they have a limited grant so funds are tight, but they also don't know where to start? How can you help them?
+
+Solution
+
+The place to start is if their application is in container technology already then they could look for a highly scalable architecture based on Kubernetes Engine clusters with auto scale and pre-emptive upon VMs.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p>Metrics used in practice can have unexpected results, so it's essential to understand how they work. Custom metrics are not always intuitive and should be defined only when scaling will bring the updated value closer to a target value.</p>
+<p>For example, consider scaling a frontend application based on queries-per-second (qps) metric. By exporting qps values from each pod and setting a desired average target value, the deployment can scale up with each pod serving similar traffic. However, if the total number of qps is used instead of an average, increasing the number of pods will not affect the total traffic value, making it ineffective for scaling.</p>
+<p>To address this issue, use metrics that are relevant to the specific use case and consider the effects of scaling on the metric's target value. In the context of a High Performance Computing analytics project, a collaborative application shared across multiple universities can benefit from a scalable architecture based on Kubernetes Engine clusters with auto-scale and pre-emptive VMs.</p>
+<p>Key points:</p>
+<ul>
+<li>Custom metrics should be defined to bring the updated value closer to a target value when scaling.</li>
+<li>Metrics like queries-per-second (qps) require careful consideration of their relevance and how they affect scaling.</li>
+<li>A highly scalable architecture based on Kubernetes Engine clusters with auto-scale and pre-emptive VMs can address scalability challenges in High Performance Computing analytics projects.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Scaling Metrics and Deployment Management</h3>
+<p>This topic revolves around the importance of understanding how metrics work in practice, especially when it comes to custom metrics used for deployment scaling. It highlights the need to consider whether a metric's total target value will bring the updated value closer to the target.</p>
+<h3>Topic 2: High Performance Computing Analytics Projects</h3>
+<p>This topic focuses on the challenges and requirements of running high performance computing analytics projects, particularly in collaborative settings without on-premises infrastructure. It discusses the use of cloud hosting for shared access and cost savings.</p>
+<h3>Topic 3: Kubernetes Engine Clusters for Scalability</h3>
+<p>This topic emphasizes the importance of using highly scalable architecture based on Kubernetes Engine clusters with auto scale and pre-emptive capabilities for managing deployments, especially in container technology environments.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main concern when using metrics in practice, according to the text?
+Answer: The metrics are not always intuitive.</p>
+</li>
+<li>
+<p>Why should custom metrics be defined only when the effects of scaling will bring the updated value closer to the target value?
+Answer: Because increasing the number of Pods doesn't have any effect on the total traffic value.</p>
+</li>
+<li>
+<p>What is the purpose of using a custom metric in a deployment, according to the text?
+Answer: To scale replicated Pods based on the given metric value.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of a total target value for a metric affect the scaling behavior of an HPA?
+Answer: It will not work as expected because increasing the number of Pods doesn't have any effect on the total traffic value.</p>
+</li>
+<li>
+<p>What is the key difference between using average and total values for a custom metric in an HPA?
+Answer: Average values are more suitable for metrics that represent a rate or proportion, while total values are better suited for metrics that represent a count or quantity.</p>
+</li>
+<li>
+<p>How can the use of a custom metric impact the scalability of a deployment, according to the text?
+Answer: It can lead to unexpected results if not used carefully, and requires consideration of how the metric works in practice.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What type of architecture would be suitable for a High Performance Computing analytics project that uses Docker containers?
+Answer: A highly scalable architecture based on Kubernetes Engine clusters with auto scale and pre-emptive upon VMs.</p>
+</li>
+<li>
+<p>How can a University with limited grant funds approach the hosting of their collaborative project in the cloud?
+Answer: By looking for cost-effective solutions, such as using cloud-based services that offer shared access and costs.</p>
+</li>
+<li>
+<p>What are some potential benefits of using Kubernetes Engine clusters for a High Performance Computing analytics project?
+Answer: Scalability, flexibility, and reliability, making it an ideal choice for large-scale projects with complex requirements.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>metrics</td>
+<td>concept</td>
+<td>"The metrics that you use can have unexpected results so you must be aware as to how they work in practice."</td>
+<td>The text highlights the importance of understanding how metrics work in practice, as their results may not always be intuitive. Metrics are used to scale deployments and make decisions based on their values.</td>
+</tr>
+<tr>
+<td>custom metric</td>
+<td>concept</td>
+<td>"For example the purpose of the custom metric is to get a Deployment to scale its replicated Pods based on the given metric value."</td>
+<td>A custom metric is created to achieve a specific goal, such as scaling deployment based on a certain value. The text explains that custom metrics should be defined only when their effects will bring the updated value closer to a target value.</td>
+</tr>
+<tr>
+<td>queries-per-second</td>
+<td>metric</td>
+<td>"We could do this by choosing a custom metric based on the queries-per-second metric."</td>
+<td>Queries-per-second is a metric used to measure the number of requests or queries received per second. In this context, it's used to scale deployment based on traffic volume.</td>
+</tr>
+<tr>
+<td>total target value</td>
+<td>concept</td>
+<td>"However, if we had exported from each pod the total number of queries-per-second and then set instead of an average but a total target value for this metric..."</td>
+<td>A total target value is a specific numerical value that a metric should reach or exceed. In this case, it's used to scale deployment based on total traffic volume, which may not always be effective due to the nature of scaling.</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>concept</td>
+<td>"the purpose of the custom metric is to get a Deployment to scale its replicated Pods..."</td>
+<td>A deployment is a set of replicas (identical copies) of an application or service. In this context, it's used to describe the goal of scaling deployment based on a certain metric value.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine clusters</td>
+<td>technology</td>
+<td>"The place to start is if their application is in container technology already then they could look for a highly scalable architecture based Kubernetes Engine clusters..."</td>
+<td>Kubernetes Engine clusters are a type of cloud-based infrastructure that provides scalability and high availability for applications running in containers.</td>
+</tr>
+<tr>
+<td>auto scale</td>
+<td>feature</td>
+<td>"...with auto scale and pre-emptive upon VMs."</td>
+<td>Auto scale is a feature that automatically adjusts the number of resources (e.g., virtual machines) based on changing demand or conditions. In this context, it's used to describe a scalable architecture for Kubernetes Engine clusters.</td>
+</tr>
+<tr>
+<td>High Performance Computing analytics project</td>
+<td>use case</td>
+<td>"A University comes to you seeking your advice as how to run an High Performance Computing analytics project..."</td>
+<td>A high-performance computing (HPC) analytics project is a complex computational task that requires significant resources and expertise. In this context, the university seeks advice on how to run such a project in the cloud.</td>
+</tr>
+<tr>
+<td>collaborative project</td>
+<td>concept</td>
+<td>"...the application is being shared across several participating Universities."</td>
+<td>A collaborative project is a joint effort between multiple organizations or individuals working together towards a common goal. In this case, the universities are sharing access and costs for an HPC analytics project.</td>
+</tr>
+<tr>
+<td>Docker containers</td>
+<td>technology</td>
+<td>"...the application that they have developed in-house and a processing and an analytical function but it has already been ported to Docker containers..."</td>
+<td>Docker containers are lightweight, portable packages of software that can be easily deployed and managed on different environments. In this context, the university's application is running in Docker containers for portability between partner universities.</td>
+</tr>
+<tr>
+<td>limited grant</td>
+<td>constraint</td>
+<td>"...The problem is that they have a limited grant so funds are tight..."</td>
+<td>A limited grant refers to a restricted amount of funding available for a project or initiative. In this case, the university has a limited grant that constrains their ability to invest in infrastructure and resources.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

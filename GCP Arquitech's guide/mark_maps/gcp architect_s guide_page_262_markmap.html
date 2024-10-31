@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_262</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Migration Considerations
+        ## Existing Investment
+        - There is likely to be significant costs associated with servers and support infrastructure.
+        
+        ### Servers
+        - Servers are likely to be on a hardware lifecycle roadmap, refreshed every 3-5 years. This may be the ideal time to migrate on-premises resources to the cloud.
+        
+        ## Application Performance and Portability
+        - Consider whether the application can function in the cloud. Compatibility and performance are not likely to be a problem in GCP, but latency and portability must be considered.
+        
+        ### Latency
+        - Even with unlimited compute and memory resources, limited internet bandwidth may be detrimental to application performance.
+        
+        ### Portability
+        - Migrating virtualized application servers is not a problem, but external dependencies such as partner data source connections must be considered.
+        
+        ## Network Assessment
+        - Assess the premises network and how it will integrate with the cloud. Consider deploying cloud-based AD domain controllers and DNS.
+        
+        ### Cloud-Network Integration
+        - The cloud network must function for both on-premises and cloud access. This requires a secure communications path between the cloud and on-premises network.
+        
+        ## Migration Strategy
+        - Strive for a lift-and-shift of easy applications and databases early on, such as MySQL and PostgreSQL. As experience and confidence grow, migrate more complex applications and databases like Microsoft SQL Server or Oracle.
+        
+        ### Homogenous vs. Heterogeneous Migration
+        - A homogenous migration involves migrating similar applications and databases at once. A heterogeneous migration involves migrating different applications and databases separately.
+        
+        ## Best Practices
+        
+        * Take your time and look for the best deployment methods on an application-to-application basis.
+        * Don't need to lift and shift everything at once.
+        * Consider the best deployment methods for each application and database.
+
+      </script>
+    </div>
+  </body>
+</html>

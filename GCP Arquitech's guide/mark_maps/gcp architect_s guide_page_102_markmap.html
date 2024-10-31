@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_102</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Ingress and Firewall
+        ## Allow Rules
+        - • Ingress allow rules, allow specified protocol, ports, and IP addresses to connect in
+        - • The firewall prevents instances from receiving connections on non-permitted ports and protocols
+        
+        ## Source Protection
+        - Rules can be restricted to only affect particular sources
+        - Source CIDR ranges can be used to protect from undesired connections coming to an instance either from external networks or from GCP IP set of ranges
+        - In addition, source tags can be used to protect an instance from undesired connections coming from specific VM instances that are tagged with a matching tag.
+        
+        ## Load Balancing
+        - The GCP offers a variety of ways to load balance in-bound (ingress) traffic from sources across the internet.
+        - You can use the default Global HTTPS load balancing service to put your Web application behind a single anycast IP address across the entire Internet.
+        - Load balancing is tightly integrated with GCP's Content Delivery Network, giving you the option to cache many types of content close to your regional customers around the globe.
+        
+        ## Regional Load Balancers
+        - For UDP traffic or for the SSL Proxy, you will also use the regional load balancer.
+        - Finally, to load balance the internal ingress traffic within the VPC for example between tiers of a multi-tier application you will use the internal load balancer.
+
+      </script>
+    </div>
+  </body>
+</html>

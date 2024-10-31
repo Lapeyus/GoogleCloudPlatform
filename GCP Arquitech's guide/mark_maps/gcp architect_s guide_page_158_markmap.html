@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_158</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Interconnecting Networks
+        ## Overview
+        - There are three general ways to interconnect your on-premises or other cloud provider's network to Google's cloud network.
+        
+        ### Methods of Interconnection
+        #### 1. Through an Intermediary
+        - Connect through a network service provider that also offers interconnect services.
+        
+        #### 2. Using Virtual Private Networking (VPN)
+        - Use a technology like VPN to create one or more private and secure tunnels through the public internet and connect that way.
+        
+        #### 3. Via Cloud Router
+        - Connect via the internet using cloud router.
+        
+        ## The Google Network
+        ### Overview of Google's Global SDN Network
+        - Google Cloud's well-provisioned global SDN network is composed of hundreds of thousands of miles of fibre optic cable and seven destinations across the world, with multiple redundant links.
+        
+        #### Key Features of Google's Networking Services
+        - Supports IP addressing for global, private, as well as regional segmentation.
+        - Includes services such as HTTPS, TCP, UDP Load Balancing, Cloud CDN, and Cloud DNS.
+        - Enables control over access permissions through Resource Manager and network IAM roles for identity and access management.
+        
+        ## Benefits of Connecting to Google's Network
+        - Inheriting many of Google's own access controls and security measures.
+        - Several ways to connect and benefit from Google's robust and secure network infrastructure:
+        -   - Using a VPN or Cloud Router (sufficient for most organizations).
+        -   - Considering Cloud Interconnect for large scale deployments with heavy ingress and egress traffic.
+        -   - Connecting through Direct Peering.
+        
+        ## Cloud VPN
+        ### Overview of Cloud VPN
+        - Google Cloud VPN provides a secure communication channel over the internet, connecting your on-premises network to your GCP VPC network through an IPsec VPN connection.
+        
+        #### Key Features of Cloud VPN
+        - Protects traffic with the IPsec protocol, ensuring confidentiality, integrity, and availability.
+        - Ensures all packets are encrypted by one VPN gateway at the tunnel ingress and then decrypted by the other VPN gateway at the tunnel egress.
+        - Uses private IP ranges to ensure secure traffic flow between networks when the VPN tunnel is established.
+
+      </script>
+    </div>
+  </body>
+</html>

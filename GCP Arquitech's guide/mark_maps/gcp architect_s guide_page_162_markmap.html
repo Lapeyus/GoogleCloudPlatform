@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_162</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Interconnect and VPN Options for GCP
+        ## Overview of Cloud Interconnect and VPN Options
+        
+        - Cloud Interconnect is a dedicated connection between your on-premises network and Google Cloud Platform (GCP). It provides high-speed, low-latency connectivity without the need for public internet.
+        
+        ### Types of Cloud Interconnect Attachments
+        
+        #### Dedicated Interconnect (Private ASN)
+        
+        * Use a private Autonomous System Number (ASN) for secure connections
+        * Suitable for sensitive data or applications requiring high security
+        
+        #### Partner Interconnect (Public ASN)
+        
+        * Use a public ASN for connections over the internet
+        * Required for Google's Partner Interconnect option
+        
+        ### Cloud Router and VPN Options
+        
+        - Cloud Router supports multiple interfaces, eliminating the need for separate Cloud Routers for each VPN tunnel or interconnect attachment.
+        
+        #### Classic VPN and HA VPNs with Dynamic Routing via Cloud Router
+        
+        * Enables reliable and secure connections over the internet from your location to GCP
+        * May be restrictive for high data transfer or low latency requirements
+        
+        #### Google Cloud Interconnect Communication
+        
+        * Provides direct physical connections and RFC1918 case
+        * Suitable for applications requiring high-speed, low-latency connectivity
+        
+        ### Benefits of Cloud Interconnect
+        
+        * More cost-effective than purchasing additional internet bandwidth with VPN tunnels
+        * Faster and more predictable latency compared to public internet
+        * Traffic flows over a dedicated connection with fewer hops, reducing points of failure
+        
+        #### Direct Access to VPC Network IP Addresses
+        
+        * No need for VPN tunnels or network routing protocols to reach internal IP addresses
+        * VPC network's internal IP addresses are directly accessible from on-premises networks
+
+      </script>
+    </div>
+  </body>
+</html>

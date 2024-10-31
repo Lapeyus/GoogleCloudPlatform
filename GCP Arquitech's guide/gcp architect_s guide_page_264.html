@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_264</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_264_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_264</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Migration</h1>
+<h2>Business and Project Details</h2>
+<h3>On-Premises to Cloud Migration</h3>
+<h4>Containerization Refactoring</h4>
+<p>The concept behind this is that the applications execute within the containers.
+The container however also enables developers to insert cloud-native features and it also improves portability.
+The costs and refactoring times also go down due to the wide acceptance of containers within IT.</p>
+<h2>Technical Issues</h2>
+<h3>Webservers</h3>
+<p>Many open source applications will work on the me first technical challenge is going to be in migrating applications AMP stack, which we can readily deploy using a preconfigured image in Cloud Launcher.
+Similarly we can do the same with Windows Server instances so deploying applications and services directly into VM instances is straightforward.</p>
+<h2>Workflow Migration</h2>
+<h3>Prioritizing Machines</h3>
+<p>When first planning workflow migration you need to prioritize the machines you want to move.
+In order to do this with confidence you will need to understand your application's dependencies.
+Then, you need to batch these dependencies within the same migration stage.
+For example: If an application depends on multiple VMs, migrate all of those VMs at the same time.</p>
+<h3>Points to Consider</h3>
+<p>• Move the VM to GCP and once this is done perform validation testing and resolve any issues.
+• Migrate the application storage to GCP</p>
+<h2>Serverless Application Refactoring</h2>
+<p>There is another modern trend towards serverless application refactor but this has similar issues to containerization such as in having to learn new tools and technologies.
+However, with serverless refactoring there will be some code modifications required to make the application work.</p>
+<h3>Note</h3>
+<p>In summary, you should be aware that in migration to the cloud most applications and data sets will require at least some refactoring if they are to reap the clouds benefits. However, this should be economically viable with some firm deadlines in place to ensure that most of the refactoring work will have a faster return on the investment.</p>
+<h3>Additional Considerations</h3>
+<p>After determining that you can rely on the VMs in the cloud, schedule downtime to cut over your application to GCP.
+This happens in two stages:</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>However, there is another method and that is to use a technique called containerization refactoring. This method is followed by moving the applications into containers with minimal modification. The concept behind this is that the applications execute within the containers. The container however also enables developers to insert cloud-native features and it also improves portability. The costs and refactoring times also go down due to the wide acceptance of containers within IT.
+
+There is another modern trend towards serverless application refactor but this has similar issues to containerization such as in having to learn new tools and technologies. However, with serverless refactoring there will be some code modifications required to make the application work. This is because although the serverless platforms support most languages and databases they don't yet support all of them.
+
+In summary, you should be aware that in migration to the cloud most applications and data sets will require at least some refactoring if they are to reap the clouds benefits. However, this should be economically viable with some firm deadlines in place to ensure that most of the refactoring work will have a faster return on the investment.
+
+Technical Issues
+
+Now that we have covered the business and project details regarding on-premises to cloud migration, we will need to address some of the typical technical tasks that we will be expected to achieve. Webservers. Many open source applications will work on the me first technical challenge is going to be in migrating applications AMP stack, which we can readily deploy using a preconfigured image in Cloud Launcher. Similarly we can do the same with Windows Server instances so deploying applications and services directly into VM instances is straightforward. But what about workflows and the database?
+
+Workflow Migration
+
+When first planning workflow migration you need to prioritize the machines you want to move. In order to do this with confidence, you will need to understand your application's dependencies. Then, you need to batch these dependencies within the same migration stage. For example: If an application depends on multiple VMs, migrate all of those VMs at the same time. However if that is not feasible then move the components logically. For example; if an application requires a database and a web server, then you can move the database before the web server.
+
+In order to verify your migration strategy and tactics you could clone an on-premises workload and run it in Google Cloud Platform (GCP). This enables you to test the migration process without disrupting production. Nonetheless, the points you must consider when migrating workflows are:
+
+• Move the VM to GCP and once this is done perform validation testing and resolve any issues.
+• Migrate the application storage to GCP
+• After determining that you can rely on the VMs in the cloud, schedule downtime to cut over your application to GCP. This happens in two stages:
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Containerization Refactoring vs Serverless Application Refactoring</h3>
+<p>When migrating applications to the cloud, refactoring is often necessary to reap its benefits. Two modern techniques are containerization refactoring and serverless application refactoring.</p>
+<h4>Containerization Refactoring</h4>
+<p>This method involves using a technique called containerization refactoring, where applications are moved into containers with minimal modification. The concept behind this is that applications execute within containers, which also enable developers to insert cloud-native features and improve portability. Costs and refactoring times decrease due to the wide acceptance of containers in IT.</p>
+<p>However, serverless platforms require code modifications to make applications work, as they don't yet support all languages and databases.</p>
+<h4>Serverless Application Refactoring</h4>
+<p>This trend has similar issues to containerization, such as learning new tools and technologies. However, with serverless refactoring, some code modifications are required to make the application work, due to limitations in supported languages and databases.</p>
+<h3>Technical Issues</h3>
+<p>After covering business and project details regarding on-premises to cloud migration, technical tasks need to be addressed. This includes migrating web servers, workflows, and databases.</p>
+<h4>Workflow Migration</h4>
+<p>When planning workflow migration, prioritize machines to move based on dependencies. Batch these dependencies within the same migration stage. For example, migrate all VMs at once if possible, or move components logically (e.g., database before web server).</p>
+<p>To verify the migration strategy, clone an on-premises workload and run it in Google Cloud Platform (GCP) without disrupting production.</p>
+<p>Key points to consider when migrating workflows:</p>
+<ul>
+<li>Move the VM to GCP and perform validation testing and resolve issues.</li>
+<li>Migrate application storage to GCP.</li>
+<li>Schedule downtime to cut over the application to GCP in two stages.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cloud Migration Refactoring</h3>
+<p>The concept behind this is that the applications execute within the containers. The container however also enables developers to insert cloud-native features and it also improves portability.</p>
+<h3>Topic 2: Containerization Refactoring</h3>
+<p>This method is followed by moving the applications into containers with minimal modification. The costs and refactoring times also go down due to the wide acceptance of containers within IT.</p>
+<h3>Topic 3: Serverless Application Refactoring</h3>
+<p>However, this has similar issues to containerization such as in having to learn new tools and technologies. With serverless refactoring there will be some code modifications required to make the application work.</p>
+<h3>Topic 4: Cloud Native Features</h3>
+<p>The container however also enables developers to insert cloud-native features.</p>
+<h3>Topic 5: Portability</h3>
+<p>It also improves portability.</p>
+<h3>Topic 6: Refactoring Times</h3>
+<p>The costs and refactoring times also go down due to the wide acceptance of containers within IT.</p>
+<h3>Topic 7: Business Benefits</h3>
+<p>In summary, you should be aware that in migration to the cloud most applications and data sets will require at least some refactoring if they are to reap the clouds benefits.</p>
+<h3>Topic 8: Economic Viability</h3>
+<p>However, this should be economically viable with some firm deadlines in place to ensure that most of the refactoring work will have a faster return on the investment.</p>
+<h3>Topic 9: Technical Challenges</h3>
+<p>and webservers. Many open source applications will work on the me first technical challenge is going to be in migrating applications AMP stack, which we can readily deploy using a preconfigured image in Cloud Launcher.</p>
+<h3>Topic 10: Workflow Migration</h3>
+<p>When first planning workflow migration you need to prioritize the machines you want to move.</p>
+<h3>Topic 11: Dependency Prioritization</h3>
+<p>In order to do this with confidence you will need to understand your application's dependencies. Then, you need to batch these dependencies within the same migration stage.</p>
+<h3>Topic 12: Validation Testing</h3>
+<p>Move the VM to GCP and once this is done perform validation testing and resolve any issues.</p>
+<h3>Topic 13: Application Storage Migration</h3>
+<p>Migrate the application storage to GCP</p>
+<h3>Topic 14: Downtime Scheduling</h3>
+<p>After determining that you can rely on the VMs in the cloud, schedule downtime to cut over your application to GCP. This happens in two stages</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main idea of using containerization refactoring?
+Answer: Containerization refactoring involves moving applications into containers with minimal modification, which enables developers to insert cloud-native features and improves portability.</p>
+</li>
+<li>
+<p>Why do serverless platforms require code modifications for some applications?
+Answer: Serverless platforms support most languages and databases but don't yet support all of them, requiring code modifications to make the application work.</p>
+</li>
+<li>
+<p>What is the primary technical challenge in migrating on-premises applications to the cloud?
+Answer: The primary technical challenge is migrating workflows and databases, which requires understanding dependencies and batching them within the same migration stage.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does containerization refactoring compare to serverless refactoring in terms of required modifications?
+Answer: Containerization refactoring typically requires minimal modification, whereas serverless refactoring often requires more significant code changes due to the limitations of current serverless platforms.</p>
+</li>
+<li>
+<p>What are some potential benefits of using cloud-native features with containers?
+Answer: Using cloud-native features with containers can improve portability, reduce costs and refactoring times, and enable developers to take advantage of cloud-specific services and scalability.</p>
+</li>
+<li>
+<p>How does cloning an on-premises workload in GCP help with workflow migration testing?
+Answer: Cloning an on-premises workload in GCP enables developers to test the migration process without disrupting production, allowing for verification of the migration strategy and tactics.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What are some key considerations when migrating workflows to the cloud?
+Answer: Key considerations include prioritizing machines to move, understanding dependencies, batching them within the same migration stage, and performing validation testing and resolving issues after moving VMs to GCP.</p>
+</li>
+<li>
+<p>How can developers ensure that most of the refactoring work will have a faster return on investment in cloud migration?
+Answer: Developers should set firm deadlines and prioritize refactoring tasks based on economic viability, ensuring that the benefits of cloud migration outweigh the costs and effort required for refactoring.</p>
+</li>
+<li>
+<p>What are some potential risks or challenges associated with migrating workflows to the cloud?
+Answer: Potential risks include disrupting production during testing, dealing with dependencies and batch processing, and addressing technical challenges such as deploying applications and services into VM instances.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containerization refactoring</td>
+<td>Technique</td>
+<td>"However, there is another method and that is to use a technique called containerization refactoring."</td>
+<td>Containerization refactoring is a technique used to refactor applications by moving them into containers with minimal modification. This approach enables developers to insert cloud-native features and improves portability. The concept behind this is that the application executes within the container, which reduces costs and refactoring times due to its wide acceptance in IT.</td>
+</tr>
+<tr>
+<td>serverless application refactor</td>
+<td>Trend</td>
+<td>"There is another modern trend towards serverless application refactor but this has similar issues to containerization such as in having to learn new tools and technologies."</td>
+<td>Serverless application refactor is a modern trend that aims to refactor applications for cloud deployment. However, it also presents challenges such as learning new tools and technologies, and may require code modifications to make the application work. The serverless platforms support most languages and databases but not all of them.</td>
+</tr>
+<tr>
+<td>AMP stack</td>
+<td>Application Stack</td>
+<td>"Many open source applications will work on the me first technical challenge is going to be in migrating applications AMP stack."</td>
+<td>AMP stack refers to an application stack that can be deployed using a preconfigured image in Cloud Launcher. This approach enables straightforward deployment of applications and services directly into VM instances. However, workflows and databases may pose challenges during migration.</td>
+</tr>
+<tr>
+<td>Cloud Launcher</td>
+<td>Tool/Platform</td>
+<td>"Similarly we can do the same with Windows Server instances so deploying applications and services directly into VM instances is straightforward."</td>
+<td>Cloud Launcher is a tool or platform used to deploy applications and services directly into VM instances. It provides preconfigured images for various application stacks, including AMP stack. This approach simplifies deployment but may require additional considerations during workflow migration.</td>
+</tr>
+<tr>
+<td>Google Cloud Platform (GCP)</td>
+<td>Cloud Platform</td>
+<td>"In order to verify your migration strategy and tactics you could clone an on-premises workload and run it in Google Cloud Platform (GCP)."</td>
+<td>GCP is a cloud platform that enables testing of migration strategies and tactics without disrupting production. It provides a controlled environment for verifying the migration process before deploying it to production.</td>
+</tr>
+<tr>
+<td>VM instances</td>
+<td>Virtual Machine Instances</td>
+<td>"But what about workflows and the database?"</td>
+<td>VM instances refer to virtual machine instances used to deploy applications and services in the cloud. They provide a scalable and flexible infrastructure for deployment but may pose challenges during workflow migration, such as dependencies and downtime.</td>
+</tr>
+<tr>
+<td>Workflows</td>
+<td>Application Components</td>
+<td>"When first planning workflow migration you need to prioritize the machines you want to move."</td>
+<td>Workflows refer to application components that require coordination and synchronization. During workflow migration, it is essential to understand dependencies and batch them within the same migration stage to ensure a smooth transition. This may involve moving VMs or other components logically.</td>
+</tr>
+<tr>
+<td>Database</td>
+<td>Application Component</td>
+<td>"If an application requires a database and a web server, then you can move the database before the web server."</td>
+<td>Databases are critical application components that require careful consideration during workflow migration. They must be moved to the cloud in a way that minimizes downtime and ensures data integrity. This may involve scheduling downtime for the application or using cloud-native features to improve portability.</td>
+</tr>
+<tr>
+<td>On-premises workload</td>
+<td>Application Workload</td>
+<td>"In order to verify your migration strategy and tactics you could clone an on-premises workload and run it in Google Cloud Platform (GCP)."</td>
+<td>On-premises workloads refer to applications that are currently running on-premises infrastructure. Cloning this workload and running it in GCP enables testing of the migration strategy and tactics without disrupting production, providing a controlled environment for verifying the migration process.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

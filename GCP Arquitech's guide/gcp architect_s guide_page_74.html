@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_74</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_74_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_74</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_74_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Cloud Computing Methods</h1>
+<h2>Compute Engine</h2>
+<h3>Pros</h3>
+<p>• Intuitive and little learning curve
+• Almost total management and administrative control
+• No need for public IPs
+• Can run docker containers using container-Optimized OS
+• Total control, but can be complex to manage and control</p>
+<h3>Cons</h3>
+<p>• More management overhead
+• Autoscaling is slower than App Engine
+• Installing software on custom GCE instances can be difficult to maintain</p>
+<h2>Cloud Source Repositories</h2>
+<h3>Pros</h3>
+<p>• Running your own Git instance provides total control
+• Using a hosted Git provider means less work, but some loss of control
+• GCP provides its own way to keep code private to a GCP project
+• Can use IAM permissions to protect access to code</p>
+<h3>Cons</h3>
+<p>• Requires managing code versioning, libraries, and source code trees
+• May require many tools to assist in managing code</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_74_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>PROS
+• 
+• 
+Compute Engine is intuitive and has a low learning curve, making it the most popular method.
+You have almost total management and administrative control over your environment, allowing you to load any tools or third-party add-ons you want.
+
+No need for public IPs, as Compute Engine provides private IP addresses by default.
+You can run Docker containers using the container-Optimized OS, which simplifies deployment and management.
+
+However, having total control also means that you must manage and control most aspects of your environment yourself, which can be complex.
+
+More management overhead is required, as you need to handle tasks such as autoscaling, software installation, and maintenance.
+Autoscaling in Compute Engine is slower than App Engine, and installing software on custom GCE instances can be difficult to maintain.
+
+Chapter 9-Using GCP Cloud Tools
+
+Google Cloud Development Tools
+There are many popular third-party tools available for development, deployment, and monitoring that work natively with GCP. However, apart from the numerous open-source tools that come pre-installed, you also have access to the in-built tools tightly integrated with GCP.
+
+In development and DevOps environments utilizing Cloud App Engine, managing code, libraries, and repositories often requires multiple tools for versioning, libraries, and source code trees. Many GCP customers use Git to store, distribute, and manage their code, either by running their own Git instances or using a hosted provider.
+
+Cloud Source Repositories
+Running your own Git instance provides total control over your code repository, but using a hosted provider may mean sacrificing some control. However, this can be mitigated by utilizing GCP's built-in methods for keeping code private within a project and implementing IAM permissions to protect access.
+
+Alternatively, you can use the in-built tools provided by GCP, which offer a balance between control and ease of use.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_74_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Google Cloud Platform (GCP) Compute Engine and Cloud Development Tools</h3>
+<h4>Pros of Using Compute Engine</h4>
+<ul>
+<li><strong>Intuitive and Low Learning Curve</strong>: This makes Compute Engine the most popular method.</li>
+<li><strong>Total Management Control</strong>: You can load whatever tools or third-party add-ons you want, giving you almost total management and administrative control.</li>
+<li><strong>No Need for Public IPs</strong>: You can run docker containers using the container-Optimized OS without needing public IPs.</li>
+<li><strong>Total Control but Complex to Manage</strong>: As you have total control, it can be complex to manage and control as you have to do most things yourself.</li>
+</ul>
+<h4>Cons of Using Compute Engine</h4>
+<ul>
+<li><strong>More Management Overhead</strong>: You need to handle most tasks yourself, which can be time-consuming.</li>
+<li><strong>Autoscaling Slower than App Engine</strong>: Autoscaling is slower in Compute Engine compared to App Engine.</li>
+<li><strong>Installing Software on Custom GCE Instances Difficult</strong>: Installing software on custom GCE instances can be difficult to maintain.</li>
+</ul>
+<h4>Using Cloud Development Tools</h4>
+<ul>
+<li><strong>Native Integration with GCP</strong>: There are many popular third-party tools for development, deployment, and monitoring that work natively in GCP.</li>
+<li><strong>In-Built Tools Tightly-Integrated with GCP</strong>: You also have the option of using the in-built tools tightly-integrated with GCP.</li>
+<li><strong>Managing Code, Libraries, and Repositories</strong>: In development and DevOps environments utilizing Cloud App Engine, you need to manage code, libraries, and repositories, often requiring multiple tools for versioning, libraries, and source code trees.</li>
+<li><strong>Using Git for Code Management</strong>: Many GCP customers use the well-known repository Git to store, distribute, and manage their code. You can run your own Git instance or use a hosted Git provider.</li>
+</ul>
+<h4>Cloud Source Repositories</h4>
+<ul>
+<li><strong>Running Your Own Git Instance</strong>: Running your own Git instance is great for managing a code repository because you have total control.</li>
+<li><strong>Using a Hosted Git Provider</strong>: Using a hosted Git provider may mean some loss of control but it's less work. GCP provides its own way to keep code private to a GCP project and can use IAM permissions to protect access to it, without requiring maintenance of the Git instance itself.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Total Control and Complexity</strong>
+This topic represents the trade-off between having total control over the infrastructure and the complexity that comes with managing everything oneself.</p>
+<h3>Topic 2</h3>
+<p><strong>Management Overhead and Limitations</strong>
+This topic highlights the potential drawbacks of using Compute Engine, including more management overhead and limitations compared to other options like App Engine.</p>
+<h3>Topic 3</h3>
+<p><strong>Native Integration and Third-Party Tools</strong>
+This topic emphasizes the benefits of using GCP's in-built tools and third-party tools that are tightly-integrated with the platform, making development, deployment, and monitoring easier.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_74_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What are some of the advantages of using Compute Engine for cloud computing?</li>
+<li>How does GCP handle code management and versioning in development environments?</li>
+<li>What are some popular third-party tools available for development, deployment, and monitoring in GCP?</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>Compare the trade-offs between running your own Git instance versus using a hosted Git provider. How do these choices impact control over code repositories?</li>
+<li>Discuss the implications of having total control over Compute Engine instances on management and administrative tasks.</li>
+<li>What are some potential drawbacks to relying solely on third-party solutions for L7 internal load balancing in GCP?</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>Suppose you're building a web application that requires high scalability and performance. Which cloud computing method would you choose, and why?</li>
+<li>How might you use Cloud Source Repositories to manage code versioning and libraries in your development environment?</li>
+<li>If you're using Compute Engine instances for custom applications, what steps can you take to simplify software installation and maintenance?</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROS</td>
+<td>List</td>
+<td>Appears in a section titled "PROS" and lists various benefits of using Compute Engine, such as intuitive learning curve and total management control.</td>
+<td>The entity represents the advantages or positive aspects of using Compute Engine, highlighting its popularity and flexibility.</td>
+</tr>
+<tr>
+<td>•</td>
+<td>Bullet point</td>
+<td>Used to list individual points within the PROS section, providing specific details about the benefits of Compute Engine.</td>
+<td>The bullet points serve as a concise way to present multiple advantages of Compute Engine, such as no need for public IPs or running docker containers.</td>
+</tr>
+<tr>
+<td>CONS</td>
+<td>List</td>
+<td>Appears in a section titled "CONS" and lists various drawbacks of using Compute Engine, such as more management overhead and slower autoscaling.</td>
+<td>The entity represents the disadvantages or negative aspects of using Compute Engine, highlighting potential challenges and limitations.</td>
+</tr>
+<tr>
+<td>•</td>
+<td>Bullet point</td>
+<td>Used to list individual points within the CONS section, providing specific details about the drawbacks of Compute Engine.</td>
+<td>The bullet points serve as a concise way to present multiple disadvantages of Compute Engine, such as more management overhead or slower autoscaling.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Product/Service</td>
+<td>Appears in the PROS and CONS sections, describing its features and benefits.</td>
+<td>The entity represents a specific product or service offered by Google Cloud Platform (GCP), highlighting its strengths and weaknesses.</td>
+</tr>
+<tr>
+<td>L7 internal load balancing</td>
+<td>Technical term</td>
+<td>Used to describe a limitation of Compute Engine, requiring third-party solutions for load balancing.</td>
+<td>The entity represents a technical concept related to load balancing, highlighting the limitations of Compute Engine's built-in capabilities.</td>
+</tr>
+<tr>
+<td>Cloud App Engine</td>
+<td>Product/Service</td>
+<td>Appears in the PROS and CONS sections, describing its features and benefits.</td>
+<td>The entity represents another specific product or service offered by GCP, highlighting its strengths and weaknesses compared to Compute Engine.</td>
+</tr>
+<tr>
+<td>Docker containers</td>
+<td>Technical term</td>
+<td>Used to describe a feature of Compute Engine, allowing for running container-optimized OS.</td>
+<td>The entity represents a technical concept related to containerization, highlighting the flexibility and scalability of Compute Engine.</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>Software tool</td>
+<td>Used in the context of managing code repositories and versioning, providing an alternative to running own instances or using hosted providers.</td>
+<td>The entity represents a software tool used for source code management, highlighting its importance in development and DevOps environments.</td>
+</tr>
+<tr>
+<td>Cloud Source Repositories</td>
+<td>Product/Service</td>
+<td>Appears in the chapter titled "Cloud Source Repositories", describing its features and benefits.</td>
+<td>The entity represents a specific product or service offered by GCP, providing an alternative to running own Git instances or using hosted providers.</td>
+</tr>
+<tr>
+<td>IAM permissions</td>
+<td>Security concept</td>
+<td>Used to describe how GCP provides protection for code private to a project, highlighting the importance of access control.</td>
+<td>The entity represents a security concept related to access control and permission management, highlighting GCP's capabilities in protecting sensitive data.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

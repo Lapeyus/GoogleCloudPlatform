@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_65</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_65_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_65</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>App Engine Environments</h1>
+<h2>Standard Environment</h2>
+<h3>Caveats</h3>
+<ul>
+<li>Runs in a Sandbox</li>
+<li>Software and security construct that enforces independence of hardware, operating system, file system, or physical location of the server it runs on</li>
+<li>Enforces segregation and isolation of code</li>
+<li>Constraints:</li>
+<li>Application can't write to local file system</li>
+<li>Must use database service for persistent data storage (Cloud Datastore)</li>
+<li>Requests have a 60-second timeout</li>
+<li>Can't install arbitrary third-party software in sandbox</li>
+</ul>
+<h3>Roadmap</h3>
+<ol>
+<li>Develop application locally using App Engine SDK</li>
+<li>Deploy application using SDK commands</li>
+<li>Each App Engine application runs in a GCP project</li>
+<li>App Engine automatically provisions server instances and scales/load balances them</li>
+<li>Application can make calls to various services using dedicated APIs</li>
+</ol>
+<h2>Flexible Environment</h2>
+<h3>Differences from Standard Environment</h3>
+<ul>
+<li>Instead of using a sandbox, runs application inside Docker containers on Google Compute Engine Virtual Machines (VMs)</li>
+<li>Allows specifying container for App Engine to run in</li>
+<li>App Engine manages Compute Engine virtual machines for you</li>
+<li>VMs are monitored, health-checked, healed as necessary</li>
+<li>Select geographical region for VMs to run in</li>
+</ul>
+<h3>Features</h3>
+<ul>
+<li>App Engine applies critical backward-compatible updates to operating systems automatically</li>
+<li>Works transparently, allowing focus on code development</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Runtimes and Libraries May Be All You Need
+
+But if you code for many applications, the App Engine Standard Environment is not the right choice. Instead, you will need to use the Flexible Environment.
+
+The Standard Environment also has some other caveats that you may need to contemplate. It runs in a sandbox, which is a software and security construct that enforces independence of the hardware, operating system, file system, or physical location of the server it runs on. This also enforces segregation and isolation of the code.
+
+Running your code in a sandbox is not necessarily an issue as one of the reasons why App Engine Standard Environment can scale so effectively and manage your application in a very fine-grained way is because of the sandbox. They are also very secure as the code is isolated from the OS, other applications, and the file system. However, sandboxes can and do impose some constraints such as your application can't write to the local file system.
+
+Therefore, your application will have to use a database service if it needs to store data persistently. As a result, Cloud Datastore is tightly coupled with App Engine standard edition to provide that service. Also, all the requests your application receives will have a 60-second timeout, and because code is segregated by design you can't install arbitrary third-party software in a sandbox.
+
+If these constraints will adversely affect your development then that would be another pointer towards using the Flexible Environment.
+
+A Brief Roadmap of How to Use App Engine Standard Environment
+
+First, you develop your application and run a test version of it locally using the App Engine SDK. Then, you use the SDK commands to deploy it. Each App Engine application runs in a GCP project.
+
+App Engine automatically provisions server instances and scales and load balances them. Your application can make calls to a variety of services using dedicated APIs.
+
+App Engine Flexible Environment
+
+If you find the constraints of the App Engine standard environments' sandbox model is just too restrictive or you need to code in another language not supported in the standard environment, then you may want to consider the Flexible Environment version.
+
+A notable difference is that instead of using a sandbox, App Engine flexible environment lets you run your application inside Docker containers on Google Compute Engine Virtual Machines, VMs. In addition, it lets you specify the container your App Engine runs in and the App Engine manages these Compute Engine virtual machines for you.
+
+Furthermore, the VMs are monitored, health-checked, healed as necessary, and you select the geographical region that you want them to run in. Another feature of the flexible Environment is that App Engine will apply automatically any critical backward-compatible updates to their operating systems. All this works transparently so that you can just focus on your code.
+
+App Engine apps use standard runtimes that can access App Engine services such as data store, memcached, task queues, and so on. The simpler standard environment starts up instances of your application faster, but because of the sandbox, you get less access to the infrastructure in which your application runs.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Choosing the Right Environment for Your App Engine Application</h3>
+<p>When building an App Engine application, it's essential to select the right environment that meets your specific needs. The App Engine Standard Environment and Flexible Environment have different characteristics that may make one more suitable than the other.</p>
+<h4>Constraints of the Standard Environment</h4>
+<p>The App Engine Standard Environment has some caveats that you should consider:</p>
+<ul>
+<li>Runs in a sandbox, which enforces independence from hardware, operating system, file system, or physical location.</li>
+<li>Isolated code, making it secure but also imposing constraints such as:<ul>
+<li>Limited access to the local file system, requiring the use of a database service like Cloud Datastore.</li>
+<li>60-second timeout for all incoming requests, and no ability to install arbitrary third-party software.</li>
+</ul>
+</li>
+</ul>
+<h4>Flexible Environment</h4>
+<p>If you find the constraints of the Standard Environment too restrictive or need to code in another language not supported by the standard environment, consider using the Flexible Environment. This version allows you to:</p>
+<ul>
+<li>Run your application inside Docker containers on Google Compute Engine Virtual Machines (VMs).</li>
+<li>Specify the container your App Engine runs in and have App Engine manage these VMs for you.</li>
+<li>Monitor, health-check, heal as necessary, and select the geographical region for your VMs.</li>
+<li>Have critical backward-compatible updates applied automatically to operating systems.</li>
+</ul>
+<h4>Key Differences</h4>
+<p>| Environment | Characteristics |
+| --- | --- |
+| Standard | Runs in a sandbox, isolated code, limited access to file system, 60-second timeout. |
+| Flexible | Runs inside Docker containers on Google Compute Engine Virtual Machines (VMs), allows for more infrastructure access. |</p>
+<h3>Roadmap for Using App Engine Standard Environment</h3>
+<ol>
+<li>Develop your application locally using the App Engine SDK.</li>
+<li>Deploy your application using the SDK commands.</li>
+</ol>
+<h3>Roadmap for Using App Engine Flexible Environment</h3>
+<ol>
+<li>Develop your application and run a test version locally using the App Engine SDK.</li>
+<li>Use the SDK commands to deploy your application.</li>
+<li>Consider using the Flexible Environment if you need more infrastructure access or want to code in another language not supported by the standard environment.</li>
+</ol>
+<p>By understanding the characteristics of both environments, you can make an informed decision about which one is best for your specific needs and requirements.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Sandbox Environment</h3>
+<p>The sandbox environment is a software and security construct that enforces independence of the hardware, operating system, file system or physical location of the server it runs on. It also enforces segregation and isolation of the code.</p>
+<h3>Topic 2: Constraints of Standard Environment</h3>
+<p>The standard environment has constraints such as not allowing applications to write to the local file system, requiring use of a database service for persistent data storage, and imposing a 60-second timeout on all requests received by the application.</p>
+<h3>Topic 3: Benefits of Flexible Environment</h3>
+<p>The flexible environment offers more flexibility and control over the deployment and management of applications. It allows running applications inside Docker containers on Google Compute Engine Virtual Machines, with features such as automatic monitoring, health checking, and healing of VMs, as well as selection of geographical regions for deployment.</p>
+<h3>Topic 4: Comparison of Standard and Flexible Environments</h3>
+<p>The standard environment starts up instances of your application faster but provides less access to the infrastructure in which your application runs. In contrast, the flexible environment offers more control and flexibility but may require more expertise to manage.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main difference between App Engine Standard Environment and Flexible Environment?
+Answer: The main difference is that Standard Environment uses a sandbox model, while Flexible Environment allows running applications inside Docker containers on Google Compute Engine Virtual Machines.</p>
+</li>
+<li>
+<p>Why would you choose to use the Flexible Environment over the Standard Environment?
+Answer: You would choose the Flexible Environment if the constraints of the Standard Environment's sandbox model are too restrictive or if you need to code in another language not supported by the Standard Environment.</p>
+</li>
+<li>
+<p>What is the purpose of a sandbox in App Engine Standard Environment?
+Answer: A sandbox is a software and security construct that enforces independence of the hardware, operating system, file system, or physical location of the server it runs on, as well as segregation and isolation of the code.</p>
+</li>
+<li>
+<p>How does Cloud Datastore relate to App Engine Standard Edition?
+Answer: Cloud Datastore is tightly coupled with App Engine standard edition to provide a database service for applications that need to store data persistently.</p>
+</li>
+<li>
+<p>What is the maximum timeout for requests received by an application in App Engine Standard Environment?
+Answer: The maximum timeout for requests received by an application in App Engine Standard Environment is 60 seconds.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the sandbox model of App Engine Standard Environment impact the development process? Provide examples.
+Answer: The sandbox model can impose constraints such as not allowing applications to write to the local file system, requiring the use of a database service for persistent data storage, and limiting the ability to install arbitrary third-party software.</p>
+</li>
+<li>
+<p>Compare and contrast the scalability features of App Engine Standard Environment and Flexible Environment.
+Answer: App Engine Standard Environment scales effectively due to its sandbox model, while Flexible Environment allows for more control over scaling through the use of Docker containers on Google Compute Engine Virtual Machines.</p>
+</li>
+<li>
+<p>How does the choice between App Engine Standard Environment and Flexible Environment depend on the specific needs of an application?
+Answer: The choice depends on whether the constraints of the Standard Environment's sandbox model are too restrictive or if the application requires more flexibility in terms of language support, infrastructure access, or scalability features.</p>
+</li>
+<li>
+<p>What are some potential benefits of using the Flexible Environment over the Standard Environment?
+Answer: Potential benefits include greater control over scaling and deployment, ability to run applications inside Docker containers, automatic updates to operating systems, and monitoring and health checking of virtual machines.</p>
+</li>
+<li>
+<p>How does App Engine's use of standard run times impact the development process?
+Answer: The use of standard run times can result in faster application startup times, but also limits access to the underlying infrastructure, requiring developers to rely on dedicated APIs for interacting with services like data store and memcached.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>runtimes and libraries</td>
+<td>Software</td>
+<td>"runtimes and libraries may maybe all you need"</td>
+<td>The text mentions that runtimes and libraries are essential for development, implying that they provide the necessary tools and frameworks for building applications. However, it also suggests that relying solely on them might not be sufficient, as it implies a lack of control over the underlying infrastructure.</td>
+</tr>
+<tr>
+<td>Standard Environment</td>
+<td>Cloud Service</td>
+<td>"the App Engine Standard Environment"</td>
+<td>The Standard Environment is a cloud service provided by Google Cloud Platform (GCP) that offers a sandboxed environment for developing and deploying applications. It provides a secure and isolated environment for code execution, but also imposes constraints such as limited access to the local file system and a 60-second timeout for requests.</td>
+</tr>
+<tr>
+<td>Sandbox</td>
+<td>Security Construct</td>
+<td>"runs in a Sandbox"</td>
+<td>A sandbox is a software and security construct that enforces independence of the hardware, operating system, file system, or physical location of the server it runs on. It also segregates and isolates code from other applications and the OS. The sandbox provides security benefits but also imposes constraints such as limited access to infrastructure and resources.</td>
+</tr>
+<tr>
+<td>Flexible Environment</td>
+<td>Cloud Service</td>
+<td>"App Engine Flexible Environment"</td>
+<td>The Flexible Environment is a cloud service provided by GCP that allows developers to run their applications inside Docker containers on Google Compute Engine Virtual Machines (VMs). It offers more flexibility and control over the underlying infrastructure compared to the Standard Environment, but also requires more expertise and resources.</td>
+</tr>
+<tr>
+<td>Docker Containers</td>
+<td>Software</td>
+<td>"App Engine flexible environment lets you run your application inside Docker containers"</td>
+<td>Docker containers are a software technology that allows developers to package their applications and dependencies into a single container that can be easily deployed and managed. In the context of App Engine Flexible Environment, Docker containers provide a flexible and isolated environment for code execution.</td>
+</tr>
+<tr>
+<td>Google Compute Engine Virtual Machines (VMs)</td>
+<td>Cloud Service</td>
+<td>"App Engine manages these Compute Engine virtual machines"</td>
+<td>Google Compute Engine VMs are cloud services provided by GCP that offer scalable and on-demand computing resources. In the context of App Engine Flexible Environment, VMs provide a flexible and isolated environment for code execution, but also require more expertise and resources compared to the Standard Environment.</td>
+</tr>
+<tr>
+<td>Cloud Datastore</td>
+<td>Database Service</td>
+<td>"Cloud Datastore is tightly coupled with App Engine standard edition"</td>
+<td>Cloud Datastore is a database service provided by GCP that offers a NoSQL data storage solution. In the context of App Engine Standard Environment, Cloud Datastore is tightly coupled and provides a persistent storage solution for applications that need to store data persistently.</td>
+</tr>
+<tr>
+<td>Task Queues</td>
+<td>Service</td>
+<td>"App Engine services such as data store, memcached, task queues"</td>
+<td>Task queues are a service provided by GCP that allows developers to manage asynchronous tasks and workflows. In the context of App Engine Flexible Environment, task queues provide a flexible and scalable solution for managing tasks and workflows.</td>
+</tr>
+<tr>
+<td>APIs</td>
+<td>Software</td>
+<td>"Your application can make calls to a variety of services using dedicated APIs"</td>
+<td>APIs (Application Programming Interfaces) are software technologies that allow developers to interact with other applications and services. In the context of App Engine Flexible Environment, APIs provide a flexible and scalable solution for integrating with other services and applications.</td>
+</tr>
+<tr>
+<td>GCP Projects</td>
+<td>Cloud Service</td>
+<td>"Each App Engine application runs in a GCP project"</td>
+<td>GCP projects are cloud services provided by GCP that offer a centralized management and organization solution for multiple resources and services. In the context of App Engine Standard Environment, GCP projects provide a secure and isolated environment for code execution and resource management.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

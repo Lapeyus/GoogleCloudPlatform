@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_210</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_210_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_210</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Scalability in Cloud Networks</h1>
+<h2>Stateless Applications</h2>
+<p>This situation is very flexible with regards to scale as it doesn't matter what physical  server processes a request  from ac which makes horizontal scaling a perfect solution for
+client,
+managing
+growth. Indeed, because a service instance can retrieve all the application state  it might require from elsewhere  enables resiliency, elasticity, and flexibility. This makes it feasible for any  available
+service instance to process any task;</p>
+<h2>Stateless Applications Deployment</h2>
+<p>In cloud networks stateless applications are most commonly deployed as containerized microservices apps. However, this is not without its own drawback as containerisation at scale leads to a need for orchestration. In GCP  there is the  Kubernetes Engine managed service that serves this function for managing and conducting stateless apps. Orchestration determines the best location to run the containers from the perspective of its resources,
+including maintaining high availability.</p>
+<h2>Stateful Applications</h2>
+<p>Stateful applications on the other hand mean stateful applications are typically transactional by nature so require somewhere to store state information. They will involve users logging into an account or the user's activity being tracked via a session cookie. Stateful applications are most commonly deployed in the cloud for ecommerce, CRM, ERP, on-line banking and other such applications that need to track and maintain transactional real-time data.</p>
+<h2>Challenges with Horizontal Scaling</h2>
+<p>With Stateful applications the service will process inbound requests based on the information relayed with each request and also key information stored from earlier requests - this means that the server must access and hold onto state information generated during the processing of the earlier request. This can cause an issue with horizontal scaling as the same server must  be used to process all subsequent requests linked to the  same state  information,  otherwise the state information must be  shared with all  servers  in the pool.</p>
+<h2>Solutions for Stateful Applications</h2>
+<p>The trick here is to either maintain session  affinity at the load  balancer so that it  always sends a returning  client to the  same server or to store all state  information in a shared  database that is accessible by all servers in the pool. Orchestration  for stateful applications is still required and it involves  determining the best location to run the containers  from the perspective  of the of the applications' overall needs. Orchestration  for stateful applications also manages high availability- moving containers and remounting volumes  with no
+application or code changes.</p>
+<h2>Centralized vs Decentralized State Management</h2>
+<p>In the latter scenario of using a shared backend database, then you can  certainly handle scale and you can handle distribution as well. But here  lies a problem; if you have a shared backend database your  data is centrally located. However, a central database can be a choke point  and a single point of failure , and latency in retrieving the  client state information can slow down  the
+application.</p>
+<h2>Importance of Data Integrity</h2>
+<p>But there is a bigger issue than that. This state information is your customer data; this could well be the data on active sessions that a client was going through on an e-commerce website. So, it had better not get lost or corrupted as it is now the single source of truth for all the transactional data in the billing system.</p>
+<h2>Alternative Solutions</h2>
+<p>Hence, we have to really contemplate and take into our design where we're going to be storing stateful information. There are several ways in which the load distribution facilities in the product can maintain state information between client requests, including:
+· Transaction affinity - in which the load distribution facility acknowledges a transaction's existence and tries to direct all requests within that transaction's scope to the same server;</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>This situation is very flexible with regards to scale as it doesn't matter what physical server processes a request from ac which makes horizontal scaling a perfect solution for client, managing growth. Indeed, because a service instance can retrieve all the application state it might require from elsewhere enables resiliency, elasticity, and flexibility. This makes it feasible for any available service instance to process any task.
+
+In cloud networks, stateless applications are most commonly deployed as containerized microservices apps. However, this is not without its own drawback as containerization at scale leads to a need for orchestration. In GCP, there is the Kubernetes Engine managed service that serves this function for managing and conducting stateless apps. Orchestration determines the best location to run the containers from the perspective of its resources, including maintaining high availability.
+
+Stateful applications on the other hand mean stateful applications are typically transactional by nature so require somewhere to store state information. They will involve users logging into an account or the user's activity being tracked via a session cookie. Stateful applications are most commonly deployed in the cloud for ecommerce, CRM, ERP, on-line banking and other such applications that need to track and maintain transactional real-time data.
+
+With Stateful applications, the service will process inbound requests based on the information relayed with each request and also key information stored from earlier requests - this means that the server must access and hold onto state information generated during the processing of the earlier request. This can cause an issue with horizontal scaling as the same server must be used to process all subsequent requests linked to the same state information, otherwise the state information must be shared with all servers in the pool.
+
+The trick here is to either maintain session affinity at the load balancer so that it always sends a returning client to the same server or to store all state information in a shared database that is accessible by all servers in the pool. Orchestration for stateful applications is still required and it involves determining the best location to run the containers from the perspective of the application's overall needs.
+
+Orchestration for stateful applications also manages high availability - moving containers and remounting volumes with no application or code changes. In the latter scenario of using a shared backend database, then you can certainly handle scale and you can handle distribution as well. However, this poses a problem: if you have a shared backend database, your data is centrally located.
+
+A central database can be a choke point and a single point of failure, and latency in retrieving the client state information can slow down the application. But there is a bigger issue than that - this state information is your customer data; it could well be the data on active sessions that a client was going through on an e-commerce website.
+
+So, it had better not get lost or corrupted as it is now the single source of truth for all the transactional data in the billing system. Hence, we have to really contemplate and take into our design where we're going to be storing stateful information. There are several ways in which the load distribution facilities in the product can maintain state information between client requests, including:
+
+Transaction affinity - in which the load distribution facility acknowledges a transaction's existence and tries to direct all requests within that transaction's scope to the same server;
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Stateless vs Stateful Applications in Cloud Networks</strong></p>
+<p>In cloud networks, applications are often deployed as containerized microservices. However, this approach has its drawbacks, particularly when it comes to scaling and managing stateful applications.</p>
+<p><strong>Stateless Applications</strong></p>
+<p>Stateless applications are ideal for horizontal scaling, as a service instance can retrieve all the application state it might require from elsewhere. This enables resiliency, elasticity, and flexibility, making it feasible for any available service instance to process any task. In GCP, the Kubernetes Engine managed service provides orchestration for managing and conducting stateless apps.</p>
+<p><strong>Stateful Applications</strong></p>
+<p>Stateful applications, on the other hand, are typically transactional by nature and require somewhere to store state information. They involve users logging into an account or tracking user activity via a session cookie. Stateful applications are commonly deployed in cloud networks for ecommerce, CRM, ERP, online banking, and other applications that need to track and maintain transactional real-time data.</p>
+<p><strong>Challenges with Horizontal Scaling</strong></p>
+<p>Stateful applications pose challenges when it comes to horizontal scaling. The same server must process all subsequent requests linked to the same state information, or else the state information must be shared with all servers in the pool. To address this issue, either session affinity can be maintained at the load balancer or a shared backend database can be used that is accessible by all servers.</p>
+<p><strong>Orchestration for Stateful Applications</strong></p>
+<p>Orchestration for stateful applications is still required and involves determining the best location to run containers from the perspective of the application's overall needs. Orchestration also manages high availability, moving containers, and remounting volumes with no application or code changes.</p>
+<p><strong>Shared Backend Database: A Double-Edged Sword</strong></p>
+<p>Using a shared backend database can handle scale and distribution but poses risks. The data is centrally located, which can be a choke point and single point of failure. Latency in retrieving client state information can slow down the application. Moreover, this state information is critical customer data that must be protected from loss or corruption.</p>
+<p><strong>Maintaining State Information</strong></p>
+<p>To address these challenges, load distribution facilities can use various methods to maintain state information between client requests, including:</p>
+<ul>
+<li>Transaction affinity: acknowledging a transaction's existence and directing all requests within that transaction's scope to the same server.</li>
+<li>Other methods may include using session cookies, storing state information in a database, or implementing custom logic to manage stateful applications.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Flexible scaling for stateless applications, enabling resiliency, elasticity, and flexibility.</p>
+<h3>Topic 2</h3>
+<p>Stateful applications require centralized storage of state information, which can lead to single points of failure and latency issues.</p>
+<h3>Topic 3</h3>
+<p>Containerization at scale requires orchestration, with Kubernetes Engine serving as a managed service in GCP for managing stateless apps.</p>
+<h3>Topic 4</h3>
+<p>Orchestration for stateful applications involves determining the best location to run containers based on application needs, including high availability and moving containers.</p>
+<h3>Topic 5</h3>
+<p>Shared backend databases can handle scale and distribution but pose risks of centralization, single points of failure, and latency issues.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>1. What is one advantage of using horizontal scaling for stateless applications?</h4>
+<p>Answer: Horizontal scaling allows any available service instance to process any task, enabling resiliency, elasticity, and flexibility.</p>
+<h4>2. In what type of cloud networks are stateful applications most commonly deployed?</h4>
+<p>Answer: Stateful applications are typically deployed in the cloud for ecommerce, CRM, ERP, on-line banking, and other such applications that need to track and maintain transactional real-time data.</p>
+<h4>3. What is one challenge with horizontal scaling for stateful applications?</h4>
+<p>Answer: The same server must be used to process all subsequent requests linked to the same state information, which can cause issues if not managed properly.</p>
+<h3>Analytical Questions</h3>
+<h4>1. How does containerization at scale lead to a need for orchestration in cloud networks?</h4>
+<p>Answer: Containerization at scale leads to a need for orchestration because it requires managing and conducting stateless apps efficiently, including maintaining high availability.</p>
+<h4>2. What is the main difference between stateful and stateless applications in terms of data storage?</h4>
+<p>Answer: Stateful applications require storing state information, whereas stateless applications do not require this due to their nature.</p>
+<h4>3. How does a shared backend database impact the scalability and distribution of an application?</h4>
+<p>Answer: A shared backend database can be a choke point and a single point of failure, leading to latency issues and potential data loss or corruption.</p>
+<h3>Application Questions</h3>
+<h4>1. What are some strategies for maintaining state information between client requests in cloud networks?</h4>
+<p>Answer: Strategies include transaction affinity, where the load distribution facility acknowledges a transaction's existence and directs all requests within that scope to the same server.</p>
+<h4>2. How can orchestration for stateful applications be used to manage high availability?</h4>
+<p>Answer: Orchestration for stateful applications involves determining the best location to run containers based on the application's overall needs, including moving containers and remounting volumes with no application or code changes.</p>
+<h4>3. What are some considerations when designing an application that requires storing sensitive customer data in a shared backend database?</h4>
+<p>Answer: Considerations include ensuring data security, implementing robust backup and recovery mechanisms, and regularly monitoring database performance to prevent latency issues.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>physical server</td>
+<td>Location</td>
+<td>"This situation is very flexible with regards to scale as it doesn't matter what physical server processes a request from ac"</td>
+<td>The entity refers to the hardware component that handles incoming requests, and its flexibility in scaling is highlighted.</td>
+</tr>
+<tr>
+<td>client</td>
+<td>User</td>
+<td>"client, managing growth"</td>
+<td>The entity represents the end-user of the system, and their growth is a key consideration for scalability.</td>
+</tr>
+<tr>
+<td>application state</td>
+<td>Data</td>
+<td>"Indeed, because a service instance can retrieve all the application state it might require from elsewhere enables resiliency, elasticity, and flexibility."</td>
+<td>The entity refers to the data required by the application to function correctly, which can be retrieved from other sources to ensure availability.</td>
+</tr>
+<tr>
+<td>scalability</td>
+<td>Concept</td>
+<td>"This situation is very flexible with regards to scale as it doesn't matter what physical server processes a request"</td>
+<td>The entity represents the ability of the system to handle increased load or growth without compromising performance.</td>
+</tr>
+<tr>
+<td>horizontal scaling</td>
+<td>Deployment strategy</td>
+<td>"horizontal scaling a perfect solution for client, managing growth"</td>
+<td>The entity refers to a deployment strategy that involves adding more servers to handle increased load, allowing for greater scalability and flexibility.</td>
+</tr>
+<tr>
+<td>containerized microservices apps</td>
+<td>Application architecture</td>
+<td>"In cloud networks stateless applications are most commonly deployed as containerized microservices apps"</td>
+<td>The entity represents a software architecture that involves breaking down the application into smaller, independent services that can be deployed in containers.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Managed service</td>
+<td>"In GCP there is the Kubernetes Engine managed service that serves this function for managing and conducting stateless apps"</td>
+<td>The entity refers to a managed service provided by Google Cloud Platform (GCP) that automates the deployment, scaling, and management of containerized applications.</td>
+</tr>
+<tr>
+<td>orchestration</td>
+<td>Process</td>
+<td>"Orchestration determines the best location to run the containers from the perspective of its resources, including maintaining high availability"</td>
+<td>The entity represents the process of automating the deployment and management of resources, such as servers or containers, to ensure efficient use of resources and high availability.</td>
+</tr>
+<tr>
+<td>stateful applications</td>
+<td>Application type</td>
+<td>"Stateful applications on the other hand mean stateful applications are typically transactional by nature so require somewhere to store state information"</td>
+<td>The entity represents a type of application that requires persistent data storage to maintain its state between requests, such as online banking or e-commerce systems.</td>
+</tr>
+<tr>
+<td>session cookie</td>
+<td>Data</td>
+<td>"Stateful applications will involve users logging into an account or the user's activity being tracked via a session cookie"</td>
+<td>The entity refers to a small piece of data stored on the client-side that allows the application to track the user's session and maintain their state between requests.</td>
+</tr>
+<tr>
+<td>load balancer</td>
+<td>Component</td>
+<td>"The trick here is to either maintain session affinity at the load balancer so that it always sends a returning client to the same server"</td>
+<td>The entity represents a component that distributes incoming traffic across multiple servers, ensuring that each request is handled by an available server.</td>
+</tr>
+<tr>
+<td>shared database</td>
+<td>Data storage</td>
+<td>"In the latter scenario of using a shared backend database, then you can certainly handle scale and you can handle distribution as well"</td>
+<td>The entity refers to a centralized data storage system that can be accessed by multiple applications or services, allowing for greater scalability and flexibility.</td>
+</tr>
+<tr>
+<td>central database</td>
+<td>Data storage</td>
+<td>"However, a central database can be a choke point and a single point of failure, and latency in retrieving the client state information can slow down the application"</td>
+<td>The entity represents a centralized data storage system that can become a bottleneck if not properly designed or managed, leading to performance issues.</td>
+</tr>
+<tr>
+<td>transactional by nature</td>
+<td>Application characteristic</td>
+<td>"Stateful applications are typically transactional by nature so require somewhere to store state information"</td>
+<td>The entity refers to an application's inherent need to maintain its state between requests, which requires persistent data storage to ensure consistency and accuracy.</td>
+</tr>
+<tr>
+<td>single point of failure</td>
+<td>Concept</td>
+<td>"However, a central database can be a choke point and a single point of failure"</td>
+<td>The entity represents a situation where a system or component becomes unavailable, causing the entire system to fail, due to its critical role in maintaining functionality.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

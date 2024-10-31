@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_97</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_97_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_97</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Zones</h1>
+<p>Zones can be thought of as Google's data centres, although that is not strictly true as some zones may well have several, but its close enough. A collection of zones reside in a region and they have an interesting feature whereby a subnet can be shared across zones making them ideal for continuous data protection and high availability.</p>
+<h2>Projects</h2>
+<p>Projects are the key method for organizing and holding all your infrastructure resources. A resource can be in only one project because a project associates objects and services with billing. Nonetheless, projects can contain up to five entire networks. Interestingly these networks do not have IP ranges assigned, but instead are simply a construct of all of the individual IP subnets, or services that are contained within that project.</p>
+<h3>GCP Networks</h3>
+<p>GCPs networks are global in their reach across all available regions around the world. What this means is that in GCP a single VPC network covers the entire planet. Hence, it is only the IP subnets that are attached to a specific region. But as the virtual machines communicate between subnets using private IPS (RFC1918 addresses) over Google's internal global network-therefore no extra routing is needed.</p>
+<h4>Creating a VPC Network</h4>
+<p>To make your servers communicate across continents on GCP, you need to:
+1. create a VPC network
+2. create a subnet in the US, put your US servers in it
+3. create a subnet in Europe, put your Europe servers in it
+4. create a subnet in Singapore, put your Singapore servers in it</p>
+<p>That's all there is to it. Your VPC network will naturally, due to the SDN architecture, span the three continents so it is already functional.</p>
+<h4>Global Reach</h4>
+<p>This global reach means that you have effectively one network that exists anywhere in the world, Asia, Europe, America and what is more, simultaneously.</p>
+<h2>Networks for Segregation</h2>
+<p>Alternatively networks can be used to provide segregation in a multi-tenant environment. This is due to the fact that even though there are VMs in the same region and zone they are logically separated from one another by being in different networks.</p>
+<h3>Subnets for Resource Isolation</h3>
+<p>As we have just seen inside of a network, you can also segregate your VM resources using sub-networks. Subnets can also be used to isolate systems inside the same GCP network.</p>
+<h4>Diagram Example</h4>
+<p>We can see how this is done by studying the accompanying diagram of a project that contains two networks.
+Figure -12
+Network 2
+Network 1
+Region: US-east 1
+Region:
+Asia-east 1
+Region: Asia-east-1
+VM-a
+VM-b
+Subnet-A 10.1.1.0/24
+US-east-1-a
+VM-d
+Subnet-B 10.2.2.0/24
+Subnet-C 10.3.3.0/24
+VM-C
+VM-e
+VM-f
+US-west-1-a
+Asia-east-1a
+Asia-east-1b
+Google SDN
+Edge Nodes</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Zones can be thought of as Google's data centres, although that is not strictly true as some zones may well have several, but its close enough. A collection of zones reside in a region and they have an interesting feature whereby a subnet can be shared across zones making them ideal for continuous data protection and high availability.
+
+Projects are the key method for organizing and holding all your infrastructure resources. A resource can be in only one project because a project associates objects and services with billing. Nonetheless, projects can contain up to five entire networks. Interestingly these networks do not have IP ranges assigned, but instead are simply a construct of all of the individual IP subnets, or services that are contained within that project.
+
+GCP's networks are global in their reach across all available regions around the world. What this means is that in GCP a single VPC network covers the entire planet. Hence, it is only the IP subnets that are attached to a specific region. But as the virtual machines communicate between subnets using private IPs (RFC1918 addresses) over Google's internal global network-therefore no extra routing is needed.
+
+So, for example, if you have servers in the USA, Singapore and Europe all you have to do to make your servers communicate across continents on GCP is to:
+1. create a VPC network
+2. create a subnet in the US, put your US servers in it
+3. create a subnet in Europe, put your Europe servers in it
+4. create a subnet in Singapore, put your Singapore servers in it
+
+That's all there is to it. Your VPC network will naturally, due to the SDN architecture, span the three continents so it is already functional.
+
+This global reach means that you have effectively one network that exists anywhere in the world, Asia, Europe, America and what is more, simultaneously.
+
+Alternatively networks can be used to provide segregation in a multi-tenant environment. This is due to the fact that even though there are VMs in the same region and zone they are logically separated from one another by being in different networks. As we have just seen inside of a network, you can also segregate your VM resources using sub-networks. Subnets can also be used to isolate systems inside the same GCP network.
+
+We can see how this is done by studying the accompanying diagram of a project that contains two networks.
+Figure -12
+Network 2
+Network 1
+Region: US-east 1
+Region: Asia-east 1
+Region: Asia-east-1
+VM-a
+VM-b
+Subnet-A 10.1.1.0/24
+US-east-1-a
+VM-d
+Subnet-B 10.2.2.0/24
+Subnet-C 10.3.3.0/24
+VM-C
+VM-e
+VM-f
+US-west-1-a
+Asia-east-1a
+Asia-east-1b
+Google SDN
+Edge Nodes
+
+In the diagram, we can see that each network contains some virtual machines. Now in Network 1 we can see that it has two subnets, A and B, but even though they are in different regions they can still communicate over their internal IP addresses across the Google SDN fibre infrastructure, which makes those two subnets and their VMs appear as though they are on the same layer-2 switch.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Zones, Projects, Networks, and Sub-networks in GCP</h3>
+<p>Zones can be thought of as Google's data centers, although this is not strictly true. Instead, zones reside in a region and share subnets, making them ideal for continuous data protection and high availability.</p>
+<p><strong>Projects</strong></p>
+<p>Projects are the key method for organizing and holding all infrastructure resources. A resource can only belong to one project due to billing associations. However, projects can contain up to five entire networks. These networks do not have IP ranges assigned but rather exist as constructs of individual IP subnets or services within a project.</p>
+<h3>Global Reach of GCP Networks</h3>
+<p>GCP's networks are global in their reach across all available regions worldwide. A single VPC network covers the entire planet, with only IP subnets attached to specific regions. Virtual machines communicate between subnets using private IPs (RFC1918 addresses) over Google's internal global network, eliminating the need for extra routing.</p>
+<h3>Creating a Global Network</h3>
+<p>To make servers in different continents communicate across GCP:</p>
+<ol>
+<li>Create a VPC network</li>
+<li>Create subnets in each continent (e.g., US, Europe, Singapore)</li>
+<li>Put servers in their respective subnets</li>
+</ol>
+<p>This setup allows your VPC network to span three continents and function naturally due to the SDN architecture.</p>
+<h3>Network Segregation</h3>
+<p>Networks can be used to provide segregation in a multi-tenant environment by logically separating VM resources using different networks. Sub-networks can also isolate systems within the same GCP network.</p>
+<p>The accompanying diagram illustrates this concept, showing two networks with subnets and virtual machines communicating across regions but appearing as if they are on the same layer-2 switch due to Google's SDN infrastructure.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Data Centres and Zones</strong>
+Zones are similar to data centres but may have multiple zones within them.</p>
+<h3>Topic 2</h3>
+<p><strong>Projects and Network Organisation</strong>
+Projects are used for organizing infrastructure resources, with each resource belonging to only one project due to billing associations. Projects can contain up to five entire networks without IP range assignments.</p>
+<h3>Topic 3</h3>
+<p><strong>Global Reach of GCP Networks</strong>
+GCP's VPC network spans across all available regions worldwide, covering the entire planet, and allows virtual machines to communicate between subnets using private IPs over Google's internal global network.</p>
+<h3>Topic 4</h3>
+<p><strong>Network Segregation in Multi-Tenant Environments</strong>
+Networks can be used for segregation in multi-tenant environments by logically separating VM resources from each other based on different networks. Sub-networks can also isolate systems within the same GCP network.</p>
+<h3>Topic 5</h3>
+<p><strong>Subnet Sharing Across Zones and Networks</strong>
+Subnets can be shared across zones, making them ideal for continuous data protection and high availability. This feature allows for efficient use of resources in a region.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary method for organizing and holding all your infrastructure resources in GCP?
+Answer: Projects.</p>
+</li>
+<li>
+<p>How many entire networks can a project contain, according to GCP's documentation?
+Answer: Up to five entire networks.</p>
+</li>
+<li>
+<p>What is unique about GCP's network architecture that allows it to span multiple continents?
+Answer: A single VPC network covers the entire planet, with IP subnets attached to specific regions.</p>
+</li>
+<li>
+<p>How do virtual machines communicate between subnets in GCP?
+Answer: Using private IPs (RFC1918 addresses) over Google's internal global network.</p>
+</li>
+<li>
+<p>What is the purpose of segregating VM resources using networks and sub-networks in a multi-tenant environment?
+Answer: To provide logical separation from one another.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of zones relate to GCP's data centers, and what are some limitations of this analogy?
+Answer: Zones can be thought of as Google's data centers, but some zones may have multiple data centers, making it an imperfect analogy.</p>
+</li>
+<li>
+<p>What is the significance of subnets being shared across zones in terms of continuous data protection and high availability?
+Answer: Subnets can be shared across zones, making them ideal for continuous data protection and high availability.</p>
+</li>
+<li>
+<p>How does GCP's network architecture enable global reach and connectivity between virtual machines across different regions?
+Answer: A single VPC network covers the entire planet, with IP subnets attached to specific regions, allowing virtual machines to communicate using private IPs over Google's internal global network.</p>
+</li>
+<li>
+<p>What is the role of Edge Nodes in GCP's SDN architecture?
+Answer: Edge Nodes are part of GCP's SDN architecture, but their exact function is not explicitly stated in the provided text.</p>
+</li>
+<li>
+<p>How do networks and sub-networks contribute to segregating VM resources within a multi-tenant environment?
+Answer: Networks can be used to provide segregation, while sub-networks can be used to isolate systems within the same GCP network.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a VPC network that spans three continents (USA, Singapore, and Europe) using GCP's documentation.
+Answer: Create a VPC network, create subnets in each continent, and attach virtual machines to their respective subnets.</p>
+</li>
+<li>
+<p>Implement segregation of VM resources within a multi-tenant environment using networks and sub-networks.
+Answer: Use networks to provide logical separation from one another, and use sub-networks to isolate systems within the same GCP network.</p>
+</li>
+<li>
+<p>Explain how GCP's SDN architecture enables global reach and connectivity between virtual machines across different regions.
+Answer: A single VPC network covers the entire planet, with IP subnets attached to specific regions, allowing virtual machines to communicate using private IPs over Google's internal global network.</p>
+</li>
+<li>
+<p>Describe the benefits of using shared subnets across zones in terms of continuous data protection and high availability.
+Answer: Shared subnets can provide continuous data protection and high availability by ensuring that critical systems are always accessible and up-to-date.</p>
+</li>
+<li>
+<p>Design a project that contains two networks (Network 1 and Network 2) with separate virtual machines, sub-networks, and Edge Nodes.
+Answer: Create two networks, each with its own set of virtual machines, sub-networks, and Edge Nodes, ensuring logical separation and connectivity between them.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zones</td>
+<td>Location</td>
+<td>"Zones can be thought of as Google's data centres, although that is not strictly true as some zones may well have several, but its close enough."</td>
+<td>A collection of zones reside in a region and share subnets for continuous data protection and high availability. The term "zone" is used to describe a group of physical or virtual machines that are located in the same geographic area.</td>
+</tr>
+<tr>
+<td>Projects</td>
+<td>Organization Unit</td>
+<td>"Projects are the key method for organizing and holding all your infrastructure resources."</td>
+<td>A project is a top-level organization unit that contains multiple networks, sub-networks, and other resources. It provides a way to manage and bill resources. Projects can contain up to five entire networks.</td>
+</tr>
+<tr>
+<td>Networks</td>
+<td>Organization Unit</td>
+<td>"GCPs networks are global in their reach across all available regions around the world."</td>
+<td>A network is an organization unit that represents a group of virtual machines (VMs) that communicate with each other. It provides a way to segment resources and provide segregation in multi-tenant environments.</td>
+</tr>
+<tr>
+<td>Sub-networks</td>
+<td>Organization Unit</td>
+<td>"Subnets can be used to isolate systems inside the same GCP network."</td>
+<td>A sub-network is an organization unit that represents a subset of VMs within a larger network. It provides a way to further segment resources and isolate systems.</td>
+</tr>
+<tr>
+<td>VPC Network</td>
+<td>Organization Unit</td>
+<td>"So, for example, if you have servers in the USA, Singapore and Europe all you have to do to make your servers communicate across continents on GCP is to: 1. create a VPC network"</td>
+<td>A Virtual Private Cloud (VPC) network is an organization unit that represents a global network of VMs that can communicate with each other. It provides a way to segment resources and provide segregation in multi-tenant environments.</td>
+</tr>
+<tr>
+<td>Subnet</td>
+<td>Organization Unit</td>
+<td>"Subnets can also be used to isolate systems inside the same GCP network."</td>
+<td>A subnet is an organization unit that represents a subset of VMs within a larger network. It provides a way to further segment resources and isolate systems.</td>
+</tr>
+<tr>
+<td>RFC1918 addresses</td>
+<td>IP Address Range</td>
+<td>"But as the virtual machines communicate between subnets using private IPS (RFC1918 addresses) over Google's internal global network-therefore no extra routing is needed."</td>
+<td>A private IP address range used for communication between VMs within a network or across networks. It provides a way to segment resources and provide segregation in multi-tenant environments.</td>
+</tr>
+<tr>
+<td>Edge Nodes</td>
+<td>Hardware Component</td>
+<td>"In the diagram, we can see that each network contains some virtual machines. Now in Network 1 we can see that it has two subnets, A and B, but even though they are in different regions they can still communicate over their internal IP addresses across the Google SDN fibre infrastructure, which, makes those two subnets and their VMs appear as though they are on the same layer-2 switch."</td>
+<td>Edge nodes are hardware components that provide connectivity between networks. They play a crucial role in providing segmentation and isolation in multi-tenant environments.</td>
+</tr>
+<tr>
+<td>Layer 2 Switch</td>
+<td>Network Device</td>
+<td>"which, makes those two subnets and their VMs appear as though they are on the same layer-2 switch"</td>
+<td>A layer 2 switch is a network device that connects multiple networks together at the data link layer (Layer 2). It provides a way to segment resources and provide segregation in multi-tenant environments.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_267</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_267_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_267</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Migrating Database Clusters</h1>
+<h2>Challenges in Database Migration</h2>
+<p>In this section we will look at a more challenging issue with database migration than moving clusters or high availability configurations to the cloud.</p>
+<h3>Migrating a PostgreSQL Cluster to the Cloud</h3>
+<p>To begin, you perform the following tasks:
+1. Set up PostgreSQL in GCP.
+2. Set up replication on Compute Engine.
+3. Then, you'll seed the data to a new instance before you start replicating the master.</p>
+<h4>Set up PostgreSQL in GCP</h4>
+<ol>
+<li>You configure PostgreSQL on an Ubuntu virtual machine instance on Compute Engine.</li>
+<li>Set up replication on Compute Engine</li>
+<li>Configure PostgreSQL to run in Hot Standby mode on Compute Engine by using two Compute Engine instances. One instance will run the primary PostgreSQL server and the other instance will run the standby server.</li>
+</ol>
+<h4>Seed the Data</h4>
+<p>Because the master database contains a capped transaction log, most PostgreSQL migrations require the data to be seeded to a new instance before you can start replicating the master. You can seed the data in one of the following ways:
+1. Dump a single database into a script or archive file using <code>Pg_dump</code>.
+2. Take a binary copy of a running database cluster using <code>Pg_basebackup</code>.
+3. Replicate the data folder to the replica using rsync.
+4. Restore a previous backup to the replica.</p>
+<p>After the initial seeding of the database, you can use the rsync command to feed changes to the replica that have occurred since the last backup; the b
+the command syncs
+the data directories between the</p>
+<h4>Setting up the PostgreSQL cluster on GCP</h4>
+<p>two Instances. This step is important if the backup has fallen too far behind 
+the master to catch up through normal replication. You can create 
+the PostgreSQL cluster using cascade 
+replication.</p>
+<ol>
+<li>Transfer the backup to the bucket you just created:</li>
+<li>Take a full data backup from the running master server</li>
+<li>Transfer 
+the 
+backup file to the GCP master:</li>
+<li>Restore 
+the backup file into the GCP master : </li>
+<li>Create 
+a recovery.conf file in the $PG_DATA 
+directory </li>
+<li>Start 
+the PostgreSQL service:</li>
+<li>Wait until the GCP master server syncs with the running
+master.</li>
+<li>Create a subordinate database</li>
+<li>Shut down the database and the server: </li>
+<li>In the GCP  Console, go to the Snapshots  page. </li>
+<li>From 
+the PostgreSQL disk, create a new snapshot . </li>
+<li>Start the GCP  master server.</li>
+<li>Go to the VM instances page, click master-instance-name,
+and then click Start.</li>
+<li>Start the new server and mount the disk:</li>
+<li>Configure data directory and replication values. Copy the PostgreSQL.conf file and the pg_hba.conf file 
+from the 
+GCP
+master, and edit the recovery.conf file</li>
+</ol></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Migrating Database Clusters
+
+In this section, we will look at a more challenging issue with database migration than moving clusters or high availability configurations to the cloud.
+
+Migrating a PostgreSQL Cluster to the Cloud
+To begin, you perform the following tasks:
+1. Set up PostgreSQL in GCP.
+2. Set up replication on Compute Engine.
+3. Then, you'll seed the data to a new instance before you start replicating the master.
+
+Set up PostgreSQL in GCP
+
+You configure PostgreSQL on an Ubuntu virtual machine instance on Compute Engine.
+Set up replication on Compute Engine
+Configure PostgreSQL to run in Hot Standby mode on Compute Engine by using two Compute Engine instances. One instance will run the primary PostgreSQL server and the other instance will run the standby server.
+
+Seed the data
+Because the master database contains a capped transaction log, most PostgreSQL migrations require the data to be seeded to a new instance before you can start replicating the master. You can seed the data in one of the following ways:
+1. Dump a single database into a script or archive file using Pg_dump.
+2. Take a binary copy of a running database cluster using Pg_basebackup.
+3. Replicate the data folder to the replica using rsync.
+4. Restore a previous backup to the replica.
+
+After the initial seeding of the database, you can use the rsync command to feed changes to the replica that have occurred since the last backup; this command syncs the data directories between the two instances.
+
+Setting up the PostgreSQL cluster on GCP
+This step is important if the backup has fallen too far behind the master to catch up through normal replication. You can create the PostgreSQL cluster using cascade replication.
+Transfer the backup to the bucket you just created:
+1. Take a full data backup from the running master server
+2. Transfer the backup file to the GCP master
+3. Restore the backup file into the GCP master
+4. Create a recovery.conf file in the $PG_DATA directory
+5. Start the PostgreSQL service
+6. Wait until the GCP master server syncs with the running master.
+7. Create a subordinate database
+8. Shut down the database and the server:
+9. In the GCP Console, go to the Snapshots page.
+10. From the PostgreSQL disk, create a new snapshot
+11. Start the GCP master server.
+12. Go to the VM instances page, click master-instance-name, and then click Start.
+13. Start the new server and mount the disk:
+14. Configure data directory and replication values. Copy the PostgreSQL.conf file and the pg_hba.conf file from the GCP master, and edit the recovery.conf file
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Migrating Database Clusters to the Cloud</h1>
+<p>Migrating a database cluster to the cloud is a more complex task than moving clusters or high availability configurations. This section will cover the steps involved in migrating a PostgreSQL cluster to Google Cloud Platform (GCP).</p>
+<h2>Setting up PostgreSQL in GCP</h2>
+<p>To begin, you need to:</p>
+<ol>
+<li>Configure PostgreSQL on an Ubuntu virtual machine instance on Compute Engine.</li>
+<li>Set up replication on Compute Engine using two instances: one for the primary server and another for the standby server.</li>
+<li>Configure PostgreSQL to run in Hot Standby mode on Compute Engine.</li>
+</ol>
+<h2>Seeding the Data</h2>
+<p>Because the master database contains a capped transaction log, most PostgreSQL migrations require seeding the data to a new instance before replicating the master. You can seed the data using one of the following methods:</p>
+<ol>
+<li>Dumping a single database into a script or archive file using <code>Pg_dump</code>.</li>
+<li>Taking a binary copy of a running database cluster using <code>Pg_basebackup</code>.</li>
+<li>Replicating the data folder to the replica using <code>rsync</code>.</li>
+<li>Restoring a previous backup to the replica.</li>
+</ol>
+<p>After initial seeding, you can use <code>rsync</code> to feed changes to the replica that have occurred since the last backup.</p>
+<h2>Setting up the PostgreSQL Cluster on GCP</h2>
+<p>This step is crucial if the backup has fallen too far behind the master to catch up through normal replication. You can create the PostgreSQL cluster using cascade replication and transfer the backup to a bucket you just created.</p>
+<p>The steps involved are:</p>
+<ol>
+<li>Take a full data backup from the running master server.</li>
+<li>Transfer the backup file to the GCP master.</li>
+<li>Restore the backup file into the GCP master.</li>
+<li>Create a recovery.conf file in the <code>$PG_DATA</code> directory.</li>
+<li>Start the PostgreSQL service.</li>
+<li>Wait until the GCP master server syncs with the running master.</li>
+<li>Create a subordinate database.</li>
+<li>Shut down the database and the server.</li>
+<li>In the GCP Console, go to the Snapshots page and create a new snapshot from the PostgreSQL disk.</li>
+<li>Start the GCP master server.</li>
+<li>Go to the VM instances page, click the instance name, and then click Start.</li>
+<li>Start the new server and mount the disk.</li>
+<li>Configure data directory and replication values.</li>
+<li>Copy the <code>PostgreSQL.conf</code> file and <code>pg_hba.conf</code> file from the GCP master and edit the recovery.conf file.</li>
+</ol>
+<p>By following these steps, you can successfully migrate your PostgreSQL cluster to the cloud.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Database Migration Best Practices</p>
+<h4>Description</h4>
+<p>This topic covers general best practices for database migration, including seeding data to a new instance before replicating the master.</p>
+<h3>Topic 2</h3>
+<p>PostgreSQL Cluster Setup on GCP</p>
+<h4>Description</h4>
+<p>This topic focuses on setting up a PostgreSQL cluster on Google Cloud Platform (GCP), including configuring replication and creating a recovery.conf file.</p>
+<h3>Topic 3</h3>
+<p>Data Seeding Methods for PostgreSQL Migration</p>
+<h4>Description</h4>
+<p>This topic discusses different methods for seeding data to a new instance during a PostgreSQL migration, including dumping a database, taking a binary copy of a running cluster, replicating the data folder, or restoring a previous backup.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary challenge in migrating a database cluster to the cloud?
+Answer: Migrating a database cluster to the cloud involves more complex issues than moving clusters or high availability configurations.</p>
+</li>
+<li>
+<p>How do you seed data for a PostgreSQL migration?
+Answer: Data can be seeded using Pg_dump, taking a binary copy of a running database cluster using Pg_basebackup, replicating the data folder to the replica using rsync, or restoring a previous backup to the replica.</p>
+</li>
+<li>
+<p>What is Hot Standby mode in PostgreSQL replication?
+Answer: Hot Standby mode allows one instance to run as the primary server and another instance to run as a standby server, which can be used for seeding data before replicating the master.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>Why is it necessary to create a recovery.conf file during the setup process of a PostgreSQL cluster on GCP?
+Answer: The recovery.conf file is necessary to configure the replication values and ensure that the new server syncs with the running master server.</p>
+</li>
+<li>
+<p>What happens when the backup has fallen too far behind the master, and how can this be addressed?
+Answer: When the backup falls too far behind the master, it's essential to create a subordinate database and start the GCP master server again to catch up through normal replication.</p>
+</li>
+<li>
+<p>How does rsync command feed changes to the replica since the last backup?
+Answer: The rsync command syncs the data directories between the primary and standby servers, feeding any changes that have occurred since the last backup.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to migrate a PostgreSQL database cluster from an on-premises environment to GCP. What steps would you take to set up the cluster?
+Answer: You would configure PostgreSQL on an Ubuntu virtual machine instance on Compute Engine, set up replication on Compute Engine, and seed the data using one of the methods mentioned earlier.</p>
+</li>
+<li>
+<p>If you're migrating a PostgreSQL database cluster from a cloud provider to another cloud provider, what considerations should you keep in mind?
+Answer: You should consider factors such as network latency, data transfer costs, and compatibility with the target cloud provider's services when planning the migration.</p>
+</li>
+<li>
+<p>How would you handle a situation where the backup file is corrupted or incomplete during the setup process of a PostgreSQL cluster on GCP?
+Answer: You would need to recreate the backup file from scratch or use a different method to seed the data, such as taking a binary copy of a running database cluster using Pg_basebackup.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Migrating Database Clusters</td>
+<td>Topic/Concept</td>
+<td>Introduction to the section discussing database migration challenges.</td>
+<td>The topic of migrating database clusters is introduced as a more challenging issue than moving clusters or high availability configurations to the cloud.</td>
+</tr>
+<tr>
+<td>To begin, you perform the following tasks:</td>
+<td>Instruction/Action</td>
+<td>Instructions for setting up PostgreSQL in GCP.</td>
+<td>This sentence serves as an introduction to the steps required for setting up PostgreSQL in GCP. The use of "To begin" indicates a starting point for the task.</td>
+</tr>
+<tr>
+<td>Set up PostgreSQL in GCP</td>
+<td>Instruction/Action</td>
+<td>Instructions for configuring PostgreSQL on an Ubuntu virtual machine instance on Compute Engine.</td>
+<td>This instruction provides specific details for setting up PostgreSQL, including the use of an Ubuntu virtual machine instance on Compute Engine.</td>
+</tr>
+<tr>
+<td>You configure PostgreSQL on an Ubuntu virtual machine instance on Compute Engine</td>
+<td>Sentence</td>
+<td>Detailed description of the setup process for PostgreSQL.</td>
+<td>The sentence provides a detailed explanation of the steps involved in configuring PostgreSQL on an Ubuntu virtual machine instance on Compute Engine.</td>
+</tr>
+<tr>
+<td>Set up replication on Compute Engine</td>
+<td>Instruction/Action</td>
+<td>Instructions for setting up replication on Compute Engine.</td>
+<td>This instruction provides specific details for setting up replication on Compute Engine, including the use of two Compute Engine instances.</td>
+</tr>
+<tr>
+<td>Configure PostgreSQL to run in Hot Standby mode on Compute Engine by using two Compute Engine instances</td>
+<td>Instruction/Action</td>
+<td>Detailed description of the setup process for replication.</td>
+<td>The sentence provides a detailed explanation of how to configure PostgreSQL to run in Hot Standby mode on Compute Engine, including the use of two Compute Engine instances.</td>
+</tr>
+<tr>
+<td>One instance will run the primary PostgreSQL server and the other instance will run the standby server</td>
+<td>Sentence</td>
+<td>Description of the replication configuration.</td>
+<td>This sentence describes the specific configuration for the replication setup, including the roles of each instance.</td>
+</tr>
+<tr>
+<td>Seed the data</td>
+<td>Instruction/Action</td>
+<td>Instructions for seeding the data to a new instance before replicating the master.</td>
+<td>This instruction provides specific details for seeding the data, including the use of different methods such as dumping, taking a binary copy, or restoring a backup.</td>
+</tr>
+<tr>
+<td>Because the master database contains a capped transaction log, most PostgreSQL migrations require the data to be seeded to a new instance before you can start replicating the master</td>
+<td>Sentence</td>
+<td>Explanation of the reason for seeding the data.</td>
+<td>This sentence provides an explanation for why seeding the data is necessary in PostgreSQL migrations.</td>
+</tr>
+<tr>
+<td>You can seed the data in one of the following ways:</td>
+<td>Instruction/Action</td>
+<td>Instructions for seeding the data.</td>
+<td>This instruction provides specific details for seeding the data, including different methods such as dumping, taking a binary copy, or restoring a backup.</td>
+</tr>
+<tr>
+<td>Dump a single database into a script or archive file using Pg_dump</td>
+<td>Method</td>
+<td>Description of one method for seeding the data.</td>
+<td>The sentence describes one method for seeding the data, specifically using Pg_dump to dump a single database.</td>
+</tr>
+<tr>
+<td>Take a binary copy of a running database cluster using Pg_basebackup</td>
+<td>Method</td>
+<td>Description of another method for seeding the data.</td>
+<td>The sentence describes another method for seeding the data, specifically using Pg_basebackup to take a binary copy of a running database cluster.</td>
+</tr>
+<tr>
+<td>Replicate the data folder to the replica using rsync</td>
+<td>Method</td>
+<td>Description of yet another method for seeding the data.</td>
+<td>The sentence describes yet another method for seeding the data, specifically using rsync to replicate the data folder to the replica.</td>
+</tr>
+<tr>
+<td>Take a full data backup from the running master server</td>
+<td>Action</td>
+<td>Detailed description of the backup process.</td>
+<td>This action provides specific details for taking a full data backup from the running master server.</td>
+</tr>
+<tr>
+<td>Transfer the backup file to the GCP master</td>
+<td>Action</td>
+<td>Description of transferring the backup file.</td>
+<td>The sentence describes the action of transferring the backup file to the GCP master.</td>
+</tr>
+<tr>
+<td>Restore the backup file into the GCP master</td>
+<td>Action</td>
+<td>Description of restoring the backup file.</td>
+<td>The sentence describes the action of restoring the backup file into the GCP master.</td>
+</tr>
+<tr>
+<td>Create a recovery.conf file in the $PG_DATA directory</td>
+<td>Action</td>
+<td>Description of creating a recovery configuration file.</td>
+<td>This action provides specific details for creating a recovery configuration file in the $PG_DATA directory.</td>
+</tr>
+<tr>
+<td>Start the PostgreSQL service</td>
+<td>Action</td>
+<td>Description of starting the PostgreSQL service.</td>
+<td>The sentence describes the action of starting the PostgreSQL service.</td>
+</tr>
+<tr>
+<td>Wait until the GCP master server syncs with the running master</td>
+<td>Action</td>
+<td>Description of waiting for synchronization.</td>
+<td>This action provides specific details for waiting for synchronization between the GCP master server and the running master.</td>
+</tr>
+<tr>
+<td>Create a subordinate database</td>
+<td>Instruction/Action</td>
+<td>Instructions for creating a subordinate database.</td>
+<td>This instruction provides specific details for creating a subordinate database.</td>
+</tr>
+<tr>
+<td>Shut down the database and the server</td>
+<td>Action</td>
+<td>Description of shutting down the database and server.</td>
+<td>The sentence describes the action of shutting down the database and server.</td>
+</tr>
+<tr>
+<td>In the GCP Console, go to the Snapshots page</td>
+<td>Action</td>
+<td>Description of accessing the snapshots page in the GCP Console.</td>
+<td>This action provides specific details for accessing the snapshots page in the GCP Console.</td>
+</tr>
+<tr>
+<td>From the PostgreSQL disk, create a new snapshot</td>
+<td>Action</td>
+<td>Description of creating a new snapshot from the PostgreSQL disk.</td>
+<td>The sentence describes the action of creating a new snapshot from the PostgreSQL disk.</td>
+</tr>
+<tr>
+<td>Start the GCP master server</td>
+<td>Action</td>
+<td>Description of starting the GCP master server.</td>
+<td>This action provides specific details for starting the GCP master server.</td>
+</tr>
+<tr>
+<td>Go to the VM instances page, click master-instance-name, and then click Start</td>
+<td>Action</td>
+<td>Description of starting the instance.</td>
+<td>The sentence describes the action of starting the instance by clicking on it in the VM instances page.</td>
+</tr>
+<tr>
+<td>Start the new server and mount the disk</td>
+<td>Action</td>
+<td>Description of starting the new server and mounting the disk.</td>
+<td>This action provides specific details for starting the new server and mounting the disk.</td>
+</tr>
+<tr>
+<td>Configure data directory and replication values</td>
+<td>Instruction/Action</td>
+<td>Instructions for configuring data directory and replication values.</td>
+<td>This instruction provides specific details for configuring data directory and replication values.</td>
+</tr>
+<tr>
+<td>Copy the PostgreSQL.conf file and the pg_hba.conf file from the GCP master, and edit the recovery.conf file</td>
+<td>Action</td>
+<td>Description of editing configuration files.</td>
+<td>The sentence describes the action of copying and editing configuration files.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

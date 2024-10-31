@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_288</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_288_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_288</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Istio Integration with Stackdriver</h1>
+<h2>Features</h2>
+<h3>Monitoring</h3>
+<ul>
+<li><a href="https://cloud.google.com/monitoring">Stackdriver Monitoring API</a></li>
+<li>Metrics Explorer: view metrics related to services</li>
+<li>Custom dashboards and alerts for monitoring services over time</li>
+</ul>
+<h3>Logging</h3>
+<ul>
+<li><a href="https://cloud.google.com/logging">Stackdriver Logging API</a></li>
+<li>Logs viewer: view logs in Stackdriver</li>
+<li>Export logs to BigQuery (may incur additional costs)</li>
+</ul>
+<h3>Tracing</h3>
+<ul>
+<li><a href="https://cloud.google.com/trace">Stackdriver Trace API</a></li>
+<li>Distributed tracing for performance bottlenecks</li>
+<li>Instrument tracing headers in workloads</li>
+</ul>
+<h2>Installation and Configuration</h2>
+<p>The Istio installation also lets you add the Istio sidecar proxy (Envoy) to your service workloads, allowing them to communicate with the control plane and join the Istio mesh. However, for clusters with Stackdriver enabled, the Istio Stackdriver adapter is installed along with the core components described above.</p>
+<h2>Benefits</h2>
+<ul>
+<li>Tight coupling between Istio and Stackdriver ensures data is sent from service mesh to Stackdriver console by default</li>
+<li>Enable a particular Stackdriver feature for your project and cluster to get required observability into services' behaviour</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The installation also lets you add the Istio sidecar proxy (Envoy) to your service workloads, allowing them to communicate with the control plane and join the Istio mesh. However, for clusters with Stackdriver enabled, the Istio Stackdriver adapter is installed along with the core components described above. The Istio adapter then sends metrics, logging, telemetry and trace data from the Istio service mesh into Stackdriver.
+
+This integration provides the required observability into your services' behaviour, which is visible in the Stackdriver console. Thus you only need to enable a particular Stackdriver feature for your project and cluster, and the tight coupling between Istio and Stackdriver will ensure that the data is sent from your service mesh to the Stackdriver console by default.
+
+Monitoring
+If the Stackdriver Monitoring API is enabled in your GCP project, your Istio mesh will automatically send metrics related to your services (such as the number of bytes received by a particular service) to Stackdriver, where they will appear in the Metrics Explorer. You can use these metrics to create custom dashboards and alerts, letting you monitor your services over time and receive alerts when, for example, a service is nearing a specified number of requests.
+
+You can also combine these metrics using filters and aggregations with Stackdriver's built-in metrics to get new insights into your service behaviour. 590
+
+Logging
+If the Stackdriver Logging API is enabled in your GCP project, your Istio mesh will automatically send logs to Stackdriver, where they will appear in the logs viewer. See the Stackdriver Logging documentation to find out more about what you can do with the log data, such as exporting logs to BigQuery.
+
+Caution: This feature may incur additional costs for usage, especially with a high volume of logs data. To find out how to disable this feature for your mesh, see Disabling Stackdriver Logging and Tracing.
+
+Tracing
+If the Stackdriver Trace API is enabled in your GCP project, your Istio mesh will automatically send trace data to Stackdriver, where they will appear in the trace viewer. Note that to get the most from distributed tracing to help find performance bottlenecks, you will need to change your workloads to instrument tracing headers.
+
+You can find out how to do this in the Istio Distributed Tracing guide. Caution: This feature may incur additional costs for usage, especially with a high volume of trace data. To find out how to disable this feature for your mesh, see Disabling Stackdriver Logging and Tracing.
+
+Incident Response
+Planning Incident response brings together all the knowledge that you've learned so far. That's the entire pyramid from monitoring to incident response, which is where we maintain our users' trust.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Istio and Stackdriver Integration</h3>
+<p>The installation of Istio allows for the addition of the Istio sidecar proxy (Envoy) to service workloads, enabling them to communicate with the control plane and join the Istio mesh. However, for clusters with Stackdriver enabled, the Istio Stackdriver adapter is installed along with the core components.</p>
+<h3>Key Features</h3>
+<ul>
+<li><strong>Metrics</strong>: If the Stackdriver Monitoring API is enabled in your GCP project, your Istio mesh will automatically send metrics related to your services to Stackdriver.</li>
+<li><strong>Logging</strong>: If the Stackdriver Logging API is enabled in your GCP project, your Istio mesh will automatically send logs to Stackdriver.</li>
+<li><strong>Tracing</strong>: If the Stackdriver Trace API is enabled in your GCP project, your Istio mesh will automatically send trace data to Stackdriver.</li>
+</ul>
+<h3>Benefits</h3>
+<p>The integration of Istio and Stackdriver provides required observability into your services' behavior, which is visible in the Stackdriver console. This allows you to:</p>
+<ul>
+<li>Create custom dashboards and alerts for monitoring services over time.</li>
+<li>Combine metrics using filters and aggregations with Stackdriver's built-in metrics.</li>
+<li>Export logs to BigQuery.</li>
+</ul>
+<h3>Important Considerations</h3>
+<ul>
+<li>The integration may incur additional costs for usage, especially with high volumes of log data or trace data.</li>
+<li>To get the most from distributed tracing, you will need to change your workloads to instrument tracing headers.</li>
+</ul>
+<h3>Incident Response</h3>
+<p>Planning incident response brings together all the knowledge that you've learned so far. This includes monitoring, logging, and tracing capabilities, which are essential for maintaining users' trust.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Istio Integration with Stackdriver</h3>
+<p>Istio integration with Stackdriver provides observability into services' behavior, sending metrics, logging, telemetry, and trace data into Stackdriver by default.</p>
+<h3>Topic 2: Monitoring</h3>
+<p>Monitoring involves enabling the Stackdriver Monitoring API to send metrics related to services to Stackdriver, allowing for custom dashboards and alerts.</p>
+<h3>Topic 3: Logging</h3>
+<p>Logging involves enabling the Stackdriver Logging API to send logs to Stackdriver, with options for exporting logs to BigQuery, but potentially incurring additional costs.</p>
+<h3>Topic 4: Tracing</h3>
+<p>Tracing involves enabling the Stackdriver Trace API to send trace data to Stackdriver, requiring instrumentation of tracing headers to get the most out of distributed tracing and potentially incurring additional costs.</p>
+<h3>Topic 5: Incident Response</h3>
+<p>Incident response is about maintaining users' trust by combining knowledge from monitoring, logging, telemetry, and tracing.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of adding the Istio sidecar proxy (Envoy) to service workloads in an Istio mesh?
+Answer: To allow services to communicate with the control plane and join the Istio mesh.</p>
+</li>
+<li>
+<p>How does the Istio Stackdriver adapter integrate with Stackdriver for clusters with enabled Stackdriver?
+Answer: It sends metrics, logging, telemetry, and trace data from the Istio service mesh into Stackdriver by default.</p>
+</li>
+<li>
+<p>What happens when the Stackdriver Monitoring API is enabled in a GCP project?
+Answer: The Istio mesh automatically sends metrics related to services to Stackdriver, where they appear in the Metrics Explorer.</p>
+</li>
+<li>
+<p>What can be done with log data sent to Stackdriver using the Logging API?
+Answer: Log data can be exported to BigQuery and analyzed using filters and aggregations.</p>
+</li>
+<li>
+<p>How does distributed tracing help find performance bottlenecks in an Istio mesh?
+Answer: By instrumenting tracing headers, which requires changing workloads according to the Istio Distributed Tracing guide.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>What are the benefits of integrating Istio with Stackdriver for clusters with enabled Stackdriver?
+Answer: The integration provides required observability into services' behavior, visible in the Stackdriver console, and enables monitoring, logging, and tracing features.</li>
+<li>
+<p>How does the tight coupling between Istio and Stackdriver affect data sent to the Stackdriver console?
+Answer: It ensures that data is sent from the service mesh to the Stackdriver console by default, without requiring additional configuration.</p>
+</li>
+<li>
+<p>What are some potential costs associated with using the Logging API in an Istio mesh?
+Answer: High volumes of log data may incur additional costs for usage.</p>
+</li>
+<li>How can distributed tracing be used to improve performance monitoring in an Istio mesh?
+Answer: By instrumenting tracing headers and analyzing trace data, which helps identify performance bottlenecks.</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>If you want to monitor the number of bytes received by a particular service in your GCP project, what API should be enabled?
+Answer: The Stackdriver Monitoring API.</li>
+<li>How can log data from an Istio mesh be used to create custom dashboards and alerts?
+Answer: By using filters and aggregations with Stackdriver's built-in metrics.</li>
+<li>
+<p>What is the recommended approach for instrumenting tracing headers in an Istio mesh?
+Answer: Follow the instructions in the Istio Distributed Tracing guide.</p>
+</li>
+<li>
+<p>How can you disable the feature of sending logs to Stackdriver for a particular mesh?
+Answer: Refer to the Disabling Stackdriver Logging documentation.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Istio sidecar proxy (Envoy)</td>
+<td>Tool/Technology</td>
+<td>The installation also lets you add the Istio sidecar proxy (Envoy) to your service workloads, allowing them to communicate with the control plane and join the Istio mesh.</td>
+<td>The Istio sidecar proxy is a component of the Istio service mesh that allows services to communicate with each other and with the control plane. It enables the integration of Istio with other tools and technologies.</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Cloud Platform/Service</td>
+<td>However, for clusters with Stackdriver enabled, the Istio Stackdriver adapter is installed along with the core components described above. The Istio adapter then sends metrics, logging, telemetry and trace data from the Istio service mesh into Stackdriver. This integration provides the required observability into your services' behaviour, which is visible in the Stackdriver console.</td>
+<td>Stackdriver is a cloud platform service provided by Google Cloud Platform that offers monitoring, logging, and tracing capabilities. It integrates with Istio to provide observability into services' behavior.</td>
+</tr>
+<tr>
+<td>Monitoring API</td>
+<td>API/Feature</td>
+<td>If the Stackdriver Monitoring API is enabled in your GCP project, your Istio mesh will automatically send metrics related to your services (such as the number of bytes received by a particular service) to Stackdriver, where they will appear in the Metrics Explorer.</td>
+<td>The Monitoring API is a feature of the Stackdriver platform that allows users to monitor and track metrics from their applications. It integrates with Istio to provide real-time monitoring capabilities for services.</td>
+</tr>
+<tr>
+<td>Logging API</td>
+<td>API/Feature</td>
+<td>If the Stackdriver Logging API is enabled in your GCP project, your Istio mesh will automatically send logs to Stackdriver, where they will appear in the logs viewer. See the Stackdriver Logging documentation to find out more about what you can do with the log data, such as exporting logs to BigQuery.</td>
+<td>The Logging API is a feature of the Stackdriver platform that allows users to collect and manage log data from their applications. It integrates with Istio to provide logging capabilities for services.</td>
+</tr>
+<tr>
+<td>Trace API</td>
+<td>API/Feature</td>
+<td>If the Stackdriver Trace API is enabled in your GCP project, your Istio mesh will automatically send trace data to Stackdriver, where they will appear in the trace viewer. Note that to get the most from distributed tracing to help find performance bottlenecks, you will need to change your workloads to instrument tracing headers. You can find out how to do this in the Istio Distributed Tracing guide.</td>
+<td>The Trace API is a feature of the Stackdriver platform that allows users to collect and analyze trace data from their applications. It integrates with Istio to provide distributed tracing capabilities for services.</td>
+</tr>
+<tr>
+<td>GCP project</td>
+<td>Project/Environment</td>
+<td>If the Stackdriver Monitoring API is enabled in your GCP project, your Istio mesh will automatically send metrics related to your services (such as the number of bytes received by a particular service) to Stackdriver, where they will appear in the Metrics Explorer.</td>
+<td>A GCP project is a container for resources and applications within Google Cloud Platform. It integrates with Istio to provide monitoring, logging, and tracing capabilities for services.</td>
+</tr>
+<tr>
+<td>BigQuery</td>
+<td>Data Storage/Analytics</td>
+<td>See the Stackdriver Logging documentation to find out more about what you can do with the log data, such as exporting logs to BigQuery.</td>
+<td>BigQuery is a cloud-based analytics platform that allows users to store, analyze, and visualize large datasets. It integrates with Istio's logging capabilities to provide advanced analytics for services.</td>
+</tr>
+<tr>
+<td>Distributed Tracing guide</td>
+<td>Documentation/Resource</td>
+<td>You can find out how to do this in the Istio Distributed Tracing guide.</td>
+<td>The Distributed Tracing guide is a resource provided by Istio that offers guidance on implementing distributed tracing capabilities for services. It integrates with Stackdriver's Trace API to provide advanced analytics and troubleshooting capabilities.</td>
+</tr>
+<tr>
+<td>Control plane</td>
+<td>Component/Architecture</td>
+<td>The Istio sidecar proxy allows services to communicate with each other and with the control plane.</td>
+<td>The control plane is a component of the Istio architecture that manages the service mesh, including policies, traffic management, and security. It integrates with Istio's sidecar proxy to provide a unified platform for managing services.</td>
+</tr>
+<tr>
+<td>Policies</td>
+<td>Component/Architecture</td>
+<td>The Istio sidecar proxy allows services to communicate with each other and with the control plane.</td>
+<td>Policies are a component of the Istio architecture that manage access to services, including authentication, authorization, and rate limiting. They integrate with Istio's sidecar proxy to provide a secure platform for managing services.</td>
+</tr>
+<tr>
+<td>Traffic management</td>
+<td>Component/Architecture</td>
+<td>The Istio sidecar proxy allows services to communicate with each other and with the control plane.</td>
+<td>Traffic management is a component of the Istio architecture that manages traffic flow between services, including routing, load balancing, and circuit breaking. It integrates with Istio's sidecar proxy to provide a unified platform for managing services.</td>
+</tr>
+<tr>
+<td>Security</td>
+<td>Component/Architecture</td>
+<td>The Istio sidecar proxy allows services to communicate with each other and with the control plane.</td>
+<td>Security is a component of the Istio architecture that manages access to services, including authentication, authorization, and encryption. It integrates with Istio's sidecar proxy to provide a secure platform for managing services.</td>
+</tr>
+<tr>
+<td>Incident response</td>
+<td>Process/Strategy</td>
+<td>Planning Incident response brings together all the knowledge that you've learned so far. That's the entire pyramid from monitoring to incident response, which is where we maintain our users' trust.</td>
+<td>Incident response is a process or strategy for responding to incidents or errors in a timely and effective manner. It integrates with Istio's monitoring, logging, and tracing capabilities to provide a unified platform for managing services and ensuring user trust.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

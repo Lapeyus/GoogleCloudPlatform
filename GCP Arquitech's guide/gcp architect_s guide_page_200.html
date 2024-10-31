@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_200</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_200_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_200</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Container Clusters</h1>
+<h2>Benefits of Running Google Kubernetes Engine</h2>
+<h3>Built-in Resilience</h3>
+<p>Deployments provide built-in resilience. For example, if a physical node fails with running pods, all pods become unavailable. However, the deployment has rules stating it must have a minimum of two pods running at all times.</p>
+<p>So, if there is only one physical node left running, the deployment controller must move the containers from the unhealthy node-if it can - or spin up new ones onto the remaining node.</p>
+<h3>Rolling Updates</h3>
+<p>Another built-in administrative feature is rolling updates, which allows you to safely and with zero downtime upgrade systems to a new version. In this scenario, we can consider that a version 1.0 of the application is running on three separate nodes in a deployment.</p>
+<p>Moreover, the deployment rules determine that at all times there must be three running pods available to service the application. What we can do here is launch a fourth pod onto node three with the new version of the application, 2.0.</p>
+<p>Once the pod is operational, the service picks up the pod based on the label and now we have four pods, but we only need three. So, deployment manager will shut down the older pod with version 1.0 on node three.</p>
+<p>This process is continued until all three nodes have a pod with the updated version 2.0 of the application.</p>
+<h3>Built-in IAM Support</h3>
+<p>Another benefit of running Google Kubernetes Engine is the built-in IAM support for controlling access to the containerized environment. Using IAM service, you can set the Kubernetes engine's command and control to the same level of security that you give to an administrator.</p>
+<h3>Multi-Zone Container Clusters</h3>
+<p>Deployment Manager with IAM gives you central axis control when it comes to managing the rest of the platform objects. You can design container clusters so that they are spread across multiple zones for resiliency.</p>
+<p>Resources are replicated in the additional zones, and work is done when you enable multi-zone container clusters. If one zone fails, the others can pick up the slack.</p>
+<p>For example, we would want to ensure a design so that any single zone is capable of running the entire application. In the design, node pools are instance groups in the Kubernetes cluster and very similar to a managed instance group.</p>
+<p>All of the VMs in a pool are going to be exactly the same. However, Pools can contain different virtual machines in other designs. Pools can also be located in different zones, and Google Kubernetes Engine is node pool-aware via labels.</p>
+<p>So, based on the pool specific labels that you designated, Kubernetes engine can manage those accordingly. Consequently, the Kubernetes Engine will replicate all node pools and multi-zone container clusters.</p>
+<h3>Multi-Region Considerations</h3>
+<p>When running across multi-regions, it is always advisable to check any quotas or limits associated with those specific regions.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>A Container Cluster in Google Kubernetes Engine
+-------------------------------------------------
+
+A container cluster consists of actual virtual machines, compute instances that you can go into your console and see. Deployments provide you with built-in resilience.
+
+For example, if you have a physical node failure that has running pods, all of these pods will become unavailable. However, the deployment will have specific rules stating it must have a minimum of two pods running at all times. So, if there is only one physical node left running, then deployment controller must move the containers from the unhealthy node-if it can - or spin up new ones onto the remaining node.
+
+For instance, in a deployment of nodes A and B, should physical node B fail, the deployment will automatically redeploy pods from node B to node A. Another built-in administrative feature is rolling updates, which allows you to safely and with zero downtime upgrade systems to a new version.
+
+In this scenario, we can consider that a version 1.0 of the application is running on three separate nodes in a deployment. Moreover, the deployment rules determine that at all times there must be three running pods available to service the application. What we can do here is launch a fourth pod onto node three with the new version of the application, 2.0.
+
+Once the pod is operational, the service picks up the pod based on the label and now we have four pods, but we only need three. So, deployment manager will shut down the older pod with version 1.0 on node three. This process is continued until all three nodes have a pod with the updated version 2.0 of the application.
+
+Benefits of Running Google Kubernetes Engine
+---------------------------------------------
+
+Another benefit of running Google Kubernetes Engine is the built-in IAM support for controlling access to the containerized environment. Using IAM service, you can set the Kubernetes engine's command and control to the same level of security that you give to an administrator.
+
+Deployment Manager with IAM gives you central axis control when it comes to managing the rest of the platform objects. You can design container clusters so that they are spread across multiple zones for resiliency. Resources are replicated in the additional zones, and work is scheduled across all of them. If one zone fails, the others can pick up the slack.
+
+For example, we would want to ensure a design so that any single zone is capable of running the entire application. In the design, node pools are instance groups in the Kubernetes cluster and very similar to a managed instance group. All of the VMs in a pool are going to be exactly the same. However, Pools can contain different virtual machines in other designs.
+
+Pools can also be located in different zones, and Google Kubernetes Engine is node pool-aware via labels. So, based on the pool specific labels that you designated, Kubernetes engine can manage those accordingly. Consequently, the Kubernetes Engine will replicate all node pools and multi-zone container clusters.
+
+When running across multi-regions, it is always advisable to check any quotas or limits associated with those specific regions.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Container Clusters in Google Kubernetes Engine</h3>
+<p>A container cluster in Google Kubernetes Engine (GKE) consists of actual virtual machines, compute instances that can be accessed through the console. Deployments provide built-in resilience by ensuring a minimum number of pods are running at all times.</p>
+<p>For example, if a physical node fails with running pods, the deployment will automatically redeploy containers from the unhealthy node or spin up new ones onto the remaining node. This ensures that the application remains available even in case of node failures.</p>
+<h3>Rolling Updates</h3>
+<p>Rolling updates allow for safe and zero-downtime upgrades to new versions of systems. In a scenario where version 1.0 of an application is running on three separate nodes, launching a fourth pod with the new version (2.0) and allowing it to become operational will trigger the service to pick up the new pod based on its label.</p>
+<p>The deployment manager will then shut down the older pod with version 1.0 on node three until all three nodes have a pod with the updated version 2.0 of the application.</p>
+<h3>Built-in IAM Support</h3>
+<p>GKE provides built-in IAM support for controlling access to the containerized environment, allowing users to set the Kubernetes engine's command and control to the same level of security as an administrator.</p>
+<p>Deployment Manager with IAM gives central axis control over managing platform objects, enabling users to design container clusters spread across multiple zones for resiliency. Resources are replicated in additional zones, and work is scheduled across all zones. If one zone fails, the others can pick up the slack.</p>
+<h3>Multi-Zone Container Clusters</h3>
+<p>Enabling multi-zone container clusters ensures that any single zone is capable of running the entire application. Node pools are instance groups in the Kubernetes cluster, similar to managed instance groups, but can contain different virtual machines and be located in different zones.</p>
+<p>GKE is node pool-aware via labels, allowing it to manage node pools accordingly. The engine will replicate all node pools and multi-zone container clusters based on designated pool-specific labels.</p>
+<h3>Quotas and Limits</h3>
+<p>When running across multiple regions, it's essential to check any quotas or limits associated with those specific regions.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Container Cluster Design</strong>
+The text discusses the importance of designing a container cluster that can handle failures and provide resilience. It highlights the use of deployment and rolling updates to ensure that applications can be scaled up or down without downtime.</p>
+<h3>Topic 2</h3>
+<p><strong>Deployment and Resilience</strong>
+Deployments are used to manage the availability of pods in a cluster, ensuring that there is always a minimum number of running pods at any given time. This ensures that if one node fails, the deployment controller can move containers to other nodes to maintain availability.</p>
+<h3>Topic 3</h3>
+<p><strong>Rolling Updates and Zero Downtime</strong>
+Rolling updates allow for the safe and efficient upgrade of systems to new versions without downtime. The text provides an example of how this works in a deployment scenario, where new pods are launched with the updated version of the application, and older pods are shut down once they are no longer needed.</p>
+<h3>Topic 4</h3>
+<p><strong>IAM Support and Security</strong>
+The text highlights the importance of IAM (Identity and Access Management) support for controlling access to containerized environments. This ensures that security is maintained at the same level as administrative access.</p>
+<h3>Topic 5</h3>
+<p><strong>Multi-Zone Container Clusters</strong>
+Enabling multi-zone container clusters provides an additional layer of resiliency, ensuring that if one zone fails, other zones can pick up the slack. The text discusses how node pools and labels are used to manage these clusters and ensure that resources are replicated across multiple zones.</p>
+<h3>Topic 6</h3>
+<p><strong>Node Pool Management</strong>
+Node pools are instance groups in a Kubernetes cluster that contain identical virtual machines. They can be located in different zones and managed using pool-specific labels, ensuring that resources are replicated and available across multiple zones.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is a deployment in the context of Google Kubernetes Engine?
+Answer: A deployment provides built-in resilience by ensuring that a minimum number of pods are running at all times.</p>
+</li>
+<li>
+<p>How does deployment manager handle pod failures in a deployment?
+Answer: Deployment manager automatically redeployes containers from an unhealthy node to another node or spins up new ones if possible.</p>
+</li>
+<li>
+<p>What is the purpose of rolling updates in Google Kubernetes Engine?
+Answer: Rolling updates allow for safe and zero-downtime upgrades of systems to a new version.</p>
+</li>
+<li>
+<p>How does deployment manager handle multiple pods with different versions of an application?
+Answer: Deployment manager shuts down older pods and replaces them with newer ones until all nodes have a pod with the updated version.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the benefits of using Google Kubernetes Engine's built-in IAM support for controlling access to containerized environments?
+Answer: It provides central axis control over managing platform objects, ensuring security at an administrator level.</p>
+</li>
+<li>
+<p>How do deployment manager and multi-zone container clusters provide resiliency in Google Kubernetes Engine?
+Answer: By replicating resources across multiple zones and scheduling containers across all zones, the cluster can continue to operate even if one zone fails.</p>
+</li>
+<li>
+<p>What is the purpose of node pools in Google Kubernetes Engine?
+Answer: Node pools are instance groups that contain identical virtual machines, allowing for efficient management and replication across zones.</p>
+</li>
+<li>
+<p>How does deployment manager handle node pool-specific labels in Google Kubernetes Engine?
+Answer: Deployment manager can manage node pools based on specific labels designated by users, ensuring accurate replication of resources across zones.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a container cluster with built-in IAM support for controlling access to the environment.
+Answer: This would involve setting up IAM roles and permissions to ensure secure access to the cluster and its resources.</p>
+</li>
+<li>
+<p>How would you implement rolling updates in a deployment of an application running on multiple nodes?
+Answer: You would launch a new pod with the updated version, wait for it to become operational, and then shut down older pods until all nodes have a pod with the updated version.</p>
+</li>
+<li>
+<p>What are some considerations when designing a multi-zone container cluster in Google Kubernetes Engine?
+Answer: You should ensure that any single zone can run the entire application, replicate resources across zones, and schedule containers across all zones to provide resiliency.</p>
+</li>
+<li>
+<p>How would you optimize node pool replication across multiple zones in Google Kubernetes Engine?
+Answer: You would use specific labels to designate node pools for replication, ensuring accurate management of resources across zones.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>container cluster</td>
+<td>Infrastructure</td>
+<td>"Remember, a container cluster is going to consist of actual virtual machines, compute instances that you can go into your console and see."</td>
+<td>A container cluster refers to a group of virtual machines or compute instances that are managed together by Kubernetes. The term emphasizes the importance of visualizing these resources as a cohesive unit.</td>
+</tr>
+<tr>
+<td>deployment</td>
+<td>Application Management</td>
+<td>"Deployments provide you with built-in resilience. For example, if you have a physical node failure that has running pods, all of these pods will become unavailable."</td>
+<td>A deployment is a way to manage and maintain applications in Kubernetes. It provides built-in resilience by ensuring that a minimum number of replicas are always available. The concept of deployment implies a level of abstraction and automation for managing application components.</td>
+</tr>
+<tr>
+<td>physical node</td>
+<td>Infrastructure</td>
+<td>"So, if there is only one physical node left running, then deployment controller must move the containers from the unhealthy node-if it can - or spin up new ones onto the remaining node."</td>
+<td>A physical node refers to a single machine in a cluster that runs virtual machines or compute instances. The term highlights the importance of physical infrastructure in supporting Kubernetes operations.</td>
+</tr>
+<tr>
+<td>pods</td>
+<td>Application Components</td>
+<td>"In this scenario, we can consider that a version 1.0 of the application is running on three separate nodes in a deployment."</td>
+<td>Pods are the basic execution units in Kubernetes, representing individual instances of an application. The term emphasizes the importance of managing and orchestrating these components to achieve desired application behavior.</td>
+</tr>
+<tr>
+<td>rolling updates</td>
+<td>Application Management</td>
+<td>"Another built-in administrative feature is rolling updates, which is based upon the same deployment concept..."</td>
+<td>Rolling updates refer to a mechanism for updating applications in Kubernetes without disrupting service availability. The term highlights the importance of automation and orchestration in managing application upgrades.</td>
+</tr>
+<tr>
+<td>IAM (Identity and Access Management)</td>
+<td>Security</td>
+<td>"Another benefit of running Google Kubernetes Engine is the built-in IAM support for controlling access to the containerized environment."</td>
+<td>IAM refers to a set of policies, roles, and permissions that govern access to resources within a Kubernetes cluster. The term emphasizes the importance of security and access control in managing containerized environments.</td>
+</tr>
+<tr>
+<td>zones</td>
+<td>Infrastructure</td>
+<td>"When you enable multi-zone container clusters, the container scheduled across all of them..."</td>
+<td>Zones refer to geographic regions or areas within a cloud provider's infrastructure where resources can be deployed. The term highlights the importance of geographical distribution and redundancy in Kubernetes operations.</td>
+</tr>
+<tr>
+<td>node pools</td>
+<td>Infrastructure</td>
+<td>"For example, we would want to ensure a design so that any single zone is capable of running the entire application."</td>
+<td>Node pools refer to groups of virtual machines or compute instances that are managed together by Kubernetes. The term emphasizes the importance of managing resources at scale and ensuring availability across zones.</td>
+</tr>
+<tr>
+<td>instance groups</td>
+<td>Infrastructure</td>
+<td>"Node pools are instance groups in the Kubernetes cluster..."</td>
+<td>Instance groups refer to collections of virtual machines or compute instances that share similar characteristics, such as operating system, hardware, or software configurations. The term highlights the importance of resource management and orchestration in Kubernetes operations.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

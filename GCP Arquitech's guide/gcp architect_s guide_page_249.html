@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_249</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_249_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_249</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Security Best Practices in GCP</h1>
+<h2>Overview of GCP Security Features</h2>
+<p>Typically we will use Stackdriver for logging and monitoring as it is inherent within GCP but when we are using containers and microservices we may use Istio integrated with Stackdriver, Istio for monitoring and Stackdriver for logging and visualisation.</p>
+<p>When we consider logs we need to be aware that there are two distinct types log logged data. First there are the admin data logs, which record every action done through the admin user account. These are immutable and cannot be switched off. The second type of logs are the private data logs, which are logged changes within your applications and resources. You need to configure these and have a higher permission level to access them as they hold more sensitive information about your apps and resources.</p>
+<p>However the data private logged output can be huge so be warned and be careful what you log. For example as you are in effect logging every data read and every data write you probably will not want to include Cloud SQL service in your logs. Fortunately you can exclude services that you don't wish to monitor, which makes the process feasible as you only monitor the services that you are interested in.</p>
+<p>Another interesting aspect regards logging is that in GCP logging remains within the projects that they are created in. This can be problematic for large organisations that have perhaps 100s of projects as it means flipping back and fore between projects to access the logs. Fortunately Stackdriver has a log aggregation export feature that allows you to collate logs from many projects across the organisation into a single log.</p>
+<p>Further, you can filter and transform the logs into a common format before sending them to other, BigQuery for analysis, Cloud Storage for long term archiving r to Pub/Sub for integration with other third party services.</p>
+<p>514
+compliance then be careful to configure object versioning on the Fyou choose to archive the logs perhaps due to regulation doud  Storage bucket as this will prevent the archive's bucket from ever being accidentally deleted. Similarly you should do the same and prevent deletion of the project where the bucket resides production projects. You can do this by using the Lien command although you should have this protection in place for all your simple to implement on a per project basis using resource- manager: which acts as a defence against a projects accidental deletion. It is
+Compliance Archive"</p>
+<h2>Security Solutions</h2>
+<p>The third principle that we want to cover is Security Solutions which are really the types of blended solutions we discussed earlier. These security solutions are made up of components from the GCP security stack and applied to compound their effectiveness in certain scenarios or conditions.</p>
+<p>One of the most common security related questions that Google receives from customers regards how they can access their remote applications securely without having to use VPNs.</p>
+<p>This is a common problem for large organisations whereby they have applications located in some but not all of the geographical areas where they have an office or presence. Typically, the solution required the use of VPNs but that is an admin overhead and is not scalable. The solution to this dilemma is to use a compound security solution comprising of three security elements:</p>
+<p>• Cloud Armor for edge protection</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Typically we will use Stackdriver for logging and monitoring as it is inherent within GCP, but when we are using containers and microservices, we may use Istio integrated with Stackdriver, Istio for monitoring and Stackdriver for logging and visualization.
+
+When we consider logs, we need to be aware that there are two distinct types of log logged data. First, there are the admin data logs, which record every action done through the admin user account. These are immutable and cannot be switched off. The second type of logs are the private data logs, which are logged changes within your applications and resources. You need to configure these and have a higher permission level to access them as they hold more sensitive information about your apps and resources.
+
+However, the data private logged output can be huge, so be warned and be careful what you log. For example, as you are in effect logging every data read and every data write, you probably will not want to include Cloud SQL service in your logs. Fortunately, you can exclude services that you don't wish to monitor, which makes the process feasible as you only monitor the services that you are interested in.
+
+Another interesting aspect regards logging is that in GCP logging remains within the projects that they are created in. This can be problematic for large organizations that have perhaps 100s of projects as it means flipping back and forth between projects to access the logs. Fortunately, Stackdriver has a log aggregation export feature that allows you to collate logs from many projects across the organization into a single log.
+
+Further, you can filter and transform the logs into a common format before sending them to other services, such as BigQuery for analysis, Cloud Storage for long-term archiving, or Pub/Sub for integration with other third-party services.
+
+Compliance is also an important aspect of logging. When you choose to archive logs due to regulation, it's essential to configure object versioning on the storage bucket to prevent the archive's bucket from ever being accidentally deleted. Similarly, you should do the same and prevent deletion of the project where the bucket resides in production projects.
+
+You can achieve this by using the `Gcloud resource-manager liens create` command with restrictions, which will prevent the project from being deleted either by a malicious third party or by accident. In practice, this command will inform the user that the request has been denied and provide the reason why it cannot be deleted.
+
+The third principle that we want to cover is Security Solutions, which are really the types of blended solutions we discussed earlier. These security solutions are made up of components from the GCP security stack and applied to compound their effectiveness in certain scenarios or conditions.
+
+One of the most common security-related questions that Google receives from customers regards how they can access their remote applications securely without having to use VPNs. This is a common problem for large organizations, where they have applications located in some but not all of the geographical areas where they have an office or presence.
+
+Typically, the solution required the use of VPNs, but that is an admin overhead and is not scalable. The solution to this dilemma is to use a compound security solution comprising of three security elements:
+
+• Cloud Armor for edge protection
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Logging and Monitoring in GCP</strong></p>
+<p>When using containers and microservices with GCP, it's common to use Istio integrated with Stackdriver for monitoring and logging, or Stackdriver alone. However, when considering logs, there are two distinct types: admin data logs and private data logs.</p>
+<p>Admin data logs record every action done through the admin user account and are immutable, while private data logs log changes within applications and resources, requiring higher permission levels to access. It's essential to configure these logs carefully, excluding services that don't need monitoring, such as Cloud SQL.</p>
+<p>Logging remains within projects created in GCP, which can be problematic for large organizations with many projects. Fortunately, Stackdriver has a log aggregation export feature that allows collating logs from multiple projects into a single log, and filtering and transforming them before sending to other services like BigQuery or Pub/Sub.</p>
+<p><strong>Compliance</strong></p>
+<p>To ensure compliance, it's crucial to configure object versioning on archived logs in Storage buckets, preventing accidental deletion. Additionally, using the <code>gcloud resource-manager liens create</code> command can prevent project deletion by a malicious third party or accident.</p>
+<p><strong>Security Solutions</strong></p>
+<p>GCP security solutions are blended solutions that combine components from the GCP security stack to enhance effectiveness in specific scenarios. One common security-related question is how to access remote applications securely without using VPNs. The solution involves using a compound security solution comprising of three security elements:</p>
+<ul>
+<li>Cloud Armor for edge protection</li>
+<li>Other security elements, such as Identity and Access Management (IAM) or Cloud Security Command Center (CSC), depending on the specific use case.</li>
+</ul>
+<p>By following these guidelines, organizations can ensure secure logging, monitoring, and compliance in GCP.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Logging Configuration and Management
+The first topic revolves around logging configuration and management in GCP, emphasizing the importance of distinguishing between admin data logs and private data logs. It highlights the need for careful consideration when configuring logs to avoid sensitive information exposure.</p>
+<h3>Topic 2</h3>
+<p>Log Aggregation and Compliance
+This topic focuses on log aggregation and compliance aspects, including the use of Stackdriver's log aggregation export feature to collate logs from multiple projects. It also stresses the importance of object versioning and using resource-manager commands to prevent accidental deletion of projects or buckets.</p>
+<h3>Topic 3</h3>
+<p>Security Solutions for Remote Access
+The third topic explores security solutions for accessing remote applications without relying on VPNs, highlighting a compound security solution comprising Cloud Armor for edge protection as a scalable alternative.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the two distinct types of logs in GCP, and what are their characteristics?
+Answer: Admin data logs record every action done through the admin user account and are immutable, while private data logs record changes within applications and resources and require higher permission levels.</p>
+</li>
+<li>
+<p>Why is it problematic for large organizations to have hundreds of projects in GCP, and how can this be addressed?
+Answer: Large organizations may struggle with accessing logs across multiple projects due to the need to flip between projects. This issue can be mitigated by using Stackdriver's log aggregation export feature to collate logs from many projects into a single log.</p>
+</li>
+<li>
+<p>What is the purpose of configuring object versioning on archived logs, and how can this be achieved?
+Answer: Object versioning helps prevent accidental deletion of archived logs or project buckets. This can be done by using the <code>gcloud resource-manager liens create</code> command with specific restrictions to ensure projects cannot be deleted.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do the characteristics of admin data logs and private data logs impact their configuration and usage in GCP?
+Answer: Admin data logs are immutable and require no configuration, while private data logs require higher permission levels and careful consideration of what services should be logged to avoid sensitive information exposure.</p>
+</li>
+<li>
+<p>What is the significance of using a compound security solution comprising of three security elements (Cloud Armor for edge protection) for accessing remote applications securely?
+Answer: This solution provides scalable and effective access to remote applications without relying on VPNs, addressing common concerns in large organizations with multiple geographical locations.</p>
+</li>
+<li>
+<p>How does GCP's log aggregation export feature facilitate the management of logs across multiple projects?
+Answer: By aggregating logs from many projects into a single log, this feature simplifies log management, filtering, and transformation for analysis, archiving, or integration with other services like BigQuery or Pub/Sub.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a logging strategy for a large organization with hundreds of projects in GCP, considering the need to monitor specific services and avoid sensitive information exposure.
+Answer: Implement Stackdriver's log aggregation export feature to collate logs from multiple projects into a single log, filter and transform logs as needed, and configure object versioning on archived logs to prevent accidental deletion.</p>
+</li>
+<li>
+<p>Develop a plan for implementing a compound security solution comprising of three security elements (Cloud Armor for edge protection) in a large organization with remote applications.
+Answer: Assess the organization's specific security needs, select the most suitable Cloud Armor configuration, integrate it with existing security measures, and provide training for administrators to ensure seamless deployment and maintenance.</p>
+</li>
+<li>
+<p>Create a script using <code>gcloud resource-manager liens create</code> to configure object versioning on archived logs in a production project.
+Answer: Use the following command as a starting point:
+<code>bash
+gcloud resource-manager liens create \
+  --project &lt;PROJECT_ID&gt; \
+  --restrictions=\
+    resourcemanager.projects.delete, \
+    --reason="Important"</code>
+Adjust the <code>--reason</code> parameter to suit specific needs and ensure proper configuration for object versioning.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stackdriver</td>
+<td>Logging/Monitoring Tool</td>
+<td>"Typically we will use Stackdriver for logging and monitoring as it is inherent within GCP..."</td>
+<td>Stackdriver is a built-in logging and monitoring tool in Google Cloud Platform (GCP). It provides real-time insights into application performance, errors, and security threats.</td>
+</tr>
+<tr>
+<td>Istio</td>
+<td>Service Mesh/Security Solution</td>
+<td>"...when we are using containers and microservices we may use Istio integrated with Stackdriver, Istio for monitoring and Stackdriver for logging and visualisation."</td>
+<td>Istio is a service mesh that provides a secure, scalable, and resilient way to deploy and manage modern applications. It integrates with Stackdriver for logging and visualization.</td>
+</tr>
+<tr>
+<td>Admin Data Logs</td>
+<td>Log Type</td>
+<td>"...First there are the admin data logs, which record every action done through the admin user account..."</td>
+<td>Admin data logs contain information about actions performed by the administrative user account. These logs are immutable and cannot be switched off. They provide a record of all actions taken by the admin user.</td>
+</tr>
+<tr>
+<td>Private Data Logs</td>
+<td>Log Type</td>
+<td>"...the second type of logs are the private data logs, which are logged changes within your applications and resources."</td>
+<td>Private data logs contain information about changes made to applications and resources. These logs require higher permission levels to access due to their sensitive nature. They can be huge in volume and should be carefully configured.</td>
+</tr>
+<tr>
+<td>Cloud SQL Service</td>
+<td>Application Component</td>
+<td>"...you probably will not want to include Cloud SQL service in your logs..."</td>
+<td>Cloud SQL is a fully managed relational database service provided by GCP. It is used to host databases that require high availability, security, and performance. Including it in logs may compromise its security.</td>
+</tr>
+<tr>
+<td>Log Aggregation Export Feature</td>
+<td>Logging Tool</td>
+<td>"...Fortunately Stackdriver has a log aggregation export feature that allows you to collate logs from many projects across the organisation into a single log."</td>
+<td>The log aggregation export feature enables users to collect logs from multiple projects and organize them into a single, unified view. This simplifies log management and analysis.</td>
+</tr>
+<tr>
+<td>Compliance Archive</td>
+<td>Storage Bucket</td>
+<td>"...compliance then be careful to configure object versioning on the Fyou choose to archive the logs perhaps due to regulation..."</td>
+<td>A compliance archive is a storage bucket used to store archived data that meets regulatory requirements. Object versioning ensures that changes can be tracked and reverted if necessary, maintaining data integrity and compliance.</td>
+</tr>
+<tr>
+<td>Resource Manager</td>
+<td>Security Feature</td>
+<td>"...You can do this by using the Lien command although you should have this protection in place for all your simple to implement on a per project basis..."</td>
+<td>The Resource Manager is a security feature in GCP that enables users to manage access to resources, including projects, organizations, and folders. It provides fine-grained control over permissions and ensures that sensitive data is protected.</td>
+</tr>
+<tr>
+<td>Cloud Armor</td>
+<td>Security Solution</td>
+<td>"...One of the most common security related questions that Google receives from customers regards how they can access their remote applications securely without having to use VPNs."</td>
+<td>Cloud Armor is a cloud-based web application firewall (WAF) service provided by GCP. It protects against common web attacks and provides secure access to remote applications, eliminating the need for VPNs in many cases.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

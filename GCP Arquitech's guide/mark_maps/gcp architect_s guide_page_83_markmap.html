@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_83</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # BigQuery
+        ## Pricing
+        - In addition, there is long term storage pricing, which is an automatic discount for data residing in BigQuery for extended periods of time. So for example if your data exceeds a storage time of 90 days in BigQuery, then Google will automatically apply a discount to the price of the storage.
+        
+        ## Use Cases
+        - As BigQuery is a data analytics warehouse its natural use cases are:
+        - Real-time inventory systems
+        - Large-scale events and log analytics
+        - IoT
+        - Predictive maintenance
+        - Digital marketing
+        - Data distribution with large scale commercial or public data sets
+        
+        # Pub/Sub Messaging Service
+        ## Overview
+        - For modern applications that require the analytics of data streams from many distributed sources such as the loT, especially if these are event-driven processes working in real time, it is necessary in order to scale to have a messaging service.
+        
+        ## Design Pattern
+        - The GCP uses the Cloud Pub/Sub service as its messaging service and this model is designed on the publish/subscribe pattern that is commonly found in software and networking design.
+        
+        ### How it Works
+        
+        - An application can publish messages in Pub/Sub.
+        - One or more subscribers will subscribe for those specific messages to receive them.
+        
+        ## Key Features
+        - The Pub/Sub service allows you to interconnect independent applications you build or interface with to efficiently send and receive messages but importantly they remain decoupled so that they are able to scale independently.
+        
+        ### At Least Once Delivery
+        
+        - However, sending and receiving messages doesn't have to be synchronous. It's designed to provide at least once delivery at low latency, which makes Pub/Sub great for decoupling systems. However when we say at-least-once delivery, we mean that there is a small chance some messages might be delivered more than once.
+        
+        ### Configuration Options
+        
+        - You can configure your subscribers to receive messages on a push or pull basis. In other words, subscribers can get notified when new messages arrive for them or they can check for new messages at intervals.
+        
+        ## Scalability
+        - Cloud Pub/Sub offers on demand scalability to one million messages per second and beyond but you simply choose the quota you are comfortable with.
+        
+        ### Pairing with Cloud Dataflow
+        
+        - If you're in the business of analysing streaming data, Cloud Dataflow as a streaming pipeline is a natural pairing with Pub/Sub. Applications built on GCP's Compute Engine platform are also good candidates for and easily interfaced using Pub/Sub.
+        
+        ## Conclusion
+        - We will revisit Pub/Sub later in more detail in subsequent chapters as it is such an important component in Cloud architecture.
+        
+        # Cloud Datalab
+        ## Overview
+        
+        - Scientists have long used lab notebooks to organize their thoughts and explore their data.
+
+      </script>
+    </div>
+  </body>
+</html>

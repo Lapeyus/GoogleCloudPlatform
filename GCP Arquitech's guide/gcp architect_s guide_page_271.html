@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_271</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_271_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_271</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Dimensioning</h1>
+<h2>Introduction to Dimensioning</h2>
+<p>Designing optimal systems requires both forecasting for future demand and planning the resources for a system to meet that requirement, this is called dimensioning.</p>
+<h3>Challenges of Dimensioning</h3>
+<p>What makes dimensioning difficult is that optimizing for one factor by changing a resource properties can have other unforeseen consequences. For example, if you reconfigure the VM to optimize CPU capacity this can have a negative effect on network throughput and even memory and disk capacity.</p>
+<h2>Importance of Resiliency</h2>
+<p>A common error made by designers is to be too ambitious when trying to dimension the system and they tend to optimize away resiliency. Remember that overcapacity or overprovisioning of a system is sometimes necessary and thus included by design to handle volatile periods, growth, or absorb the short term effects of an intentional attack.</p>
+<h3>Benefits of Overprovisioning</h3>
+<p>This failure to recognize and accept the purpose of overprovisioning and subsequently reducing excess capacity in order to save money can create a perfect environment for cascade failures. On the other hand, we must be aware of the price/performance balance but something to keep in mind is that cost optimization is built in to many GCP services.</p>
+<h2>Capacity Planning</h2>
+<p>Capacity planning is an iterative process and by that we mean it is cyclical and seemingly perpetual. There are various common measures of sufficient capacity depending on the perspective and workload estimations. But these are all load and demand dependent, which will likely fluctuate.</p>
+<h3>Key Principles of Capacity Planning</h3>
+<p>Therefore we can only design for sufficient capacity based upon forecasting and then monitor and adjust as the system goes into production and faces up to real world demand. We will need to monitor and measure for VM instance capacity, disk performance, network throughput, and workload demand.</p>
+<p>Regardless, capacity planning all comes down to answering; are there sufficient resources with reasonable certainty?</p>
+<h2>Allowance for Change</h2>
+<p>A key design principle in capacity planning is to allow other factors to influence your design and then come back and dimension later. This is because forecasting is never going to be perfect so you will likely have to change some of the design for capacity or for better pricing, at a later date.</p>
+<p>However at least then they will be informed decisions based on environmental measurements so you can make these adjustments knowing what benefits you may well be trading in return for reduced cost.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Chapter 28- Cloud Dimensioning
+
+Designing optimal systems requires both forecasting for future demand and planning the resources for a system to meet that requirement, this is called dimensioning. What makes dimensioning difficult is that optimizing for one factor by changing a resource properties can have other unforeseen consequences. For example, if you reconfigure the VM to optimize CPU capacity, this can have a negative effect on network throughput and even memory and disk capacity.
+
+As a result, dimensioning requires a lot of careful planning and calculations to ensure there's sufficient capacity to meet your design goals. A common error made by designers is to be too ambitious when trying to dimension the system and they tend to optimize away resiliency. Remember that overcapacity or overprovisioning of a system is sometimes necessary and thus included by design to handle volatile periods, growth, or absorb the short-term effects of an intentional attack.
+
+This failure to recognize and accept the purpose of overprovisioning and subsequently reducing excess capacity in order to save money can create a perfect environment for cascade failures. On the other hand, we must be aware of the price/performance balance but something to keep in mind is that cost optimization is built into many GCP services.
+
+For example, in Google Compute Engine, it has a recommendation engine, which monitors your resource utilization over a 30-day period and makes recommendations on instance sizing. For instance, it will inform you that using a smaller configuration might save you money.
+
+Capacity Planning
+
+Capacity planning is an iterative process and by that we mean it is cyclical and seemingly perpetual. There are various common measures of sufficient capacity depending on the perspective and workload estimations. But these are all load and demand-dependent, which will likely fluctuate.
+
+Therefore, we can only design for sufficient capacity based upon forecasting and then monitor and adjust as the system goes into production and faces up to real-world demand. We will need to monitor and measure for VM instance capacity, disk performance, network throughput, and workload demand.
+
+Regardless, capacity planning all comes down to answering: are there sufficient resources with reasonable certainty? A key design principle in capacity planning is to allow other factors to influence your design and then come back and dimension later.
+
+This is because forecasting is never going to be perfect, so you will likely have to change some of the design for capacity or for better pricing at a later date. However, at least then they will be informed decisions based on environmental measurements, so you can make these adjustments knowing what benefits you may well be trading in return for reduced cost.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud Dimensioning: A Delicate Balance of Optimization and Resilience</h3>
+<p>Designing optimal systems requires careful planning and dimensioning to meet future demand. However, optimizing one factor can have unforeseen consequences on other aspects of the system.</p>
+<h4>The Challenges of Dimensioning</h4>
+<p>Dimensioning is a complex process that involves forecasting demand and planning resources to meet it. Optimizing for one factor, such as CPU capacity, can negatively impact network throughput and memory/disk capacity. This highlights the need for careful planning and calculations to ensure sufficient capacity.</p>
+<p>A common mistake made by designers is to be too ambitious when trying to dimension the system, which can lead to optimizing away resiliency. Overprovisioning or overcapacity may be necessary to handle volatile periods, growth, or intentional attacks. However, reducing excess capacity to save money can create a perfect environment for cascade failures.</p>
+<h4>The Importance of Price/Performance Balance</h4>
+<p>While cost optimization is built into many GCP services, such as Google Compute Engine's recommendation engine, it's essential to be aware of the price/performance balance. This involves understanding that cost optimization may require trade-offs in terms of performance or resiliency.</p>
+<h3>Capacity Planning: An Iterative Process</h3>
+<p>Capacity planning is an iterative process that requires cyclical and seemingly perpetual effort. It involves forecasting demand and designing for sufficient capacity based on load and demand estimations. However, these estimates are often subject to fluctuation, making it essential to monitor and adjust as the system goes into production.</p>
+<p>Key considerations in capacity planning include:</p>
+<ul>
+<li>Monitoring VM instance capacity, disk performance, network throughput, and workload demand</li>
+<li>Allowing other factors to influence design and revisiting later for informed decisions based on environmental measurements</li>
+<li>Ensuring sufficient resources with reasonable certainty</li>
+</ul>
+<p>By acknowledging the complexities of dimensioning and capacity planning, designers can create systems that balance optimization and resiliency, ensuring a perfect environment for success.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Dimensioning Challenges and Trade-Offs</h3>
+<p>Dimensioning is difficult due to the potential unforeseen consequences of optimizing one factor, such as reconfiguring a VM to optimize CPU capacity, which can negatively affect network throughput and memory/disk capacity.</p>
+<h3>Topic 2: Importance of Overprovisioning and Resiliency</h3>
+<p>Overprovisioning or overcapacity is sometimes necessary for handling volatile periods, growth, or absorbing short-term effects of intentional attacks. However, reducing excess capacity to save money can create a perfect environment for cascade failures if not recognized and accepted.</p>
+<h3>Topic 3: Price/Performance Balance and Cost Optimization</h3>
+<p>Cost optimization is built into many GCP services, such as Google Compute Engine's recommendation engine, which monitors resource utilization over a 30-day period and makes recommendations on instance sizing. However, this can lead to underprovisioning if not managed carefully.</p>
+<h3>Topic 4: Capacity Planning as an Iterative Process</h3>
+<p>Capacity planning is cyclical and seemingly perpetual due to the fluctuating nature of load and demand. It requires monitoring and measuring for VM instance capacity, disk performance, network throughput, and workload demand to ensure sufficient resources with reasonable certainty.</p>
+<h3>Topic 5: Allowing Factors to Influence Design and Adjusting Later</h3>
+<p>A key design principle in capacity planning is to allow other factors to influence the design and then come back and adjust later. This ensures informed decisions based on environmental measurements, allowing for adjustments knowing what benefits may be traded off for reduced cost.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main challenge in designing optimal systems?
+Answer: The main challenge in designing optimal systems is that optimizing for one factor by changing a resource property can have other unforeseen consequences.</p>
+</li>
+<li>
+<p>What is dimensioning, and why is it difficult to achieve?
+Answer: Dimensioning refers to planning resources to meet future demand requirements. It's difficult because optimizing for one factor can lead to negative effects on other aspects of the system.</p>
+</li>
+<li>
+<p>What is overprovisioning, and why is it sometimes necessary?
+Answer: Overprovisioning refers to having more capacity than needed in a system. It's sometimes necessary to handle volatile periods, growth, or absorb short-term effects of an intentional attack.</p>
+</li>
+<li>
+<p>How does cost optimization work in GCP services like Google Compute Engine?
+Answer: Cost optimization in GCP services like Google Compute Engine is built-in and uses recommendation engines that monitor resource utilization over time to suggest instance sizing changes for potential cost savings.</p>
+</li>
+<li>
+<p>What is the main goal of capacity planning, according to the text?
+Answer: The main goal of capacity planning is to answer whether there are sufficient resources with reasonable certainty.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of dimensioning relate to the trade-off between optimizing for one factor and considering other system aspects?
+Answer: Dimensioning requires careful planning and calculations to ensure sufficient capacity while minimizing unintended consequences on other system factors.</p>
+</li>
+<li>
+<p>What are some potential risks associated with underestimating or overestimating demand in capacity planning?
+Answer: Underestimating demand can lead to insufficient resources, while overestimating demand can result in unnecessary waste of resources. Both scenarios can have negative impacts on system performance and reliability.</p>
+</li>
+<li>
+<p>How does the iterative nature of capacity planning impact the design process?
+Answer: The cyclical nature of capacity planning means that designs will need to be revisited and adjusted as new data becomes available, allowing for informed decisions based on environmental measurements.</p>
+</li>
+<li>
+<p>What are some key considerations when evaluating the price-performance balance in system design?
+Answer: Key considerations include understanding the limitations of cost optimization tools, being aware of potential trade-offs between performance and cost, and making informed decisions based on environmental measurements.</p>
+</li>
+<li>
+<p>How can designers ensure that their designs prioritize resiliency while still optimizing for cost savings?
+Answer: Designers should recognize the importance of overprovisioning as a means to handle volatile periods or growth, and make adjustments accordingly to balance cost optimization with system reliability.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you're designing a new system for a video transcription service. How would you approach capacity planning, considering factors like VM instance capacity, disk performance, network throughput, and workload demand?
+Answer: You would need to forecast demand, monitor resource utilization, and adjust your design accordingly to ensure sufficient resources with reasonable certainty.</p>
+</li>
+<li>
+<p>If you're using GCP services like Google Compute Engine, how can you leverage cost optimization tools to inform your system design decisions?
+Answer: You can use the recommendation engine to monitor resource utilization over time and make informed decisions about instance sizing changes that balance performance and cost savings.</p>
+</li>
+<li>
+<p>What are some potential consequences of underestimating demand in capacity planning for a logging service?
+Answer: Underestimating demand can lead to insufficient resources, resulting in decreased system performance or even failures during periods of high workload demand.</p>
+</li>
+<li>
+<p>How would you prioritize resiliency in your design decisions for a system that requires real-time data processing and analysis?
+Answer: You would need to consider the potential risks associated with underestimating or overestimating demand, and make adjustments accordingly to ensure sufficient resources and prioritizing resiliency while still optimizing for cost savings.</p>
+</li>
+<li>
+<p>What are some best practices for ongoing capacity planning and monitoring in a system that requires frequent updates and changes?
+Answer: Best practices include regular forecasting, continuous monitoring of resource utilization, and making informed decisions based on environmental measurements to balance performance and cost savings.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dimensioning</td>
+<td>concept</td>
+<td>"Designing optimal systems requires both forecasting for future demand and planning the resources for a system to meet that requirement, this is called dimensioning."</td>
+<td>Dimensioning refers to the process of designing a system with sufficient capacity to meet its requirements. It involves careful planning and calculations to ensure there's enough capacity to meet design goals.</td>
+</tr>
+<tr>
+<td>reconfiguration</td>
+<td>action</td>
+<td>"if you reconfigure the VM to optimize CPU capacity this can have a negative effect on network throughput and even memory and disk capacity."</td>
+<td>Reconfiguration refers to the act of changing or modifying a system component, in this case, a virtual machine (VM). Optimizing for one factor, such as CPU capacity, can have unforeseen consequences on other aspects of the system.</td>
+</tr>
+<tr>
+<td>overcapacity</td>
+<td>concept</td>
+<td>"overcapacity or overprovisioning of a system is sometimes necessary and thus included by design to handle volatile periods, growth, or absorb the short term effects of an intentional attack."</td>
+<td>Overcapacity refers to designing a system with more resources than needed, often to account for unexpected fluctuations in demand. It's a deliberate design choice to ensure the system can handle unexpected events.</td>
+</tr>
+<tr>
+<td>cascade failures</td>
+<td>consequence</td>
+<td>"This failure to recognize and accept the purpose of overprovisioning and subsequently reducing excess capacity in order to save money can create a perfect environment for cascade failures."</td>
+<td>Cascade failures refer to a series of failures that occur when a system is not designed with sufficient capacity or redundancy. In this context, it means that failing to account for overcapacity can lead to a chain reaction of failures.</td>
+</tr>
+<tr>
+<td>price/performance balance</td>
+<td>concept</td>
+<td>"we must be aware of the price/performance balance but something to keep in mind is that cost optimization is built in to many GCP services."</td>
+<td>Price/performance balance refers to the trade-off between reducing costs and maintaining performance. In this context, it means being mindful of the cost savings offered by Google Cloud Platform (GCP) services while ensuring they don't compromise performance.</td>
+</tr>
+<tr>
+<td>recommendation engine</td>
+<td>system component</td>
+<td>"For example, in Google Compute Engine, it has a recommendation engine, which monitors your resource utilization over a 30-day period and makes recommendations on instance sizing."</td>
+<td>A recommendation engine is a system that analyzes data and provides suggestions or recommendations based on that analysis. In this case, it's used to optimize instance sizing for GCP services.</td>
+</tr>
+<tr>
+<td>capacity planning</td>
+<td>process</td>
+<td>"Capacity planning is an iterative process and by that we mean it is cyclical and seemingly perpetual."</td>
+<td>Capacity planning refers to the ongoing process of designing and adjusting a system's capacity to meet its changing demands. It involves forecasting, monitoring, and adjusting resources as needed.</td>
+</tr>
+<tr>
+<td>workload estimations</td>
+<td>concept</td>
+<td>"But these are all load and demand dependent, which will likely fluctuate."</td>
+<td>Workload estimations refer to the process of estimating the amount of work or demand that a system will face in the future. In this context, it means that capacity planning must account for fluctuations in demand.</td>
+</tr>
+<tr>
+<td>iterative process</td>
+<td>process</td>
+<td>"Capacity planning is an iterative process and by that we mean it is cyclical and seemingly perpetual."</td>
+<td>An iterative process refers to a cycle of repeated steps or actions, where each step builds on the previous one. In this case, capacity planning involves ongoing cycles of forecasting, monitoring, and adjusting resources.</td>
+</tr>
+<tr>
+<td>environmental measurements</td>
+<td>data source</td>
+<td>"However at least then they will be informed decisions based on environmental measurements so you can make these adjustments knowing what benefits you may well be trading in return for reduced cost."</td>
+<td>Environmental measurements refer to the data collected from a system or process, often used to inform decision-making. In this context, it means using data from GCP services to optimize capacity planning and reduce costs.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_40</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Virtual Machines in GCP
+        ## Overview
+        
+        - When choosing a virtual machine (VM) in Google Cloud Platform (GCP), there are several factors to consider. This document will outline some key considerations for setting up and managing your VM.
+        
+        ### Fast Disk Storage
+        
+        - However, there is another type of disk storage that is very fast and should you have a requirement in your application for very high performance scratch space, you may want to attach a local SSD. However, a local SSD is part of the VM so be sure to store data of any permanent value somewhere else because local SSD's content doesn't survive when the VM terminates.
+        
+        ### Backups
+        
+        - Another convenient aspect of VM is taking backups. Once your VMs are running it is easy to take a durable snapshot of their disks. These are useful as backups but they also are required when you need to move a VM to another region.
+        
+        ## Pre-emptive VMs
+        - Pre-emptive
+        
+        - Another factor you might want to consider is if you want to make your VM pre-emptible. You can save a lot of money if you choose to use pre-emptible VMs where they are appropriate. However pre-emptible VM are only suitable in certain use-cases as they behave differently from ordinary VMs.
+        
+        ### Auto-scaling
+        
+        - Auto-scaling is another factor to consider because despite the fact you can create huge VMs - the maximum number of virtual CPUs in the VM is 96 and the maximum memory size in beta is at 624 gigabytes - and these huge VMs are great for workloads like in- memory databases and CPU intensive analytics but you may not want to start off at that size.
+        
+        - For example, most GCP customers start off by scaling out, not scaling up. What that means is they add more standard sized VMs to loadbalance across, this is called horizontal scaling, rather than increasing the size of their existing VMs, which is known as vertical scaling.
+        
+        ## Choosing a Boot Image
+        - The next step is that you choose a boot image. As we have discussed already GCP offers a wide selection of Linux and Windows versions that are pre-configured but if you want you can import your own images.
+        
+        - Indeed, a common request made by GCP customers is that they want their VMs to always boot with a specific configuration, such as installing specific updates or packages at boot time. Therefore it is common for people to use GCP VM start-up scripts that will control the start process by following the commands in the script. But you can via the scripts also pass into the VM other kinds of metadata.
+        
+        ### Local SSDs
+        - However there is another type of disk storage that is very fast and should you have a requirement in your application for very high performance scratch space, you may want to attach a local SSD. However, a local SSD is part of the VM so be sure to store data of any permanent value somewhere else because local SSD's content doesn't survive when the VM terminates.
+        
+        ### Persistent Disks
+        - Anyway, most people will begin with using the standard persistent disks and that's the default.
+
+      </script>
+    </div>
+  </body>
+</html>

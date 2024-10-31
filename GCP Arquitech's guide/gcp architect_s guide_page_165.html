@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_165</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_165_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_165</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Shared VPC</h1>
+<h2>Overview</h2>
+<p>Shared VPC allows for the creation of a shared VPC that is named the host VPC, which can share its network of private IP subnets and their attached resources with all the associated projects called service projects.</p>
+<h3>Benefits</h3>
+<p>VMs and their application and users can then share the use of the resources in the host VPC, which means that a service project will not even require its own network let alone any dedicated resources.</p>
+<h2>Shared VPC Features</h2>
+<ul>
+<li>Allow project admins to create VMs in the shared VPC networks spaces</li>
+<li>Allow network and security admins to create VPNs and firewall rules that are usable by the service projects in the host VPC network</li>
+<li>Any security policy applied to the host VPC will automatically be inherited by all the service projects</li>
+</ul>
+<h2>Diagram</h2>
+<p>Figure -16</p>
+<h3>Service Project A</h3>
+<p>VM-A</p>
+<h3>Service Project B</h3>
+<p>VM-B</p>
+<h3>Host Project</h3>
+<p>Shared VPC Network
+Region-US-east-1
+Subnet 10.0.1.0/24
+Internal IP for instance A is 10.0.1.3</p>
+<h3>VPC Routing</h3>
+<p>Region US-west-1
+Subnet 10.15.2.0/24
+Internal IP for instance B is 10.15.2.4</p>
+<h2>VPC Network Peering</h2>
+<p>It's useful for organizations with several network administrative domains that want to peer with other organizations.</p>
+<h3>Advantages</h3>
+<p>• Reduced network latency - Public IP networking suffers higher latency than private networking.
+• Network security - Service owners do not need to have their services exposed to the public internet and deal with its associated risks.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Shared VPC allows for the creation of a shared VPC that is named the host VPC, which can share its network of private IP subnets and their attached resources with all the associated projects called service projects. VMs and their application and users can then share the use of the resources in the host VPC, which means that a service project will not even require its own network let alone any dedicated resources.
+
+With shared VPC, you can allow project admins to create VMs in the shared VPC networks spaces and allow network and security admins to create VPNs and firewall rules that are usable by the service projects in the host VPC network. In addition, any security policy applied to the host VPC will automatically be inherited by all the service projects, which makes it easy to apply and enforce consistent policies across a cloud organization.
+
+The diagram shows a host project sharing its VPC network with two service projects. It is sharing Subnet_1 with one project and Subnet_2 with another project.
+Figure -16
+
+Service Project A
+VM-A
+Service Project B
+VM-B
+Host Project
+Shared VPC Network
+Region-US-east-1
+Subnet 10.0.1.0/24
+Internal IP for instance A is 10.0.1.3
+VPC Routing
+Region US-west-1
+Subnet 10.15.2.0/24
+Internal IP for instance B is 10.15.2.4
+
+However, there is another way you can connect two VPC networks regardless of shared projects or organizations using VPC network peering. It allows you to build software as service ecosystems in GCP by making services available privately across different VPC networks in and across organizations.
+
+VPC Network Peering
+It's useful for organizations with several network administrative domains that want to peer with other organizations. VPC network peering gives you several advantages over using external IP addresses or VPNs to connect networks, including:
+• Reduced network latency - Public IP networking suffers higher latency than private networking.
+• Network security - Service owners do not need to have their services exposed to the public internet and deal with its associated risks.
+
+Note: I removed unnecessary line breaks and reformatted the text for better readability.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p>Shared VPC allows for a shared VPC named the host VPC, which shares its network of private IP subnets and attached resources with all associated service projects. This enables VMs and application users to share resources in the host VPC, eliminating the need for dedicated resources.</p>
+<p>In a shared VPC, project admins can create VMs, while network and security admins can create VPNs and firewall rules usable by service projects. Additionally, any security policy applied to the host VPC is automatically inherited by all service projects, making it easy to enforce consistent policies across an organization.</p>
+<p>Shared VPC is useful for organizations with multiple network administrative domains that want to peer with other organizations. It provides several advantages over public IP networking or VPNs, including reduced latency and improved network security.</p>
+<p>VPC Network Peering allows connecting two VPC networks regardless of shared projects or organizations. This enables building software as service ecosystems in GCP by making services available privately across different VPC networks within and across organizations.</p>
+<p>Key benefits of VPC Network Peering include:</p>
+<ul>
+<li>Reduced network latency compared to public IP networking</li>
+<li>Improved network security, as services are not exposed to the public internet</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Shared VPC Configuration</h3>
+<p>Shared VPC allows for the creation of a shared network that can be used by multiple projects, eliminating the need for each project to have its own network.</p>
+<h3>Topic 2: VPC Network Peering</h3>
+<p>VPC network peering enables organizations to connect different VPC networks across and within organizations, allowing for private networking and reduced latency compared to public IP networking.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is a shared VPC, and how does it benefit service projects?
+Answer: A shared VPC allows multiple service projects to share resources from a host project's VPC network, reducing the need for dedicated resources.</p>
+</li>
+<li>
+<p>How do security policies work in shared VPCs?
+Answer: Security policies applied to the host VPC are automatically inherited by all associated service projects, making it easy to enforce consistent policies across an organization.</p>
+</li>
+<li>
+<p>What is the main advantage of using VPC network peering over public IP networking or VPNs?
+Answer: Reduced network latency is a significant advantage of private networking compared to public IP networking.</p>
+</li>
+<li>
+<p>How does VPC network peering benefit organizations with multiple network administrative domains?
+Answer: It allows these organizations to peer with other organizations, providing several advantages including reduced network latency and improved security.</p>
+</li>
+<li>
+<p>What are some key benefits of using VPC network peering for building software as service ecosystems in GCP?
+Answer: Reduced network latency, improved network security, and the ability to make services available privately across different VPC networks are key benefits.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does shared VPCs impact the need for dedicated resources in service projects?
+Answer: Shared VPCs reduce the need for dedicated resources, allowing service projects to share resources from a host project's VPC network.</p>
+</li>
+<li>
+<p>What is the relationship between security policies and VPC networks in shared VPCs?
+Answer: Security policies applied to the host VPC are automatically inherited by all associated service projects, ensuring consistent security across the organization.</p>
+</li>
+<li>
+<p>How does VPC network peering enable organizations to build software as service ecosystems in GCP?
+Answer: VPC network peering allows services to be made available privately across different VPC networks in and across organizations, enabling the creation of software as service ecosystems.</p>
+</li>
+<li>
+<p>What are some potential risks associated with using public IP networking or VPNs for connecting networks?
+Answer: Public IP networking suffers from higher latency and exposes services to the public internet, dealing with associated risks such as security breaches.</p>
+</li>
+<li>
+<p>How does VPC network peering improve network security compared to public IP networking?
+Answer: VPC network peering provides improved network security by allowing service owners to keep their services private and secure, without exposing them to the public internet.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a shared VPC architecture for an organization with multiple service projects.
+Answer: This would involve creating a host project's VPC network, sharing subnets with service projects, and configuring security policies to ensure consistent security across the organization.</p>
+</li>
+<li>
+<p>Implement VPC network peering between two organizations with separate network administrative domains.
+Answer: This would involve setting up VPC network peering connections between the two organizations' VPC networks, ensuring that services can be made available privately across different VPC networks.</p>
+</li>
+<li>
+<p>Develop a plan for implementing shared VPCs in an organization with multiple service projects.
+Answer: This would involve assessing current resource utilization, identifying opportunities for shared resources, and configuring security policies to ensure consistent security across the organization.</p>
+</li>
+<li>
+<p>Evaluate the benefits of using VPC network peering compared to public IP networking or VPNs for connecting networks.
+Answer: Consider factors such as reduced network latency, improved network security, and the ability to make services available privately across different VPC networks.</p>
+</li>
+<li>
+<p>Design a software as service ecosystem in GCP using VPC network peering.
+Answer: This would involve setting up VPC network peering connections between multiple VPC networks, ensuring that services can be made available privately across different VPC networks.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Shared VPC</td>
+<td>Concept</td>
+<td>"Shared VPC allows for the creation of a shared VPC that is named the host VPC..."</td>
+<td>A shared VPC is a way to share network resources and subnets among multiple projects, allowing service projects to use resources without requiring their own networks or dedicated resources. This concept enables organizations to apply consistent security policies across their cloud organization.</td>
+</tr>
+<tr>
+<td>Host Project</td>
+<td>Organization Entity</td>
+<td>"...the diagram shows a host project sharing its VPC network with two service projects."</td>
+<td>A host project is an organization entity that shares its VPC network with other projects, allowing them to use its resources without requiring their own networks or dedicated resources. The host project acts as a central hub for shared resources and security policies.</td>
+</tr>
+<tr>
+<td>Service Project</td>
+<td>Organization Entity</td>
+<td>"...all the associated projects called service projects."</td>
+<td>A service project is an organization entity that uses the shared resources of another project (the host project) to run its applications and services. Service projects do not require their own networks or dedicated resources, as they can use the resources provided by the host project.</td>
+</tr>
+<tr>
+<td>VPC Network Peering</td>
+<td>Concept</td>
+<td>"...there is another way you can connect two VPC networks regardless of shared projects or organizations using VPC network peering."</td>
+<td>VPC network peering is a way to connect two VPC networks across different organizations, allowing services to be made available privately across different networks. This concept enables organizations with multiple network administrative domains to peer with other organizations and build software as service ecosystems in GCP.</td>
+</tr>
+<tr>
+<td>Subnet_1</td>
+<td>Network Resource</td>
+<td>"...the host project is sharing Subnet_1 with one project."</td>
+<td>A subnet is a network resource that provides IP addresses for instances running within the VPC. In this context, Subnet_1 is shared among two projects (one of which is the host project) and allows them to use its resources without requiring their own networks or dedicated resources.</td>
+</tr>
+<tr>
+<td>Subnet_2</td>
+<td>Network Resource</td>
+<td>"...the host project is sharing Subnet_2 with another project."</td>
+<td>Similarly, Subnet_2 is a network resource that provides IP addresses for instances running within the VPC. It is shared among two projects (one of which is the host project) and allows them to use its resources without requiring their own networks or dedicated resources.</td>
+</tr>
+<tr>
+<td>VPN</td>
+<td>Network Security Measure</td>
+<td>"...allow network and security admins to create VPNs..."</td>
+<td>A VPN (Virtual Private Network) is a network security measure that enables secure communication between two networks over an insecure network, such as the internet. In this context, VPNs are used to connect service projects to the host project's VPC network securely.</td>
+</tr>
+<tr>
+<td>Firewall Rules</td>
+<td>Network Security Measure</td>
+<td>"...allow network and security admins to create firewall rules..."</td>
+<td>Firewall rules are a network security measure that controls incoming and outgoing network traffic based on predetermined security policies. In this context, firewall rules are created by network and security administrators to control access to the host project's VPC network and ensure secure communication between service projects and the host project.</td>
+</tr>
+<tr>
+<td>Security Policy</td>
+<td>Organization-Wide Policy</td>
+<td>"...any security policy applied to the host VPC will automatically be inherited by all the service projects..."</td>
+<td>A security policy is an organization-wide policy that defines the rules and regulations for accessing and managing resources within a cloud organization. In this context, security policies are applied to the host project's VPC network and automatically inherited by all service projects connected to it, ensuring consistent security across the organization.</td>
+</tr>
+<tr>
+<td>Region-US-east-1</td>
+<td>Geographic Location</td>
+<td>"...Region-US-east-1..."</td>
+<td>A region is a geographic location where a cloud provider operates its data centers and infrastructure. In this context, Region-US-east-1 refers to the geographic location of one of the host project's VPC networks.</td>
+</tr>
+<tr>
+<td>Subnet 10.0.1.0/24</td>
+<td>Network Resource</td>
+<td>"...Subnet 10.0.1.0/24..."</td>
+<td>A subnet is a network resource that provides IP addresses for instances running within the VPC. In this context, Subnet 10.0.1.0/24 is a specific network resource used by instance A in the host project's VPC network.</td>
+</tr>
+<tr>
+<td>Internal IP for instance A</td>
+<td>Network Resource</td>
+<td>"...Internal IP for instance A is 10.0.1.3..."</td>
+<td>An internal IP address is an IP address assigned to an instance running within a VPC, which is not routable from outside the VPC. In this context, the internal IP address of instance A is 10.0.1.3.</td>
+</tr>
+<tr>
+<td>External IP Address</td>
+<td>Network Resource</td>
+<td>"...using external IP addresses or VPNs..."</td>
+<td>An external IP address is an IP address assigned to a network interface that can be accessed from outside the network. In this context, external IP addresses are used as an alternative to VPC network peering and VPNs for connecting networks.</td>
+</tr>
+<tr>
+<td>Public IP Networking</td>
+<td>Network Communication Method</td>
+<td>"...public IP networking suffers higher latency than private networking."</td>
+<td>Public IP networking refers to using external IP addresses to communicate between networks over the internet. In this context, public IP networking is compared to private networking (using VPC network peering and VPNs) in terms of latency.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

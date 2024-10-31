@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_271</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Dimensioning
+        ## Introduction to Dimensioning
+        - Designing optimal systems requires both forecasting for future demand and planning the resources for a system to meet that requirement, this is called dimensioning.
+        
+        ### Challenges of Dimensioning
+        - What makes dimensioning difficult is that optimizing for one factor by changing a resource properties can have other unforeseen consequences. For example, if you reconfigure the VM to optimize CPU capacity this can have a negative effect on network throughput and even memory and disk capacity.
+        
+        ## Importance of Resiliency
+        - A common error made by designers is to be too ambitious when trying to dimension the system and they tend to optimize away resiliency. Remember that overcapacity or overprovisioning of a system is sometimes necessary and thus included by design to handle volatile periods, growth, or absorb the short term effects of an intentional attack.
+        
+        ### Benefits of Overprovisioning
+        - This failure to recognize and accept the purpose of overprovisioning and subsequently reducing excess capacity in order to save money can create a perfect environment for cascade failures. On the other hand, we must be aware of the price/performance balance but something to keep in mind is that cost optimization is built in to many GCP services.
+        
+        ## Capacity Planning
+        - Capacity planning is an iterative process and by that we mean it is cyclical and seemingly perpetual. There are various common measures of sufficient capacity depending on the perspective and workload estimations. But these are all load and demand dependent, which will likely fluctuate.
+        
+        ### Key Principles of Capacity Planning
+        - Therefore we can only design for sufficient capacity based upon forecasting and then monitor and adjust as the system goes into production and faces up to real world demand. We will need to monitor and measure for VM instance capacity, disk performance, network throughput, and workload demand.
+        
+        - Regardless, capacity planning all comes down to answering; are there sufficient resources with reasonable certainty?
+        
+        ## Allowance for Change
+        - A key design principle in capacity planning is to allow other factors to influence your design and then come back and dimension later. This is because forecasting is never going to be perfect so you will likely have to change some of the design for capacity or for better pricing, at a later date.
+        
+        - However at least then they will be informed decisions based on environmental measurements so you can make these adjustments knowing what benefits you may well be trading in return for reduced cost.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_163</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud Interconnect
+        ## Overview
+        - Google Cloud Interconnect is a service that allows you to connect your network directly to Google Cloud Platform (GCP) using dedicated connections.
+        
+        ### ## Benefits
+        
+        * Fastest, most reliable, and lowest latency method for interconnectivity
+        * Suitable for large organizations with high data transfer requirements
+        * Can be used for cloud-to-cloud, cloud-to-on-premises, or on-premises-to-on-premises connectivity
+        
+        ## ## Requirements
+        
+        * Familiarity with basic network interconnections
+        * Physical presence of a point of presence in a colocation facility
+        * Own routing equipment to support the following technical requirements:
+        - 	+ Ethernet 10Gbps single-mode fibre
+        - 	+ IPv4 link local addressing
+        - 	+ LACP for bonding multiple links
+        - 	+ EBGP-4 with multihop
+        - 	+ 802.1q VLANs
+        
+        ## ## Use Cases
+        
+        * Transferring large amounts of data back and forth with Google Cloud Storage
+        * Data-intensive production networks requiring high data transfer rates for daily backup
+        * High-performance, low-latency, and operationally critical traffic
+        
+        ## ## Considerations
+        
+        * Initial setup can take a lot of time and expense
+        * Circuit between your network and Google's network is not encrypted (may require additional encryption)
+        * Currently, the Google Cloud VPN cannot be used in combination with a dedicated connection
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_100</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_100_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_100</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>GCP Networking</h1>
+<h2>Projects</h2>
+<ul>
+<li><a href="https://cloud.google.com/docs">GCP Documentation</a></li>
+</ul>
+<h2>Networks</h2>
+<h3>Sub-Networks</h3>
+<h4>IP Addresses</h4>
+<h4>DNS</h4>
+<h3>Routing Traffic</h3>
+<h4>Virtual Routers</h4>
+<h5>Regional Dynamic Mode</h5>
+<h5>Global Dynamic Routing Mode</h5>
+<h4>Default Routes</h4>
+<h4>Firewall Rules</h4>
+<h5>Routing Process</h5>
+<h4>Compute Engine Routing Tables</h4>
+<h4>Instance Tags</h4>
+<h4>Firewall Rule Creation</h4>
+<h3>Alias IP Ranges</h3>
+<ul>
+<li><a href="https://cloud.google.com/compute/docs/vm-instance-config/alias-ip-ranges">GCP Documentation</a></li>
+</ul>
+<h2>GCP Networking Features</h2>
+<ul>
+<li><a href="https://cloud.google.com/networking/docs">GCP Documentation</a></li>
+<li>Google Cloud DNS</li>
+<li>Alias IP ranges</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>But you can host Domain names in GCP using Google Cloud DNS. This is a managed service for those that don't want to create their own BIND server on another VM.
+
+Another networking feature of GCP is alias IP ranges. Alias IP ranges let you assign a range of internal IP addresses to a machine's primary network interface, sas aliases to a virtual IP address. This is useful if you have multiple services running on a VM and you want to assign each service a different IP address. In essence, you can configure multiple IP addresses representing containers or applications hosted on a VM without having to define a separate network interface. You just draw out the alias IP range from the local subnets primary or secondary CIDR ranges.
+
+Routing Traffic
+
+So far we have covered projects, networks, sub-networks, IP addresses and DNS. Now we need to pull this all together to understand how GCP routes traffic. In GCP each network has its own virtual router that collects and maintains the routes that let instances in the network send traffic directly to each other even across subnets.
+
+The virtual router by default only works in regional dynamic mode whereby it only shares routes within its own region. There is an alternative, global dynamic routing mode whereby the virtual router will share routes it learns with every region. Also, each network has a default route that directs packets for an unknown destination to a default gateway that handles IP addresses that are outside the network.
+
+Although these routes will typically cover most of your needs, you can also create special routes that override them should the need arise. However, just because a VM has a route to a packet destination does not mean that the packet can get there. Routes match packets by destination IP address but no traffic will flow without it matching a firewall rule.
+
+Therefore in addition to a valid route, a firewall rules must also allow the packet. Therefore, the default network has preconfigured firewall rules that allow all instances in the network to talk with each other. But the manually created and custom networks do not have any preconfigured rules you will need to create them yourself.
+
+Firewall Rules
+
+To understand how to make firewall rules we must first understand the routing process. By default, a route is created in the routing table when a network is created, enabling traffic delivery from anywhere. Also, a route is created when the subnet is created. This is what enables VMs on the same subnet to communicate internally.
+
+However, a route in the routing table may apply to one or more instances. A route applies to an instance, if the network and instance tags match. For example, if the network matches and there are no instance tags specified, the route applies to all instances in that network.
+
+Compute Engine then creates individual read-only routing tables for each instance.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Google Cloud Networking Overview</h3>
+<h4>Managed Services and Features</h4>
+<p>Google Cloud (GCP) offers a managed service for DNS, allowing users to host domain names without creating their own BIND server on another VM. Another key feature is alias IP ranges, which enable assigning internal IP addresses to a machine's primary network interface.</p>
+<h4>Routing Traffic</h4>
+<p>In GCP, each network has its own virtual router that collects and maintains routes for instances within the network. The virtual router operates in regional dynamic mode by default, sharing routes only within its region. An alternative is global dynamic routing mode, which shares routes with every region. Each network also has a default route directing packets to a default gateway for unknown destinations.</p>
+<h4>Firewall Rules</h4>
+<p>To understand firewall rules, it's essential to grasp the routing process. By default, a route is created in the routing table when a network is created, enabling traffic delivery from anywhere. Additionally, a route is created when a subnet is created, allowing VMs on the same subnet to communicate internally. However, routes may apply to one or more instances based on matching network and instance tags.</p>
+<h4>Creating Custom Firewall Rules</h4>
+<p>Manually created and custom networks require preconfigured firewall rules, which must be created manually. This involves understanding the routing process and applying firewall rules that allow packets to flow between instances.</p>
+<h3>Key Concepts</h3>
+<ul>
+<li><strong>Google Cloud DNS</strong>: A managed service for hosting domain names without creating a BIND server on another VM.</li>
+<li><strong>Alias IP ranges</strong>: Enable assigning internal IP addresses to a machine's primary network interface, useful for multiple services running on a VM.</li>
+<li><strong>Virtual router</strong>: Collects and maintains routes for instances within a network, operating in regional dynamic mode by default.</li>
+<li><strong>Firewall rules</strong>: Must be created manually for custom networks, applying to one or more instances based on matching network and instance tags.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Networking Fundamentals</h3>
+<p>This topic covers basic networking concepts such as projects, networks, sub-networks, IP addresses, and DNS. It explains how these components work together to enable communication between instances.</p>
+<h3>Topic 2: Virtual Routers and Routing Traffic</h3>
+<p>This topic delves into the details of virtual routers in GCP and how they route traffic within networks. It discusses regional and global dynamic routing modes, default routes, and special routes that can override them.</p>
+<h3>Topic 3: Firewall Rules and Security</h3>
+<p>This topic focuses on firewall rules and their importance in securing network traffic. It explains how routes match packets by destination IP address but require a matching firewall rule to allow traffic to flow.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Google Cloud DNS?
+Answer: Google Cloud DNS is a managed service for hosting domain names in GCP.</p>
+</li>
+<li>
+<p>What is the purpose of alias IP ranges in GCP?
+Answer: Alias IP ranges allow you to assign a range of internal IP addresses to a machine's primary network interface, making it useful for assigning different IP addresses to multiple services running on a VM.</p>
+</li>
+<li>
+<p>How does GCP route traffic between instances in the same network?
+Answer: Each network has its own virtual router that collects and maintains routes, allowing instances to send traffic directly to each other even across subnets.</p>
+</li>
+<li>
+<p>What is the default routing mode for virtual routers in GCP?
+Answer: The default routing mode is regional dynamic mode, which only shares routes within its own region.</p>
+</li>
+<li>
+<p>Why do firewall rules need to be created manually for custom networks?
+Answer: Firewall rules are not preconfigured for custom networks, so they need to be created manually to allow traffic between instances.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the routing process work in GCP, and what is the role of individual read-only routing tables for each instance?
+Answer: The routing process involves a virtual router that collects and maintains routes, which are then applied to individual instances based on network and instance tags. Each instance has its own read-only routing table.</p>
+</li>
+<li>
+<p>What are the benefits of using alias IP ranges in GCP?
+Answer: Alias IP ranges allow you to configure multiple IP addresses for containers or applications hosted on a VM without defining separate network interfaces.</p>
+</li>
+<li>
+<p>How do firewall rules interact with routes in GCP?
+Answer: Firewall rules must also allow traffic to flow, and routes only match packets by destination IP address; therefore, both are required for traffic to reach its destination.</p>
+</li>
+<li>
+<p>What is the difference between regional dynamic mode and global dynamic routing mode for virtual routers in GCP?
+Answer: Regional dynamic mode shares routes within its own region, while global dynamic routing mode shares routes with every region.</p>
+</li>
+<li>
+<p>How do custom networks differ from default networks in terms of firewall rules?
+Answer: Custom networks do not have preconfigured firewall rules, whereas the default network has preconfigured rules that allow all instances to talk to each other.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a network architecture for a web application hosted on GCP, including alias IP ranges and custom firewall rules.
+Answer: This would involve creating a custom network with multiple subnets, using alias IP ranges to assign different IP addresses to services running on the same VM, and creating custom firewall rules to allow traffic between instances.</p>
+</li>
+<li>
+<p>How would you configure routing for a multi-region application hosted on GCP?
+Answer: You would use global dynamic routing mode for the virtual router, which shares routes with every region, and create custom routes to override default routes as needed.</p>
+</li>
+<li>
+<p>What are some security considerations when using alias IP ranges in GCP?
+Answer: Alias IP ranges can introduce complexity and security risks if not used carefully; therefore, it's essential to monitor traffic flow and adjust firewall rules accordingly.</p>
+</li>
+<li>
+<p>How would you troubleshoot issues with routing and firewall rules in a custom network on GCP?
+Answer: You would use the GCP console or CLI to inspect routing tables, firewall rules, and instance tags, and test traffic flow between instances using tools like <code>gcloud compute</code> or <code>curl</code>.</p>
+</li>
+<li>
+<p>What are some best practices for managing firewall rules in custom networks on GCP?
+Answer: Best practices include regularly reviewing and updating firewall rules, monitoring traffic flow, and using security groups to simplify management.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>But you can host Domain names in GCP using Google Cloud DNS.</code></td>
+<td>Service Name</td>
+<td>This sentence introduces the concept of Google Cloud DNS, a managed service for hosting domain names. The context is that it's an alternative to creating one's own BIND server on another VM.</td>
+<td>Google Cloud DNS is a managed service that allows users to host domain names without having to set up their own DNS server. It provides a convenient and scalable solution for managing domain names in the cloud.</td>
+</tr>
+<tr>
+<td><code>Another networking feature of GCP is alias IP ranges.</code></td>
+<td>Feature Name</td>
+<td>This sentence highlights one of the networking features of Google Cloud Platform (GCP), specifically alias IP ranges. The context is that it allows users to assign multiple IP addresses to a single machine's primary network interface.</td>
+<td>Alias IP ranges are a feature in GCP that enables users to assign multiple IP addresses to a single machine, allowing for more flexibility and scalability in networking configurations.</td>
+</tr>
+<tr>
+<td><code>sas aliases to a virtual</code></td>
+<td>Abbreviation/Keyword</td>
+<td>This sentence uses the abbreviation "sas" (short for Service Access Security) to describe how alias IP ranges work. The context is that it's used to assign multiple services running on a VM different IP addresses.</td>
+<td>In GCP, "sas" refers to Service Access Security, which is used to manage access and security for services running on virtual machines. It allows users to assign multiple services different IP addresses without having to define separate network interfaces.</td>
+</tr>
+<tr>
+<td><code>This is useful if you have multiple services running on a VM and you want to assign each service a different IP address.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence provides context for why alias IP ranges are useful, specifically when managing multiple services running on the same virtual machine.</td>
+<td>The use of alias IP ranges allows users to manage multiple services running on the same VM by assigning each service a unique IP address, making it easier to configure and manage network traffic.</td>
+</tr>
+<tr>
+<td><code>In essence, you can configure multiple IP addresses representing containers or applications hosted on a VM without having to define a separate network interface.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence summarizes the benefit of using alias IP ranges, specifically in terms of configuring multiple IP addresses for containers or applications running on a VM.</td>
+<td>The use of alias IP ranges allows users to configure multiple IP addresses for containers or applications running on a VM without having to define separate network interfaces, making it easier to manage and scale network configurations.</td>
+</tr>
+<tr>
+<td><code>Now we need to pull this all together to understand how GCP routes traffic.</code></td>
+<td>Transition Sentence</td>
+<td>This sentence transitions from discussing networking features to explaining how GCP routes traffic. The context is that the previous sections have covered projects, networks, sub-networks, IP addresses, and DNS.</td>
+<td>The discussion of networking features in previous sections has laid the groundwork for understanding how GCP routes traffic, which is a critical aspect of managing network configurations in the cloud.</td>
+</tr>
+<tr>
+<td><code>In GCP each network has its own virtual router that collects and maintains the routes that let instances in the network send traffic directly to each other even across subnets.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence explains how GCP's virtual routers work, specifically in terms of collecting and maintaining routes for network traffic. The context is that it enables instances in a network to communicate with each other directly, regardless of their subnet location.</td>
+<td>In GCP, each network has its own virtual router that collects and maintains routes for network traffic, allowing instances in the same network to communicate with each other directly, even if they are located in different subnets.</td>
+</tr>
+<tr>
+<td><code>Although these routes will typically cover most of your needs, you can also create special routes that override them should the need arise.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence provides context for when special routes might be needed, specifically in cases where the default routes do not meet the user's requirements.</td>
+<td>While GCP's virtual routers provide a robust routing system, there may be situations where users need to create custom routes that override the default routes, allowing for more fine-grained control over network traffic.</td>
+</tr>
+<tr>
+<td><code>However, just because a VM has a route to a packet destination does not mean that the packet can get there.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence highlights an important consideration when managing network traffic in GCP, specifically the relationship between routes and packet delivery. The context is that having a valid route does not guarantee that packets will be delivered successfully.</td>
+<td>In GCP, having a valid route for network traffic does not guarantee that packets will be delivered successfully, as there are other factors at play, such as firewall rules and security settings, that can affect packet delivery.</td>
+</tr>
+<tr>
+<td><code>Therefore in addition to a valid route a firewall rules must also allow the packet.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence emphasizes the importance of firewall rules in ensuring that network traffic is allowed to pass through, specifically when there are multiple routes involved. The context is that having a valid route does not guarantee packet delivery if the corresponding firewall rule does not allow it.</td>
+<td>In GCP, firewall rules play a critical role in ensuring that network traffic is allowed to pass through, even when there are multiple routes involved, and users must take care to configure these rules correctly to avoid blocking traffic.</td>
+</tr>
+<tr>
+<td><code>To understand how to make firewall rules we must first understand the routing process.</code></td>
+<td>Transition Sentence</td>
+<td>This sentence transitions from discussing packet delivery to explaining the importance of understanding the routing process for configuring firewall rules. The context is that having a valid route does not guarantee packet delivery if the corresponding firewall rule does not allow it.</td>
+<td>Understanding the routing process in GCP is essential for configuring firewall rules correctly, as it allows users to make informed decisions about which traffic should be allowed or blocked based on their specific network requirements.</td>
+</tr>
+<tr>
+<td><code>By default, a route is created in the routing table when a network is created, enabling traffic delivery from anywhere.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence explains how GCP's routing system works by default, specifically in terms of creating routes for network traffic. The context is that this enables traffic to be delivered from any location within the network.</td>
+<td>In GCP, when a new network is created, a route is automatically added to the routing table, enabling traffic delivery from anywhere within the network, making it easier to manage and scale network configurations.</td>
+</tr>
+<tr>
+<td><code>Also, a route is created when the subnet is created.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence provides additional context for how GCP's routing system works, specifically in terms of creating routes for subnets. The context is that this enables traffic to be delivered within the same subnet.</td>
+<td>In addition to network creation, a route is also automatically added to the routing table when a new subnet is created, enabling traffic delivery within the same subnet, making it easier to manage and scale network configurations.</td>
+</tr>
+<tr>
+<td><code>This is what enables VMs on the same subnet to communicate internally.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence explains how GCP's routing system enables communication between virtual machines (VMs) within the same subnet. The context is that this allows VMs to communicate with each other directly, regardless of their IP addresses.</td>
+<td>In GCP, the creation of routes for subnets enables VMs on the same subnet to communicate with each other internally, allowing them to exchange data and resources without relying on external networks or gateways.</td>
+</tr>
+<tr>
+<td><code>However a route in the routing table may apply to one or more instances.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence highlights an important consideration when managing network traffic in GCP, specifically how routes can be applied to multiple instances. The context is that this affects how firewall rules are configured to allow or block traffic.</td>
+<td>In GCP, routes in the routing table can be applied to multiple instances, which means that users must take care to configure firewall rules correctly to ensure that only authorized traffic is allowed to pass through.</td>
+</tr>
+<tr>
+<td><code>A route applies to an instance if the network and instance tags match.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence explains how GCP's routing system determines whether a route should be applied to an instance, specifically in terms of matching network and instance tags. The context is that this affects how firewall rules are configured to allow or block traffic.</td>
+<td>In GCP, routes in the routing table apply to instances based on matching network and instance tags, which means that users must carefully configure these tags to ensure that only authorized traffic is allowed to pass through.</td>
+</tr>
+<tr>
+<td><code>For example, if the network matches and there are no instance tags specified, the route applies to all instances in that network.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence provides an example of how GCP's routing system determines whether a route should be applied to an instance, specifically when there are multiple instances involved. The context is that this affects how firewall rules are configured to allow or block traffic.</td>
+<td>In GCP, if the network tag matches but no instance tags are specified, the route applies to all instances in that network, which means that users must take care to configure firewall rules correctly to avoid blocking traffic from unauthorized sources.</td>
+</tr>
+<tr>
+<td><code>To create custom routes that override the default routes, you can use the</code>route<code>command.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence provides instructions on how to create custom routes in GCP, specifically using the <code>route</code> command. The context is that this allows users to fine-tune their network configurations and ensure that only authorized traffic is allowed to pass through.</td>
+<td>In GCP, users can create custom routes by using the <code>route</code> command, which enables them to override default routes and configure firewall rules to allow or block specific types of traffic based on their network requirements.</td>
+</tr>
+<tr>
+<td><code>You can also use the</code>gcloud compute networks subnets add-route<code>command to create a route.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence provides an alternative method for creating custom routes in GCP, specifically using the <code>gcloud compute networks subnets add-route</code> command. The context is that this allows users to fine-tune their network configurations and ensure that only authorized traffic is allowed to pass through.</td>
+<td>In addition to using the <code>route</code> command, users can also create custom routes by using the <code>gcloud compute networks subnets add-route</code> command, which provides a more interactive way to configure firewall rules and ensure that only authorized traffic is allowed to pass through.</td>
+</tr>
+<tr>
+<td><code>This allows you to specify the source IP address range, destination IP address range, protocol, and port range for the route.</code></td>
+<td>Sentence Structure</td>
+<td>This sentence explains how custom routes can be configured in GCP, specifically in terms of specifying the source and destination IP addresses, protocols, and port ranges. The context is that this enables users to fine-tune their network configurations and ensure that only authorized traffic is allowed to pass through.</td>
+<td>When creating a custom route using the <code>gcloud compute networks subnets add-route</code> command or the <code>route</code> command, users can specify the source IP address range, destination IP address range, protocol, and port range for the route, allowing them to fine-tune their network configurations and ensure that only authorized traffic is allowed to pass through.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_263</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_263_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_263</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Lift-and-Shift Vs. Refactoring</h1>
+<h2>Budget</h2>
+<p>Unfortunately, many IT teams face time or budget constraints, leading them to opt for a lift and shift approach. However, refactoring can be a better path, offering significant benefits in basic lift-and-shift migration.</p>
+<h3>On-Premises vs. Cloud-Native</h3>
+<p>Although lift and shift may seem easier and cheaper on-premises, it could ultimately cost more than running a cloud-native app. Additionally, there may be limitations in utilizing Google's services for monitoring, security, and governance.</p>
+<h2>Refactoring as a Better Option</h2>
+<p>Refactoring is often preferred over lift and shift due to the following reasons:</p>
+<ul>
+<li>Performance issues after lift and shift migration</li>
+<li>Inability to integrate with Google's security systems, such as IAM</li>
+<li>Delays and expense associated with unnecessary refactoring</li>
+</ul>
+<h3>Evaluating Refactoring</h3>
+<p>When deciding whether to refactor an application, consider the following factors:</p>
+<ul>
+<li>Cost: Ensure that refactoring does not exceed the savings in running costs.</li>
+<li>Enhanced performance and security benefits</li>
+<li>Return on investment (ROI)</li>
+</ul>
+<h3>Refactoring Tools</h3>
+<p>A wide variety of refactoring tools are available, catering to different programming languages and databases. Today, most tools focus on building microservices designed to consume cloud-native APIs.</p>
+<h3>Shift Towards Container Development</h3>
+<p>Recently, there has been a shift towards container development and Kubernetes engine deployment, making these tools increasingly popular for refactoring applications in the cloud.</p>
+<h2>Refactoring Strategies</h2>
+<p>There are two primary approaches to refactoring:</p>
+<ol>
+<li><strong>Complete Refactor</strong>: This approach involves editing over 50% of the code and updating the database to benefit from cloud-native features. It is a high-risk, high-reward strategy that can be expensive or complex.</li>
+<li><strong>Minimum Viable Refactoring</strong>: This approach prioritizes speed and efficiency, requiring only minor code changes to the application. It often results in integrating the app with cloud-native security and a cloud database into the migrated workload.</li>
+</ol>
+<h3>Prioritizing Speed and Efficiency</h3>
+<p>When choosing a refactoring strategy, consider prioritizing speed and efficiency while still achieving the desired outcomes. This approach can help minimize delays and expense associated with unnecessary refactoring.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Lift-and-Shift Vs. Refactoring
+
+Unfortunately, many IT teams face time or budget constraints, leading them to opt for a lift and shift approach. However, refactoring can often be the better path as it has significant benefits to basic lift-and-shift migration.
+
+To virtualize your applications and their stacks in the cloud as-built, one issue is that although it may seem easier and cheaper on-premises, this approach could ultimately cost more than running a cloud-native app. Moreover, there may be an inability to properly utilize Google's services for monitoring, security, and governance.
+
+Therefore, many believe that refactoring an application as part of a migration is a better option. This is because they have had to do so many times retrospectively due to an application's performance failing to meet benchmarks after a lift and shift migration. There are also issues when migrated applications because they are not cloud-native, making it difficult to integrate with some of Google's security systems.
+
+However, most IT departments don't want to go through unnecessary refactoring because it adds delays and expense. So, how do you know when to refactor an application? Application developers need to contemplate several factors when evaluating their apps, considering cost as the most important factor. This is simple business logic - do not spend more money refactoring an app than will be saved in running costs.
+
+When evaluating the return on investment (ROI), consider the cost, enhanced performance, and security benefits. Remember that ROI isn't just about money. There's a wide variety of refactoring tools available, and an application's needs vary depending on its programming languages and databases.
+
+Today, the categories of tools lean towards refactoring in building microservices designed to consume cloud-native APIs. On the other hand, there is a shift towards container development and Kubernetes engine deployment, making these tools popular for refactoring applications for the cloud.
+
+Refactoring Strategies
+
+There are two ways to go about refactoring: complete refactor or minimum viable refactor. A complete refactor involves editing over 50% of the code and updating the database to benefit from many cloud-native features. This is a high-risk, high-reward strategy that can significantly enhance performance and features but also comes with an expensive and complex process.
+
+On the other hand, there's the option of a minimum viable refactor, prioritizing speed and efficiency. A minimal refactor only requires minor code changes to the application, often resulting in integrating the app with cloud-native security and a cloud database into the migrated workload.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Lift-and-Shift vs. Refactoring: Choosing the Right Approach for Cloud Migration</strong></p>
+<p>When it comes to migrating applications to the cloud, IT teams often face time or budget constraints, leading them to consider a lift-and-shift approach. However, this method may not be the most cost-effective solution in the long run.</p>
+<p><strong>The Drawbacks of Lift-and-Shift Migration</strong></p>
+<p>Lift-and-shift migration involves replicating an on-premises application setup in the cloud, which can lead to:</p>
+<ul>
+<li>Higher costs compared to running a cloud-native app</li>
+<li>Inability to fully utilize Google's services for monitoring, security, and governance</li>
+<li>Potential performance issues due to compatibility problems</li>
+</ul>
+<p><strong>The Benefits of Refactoring</strong></p>
+<p>Refactoring, on the other hand, involves modifying an application to take advantage of cloud-native features. This approach offers significant benefits, including:</p>
+<ul>
+<li>Enhanced performance and features to meet evolving business requirements</li>
+<li>Improved integration with cloud-native security and a cloud database</li>
+<li>Ability to fully utilize Google's services for monitoring, security, and governance</li>
+</ul>
+<p><strong>When to Refactor</strong></p>
+<p>Refactoring is not always necessary, but it's essential to consider the cost-benefit analysis. Application developers should evaluate factors such as:</p>
+<ul>
+<li>Cost: Refactoring can be expensive, so it's crucial to weigh the costs against potential savings in running costs.</li>
+<li>Enhanced performance and security benefits</li>
+<li>Return on investment (ROI)</li>
+</ul>
+<p><strong>Refactoring Strategies</strong></p>
+<p>There are two primary refactoring strategies:</p>
+<ol>
+<li><strong>Complete Refactor</strong>: This approach involves editing over 50% of the code and updating the database to benefit from cloud-native features. It's a high-risk, high-reward strategy that can significantly enhance performance and features.</li>
+<li><strong>Minimum Viable Refactoring</strong>: This approach prioritizes speed and efficiency, requiring only minor code changes to the application. It often results in integrating the app with cloud-native security and a cloud database into the migrated workload.</li>
+</ol>
+<p>By considering these factors and refactoring strategies, IT teams can make informed decisions about whether to lift-and-shift or refactor their applications for a successful cloud migration.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Lift-and-Shift Migration</h3>
+<p>Lift-and-shift migration is an easier and seemingly cheaper option, but it may not be the best choice due to potential costs and limitations in utilizing Google's services for monitoring, security, and governance.</p>
+<h3>Topic 2: Refactoring Benefits</h3>
+<p>Refactoring has significant benefits to basic lift-and-shift migration, including enhanced performance and features, but it can also be expensive or complex.</p>
+<h3>Topic 3: Cost Consideration</h3>
+<p>Cost is a crucial factor when evaluating the need for refactoring an application. Developers must consider the cost of refactoring against the potential savings in running costs.</p>
+<h3>Topic 4: Refactoring Tools</h3>
+<p>A wide variety of refactoring tools are available, with most leaning towards building microservices that consume cloud-native APIs. There's also a shift towards container development and Kubernetes engine deployment.</p>
+<h3>Topic 5: Refactoring Strategies</h3>
+<p>There are two ways to approach refactoring: complete refactor or minimum viable refactor. The complete refactor involves significant changes to the code and database, while the minimum viable refactor prioritizes speed and efficiency with minor code changes.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the main differences between lift-and-shift migration and refactoring?
+Answer: Lift-and-shift migration involves replicating an on-premises setup in the cloud, while refactoring involves modifying the application to take advantage of cloud-native features.</p>
+</li>
+<li>
+<p>Why do many IT teams opt for a lift-and-shift approach despite its potential drawbacks?
+Answer: Many IT teams face time or budget constraints, leading them to choose a lift-and-shift approach as a quicker and seemingly cheaper option.</p>
+</li>
+<li>
+<p>What are some issues that can arise when migrating applications using a lift-and-shift approach?
+Answer: Migrated applications may not be able to integrate with Google's security systems, such as the identity and access management (IAM) service, and may struggle to meet performance benchmarks.</p>
+</li>
+<li>
+<p>How do application developers determine whether refactoring is necessary for an application?
+Answer: Application developers must consider factors such as cost, enhanced performance, and security benefits when evaluating the return on investment (ROI).</p>
+</li>
+<li>
+<p>What are some common challenges associated with refactoring an application?
+Answer: Refactoring can be expensive or complex, but it offers significant benefits in terms of performance and features.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the choice between lift-and-shift migration and refactoring impact the overall cost of migrating an application to the cloud?
+Answer: Refactoring can often result in lower costs over time, as it allows for more efficient use of cloud resources and integration with security systems.</p>
+</li>
+<li>
+<p>What are some potential benefits of using a minimum viable refactoring process?
+Answer: This approach prioritizes speed and efficiency, resulting in minor code changes and integration with cloud-native security and databases.</p>
+</li>
+<li>
+<p>How does the shift towards container development and Kubernetes engine deployment impact refactoring strategies?
+Answer: These tools have become increasingly popular for refactoring applications, particularly those designed to consume cloud-native APIs.</p>
+</li>
+<li>
+<p>What are some key considerations when evaluating the return on investment (ROI) of refactoring an application?
+Answer: Developers must consider factors such as cost, enhanced performance, and security benefits when evaluating the ROI.</p>
+</li>
+<li>
+<p>How can IT teams balance the need for speed and efficiency with the potential risks associated with refactoring?
+Answer: By prioritizing speed and efficiency while still considering the potential risks and benefits of refactoring, IT teams can make informed decisions about their migration strategy.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose an IT team is migrating a legacy application to the cloud using a lift-and-shift approach. What are some potential consequences of this decision?
+Answer: The application may struggle to meet performance benchmarks, and integration with security systems such as IAM may be limited.</p>
+</li>
+<li>
+<p>A company is considering refactoring its e-commerce platform to take advantage of cloud-native features. What are some potential benefits of this decision?
+Answer: Refactoring the platform could result in improved performance, enhanced security, and increased efficiency, ultimately leading to cost savings and improved customer experience.</p>
+</li>
+<li>
+<p>How might a company's ROI on refactoring an application be affected by its choice of programming languages and databases?
+Answer: The type of programming languages and databases used can impact the complexity and cost of refactoring, as well as the potential benefits in terms of performance and features.</p>
+</li>
+<li>
+<p>What are some common challenges associated with refactoring applications built using microservices architecture?
+Answer: Refactoring applications built using microservices architecture can be complex due to the need to integrate multiple services and consider scalability and security implications.</p>
+</li>
+<li>
+<p>How might a company's refactoring strategy impact its overall cloud migration plan?
+Answer: A well-planned refactoring strategy can help ensure that the application is optimized for cloud resources, resulting in improved performance, efficiency, and cost savings over time.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lift-and-Shift Migration</td>
+<td>Approach</td>
+<td>"Unfortunately in many cases IT teams will often face time or b constraints, so they believe they have no other option but to go for a lift and shift approach."</td>
+<td>A migration strategy where an application is replicated from its on-premises environment to the cloud without significant changes.</td>
+</tr>
+<tr>
+<td>Refactoring</td>
+<td>Technique</td>
+<td>"But refactoring can often be the better path as it has significant benefits to basic lift-and-shift migration."</td>
+<td>The process of modifying existing code to improve its structure, performance, or compatibility with new technologies.</td>
+</tr>
+<tr>
+<td>Cloud-Native App</td>
+<td>Application Type</td>
+<td>"to virtualise your applications and their stacks in the cloud as-built"</td>
+<td>An application designed from scratch for deployment on a cloud platform, taking advantage of cloud-specific features and services.</td>
+</tr>
+<tr>
+<td>On-Premises Set-Up</td>
+<td>Environment</td>
+<td>"although it may be easier and seemingly cheaper on-premises as you are basically just replicating the on-premises set-up."</td>
+<td>The traditional IT infrastructure environment, typically hosted on-premises or in a data center.</td>
+</tr>
+<tr>
+<td>Virtualisation</td>
+<td>Technology</td>
+<td>"to virtualise your applications and their stacks in the cloud as-built"</td>
+<td>A process of creating multiple virtual environments (VMs) on a single physical host, allowing for more efficient use of resources.</td>
+</tr>
+<tr>
+<td>Cloud-Native Features</td>
+<td>Feature Set</td>
+<td>"so it can benefit from many cloud-native features."</td>
+<td>A set of features specifically designed for cloud-based applications, such as scalability, elasticity, and high availability.</td>
+</tr>
+<tr>
+<td>Microservices Architecture</td>
+<td>Architecture Style</td>
+<td>"Today the categories of tools lean towards refactoring in building microservices that are designed to consume cloud-native APIs."</td>
+<td>An architectural style where an application is broken down into small, independent services that communicate with each other using APIs.</td>
+</tr>
+<tr>
+<td>Container Development</td>
+<td>Development Methodology</td>
+<td>"On the other hand, lately there is a shift towards container development and Kubernetes engine deployment so these tools are also becoming a very popular way to refactor an application for the cloud."</td>
+<td>A method of developing applications by packaging them into containers, which can be easily deployed and managed.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Deployment Tool</td>
+<td>"so these tools are also becoming a very popular way to refactor an application for the cloud."</td>
+<td>An open-source container orchestration system that automates the deployment, scaling, and management of containerized applications.</td>
+</tr>
+<tr>
+<td>Identity and Access Management (IAM) Service</td>
+<td>Security System</td>
+<td>"There are also issues when migrated applications because they are not cloud-native so they cannot integrate with some of Google's security systems, such as the identity and access management (IAM) service."</td>
+<td>A system that manages user identities and permissions to access resources within an organization.</td>
+</tr>
+<tr>
+<td>Return on Investment (ROI)</td>
+<td>Financial Metric</td>
+<td>"Therefore you must consider the cost as well as enhanced performance and security benefits when you evaluate the return on your investment (ROI)."</td>
+<td>A financial metric used to measure the profitability of an investment or project, taking into account both costs and benefits.</td>
+</tr>
+<tr>
+<td>Refactoring Tools</td>
+<td>Software</td>
+<td>"There's a wide variety of refactoring tools available, and an application's needs will vary depending on what programming languages and databases that it uses."</td>
+<td>Software applications designed to assist with the refactoring process, such as code analysis, code transformation, and code generation.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

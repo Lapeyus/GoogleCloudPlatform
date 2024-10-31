@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_99</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # IP Addresses
+        ## Internal IP Addresses
+        - Every VM that you make and any service that depends on virtual machines gets an internal IP address.
+        - The internal IP address is allocated via DHCP internally and is used as an internal IP address.
+        - The internal IP address can change as it's assigned dynamically by DHCP.
+        
+        ## External IP Addresses
+        - The external IP address is optional.
+        - You would only need to assign an external IP address if your device or machine is accessed publicly over the internet.
+        - The public or external IP address can either be assigned from a pool, making it dynamic and ephemeral or it can be statically assigned a reserved external IP address.
+        
+        ### Ephemeral vs Static External IP Addresses
+        - Whether you use an ephemeral or static IP address, the external address is unknown to the OS of the VM.
+        - The external IP address is mapped to the VM's internal address transparently by VPC.
+        
+        ## DNS and External IP Addresses
+        - Each VM instance has a symbolic name, used as the hostname, which can be resolved by DNS to an internal IP address.
+        - The DNS service translates web URLs and VM names of hosts in the same network.
+        - However, it cannot translate hostnames from VMs in a different network.
+        
+        ### Public DNS Records
+        - The public DNS records pointing to instances are not published automatically.
+        - By default, an admin has to publish these using existing DNS servers.
+
+      </script>
+    </div>
+  </body>
+</html>

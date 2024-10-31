@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_286</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Stackdriver Logging
+        ## Overview
+        - You should be aware that log entries exported to Cloud Storage are batched and sent out approximately every hour. On the other hand, log entries exported to BigQuery and Cloud Pub/Sub are streamed to those destinations immediately.
+        
+        - When exporting logs to different storage classes of cloud storage, you should consider how long and often you will need to access the data. This is because Stackdriver logging will only retain the logs for 30 days.
+        
+        ## Features
+        - Exporting logs allows you to perform search and then analyse the logs in BigQuery, Google's data warehouse for analytics.
+        - Exporting logs also lets you create advanced visualizations using Cloud Datalab.
+        - You can also stream logs to applications or endpoints using Cloud Pub/Sub messaging service.
+        
+        ### Lists
+        - **strong** Best practices when it comes to Stackdriver logging are:
+        -   • Don't use substring matches on service names or resource types. Instead, use the equals operator for an exact match.
+        -   • Perform faster searches by targeting specific values of indexed fields.
+        -   • Finally, get accustomed to using and learning the advanced viewing interface.
+        
+        ### Blocks
+        ```javascript
+        - console.log('hello, JavaScript')
+        ```
+        
+        ## Error Reporting
+        - Stackdriver has another in-built feature that is extremely useful - error reporting. Indeed Stackdriver error reporting will count, analyse and aggregate all of the errors in all of your active cloud resources.
+        
+        - This works because the Stackdriver probe or agent sends data to a centralized error management interface. The centralized error reporting node then collates and displays the results with granular sorting and filtering capabilities.
+        
+        - Error reporting as a function is available for the App Engine Standard environment, the App Engine Flexible environment, and the Compute Engine services. Also, it is available in terms of programming languages, using Java, Python, JavaScript, Ruby, C#, PHP, and Go as the exceptions stack trace parser can handle these languages.
+        
+        ## Tracing
+        - Stackdriver Trace is a distributed tracing system that collects latency data from your applications and displays it in the GCP console. Using Stackdriver trace you can track how requests propagate through your application and receive detailed new real-time performance insights.
+
+      </script>
+    </div>
+  </body>
+</html>

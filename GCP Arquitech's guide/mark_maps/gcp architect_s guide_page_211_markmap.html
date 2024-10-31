@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_211</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Session Affinity and Server Affinity
+        ## Overview
+        
+        - Session affinity and server affinity are two important concepts in load balancing and distributed systems.
+        
+        ### Session Affinity
+        
+        - In session affinity, the load distribution facility acknowledges a client session's existence and tries to direct all requests within that transaction's scope to the same server.
+        
+        ### Server Affinity
+        
+        - In server affinity, the load distribution facility acknowledges that while multiple servers might be acceptable for a specific client request, a specific server is best suited for processing that particular request.
+        
+        ## Dealing with State
+        - State information can take many forms and can cause issues if not handled properly. Google's SRI team recommends distributing state information across servers rather than storing it in a central database.
+        
+        - However, this approach has its own set of challenges, such as creating hotspots in the database. To avoid this, it is recommended to push state off of the actual services that are handling and relying on state information, and instead push the state information onto a backend server.
+        
+        ## Measurement
+        - Measurement is critical in designing a stable and manageable system. This involves setting performance goals and metrics from early prototyping through to commissioning and deployment.
+        
+        - As the Cloud Architect, it is essential to define how your service should look and feel, address customer experience and expectation, and establish metrics that measure reliability and performance.
+        
+        ### Key Performance Indicators
+        
+        *   Reliability
+        *   Performance
+        *   Customer Experience
+        
+        ### Service Level
+        
+        - The service level refers to the level of reliability and performance expected from a system. It is essential to establish clear service levels to ensure that users feel they are benefiting from your service.
+        
+        ## Best Practices
+        
+        *   Distribute state information across servers rather than storing it in a central database.
+        *   Push state off of actual services and onto a backend server.
+        *   Set performance goals and metrics from early prototyping through to commissioning and deployment.
+        *   Define how your service should look and feel, address customer experience and expectation.
+        
+        ### References
+        
+        *   Google's SRI team best practices for load balancing and distributed systems.
+
+      </script>
+    </div>
+  </body>
+</html>

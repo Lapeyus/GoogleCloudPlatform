@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_189</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        ```markdown
+        # Deployment Manager Overview
+        
+        ## Introduction
+        ### What is Deployment Manager?
+        #### Deployment Manager is a service that automates the deployment of applications on Google Cloud Platform (GCP).
+        
+        ## Features
+        
+        - **Templates**: Templates can be nested to create reusable assets.
+        -   - Example: Using different templates for firewall rules and virtual machines.
+        - **Properties and Environment Variables**: Templates have properties and can use environment variables.
+        - **Startup Scripts and Metadata Capabilities**: Templates support startup scripts and metadata capabilities.
+        - **GCP API Updates**: Deployments can be updated using the GCP API, and resources can be added or removed.
+        
+        ## Cloud Launcher
+        
+        ### What is Cloud Launcher?
+        #### Cloud Launcher is a marketplace for third-party vendors to sell their cloud-ready products.
+        #### Vendors have created deployment scripts for common solutions such as LAMP stacks and proprietary software.
+        
+        - **Open Source vs. Licensed Software**: Not all vendor software is open source, and some have separate fees for licensing and image use.
+        - **Estimated Monthly Fees**: Estimated monthly fees are available in the pricing details for each solution.
+        - **Image Updates**: Google updates images to the latest versions in the repository but does not apply update patches on running instances.
+        
+        ### Ease of Use
+        #### Cloud Launcher is easy to use, with deployment possible in around 30 seconds with two clicks:
+        -   - Selecting the software package and launching on Compute Engine.
+        -   - Selecting the zone.
+        
+        ## Limitations
+        
+        - **Configuration Size**: Neither original nor expanded configurations can exceed 10 megabytes.
+        - **System Calls**: Python templates cannot make system or network calls, as these will be automatically rejected.
+        
+        ## Further Learning
+        #### This high-level overview does not do justice to the complexity of Deployment Manager's configurations and templates.
+        #### There is a vast amount more to learn before becoming skilled in using Deployment Manager.
+
+      </script>
+    </div>
+  </body>
+</html>

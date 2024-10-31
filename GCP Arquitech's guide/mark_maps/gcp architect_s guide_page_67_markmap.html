@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_67</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # API Management and Development Environments
+        ## Introduction
+        
+        - Managing APIs and development environments is a crucial task in software development. Google Cloud Platform provides two API management tools, Cloud Endpoints and Apigee Edge, to help developers manage their APIs.
+        
+        ### Deprecation and Functional Upgrades
+        
+        - Developers need to document changes to APIs, including deprecation or functional upgrades, so that clients and other developers know what's happening. This includes documenting new features in version 2 of an API that are not available in version 1.
+        
+        ## Cloud Endpoints
+        ### Overview
+        
+        - Cloud Endpoints is a platform for developing and managing API proxies. It implements capabilities such as exposing APIs to trusted developers, monitoring usage, and logging. Cloud Endpoints supports applications running on GCP's compute platforms in various languages and client technologies.
+        
+        ### Use Cases
+        
+        * Exposing APIs to trusted developers while ensuring security and monitoring.
+        * Implementing features like rate limiting, quotas, and analytics.
+        
+        ## Apigee Edge
+        ### Overview
+        
+        - Apigee Edge is a platform for developing and managing API proxies with a focus on business problems. It provides capabilities like rate limiting, setting quotas, and providing analytics. However, it requires backend services to be in GCP.
+        
+        ### Use Cases
+        
+        * Decomposing legacy applications into microservices or micro-apps.
+        * Moving monolith applications to the cloud in a less risky way by peeling off services one by one.
+        
+        ## Development Environments
+        ### Overview
+        
+        - Developers need to choose between Google App Engine (GAE) and Google Kubernetes Engine (GKE) for building development environments in the cloud. Both provide scalability, redundancy, rollouts, and rollbacks, but differ in management.
+        
+        ### Key Differences
+        
+        * GKE provides fine-grained control over clusters.
+        * GAE manages containers with minimal configuration and management.
+        
+        ## Conclusion
+        - Managing APIs and development environments is essential for software development. Cloud Endpoints and Apigee Edge provide tools for managing APIs, while GAE and GKE offer platforms for building development environments in the cloud. Developers need to choose the right tool based on their specific needs and requirements.
+
+      </script>
+    </div>
+  </body>
+</html>

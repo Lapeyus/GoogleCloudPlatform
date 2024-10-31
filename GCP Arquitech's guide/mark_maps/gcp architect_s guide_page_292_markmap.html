@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_292</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Monitoring and Logging in Cloud Services
+        
+        ## Overview
+        
+        - Monitoring and logging are crucial for ensuring the health and performance of cloud-based applications. In this section, we will explore various methods for monitoring and logging different types of data.
+        
+        ### Timeliness of Data
+        
+        - To ensure that all incoming data is recorded in real-time, periodic queries can be made to a big table or log data. This approach allows for timely detection of any issues with the data storage logs.
+        
+        ## Monitoring Queue Mechanisms
+        
+        - Monitoring queue mechanisms in Pub/Sub can help detect issues with the ingress process. If the queue becomes too far behind, it may indicate that cloud functions are not scaling quickly enough to handle the processing. This can be achieved through white box monitoring, where the focus is on determining if any of the logs are out of date.
+        
+        ## Black Box Monitoring
+        
+        - Black box monitoring involves detecting anomalies in network uptime and data ingestion. By combining this with queue monitoring, potential issues between the two can be identified.
+        
+        ## Solution Architectures
+        
+        - Google provides solution architectures for various use cases, which can be found on [cloud.google.com/solutions](https://cloud.google.com/solutions). These solutions showcase synergies between services and offer custom tweaks specific to certain verticals.
+        
+        ### Example Use Cases
+        
+        *   Monitoring web logs and app logs
+        *   Checking timeliness of data storage logs
+        *   Monitoring queue mechanisms in Pub/Sub
+        *   Detecting anomalies in network uptime and data ingestion
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_38</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # GCP VPC
+        ## Network Administrator
+        ### Default Network
+        #### Web-server
+        #### DevOps
+        #### Analytics
+        #### DevOps
+        ### Google
+        #### Network
+        #### VM
+        #### VM
+        ### No VPN
+        #### Required
+        ### US-West
+        ### US-East
+        
+        - Another important component of a VPC is it provides the critical 
+        - internetworking between resources, such as VMs. It does this in a 
+        - global and flexible way to ensure that all your cloud based 
+        - resources and services can interact with one another. Thus a popular 
+        - way to get started in GCP is through creating a VPC.
+        
+        - When you start out you can create the PVC inside your first GCP 
+        - project, or you can simply choose the default VPC and use that. 
+        - Regardless, your VPC provides the networking capabilities and services 
+        - to connect your Google Cloud platform resources to each other and to the internet.
+        
+        - Basic Cloud Networking
+        - Google's GCP provides you with the concept of the VPC which to all 
+        - intent and purposes resembles your own private network. It also 
+        - provides the underlying networking required to connect your cloud 
+        - resources to each other and the internet. This networking service is 
+        - typically automated and requires no intervention from you.
+        
+        - However if you like you can do many of the network tasks that you perform 
+        - on your on-premises network such as you can segment your networks, use 
+        - firewall rules to restrict access to instances, and create static routes 
+        - to forward traffic to specific destinations. However there is a key 
+        - difference between your on-premise networking and Google GCP networks.
+        
+        - Google's GCP is built upon a Software Defined Network which can be 
+        - considered to be one vast layer-2 network with global reach. Thus the 
+        - Virtual Private Cloud networks that you define will have global scope. 
+        - This means that they can have subnets in any GCP region worldwide and 
+        - importantly the subnets can span the zones that make up a region.
+        
+        - This architecture makes it easy for you to build redundancy into your 
+        - design as there will be very low latency between resources in different 
+        - zones as they are on the same subnet and communicating at layer-2 much 
+        - like they were connected to the same switch. This is perfect for business 
+        - continuity as a fallure in one zone can be addressed seamlessly by the 
+        - resources in another zone.
+        
+        - Moreover the SDN architecture makes it easy to define your own network 
+        - layout with a global scope as in addition to supporting resources in 
+        - different zones on the same subnet, you can dynamically increase the size 
+        - of a subnet in a custom network by expanding the range of IP addresses 
+        - allocated to it without affecting the already configured VMs.
+        
+        - In this example, your VPC has one network.
+
+      </script>
+    </div>
+  </body>
+</html>

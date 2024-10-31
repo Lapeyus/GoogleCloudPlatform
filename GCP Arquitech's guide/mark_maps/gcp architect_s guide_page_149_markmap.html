@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_149</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # GCP Pricing Overview
+        ## Cloud Compute
+        - 1. **Cloud Instance**: Number of nodes in the instance is a billable item.
+        - 2. **Storage**: Total amount of storage used is a billable item.
+        - 3. **Egress Traffic**: Amount of network bandwidth used by egress traffic is a billable item.
+        
+        ### Considerations for Forecasting Costs
+        
+        * Compute cost becomes less important due to comparable performance between SSD and HDD storage types.
+        * Choosing the right storage type depends on access patterns (e.g., scans vs. reads).
+        
+        ## BigQuery
+        ### Overview
+        - BigQuery is Google's Cloud-based version of a data warehouse, targeting large-scale analytics workloads.
+        
+        #### Key Features
+        
+        * **Columnar Data Format**: Faster scanning of large amounts of data.
+        * **Serverless Computing**: Seamless scalability without infrastructure management.
+        * **Petabyte-Scale**: Supports large datasets and enterprise analytics workloads.
+        
+        ### Use Cases
+        - BigQuery is best suited for:
+        
+        * Analytical (OLAP) type queries and scanning large amounts of data.
+        * Enterprise data warehouse applications.
+        
+        #### Limitations
+        
+        * Not designed for transactional (OLTP) type queries or small read/writes.
+        * Lacks cross-row transaction support, but supports atomic single-row operations.
+        
+        ### Pricing
+        - BigQuery pricing consists of two major components:
+        
+        - 1. **Storage Cost**: Based on storage usage.
+        - 2. **Query Cost**: Based on query execution time and data size.
+
+      </script>
+    </div>
+  </body>
+</html>

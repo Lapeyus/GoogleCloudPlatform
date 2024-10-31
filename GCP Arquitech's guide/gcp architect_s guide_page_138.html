@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_138</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_138_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_138</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud SQL</h1>
+<h2>Overview</h2>
+<p>For example, Cloud SQL can scale to a high capacity database, which is capable of handling terabytes of storage. Accessing  and using the databases will be exactly the same as they are relational, which means  that you can simply run SQL type queries such as SELECT statements to read a field's data or INSERT statements to write a
+field's data.</p>
+<h2>Features and Benefits</h2>
+<p>In addition since Cloud SQL is a fully managed service, you can choose either MySQL, SQL Server or PostgreSQL database engines, the security patches and updates are automatically applied for you.
+Now, if we consider MySQL as an example we can see that Cloud SQL is not a simulation it is a real MySQL instance. This means that there will be no compatibility issues and you should be able to easily lift and shift the on-premise to the cloud without any issues.</p>
+<h3>Generation 2</h3>
+<p>Cloud SQL is available in two different generations. It is recommended to use the second generation unless you have some legacy constraints because it provides up to seven times the throughput and 20 times the storage capacity of the first generation.
+As a result the 2nd Generation provides up to 208 gigabytes of RAM and 10 terabytes of data storage.</p>
+<h3>Generation 1</h3>
+<p>On the other hand, the 1st  generation version provides with  MySQL 5.5. However, this generation does support the MyISAM  storage engine as  well as connections over both IPv4  and IPv6 addresses . In addition  it also supports the on-demand activation policy.</p>
+<h2>Differences from On-Premise MySQL</h2>
+<p>Regardless of the generation, the MySQL functionality provided by a Cloud SQL Instance is exactly the same as the functionality provided by a locally hosted MySQL Instance.
+However, there are a few differences between a Standard MySQL Instance and a Cloud SQL Instance. For example, user-defined functions are not supported in Cloud SQL and some additional services that are required to be enabled and configured in standard MySQL are automatically provided by Cloud SQL as part of the managed service.</p>
+<h3>Replication</h3>
+<p>For example, The MySQL replication feature, which requires considerable thought to the design and configuration in an on- premise standard MySQL deployment, can be enabled as part of the Cloud SQL managed service by just ticking a few checkboxes. The replication service will replicate data between multiple zones and provide automatic failover without loss of service if a service outage should occur in one of the regions.</p>
+<h3>Backups</h3>
+<p>In a similar vein Cloud SQL also provides automated and on demand backups with point in time recovery.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>For example, Cloud SQL can scale to a high capacity database, which is capable of handling terabytes of storage. Accessing and using the databases will be exactly the same as they are relational, which means that you can simply run SQL type queries such as SELECT statements to read a field's data or INSERT statements to write a field's data.
+
+In addition, since Cloud SQL is a fully managed service, you can choose either MySQL, SQL Server, or PostgreSQL database engines. The security patches and updates are automatically applied for you.
+
+Now, if we consider MySQL as an example, we can see that Cloud SQL is not a simulation; it is a real MySQL instance. This means that there will be no compatibility issues, and you should be able to easily lift and shift the on-premise to the cloud without any issues. After that, Google will manage the MySQL cloud instance for you.
+
+However, you will still have to administer the database users, but you can also do this through the native authentication tools that come with these databases. Cloud SQL also supports other applications and tools that you might be familiar with, such as SQL Workbench, Toad, and other external applications that use the standard SQL drivers.
+
+Cloud SQL is available in two different generations. It is recommended to use the second generation unless you have some legacy constraints because it provides up to seven times the throughput and 20 times the storage capacity of the first generation. The 2nd Generation provides up to 208 gigabytes of RAM and 10 terabytes of data storage.
+
+The 2nd generation version works with either MySQL 5.6 or 5.7, but be aware that it will only support InnoDB as the storage engine. On the other hand, the 1st generation version provides MySQL 5.5. However, this generation does support the MyISAM storage engine as well as connections over both IPv4 and IPv6 addresses.
+
+On-premises MySQL vs. Cloud SQL
+Regardless of the generation, the MySQL functionality provided by a Cloud SQL Instance is exactly the same as the functionality provided by a locally hosted MySQL Instance.
+
+However, there are a few differences between a Standard MySQL Instance and a Cloud SQL Instance. For example, user-defined functions are not supported in Cloud SQL, and some additional services that are required to be enabled and configured in standard MySQL are automatically provided by Cloud SQL as part of the managed service.
+
+For example, The MySQL replication feature, which requires considerable thought to the design and configuration in an on-premise standard MySQL deployment, can be enabled as part of the Cloud SQL managed service by just ticking a few checkboxes. The replication service will replicate data between multiple zones and provide automatic failover without loss of service if a service outage should occur in one of the regions.
+
+In a similar vein, Cloud SQL also provides automated and on-demand backups with point-in-time recovery.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Overview of Cloud SQL</h3>
+<p>Cloud SQL is a fully managed service that allows you to access and use relational databases, including MySQL, SQL Server, and PostgreSQL. It can scale to high capacity databases capable of handling terabytes of storage.</p>
+<h3>Key Features and Benefits</h3>
+<ul>
+<li><strong>Compatibility</strong>: Cloud SQL is not a simulation but a real database instance, ensuring no compatibility issues when migrating from on-premise to the cloud.</li>
+<li><strong>Fully Managed Service</strong>: Security patches and updates are automatically applied, while you still need to administer database users through native authentication tools or external applications that use standard SQL drivers.</li>
+<li><strong>Support for External Applications</strong>: Cloud SQL supports popular applications like SQL Workbench and Toad.</li>
+<li><strong>Generations</strong>: The second generation provides up to seven times the throughput and 20 times the storage capacity of the first generation, with recommended usage unless legacy constraints apply.</li>
+</ul>
+<h3>Key Differences from On-Premise MySQL</h3>
+<ul>
+<li><strong>User-defined Functions</strong>: Not supported in Cloud SQL.</li>
+<li><strong>Additional Services</strong>: Some services required for standard MySQL are automatically provided by Cloud SQL as part of its managed service.</li>
+<li><strong>Replication Feature</strong>: Can be enabled through a few checkboxes, replicating data between multiple zones and providing automatic failover.</li>
+<li><strong>Automated Backups</strong>: Provide point-in-time recovery.</li>
+</ul>
+<h3>Generation Comparison</h3>
+<ul>
+<li><strong>Second Generation</strong>:</li>
+<li>Supports MySQL 5.6 or 5.7 with InnoDB storage engine.</li>
+<li>Up to 208 gigabytes of RAM and 10 terabytes of data storage.</li>
+<li><strong>First Generation</strong>:</li>
+<li>Supports MySQL 5.5, MyISAM storage engine, and connections over both IPv4 and IPv6 addresses.</li>
+<li>Lower memory and storage capacity compared to the second generation.</li>
+</ul>
+<h3>Conclusion</h3>
+<p>Cloud SQL offers a reliable and scalable database solution with minimal administrative overhead, making it an attractive option for businesses looking to migrate their on-premise databases to the cloud.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Managed Service</strong>
+Cloud SQL is a fully managed service, providing automatic security patches and updates for MySQL, SQL Server, or PostgreSQL database engines.</p>
+<h3>Topic 2</h3>
+<p><strong>Compatibility and Lift-and-Shift</strong>
+Cloud SQL is not a simulation of an on-premise database but a real instance, ensuring no compatibility issues when migrating to the cloud. Users can easily administer database users through native authentication tools.</p>
+<h3>Topic 3</h3>
+<p><strong>Generations and Performance</strong>
+Cloud SQL has two generations: the second generation provides up to seven times the throughput and 20 times the storage capacity of the first generation, with recommended use for new deployments due to its superior performance.</p>
+<h3>Topic 4</h3>
+<p><strong>Database Engine Support</strong>
+The second-generation version supports MySQL 5.6 or 5.7, while the first-generation version supports MySQL 5.5, but only the first generation supports MyISAM storage engine and on-demand activation policy.</p>
+<h3>Topic 5</h3>
+<p><strong>Differences from Standard MySQL Instance</strong>
+Cloud SQL has differences in user-defined functions support and additional services required for standard MySQL instances, which are automatically provided by Cloud SQL as part of its managed service.</p>
+<h3>Topic 6</h3>
+<p><strong>Replication and Backups</strong>
+Cloud SQL provides automated replication between multiple zones with automatic failover and point-in-time recovery through on-demand backups.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main difference between using a relational database and a Cloud SQL instance?
+Answer: The main difference is that accessing and using databases will be exactly the same as they are relational, but Cloud SQL provides additional features such as automated backups and on-demand replication.</p>
+</li>
+<li>
+<p>Which database engines can be used with Cloud SQL?
+Answer: Cloud SQL supports MySQL, SQL Server, and PostgreSQL database engines.</p>
+</li>
+<li>
+<p>What is the recommended generation of Cloud SQL to use unless there are legacy constraints?
+Answer: The second generation of Cloud SQL is recommended due to its higher throughput and storage capacity.</p>
+</li>
+<li>
+<p>How does Cloud SQL handle user-defined functions?
+Answer: User-defined functions are not supported in Cloud SQL.</p>
+</li>
+<li>
+<p>What additional services are automatically provided by Cloud SQL as part of the managed service?
+Answer: Some additional services required for standard MySQL, such as replication and backups, are automatically enabled and configured in Cloud SQL.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Cloud SQL's on-demand activation policy compare to traditional MySQL deployments?
+Answer: Cloud SQL's on-demand activation policy allows for more flexibility and scalability compared to traditional MySQL deployments.</p>
+</li>
+<li>
+<p>What are the implications of using InnoDB as the storage engine in Cloud SQL?
+Answer: Using InnoDB as the storage engine in Cloud SQL provides better performance and reliability, but may require additional configuration and planning.</p>
+</li>
+<li>
+<p>How does Cloud SQL's replication feature compare to traditional MySQL deployments?
+Answer: Cloud SQL's replication feature is more straightforward and easier to configure compared to traditional MySQL deployments, which often require careful design and planning.</p>
+</li>
+<li>
+<p>What are the benefits of using Cloud SQL for on-premises MySQL deployments that have legacy constraints?
+Answer: Using Cloud SQL can provide a more scalable and flexible solution for on-premises MySQL deployments with legacy constraints.</p>
+</li>
+<li>
+<p>How does Cloud SQL's automated backups and point-in-time recovery compare to traditional MySQL deployments?
+Answer: Cloud SQL's automated backups and point-in-time recovery provide greater peace of mind and flexibility compared to traditional MySQL deployments, which often require manual backup and recovery procedures.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a database schema for an e-commerce application using Cloud SQL.
+Answer: The database schema should include tables for customers, products, orders, and payments, with relationships between them established through foreign keys.</p>
+</li>
+<li>
+<p>How would you configure Cloud SQL to meet the security requirements of a sensitive business application?
+Answer: You would need to configure Cloud SQL to use encryption, access controls, and auditing, as well as ensure that all database users are properly authenticated and authorized.</p>
+</li>
+<li>
+<p>What are some potential use cases for using Cloud SQL in a cloud-native architecture?
+Answer: Potential use cases include building scalable and flexible applications, providing data warehousing and analytics capabilities, and supporting real-time data processing and machine learning workloads.</p>
+</li>
+<li>
+<p>How would you troubleshoot issues with a Cloud SQL instance that is not responding or is experiencing performance issues?
+Answer: You would need to check the instance's status, monitor its performance metrics, and review error logs to identify the root cause of the issue and take corrective action.</p>
+</li>
+<li>
+<p>What are some best practices for managing database users and permissions in Cloud SQL?
+Answer: Best practices include using role-based access control, implementing least privilege principles, and regularly reviewing and updating user permissions to ensure security and compliance.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud SQL</td>
+<td>Database Service</td>
+<td>"For example, Cloud SQL can scale to a high capacity database, which is capable of handling terabytes of storage."</td>
+<td>Cloud SQL is a fully managed database service that allows users to access and use databases in the same way as relational databases. It provides automatic security patches and updates, and supports MySQL, SQL Server, and PostgreSQL database engines.</td>
+</tr>
+<tr>
+<td>MySQL</td>
+<td>Database Engine</td>
+<td>"Now, if we consider MySQL as an example we can see that Cloud SQL is not a simulation it is a real MySQL instance."</td>
+<td>MySQL is a popular open-source database engine that is widely used in various applications. In the context of Cloud SQL, MySQL refers to the database engine used by Cloud SQL instances.</td>
+</tr>
+<tr>
+<td>SQL Workbench</td>
+<td>Application Tool</td>
+<td>"However, Cloud SQL also supports other applications and tools that you might be familiar with, such as, SQL Workbench..."</td>
+<td>SQL Workbench is a popular application tool for managing and analyzing databases. It uses standard SQL drivers to connect to various database engines, including MySQL.</td>
+</tr>
+<tr>
+<td>Toad</td>
+<td>Application Tool</td>
+<td>"However, Cloud SQL also supports other applications and tools that you might be familiar with, such as, SQL Workbench, Toad..."</td>
+<td>Toad is another popular application tool for managing and analyzing databases. It provides a user-friendly interface for working with various database engines, including MySQL.</td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td>Database Engine</td>
+<td>"In addition since Cloud SQL is a fully managed service, you can choose either MySQL, SQL Server or PostgreSQL database engines..."</td>
+<td>PostgreSQL is an open-source database engine that is known for its reliability and scalability. In the context of Cloud SQL, PostgreSQL refers to one of the supported database engines.</td>
+</tr>
+<tr>
+<td>SQL Server</td>
+<td>Database Engine</td>
+<td>"In addition since Cloud SQL is a fully managed service, you can choose either MySQL, SQL Server or PostgreSQL database engines..."</td>
+<td>SQL Server is a commercial database engine developed by Microsoft. In the context of Cloud SQL, SQL Server refers to another supported database engine.</td>
+</tr>
+<tr>
+<td>MyISAM</td>
+<td>Storage Engine</td>
+<td>"...the 1st generation version provides with MySQL 5.5. However, this generation does support the MyISAM storage engine..."</td>
+<td>MyISAM is a storage engine used by MySQL that is known for its performance and flexibility. In the context of Cloud SQL, MyISAM refers to one of the supported storage engines.</td>
+</tr>
+<tr>
+<td>InnoDB</td>
+<td>Storage Engine</td>
+<td>"...the 2nd Generation provides up to 208 gigabytes of RAM and 10 terabytes of data storage. Also, the 2nd generation version works with either MySQL 5.6 or 5.7, but be aware that it will only supports InnoDB as the storage engine."</td>
+<td>InnoDB is a storage engine used by MySQL that is known for its reliability and scalability. In the context of Cloud SQL, InnoDB refers to one of the supported storage engines.</td>
+</tr>
+<tr>
+<td>IPv4</td>
+<td>Network Protocol</td>
+<td>"...the 1st generation version provides with MySQL 5.5. However, this generation does support the MyISAM storage engine as well as connections over both IPv4 and IPv6 addresses."</td>
+<td>IPv4 is a network protocol used for communication between devices on a local area network (LAN) or wide area network (WAN). In the context of Cloud SQL, IPv4 refers to one of the supported network protocols.</td>
+</tr>
+<tr>
+<td>IPv6</td>
+<td>Network Protocol</td>
+<td>"...the 1st generation version provides with MySQL 5.5. However, this generation does support the MyISAM storage engine as well as connections over both IPv4 and IPv6 addresses."</td>
+<td>IPv6 is a network protocol used for communication between devices on a local area network (LAN) or wide area network (WAN). In the context of Cloud SQL, IPv6 refers to one of the supported network protocols.</td>
+</tr>
+<tr>
+<td>RAM</td>
+<td>System Resource</td>
+<td>"...the 2nd Generation provides up to 208 gigabytes of RAM..."</td>
+<td>RAM (Random Access Memory) is a system resource used by computers to temporarily store data and applications. In the context of Cloud SQL, RAM refers to the amount of memory available for database operations.</td>
+</tr>
+<tr>
+<td>Storage Capacity</td>
+<td>System Resource</td>
+<td>"...it provides up to seven times the throughput and 20 times the storage capacity of the first generation."</td>
+<td>Storage capacity refers to the amount of space available for storing data on a computer or network. In the context of Cloud SQL, storage capacity refers to the amount of space available for database operations.</td>
+</tr>
+<tr>
+<td>User-Defined Functions</td>
+<td>Database Feature</td>
+<td>"...user-defined functions are not supported in Cloud SQL..."</td>
+<td>User-defined functions (UDFs) are custom functions that can be defined and used within a database. In the context of Cloud SQL, UDFs are not supported due to security concerns.</td>
+</tr>
+<tr>
+<td>Replication Service</td>
+<td>Database Feature</td>
+<td>"For example, The MySQL replication feature, which requires considerable thought to the design and configuration in an on-premise standard MySQL deployment, can be enabled as part of the Cloud SQL managed service by just ticking a few checkboxes..."</td>
+<td>Replication service refers to the process of synchronizing data between multiple database instances. In the context of Cloud SQL, replication service is one of the features provided by the platform.</td>
+</tr>
+<tr>
+<td>Failover</td>
+<td>Database Feature</td>
+<td>"The replication service will replicate data between multiple zones and provide automatic failover without loss of service if a service outage should occur in one of the regions."</td>
+<td>Failover refers to the process of automatically switching to a backup database instance in case of a failure or outage. In the context of Cloud SQL, failover is one of the features provided by the platform.</td>
+</tr>
+<tr>
+<td>Backups</td>
+<td>Database Feature</td>
+<td>"Cloud SQL also provides automated and on-demand backups with point-in-time recovery."</td>
+<td>Backups refer to the process of creating copies of data for safekeeping in case of a failure or loss. In the context of Cloud SQL, backups are one of the features provided by the platform.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

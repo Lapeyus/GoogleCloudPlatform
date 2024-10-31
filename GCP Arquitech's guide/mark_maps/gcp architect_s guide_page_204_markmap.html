@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_204</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Kubernetes Engine Clusters
+        ## Advantages
+        - Can scale automatically to meet demand, saving on unused nodes and reducing waste.
+        - Using pre-emptive VMs (PVM) can provide significant cost savings for batch jobs and fault-tolerant workloads.
+        
+        ## Disadvantages
+        - PVMs are only available for up to 24 hours and have a limited lifespan.
+        - Designing two pools of nodes, one with standard VMs and the other with PVMs, is often necessary to ensure availability.
+        
+        ## Features
+        ### Lists
+        - **strong** Autoscaling works well with PVMs, allowing for spin-up of replacements or standard VM nodes as needed.
+        - *italic* PMVS with GPUs can become affordable due to large discounts (approx. 50%).
+        - `inline code` Estafette GKE Pre-emptible Killer is an open-source solution that spreads out the termination of PVMs, preventing simultaneous deletion.
+        
+        ### Blocks
+        ```js
+        - console.log('hello, JavaScript');
+        ```
+        
+        ## Use Cases
+        ### Kubernetes Engine Clusters
+        #### Deployment Considerations
+        - When deciding which Cloud Platform to deploy a containerized application, consider:
+        - **Kubernetes Engine**: Ideal for control over VM resources and Docker image development.
+        - **App Engine-Flex**: Suitable for flexible and scalable applications.
+        - **Compute Engine**: Good choice when absolute control over VM resources is required.
+        
+        #### Solution
+        - Advise developers to weigh the pros and cons of each platform, considering their specific needs and requirements.
+
+      </script>
+    </div>
+  </body>
+</html>

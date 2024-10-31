@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_216</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Business Logic
+        ## Definition and Purpose
+        - The business logic determines how the application process works in fulfilling its purpose.
+        
+        ### Example Use Case
+        - An example would be in banking, as the business logic would determine how the application handled a financial transaction and which accounts would be debited or credited and in which order.
+        
+        ## Characteristics of Business Logic
+        - By definition, business logic operates on data, which means processing some code. Essentially, the business logic layer design is where you'll consider all of the cloud processing options in order to determine what services the business logic code will need to use.
+        
+        # Microservices Architecture
+        ## Overview and Benefits
+        - In computer software, business logic or domain logic is part of the program that encodes the real-world business rules that determine how data can be created, stored, and changed.
+        
+        ### Microservices Design
+        - Microservices design is a popular approach to applications design in the cloud as they leverage small, stateless processing code to provide scalability and resiliency. Microservices architecture can be thought of as independently deployable, small modular single purpose functions.
+        
+        ## Advantages of Microservices
+        - As such microservices can be used like tiny building blocks of single function micro-applications. Building application using these functional building blocks is very efficient and well suited for the cloud. This is due to each modular service running as a unique process that is going to contribute to some individual business goal.
+        
+        ### Communication Mechanisms
+        - Also microservices can communicate effectively through a lightweight mechanism such as Cloud Pub/Sub, which is GCP message queuing service.
+
+      </script>
+    </div>
+  </body>
+</html>

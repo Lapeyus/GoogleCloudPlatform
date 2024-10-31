@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_89</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud Platform
+        ## Overview
+        - GCP also integrates as you would expect very tightly with a number of other related Google products, including Google Cloud Storage, Bigtable and BigQuery.
+        
+        ### Performance
+        - Indeed , you  can  output or even ingest data directly from Bigtable  because it's using a  compatible HBase API.
+        - With reference to performance Data Proc is notably faster when data processing workflows because less time is wasted having to wait for clusters to provision and start executing applications.
+        
+        #### Connecting to Dataproc
+        - To connect to your Dataproc cluster, you can use the web-based user interface to submit jobs. You can also use the YARN Web UI, HDFS web user interface, as well as SSH through a SOCKS proxy.
+        - When it comes to starting a cluster, Data Proc doesn't just spin up a bunch of VMs using its own logic, though it can do if that is what you want. Instead Data Proc remains controllable, so by using the G- Cloud tool and the Cloud Dataproc API you can interact and control clusters in a programmatic fashion.
+        - Moreover, if you are looking for more granular control you can always deploy and configure Stackdriver to assist in the management, notification, alerting and monitoring of Data Proc.
+        
+        ### Related Products
+        - Pub/Sub
+        - Data Warehouse
+        - Data Studio
+        - Cloud BigQuery
+        - Cloud Storage
+        - Stream
+        - Caching & Serving
+        - Batch
+        - Cloud Dataflow
+        - Cloud Bigtable
+        - Apache
+        - Avro
+        - Apache Kafka
+        - Cloud Machine Learning
+        - Predictive Analysis
+        - Ingress
+        - Process
+        - Analysis
+        
+        ## Dataflow
+        - Figure - 9
+        - Dataflow is GCP's online batch and stream ETL processing service. It is based on the open source based Apache Beam SDK.
+        - The data process of Extract, Transform, and Load (ETL) are the three key functions that are applied to data being extracted from one source, transformed into a new format and then loaded into another sink database, typically a data warehouse.
+        
+        #### ETL Process
+        - ETL thus is the process that acts as an interface and translator facilitating the conversion and separation of data. It is simply part of the data processing function and hence, Dataflow helps retrieve, order, and format the data as its being streamed in to the data processing environment.
+        - 194
+
+      </script>
+    </div>
+  </body>
+</html>

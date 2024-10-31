@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_97</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Zones
+        - Zones can be thought of as Google's data centres, although that is not strictly true as some zones may well have several, but its close enough. A collection of zones reside in a region and they have an interesting feature whereby a subnet can be shared across zones making them ideal for continuous data protection and high availability.
+        
+        ## Projects
+        - Projects are the key method for organizing and holding all your infrastructure resources. A resource can be in only one project because a project associates objects and services with billing. Nonetheless, projects can contain up to five entire networks. Interestingly these networks do not have IP ranges assigned, but instead are simply a construct of all of the individual IP subnets, or services that are contained within that project.
+        
+        ### GCP Networks
+        - GCPs networks are global in their reach across all available regions around the world. What this means is that in GCP a single VPC network covers the entire planet. Hence, it is only the IP subnets that are attached to a specific region. But as the virtual machines communicate between subnets using private IPS (RFC1918 addresses) over Google's internal global network-therefore no extra routing is needed.
+        
+        #### Creating a VPC Network
+        - To make your servers communicate across continents on GCP, you need to:
+        - 1. create a VPC network
+        - 2. create a subnet in the US, put your US servers in it
+        - 3. create a subnet in Europe, put your Europe servers in it
+        - 4. create a subnet in Singapore, put your Singapore servers in it
+        
+        - That's all there is to it. Your VPC network will naturally, due to the SDN architecture, span the three continents so it is already functional.
+        
+        #### Global Reach
+        - This global reach means that you have effectively one network that exists anywhere in the world, Asia, Europe, America and what is more, simultaneously.
+        
+        ## Networks for Segregation
+        - Alternatively networks can be used to provide segregation in a multi-tenant environment. This is due to the fact that even though there are VMs in the same region and zone they are logically separated from one another by being in different networks.
+        
+        ### Subnets for Resource Isolation
+        - As we have just seen inside of a network, you can also segregate your VM resources using sub-networks. Subnets can also be used to isolate systems inside the same GCP network.
+        
+        #### Diagram Example
+        - We can see how this is done by studying the accompanying diagram of a project that contains two networks.
+        - Figure -12
+        - Network 2
+        - Network 1
+        - Region: US-east 1
+        - Region:
+        - Asia-east 1
+        - Region: Asia-east-1
+        - VM-a
+        - VM-b
+        - Subnet-A 10.1.1.0/24
+        - US-east-1-a
+        - VM-d
+        - Subnet-B 10.2.2.0/24
+        - Subnet-C 10.3.3.0/24
+        - VM-C
+        - VM-e
+        - VM-f
+        - US-west-1-a
+        - Asia-east-1a
+        - Asia-east-1b
+        - Google SDN
+        - Edge Nodes
+
+      </script>
+    </div>
+  </body>
+</html>

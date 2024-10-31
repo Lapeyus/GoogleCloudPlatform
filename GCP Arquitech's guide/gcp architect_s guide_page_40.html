@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_40</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_40_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_40</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Virtual Machines in GCP</h1>
+<h2>Overview</h2>
+<p>When choosing a virtual machine (VM) in Google Cloud Platform (GCP), there are several factors to consider. This document will outline some key considerations for setting up and managing your VM.</p>
+<h3>Fast Disk Storage</h3>
+<p>However, there is another type of disk storage that is very fast and should you have a requirement in your application for very high performance scratch space, you may want to attach a local SSD. However, a local SSD is part of the VM so be sure to store data of any permanent value somewhere else because local SSD's content doesn't survive when the VM terminates.</p>
+<h3>Backups</h3>
+<p>Another convenient aspect of VM is taking backups. Once your VMs are running it is easy to take a durable snapshot of their disks. These are useful as backups but they also are required when you need to move a VM to another region.</p>
+<h2>Pre-emptive VMs</h2>
+<p>Pre-emptive</p>
+<p>Another factor you might want to consider is if you want to make your VM pre-emptible. You can save a lot of money if you choose to use pre-emptible VMs where they are appropriate. However pre-emptible VM are only suitable in certain use-cases as they behave differently from ordinary VMs.</p>
+<h3>Auto-scaling</h3>
+<p>Auto-scaling is another factor to consider because despite the fact you can create huge VMs - the maximum number of virtual CPUs in the VM is 96 and the maximum memory size in beta is at 624 gigabytes - and these huge VMs are great for workloads like in- memory databases and CPU intensive analytics but you may not want to start off at that size.</p>
+<p>For example, most GCP customers start off by scaling out, not scaling up. What that means is they add more standard sized VMs to loadbalance across, this is called horizontal scaling, rather than increasing the size of their existing VMs, which is known as vertical scaling.</p>
+<h2>Choosing a Boot Image</h2>
+<p>The next step is that you choose a boot image. As we have discussed already GCP offers a wide selection of Linux and Windows versions that are pre-configured but if you want you can import your own images.</p>
+<p>Indeed, a common request made by GCP customers is that they want their VMs to always boot with a specific configuration, such as installing specific updates or packages at boot time. Therefore it is common for people to use GCP VM start-up scripts that will control the start process by following the commands in the script. But you can via the scripts also pass into the VM other kinds of metadata.</p>
+<h3>Local SSDs</h3>
+<p>However there is another type of disk storage that is very fast and should you have a requirement in your application for very high performance scratch space, you may want to attach a local SSD. However, a local SSD is part of the VM so be sure to store data of any permanent value somewhere else because local SSD's content doesn't survive when the VM terminates.</p>
+<h3>Persistent Disks</h3>
+<p>Anyway, most people will begin with using the standard persistent disks and that's the default.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>However there is another type of disk storage that is very fast and should you have a requirement in your application for very high performance scratch space, you may want to attach a local SSD. However, a local SSD is part of the VM so be sure to store data of any permanent value somewhere else because local SSD's content doesn't survive when the VM terminates. Because of this you cannot separate a VM and a local SSD disk as you can with a persistent disk. Anyway, most people will begin with using the standard persistent disks and that's the default.
+
+Another convenient aspect of VM is taking backups. Once your VMs are running it is easy to take a durable snapshot of their disks. These are useful as backups but they also are required when you need to move a VM to another region.
+
+Pre-emptive consideration is also important. You can save a lot of money if you choose to use pre-emptible VMs where they are appropriate. However, pre-emptible VMs are only suitable in certain use-cases as they behave differently from ordinary VMs. The difference is that with a pre-emptible VM you are effectively agreeing to allow the Compute Engine to terminate the VM should its resources be needed elsewhere and you will only get around 30 seconds warning.
+
+Furthermore, a pre-emptive VM is guaranteed to be terminated after 24 hours if it hasn't already been pre-empted. However, if deployed wisely you can save a lot of money - around 80% discount - using pre-emptible VMs in the right scenarios, but be sure to make sure that your workloads are able to be stopped and restarted gracefully.
+
+The next step is that you choose a boot image. As we have discussed already GCP offers a wide selection of Linux and Windows versions that are pre-configured but if you want you can import your own images. Indeed, a common request made by GCP customers is that they want their VMs to always boot with a specific configuration, such as installing specific updates or packages at boot time.
+
+Therefore it is common for people to use GCP VM start-up scripts that will control the start process by following the commands in the script. But you can via the scripts also pass into the VM other kinds of metadata.
+
+Auto-scaling is another factor to consider because despite the fact you can create huge VMs - the maximum number of virtual CPUs in the VM is 96 and the maximum memory size in beta is at 624 gigabytes - and these huge VMs are great for workloads like in-memory databases and CPU intensive analytics but you may not want to start off at that size.
+
+For example, most GCP customers start off by scaling out, not scaling up. What that means is they add more standard sized VMs to loadbalance across, this is called horizontal scaling, rather than increasing the size of their existing VMs, which is known as vertical scaling.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Compute Engine VMs in GCP</h3>
+<p>When setting up a Virtual Machine (VM) in Google Cloud Platform (GCP), several key factors come into play to ensure optimal performance and cost-effectiveness. Here are the main considerations:</p>
+<h4>Disk Storage</h4>
+<ul>
+<li><strong>Local SSD</strong>: For high-performance scratch space, consider attaching a local SSD. However, data on local SSDs is lost when the VM terminates.</li>
+<li><strong>Persistent Disks</strong>: Most people start with standard persistent disks as the default. Persistent disks allow for permanent storage and can be separated from the VM.</li>
+</ul>
+<h4>Backups</h4>
+<ul>
+<li>Taking durable snapshots of disk images is easy once your VMs are running. These snapshots serve as backups but also enable region migrations.</li>
+</ul>
+<h4>Pre-emptive VMs</h4>
+<ul>
+<li><strong>Cost Savings</strong>: Using pre-emptible VMs can save up to 80% compared to standard VMs, provided workloads can be stopped and restarted gracefully.</li>
+<li><strong>Pre-emption Warning</strong>: You'll receive a 30-second warning before the VM is terminated due to resource needs elsewhere.</li>
+<li><strong>Termination Guarantee</strong>: Pre-emptive VMs are guaranteed to be terminated after 24 hours if not pre-empted.</li>
+</ul>
+<h4>Boot Image</h4>
+<ul>
+<li>GCP offers pre-configured Linux and Windows versions. Users can also import their own images for customized configurations.</li>
+<li>Start-up scripts control the boot process, allowing users to pass metadata into the VM.</li>
+</ul>
+<h4>Auto-scaling</h4>
+<ul>
+<li><strong>Scaling Out vs. Scaling Up</strong>: Most customers start by scaling out (adding more standard-sized VMs) rather than scaling up (increasing existing VM sizes).</li>
+<li><strong>Horizontal and Vertical Scaling</strong>: Horizontal scaling involves adding more VMs for load balancing, while vertical scaling increases the size of existing VMs.</li>
+</ul>
+<p>By considering these factors, users can optimize their Compute Engine VMs in GCP for performance, cost-effectiveness, and reliability.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Disk Storage Options</h3>
+<p>The text discusses different types of disk storage options for Virtual Machines (VMs) in Google Cloud Platform (GCP), including standard persistent disks and local SSDs. It highlights the importance of storing data of permanent value elsewhere due to the ephemeral nature of local SSDs.</p>
+<h3>Topic 2: Pre-emptible VMs</h3>
+<p>Pre-emptible VMs are a cost-effective option, but they come with trade-offs in terms of resource availability and termination policies. Users must consider whether their workloads can be stopped and restarted gracefully before deploying pre-emptible VMs.</p>
+<h3>Topic 3: Boot Images</h3>
+<p>The text emphasizes the importance of choosing an appropriate boot image for VMs, considering factors such as Linux or Windows versions, updates, and packages to install at boot time. GCP offers a wide selection of pre-configured images, and users can also import their own custom images.</p>
+<h3>Topic 4: Auto-scaling</h3>
+<p>Auto-scaling is crucial in managing VM resources, particularly for workloads that require high performance and scalability. Users must decide between horizontal scaling (adding more standard-sized VMs) and vertical scaling (increasing the size of existing VMs), considering factors such as workload requirements and resource availability.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What type of disk storage is suitable for applications requiring high performance scratch space?
+Answer: A local SSD.</p>
+</li>
+<li>
+<p>Why should data with permanent value not be stored on a local SSD in a VM?
+Answer: Because the content of a local SSD does not survive when the VM terminates.</p>
+</li>
+<li>
+<p>How long do pre-emptible VMs receive a warning before being terminated?
+Answer: Around 30 seconds.</p>
+</li>
+<li>
+<p>What is the maximum number of virtual CPUs allowed in a VM?
+Answer: 96.</p>
+</li>
+<li>
+<p>What type of scaling is typically used by GCP customers to loadbalance across multiple VMs?
+Answer: Horizontal scaling.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does using pre-emptible VMs compare to ordinary VMs in terms of resource allocation and termination policies?
+Answer: Pre-emptible VMs allow the Compute Engine to terminate the VM if its resources are needed elsewhere, whereas ordinary VMs do not have this policy.</p>
+</li>
+<li>
+<p>What are the advantages and disadvantages of using standard persistent disks versus local SSDs for disk storage in VMs?
+Answer: Standard persistent disks offer more flexibility and durability, while local SSDs provide faster performance but with limited data retention.</p>
+</li>
+<li>
+<p>How does auto-scaling differ from vertical scaling in terms of resource allocation and deployment strategies?
+Answer: Auto-scaling involves adding or removing standard-sized VMs to loadbalance across multiple instances, whereas vertical scaling involves increasing the size of existing VMs.</p>
+</li>
+<li>
+<p>What are some common use cases for pre-emptible VMs, and how can they be deployed wisely to achieve cost savings?
+Answer: Pre-emptible VMs are suitable for workloads that can tolerate short-term interruptions and have a high degree of predictability in their resource requirements. They can be deployed wisely by ensuring that workloads can be stopped and restarted gracefully.</p>
+</li>
+<li>
+<p>How do GCP customers typically configure their VM start-up scripts to control the boot process and pass metadata to the VM?
+Answer: GCP customers often use start-up scripts to follow commands and install specific updates or packages at boot time, as well as pass other kinds of metadata into the VM.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>local SSD</td>
+<td>Disk Storage</td>
+<td>"However, a local SSD is part of the VM so be sure to store data of any permanent value somewhere else because local SSD's content doesn't survive when the VM terminates."</td>
+<td>A local SSD is a type of disk storage that is very fast and can be attached to a virtual machine (VM) for high-performance scratch space. However, its contents do not survive when the VM terminates, making it unsuitable for permanent data storage.</td>
+</tr>
+<tr>
+<td>persistent disks</td>
+<td>Disk Storage</td>
+<td>"Anyway, most people will begin with using the standard persistent disks and that's the default."</td>
+<td>Persistent disks are a type of disk storage that can be used to store data in a virtual machine (VM). They are suitable for permanent data storage and are the default choice for many users.</td>
+</tr>
+<tr>
+<td>VMs</td>
+<td>Virtual Machines</td>
+<td>"Another convenient aspect of VM is taking backups. Once your VMs are running it is easy to take a durable snapshot of their disks."</td>
+<td>Virtual machines (VMs) are software-based computers that can be run on top of physical hardware. They offer several benefits, including ease of use and flexibility.</td>
+</tr>
+<tr>
+<td>pre-emptible VMs</td>
+<td>Virtual Machines</td>
+<td>"Another factor you might want to consider is if you want to make your VM pre-emptible."</td>
+<td>Pre-emptible virtual machines (VMs) are a type of VM that can be terminated by the Compute Engine at any time, even if it's running. This can result in significant cost savings, but requires careful planning and consideration.</td>
+</tr>
+<tr>
+<td>Boot Image</td>
+<td>Boot Image</td>
+<td>"The next step is that you choose a boot image."</td>
+<td>A boot image is a pre-configured operating system image that can be used to boot a virtual machine (VM). It provides a convenient way to deploy VMs with a specific configuration, such as installing updates or packages at boot time.</td>
+</tr>
+<tr>
+<td>Auto-scaling</td>
+<td>Scaling</td>
+<td>"Auto-scaling is another factor to consider because despite the fact you can create huge VMs..."</td>
+<td>Auto-scaling refers to the process of dynamically adjusting the number of virtual machines (VMs) running an application based on demand. It allows for horizontal scaling, where more standard-sized VMs are added to loadbalance across, rather than increasing the size of existing VMs.</td>
+</tr>
+<tr>
+<td>Horizontal Scaling</td>
+<td>Scaling</td>
+<td>"For example, most GCP customers start off by scaling out, not scaling up."</td>
+<td>Horizontal scaling refers to the process of adding more virtual machines (VMs) to an application to increase its capacity. It is often used in conjunction with auto-scaling to ensure that applications can handle increased demand.</td>
+</tr>
+<tr>
+<td>Vertical Scaling</td>
+<td>Scaling</td>
+<td>"What that means is they add more standard sized VMs to loadbalance across, this is called horizontal scaling..."</td>
+<td>Vertical scaling refers to the process of increasing the size of existing virtual machines (VMs) to increase their capacity. It is often used in conjunction with auto-scaling to ensure that applications can handle increased demand.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

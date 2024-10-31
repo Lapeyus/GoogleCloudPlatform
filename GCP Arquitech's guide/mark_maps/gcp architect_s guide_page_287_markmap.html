@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_287</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Stackdriver Trace and Debugger
+        ## Overview of Stackdriver Trace
+        - Consequently, you can use the Stackdriver Trace to automatically analyse all of your applications' processes in order to produce in-depth latency reports. These latency reports can be used to detect deep rooted performance deteriorations over time.
+        
+        ## Managing Application Performance
+        - Managing the amount of time it takes for your applications to handle incoming requests and perform operations is an important part of managing overall application performance.
+        
+        ### Debugging with Stackdriver Debugger
+        
+        - Stackdriver Debugger inspects the state of a running application in real-time without any interruption. The application and the users are not impacted while you capture the call stack and variables at any location in your source code.
+        
+        #### Features and Support
+        - The Stackdriver Debugger is generally used with App Engine, both Standard and Flexible, Compute Engine and the Kubernetes Engine. The debugger also supports multiple languages such as, Java, Python and Go.
+        
+        ### Installing and Configuring Stackdriver
+        
+        - Installing Stackdriver is also very easy and most basic built-in monitoring functions are available by default inside of the VM. But, should you need some of the additional capabilities then you need to do this via the startup script. Indeed you use this script to install the Stackdriver agent as well as the logging agent.
+        
+        #### Logging Capabilities
+        - With the logging agent installed you can capture not just the system but a number of custom applications such as Cassandra, MySQL, PostgreSQL, Java, different run-times, custom metrics, and logs, all sorts of other things.
+        
+        ## Istio for GKE
+        ### Overview of Istio
+        
+        - The open source service mesh Istio is integrated with GKE. When you create or update a cluster with Istio on GKE, the following core Istio components will be installed:
+        
+        #### Core Istio Components
+        
+        - • **Pilot**: this is the component responsible for service discovery and for configuring the Envoy sidecar proxies within an Istio service mesh.
+        - • **Mixer**: this is the component responsible for the Istio-Policy and Istio-Telemetry, Mixer enforces usage policies and gathers the telemetry data across the service mesh.
+        - • **Istio ingress gateway**: this service provides an ingress point for traffic from outside the cluster.
+        - • **Istio egress gateway**: provides a place for Istio monitoring and routing rules to be applied to traffic exiting the mesh. The Istio egress gateway is no longer installed by default in version 1.1 and later.
+        - • **Citadel**: this Istio component is responsible for key and certificate management.
+        - • **Galley**: this component provides configuration management services.
+        
+        #### Benefits of Istio
+        - The integration of Istio with GKE provides a robust service mesh that can be used to manage complex microservices architectures.
+
+      </script>
+    </div>
+  </body>
+</html>

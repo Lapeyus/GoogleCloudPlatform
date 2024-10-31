@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_270</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_270_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_270</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Modifying the Application to Use Cloud Spanner</h1>
+<h2>Features Not Available in Cloud Spanner</h2>
+<p>As part of the migration process, features not available in Cloud Spanner must be implemented in the application. You may want to look at using Cloud Spanner's client libraries for making read and write queries.</p>
+<h3>Using API Translated Calls</h3>
+<p>Using API translated calls may be faster as the SQL statement does not have to be translated.</p>
+<h2>Transferring Data from Oracle to Cloud Spanner</h2>
+<p>To transfer your data from Oracle to Cloud Spanner, you will need to:</p>
+<ol>
+<li>Export your Oracle database to a portable file format (e.g., CSV)</li>
+<li>Upload the file into a Cloud Storage bucket</li>
+<li>Import the file into Cloud Spanner using the extract, transform, and load (ETL) process in Cloud Dataflow</li>
+</ol>
+<h3>Benefits of Using Cloud Dataflow</h3>
+<p>Cloud Dataflow provides a service for running data pipelines in order to read and process large amounts of data in parallel over several servers.</p>
+<ul>
+<li>Dataflow is based upon Apache Beam</li>
+<li>Uses the Beam SDK connectors for Cloud Storage and Cloud Spanner</li>
+<li>No coding necessary, only code the actual ETL process</li>
+</ul>
+<h2>Maintaining Consistency Between Databases</h2>
+<p>The problem with maintaining consistency between databases during the migration process is that you cannot keep both databases offline for the length of time the data import/export takes.</p>
+<h3>Solutions for Maintaining Consistency</h3>
+<ol>
+<li>Use Oracle Change Data Capture feature</li>
+<li>Programmatically implement simultaneous updates in your applications</li>
+</ol>
+<h2>Switching to Cloud Spanner as Source of Truth</h2>
+<p>When you have verified the data, the final step in the migration will be switching to Cloud Spanner as consistency and synchronisation of the data.</p>
+<h3>Importance of Keeping the Oracle Database Up-to-Date</h3>
+<p>You should continue to keep the Oracle database up-to-date as this provides a rollback path in case there are issues with the migration.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Modifying the Application to Use Cloud Spanner
+
+As part of the migration process, features not available in Cloud Spanner must be implemented in the application. You may want to look at using Cloud Spanner's client libraries for making read and write queries. These use Cloud Spanner-specific API calls.
+
+Using API calls may be faster as the SQL statement does not have to be translated. Transferring your data from Oracle to Cloud Spanner requires exporting your Oracle database to a portable file format, such as CSV, then uploading the file into a Cloud Storage bucket. From there, it can be imported into Cloud Spanner using the extract, transform, and load (ETL) process in Cloud Dataflow.
+
+Cloud Dataflow provides a service for running data pipelines in order to read and process large amounts of data in parallel over several servers. Dataflow is based upon Apache Beam and uses the Beam SDK connectors for Cloud Storage and Cloud Spanner, so there is no coding necessary. You will only have to code the actual ETL process.
+
+Maintaining Consistency Between Databases
+
+The problem with maintaining consistency between databases during the migration process is that you cannot keep both databases offline for the length of time the data import/export takes. Unfortunately, when transferring the data, it may be stale as the applications continue to write new data to update the existing on-premises Oracle database.
+
+Nonetheless, you need to keep the databases synchronized and there are several ways to do this, such as by using the Oracle Change Data Capture feature or programmatically implementing simultaneous updates in your applications. Your application's source of truth is crucial when verifying the data.
+
+Switching to Cloud Spanner
+
+The final step in the migration will be switching to Cloud Spanner as consistency and synchronisation of the data. You can then switch your application to point to Cloud Spanner. It is essential to continue keeping the Oracle database up-to-date, as this provides a rollback path should there be issues.
+
+Migrate for Compute Engine
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Modifying the Application to Use Cloud Spanner</h1>
+<p>As part of the migration process, features not available in Cloud Spanner must be implemented in the application. To achieve this, consider using Cloud Spanner's client libraries for making read and write queries, which utilize Cloud Spanner-specific API calls.</p>
+<h2>Benefits of Using Client Libraries</h2>
+<p>Using client libraries can result in faster query performance since SQL statements do not need to be translated.</p>
+<h2>Transferring Data from Oracle to Cloud Spanner</h2>
+<p>To transfer data from Oracle to Cloud Spanner, follow these steps:</p>
+<ol>
+<li>Export the Oracle database to a portable file format (e.g., CSV).</li>
+<li>Upload the file into a Cloud Storage bucket.</li>
+<li>Import the data into Cloud Spanner using the extract, transform, and load (ETL) process in Cloud Dataflow.</li>
+</ol>
+<p>Cloud Dataflow provides a service for running data pipelines in parallel over several servers, utilizing Apache Beam and Beam SDK connectors for Cloud Storage and Cloud Spanner. This eliminates the need for coding; only the actual ETL process needs to be coded.</p>
+<h2>Maintaining Consistency During Migration</h2>
+<p>The primary challenge during migration is maintaining consistency between both databases. To address this issue:</p>
+<ul>
+<li>Use Oracle Change Data Capture feature or programmatically implement simultaneous updates in your applications.</li>
+<li>Keep the application's source of truth, verifying data before switching to Cloud Spanner.</li>
+<li>Continue to keep the Oracle database up-to-date, providing a rollback path in case issues arise.</li>
+</ul>
+<h2>Final Step: Switching to Cloud Spanner</h2>
+<p>After verifying data consistency and synchronisation, switch your application to point to Cloud Spanner. This marks the final step in the migration process.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Migration Process and Implementation</h3>
+<p>The need to implement features not available in Cloud Spanner, using client libraries for read and write queries.</p>
+<h3>Topic 2: Data Transfer and ETL Process</h3>
+<p>Exporting data from Oracle to Cloud Spanner, using Cloud Storage and Cloud Dataflow's extract, transform, and load (ETL) process.</p>
+<h3>Topic 3: Maintaining Consistency and Synchronisation</h3>
+<p>Addressing the issue of maintaining consistency between databases during migration, using methods such as Oracle Change Data Capture or programmatically implementing simultaneous updates.</p>
+<h3>Topic 4: Switching to Cloud Spanner</h3>
+<p>Switching application to point to Cloud Spanner after verifying data consistency and synchronisation, with a rollback path provided by keeping the Oracle database up-to-date.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary goal of migrating an application from on-premises Oracle database to Cloud Spanner?
+Answer: To take advantage of features not available in Cloud Spanner and improve data consistency and synchronisation.</p>
+</li>
+<li>
+<p>How does Cloud Dataflow help with large-scale data processing and parallelization?
+Answer: Cloud Dataflow provides a service for running data pipelines, allowing users to process large amounts of data in parallel over several servers without requiring coding.</p>
+</li>
+<li>
+<p>What is the purpose of using Oracle Change Data Capture feature during the migration process?
+Answer: To maintain consistency between the on-premises Oracle database and Cloud Spanner by capturing changes made to the database.</p>
+</li>
+<li>
+<p>Why is it essential to keep the databases synchronised during the migration process?
+Answer: To ensure data accuracy and prevent stale data from being uploaded, which can occur when applications continue to write new data to the existing on-premises Oracle database.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential challenges that may arise during the data transfer process from Oracle to Cloud Spanner?
+Answer: Potential challenges include maintaining consistency, dealing with stale data, and ensuring data accuracy.</p>
+</li>
+<li>
+<p>How can programmatically implementing simultaneous updates in applications help maintain data synchronisation between on-premises Oracle database and Cloud Spanner?
+Answer: By updating both databases simultaneously, the application ensures that data remains consistent across both systems.</p>
+</li>
+<li>
+<p>What is the significance of keeping the Oracle database up-to-date during the migration process?
+Answer: It provides a rollback path in case issues arise with the Cloud Spanner implementation, ensuring that data can be easily reverted to its previous state.</p>
+</li>
+<li>
+<p>How does using Cloud Spanner's client libraries for making read and write queries impact performance?
+Answer: Using API calls may result in faster query execution since SQL statements do not need to be translated, reducing processing time.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a plan to implement simultaneous updates in your application to maintain data synchronisation between the on-premises Oracle database and Cloud Spanner.
+Answer: Implement a mechanism that triggers updates to both databases simultaneously, ensuring data consistency across both systems.</p>
+</li>
+<li>
+<p>Develop an ETL process using Cloud Dataflow to transfer data from Oracle to Cloud Spanner.
+Answer: Create a pipeline that reads data from Oracle, processes it in parallel over several servers, and then imports the processed data into Cloud Spanner.</p>
+</li>
+<li>
+<p>Propose a solution for handling stale data during the migration process.
+Answer: Implement a mechanism that periodically checks for updates to the on-premises Oracle database and synchronizes data with Cloud Spanner to ensure accuracy.</p>
+</li>
+<li>
+<p>Evaluate the benefits of using Cloud Dataflow for large-scale data processing and parallelization in the context of migrating an application from on-premises Oracle database to Cloud Spanner.
+Answer: Cloud Dataflow provides a scalable and efficient solution for processing large amounts of data, allowing users to focus on implementing the ETL process without requiring extensive coding.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Spanner</td>
+<td>Database Management System</td>
+<td>"As part of the migration process, features not available in Cloud Spanner must be implemented in the application."</td>
+<td>Cloud Spanner is a fully managed relational database service that can be used to store and manage data. The text mentions that features not available in Cloud Spanner need to be implemented in the application, indicating that the application will use Cloud Spanner as its primary database.</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>Database Management System</td>
+<td>"To transfer your data from Oracle to Cloud Spanner"</td>
+<td>Oracle is a popular relational database management system used by many organizations. The text mentions transferring data from Oracle to Cloud Spanner, highlighting the need for migration and integration between these two systems.</td>
+</tr>
+<tr>
+<td>CSV (Comma Separated Values)</td>
+<td>File Format</td>
+<td>"export your Oracle database to a portable file format, for example CSV"</td>
+<td>CSV is a widely used file format for storing tabular data. The text mentions exporting Oracle data to CSV as part of the migration process to Cloud Spanner.</td>
+</tr>
+<tr>
+<td>Cloud Storage</td>
+<td>Cloud Service</td>
+<td>"upload the file into a Cloud Storage bucket"</td>
+<td>Cloud Storage is a cloud-based storage service that allows users to store and manage large amounts of data. The text mentions uploading the CSV file to a Cloud Storage bucket, indicating the need for data storage during the migration process.</td>
+</tr>
+<tr>
+<td>ETL (Extract, Transform, Load)</td>
+<td>Data Processing Method</td>
+<td>"using the extract, transform, and load (ETL) process in Cloud Dataflow"</td>
+<td>ETL is a common data processing method used to extract data from one system, transform it into another format, and load it into a new system. The text mentions using ETL in Cloud Dataflow as part of the migration process.</td>
+</tr>
+<tr>
+<td>Apache Beam</td>
+<td>Data Processing Framework</td>
+<td>"Cloud Dataflow provides a service for running data pipelines in order to read and process large amounts of data in parallel over several servers"</td>
+<td>Apache Beam is an open-source data processing framework used by Cloud Dataflow. The text mentions using Apache Beam as part of the migration process, highlighting its role in data processing and parallelization.</td>
+</tr>
+<tr>
+<td>Oracle Change Data Capture</td>
+<td>Feature</td>
+<td>"using the Oracle Change Data Capture feature"</td>
+<td>Oracle Change Data Capture is a feature that captures changes made to data in an Oracle database. The text mentions using this feature to maintain consistency between Oracle and Cloud Spanner during the migration process.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Cloud Service</td>
+<td>"Migrate for Compute Engine 554"</td>
+<td>Compute Engine is a cloud-based infrastructure service provided by Google Cloud Platform. The text mentions migrating the application to Compute Engine, highlighting its role in hosting the application's infrastructure.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

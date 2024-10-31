@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_290</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_290_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_290</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>5Ys Methodology for Resiliency in Business Logic Layer</h1>
+<h2>Introduction</h2>
+<p>The 5Ys methodology is a framework used to troubleshoot faults and understand what initially caused the failure. We will apply this same method to develop procedures that ensure resiliency when deploying revisions to production.</p>
+<h2>Designing for the Future</h2>
+<p>We will design our business logic layer not based on forecasting, but on real production traffic. This will enable us to budget and modify our development more accurately.</p>
+<h2>Evolution of Our Video Transcription Service</h2>
+<p>Our video transcription service initially started as a proof of concept hosted on a single box. It has since evolved into a complex array of specialist microservices and network components with IAM and security.</p>
+<h3>Key Changes</h3>
+<ul>
+<li>We changed the product's capabilities to become a production-ready system.</li>
+<li>We added more capable and robust logging.</li>
+<li>We changed to APIs to take advantage of native Google Cloud Services.</li>
+</ul>
+<h2>Administration and Management Tasks</h2>
+<p>Administration and management tasks are crucial for best practices. This includes segregating control plane functions from data plane, automating functions, and removing unnecessary human out-of-bound management.</p>
+<h3>Isolation and Automation</h3>
+<p>We will create internal VMS from the internet using a bastion host and communicate with them only through SSH connections. We can also deploy private sub-networks to segregate business and user logic from the outside world.</p>
+<h2>Incident Response Plan</h2>
+<p>We need to build an incident response plan that contains guidelines for dealing with outages, such as understanding the severity of the issue and confirming the problem is still persisting.</p>
+<h3>Short-term vs Long-term Solutions</h3>
+<p>When remediating problems, we must consider short-term versus long-term solutions. We may choose to immediate mitigate infrequent outages by restarting services rather than doing a code rewrite.</p>
+<h2>Post-Mortem Analysis</h2>
+<p>Finally, we will perform post-mortem analysis to identify the post-fix, clean it, and escalate it to other support teams.</p>
+<h3>Conclusion</h3>
+<p>By applying the 5Ys methodology, we can develop procedures that ensure resiliency when deploying revisions to production. This includes designing for the future, evolving our video transcription service, administering and managing tasks, building an incident response plan, and performing post-mortem analysis.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Remember that 5Ys methodology that we used to work through the issues in our troubleshooting faults to understand what initially caused the failure? Well, we utilize that same method to help us develop procedures that ensure that we have resiliency when we deploy our revision to production. Hence, we're going to implement some of the key things we can use to mitigate weaknesses that surfaced during the post-mortem.
+
+So, now we can design not based on forecasting but for the future based on real production traffic and so we can budget and modify our development more accurately. So, let us see how we can apply this to the way we can update our business logic layer in our video transcription service.
+
+Initially, we started out as a proof of concept as an application hosted on a single box but now it's evolved into a complex array of specialist microservices and network components with IAM and security. Moreover, this all came about as a result of an evolution by changing the product's capabilities to become a production-ready system.
+
+But the product itself hasn't changed as the business logic remains fundamentally the same even though we use different technologies to deliver it. In fact, there were very few changes to the product. Most changes were typically added to provide more capable and robust logging, but we did change to APIs, for example, to take advantage of the native Google Cloud Services.
+
+There are a few practical items remaining that we need to cover. Administration and management tasks as best practices suggest that means segregating the control plane functions from data plane; they should be a one-off process. Ideally, we want to automate and functions and removing any unnecessary human out-of-bound management utilizing the serial console, isolating intervention.
+
+When we contemplate isolation, we create things like internal VMS from the internet by using a bastion host and communicating with them only through a SSH connection. We can also deploy private sub-networks, so segregating the business and user logic from the outside world.
+
+This is the great big book of tried and tested remedies to deal with failures. But finally, we need to sit down and build an incident response fix just about any failure. It will contain all the guidelines for dealing with outages such as: What to do if you get an alert notification? Such as advise on how to understand the severity of the issue.
+
+After all intermittent faults are far more complex to deal with as the how to confirm the problem is still persisting. Testing results are not consistent so neither is the process for diagnosing and how to fix the problem. But of course, when remediating problems, there is always the question: are we going to do short-term versus long-term? Maybe a long-term solution is going to be to update a potential flaw in our code, but then it might be more effective to immediate mitigate the infrequent outage by restarting the service rather than do a code rewrite.
+
+But then that's going to have to define what our deployment process will be like. Finally, we have to perform our post-mortem and identify the post-fix, clean it and escalate it to other support teams.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p>We're utilizing the same 5Ys methodology that helped us troubleshoot faults to develop procedures ensuring resiliency when deploying revisions to production. This approach will help us mitigate weaknesses surfaced during the post-mortem.</p>
+<p>By designing for real production traffic, we can accurately budget and modify our development process. We'll apply this to updating our business logic layer in our video transcription service, which has evolved from a single-box application to a complex array of specialist microservices and network components with IAM and security.</p>
+<p>The product itself hasn't changed, but we've added more capable and robust logging, and changed APIs to leverage native Google Cloud Services. To ensure administration and management tasks are best practices, we'll segregate control plane functions from data plane, automate processes, and remove unnecessary human intervention.</p>
+<p>We'll create an incident response playbook containing guidelines for dealing with outages, such as understanding the severity of the issue and confirming the problem persists. However, remediating problems often involves a trade-off between short-term and long-term solutions, requiring us to define our deployment process and perform post-mortem analysis to identify areas for improvement.</p>
+<p>Key points:</p>
+<ul>
+<li>Utilize 5Ys methodology to develop resiliency procedures</li>
+<li>Design for real production traffic to accurately budget and modify development processes</li>
+<li>Update business logic layer in video transcription service with specialist microservices and network components</li>
+<li>Implement best practices for administration and management tasks, including segregation of control plane functions from data plane</li>
+<li>Create incident response playbook containing guidelines for dealing with outages</li>
+<li>Balance short-term and long-term solutions when remediating problems</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Resiliency and Deployment
+The text discusses implementing resiliency in a production-ready system by utilizing a methodology similar to the 5Ys approach used for troubleshooting faults. It highlights the importance of designing procedures that ensure resiliency when deploying revisions to production, focusing on real production traffic rather than forecasting.</p>
+<h3>Topic 2</h3>
+<p>Business Logic Layer Update and Microservices
+The update of the business logic layer in the video transcription service is discussed, with a focus on maintaining fundamental changes despite adopting different technologies. The evolution from a single box application to a complex array of specialist microservices and network components is also mentioned.</p>
+<h3>Topic 3</h3>
+<p>Administration and Management Tasks
+Best practices for administration and management tasks are emphasized, including segregating control plane functions from data plane, automating processes, and removing unnecessary human intervention. Techniques such as using bastion hosts and private sub-networks to isolate business and user logic from the outside world are also discussed.</p>
+<h3>Topic 4</h3>
+<p>Incidence Response and Post-Mortem Analysis
+The importance of building an incidence response plan to deal with failures is highlighted, including guidelines for dealing with outages, understanding issue severity, and confirming problem persistence. The text also touches on the need for post-mortem analysis to identify and escalate issues to other support teams.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What methodology is being utilized to develop procedures for resiliency in production deployments?
+Answer: The 5Ys methodology.</p>
+</li>
+<li>
+<p>What is the primary goal of designing a system based on real production traffic instead of forecasting?
+Answer: To accurately budget and modify development processes.</p>
+</li>
+<li>
+<p>How has the video transcription service evolved from its initial proof-of-concept stage to its current state?
+Answer: It has become a complex array of specialist microservices and network components with IAM and security.</p>
+</li>
+<li>
+<p>What is the main difference between the product itself and the business logic layer in the video transcription service?
+Answer: The product remains fundamentally the same, but the business logic layer uses different technologies to deliver it.</p>
+</li>
+<li>
+<p>What are some key administration and management tasks that need to be covered for a production-ready system?
+Answer: Segregating control plane functions from data plane, automating functions, removing unnecessary human out-of-bound management, and isolating intervention.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the 5Ys methodology relate to the concept of resiliency in production deployments?
+Answer: The methodology helps develop procedures that ensure resiliency by identifying and mitigating weaknesses that surface during post-mortems.</p>
+</li>
+<li>
+<p>What are some potential trade-offs between short-term and long-term solutions when remediating problems?
+Answer: Short-term solutions may involve immediate mitigation, but may not address underlying issues. Long-term solutions may be more effective but require more time and effort.</p>
+</li>
+<li>
+<p>How does the use of real production traffic inform the design of a system's architecture?
+Answer: It allows for more accurate budgeting and modification of development processes, as well as better understanding of the system's performance under real-world conditions.</p>
+</li>
+<li>
+<p>What is the significance of isolating intervention in a production-ready system?
+Answer: It ensures that human intervention is minimized and automated functions are utilized to maintain system stability.</p>
+</li>
+<li>
+<p>How does the concept of post-mortem analysis relate to incident response planning?
+Answer: Post-mortem analysis helps identify areas for improvement, which can inform incident response plans and ensure that lessons learned are applied to future incidents.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a system architecture that incorporates real production traffic data to inform its design.
+Answer: This would involve collecting and analyzing data on the system's performance under real-world conditions, using this information to identify areas for improvement and optimize the system's architecture.</p>
+</li>
+<li>
+<p>Develop an incident response plan that takes into account the potential trade-offs between short-term and long-term solutions.
+Answer: The plan should outline procedures for immediate mitigation of issues, as well as a process for identifying and addressing underlying causes of problems.</p>
+</li>
+<li>
+<p>Implement automated functions to maintain system stability in a production-ready system.
+Answer: This would involve using tools such as monitoring software and automation frameworks to ensure that the system remains stable and responsive under normal operating conditions.</p>
+</li>
+<li>
+<p>Create a post-mortem analysis report that identifies areas for improvement and provides recommendations for future incident response planning.
+Answer: The report should include an objective summary of the incident, analysis of root causes, and recommendations for preventing similar incidents in the future.</p>
+</li>
+<li>
+<p>Develop a system architecture that incorporates isolation of intervention to minimize human impact on system stability.
+Answer: This would involve designing the system to be highly automated, with minimal reliance on human intervention, and implementing procedures for rapid recovery from failures or other issues.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5Ys methodology</td>
+<td>Concept</td>
+<td>The text discusses how the company uses a similar approach to troubleshoot faults as they did in the past, to develop procedures for resiliency when deploying revisions.</td>
+<td>A problem-solving methodology used by the company to identify and address issues. It involves analyzing failures to understand what initially caused them and developing procedures to prevent similar problems in the future.</td>
+</tr>
+<tr>
+<td>Post-mortem</td>
+<td>Concept</td>
+<td>The text mentions that the company uses a post-mortem analysis to identify weaknesses that surfaced during a previous incident.</td>
+<td>A process of examining an event or situation after it has occurred, often to learn from mistakes or identify areas for improvement. In this context, it is used to analyze failures and develop procedures to prevent similar problems in the future.</td>
+</tr>
+<tr>
+<td>Production traffic</td>
+<td>Concept</td>
+<td>The text discusses how the company will design their systems based on real production traffic rather than forecasting.</td>
+<td>Real-time data about the performance of a system or application, often used to inform decisions about capacity, scalability, and resource allocation. In this context, it is used to ensure that the company's systems are designed to handle actual usage patterns.</td>
+</tr>
+<tr>
+<td>Business logic layer</td>
+<td>Component</td>
+<td>The text mentions that the company will update their business logic layer in their video transcription service.</td>
+<td>A critical component of an application or system that defines how data is processed and transformed. In this context, it refers to the underlying rules and processes that govern the behavior of the video transcription service.</td>
+</tr>
+<tr>
+<td>Microservices</td>
+<td>Component</td>
+<td>The text describes the evolution of the company's video transcription service from a single box to a complex array of specialist microservices and network components with IAM and security.</td>
+<td>A software development approach that involves breaking down a large application into smaller, independent services that can be developed, deployed, and maintained separately. In this context, it refers to the modular architecture of the company's video transcription service.</td>
+</tr>
+<tr>
+<td>APIs</td>
+<td>Technology</td>
+<td>The text mentions that the company changed to APIs to take advantage of native Google Cloud Services.</td>
+<td>An interface for accessing a network or system, often used to enable communication between different applications or services. In this context, it refers to the interfaces used by the company's video transcription service to interact with other systems and services.</td>
+</tr>
+<tr>
+<td>Control plane functions</td>
+<td>Concept</td>
+<td>The text discusses the importance of segregating control plane functions from data plane functions in administration and management tasks.</td>
+<td>Functions that manage and control the flow of data or resources within a system, often used to ensure security, scalability, and reliability. In this context, it refers to the management and control functions used by the company's systems.</td>
+</tr>
+<tr>
+<td>Data plane functions</td>
+<td>Concept</td>
+<td>The text discusses the importance of segregating data plane functions from control plane functions in administration and management tasks.</td>
+<td>Functions that process and transmit data within a system, often used to enable communication between different applications or services. In this context, it refers to the processing and transmission functions used by the company's systems.</td>
+</tr>
+<tr>
+<td>Serial console</td>
+<td>Technology</td>
+<td>The text mentions the use of serial consoles for isolating intervention in administration and management tasks.</td>
+<td>A type of interface used to access and manage a system remotely, often used to enable secure and controlled access to a system. In this context, it refers to the remote access interfaces used by the company's systems.</td>
+</tr>
+<tr>
+<td>Bastion host</td>
+<td>Technology</td>
+<td>The text describes the use of bastion hosts for isolating intervention in administration and management tasks.</td>
+<td>A type of virtual machine or server that provides a secure and isolated interface to a network or system, often used to enable controlled access to a system. In this context, it refers to the secure interfaces used by the company's systems.</td>
+</tr>
+<tr>
+<td>Private sub-networks</td>
+<td>Technology</td>
+<td>The text mentions the deployment of private sub-networks for segregating business and user logic from the outside world.</td>
+<td>A type of network or system that is isolated from public networks or the internet, often used to ensure security, scalability, and reliability. In this context, it refers to the isolated networks used by the company's systems.</td>
+</tr>
+<tr>
+<td>Incidence response fix</td>
+<td>Concept</td>
+<td>The text discusses the need to build an incidence response fix for dealing with any failure.</td>
+<td>A plan or process for responding to a failure or incident, often used to minimize downtime and ensure business continuity. In this context, it refers to the procedures used by the company to respond to failures and incidents.</td>
+</tr>
+<tr>
+<td>Alert notification</td>
+<td>Concept</td>
+<td>The text mentions the need to handle alert notifications when dealing with an outage.</td>
+<td>A notification or alert sent to indicate that a problem has occurred or is occurring, often used to trigger a response or action. In this context, it refers to the notifications used by the company's systems to alert administrators of potential problems.</td>
+</tr>
+<tr>
+<td>Severity of issue</td>
+<td>Concept</td>
+<td>The text discusses the need to understand the severity of an issue when dealing with an outage.</td>
+<td>A measure of the impact or importance of a problem, often used to determine the level of response required. In this context, it refers to the assessment of the severity of issues encountered by the company's systems.</td>
+</tr>
+<tr>
+<td>Testing results</td>
+<td>Concept</td>
+<td>The text mentions the need to confirm testing results when dealing with an intermittent fault.</td>
+<td>The output or results of tests or evaluations, often used to validate assumptions or determine the effectiveness of a solution. In this context, it refers to the validation of test results used by the company's systems.</td>
+</tr>
+<tr>
+<td>Deployment process</td>
+<td>Concept</td>
+<td>The text discusses the need to define a deployment process when remediating problems.</td>
+<td>A plan or procedure for deploying changes or updates to a system or application, often used to ensure stability and reliability. In this context, it refers to the procedures used by the company to deploy fixes and updates to their systems.</td>
+</tr>
+<tr>
+<td>Post-fix</td>
+<td>Concept</td>
+<td>The text mentions the need to identify and clean up post-fixes after remediating problems.</td>
+<td>A residual effect or outcome of a solution or fix, often used to ensure that the problem is fully resolved. In this context, it refers to the remaining issues or effects encountered by the company's systems after applying fixes.</td>
+</tr>
+<tr>
+<td>Post-mortem analysis</td>
+<td>Concept</td>
+<td>The text mentions the need to perform post-mortem analyses to identify weaknesses and improve procedures.</td>
+<td>A process of examining an event or situation after it has occurred, often to learn from mistakes or identify areas for improvement. In this context, it is used to analyze failures and develop procedures to prevent similar problems in the future.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

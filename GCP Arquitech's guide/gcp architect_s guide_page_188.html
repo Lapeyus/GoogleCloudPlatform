@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_188</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_188_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_188</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_188_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Standard Software Development Best Practices</h1>
+<h2>Leveraging APIs and Infrastructure Complexity</h2>
+<p>Needless to say that standard software development best practice should apply even if it is only a development project. It is crucial to know that leveraging APIs via code does lead to rapid development and creation of infrastructure but it is just as important to realise that things can go wrong rapidly, requiring emergency maintenance on code.</p>
+<h2>Understanding Infrastructure Complexity</h2>
+<p>Another issue is the difficulty in understanding the often hidden complexities of the infrastructure that we're building from the code. The more complex the infrastructure becomes, the more complicated the code and the less likely that anyone actual understands all of it so the more likely it is that errors would occur.</p>
+<p>Clearly, we are going to need another level of organization. That's the purpose of Deployment Manager.</p>
+<h2>Deployment Manager</h2>
+<h3>Overview</h3>
+<p>In short, Deployment Manager uses highly structured templates and configuration files to document the infrastructure in an easily human readable and understandable format.</p>
+<p>Deployment Manager does a good job of abstracting the complexity of the actual Cloud API calls. Therefore, there is no need for you to write code, which leaves you free to focus on the architecture of the infrastructure.</p>
+<h3>Concepts</h3>
+<p>In this section, we will discuss concepts around Deployment Manager, configuration and introduce Cloud Launcher.</p>
+<h4>Deployment Manager as an Infrastructure Automation Tool</h4>
+<p>Deployment Manager is an infrastructure automation tool, which allows you to automate the creation of GCP resources. In concept the Deployment Manager uses highly structured templates and configuration files to document the infrastructure. You can create these Deployment Manager templates within a cloud API enabled environment such as Cloud Shell, and then view the results and manage your deployments in the web console.</p>
+<h4>Deployment Manager is Not Just for Documentation</h4>
+<p>Deployment Manager is not just a tool for documentation as it is a fully fledged declarative deployment orchestration tool specifically for Google Cloud platform. Indeed Deployment Manager is tightly coupled with the GCP so it allows you to integrate with other GCP core services such as Identity Access Management.</p>
+<h3>Deployment Configurations</h3>
+<h4>Creating a Deployment Configuration</h4>
+<p>Before we can start using Deployment Manager, we have to create a deployment configuration. A yaml file defines the basic configuration, and you can include an import in the yaml file to expand to full-featured templates written in Python or Jinja2.</p>
+<p>Program configuration is bidirectional and interactive. Meaning that the configuration receives data like machine type and returns data like IP address.</p>
+<h4>Previewing Deployment Configurations</h4>
+<p>You can also use the preview tag when creating a deployment configuration to validate it without actually launching it. All configurations are expanded on the server side within a controlled environment that Deployment Manager maintains. In order to prevent abuse, the environment is closely managed by Google's Deployment Manager team, so it does have some limitations.</p>
+<h3>Cloud Launcher</h3>
+<h4>Introduction</h4>
+<p>In this section, we will discuss concepts around Cloud Launcher and how it integrates with Deployment Manager.</p>
+<p>Note: The introduction of Cloud Launcher was not covered in the original text.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_188_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>Needless to say that standard software development best practice should apply even if it is only a development project. It is crucial to know that leveraging APIs via code does lead to rapid development and creation of infrastructure but it is just as important to realise that things can go wrong rapidly, requiring emergency maintenance on code.
+
+Another issue is the difficulty in understanding the often hidden complexities of the infrastructure that we're building from the code. The more complex the infrastructure becomes, the more complicated the code and the less likely that anyone actual understands all of it so the more likely it is that errors would occur. Clearly, we are going to need another level of organization. That's the purpose of Deployment Manager.
+
+Deployment Manager uses highly structured templates and configuration files to document the infrastructure in an easily human-readable and understandable format. Deployment Manager does a good job of abstracting the complexity of the actual Cloud API calls. Therefore, there is no need for you to write code, which leaves you free to focus on the architecture of the infrastructure.
+
+In this section, we will discuss concepts around Deployment Manager, configuration, and introduce Cloud Launcher. Deployment Manager is an infrastructure automation tool that allows you to automate the creation of GCP resources. In concept, the Deployment Manager uses highly structured templates and configuration files to document the infrastructure. You can create these Deployment Manager templates within a cloud API-enabled environment such as Cloud Shell, and then view the results and manage your deployments in the web console.
+
+Deployment Manager is not just a tool for documentation but a fully fledged declarative deployment orchestration tool specifically for Google Cloud Platform. Indeed, Deployment Manager is tightly coupled with the GCP so it allows you to integrate with other GCP core services such as Identity Access Management.
+
+Before we can start using Deployment Manager, we have to create a deployment configuration. A YAML file defines the basic configuration, and you can include an import in the YAML file to expand to full-featured templates written in Python or Jinja2. Program configuration is bidirectional and interactive. Meaning that the configuration receives data like machine type and returns data like IP address.
+
+You can also use the preview tag when creating a deployment configuration to validate it without actually launching it. All configurations are expanded on the server side within a controlled environment that Deployment Manager maintains. In order to prevent abuse, the environment is closely managed by Google's Deployment Manager team, so it does have some limitations.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_188_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Understanding the Need for Deployment Manager in Software Development</h3>
+<p>Standard software development best practices should be applied even to small projects, as leveraging APIs via code can lead to rapid development and infrastructure creation but also requires emergency maintenance on code.</p>
+<p>A major issue is understanding the complexities of the infrastructure being built from code. As infrastructure becomes more complex, so does the code, making it less likely that anyone fully understands it, increasing the likelihood of errors.</p>
+<h3>Deployment Manager: A Solution for Infrastructure Automation</h3>
+<p>Deployment Manager is an infrastructure automation tool that allows automating the creation of GCP resources using highly structured templates and configuration files. This abstracts the complexity of Cloud API calls, leaving developers free to focus on infrastructure architecture.</p>
+<h3>Key Concepts and Features of Deployment Manager</h3>
+<ul>
+<li><strong>Highly Structured Templates</strong>: Deployment Manager uses templates and configuration files to document infrastructure in a human-readable format.</li>
+<li><strong>Declarative Deployment Orchestration</strong>: It's a fully fledged deployment orchestration tool specifically for Google Cloud Platform, tightly coupled with GCP core services like Identity Access Management.</li>
+<li><strong>Deployment Configurations</strong>: YAML files define basic configurations, which can include imports to expand to full-featured templates written in Python or Jinja2. Program configuration is bidirectional and interactive.</li>
+</ul>
+<h3>Benefits of Using Deployment Manager</h3>
+<ul>
+<li>Automates the creation of GCP resources</li>
+<li>Abstracts complexity of Cloud API calls</li>
+<li>Allows for declarative deployment orchestration</li>
+<li>Integrates with other GCP core services</li>
+<li>Provides a controlled environment for deployment configurations, managed by Google's Deployment Manager team</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Understanding the importance of standard software development best practices in infrastructure creation and the need for rapid deployment and maintenance.</p>
+<h3>Topic 2</h3>
+<p>The challenges of managing complex infrastructure and code, leading to errors and the need for a higher level of organization.</p>
+<h3>Topic 3</h3>
+<p>Introduction to Deployment Manager as an infrastructure automation tool that uses structured templates and configuration files to document and automate GCP resource creation.</p>
+<h3>Topic 4</h3>
+<p>Deployment Configurations: The process of creating a deployment configuration using YAML files, which can include imports to expand full-featured templates, and the importance of validation and server-side expansion.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_188_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main purpose of using Deployment Manager in software development?
+Answer: To automate the creation of GCP resources and provide a structured way to document infrastructure.</p>
+</li>
+<li>
+<p>How does Deployment Manager abstract complexity in Cloud API calls?
+Answer: By providing highly structured templates and configuration files that make it easy to understand and manage infrastructure.</p>
+</li>
+<li>
+<p>What is the benefit of using Deployment Manager for documentation?
+Answer: It provides a human-readable and understandable format for documenting infrastructure, making it easier to manage and maintain.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the complexity of infrastructure impact code quality and maintenance?
+Answer: As infrastructure becomes more complex, code becomes more complicated, and errors are more likely to occur due to decreased understanding of the underlying systems.</p>
+</li>
+<li>
+<p>What is the role of Deployment Manager in addressing the issue of complex infrastructure?
+Answer: By providing a structured way to document and manage infrastructure, Deployment Manager helps to reduce complexity and improve maintainability.</p>
+</li>
+<li>
+<p>How does Deployment Manager integrate with other GCP core services?
+Answer: It allows integration with services such as Identity Access Management, enabling users to leverage multiple features within the platform.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are working on a development project that requires rapid infrastructure creation. What tool would you use to achieve this goal?
+Answer: Deployment Manager, due to its ability to automate infrastructure creation and provide a structured way to manage infrastructure.</p>
+</li>
+<li>
+<p>How would you create a deployment configuration in Deployment Manager?
+Answer: By creating a yaml file that defines the basic configuration and includes imports for full-featured templates written in Python or Jinja2.</p>
+</li>
+<li>
+<p>What is the benefit of using the preview tag when creating a deployment configuration?
+Answer: It allows users to validate their configurations without launching them, preventing potential errors and abuse.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>standard software development best practice</td>
+<td>Concept</td>
+<td>"Needless to say that standard software development best practice should apply even if it is only a development project."</td>
+<td>The concept of following established guidelines and principles in software development, emphasizing the importance of applying these practices even in small projects.</td>
+</tr>
+<tr>
+<td>leveraging APIs via code</td>
+<td>Technique</td>
+<td>"It is crucial to know that leveraging APIs via code does lead to rapid development and creation of infrastructure"</td>
+<td>Using Application Programming Interfaces (APIs) through coding to achieve faster development and infrastructure creation.</td>
+</tr>
+<tr>
+<td>emergency maintenance on code</td>
+<td>Situation</td>
+<td>"but it is just as important to realise that things can go wrong rapidly, requiring emergency maintenance on code."</td>
+<td>A situation where unexpected issues arise during software development, necessitating urgent repairs or fixes.</td>
+</tr>
+<tr>
+<td>complexities of the infrastructure</td>
+<td>Issue</td>
+<td>"The more complex the infrastructure becomes, the more complicated the code and the less likely that anyone actual understands all of it so the more likely it is that errors would occur."</td>
+<td>The challenge of managing intricate infrastructure systems, leading to increased complexity in code and a higher likelihood of errors due to lack of understanding.</td>
+</tr>
+<tr>
+<td>Deployment Manager</td>
+<td>Tool</td>
+<td>"That's the purpose of Deployment Manager"</td>
+<td>A tool designed to automate infrastructure creation and management, providing an organized approach to handling complex infrastructure systems.</td>
+</tr>
+<tr>
+<td>highly structured templates and configuration files</td>
+<td>Feature</td>
+<td>"Deployment Manager uses highly structured templates and configuration files to document the infrastructure in an easily human readable and understandable format."</td>
+<td>The use of standardized templates and configuration files to create a clear and comprehensible documentation of infrastructure components.</td>
+</tr>
+<tr>
+<td>declarative deployment orchestration tool</td>
+<td>Functionality</td>
+<td>"it is a fully fledged declarative deployment orchestration tool specifically for Google Cloud platform"</td>
+<td>A type of tool that automates the deployment process using a declarative approach, allowing users to focus on architecture rather than code.</td>
+</tr>
+<tr>
+<td>cloud API calls</td>
+<td>Concept</td>
+<td>"Deployment Manager does a good job of abstracting the complexity of the actual Cloud API calls."</td>
+<td>The use of Application Programming Interfaces (APIs) to interact with cloud services, and the importance of abstraction in simplifying these interactions.</td>
+</tr>
+<tr>
+<td>GCP resources</td>
+<td>Entity</td>
+<td>"allows you to automate the creation of GCP resources"</td>
+<td>Resources provided by Google Cloud Platform (GCP), which can be automated through the use of Deployment Manager.</td>
+</tr>
+<tr>
+<td>yaml file</td>
+<td>File format</td>
+<td>"A yaml file defines the basic configuration, and you can include an import in the yaml file to expand to full-featured templates written in Python or Jinja2."</td>
+<td>A type of file used for configuration purposes, often containing data in a human-readable format.</td>
+</tr>
+<tr>
+<td>preview tag</td>
+<td>Feature</td>
+<td>"You can also use the preview tag when creating a deployment configuration to validate it without actually launching it."</td>
+<td>A feature that allows users to test and validate their deployment configurations before deploying them to production.</td>
+</tr>
+<tr>
+<td>controlled environment</td>
+<td>Environment</td>
+<td>"All configurations are expanded on the server side within a controlled environment that Deployment Manager maintains."</td>
+<td>A managed environment where deployments are executed, providing a level of control and security for sensitive data.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

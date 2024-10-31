@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_139</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud SQL Overview
+        ## Features and Benefits
+        - Just as you can with an on-premises MySQL instance you can easily import and export databases using MySQL dump or import and export CSV files. However, another feature of Cloud SQL that is difficult to reproduce on-premises is its ability to scale up, albeit it does require a machine restart, or scale out by using read replicas.
+        
+        ## Choosing Between Cloud SQL and Standard MySQL Instance
+        - Essentially, choosing between a standard MySQL instance and Cloud SQL managed service comes down to a few basic questions. If you have specific OS requirements, custom database configuration requirements, or special backup requirements. If that is the case then you perhaps want to consider hosting your own database on a VM using Compute Engine. Otherwise, it is strongly recommended to use Cloud SQL as a fully managed service for your relational databases.
+        
+        ## SQL IAM (Identity and Access Management)
+        - You can control permissions and access to Cloud SQL resources via primitive roles (owner, editor, and viewer) or through the predefined roles. The difference between them is down to the level of granularity that is available when working with the predefined roles. You can of course also create your own custom IAM roles.
+        
+        ### Primitive Roles
+        - • **roles/owner**: Full access and control for all Google Cloud Platform resources; manage user access
+        - • **roles/writer**: (Editor) Read-write access to all Google Cloud Platform and Cloud SQL resources (full control except for the ability to modify permissions)
+        - • **roles/reader**: (Viewer) Read-only access to all Google Cloud Platform resources, including Cloud SQL resources
+        
+        ### Predefined Roles
+        - • **roles/cloudsql.admin**: Full control for all Cloud SQL resources.
+        - • **roles/cloudsql.editor**: Manage specific instances. No ability to neither see or modify permissions, nor modify users or SSL Certs. No ability to import data or restore from a backup, nor clone, delete, or promote instances. No ability to start or stop replicas. No ability to delete databases, replicas, or backups.
+        - • **roles/cloudsql.viewer**: Read-only access to all Cloud SQL resources.
+        - • **roles/cloudsql.client**: Connectivity access to Cloud SQL instances from App Engine and the Cloud SQL Proxy. Not required for accessing an instance using IP addresses.
+        
+        ## Cloud SQL Connections
+        - When it comes to configuring connections between applications and the database there are a couple of options you should be aware off. A very popular method of connection favoured in development environments uses a basic connection. This is where you simply grant any application access to a Cloud SQL instance by authorizing the applications host IP address.
+        
+        - This is the fastest, easiest, but least secure method to make a connection, hence its popularity in non-production development environments but it is certainly not recommended for production instances.
+
+      </script>
+    </div>
+  </body>
+</html>

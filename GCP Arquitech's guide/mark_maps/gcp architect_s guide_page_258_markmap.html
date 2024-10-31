@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_258</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Google Cloud IoT Core
+        ## Overview
+        - Cloud IoT Core is a fully managed service designed to:
+        - • Help connect, manage, and ingest data from globally dispersed devices.
+        - • Easily and securely ingest event streams from anywhere, at any scale, for simple, reliable, real-time stream analytics.
+        
+        ### Features
+        #### Protocol Bridges
+        - • MQTT and HTTP protocol bridges that devices can use to connect to Google Cloud Platform.
+        
+        #### Device Manager
+        - A device manager for registering devices with the service, so you can then monitor and configure them.
+        
+        ## Process
+        - This is the stage where we will have to clean and store data for on-demand solutions that scale.
+        ### Data Processing
+        - • Apply data extract transform and load (ETL) data with Cloud Dataflow.
+        - • Use Cloud Functions as a serverless solution for developers to create single-purpose independent functions that respond to specified events.
+        
+        #### Storage Options
+        - • Cloud Bigtable: ideal for storing very large amounts of single-keyed data with very low latency.
+        - • Cloud Storage: used for storing and accessing unstructured data objects on Google Cloud Platform.
+        
+        ## Analyse
+        - With Google cloud IoT platform we can analyse, predict outcomes and generate insightful actionable intelligence.
+        ### Key Service Modules
+        #### BigQuery
+        - A highly scalable enterprise data warehouse that enables you to perform OLAP style queries on large data sets.
+        
+        #### Cloud Machine Learning (ML) Engine
+        - A managed service, which enable you to build and access machine learning models.
+        
+        ## Related Projects
+        - • [coc-markmap](https://github.com/gera2ld/coc-markmap) for Neovim.
+        - • [markmap-vscode](https://marketplace.visualstudio.com/items?itemName=gera2ld.markmap-vscode) for VSCode.
+        - • [eaf-markmap](https://github.com/emacs-eaf/eaf-markmap) for Emacs
+
+      </script>
+    </div>
+  </body>
+</html>

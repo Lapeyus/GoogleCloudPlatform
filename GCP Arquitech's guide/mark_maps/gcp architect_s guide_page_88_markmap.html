@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_88</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Data Processing Services in GCP
+        ## Overview of Options
+        
+        - There is a continuum of services and platform options available in GCP. Several can perform a similar function but you should consider all options in a particular context.
+        
+        ### Outsourcing vs Control
+        
+        - Now, contemplating the diagram, we can see that the solutions to the left offer greater outsourcing of management and administrative overhead, but with a loss of control. On the other hand, the solutions to the right offer greater hands-on control but with increased responsibility and management overhead.
+        
+        ## Managed Services
+        - We can look to three of the managed services we discussed earlier to see how this works in practice. For example, if we look at the data processing managed services we can see that they comprise three core services.
+        
+        ### Dataproc
+        - The first one is Dataproc, which is a managed service which lets you spin up a Spark Hadoop cluster quickly and cost effectively with both Hive and Pig in-built capabilities. Now, what you have to consider is just how long and at what expense would it take to accomplish that on-premises? But in GCP you can spin up this environment that utilizing a preconfigured deployment manager process we call Dataproc in a matter of minutes.
+        
+        ### Dataflow
+        - The second data processing managed service is Dataflow and it is of interest as it is GCP's ETL batch and streaming processing pipeline. Dataflow is based on the Apache Beam open SDK framework. This means it is compatible with Apache Beam and so you can create your own ETL jobs. You can submit them yourselves on your own platform, or you can push them to Google Cloud's Dataflow. In this case Dataflow will handle all that automatic scaling and realtime streaming, in order to speed up the ETL processing.
+        
+        ### BigQuery
+        - Finally, the third service is Google's BigQuery. Now as we know BigQuery is a fully managed data analytic service that can scale to the petabyte scale. Further, BigQuery is also a fully-fledged Software as a Service. However to better understand each of these data processing components we need to learn a little bit more about each of them in turn.
+        
+        ## Cloud Dataproc (DataProc)
+        - Cloud Dataproc, is a managed Spark and Hadoop service that lets you take advantage of open source data for batch processing, querying streaming and machine learning. Indeed as a managed cloud service Data Proc has a number of interesting features probably the most notable is it is very affordable. This is due to GCP having automated the deployment process and by utilizing Google's vast compute network and infrastructure to derive cost at scale. These benefits also include per second billing, sustained use discounts, the ability to use pre-emptible virtual machines, amongst several other discounts.
+        
+        - Nonetheless, Data Proc is also outstanding with regards to its technical features. Despite these high technical capabilities DataProc is actual very quick and easy to deploy. Further it is easier to provision and maintain these resources because Google is responsible for most of the maintenance burden.
+        
+        - Another compelling feature with regards Data Proc is that GCP supports all of the major third party ETL data analytics software packages whether they be open source or proprietary. This means they are likely to support the packages that you may already be utilizing on-premises or feel that you might want to utilize in the cloud.
+
+      </script>
+    </div>
+  </body>
+</html>

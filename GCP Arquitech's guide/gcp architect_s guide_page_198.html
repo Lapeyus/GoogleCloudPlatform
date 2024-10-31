@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_198</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_198_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_198</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Kubernetes Engine</h1>
+<h2>Overview</h2>
+<p>Integration with other Google services is a big advantage of Kubernetes Engine, for example it can integrate with identity access easier to manage container clusters because it throws in all of those management. Indeed, Google Kubernetes Engine can make it much additional GCP services that aren't natively part of Kubernetes.</p>
+<h2>Kubernetes at Work</h2>
+<p>At its core, Kubernetes is about organising and managing containers, so it creates what are called a container cluster. The cluster consists of physical hardware resources so in GCP the cluster is going to be made up off Compute Engine's virtual machines.
+Kubernetes engine automates the setup and deployment of the entire Kubernetes cluster. You can choose between a standard minimum cluster, which is going to have exactly one master to start with and your choice of the number of cluster nodes. Or there is a high availability cluster for production environments that supports multi-master configurations.</p>
+<h3>Cluster Components</h3>
+<p>Regardless, that master is going to be the orchestrator as it will be conducting the API access to communicate with the individual nodes. Each of these individual nodes is going to be running a docker runtime. In addition there will be a kubelet agent running, which is there to handle the managing and scheduling.
+The Kubernetes cluster will also include a network proxy so that they can communicate internally with each other and with other containers inside of the virtual machines.</p>
+<h2>Kubernetes Master</h2>
+<p>The Kubernetes master is the cloud endpoint fronting the Kubernetes cluster and it runs the Kubernetes API server and it handles all of the scheduling.
+The master is responsible for managing the cluster so it runs the health checks to ensure everything is running correctly and it provides all the cloud service integration that you need. In your own on-premises Kubernetes environment you will set up your own Kubernetes master and all the individual nodes and be responsible for their administration and management. But in the GCP, the Kubernetes Engine is a fully managed service so it is going to be running this master node on a VM for you. Google takes over the management node for you, integrates that with Stackdriver , IAM, and other automated processes. Indeed you do not see the master VM let alone get to manage it.</p>
+<h2>Container Organization</h2>
+<p>Containers are organized inside of what we call a pod, which is similar to a target group in load balancers. In Kubernetes, you create a pod where you can bundle multiple containers together that might be tightly coupled.
+However in Kubernetes engine it is recommend that you only run one container per pod. The reason for this difference between Kubernetes and Kubernetes engine is that the latter is not distributing containers it is distributing pods across multiple physical nodes.</p>
+<h3>Pod Components</h3>
+<p>A pod acts like a target group as it exposes these container applications through a single public IP address. Containers in the pod share a single internal IP address and a single namespace so they can communicate with the other nodes in the cluster.
+A pod also gives containers access to centralized storage. This is useful if there is information that needs to be shared such as SSL certificate keys.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Integration with other Google services is a big advantage of Kubernetes Engine, which can integrate with identity access and make it easier to manage container clusters because it throws in all the necessary management. Indeed, Google Kubernetes Engine can also make use of additional GCP services that aren't natively part of Kubernetes.
+
+Kubernetes at work
+At its core, Kubernetes is about organizing and managing containers, so it creates what are called a container cluster. The cluster consists of physical hardware resources, which in GCP are made up of Compute Engine's virtual machines. Kubernetes engine automates the setup and deployment of the entire Kubernetes cluster. You can choose between a standard minimum cluster, which has exactly one master to start with, and your choice of the number of cluster nodes. Or there is a high availability cluster for production environments that supports multi-master configurations.
+
+Regardless, that master is going to be the orchestrator as it will conduct API access to communicate with individual nodes. Each of these individual nodes is going to run a Docker runtime. In addition, there will be a kubelet agent running, which handles managing and scheduling. The Kubernetes cluster will also include a network proxy so that they can communicate internally with each other and with other containers inside the virtual machines.
+
+Kubernetes master
+The Kubernetes master is the cloud endpoint fronting the Kubernetes cluster and runs the Kubernetes API server and handles all of the scheduling. The master is responsible for managing the cluster, running health checks to ensure everything is running correctly, and providing all the necessary cloud service integration. In your own on-premises Kubernetes environment, you will set up your own Kubernetes master and individual nodes and be responsible for their administration and management. However, in GCP, the Kubernetes Engine is a fully managed service, so it runs this master node on a VM for you. Google takes over the management node for you, integrates it with Stackdriver, IAM, and other automated processes. Indeed, you do not see the master VM or get to manage it.
+
+How are containers organized?
+Containers are organized inside what we call a pod, which is similar to a target group in load balancers. In Kubernetes, you create a pod where you can bundle multiple containers together that might be tightly coupled. However, in Kubernetes Engine, it is recommended that you only run one container per pod. The reason for this difference between Kubernetes and Kubernetes Engine is that the latter is not distributing containers but rather distributing pods across multiple physical nodes.
+
+A pod acts like a target group as it exposes these container applications through a single public IP address. Containers in the pod share a single internal IP address and a single namespace, so they can communicate with other nodes in the cluster. A pod also gives containers access to centralized storage, which is useful if there is information that needs to be shared such as SSL certificate keys.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Kubernetes Engine: A Simplified Approach to Container Management</h3>
+<p>Kubernetes Engine offers a simplified approach to container management, integrating with other Google services for easier cluster management and additional GCP services.</p>
+<h4>Core Principles of Kubernetes</h4>
+<p>At its core, Kubernetes is about organizing and managing containers. It creates a container cluster consisting of physical hardware resources, such as Compute Engine's virtual machines.</p>
+<ul>
+<li><strong>Cluster Setup</strong>: Kubernetes Engine automates the setup and deployment of the entire Kubernetes cluster.</li>
+<li><strong>Master Node</strong>: The master node runs the Kubernetes API server and handles scheduling, health checks, and cloud service integration.</li>
+<li><strong>Pods</strong>: Containers are organized inside pods, which expose applications through a single public IP address. Pods share a single internal IP address and namespace.</li>
+</ul>
+<h4>Benefits of Kubernetes Engine</h4>
+<p>Kubernetes Engine offers several benefits, including:</p>
+<ul>
+<li><strong>Integration with Identity Access</strong>: Seamless integration with Google's identity access services.</li>
+<li><strong>Easier Cluster Management</strong>: Automated cluster setup and deployment, reducing the need for manual management.</li>
+<li><strong>Additional GCP Services</strong>: Integration with additional GCP services, such as Stackdriver and IAM.</li>
+</ul>
+<h4>Key Differences between Kubernetes and Kubernetes Engine</h4>
+<p>While both share similarities, there are key differences:</p>
+<ul>
+<li><strong>Container Distribution</strong>: Kubernetes distributes containers across multiple physical nodes, whereas Kubernetes Engine distributes pods across multiple physical nodes.</li>
+<li><strong>Pod Organization</strong>: In Kubernetes, it's recommended to run multiple containers per pod. In contrast, Kubernetes Engine recommends running only one container per pod.</li>
+</ul>
+<h4>Conclusion</h4>
+<p>Kubernetes Engine offers a simplified approach to container management, integrating with other Google services for easier cluster management and additional GCP services. By understanding the core principles of Kubernetes and the benefits of Kubernetes Engine, organizations can streamline their container management processes and take advantage of the latest advancements in cloud computing.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Kubernetes Engine Management</h3>
+<p>Kubernetes Engine provides automated management of container clusters, integrating with identity access and additional GCP services.</p>
+<h3>Topic 2: Container Organization in Kubernetes</h3>
+<p>Containers are organized into pods, which expose applications through a single public IP address and share a single internal IP address and namespace.</p>
+<h3>Topic 3: Kubernetes Master Node</h3>
+<p>The Kubernetes master node is the cloud endpoint fronting the cluster, running the Kubernetes API server and handling scheduling, with automated health checks and cloud service integration.</p>
+<h3>Topic 4: Pod Architecture in Kubernetes Engine</h3>
+<p>In Kubernetes Engine, pods are distributed across multiple physical nodes, with each pod containing a single container, sharing a single internal IP address and namespace.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Kubernetes Engine, and what are its advantages?
+Answer: Kubernetes Engine is a fully managed service that integrates with other Google services, making it easier to manage container clusters and providing additional GCP services.</p>
+</li>
+<li>
+<p>How does Kubernetes create a container cluster in GCP?
+Answer: Kubernetes creates a container cluster by utilizing physical hardware resources from Compute Engine's virtual machines.</p>
+</li>
+<li>
+<p>What are the different types of Kubernetes clusters available in GCP?
+Answer: There are two main types of clusters: standard minimum cluster and high availability cluster for production environments, which supports multi-master configurations.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the Kubernetes master node function in a GCP environment?
+Answer: The Kubernetes master node runs the Kubernetes API server, handles scheduling, and provides cloud service integration, while Google takes over management of the node.</p>
+</li>
+<li>
+<p>What is the purpose of a pod in Kubernetes, and how does it differ from Kubernetes Engine?
+Answer: A pod in Kubernetes bundles multiple containers together, whereas in Kubernetes Engine, pods are distributed across multiple physical nodes with only one container per pod.</p>
+</li>
+<li>
+<p>How do containers in a pod communicate with each other?
+Answer: Containers in a pod share a single internal IP address and namespace, allowing them to communicate with each other.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>What benefits does integrating Kubernetes Engine with identity access provide?
+Answer: Integration with identity access makes it easier to manage container clusters by providing automated management of user identities.</p>
+</li>
+<li>
+<p>How can the centralized storage provided by pods be useful in a production environment?
+Answer: The centralized storage allows for sharing information, such as SSL certificate keys, across containers in the pod.</p>
+</li>
+<li>
+<p>What are some scenarios where using Kubernetes Engine might be preferred over setting up an on-premises Kubernetes environment?
+Answer: Using Kubernetes Engine is preferred when you want Google to take over management of the cluster, integrate with other GCP services, and provide a fully managed service.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Service</td>
+<td>Integration with other Google services, automating setup and deployment of the entire Kubernetes cluster.</td>
+<td>A managed service that integrates with GCP services like Stackdriver, IAM, and Compute Engine's virtual machines. It provides a fully managed experience for setting up and managing container clusters.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Framework</td>
+<td>Organising and managing containers, creating a container cluster consisting of physical hardware resources.</td>
+<td>A framework for automating the deployment, scaling, and management of containerized applications. It uses a master node to orchestrate the cluster and provide cloud service integration.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service</td>
+<td>Physical hardware resources used in GCP to create Kubernetes clusters.</td>
+<td>A virtual machine service provided by Google Cloud Platform that can be used to create Kubernetes clusters.</td>
+</tr>
+<tr>
+<td>Identity Access</td>
+<td>Feature</td>
+<td>Integration with other Google services, automating setup and deployment of the entire Kubernetes cluster.</td>
+<td>A feature that allows users to manage access to their Kubernetes clusters using identity and access management (IAM) policies.</td>
+</tr>
+<tr>
+<td>Pod</td>
+<td>Concept</td>
+<td>Bundling multiple containers together, exposing container applications through a single public IP address.</td>
+<td>A logical host for one or more containers, providing a single internal IP address and namespace for communication between containers. It also provides centralized storage for shared information like SSL certificate keys.</td>
+</tr>
+<tr>
+<td>Master Node</td>
+<td>Component</td>
+<td>Fronting the Kubernetes cluster, running the Kubernetes API server and handling scheduling.</td>
+<td>The central node that manages the Kubernetes cluster, responsible for health checks, cloud service integration, and orchestrating the deployment of containerized applications.</td>
+</tr>
+<tr>
+<td>Docker Runtime</td>
+<td>Technology</td>
+<td>Running on individual nodes in the Kubernetes cluster.</td>
+<td>A runtime environment for containers, providing a platform for running containerized applications. It is used in conjunction with the kubelet agent to manage and schedule containers.</td>
+</tr>
+<tr>
+<td>Kubelet Agent</td>
+<td>Component</td>
+<td>Handling managing and scheduling of containers.</td>
+<td>An agent that runs on each node in the Kubernetes cluster, responsible for managing and scheduling containers using the Docker runtime.</td>
+</tr>
+<tr>
+<td>Network Proxy</td>
+<td>Feature</td>
+<td>Communicating internally with other containers and virtual machines.</td>
+<td>A feature that provides a proxy service for communication between containers and virtual machines within the Kubernetes cluster.</td>
+</tr>
+<tr>
+<td>Load Balancers</td>
+<td>Technology</td>
+<td>Target group in load balancers, exposing container applications through a single public IP address.</td>
+<td>A technology used to distribute traffic across multiple servers or nodes, providing a single public IP address for containerized applications.</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Service</td>
+<td>Integration with other Google services, automating setup and deployment of the entire Kubernetes cluster.</td>
+<td>A monitoring and logging service provided by Google Cloud Platform that integrates with Kubernetes Engine to provide real-time insights into cluster performance and health.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

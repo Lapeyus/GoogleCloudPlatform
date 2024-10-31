@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_131</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_131_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_131</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Data Storage Services</h1>
+<h2>Overview of 3Vs</h2>
+<ul>
+<li><strong>Variety</strong>: Structural variability in data</li>
+<li><strong>Velocity</strong>: Speed at which data arrives</li>
+<li><strong>Volatility</strong>: Length of time data retains value</li>
+<li><strong>Veracity</strong>: Correctness and integrity of data (not relevant to this topic)</li>
+</ul>
+<h2>GCP's Data Storage Services</h2>
+<h3>Cloud Storage</h3>
+<h4>Features</h4>
+<ul>
+<li>Provides efficient and reliable storing and retrieving of data</li>
+<li>Behaves like a service from an application's point of view</li>
+</ul>
+<h3>Cloud SQL</h3>
+<h4>Features</h4>
+<ul>
+<li>Not discussed in high level previously</li>
+<li>Suitable for specific tasks (not specified)</li>
+<li>Will be covered in this chapter</li>
+</ul>
+<h3>Cloud Spanner</h3>
+<h4>Features</h4>
+<ul>
+<li>Not discussed in high level previously</li>
+<li>Suitable for specific tasks (not specified)</li>
+<li>Will be covered in this chapter</li>
+</ul>
+<h3>Cloud Datastore/Filestore</h3>
+<h4>Features</h4>
+<ul>
+<li>Provides efficient and reliable storing and retrieving of data</li>
+<li>Behaves like a service from an application's point of view</li>
+</ul>
+<h3>Cloud Bigtable</h3>
+<h4>Features</h4>
+<ul>
+<li>Not discussed in high level previously</li>
+<li>Suitable for specific tasks (not specified)</li>
+<li>Will be covered in this chapter</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is important, from the application perspective, is that the technology behaves like a service, which provides efficient and reliable storing and retrieving of the data.
+
+When you take a look at GCP's service offerings for data storage, there are many services to choose from. In previous chapters, we discussed all of these at a high functional level and compared their individual suitability for specific tasks. In this chapter, we will take a deeper dive into the workings of each of them: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable.
+
+The way to do this is to create two separate service accounts. For example, service account 1 will have Editor permissions for project A. Another service account, for example service account 2, will have object viewer permissions. By assigning a service account to the appropriate microservice, we can control their individual access rights. In this way, you can scope permissions for VMs without having to recreate the VMs as Cloud IAM essentially lets you slice a project into different microservices, each with access permissions to different resources. You do this by creating service accounts to represent each one.
+
+You can assign the service accounts to the VMs when they are created, and a big benefit is that you don't have to worry about managing credentials as GCP handles security for you.
+
+Chapter 15 - Data Storage Services: A Deep-Dive
+
+Data is often characterized by the 3Vs: variety, which refers to its structural variability as to how similar or different the data can be; velocity, which is essentially how fast the data arrives; and finally, volatility, which refers to how long the data retains value and therefore how long it needs to be stored and made accessible. There is also a 4V, which is veracity, a measure of the correctness and integrity of the data, but that isn't relevant to our topic regarding cloud data storage methods.
+
+Nonetheless, when we contemplate the various data storage techniques, it doesn't really matter from an application's point of view whether the storage technology is a database or an object store. What is
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Managing Access Rights with Service Accounts</strong></h1>
+<p>To control access rights for microservices in a project, create two separate service accounts: one with Editor permissions for Project A and another with object viewer permissions. Assigning these service accounts to the appropriate microservice allows you to scope individual access rights without recreating VMs.</p>
+<h2><strong>Cloud IAM Benefits</strong></h2>
+<p>By using Cloud IAM, you can slice your project into different microservices, each with access permissions to specific resources. This is achieved by creating service accounts to represent each microservice. Assigning these service accounts to VMs when they are created ensures that credentials are managed securely by GCP.</p>
+<h2><strong>Data Storage Services: A Deep Dive</strong></h2>
+<p>When it comes to data storage, the 3Vs (variability, velocity, and volatility) and the 4V (veracity) are important considerations. However, from an application's perspective, what matters is that the technology behaves like a service, providing efficient and reliable storing and retrieving of data.</p>
+<h2><strong>GCP Data Storage Services</strong></h2>
+<p>This chapter will delve into the workings of GCP's data storage services: Cloud Storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable. By understanding these services, you can choose the most suitable one for your specific task.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Control and Access Management in GCP</p>
+<p>This topic is about controlling access to resources in Google Cloud Platform (GCP) using service accounts and IAM permissions.</p>
+<h3>Topic 2</h3>
+<p>Data Storage Characteristics and Importance</p>
+<p>This topic discusses the characteristics of data, including variety, velocity, volatility, and veracity, and how they impact the choice of cloud data storage methods. It highlights that from an application's perspective, what matters is that the technology behaves like a service providing efficient and reliable storing and retrieving of data.</p>
+<h3>Topic 3</h3>
+<p>GCP Data Storage Services Overview</p>
+<p>This topic provides an overview of GCP's data storage services, including Cloud storage, Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable. It mentions that the chapter will delve deeper into the workings of each service.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>1. What is the main benefit of creating separate service accounts for different microservices in GCP?</h4>
+<p>The main benefit is that it allows you to control individual access rights without having to recreate VMs or manage credentials manually.</p>
+<h4>2. What are the three key characteristics (3Vs) of data, and how do they relate to cloud data storage methods?</h4>
+<p>Data is characterized by its structural variability (variety), speed of arrival (velocity), and duration of value retention (volatility). These characteristics determine the type of data storage technology needed.</p>
+<h4>3. What is the significance of veracity in the context of data, and how does it relate to the topic of cloud data storage methods?</h4>
+<p>Veracity refers to the correctness and integrity of data, but this aspect is not relevant to the discussion of cloud data storage methods.</p>
+<h3>Analytical Questions</h3>
+<h4>1. How do GCP's service offerings for data storage differ from one another in terms of their functionality and suitability for specific tasks?</h4>
+<p>Each service offering has its unique characteristics and use cases, such as Cloud Storage being suitable for general-purpose data storage, while Cloud Spanner is designed for high-performance transactions.</p>
+<h4>2. What are the key differences between a database and an object store in the context of cloud data storage methods?</h4>
+<p>A database provides structured data with query capabilities, whereas an object store stores unstructured data without querying capabilities.</p>
+<h4>3. How do GCP's service offerings for data storage address the need for efficient and reliable storing and retrieving of data from an application's perspective?</h4>
+<p>Each service offering is designed to provide a service-like experience, ensuring efficient and reliable data storage and retrieval.</p>
+<h3>Application Questions</h3>
+<h4>1. Suppose you are building a web application that requires fast data retrieval and storage. Which GCP service would be the most suitable for this use case?</h4>
+<p>Cloud Spanner or Cloud Storage could be suitable options, depending on the specific requirements of your application.</p>
+<h4>2. How can you ensure secure access to data stored in GCP's object store?</h4>
+<p>You can assign a service account with the necessary permissions to the object store, and then manage the credentials securely using GCP's IAM features.</p>
+<h4>3. What are some potential benefits of using Cloud Datastore/Filestore for storing structured data in your application?</h4>
+<p>Cloud Datastore/Filestore provides a managed NoSQL database service that allows you to store and retrieve structured data efficiently and reliably.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service account 1</td>
+<td>Service Account</td>
+<td>"The way to do this is to create two separate service accounts."</td>
+<td>A service account represents a user or entity that can access and manage resources in the Cloud Platform. In this context, it is used as an example of how to control individual access rights for microservices.</td>
+</tr>
+<tr>
+<td>Editor permissions</td>
+<td>Permission Type</td>
+<td>"Editor permissions for project A"</td>
+<td>An editor permission grants access to edit and modify resources within a specific project. It is one type of permission that can be assigned to service accounts.</td>
+</tr>
+<tr>
+<td>object viewer</td>
+<td>Permission Type</td>
+<td>"object viewer permissions"</td>
+<td>An object viewer permission allows access to view objects, but not to modify or create them. It is another type of permission that can be assigned to service accounts.</td>
+</tr>
+<tr>
+<td>Cloud IAM</td>
+<td>Service</td>
+<td>"Cloud IAM essentially lets you slice a project into different microservices..."</td>
+<td>Cloud Identity and Access Management (IAM) is a service that provides identity and access management capabilities for the Cloud Platform. In this context, it is used as an example of how to manage access rights for microservices.</td>
+</tr>
+<tr>
+<td>VMs</td>
+<td>Virtual Machine</td>
+<td>"You can scope permissions for VMs without having to recreate the VMs..."</td>
+<td>Virtual Machines (VMs) are virtualized computers that run on the Cloud Platform. In this context, they represent resources that need to be managed with specific access rights.</td>
+</tr>
+<tr>
+<td>project A</td>
+<td>Project</td>
+<td>"Editor permissions for project A"</td>
+<td>A project is a container for related resources and services in the Cloud Platform. In this context, it represents a specific scope of access rights.</td>
+</tr>
+<tr>
+<td>microservice</td>
+<td>Microservice</td>
+<td>"...assigning a service account to the appropriate microservice..."</td>
+<td>A microservice is a small, independent component that provides a specific functionality within an application. In this context, it represents a resource that needs to be managed with specific access rights.</td>
+</tr>
+<tr>
+<td>Cloud storage</td>
+<td>Service</td>
+<td>"When you take a look at GCP's service offerings for data storage..."</td>
+<td>Cloud storage refers to the ability to store and retrieve data in the Cloud Platform. It is one of the services offered by Google Cloud Platform (GCP).</td>
+</tr>
+<tr>
+<td>Cloud SQL</td>
+<td>Service</td>
+<td>"...Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable."</td>
+<td>Cloud SQL is a fully managed relational database service that allows users to create, manage, and scale databases in the Cloud Platform. It is one of the services offered by GCP.</td>
+</tr>
+<tr>
+<td>Cloud Spanner</td>
+<td>Service</td>
+<td>"...Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable."</td>
+<td>Cloud Spanner is a fully managed NoSQL database service that allows users to create, manage, and scale databases in the Cloud Platform. It is one of the services offered by GCP.</td>
+</tr>
+<tr>
+<td>Cloud Datastore/Filestore</td>
+<td>Service</td>
+<td>"...Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable."</td>
+<td>Cloud Datastore is a NoSQL database service that allows users to create, manage, and scale databases in the Cloud Platform. Filestore is a file storage service that provides persistent storage for files in the Cloud Platform. Both are services offered by GCP.</td>
+</tr>
+<tr>
+<td>Cloud Bigtable</td>
+<td>Service</td>
+<td>"...Cloud SQL, Cloud Spanner, Cloud Datastore/Filestore, and Cloud Bigtable."</td>
+<td>Cloud Bigtable is a fully managed NoSQL database service that allows users to create, manage, and scale databases in the Cloud Platform. It is one of the services offered by GCP.</td>
+</tr>
+<tr>
+<td>veracity</td>
+<td>Concept</td>
+<td>"There is a 4V, which is veracity..."</td>
+<td>Veracity refers to the correctness and integrity of data. In this context, it represents an important aspect of data storage methods.</td>
+</tr>
+<tr>
+<td>variety</td>
+<td>Concept</td>
+<td>"...characterised by the 3Vs; variety..."</td>
+<td>Variety refers to the structural variability of data, such as its format or structure. It is one of the three key characteristics (3Vs) that define data.</td>
+</tr>
+<tr>
+<td>velocity</td>
+<td>Concept</td>
+<td>"...characterised by the 3Vs; variety..."</td>
+<td>Velocity refers to the speed at which data arrives. It is another key characteristic (3Vs) that defines data.</td>
+</tr>
+<tr>
+<td>volatility</td>
+<td>Concept</td>
+<td>"...characterised by the 3Vs; variety..."</td>
+<td>Volatility refers to how long data retains its value and needs to be stored and made accessible. It is the third key characteristic (3Vs) that defines data.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

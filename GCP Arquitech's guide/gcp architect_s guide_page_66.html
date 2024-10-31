@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_66</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_66_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_66</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>App Engine Flexible Environment</h1>
+<h2>Overview</h2>
+<p>Flexible environment allows for more control over application deployment and scaling.</p>
+<h3>Key Features</h3>
+<ul>
+<li><strong>SSH access</strong>: Allows direct access to virtual machines where applications run.</li>
+<li><strong>Local disk usage</strong>: Enables use of local disk for scratch base and installation of third-party software.</li>
+<li><strong>Network calls</strong>: Allows applications to make network calls without going through App Engine.</li>
+<li><strong>Docker containers</strong>: Uses Docker containers instead of a sandbox.</li>
+</ul>
+<h2>Comparison with Kubernetes Engine</h2>
+<h3>Use Cases</h3>
+<p>• <strong>App Engine Standard Environment</strong>: For those who want maximum control over application deployment and scaling.
+• <strong>Kubernetes Engine</strong>: Provides full flexibility of Kubernetes orchestration.
+• <strong>App Engine Flexible Edition</strong>: Offers a balance between the two, treating containers as a means to an end.</p>
+<h2>API Services</h2>
+<ul>
+<li><strong>Common use case</strong>: Hosting API services due to quick upload and management of scaling and authentication issues.</li>
+<li><strong>APIs</strong>: A common way to open applications up to the outside while maintaining strict limitations.</li>
+</ul>
+<h2>Application Programming Interfaces (APIs)</h2>
+<h3>Definition</h3>
+<p>A precise description of APIs is necessary for software service implementation, as they can require complex interfaces that change frequently.</p>
+<h3>Challenges</h3>
+<ul>
+<li>Integrating services requires connecting other pieces of software and knowledge of code and internal details.</li>
+<li>Integration with third parties is difficult due to the need for abstraction and documentation.</li>
+</ul>
+<h3>API Management</h3>
+<ul>
+<li>Google Cloud Platform manages its library of APIs by allowing underlying implementation changes as long as the interface remains working.</li>
+<li>Developers must version and track their APIs when changes are made.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Flexible environment lets you SSH into virtual machines on which your application runs, use local disk for scratch base, and install third-party software. It also allows your application to make calls to the network without going through App Engine. On the other hand, the standard environment can save money as billing drops to zero for idle applications, making it attractive in a DevOps environment.
+
+An interesting thing is that in the Flexible Environment, App Engine uses Docker containers instead of a sandbox. This raises questions about how App Engine flexible environment compares to Kubernetes Engine. Here's a quick comparison of use-cases for App Engine with Kubernetes Engine:
+
+• App Engine Standard Environment is for people who want the service to take maximum control of their applications' deployment and scaling.
+• Kubernetes Engine gives the application owner the full flexibility of Kubernetes orchestration.
+• App Engine flexible edition is somewhere in between, treating containers as a means to an end, but for Kubernetes Engine, containers are the fundamental organizing principle.
+
+App Engine is commonly used to host API services because it can quickly upload applications and manage scaling and authentication issues. APIs are a common way to open an application up to the outside while maintaining strict limitations. All interactions with GCP so far have been via APIs that Google exposes for use.
+
+Application Programming Interfaces, APIs
+
+We've mentioned Application Programming Interfaces, APIs, several times already as a method for connecting to services. Now let's give them a more precise description and definition.
+
+The problem persists in software service implementation is that they require precise interfaces that become complex and frequently changeable. Integrating services requires connecting other pieces of software, which requires knowledge of the code and internal details about how they work. This makes local integration with in-house applications difficult but integrating with third parties nearly impossible.
+
+Nonetheless, integrations with third parties do happen, even with banks, as application developers write software that abstracts away unnecessary internal details to provide templates for necessary parameters. This presents a clean, well-defined interface, which is then documented as an API.
+
+API Management
+
+Now that we know what an API is, let's consider how Google Cloud Platform manages their library of APIs. A feature of the API concept is that the underlying implementation can change as long as the interface remains working. Thus, other pieces of software that use the API don't have to change anything.
+
+However, sometimes you will have to change an API to add or deprecate a feature. In this case, clients or other software that use that API will have to know about the changes. Therefore, developers need to version and track their APIs.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Flexible Environment vs Kubernetes Engine: A Comparison</h3>
+<p>The Google Cloud Platform's App Engine flexible environment offers a balance between control and flexibility, allowing users to SSH into virtual machines, use local disk for scratch bases, install third-party software, and make network calls without going through App Engine. In contrast, the standard environment can save costs by dropping billing to zero for idle applications.</p>
+<h3>Comparison with Kubernetes Engine</h3>
+<p>App Engine flexible edition falls somewhere in between App Engine's Standard Environment and Kubernetes Engine. While App Engine takes control of application deployment and scaling, Kubernetes Engine provides full flexibility in orchestration. The key difference lies in how containers are treated: App Engine views them as a means to an end, whereas Kubernetes Engine considers them the fundamental organizing principle.</p>
+<h3>API Services and Application Programming Interfaces</h3>
+<p>APIs (Application Programming Interfaces) are a common way to open applications to the outside while maintaining strict limitations. They provide a clean, well-defined interface for connecting to services. However, integrating with third-party services can be challenging due to internal implementation details. To address this, developers create software that abstracts away these details, providing templates for necessary parameters.</p>
+<h3>API Management</h3>
+<p>Google Cloud Platform manages its library of APIs by allowing the underlying implementation to change as long as the interface remains working. This enables other software to continue using the API without modification. However, when changes are made, clients and other software must be informed, requiring developers to version and track their APIs.</p>
+<h3>Use Cases for App Engine</h3>
+<p>App Engine is commonly used to host API services due to its ability to quickly upload applications and manage scaling and authentication issues. This makes it an attractive option for opening applications to the outside while maintaining control over internal implementation details.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Control and Flexibility</strong>
+Definition: This topic revolves around the balance between control and flexibility in application deployment and scaling.</p>
+<h3>Topic 2</h3>
+<p><strong>API Management and Integration</strong>
+Definition: This topic focuses on the importance of precise interfaces, API management, and integration with third-party services.</p>
+<h3>Topic 3</h3>
+<p><strong>Containerization and Orchestration</strong>
+Definition: This topic explores the differences in containerization approaches between App Engine Flexible Environment and Kubernetes Engine.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main difference between App Engine's Standard Environment and Kubernetes Engine?
+Answer: The main difference lies in the level of control each service provides over application deployment and scaling.</p>
+</li>
+<li>
+<p>Why are APIs commonly used to open applications up to the outside world?
+Answer: APIs provide a strictly limited way for external interactions, allowing developers to abstract away internal details and create clean, well-defined interfaces.</p>
+</li>
+<li>
+<p>How does Google Cloud Platform manage its library of APIs?
+Answer: The underlying implementation can change as long as the interface remains working, but clients using the API may need to be updated when changes are made.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>Compare and contrast the use cases for App Engine's Standard Environment and Kubernetes Engine.
+Answer: App Engine's Standard Environment is ideal for those who want maximum control over application deployment and scaling, while Kubernetes Engine provides full flexibility of orchestration.</p>
+</li>
+<li>
+<p>What are some challenges in integrating services, and how can APIs help address these issues?
+Answer: Integrating services requires connecting other pieces of software, which can be difficult due to knowledge of code and internal details. APIs provide a clean, well-defined interface that abstracts away unnecessary details.</p>
+</li>
+<li>
+<p>How does the Flexible Environment in App Engine compare to Kubernetes Engine in terms of container usage?
+Answer: The Flexible Environment uses Docker containers as a means to an end, whereas Kubernetes Engine treats containers as its fundamental organizing principle.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design an API for a simple e-commerce application that allows customers to view product information and make purchases.
+Answer: Create a RESTful API with endpoints for retrieving product data, adding products to cart, and completing purchases. Ensure the interface is well-defined and easy to use.</p>
+</li>
+<li>
+<p>Implement API management in a Google Cloud Platform project using the App Engine Flexible Environment.
+Answer: Set up API versioning and tracking, and ensure that clients are updated when changes are made to the underlying implementation. Use tools like API Gateway to manage API requests and responses.</p>
+</li>
+<li>
+<p>Compare and contrast the benefits of using App Engine's Standard Environment versus Kubernetes Engine for a cloud-based application.
+Answer: Consider factors such as control over deployment and scaling, flexibility of orchestration, and cost savings. Choose the service that best meets your application's needs and requirements.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Flexible Environment</td>
+<td>Technology/Platform</td>
+<td>"Flexible environment, however, lets you SSH into the virtual machines on which your application runs."</td>
+<td>The flexible environment is a platform that allows developers to access and manage their applications remotely through SSH. It provides flexibility in terms of disk usage, software installation, and network calls.</td>
+</tr>
+<tr>
+<td>Standard Environment</td>
+<td>Technology/Platform</td>
+<td>"On the other hand, the standard environment can save you a lot of money as the billing can drop to zero for any idle applications."</td>
+<td>The standard environment is a cost-effective option that allows developers to save on billing costs when their applications are idle. It provides a controlled environment for deployment and scaling.</td>
+</tr>
+<tr>
+<td>Docker Containers</td>
+<td>Technology/Platform</td>
+<td>"An interesting thing is that in the Flexible Environment the App Engine uses Docker containers instead of a sandbox."</td>
+<td>Docker containers are lightweight, portable, and isolated environments for running applications. They provide a flexible way to package and deploy applications.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Technology/Platform</td>
+<td>"Kubernetes Engine gives the application owner the full flexibility of Kubernetes orchestration."</td>
+<td>Kubernetes Engine is a platform that provides full control over container orchestration, allowing developers to manage their applications' deployment, scaling, and management.</td>
+</tr>
+<tr>
+<td>App Engine Standard Environment</td>
+<td>Technology/Platform</td>
+<td>"App Engine Standard Environment is for people who want the service to take maximum control of their applications deployment and scaling."</td>
+<td>The standard environment is a controlled environment that provides maximum control over application deployment and scaling. It is suitable for developers who want to manage their applications' lifecycle manually.</td>
+</tr>
+<tr>
+<td>API Services</td>
+<td>Service/Concept</td>
+<td>"A common use case for App Engine is to host API services."</td>
+<td>API services provide a way to expose an application's functionality to the outside world while maintaining control over the data and operations. They are commonly used for integrating with third-party services or opening an application up to external users.</td>
+</tr>
+<tr>
+<td>Application Programming Interfaces (APIs)</td>
+<td>Service/Concept</td>
+<td>"We have mentioned Application Programming Interfaces, APIs, several times already as a method for connecting to a service."</td>
+<td>APIs provide a standardized way of interacting with software applications and services. They define a set of rules and protocols for data exchange between systems.</td>
+</tr>
+<tr>
+<td>DevOps Environment</td>
+<td>Concept</td>
+<td>"This is very attractive in a DevOps environment."</td>
+<td>A DevOps environment refers to the practice of combining development (Dev) and operations (Ops) teams to improve collaboration, efficiency, and quality. It emphasizes automation, continuous integration, and continuous delivery.</td>
+</tr>
+<tr>
+<td>Sandbox</td>
+<td>Technology/Platform</td>
+<td>"An interesting thing is that in the Flexible Environment the App Engine uses Docker containers instead of a sandbox."</td>
+<td>A sandbox is an isolated environment for testing and development purposes. It provides a controlled space for running applications without affecting production environments.</td>
+</tr>
+<tr>
+<td>SDK (Software Development Kit)</td>
+<td>Service/Concept</td>
+<td>"Indeed all our interaction with the GCP so far whether that was via the console or the SDK has been ultimately via the APIs that Google expose for your use."</td>
+<td>A software development kit is a collection of tools, libraries, and documentation provided by a company to help developers build applications on their platform. It often includes APIs, libraries, and other resources for interacting with the platform.</td>
+</tr>
+<tr>
+<td>Cloud Platform (GCP)</td>
+<td>Service/Concept</td>
+<td>"Indeed all our interaction with the GCP so far whether that was via the console or the SDK has been ultimately via the APIs that Google expose for your use."</td>
+<td>A cloud platform is a set of services provided by a company to support the development, deployment, and management of applications. It often includes infrastructure as a service (IaaS), platform as a service (PaaS), and software as a service (SaaS) offerings.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

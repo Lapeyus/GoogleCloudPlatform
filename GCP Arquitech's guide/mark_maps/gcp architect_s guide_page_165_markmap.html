@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_165</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Shared VPC
+        ## Overview
+        - Shared VPC allows for the creation of a shared VPC that is named the host VPC, which can share its network of private IP subnets and their attached resources with all the associated projects called service projects.
+        
+        ### Benefits
+        - VMs and their application and users can then share the use of the resources in the host VPC, which means that a service project will not even require its own network let alone any dedicated resources.
+        
+        ## Shared VPC Features
+        
+        * Allow project admins to create VMs in the shared VPC networks spaces
+        * Allow network and security admins to create VPNs and firewall rules that are usable by the service projects in the host VPC network
+        * Any security policy applied to the host VPC will automatically be inherited by all the service projects
+        
+        ## Diagram
+        - Figure -16
+        
+        ### Service Project A
+        - VM-A
+        
+        ### Service Project B
+        - VM-B
+        
+        ### Host Project
+        - Shared VPC Network
+        - Region-US-east-1
+        - Subnet 10.0.1.0/24
+        - Internal IP for instance A is 10.0.1.3
+        
+        ### VPC Routing
+        - Region US-west-1
+        - Subnet 10.15.2.0/24
+        - Internal IP for instance B is 10.15.2.4
+        
+        ## VPC Network Peering
+        - It's useful for organizations with several network administrative domains that want to peer with other organizations.
+        
+        ### Advantages
+        - • Reduced network latency - Public IP networking suffers higher latency than private networking.
+        - • Network security - Service owners do not need to have their services exposed to the public internet and deal with its associated risks.
+
+      </script>
+    </div>
+  </body>
+</html>

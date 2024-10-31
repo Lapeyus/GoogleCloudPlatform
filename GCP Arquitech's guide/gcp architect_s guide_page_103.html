@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_103</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_103_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_103</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Interconnectivity</h1>
+<h2>When You Need It</h2>
+<p>GCP also offers a variety of ways for you to interconnect your on-premises or other cloud networks with your Google VPC. 
+It's simple to set up a VPN but you will have to manually update the routing add subnets.</p>
+<h3>Using Cloud Router</h3>
+<p>But if you want to use dynamic routing so that all new subnets will be auto-discovered and propagated then you will need to use, cloud router.
+This option makes the update of routing tables dynamic as it will manage the BGP routing updates between your site and the GCP.</p>
+<h2>Peering with Google</h2>
+<p>You can also peer with Google, through many worldwide points of presence either directly or through a carrier partner. 
+Or if you need a service level agreement and can adopt one of their required network topologies, then you are best to use the Dedicated Interconnect.</p>
+<h3>Network Billing</h3>
+<h4>Ingress and Egress Traffic</h4>
+<p>It is important that you understand the usage conditions you will be billed for on GCP's network;
+• First of all, ingress or traffic coming into GCP's network is not billable it's free of charge. 
+In addition, all egress traffic within the same zone, to a different GCP service within the same region, or to other Google products like YouTube, Maps, Drive, and Gmail from a VM in GCP with a public or private IP address is not charged either.</p>
+<h4>Egress Traffic Charges</h4>
+<p>However, there is a charge for egress between zones in the same region and between regions.
+These rules apply to charges only for egress traffic through internal IP addresses.</p>
+<h4>External IP Addresses</h4>
+<p>It is important to realise that there are different billing charges for egress through external IP address, regardless of whether the instances are in the same zone. 
+Hence there is no free transfer of egress traffic between VMs in the same zone when using public external IP addresses.</p>
+<h2>Designing Your Network</h2>
+<p>Another thing to consider when designing your network is your throughput and round-trip latency between virtual machines.
+This is going to vary by location, so check your applications requirements against the current specifications for the VPC when choosing where to place the VMs.</p>
+<h3>Performance Comparison</h3>
+<p>For example, VM to VM communication within a single zone has much more consistent performance than VM to VM communication between regions across continents.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Interconnectivity
+GCP also offers a variety of ways for you to interconnect your on-premises or other cloud networks with your Google VPC. It's simple to set up a VPN, but you will have to manually update the routing and add subnets. However, if you want to use dynamic routing so that all new subnets will be auto-discovered and propagated, then you will need to use a Cloud Router. This option makes the update of routing tables dynamic as it will manage the BGP routing updates between your site and the GCP.
+
+You can also peer with Google through many worldwide points of presence either directly or through a carrier partner. Or if you need a service level agreement and can adopt one of their required network topologies, then you are best to use the Dedicated Interconnect.
+
+Network Billing
+It is essential that you understand the usage conditions you will be billed for on GCP's network. First of all, ingress or traffic coming into GCP's network is not billable; it's free of charge. In addition, all egress traffic within the same zone to a different GCP service within the same region, or to other Google products like YouTube, Maps, Drive, and Gmail from a VM in GCP with a public or private IP address is also not charged.
+
+However, there is a charge for egress between zones in the same region and between regions. These rules apply to charges only for egress traffic through internal IP addresses. It's crucial to realize that there are different billing charges for egress through external IP addresses, regardless of whether the instances are in the same zone. This means that there is no free transfer of egress traffic between VMs in the same zone when using public external IP addresses.
+
+When designing your network, consider your throughput and round-trip latency between virtual machines. This will vary by location, so check your applications' requirements against the current specifications for the VPC when choosing where to place the VMs. For example, VM-to-VM communication within a single zone has much more consistent performance than VM-to-VM communication between regions across continents.
+
+Keep in mind that as VPC is constantly evolving, there are some features marked BETA. These features do not have a service level agreement or SLA and the online documentation states which features are currently in BETA. If you make design changes, you might have to delete networks and subnetworks. Start by deleting your VMs and any related firewall rules, then depending on whether you have an auto-type network or a custom-type network, you might only be able to delete the entire network or the sub-networks independently.
+
+Another thing to consider when designing your network is your throughput and round-trip latency between virtual machines. This will vary by location, so check your applications' requirements against the current specifications for the VPC when choosing where to place the VMs. For example, VM-to-VM communication within a single zone has much more consistent performance than VM-to-VM communication between regions across continents.
+
+Keep in mind that as VPC is constantly evolving, there are some features marked BETA. These features do not have a service level agreement or SLA and the online documentation states which features are currently in BETA. If you make design changes, you might have to delete networks and subnetworks. Start by deleting your VMs and any related firewall rules, then depending on whether you have an auto-type network or a custom-type network, you might only be able to delete the entire network or the sub-networks independently.
+
+If you need a service level agreement and can adopt one of their required network topologies, then you are best to use the Dedicated Interconnect.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Interconnectivity and Network Billing in Google Cloud Platform (GCP)</h3>
+<h4>Interconnectivity Options</h4>
+<p>GCP offers various ways to interconnect your on-premises or other cloud networks with your Google VPC. Setting up a VPN is simple, but manual updates of routing tables and adding subnets are required. For dynamic routing, using a Cloud Router is recommended, as it manages BGP routing updates between your site and GCP.</p>
+<p>Additionally, you can peer with Google through worldwide points of presence either directly or through a carrier partner. If you need a service level agreement, the Dedicated Interconnect option is the best choice, requiring adoption of one of their required network topologies.</p>
+<h4>Network Billing</h4>
+<p>To understand the usage conditions for network billing on GCP:</p>
+<ul>
+<li>Ingress traffic coming into GCP's network is free.</li>
+<li>Egress traffic within the same zone to different GCP services or other Google products with public or private IP addresses is also not charged.</li>
+<li>However, there are charges for egress between zones in the same region and between regions, applying only to internal IP addresses.</li>
+<li>Using external IP addresses means no free transfer of egress traffic between VMs in the same zone.</li>
+</ul>
+<p>When designing your network, consider throughput and round-trip latency between virtual machines. This varies by location, so check current VPC specifications against application requirements when choosing VM placement.</p>
+<h4>Important Considerations</h4>
+<ul>
+<li>Some features are marked BETA, without a service level agreement or SLA.</li>
+<li>Design changes may require deleting networks and subnetworks.</li>
+<li>Start by deleting VMs and related firewall rules before deleting networks or subnetworks.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Interconnectivity</h3>
+<p>Interconnectivity refers to the process of connecting on-premises or other cloud networks with Google Cloud Platform (GCP) VPC. This can be achieved through various methods, including setting up a VPN, using dynamic routing with a cloud router, or peering with GCP through worldwide points of presence.</p>
+<h3>Topic 2: Network Billing</h3>
+<p>Network billing refers to the charges incurred for using GCP's network services. The key aspects of network billing include:</p>
+<ul>
+<li>Ingress traffic is free of charge.</li>
+<li>Egress traffic within the same zone, to a different GCP service within the same region, or to other Google products is not charged.</li>
+<li>However, there are charges for egress between zones in the same region and between regions.</li>
+<li>External IP addresses incur additional charges regardless of instance location.</li>
+</ul>
+<h3>Topic 3: Network Design Considerations</h3>
+<p>When designing a network on GCP, it's essential to consider factors such as throughput and round-trip latency between virtual machines. This can vary by location, so it's crucial to check the current specifications for the VPC when choosing where to place VMs. Additionally, be aware of features marked as BETA, which may not have a service level agreement or SLA.</p>
+<h3>Topic 4: Network Management and Updates</h3>
+<p>When making design changes, it's recommended to delete VMs and related firewall rules first. Depending on the network type (auto or custom), you might only be able to delete the entire network or sub-networks independently.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are some ways for users to interconnect their on-premises or other cloud networks with their Google VPC?
+Answer: Users can set up a VPN, use a Cloud Router for dynamic routing, peer with Google through worldwide points of presence, or use a Dedicated Interconnect.</p>
+</li>
+<li>
+<p>What is the difference in billing charges for egress traffic between internal and external IP addresses?
+Answer: There are different billing charges for egress traffic through external IP addresses, regardless of whether instances are in the same zone.</p>
+</li>
+<li>
+<p>Why is it important to consider throughput and round-trip latency when designing a network?
+Answer: It's essential to consider these factors because they vary by location, and choosing the right placement for VMs can impact performance.</p>
+</li>
+<li>
+<p>What happens if you make design changes to your VPC and need to delete networks and subnetworks?
+Answer: You may only be able to delete the entire network or sub-networks independently, depending on whether you have an auto-type or custom-type network.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does using a Cloud Router for dynamic routing compare to setting up a VPN?
+Answer: A Cloud Router provides dynamic routing updates, making it easier to manage routing tables and propagate changes.</p>
+</li>
+<li>
+<p>What are the implications of using external IP addresses on egress traffic billing charges?
+Answer: Using public external IP addresses results in different billing charges for egress traffic compared to internal IP addresses.</p>
+</li>
+<li>
+<p>How does the location of VMs impact performance in a VPC?
+Answer: The location of VMs can significantly impact performance due to variations in throughput and round-trip latency by region.</p>
+</li>
+<li>
+<p>What are some potential risks associated with making design changes to your VPC?
+Answer: Potential risks include having to delete networks and subnetworks, which may require manual intervention or have unintended consequences.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a network for a company that requires low-latency communication between VMs in different zones.
+Answer: Choose locations with optimal latency characteristics, use Cloud Router for dynamic routing, and consider using Dedicated Interconnect for high-performance requirements.</p>
+</li>
+<li>
+<p>A company is considering using Google VPC for its cloud infrastructure. What are some key factors to consider when designing the network?
+Answer: Consider throughput and round-trip latency, choose the right placement for VMs based on application requirements, and be aware of potential billing charges for egress traffic through external IP addresses.</p>
+</li>
+<li>
+<p>How can a company optimize its egress traffic billing charges in Google VPC?
+Answer: Use internal IP addresses for egress traffic within the same zone or region, and consider using Cloud Router for dynamic routing to manage routing tables and propagate changes.</p>
+</li>
+<li>
+<p>What are some best practices for managing networks in Google VPC?
+Answer: Regularly review and update network configurations, use Cloud Router for dynamic routing, and be aware of potential risks associated with making design changes to your VPC.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Interconnectivity</td>
+<td>Concept</td>
+<td>"when you... interconnect your on-premises or other cloud networks with your Google VPC"</td>
+<td>Refers to the process of connecting multiple networks, including on-premises and cloud networks, to a single network, in this case, Google VPC. It involves setting up VPNs, using dynamic routing, and peering with Google through various points of presence.</td>
+</tr>
+<tr>
+<td>GCP (Google Cloud Platform)</td>
+<td>Organization</td>
+<td>"GCP also offers a variety of ways for you to interconnect your on-premises or other cloud networks with your Google VPC"</td>
+<td>Refers to the organization that provides the platform for connecting multiple networks, including on-premises and cloud networks. It is a cloud computing platform that allows users to create virtual machines, store data, and deploy applications.</td>
+</tr>
+<tr>
+<td>VPN (Virtual Private Network)</td>
+<td>Technology</td>
+<td>"It's simple to set up a VPN"</td>
+<td>Refers to a technology that creates a secure and encrypted connection between two or more networks over the internet. In this context, it is used to connect on-premises networks to Google VPC.</td>
+</tr>
+<tr>
+<td>Cloud Router</td>
+<td>Technology</td>
+<td>"But if you want to use dynamic routing so that all new subnets will be auto-discovered and propagated then you will need to use, cloud router"</td>
+<td>Refers to a technology that manages the update of routing tables dynamically, allowing for automatic discovery and propagation of new subnets. It is used to manage BGP (Border Gateway Protocol) routing updates between sites and Google VPC.</td>
+</tr>
+<tr>
+<td>Dedicated Interconnect</td>
+<td>Service</td>
+<td>"Or if you need a service level agreement and can adopt one of their required network topologies, then you are best to use the Dedicated Interconnect"</td>
+<td>Refers to a service that provides a dedicated connection between two networks, offering a guaranteed level of performance and security. It is used for high-performance applications that require low latency and high throughput.</td>
+</tr>
+<tr>
+<td>Network Billing</td>
+<td>Concept</td>
+<td>"It is important that you understand the usage conditions you will be billed for on GCP's network"</td>
+<td>Refers to the process of charging users for the use of Google Cloud Platform's networks, including egress traffic through internal IP addresses and external IP addresses. It involves understanding the rules and regulations for billing and charging.</td>
+</tr>
+<tr>
+<td>Egress Traffic</td>
+<td>Concept</td>
+<td>"However, there is a charge for egress between zones in the same region and between regions"</td>
+<td>Refers to the flow of data from one network to another, often used to describe the movement of data from Google VPC to other networks or services. It involves understanding the rules and regulations for charging and billing.</td>
+</tr>
+<tr>
+<td>Throughput</td>
+<td>Concept</td>
+<td>"Another thing to consider when designing your network is your throughput and round-trip latency between virtual machines"</td>
+<td>Refers to the rate at which data can be transferred between two points, often used to describe the performance of a network or system. It involves understanding the impact of location on throughput and round-trip latency.</td>
+</tr>
+<tr>
+<td>Round-Trip Latency</td>
+<td>Concept</td>
+<td>"This is going to vary by location, so check your applications requirements against the current specifications for the VPC when choosing where to place the VMs"</td>
+<td>Refers to the time it takes for data to travel from one point to another and back again, often used to describe the performance of a network or system. It involves understanding the impact of location on round-trip latency.</td>
+</tr>
+<tr>
+<td>BETA (Beta)</td>
+<td>Status</td>
+<td>"These features do not have a service level agreement or SLA and the online documentation states which features are currently in BETA"</td>
+<td>Refers to a status indicating that a feature is still in development and testing, often used to describe new and experimental features. It involves understanding the implications of using beta features on production systems.</td>
+</tr>
+<tr>
+<td>Auto Type Network</td>
+<td>Technology</td>
+<td>"Depending on whether you have an auto type network or a custom type network..."</td>
+<td>Refers to a technology that automatically configures networks based on certain rules and settings, often used to simplify network management and configuration. It involves understanding the benefits and limitations of using auto-type networks.</td>
+</tr>
+<tr>
+<td>Custom Type Network</td>
+<td>Technology</td>
+<td>"...or a custom type network..."</td>
+<td>Refers to a technology that allows users to configure networks manually, often used to provide more control and flexibility over network settings and configurations. It involves understanding the benefits and limitations of using custom-type networks.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

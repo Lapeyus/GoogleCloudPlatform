@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_149</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_149_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_149</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>GCP Pricing Overview</h1>
+<h2>Cloud Compute</h2>
+<ol>
+<li><strong>Cloud Instance</strong>: Number of nodes in the instance is a billable item.</li>
+<li><strong>Storage</strong>: Total amount of storage used is a billable item.</li>
+<li><strong>Egress Traffic</strong>: Amount of network bandwidth used by egress traffic is a billable item.</li>
+</ol>
+<h3>Considerations for Forecasting Costs</h3>
+<ul>
+<li>Compute cost becomes less important due to comparable performance between SSD and HDD storage types.</li>
+<li>Choosing the right storage type depends on access patterns (e.g., scans vs. reads).</li>
+</ul>
+<h2>BigQuery</h2>
+<h3>Overview</h3>
+<p>BigQuery is Google's Cloud-based version of a data warehouse, targeting large-scale analytics workloads.</p>
+<h4>Key Features</h4>
+<ul>
+<li><strong>Columnar Data Format</strong>: Faster scanning of large amounts of data.</li>
+<li><strong>Serverless Computing</strong>: Seamless scalability without infrastructure management.</li>
+<li><strong>Petabyte-Scale</strong>: Supports large datasets and enterprise analytics workloads.</li>
+</ul>
+<h3>Use Cases</h3>
+<p>BigQuery is best suited for:</p>
+<ul>
+<li>Analytical (OLAP) type queries and scanning large amounts of data.</li>
+<li>Enterprise data warehouse applications.</li>
+</ul>
+<h4>Limitations</h4>
+<ul>
+<li>Not designed for transactional (OLTP) type queries or small read/writes.</li>
+<li>Lacks cross-row transaction support, but supports atomic single-row operations.</li>
+</ul>
+<h3>Pricing</h3>
+<p>BigQuery pricing consists of two major components:</p>
+<ol>
+<li><strong>Storage Cost</strong>: Based on storage usage.</li>
+<li><strong>Query Cost</strong>: Based on query execution time and data size.</li>
+</ol></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Unlike other cloud providers, GCP prices the compute and storage separately therefore you will need to consider the following three billable items when calculating the overall cost.
+
+1. The type of Cloud instance, and the number of nodes in the instance.
+2. The total amount of storage you use.
+3. The amount of network bandwidth used by egress traffic.
+
+The problem here is that although it is good that you are billed only for active instances and you pay only for the storage used, it is not easy to forecast if you have a large datasets. Moreover, the compute cost becomes less important as it is the same no matter if you choose an SSD or an HDD storage type.
+
+For example, the difference in performance between SSD and HDD are not comparable. Although the timing to perform writes is the same for both cases, the timing for reads is about 20 times faster with SSD. Of course, there is a case for going with HDD as scans for HDD lag behind SSD by just 20%. Hence, if you know your access pattern is mostly going to be scans, then HDD option might be a good option as HDD storage is only 15% of the cost of SSD.
+
+BigQuery
+BigQuery is Google's Cloud-based version of a data warehouse. Unlike Bigtable, it targets data as a big picture and can run a query against vast volumes of data in a short time. This is because in BigQuery the data is stored in columnar data format so it is much faster in scanning large amounts of data compared with Bigtable.
+
+In addition, BigQuery allows you to scale to petabyte and is targeted at the enterprise data warehouse for analytics market space. BigQuery is serverless, which means it is a fully managed service. Serverless computing also benefits from seamless scalability as computing resource can be spun up on-demand without involving administrators managing any infrastructure.
+
+As a result of this transparent scalability, BigQuery can scan Terabytes of data in seconds and Petabytes of data in minutes. On the other hand with regards data ingestion, BigQuery integrates to load or stream data from/to Google Cloud Storage, or Google Cloud Datastore.
+
+However, we must remember that BigQuery is designed as a data warehouse so it is best for analytical (OLAP) type of query and scanning large amount of data and is not designed for transaction type queries (OLTP). For example, for small read/writes, it takes about 2 seconds while Bigtable takes about 9 milliseconds for the same amount of data. Bigtable is much better off for OLTP type of queries.
+
+Although BigQuery supports atomic single-row operations, it lacks cross-row transaction support.
+
+For pricing, there are two major components in the cost of using BigQuery: Storage Cost and Query Cost.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Understanding GCP Pricing and BigQuery</strong></p>
+<p>GCP prices compute and storage separately, making it essential to consider three billable items when calculating overall costs:</p>
+<ul>
+<li><strong>Cloud instance type and number of nodes</strong>: The type of Cloud instance and the number of nodes in the instance impact costs.</li>
+<li><strong>Total storage usage</strong>: Storage costs are billed based on actual usage.</li>
+<li><strong>Network bandwidth used by egress traffic</strong>: Egress traffic is charged separately from compute instances.</li>
+</ul>
+<p><strong>Challenges with Forecasting Costs</strong></p>
+<p>Forecasting costs for large datasets can be challenging due to the lack of comparable performance between SSD and HDD storage types. While SSDs offer faster reads, HDDs are more suitable for scans, which may impact overall cost decisions.</p>
+<p><strong>BigQuery Overview</strong></p>
+<p>BigQuery is a cloud-based data warehouse that targets data as a big picture. It offers:</p>
+<ul>
+<li><strong>Columnar data format</strong>: Faster scanning of large amounts of data compared to Bigtable.</li>
+<li><strong>Serverless computing</strong>: Fully managed service with seamless scalability, allowing for on-demand resource allocation without administrative involvement.</li>
+<li><strong>Petabyte-scale storage</strong>: Supports large datasets and is targeted at the enterprise analytics market space.</li>
+</ul>
+<p><strong>Key Considerations</strong></p>
+<p>BigQuery is designed for analytical (OLAP) type queries and scanning large amounts of data. It is not suitable for transactional (OLTP) type queries, which require faster read/write operations. BigQuery supports atomic single-row operations but lacks cross-row transaction support.</p>
+<p><strong>Pricing Components</strong></p>
+<p>The cost of using BigQuery consists of two major components:</p>
+<ul>
+<li><strong>Storage Cost</strong>: Billed based on actual storage usage.</li>
+<li><strong>Query Cost</strong>: Charged for query execution and data retrieval.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Compute and Storage Costs</strong>
+The importance of considering compute and storage costs when calculating overall GCP costs is highlighted. The three billable items to consider are instance type, number of nodes, storage used, network bandwidth, and the impact of choosing SSD or HDD storage on performance.</p>
+<h3>Topic 2</h3>
+<p><strong>BigQuery Overview</strong>
+BigQuery is described as a cloud-based data warehouse that targets large-scale analytics workloads. Its columnar data format enables fast scanning of vast amounts of data, and it allows for seamless scalability without requiring administrator intervention.</p>
+<h3>Topic 3</h3>
+<p><strong>BigQuery Limitations and Pricing</strong>
+BigQuery's limitations include its design for analytical (OLAP) queries rather than transactional (OLTP) queries. It also lacks cross-row transaction support. The cost of using BigQuery consists of two major components: Storage Cost and Query Cost, with pricing varying based on these factors.</p>
+<h3>Topic 4</h3>
+<p><strong>Comparison to Bigtable</strong>
+Bigtable is compared to BigQuery in terms of performance for small read/writes, where Bigtable outperforms BigQuery. However, BigQuery excels in scanning large amounts of data due to its columnar data format and seamless scalability.</p>
+<h3>Topic 5</h3>
+<p><strong>Storage Type Impact on Performance</strong>
+The choice between SSD and HDD storage has a significant impact on performance, with SSDs offering faster reads but slower writes compared to HDDs. The optimal storage type depends on the access pattern, with HDDs being suitable for scans and SSDs being better suited for general-purpose use.</p>
+<h3>Topic 6</h3>
+<p><strong>Seamless Scalability</strong>
+Serverless computing benefits from seamless scalability, allowing resources to be spun up on-demand without requiring administrator intervention. This transparent scalability enables BigQuery to efficiently handle large-scale analytics workloads.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is unique about how GCP prices its compute and storage services?
+Answer: GCP prices its compute and storage services separately.</p>
+</li>
+<li>
+<p>What three billable items should be considered when calculating the overall cost of using GCP services?
+Answer: The type of Cloud instance, the number of nodes in the instance, the total amount of storage used, and the amount of network bandwidth used by egress traffic.</p>
+</li>
+<li>
+<p>Why is it challenging to forecast costs for large datasets on GCP?
+Answer: Because compute cost becomes less important as it is the same regardless of whether SSD or HDD storage type is chosen.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the performance difference between SSD and HDD storage types affect query performance in BigQuery?
+Answer: The timing for reads is about 20 times faster with SSD, while scans for HDD lag behind SSD by just 20%.</p>
+</li>
+<li>
+<p>What are the advantages of using serverless computing in BigQuery?
+Answer: Seamless scalability, as computing resources can be spun up on-demand without involving administrators managing any infrastructure.</p>
+</li>
+<li>
+<p>How does BigQuery's columnar data format impact query performance compared to Bigtable?
+Answer: It is much faster in scanning large amounts of data compared to Bigtable.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you need to analyze a large dataset for analytics purposes. Which GCP service would be more suitable, and why?
+Answer: BigQuery would be more suitable due to its ability to scale to petabyte levels and provide fast query performance.</p>
+</li>
+<li>
+<p>If you need to perform small read/writes, which GCP service is better suited for, and why?
+Answer: Bigtable is better suited for OLTP type queries due to its faster performance for small read/writes.</p>
+</li>
+<li>
+<p>How would you optimize the cost of using BigQuery for your analytics workloads?
+Answer: By choosing HDD storage if your access pattern is mostly scans, as it is only 15% of the cost of SSD.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>compute and storage</td>
+<td>Service/Feature</td>
+<td>"Unlike other cloud providers, GCP prices the compute and storage separately therefore you will need to consider the following three billable items when calculating the overall cost."</td>
+<td>The text highlights that Google Cloud Platform (GCP) charges for compute and storage services separately, which requires consideration of multiple factors when calculating costs.</td>
+</tr>
+<tr>
+<td>type of Cloud instance</td>
+<td>Service/Feature</td>
+<td>"1. The type of Cloud instance, and the number of nodes in the instance."</td>
+<td>Refers to a specific type of cloud computing service offered by GCP, including the number of nodes or virtual machines that make up an instance.</td>
+</tr>
+<tr>
+<td>total amount of storage used</td>
+<td>Service/Feature</td>
+<td>"2. The total amount of storage you use."</td>
+<td>Describes the quantity of storage space consumed by a user's data in GCP.</td>
+</tr>
+<tr>
+<td>network bandwidth used by egress traffic</td>
+<td>Service/Feature</td>
+<td>"3. The amount of network bandwidth used by egress traffic."</td>
+<td>Refers to the volume of data transmitted out of a cloud instance, which is charged separately from compute and storage costs.</td>
+</tr>
+<tr>
+<td>large datasets</td>
+<td>Concept</td>
+<td>"The problem here is that although it is good that you are billed only for active instances and you pay only for the storage used it is not easy to forecast if you have a large datasets."</td>
+<td>Describes a situation where predicting costs becomes challenging due to the uncertainty of data volume, making it difficult to estimate costs.</td>
+</tr>
+<tr>
+<td>SSD (Solid-State Drive)</td>
+<td>Technology</td>
+<td>"For example, although the timing to perform writes is the same for both cases, the timing for reads is about 20 times faster with SSD."</td>
+<td>A type of storage drive that offers faster read and write speeds compared to traditional hard disk drives (HDD).</td>
+</tr>
+<tr>
+<td>HDD (Hard Disk Drive)</td>
+<td>Technology</td>
+<td>"Of course there is a case for going with HDD as scans for HDD lags behind SSD by just 20%."</td>
+<td>A type of storage drive that uses physical disks to store data, often slower than SSDs but more cost-effective.</td>
+</tr>
+<tr>
+<td>Bigtable</td>
+<td>Service/Feature</td>
+<td>"Unlike BigQuery, it targets data as a big picture and can run a query against vast volumes of data in a short time."</td>
+<td>Describes a NoSQL database service offered by GCP that stores large amounts of structured data in a distributed manner.</td>
+</tr>
+<tr>
+<td>columnar data format</td>
+<td>Data Storage Format</td>
+<td>"This is because in BigQuery the data is stored in columnar data format so it is much faster in scanning large amounts of data compared with Bigtable."</td>
+<td>A data storage format where data is organized by columns rather than rows, allowing for faster querying and analysis.</td>
+</tr>
+<tr>
+<td>petabyte</td>
+<td>Unit of Measurement</td>
+<td>"BigQuery allows you to scale to petabyte"</td>
+<td>A unit of measurement representing one million gigabytes or 1,000 terabytes.</td>
+</tr>
+<tr>
+<td>enterprise data warehouse</td>
+<td>Concept</td>
+<td>"BigQuery is targeted at the enterprise data warehouse for analytics market space."</td>
+<td>Describes a type of data storage solution designed for large-scale data analysis and reporting in an enterprise setting.</td>
+</tr>
+<tr>
+<td>serverless computing</td>
+<td>Service/Feature</td>
+<td>"Serverless computing also benefits from seamless scalability as computing resource can be spun up on-demand without involving administrators managing any infrastructure."</td>
+<td>A cloud computing model where resources are allocated automatically based on demand, eliminating the need for manual provisioning and management.</td>
+</tr>
+<tr>
+<td>data warehouse</td>
+<td>Concept</td>
+<td>"BigQuery is designed as a data warehouse so is best for analytical (OLAP) type of query and scanning large amount of data"</td>
+<td>Describes a centralized repository that stores data in a structured format, optimized for querying and analysis.</td>
+</tr>
+<tr>
+<td>OLAP (Online Analytical Processing)</td>
+<td>Query Type</td>
+<td>"BigQuery is best for analytical (OLAP) type of query and scanning large amounts of data"</td>
+<td>A type of query used to analyze data in a database or data warehouse, often used for reporting and business intelligence purposes.</td>
+</tr>
+<tr>
+<td>transactional queries</td>
+<td>Query Type</td>
+<td>"Bigtable is much better off for OLTP type of queries."</td>
+<td>A type of query used to perform transactions or updates on data, often used in real-time applications such as e-commerce or social media platforms.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

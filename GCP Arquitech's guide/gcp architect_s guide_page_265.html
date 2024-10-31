@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_265</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_265_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_265</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><ol>
+<li>
+<p>Detach the VM.</p>
+</li>
+<li>
+<p>Test the application to verify that it functions accurately post-migration.</p>
+</li>
+</ol>
+<h1>Migrate for Compute Engine</h1>
+<h2>Features</h2>
+<ul>
+<li>As an agentless service, there is no impact to the workload.</li>
+<li>No need to have source instances running to migrate them to GCP.</li>
+<li>Access to the application remains unchanged or reconfigured.</li>
+<li>Extensive pre-migration checklists and testing ensure validated instances before moving to GCP.</li>
+</ul>
+<h2>Benefits</h2>
+<ul>
+<li>Rapid migration of single applications saving hours of time and labor.</li>
+<li>Scaling to 100s of apps using several migration waves, with stateful workloads running in cloud within minutes rather than days.</li>
+<li>Apps are live up to 100x faster, and migrations complete up to 10x quicker compared to traditional strategies.</li>
+</ul>
+<h2>How MCE Works</h2>
+<ol>
+<li>Validate and perform in-cloud testing on clones to ensure live applications are unaffected.</li>
+<li>Build pre-planned migration waves containing an application and its dependencies.</li>
+<li>Deploy workloads to GCP.</li>
+<li>Background data synchronisation and transfer to GCP, resulting in near zero downtime.</li>
+<li>Detach and verify, with the option to roll back with no loss of data or project time.</li>
+</ol>
+<h2>Right-Sizing Analytical Tool</h2>
+<p>MCE provides a tool to assist in provisioning and deploying optimal cloud instances for cost and performance.</p>
+<h1>Manually Migrating Databases</h1>
+<ol>
+<li>Detach the VM.</li>
+<li>Test the application to verify that it functions accurately post-migration.</li>
+</ol></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>1. Detach the VM.
+
+2. Test the application to verify that it functions accurately post-migration.
+
+Migrate for Compute Engine (formerly Velostrata) is a cloud migration service provided by Google to assist in a seamless transition of applications and VMs from on-premises to Google Cloud Platform (GCP). Some key features of MCE include:
+
+- As an agentless service, there is no impact to the workload.
+- No need to have source instances running to migrate them to GCP.
+- Access to the application remains unchanged or reconfigured.
+- Extensive pre-migration checklists and testing ensure validated instances before moving to GCP.
+
+Many enterprises find MCE valuable due to its speed and scale. It can rapidly migrate single applications, saving potentially hours of time and labor, while scaling to 100s of apps using several migration waves that have stateful workloads running in the cloud within minutes rather than days.
+
+How MCE Works
+
+The typical workflow for deploying MCE is as follows:
+
+1. Validate and perform in-cloud testing on clones so that live applications are unaffected.
+2. Build your migration waves - pre-planned migration jobs containing an application and all its dependencies, migrated all at once.
+3. Deploy the workloads to GCP.
+4. Background data synchronisation and transfer to GCP, resulting in near zero downtime.
+5. Detach and verify, with the option to roll back if something goes wrong.
+
+MCE provides automatic and seamless transitions between on-premises and GCP for VMs and physical servers. It also includes a right-sizing analytical tool to provision and deploy optimal cloud instances for cost and performance.
+
+Manually Migrating Databases
+
+Moving databases to the cloud without incurring downtime is a complex task, with several problems to overcome. Physically transporting schema and data into the cloud is one challenge, while keeping databases synchronised during this process is another. The following sections provide suggestions on how to accomplish these tasks.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Migrate for Compute Engine (MCE) Overview</h3>
+<p>Cloud migration can be complex, especially when moving hundreds of applications and their VMs to Google Cloud Platform (GCP). To assist with this process, Google provides a migration service called <strong>Migrate for Compute Engine (formerly Velostrata)</strong>.</p>
+<h4>Key Features of MCE</h4>
+<ul>
+<li>Agentless service: No impact to the workload, no need to run source instances.</li>
+<li>Seamless access to applications: No changes or reconfigurations required for apps, VMs, or networks.</li>
+<li>Extensive pre-migration checklists and testing to validate instances before migration.</li>
+</ul>
+<h4>Benefits of MCE</h4>
+<ul>
+<li>Speed and scale: Rapidly migrate single applications in hours, scaling to 100s of apps with multiple migration waves.</li>
+<li>Faster app deployment: Apps are live up to 100x faster, with migrations completing up to 10x quicker than traditional strategies.</li>
+</ul>
+<h3>How MCE Works</h3>
+<p>The migration strategy involves the following typical workflow:</p>
+<ol>
+<li><strong>Validate and perform in-cloud testing on clones</strong>: Ensure live applications are unaffected during testing.</li>
+<li><strong>Build your migration waves</strong>: Pre-planned migration jobs containing an application and its dependencies, migrated all at once.</li>
+<li><strong>Deploy workloads to GCP</strong>: Workloads are deployed to Google Cloud Platform.</li>
+<li><strong>Background data synchronisation and transfer</strong>: Data is synchronized and transferred to GCP in the background, resulting in near-zero downtime.</li>
+<li><strong>Detach and verify</strong>: Verify migration success; roll back with no loss of data or project time if issues arise.</li>
+</ol>
+<h3>Additional Features</h3>
+<ul>
+<li>Automatic and seamless transitions between on-premises and GCP for VMs and physical servers.</li>
+<li>Right-sizing analytical tool to provision and deploy optimal cloud instances for cost and performance.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Cloud Migration</strong>
+The text discusses the importance of cloud migration, particularly for large-scale applications and VMs moving to Google Cloud Platform (GCP). It highlights Google's Migrate for Compute Engine service as a solution to facilitate seamless transitions.</p>
+<h3>Topic 2</h3>
+<p><strong>Migrate for Compute Engine Features</strong>
+The text explains the features of Migrate for Compute Engine, including its agentless service, which does not impact the workload or require source instances to be running. It also mentions extensive pre-migration checklists and testing to ensure instances are validated before migration.</p>
+<h3>Topic 3</h3>
+<p><strong>Speed and Scale</strong>
+Migrate for Compute Engine is valued for its speed and scale, allowing rapid migration of single applications and scaling to hundreds of apps using multiple migration waves. This enables stateful workloads to run in the cloud within minutes rather than days.</p>
+<h3>Topic 4</h3>
+<p><strong>Migration Workflow</strong>
+The text describes a typical workflow for deploying Migrate for Compute Engine, including validating and testing on clones, building migration waves, deploying workloads to GCP, synchronizing data, and detaching and verifying instances.</p>
+<h3>Topic 5</h3>
+<p><strong>Manual Database Migration</strong>
+The text addresses the challenges of manually migrating databases to the cloud without incurring downtime. It provides suggestions for overcoming these challenges, including physically transporting schema and data into the cloud and keeping databases synchronized during migration.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Migrate for Compute Engine (MCE) and what problem does it solve?
+Answer: MCE is a migration service provided by Google that assists in a seamless transition of applications and VMs from on-premises to the GCP, solving the complex task of cloud migration.</p>
+</li>
+<li>
+<p>What are some key features of MCE that make it valuable for enterprises?
+Answer: MCE provides an agentless service with no impact to the workload, extensive pre-migration checklists and testing, and a right-sizing analytical tool for optimal cloud instances.</p>
+</li>
+<li>
+<p>How does MCE work in terms of migration strategy?
+Answer: MCE follows a typical workflow involving validation and in-cloud testing on clones, building migration waves, deploying workloads to GCP, background data synchronisation, and detach and verification.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the advantages of using MCE over traditional migration strategies?
+Answer: MCE allows for rapid migration of single applications, saving hours of time and labor, and scaling to 100s of apps with near-zero downtime and up to 10x quicker completion times.</p>
+</li>
+<li>
+<p>How does MCE handle database migration without incurring downtime?
+Answer: MCE provides suggestions on how to physically transport schema and data into the cloud and keep databases synchronised during the process.</p>
+</li>
+<li>
+<p>What is the role of right-sizing analytical tool in MCE?
+Answer: The right-sizing analytical tool helps provision and deploy optimal cloud instances for cost and performance, ensuring efficient use of resources.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are migrating a large enterprise with 100s of applications to GCP using MCE. How would you approach this task?
+Answer: You would follow the typical workflow provided by MCE, including validation and in-cloud testing on clones, building migration waves, deploying workloads to GCP, background data synchronisation, and detach and verification.</p>
+</li>
+<li>
+<p>What are some potential challenges when manually migrating databases to the cloud without incurring downtime?
+Answer: Potential challenges include physically transporting schema and data into the cloud and keeping databases synchronised during the process.</p>
+</li>
+<li>
+<p>How would you use MCE to migrate a single application with stateful workloads to GCP?
+Answer: You would follow the typical workflow provided by MCE, including validation and in-cloud testing on clones, building migration waves, deploying workloads to GCP, background data synchronisation, and detach and verification.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Detach the VM</td>
+<td>Command</td>
+<td>In the context of manually migrating databases, "Detach the VM" is a step that needs to be performed before migration. This command implies that the virtual machine associated with the database needs to be disconnected from its current environment. The entity type is a command, indicating that it is an action or instruction.</td>
+<td></td>
+</tr>
+<tr>
+<td>Test the application to verify that it functions accurately post-migration</td>
+<td>Command</td>
+<td>Similar to "Detach the VM", this command is also part of manually migrating databases. It implies that after detaching the VM, the next step is to test the application to ensure it works correctly in its new environment. The entity type is a command, indicating that it is an action or instruction.</td>
+<td></td>
+</tr>
+<tr>
+<td>Migrate for Compute Engine</td>
+<td>Service</td>
+<td>Google provides a migration service called "Migrate for Compute Engine" to assist with cloud migration. This service is mentioned as a solution for complex cloud migrations. The entity type is a service, indicating that it is a product or tool provided by a company.</td>
+<td></td>
+</tr>
+<tr>
+<td>Velostrata</td>
+<td>Formerly used name of MCE</td>
+<td>Entity type: Formerly used name of a service. Context: It was previously known as "Velostrata" before being rebranded as "Migrate for Compute Engine". The entity type is a former name, indicating that it is an outdated or previous version of the service.</td>
+<td></td>
+</tr>
+<tr>
+<td>Agentless service</td>
+<td>Feature</td>
+<td>MCE provides an agentless service, which means there is no impact to the workload and no need to have source instances running during migration. This feature implies that the service is designed to be seamless and efficient. The entity type is a feature, indicating that it is a characteristic or benefit of the service.</td>
+<td></td>
+</tr>
+<tr>
+<td>Pre-migration checklists</td>
+<td>Feature</td>
+<td>MCE provides extensive pre-migration checklists to ensure instances are validated before moving them to GCP. This feature implies that the service includes tools and resources to help with preparation and validation. The entity type is a feature, indicating that it is a characteristic or benefit of the service.</td>
+<td></td>
+</tr>
+<tr>
+<td>Migration waves</td>
+<td>Concept</td>
+<td>MCE can rapidly migrate single applications using migration waves, which contain an application and its dependencies. This concept implies that the service uses a structured approach to migration. The entity type is a concept, indicating that it is an abstract idea or principle.</td>
+<td></td>
+</tr>
+<tr>
+<td>Right-sizing analytical tool</td>
+<td>Feature</td>
+<td>MCE provides a right-sizing analytical tool to help provision and deploy optimal cloud instances for cost and performance. This feature implies that the service includes tools to optimize resource allocation. The entity type is a feature, indicating that it is a characteristic or benefit of the service.</td>
+<td></td>
+</tr>
+<tr>
+<td>Cloud migration</td>
+<td>Process</td>
+<td>The text discusses cloud migration as a complex process, especially when moving multiple applications and VMs to GCP. This concept implies that the process involves several steps and considerations. The entity type is a process, indicating that it is an abstract idea or sequence of actions.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

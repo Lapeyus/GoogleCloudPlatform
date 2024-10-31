@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_164</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # High-Performance Applications
+        ## Benefits of Direct Connection
+        
+        - In another use case, we can see the benefits of a direct connection in the hosting of high-performance, latency-sensitive applications. For example, you might have VPC webservers that benefit from GCP load balancers, but they may still be pulling data from on-premise database servers.
+        
+        ## Peering with Google
+        
+        - This could be because the data is highly sensitive and you are not permitted to store it in the cloud. However, by peering with Google across a direct connection will ensure that you have the lowest latency possible between the two locations.
+        
+        ## Cloud Interconnect
+        
+        - Finally, Cloud Interconnect allows you to take full advantage of your own, your partners, or Google's Content Delivery Network (CDN).
+        
+        ### Direct Peering
+        - Direct peering is a private connection between your network and Google's network, where you will exchange BGP autonomous system numbers. An autonomous system number is your registered identity on the internet that represents your block of public IP addresses.
+        
+        #### How it Works
+        
+        - Your co-located router and Google's edge router will form a BGP session as peers. With this established connection, you can exchange routing updates and pass internet traffic between your network and Google.
+        
+        ### Direct Connection through a Partner
+        - In some locations it might not be technically feasible to meet at a Google edge point-of-presence. In that case you can go through one of Google's partner's locations.
+        
+        #### Benefits
+        
+        - Carrier peering allows you to obtain the same benefits of enterprise-grade network services that connect your infrastructure to Google. You can also make connections with higher availability and lower latency using one or more links.
+        
+        ### Shared & Network VPC
+        - In large organizations, you may need to put different departments or different applications into different projects for purposes of separating budgeting, access control, or for privacy.
+        
+        #### Benefits
+        
+        - However, with GCP you can share a VPC networks across projects in your cloud organization using shared VPC. With shared VPC, cloud organization administrators can give multiple projects permission to use a single shared VPC network and corresponding networking resources.
+        
+        ## Conclusion
+        - In conclusion, direct connection is an essential feature for high-performance applications. By peering with Google across a direct connection, you can ensure the lowest latency possible between the two locations. Additionally, Cloud Interconnect allows you to take full advantage of your own, your partners, or Google's Content Delivery Network (CDN).
+
+      </script>
+    </div>
+  </body>
+</html>

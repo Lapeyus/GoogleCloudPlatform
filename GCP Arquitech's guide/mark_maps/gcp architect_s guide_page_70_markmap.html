@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_70</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Functions
+        ## Why Cloud Functions?
+        ### Benefits of Cloud Functions
+        - Relieve yourself from the chore of managing infrastructure, capacity planning and to build or extend your application.
+        
+        ### How Cloud Functions Work
+        - When you deploy applications through Cloud Functions, you only need to supply chunks of code for business logic, you set the event triggers and attach the code and it will get spun up on demand in response to specific events to create functions.
+        
+        ## Microservices and Service Mesh
+        ### Challenges with Microservices Architecture
+        - Increased complexity as the process of decoupling a single-tier monolithic application into many smaller service modules introduces many design hurdles.
+        - Difficulty in monitoring, updating or securing microservices when you don't have visibility into what services are running.
+        
+        ### Solution: Service Mesh
+        - A service mesh is a software solution that helps you discover and make sense of all those thousands of interconnections between services. It also helps with orchestration, security, and collecting telemetry data across distributed microservices and containers.
+        
+        ## Comparison to Other Options
+        - Compute Engine: ideal for full control over deployment and management in virtual machines.
+        - Kubernetes Engine: defines a measure of control through clusters.
+        - App Engine: ideal for focusing on code and leaving infrastructure provisioning and management to Google.
+        - App Engine Flexible Environment: allows retaining some control of custom runtime environment.
+        
+        ### Table: Comparison of Options
+        - | Option | Control | Infrastructure Provisioning |
+        - | --- | --- | --- |
+        - | Compute Engine | Full | Yes |
+        - | Kubernetes Engine | Measure of control | No |
+        - | App Engine | Minimal | Yes |
+        - | App Engine Flexible Environment | Customizable | Yes |
+        
+        ## Conclusion
+        - Cloud Functions provides a way to deploy applications with minimal infrastructure management, while still allowing for some control over custom runtime environments. A service mesh can help address the challenges of microservices architecture by providing visibility, orchestration, security, and telemetry data collection.
+
+      </script>
+    </div>
+  </body>
+</html>

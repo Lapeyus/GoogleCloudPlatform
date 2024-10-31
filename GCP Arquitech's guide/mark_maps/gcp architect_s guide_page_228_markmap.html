@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_228</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Design Overview
+        ## Region: US-east-1
+        ### HTTP(S)
+        #### Zone:: US-east-1a
+        #### SSH
+        #### Default network
+        #### PHP
+        #### Apache
+        #### VM 1= 2 x CPU
+        #### 7.5GB 
+        #### RAM
+        #### MtSQL
+        #### DB1
+        #### Linux
+        
+        ## Revised Design
+        - HTTP(S)
+        - PHP
+        - Region: US-east-1
+        - Zone:: US-east-1a
+        - Default network
+        - Apache webserver
+        - VM 1=2x CPU
+        - 7.5GB RAM
+        - DB2
+        - VM2 2x CPU
+        - 7.5GB RAM
+        - MtSQL
+        - HDD Storage for Log Files
+        - Linux
+        - Logserver
+        - VM 3-2 x CPU
+        - 7.5GB RAM
+        
+        ## Design Challenges
+        ### Splitting Logging Process
+        #### Frontend and Backend
+        #### Difficulty in Processing Logs
+        #### Solution: Common Session ID Field
+        
+        ## Log Aggregation Service
+        ### Purpose: Match Session IDs and Stitch Together into a Single Log File
+        #### Ingest Log Files from Both Sources
+        #### Combine Log Files into a Single Log File
+        #### Transform File to Sort Data by Unique Session ID
+        #### Output: Aggregated Log Files
+        #### Cron Job: Run Every 24 Hours
+
+      </script>
+    </div>
+  </body>
+</html>

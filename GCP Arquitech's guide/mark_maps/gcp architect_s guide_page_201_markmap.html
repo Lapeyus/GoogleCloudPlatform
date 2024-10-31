@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_201</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        - Cluster Federations
+        =====================
+        
+        ### Overview
+        
+        - Cluster federation is useful when you want to deploy resources across more than one cluster, region, or cloud provider.
+        
+        #### Benefits
+        
+        * Enable high availability
+        * Offer greater geographic coverage for your app
+        * Use more than one cloud provider
+        * Combined cloud providers and on-premise solutions
+        * Ultra-high scalability
+        
+        ### Example Use Case
+        
+        - Consider running environments in Asia, Europe, and the Pacific. Cluster federation will allow you to manage and deploy this in a multi-cloud solution.
+        
+        #### Integration with Network Load Balancing and Google's Cluster Autoscaler
+        
+        - Federations also integrate with network load balancing and of course, Google's cluster autoscaler.
+        
+        ### Container Registry
+        
+        #### Overview
+        
+        - Container Registry provides secure, private, docker image storage on GCP.
+        
+        #### Benefits
+        
+        * Secure and private image storage
+        * Images can be accessed through HTTPS
+        * Reliable for consistent uptime and point
+        
+        #### Example Use Case
+        
+        - Pull images from any machine, whether that machine is a Google Compute Engine instance or your own hardware.
+        
+        ### GKE Scalability
+        
+        #### Overview
+        
+        - One of Kubernetes Engine's most notable features is its ability to scale from small and medium sized clusters to a truly vast size.
+        
+        #### Benefits
+        
+        * Extremely flexible
+        * Support single cluster web application just as proficiently as HPA (High Performance Computing) and HTA (High Throughput Computing)
+        
+        #### Command for Scaling an Application
+        
+        ```bash
+        - kubectl scale [CONTROLLER] my-app --replicas 4
+        ```
+        
+        - Where you would substitute `(Controller)` with the controller type such as deployment or statefullset.
+        
+        #### Output
+        
+        - Desired Current Up-to- Available
+        - Name     date    Age
+        - Test     4       4       4       5min
+        - 418
+
+      </script>
+    </div>
+  </body>
+</html>

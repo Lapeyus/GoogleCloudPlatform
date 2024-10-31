@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_130</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Service Accounts Best Practices
+        
+        ## Introduction
+        
+        - When it comes to using service accounts, diligence is required when granting the service account user role, as it provides access to all the resources for which the service account has access.
+        
+        ### Designing Service Accounts
+        
+        - Design the service accounts to be specific to a single task and give it an intuitive name that advertises its purpose. This shouldn't be done on a whim so there should be a coherent and common naming convention throughout Service Accounts.
+        
+        #### Key Management
+        
+        - Service Accounts authenticate through private keys and unless there is a real need to do otherwise, let GCP manage the keys for you. If working in a high-security environment that dictates that you must manage the keys yourself, then you will have to secure the keys and store them in a safe place. You will also need to establish a key rotation policy as well as the methods.
+        
+        #### Key Rotation
+        
+        - Key rotation may sound like a simple concept, however, implementing a common process in a way that is user convenient while simultaneously guaranteeing the security of the keys is not a trivial task. Also, you will have to regularly audit the keys using the `serviceAccount.keys.list` method.
+        
+        ### Using Cloud Identity-Aware Proxy (Cloud IAP)
+        
+        - For applications accessed by HTTPS, it is recommended to use Cloud Identity-Aware Proxy (Cloud IAP) to establish a central authorization layer. IAP gives you access control at an application level rather than relying on network-level firewalls.
+        
+        #### How IAP Works
+        
+        - Cloud IAP controls access to cloud applications and VMs running on Google Cloud Platform (GCP) by verifying the user identity and context of the request to determine if a user should be allowed to access an application or a VM. Cloud IAP is an enterprise security model that enables employees to work from untrusted networks without the use of a VPN.
+        
+        #### Benefits of Using IAP
+        
+        - Cloud IAP provides a single point of control for managing user access to web applications, saving administrators time and providing effort. It also protects applications and resources by enforcing IAM access policies, which can only be accessed through the proxy by users and groups with the correct credentials.
+        
+        ### Use Case - 14
+        
+        - You have an application running on Compute Engine VMs that are running a microservice called component-one and these are granted Editor access to project-A. However, you also have VMs running a microservice component-two that are to be granted 'object viewer' access to bucket-one in project A.
+        
+        #### Solution
+        
+        - To isolate the permission and prevent unauthorized access using IAM, you can use Cloud IAP to grant fine-grained access control without the need of a VPN. This means that users will be subject to authentication and authorization checks when they connect to the proxy to access a secured resource.
+        
+        ### Conclusion
+        
+        - By following these best practices for service accounts, you can ensure that your applications are secure and compliant with IAM policies. Remember to design your service accounts specifically, manage keys securely, and use Cloud IAP to establish a central authorization layer.
+
+      </script>
+    </div>
+  </body>
+</html>

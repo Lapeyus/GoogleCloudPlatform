@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_250</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Security and Identity Management
+        
+        ## Overview of Google Cloud Services
+        
+        ### Identity-Aware Proxy for Identity Management
+        
+        - • **Identity-Aware Proxy**: for identity management
+        - • **VPC-for global reach using Google's Private Network**
+        
+        - The way it works is:
+        
+        *   Cloud Armor at the edge of the network intercepts all incoming connection requests from remote users.
+        *   Whitelist/blacklist determines IP addresses which are accepted to internal Google hosted applications and onto the network.
+        *   The second step is that the connection is established with the global HTTPS load balancer that will forward your request to the application.
+        *   At this step, the load balancer checks the user's identity using the Identity-Aware Proxy and considers the users' profile such as groups, roles, and permissions that they are entitled too.
+        *   But it also checks whether the user's job function is compatible with the application or resource that they are requesting access to.
+        
+        ### Cloud Security Scanner
+        
+        #### Features
+        
+        *   Detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications
+        *   Automatically scans and detects the most common system vulnerabilities, such as cross-site scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and insecure libraries.
+        *   Enables you to set up, run, schedule, and manage security scans quickly to identify and remediate well-known vulnerabilities with low false-positive rates.
+        
+        #### Use Case
+        
+        - You need to conduct a security audit of the video transcription service to identify any potential vulnerabilities as well as define the protections already in place. You also need to lock down access by applying IAM and Resource Management techniques such as folders and projects to limit access to the infrastructure.
+        
+        ### Solution
+        
+        - There are many risk mitigation controls provided by GCP by default, so you should identify them before considering any additional security design changes.
+
+      </script>
+    </div>
+  </body>
+</html>

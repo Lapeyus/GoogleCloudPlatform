@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_276</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Pricing Strategies
+        ## Understanding the Costs
+        - Is the cost of additional reliability worthy of the additional network charges?
+        - Pricing following diligent capacity planning can perhaps help you decide.
+        
+        ## Google Cloud Platform Mechanisms
+        - Why cloud pricing is important?
+        - Google cloud platform has a number of built mechanisms to help you in keeping on top of costs, one of the most notable  is virtual machine dimensioning.
+        - We have already mentioned  the standard machine type discount, but GCP also have inferred  type discounts, sustained-use discounts, and there are inferred  instance discounts.
+        
+        ### Customizing VMs
+        - Typically users will pick a standard  template for a VM but you can use custom VM that you  optimize for high memory or for more CPUs.
+        - But some  special purpose VM may need things like GPUs or TPUS for machine learning  purposes.
+        - Hence VMs may be customized to match your workload but of course then they would not match  any standard machine type discount.
+        
+        ### Inferred Type Discounts
+        - Google though has provided a work  around for this anomaly via the inferred type discount.
+        - The way this work is that Google will calculate how often and for how many hours you've used a particular type of VM.
+        - Then they will try to  match it to a similar standard lower cost configurations and give you a discount at the end of the year.
+        
+        ### Committed Use Discounts
+        - There is also committed use discounts, which are a pre-pay model
+        - where you commit use as
+        - Flex, Dataproc, so on and so forth.
+        - period.
+        - Therefore you can use any configuration it doesn't matter so long  as you meet your obligations on core use you will get a  fixed discount  for  anywhere from one year to three years depending  on how  much you'll  commit to.
+        
+        ### Pre-emptible VMs
+        - Another interesting  way to  lower costs is  to use pre- emptible VMs.
+        - In  case you don't know a pre-emptible VM is one that  you allow  GCP to terminate if they  require the  resources during peak demand  and they are  shutdown with 30 second  notification.
+        - Furthermore , the  VM is guaranteed to be terminated  within  24 hours if  you're not preempted.
+        - That doesn't sound very attractive so  they give you an 80% discount to encourage you to use them.
+        
+        ### Pre-emptible VMs in High Availability
+        - The  thing is though  sometimes pre-emptive VMs  are very attractive because  they can fit in nicely  into  your design and save you money.
+        - you've already built in the ability for fault-tolerance and failover.
+        - In For example  if you are building a highly available environment this case you  might as well use the pre-emptive VMs as not only will you get the 80 % discount but you will also have an inbuilt continuous  fail-over test environment.
+        
+        ## Optimizing Disk Costs
+        - When it comes to pricing for storage it is really driven by whether you are chasing performance  or  capacity.
+        - This is  another trade-off, as high performance  SSD is certainly more expensive as it costs more per gig (capacity), but it's a much lower price for IOPS (performance).
+        - Trying to find a balance that matches your budget is typically driven more by the technical capacity/performance demands of the design and the system properties more than the pricing but you can make savings here when neither is critical.
+
+      </script>
+    </div>
+  </body>
+</html>

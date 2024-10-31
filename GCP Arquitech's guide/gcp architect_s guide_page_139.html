@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_139</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_139_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_139</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud SQL Overview</h1>
+<h2>Features and Benefits</h2>
+<p>Just as you can with an on-premises MySQL instance you can easily import and export databases using MySQL dump or import and export CSV files. However, another feature of Cloud SQL that is difficult to reproduce on-premises is its ability to scale up, albeit it does require a machine restart, or scale out by using read replicas.</p>
+<h2>Choosing Between Cloud SQL and Standard MySQL Instance</h2>
+<p>Essentially, choosing between a standard MySQL instance and Cloud SQL managed service comes down to a few basic questions. If you have specific OS requirements, custom database configuration requirements, or special backup requirements. If that is the case then you perhaps want to consider hosting your own database on a VM using Compute Engine. Otherwise, it is strongly recommended to use Cloud SQL as a fully managed service for your relational databases.</p>
+<h2>SQL IAM (Identity and Access Management)</h2>
+<p>You can control permissions and access to Cloud SQL resources via primitive roles (owner, editor, and viewer) or through the predefined roles. The difference between them is down to the level of granularity that is available when working with the predefined roles. You can of course also create your own custom IAM roles.</p>
+<h3>Primitive Roles</h3>
+<p>• <strong>roles/owner</strong>: Full access and control for all Google Cloud Platform resources; manage user access
+• <strong>roles/writer</strong>: (Editor) Read-write access to all Google Cloud Platform and Cloud SQL resources (full control except for the ability to modify permissions)
+• <strong>roles/reader</strong>: (Viewer) Read-only access to all Google Cloud Platform resources, including Cloud SQL resources</p>
+<h3>Predefined Roles</h3>
+<p>• <strong>roles/cloudsql.admin</strong>: Full control for all Cloud SQL resources.
+• <strong>roles/cloudsql.editor</strong>: Manage specific instances. No ability to neither see or modify permissions, nor modify users or SSL Certs. No ability to import data or restore from a backup, nor clone, delete, or promote instances. No ability to start or stop replicas. No ability to delete databases, replicas, or backups.
+• <strong>roles/cloudsql.viewer</strong>: Read-only access to all Cloud SQL resources.
+• <strong>roles/cloudsql.client</strong>: Connectivity access to Cloud SQL instances from App Engine and the Cloud SQL Proxy. Not required for accessing an instance using IP addresses.</p>
+<h2>Cloud SQL Connections</h2>
+<p>When it comes to configuring connections between applications and the database there are a couple of options you should be aware off. A very popular method of connection favoured in development environments uses a basic connection. This is where you simply grant any application access to a Cloud SQL instance by authorizing the applications host IP address.</p>
+<p>This is the fastest, easiest, but least secure method to make a connection, hence its popularity in non-production development environments but it is certainly not recommended for production instances.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Just as you can with an on-premises MySQL instance, you can easily import and export databases using MySQL dump or import and export CSV files. However, another feature of Cloud SQL that is difficult to reproduce on-premises is its ability to scale up, albeit it does require a machine restart, or scale out by using read replicas.
+
+Essentially, choosing between a standard MySQL instance and Cloud SQL managed service comes down to a few basic questions. If you have specific OS requirements, custom database configuration requirements, or special backup requirements, then you perhaps want to consider hosting your own database on a VM using Compute Engine. Otherwise, it is strongly recommended to use Cloud SQL as a fully managed service for your relational databases.
+
+SQL IAM
+
+You can control permissions and access to Cloud SQL resources via primitive roles (owner, editor, and viewer) or through the predefined roles. The difference between them is down to the level of granularity that is available when working with the predefined roles. You can also create your own custom IAM roles.
+
+Primitive Roles:
+roles/owner - Full access and control for all Google Cloud Platform resources; manage user access
+roles/writer - (Editor) Read-write access to all Google Cloud Platform and Cloud SQL resources (full control except for the ability to modify permissions)
+roles/reader - (Viewer) Read-only access to all Google Cloud Platform resources, including Cloud SQL resources
+
+Predefined Roles:
+roles/cloudsql.admin - Full control for all Cloud SQL resources
+roles/cloudsql.editor - Manage specific instances. No ability to see or modify permissions, nor modify users or SSL Certs. No ability to import data or restore from a backup, nor clone, delete, or promote instances. No ability to start or stop replicas. No ability to delete databases, replicas, or backups.
+roles/cloudsql.viewer - Read-only access to all Cloud SQL resources
+roles/cloudsql.client - Connectivity access to Cloud SQL instances from App Engine and the Cloud SQL Proxy. Not required for accessing an instance using IP addresses.
+
+Cloud SQL Connections
+
+When it comes to configuring connections between applications and the database, there are a couple of options you should be aware of. A very popular method of connection favored in development environments uses a basic connection. This is where you simply grant any application access to a Cloud SQL instance by authorizing the application's host IP address.
+
+This is the fastest, easiest, but least secure method to make a connection, hence its popularity in non-production development environments, but it is certainly not recommended for production instances.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Choosing Between MySQL Instance and Cloud SQL</h3>
+<p>When deciding between a standard MySQL instance and Cloud SQL managed service, consider the following questions:</p>
+<ul>
+<li>Do you have specific OS requirements, custom database configuration requirements, or special backup requirements? If so, hosting your own database on a VM using Compute Engine might be a better option.</li>
+<li>Otherwise, it is strongly recommended to use Cloud SQL as a fully managed service for your relational databases.</li>
+</ul>
+<h3>Controlling Permissions and Access</h3>
+<p>You can control permissions and access to Cloud SQL resources via:</p>
+<ul>
+<li><strong>Primitive Roles</strong>:<ul>
+<li><code>roles/owner</code>: Full access and control for all Google Cloud Platform resources; manage user access</li>
+<li><code>roles/writer</code>: Read-write access to all Google Cloud Platform and Cloud SQL resources (full control except for modifying permissions)</li>
+<li><code>roles/reader</code>: Read-only access to all Google Cloud Platform resources, including Cloud SQL resources</li>
+</ul>
+</li>
+<li><strong>Predefined Roles</strong>:<ul>
+<li><code>roles/cloudsql.admin</code>: Full control for all Cloud SQL resources</li>
+<li><code>roles/cloudsql.editor</code>: Manage specific instances with limited capabilities (no modifying permissions or users)</li>
+<li><code>roles/cloudsql.viewer</code>: Read-only access to all Cloud SQL resources</li>
+<li><code>roles/cloudsql.client</code>: Connectivity access to Cloud SQL instances from App Engine and the Cloud SQL Proxy</li>
+</ul>
+</li>
+</ul>
+<h3>Configuring Connections between Applications and Database</h3>
+<p>When configuring connections, consider the following options:</p>
+<ul>
+<li><strong>Basic Connection</strong>: Granting any application access to a Cloud SQL instance by authorizing the applications host IP address. This is the fastest and easiest method but least secure, making it popular in non-production development environments but not recommended for production instances.</li>
+<li>Other connection methods may be available depending on specific requirements.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Managed Service vs Custom Setup</strong>
+Defining Cloud SQL as a managed service or hosting own database on a VM using Compute Engine.</p>
+<h3>Topic 2</h3>
+<p><strong>Access Control and Permissions</strong>
+Understanding the different roles (primitive and predefined) to control access to Cloud SQL resources, including owner, editor, viewer, admin, and client roles.</p>
+<h3>Topic 3</h3>
+<p><strong>Connection Security and Best Practices</strong>
+Discussing the importance of secure connections between applications and databases, highlighting the limitations of basic connection methods in production environments.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are some key differences between using an on-premises MySQL instance and Cloud SQL when it comes to database management?
+Answer: Cloud SQL has the ability to scale up, albeit requiring a machine restart, or scale out by using read replicas.</p>
+</li>
+<li>
+<p>When should you consider hosting your own database on a VM using Compute Engine instead of using Cloud SQL?
+Answer: If you have specific OS requirements, custom database configuration requirements, or special backup requirements.</p>
+</li>
+<li>
+<p>What are the three primitive roles available for controlling permissions and access to Cloud SQL resources?
+Answer: Roles/owner, Roles/writer (Editor), and Roles/reader (Viewer).</p>
+</li>
+<li>
+<p>What is the main difference between predefined roles and primitive roles in terms of granularity?
+Answer: Predefined roles offer more granular control over specific instances or resources.</p>
+</li>
+<li>
+<p>Why is granting basic connection access to a Cloud SQL instance not recommended for production instances?
+Answer: It's the least secure method, making it popular in non-production development environments but not suitable for production use.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Cloud SQL's ability to scale up compare to on-premises MySQL instances? What are the implications of this difference?
+Answer: Cloud SQL can scale up more easily than on-premises MySQL instances, which requires a machine restart or using read replicas. This makes it easier to handle sudden spikes in traffic but also introduces potential downtime.</p>
+</li>
+<li>
+<p>What are some potential security risks associated with granting basic connection access to a Cloud SQL instance?
+Answer: Allowing any application to connect without proper authentication and authorization can lead to unauthorized access, data breaches, and other security threats.</p>
+</li>
+<li>
+<p>How do predefined roles address the need for granular control over specific instances or resources in Cloud SQL?
+Answer: Predefined roles provide more detailed permissions and access controls, allowing administrators to manage specific aspects of their Cloud SQL instance without granting unnecessary privileges.</p>
+</li>
+<li>
+<p>What are some potential benefits of using a VM with Compute Engine instead of Cloud SQL for database management?
+Answer: Using a VM provides more flexibility and control over the underlying infrastructure, allowing for custom OS configurations, backup requirements, and other specialized needs.</p>
+</li>
+<li>
+<p>How does Cloud SQL's managed service model impact its use in production environments?
+Answer: The fully managed service model of Cloud SQL reduces the administrative burden on users, but also means that they have less direct control over the underlying infrastructure and configuration options.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you're building a new web application that requires high availability and scalability. Which option would you choose for your database: Cloud SQL or hosting your own database on a VM using Compute Engine?
+Answer: Depending on specific requirements, either option could be suitable. However, if you prioritize ease of use and reduced administrative burden, Cloud SQL might be the better choice.</p>
+</li>
+<li>
+<p>How would you configure connections between your application and the Cloud SQL instance for maximum security?
+Answer: You would consider using a more secure connection method, such as SSL/TLS encryption or two-factor authentication, to protect against unauthorized access and data breaches.</p>
+</li>
+<li>
+<p>What are some potential consequences of not properly securing your Cloud SQL instance?
+Answer: Unauthorized access, data breaches, and other security threats could compromise the integrity and confidentiality of sensitive data.</p>
+</li>
+<li>
+<p>How would you manage permissions and access controls for a team working on a shared Cloud SQL project?
+Answer: You would assign roles and permissions according to each team member's needs, using predefined or custom IAM roles to ensure that only authorized personnel have access to specific resources and data.</p>
+</li>
+<li>
+<p>What are some potential benefits of using Cloud SQL's read replica feature in a production environment?
+Answer: Read replicas provide a way to scale out your database without affecting performance, allowing you to handle increased traffic and requests while maintaining high availability and responsiveness.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MySQL instance</td>
+<td>Database Management System</td>
+<td>"Just as you can with an on-premises MySQL instance..."</td>
+<td>A type of relational database management system used to manage and store data. In this context, it is being compared to Cloud SQL.</td>
+</tr>
+<tr>
+<td>Cloud SQL</td>
+<td>Cloud-based Relational Database Service</td>
+<td>"...Cloud SQL that is difficult to reproduce on-premises..."</td>
+<td>A fully managed relational database service provided by Google Cloud Platform. It offers scalability, security, and ease of use.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Virtual Machine Service</td>
+<td>"If you have specific OS requirements, custom database configuration requirements, or special backup requirements..."</td>
+<td>A virtual machine service offered by Google Cloud Platform that allows users to create and manage their own virtual machines.</td>
+</tr>
+<tr>
+<td>VM (Virtual Machine)</td>
+<td>Computer Resource</td>
+<td>"...hosting your own database on a VM using Compute Engine."</td>
+<td>A self-contained software environment that runs an operating system and applications on a remote server. In this context, it is being used as a hosting option for databases.</td>
+</tr>
+<tr>
+<td>Cloud SQL Proxy</td>
+<td>Database Access Service</td>
+<td>"roles/cloudsql.client - Connectivity access to Cloud SQL instances from App Engine and the Cloud SQL Proxy."</td>
+<td>A service provided by Google Cloud Platform that allows users to connect to Cloud SQL instances from other applications.</td>
+</tr>
+<tr>
+<td>IAM (Identity and Access Management)</td>
+<td>Security Framework</td>
+<td>"...control permissions and access to Cloud SQL resources via primitive roles or predefined roles."</td>
+<td>A security framework provided by Google Cloud Platform that manages user identities and access to cloud resources, including Cloud SQL.</td>
+</tr>
+<tr>
+<td>Primitive Roles</td>
+<td>Role-Based Access Control</td>
+<td>"roles/owner - Full access and control for all Google Cloud Platform resources..."</td>
+<td>Predefined roles that provide varying levels of access and control over Google Cloud Platform resources. They include owner, writer, and reader roles.</td>
+</tr>
+<tr>
+<td>Predefined Roles</td>
+<td>Role-Based Access Control</td>
+<td>"...roles/cloudsql.admin - Full control for all Cloud SQL resources."</td>
+<td>Predefined roles that provide specific levels of access and control over Cloud SQL resources. They include admin, editor, viewer, and client roles.</td>
+</tr>
+<tr>
+<td>Cloud SQL Admin</td>
+<td>Database Administrator</td>
+<td>"roles/cloudsql.admin - Full control for all Cloud SQL resources."</td>
+<td>A role that provides full control over Cloud SQL resources, including database management, user management, and security settings.</td>
+</tr>
+<tr>
+<td>Cloud SQL Editor</td>
+<td>Database Manager</td>
+<td>"roles/cloudsql.editor - Manage specific instances..."</td>
+<td>A role that provides the ability to manage specific Cloud SQL instances, but with limited access to permissions, users, SSL certificates, and other settings.</td>
+</tr>
+<tr>
+<td>Cloud SQL Viewer</td>
+<td>Database User</td>
+<td>"roles/cloudsql.viewer - Read-only access to all Cloud SQL resources."</td>
+<td>A role that provides read-only access to Cloud SQL resources, including database data and metadata.</td>
+</tr>
+<tr>
+<td>Cloud SQL Client</td>
+<td>Application Developer</td>
+<td>"roles/cloudsql.client - Connectivity access to Cloud SQL instances from App Engine..."</td>
+<td>A role that provides connectivity access to Cloud SQL instances from applications, such as App Engine.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

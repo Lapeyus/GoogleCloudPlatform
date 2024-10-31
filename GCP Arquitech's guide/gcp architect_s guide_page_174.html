@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_174</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_174_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_174</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Load Balancing in GCP</h1>
+<h2>Overview</h2>
+<p>Load balancing is a crucial component of a scalable and reliable application architecture. In this section, we'll explore the different aspects of load balancing in Google Cloud Platform (GCP).</p>
+<h3>Backend Services vs Target Pools</h3>
+<p>A backend service is conceptually similar to a target pool, but with additional health checks to determine when to send traffic to that pool.</p>
+<h2>Regional Redundancy</h2>
+<p>The global internet and cloud infrastructure require regional redundancy. We don't want to send all traffic to one region by default. Instead, we need to have alternative regions to redirect requests to in case the primary region is overloaded.</p>
+<h3>Health Checks</h3>
+<p>We can deploy different health checks to ensure that our application continues to function even if one of the backend services fails. This includes metrics such as CPU utilization, maximum request per second per instance, and more.</p>
+<h2>Session Affinity</h2>
+<p>To maintain session affinity, we use techniques such as basic client IP affinity or generated cookie affinity. Basic client IP affinity directs requests from the same origin IP address to the same server, while generated cookie affinity issues a cookie on the user's first visit and directs subsequent requests to the same instance.</p>
+<h3>Issues with Session Affinity</h3>
+<p>However, session affinity can break due to various reasons such as instance group capacity running out, auto scaling changes, or target instances failing health checks. We need to understand these conditions and criteria to determine when to divert traffic to another backend.</p>
+<h2>Balancer Mode</h2>
+<p>The balancer mode setting allows us to select one of several metrics to determine whether the backend instance group is at capacity. This includes CPU utilization, maximum request per second per instance, maximum request per second per group, and more. The choice of metric depends on how well it matches the operational dynamics of our application.</p>
+<h2>Conclusion</h2>
+<p>Load balancing in GCP requires a deep understanding of regional redundancy, health checks, session affinity, and balancer mode settings. By deploying the right combination of these components, we can ensure that our applications are scalable, reliable, and performant.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>For example, if the URL is for a specific content page then we can send the user to the relevant web server, if it is for a download we can redirect the user directly to the download service page. If it is for an upload we can similarly redirect the user to the appropriate service page they require. Therefore, we will typically want to refine which backend services can best handle which target URL.
+
+A backend service is conceptually similar to a target pool, the difference being that here we're going to configure some additional health checks to determine the conditions under which we will send traffic to that pool.
+
+After all this is the global internet and the cloud so we don't just want to be sending all traffic to one region by default. For example, we don't want to just send all traffic to Seoul, on the basis that most of the users are in Asia. We need to have some regional redundancy so that if the Korean instance group is overloaded and we've maxed out the number of servers that we're going to scale too, we have an alternative region to redirect requests to that can service our requests.
+
+Now let us consider the different health checks that we might want to deploy that would ensure we were able to continue forwarding traffic for our application. Since we have the option to route traffic to completely different regions, we might even want out health check to instigate a fail-over mechanism. So for example, if we are experiencing high latency in Korea, we could route traffic to another region within Southeast Asia.
+
+Regardless of the region or backends we choose to send our traffic too we must ensure it is handled in a consistent manner. To accomplish this we use Session Affinity, which we can configure so that requests from the same client go to the same instance and thereby maintain their current session.
+
+With basic client IP affinity this directs requests from the same origin IP address to the same server. However, there are issues with IP Affinity due to Network Proxies and Network Address Translation (NAT), which can cause requests from multiple different users to look like they come from the same address. This confuses some IP affinity methods and so many users will get routed to the same instance.
+
+On the other hand, there is the other extreme whereby a user who moves between networks may be seen as two completely different users and not be directed to the same instance all of the time. To solve these issues you can use within GCP a technique called Generated Cookie Affinity. This method causes the load balancer to issue a cookie named GCLB on the user's first visit or request, and then it directs subsequent requests with the same cookie to the same instance.
+
+Despite all of these good intentions to maintain session affinity we have to be realistic and accept that session affinity can break. If for example an instance group runs out of capacity and traffic is routed to another zone, or if auto scaling changes the resource capacity and load is reallocated, or if the target instance fails health checks. Consequently, we will need to understand the conditions and criteria that would determine the need to divert traffic to another backend.
+
+The load balancer and the capacity-scaler will track and react to the designated maximum utilization thresholds set for a backend. The balancer-mode is a setting that lets you select one of the following metrics to determine whether the backend instance group is at capacity; CPU utilization, maximum request per second per instance, maximum request per second per group and CPU utilization and rate. Which one you choose will be down to how best they match the operational dynamics of your application.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Configuring Load Balancing for Consistent Application Performance</strong></p>
+<p>To ensure consistent performance across different regions and backend services, we need to refine which backend services can handle specific target URLs. A backend service is similar to a target pool but with additional health checks to determine when to send traffic.</p>
+<p>We must also consider regional redundancy to avoid overloading instance groups in one region. This means having alternative regions to redirect requests to if the primary region becomes overloaded.</p>
+<p><strong>Health Checks and Fail-Over Mechanisms</strong></p>
+<p>To ensure continuous forwarding of traffic, we can deploy health checks that instigate fail-over mechanisms. For example, if high latency is experienced in Korea, we can route traffic to another region within Southeast Asia.</p>
+<p>Regardless of the region or backend services used, it's essential to maintain session affinity by directing requests from the same client to the same instance. However, basic client IP affinity has limitations due to Network Proxies and Network Address Translation (NAT), which can cause multiple users to be routed to the same instance.</p>
+<p>To overcome these issues, we can use Generated Cookie Affinity, which issues a cookie named GCLB on the user's first visit or request and directs subsequent requests with the same cookie to the same instance.</p>
+<p><strong>Session Affinity and Breakage</strong></p>
+<p>Despite our best intentions, session affinity can break due to various reasons such as instance group capacity, auto-scaling changes, or target instance health checks. Therefore, we need to understand the conditions and criteria that determine the need to divert traffic to another backend.</p>
+<p>The load balancer and capacity scaler track designated maximum utilization thresholds for backends and react accordingly. We can select metrics such as CPU utilization, maximum requests per second, or CPU utilization and rate to determine when a backend instance group is at capacity.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Configuring backend services for traffic distribution in a cloud environment.</p>
+<h3>Topic 2</h3>
+<p>Regional redundancy and fail-over mechanisms for load balancers.</p>
+<h3>Topic 3</h3>
+<p>Session Affinity techniques, including IP affinity and Generated Cookie Affinity.</p>
+<h3>Topic 4</h3>
+<p>Understanding the limitations of session affinity and the need for dynamic traffic diversion.</p>
+<h3>Topic 5</h3>
+<p>Load balancer settings and capacity-scaler configurations for backend instance groups.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Load Balancing in GCP</h3>
+<h4>Comprehension Questions</h4>
+<ol>
+<li>
+<p>What is the primary purpose of refining backend services for different target URLs?
+Answer: To ensure that each URL is handled by a suitable backend service.</p>
+</li>
+<li>
+<p>Why is regional redundancy important when sending traffic to multiple regions?
+Answer: To provide alternative routes in case one region becomes overloaded or unavailable.</p>
+</li>
+<li>
+<p>What is Session Affinity, and how does it help maintain consistent sessions for users?
+Answer: Session Affinity ensures that requests from the same client are directed to the same instance, maintaining their current session.</p>
+</li>
+<li>
+<p>How do Network Proxies and Network Address Translation (NAT) affect IP affinity methods?
+Answer: They can cause multiple users' requests to appear as coming from the same address, confusing some IP affinity methods.</p>
+</li>
+<li>
+<p>What is Generated Cookie Affinity, and how does it solve issues with Session Affinity?
+Answer: It uses a cookie named GCLB to direct subsequent requests from the same client to the same instance, solving issues with Session Affinity.</p>
+</li>
+</ol>
+<h4>Analytical Questions</h4>
+<ol>
+<li>
+<p>How do you determine which backend service is best suited for a specific URL?
+Answer: By analyzing traffic patterns and performance metrics to identify the most suitable backend service.</p>
+</li>
+<li>
+<p>What are some common scenarios where session affinity can break, and how can they be addressed?
+Answer: Session affinity can break due to instance group capacity issues, auto-scaling changes, or target instance failures. To address these issues, it's essential to understand the conditions that determine the need to divert traffic to another backend.</p>
+</li>
+<li>
+<p>How do you choose the most suitable balancer mode for your application?
+Answer: By selecting a metric that best matches the operational dynamics of your application, such as CPU utilization or maximum requests per second.</p>
+</li>
+<li>
+<p>What are some potential drawbacks of using basic client IP affinity methods?
+Answer: They can be affected by Network Proxies and NAT, leading to incorrect routing decisions.</p>
+</li>
+<li>
+<p>How does regional redundancy impact the overall performance and availability of your application?
+Answer: It ensures that your application remains available even in case one region becomes overloaded or unavailable, providing a better user experience.</p>
+</li>
+</ol>
+<h4>Design Questions</h4>
+<ol>
+<li>
+<p>Design a load balancing strategy for an e-commerce application with multiple regions.
+Answer: Implement Session Affinity using Generated Cookie Affinity to ensure consistent sessions across regions. Use regional redundancy to provide alternative routes in case of overload or unavailability.</p>
+</li>
+<li>
+<p>How would you optimize the balancer mode for a high-traffic web application?
+Answer: Choose a metric that best matches the operational dynamics of your application, such as CPU utilization or maximum requests per second, to ensure optimal performance and availability.</p>
+</li>
+<li>
+<p>What are some considerations when implementing load balancing in a cloud environment like GCP?
+Answer: Consider factors such as regional redundancy, instance group capacity issues, auto-scaling changes, and target instance failures when designing a load balancing strategy.</p>
+</li>
+<li>
+<p>How would you troubleshoot issues with Session Affinity in your application?
+Answer: Use logging and monitoring tools to identify instances where Session Affinity is not being maintained correctly, and investigate the root cause of the issue.</p>
+</li>
+<li>
+<p>What are some best practices for maintaining high availability and performance in a cloud-based load balancing system?
+Answer: Regularly monitor performance metrics, implement regional redundancy, use Session Affinity with Generated Cookie Affinity, and troubleshoot issues promptly to ensure optimal application performance and availability.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>backend service</td>
+<td>Conceptual entity</td>
+<td>"A backend service is conceptually similar to a target pool, the difference being that here we're going to configure some additional health checks to determine the conditions under which we will send traffic to that pool."</td>
+<td>A backend service refers to a group of instances that can handle a specific type of request. It's used to route traffic to multiple instances within a region or across regions. The concept is similar to a target pool, but with added health checks for more efficient traffic distribution.</td>
+</tr>
+<tr>
+<td>target pool</td>
+<td>Conceptual entity</td>
+<td>"A backend service is conceptually similar to a target pool..."</td>
+<td>A target pool refers to a group of instances that can handle a specific type of request. It's used to route traffic to multiple instances within a region or across regions. The term is often used interchangeably with backend services, but it specifically refers to the instances themselves rather than the service configuration.</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>Informational entity</td>
+<td>"For example, if the URL is for a specific content page then we can send the user to the relevant web server..."</td>
+<td>A URL (Uniform Resource Locator) is a string of characters that identifies a resource on the internet. In this context, URLs are used to route traffic to specific instances or services within a backend service or target pool.</td>
+</tr>
+<tr>
+<td>region</td>
+<td>Geographical entity</td>
+<td>"After all this is the global internet and the cloud so we don't just want to be sending all traffic to one region by default..."</td>
+<td>A region refers to a geographical area where data centers, servers, or other infrastructure are located. In this context, regions are used to distribute traffic across different geographic locations for improved performance and redundancy.</td>
+</tr>
+<tr>
+<td>instance group</td>
+<td>Conceptual entity</td>
+<td>"If the Korean instance group is overloaded and we've maxed out the number of servers that we're going to scale too..."</td>
+<td>An instance group refers to a set of instances that can handle a specific type of request. It's used to route traffic to multiple instances within a region or across regions. The term is often used interchangeably with backend services, but it specifically refers to the instances themselves rather than the service configuration.</td>
+</tr>
+<tr>
+<td>health checks</td>
+<td>Monitoring entity</td>
+<td>"We will configure some additional health checks to determine the conditions under which we will send traffic to that pool."</td>
+<td>Health checks refer to automated tests or monitoring systems that verify the status and performance of instances within a backend service or target pool. They help ensure that traffic is routed to healthy instances, reducing downtime and improving overall system reliability.</td>
+</tr>
+<tr>
+<td>session affinity</td>
+<td>Configuration entity</td>
+<td>"To accomplish this we use Session Affinity, which we can configure so that requests from the same client go to the same instance..."</td>
+<td>Session affinity refers to a configuration setting that ensures requests from the same client are routed to the same instance within a backend service or target pool. This helps maintain consistent user sessions and improves overall system performance.</td>
+</tr>
+<tr>
+<td>Network Proxies</td>
+<td>Technical entity</td>
+<td>"However, there are issues with IP Affinity due to Network Proxies..."</td>
+<td>Network proxies refer to intermediate servers that act as gateways between clients and servers. They can cause issues with session affinity, as requests from the same client may be routed to different instances depending on the proxy's configuration.</td>
+</tr>
+<tr>
+<td>Generated Cookie Affinity</td>
+<td>Configuration entity</td>
+<td>"To solve these issues you can use within GCP a technique called, Generated Cookie Affinity..."</td>
+<td>Generated cookie affinity refers to a configuration setting that uses cookies to identify and route requests from the same client to the same instance within a backend service or target pool. This helps maintain consistent user sessions and improves overall system performance.</td>
+</tr>
+<tr>
+<td>balancer-mode</td>
+<td>Configuration entity</td>
+<td>"The balancer-mode is a setting that lets you select one of the following metrics to determine whether the backend instance group is at capacity..."</td>
+<td>Balancer-mode refers to a configuration setting that determines how load balancers evaluate the health and performance of instances within a backend service or target pool. It's used to select the most suitable metric for monitoring instance groups, such as CPU utilization or maximum requests per second.</td>
+</tr>
+<tr>
+<td>capacity-scaler</td>
+<td>Monitoring entity</td>
+<td>"The load balancer and the capacity-scaler will track and react to the designated maximum utilization thresholds..."</td>
+<td>Capacity scaler refers to a system that monitors and adjusts the number of instances within a backend service or target pool based on demand. It helps ensure that instances are scaled up or down to maintain optimal performance and prevent overloading.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

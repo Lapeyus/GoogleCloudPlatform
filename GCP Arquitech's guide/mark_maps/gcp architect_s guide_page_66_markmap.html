@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_66</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # App Engine Flexible Environment
+        ## Overview
+        - Flexible environment allows for more control over application deployment and scaling.
+        
+        ### Key Features
+        
+        - **SSH access**: Allows direct access to virtual machines where applications run.
+        - **Local disk usage**: Enables use of local disk for scratch base and installation of third-party software.
+        - **Network calls**: Allows applications to make network calls without going through App Engine.
+        - **Docker containers**: Uses Docker containers instead of a sandbox.
+        
+        ## Comparison with Kubernetes Engine
+        ### Use Cases
+        
+        - • **App Engine Standard Environment**: For those who want maximum control over application deployment and scaling.
+        - • **Kubernetes Engine**: Provides full flexibility of Kubernetes orchestration.
+        - • **App Engine Flexible Edition**: Offers a balance between the two, treating containers as a means to an end.
+        
+        ## API Services
+        - **Common use case**: Hosting API services due to quick upload and management of scaling and authentication issues.
+        - **APIs**: A common way to open applications up to the outside while maintaining strict limitations.
+        
+        ## Application Programming Interfaces (APIs)
+        ### Definition
+        - A precise description of APIs is necessary for software service implementation, as they can require complex interfaces that change frequently.
+        
+        ### Challenges
+        - Integrating services requires connecting other pieces of software and knowledge of code and internal details.
+        - Integration with third parties is difficult due to the need for abstraction and documentation.
+        
+        ### API Management
+        - Google Cloud Platform manages its library of APIs by allowing underlying implementation changes as long as the interface remains working.
+        - Developers must version and track their APIs when changes are made.
+
+      </script>
+    </div>
+  </body>
+</html>

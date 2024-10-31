@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_125</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_125_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_125</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>IAM Roles</h1>
+<h2>Types of IAM Roles</h2>
+<p>Roles are task related bundles of necessary permissions, which defines who can do what on which resource. There are three specific types of roles in Cloud IAM; primitive roles, curator roles, and custom roles.</p>
+<h3>Primitive Roles</h3>
+<p>The most basic are the primitive roles and these are the original roles that were available in the GCP console. Specifically, these are the owner, editor, and the viewer roles.</p>
+<h4>Owner Role</h4>
+<ul>
+<li>Full administrative access</li>
+<li>Ability to add and remove members and delete projects</li>
+</ul>
+<h4>Editor Role</h4>
+<ul>
+<li>Modify permission in conjunction with read access permission</li>
+<li>Suitable for a developer or operator that needs to deploy applications and modify or configure resources</li>
+</ul>
+<h4>Viewer Role</h4>
+<ul>
+<li>Read-only access</li>
+<li>Cannot modify any resource</li>
+<li>Suitable for an edit, manager, or project leader for audit purposes</li>
+</ul>
+<h3>Concentric Roles</h3>
+<p>All of these roles are concentric. This means the higher role includes the permission of the lower roles.
+- Owner role is inclusive of all the permissions of the editor role
+- Editor role is inclusive of all the permissions of the viewer role</p>
+<h4>Billing Administrator Role</h4>
+<ul>
+<li>Used to manage billing and add or remove administrators</li>
+<li>Suitable for a manager or project leader</li>
+</ul>
+<h3>Curated Roles</h3>
+<p>In addition to the primitive roles, Cloud IAM also provides additional more granular curated or pre-configured roles that give more refined access control to specific GCP resources. Granular roles also reduce the risk of inadvertently providing unwanted access to other resources.</p>
+<h4>Examples of Curated Roles</h4>
+<ul>
+<li>Not specified in the provided text</li>
+</ul>
+<h2>Best Practice for IAM Roles</h2>
+<p>The best practice recommends using groups instead of individual users for managing permissions.
+- Create a DevSecOps group for your development and security operations team that has multiple roles
+- Grant the security admin role to manage firewalls, and the log viewer role for auditing
+- Adding new members to the group is more convenient and less error-prone than assigning roles individually</p>
+<h4>Exceptions</h4>
+<ul>
+<li>For high-risk areas, assign roles to individuals directly rather than using groups.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Therefore, it is a good idea to audit policy changes. The audit logs should record project level permissions changes, and any additional levels that are being added. Since managing permissions for individual users can be cumbersome and error prone. The best practice recommends using groups. For example, you should create a DevSecOps group for your development and security operations team that has multiple roles. For example, you could grant the security admin role to manage firewalls, and the log viewer role for auditing. If you follow this suggestion, you can add new members that join the team by simply adding them to the group. It is more convenient and less error prone to use groups rather than users.
+
+Nonetheless, for high risk areas, you can assign roles to individuals directly rather than using groups.
+
+Types of IAM Roles
+
+Roles are task-related bundles of necessary permissions, which defines who can do what on which resource. There are three specific types of roles in Cloud IAM: primitive roles, curator roles, and custom roles.
+
+Primitive Roles
+The most basic are the primitive roles and these are the original roles that were available in the GCP console. Specifically, these are the owner, editor, and viewer roles.
+The owner has full administrative access and hence the ability to add and remove members and delete projects.
+In contrast, the editor role has the modify permission in conjunction with the read access permission. This role is suitable for a developer or operator that needs to deploy applications and modify or configure its resources.
+The viewer role, on the other hand, has read-only access it cannot modify any resource. This role might be suitable for an edit or manager or project leader for audit purposes.
+
+All of these roles are concentric. This means the higher role includes the permission of the lower roles. So, for example, the owner role is inclusive of all the permissions of the editor role. Similarly, the editor role is inclusive of all the permissions of the viewer role.
+However, there is one other role, the billing administrator role, which is used to manage billing and add or remove administrators. Again, this role may be suitable for a manager or a project leader.
+
+Finally, each project can have multiple owners, editors, viewers, and billing administrators.
+
+Curated Roles
+In addition to the primitive roles, Cloud IAM also provides additional more granular curated or pre-configured roles that give more refined access control to specific GCP resources. Granular roles also reduce the risk of inadvertently providing unwanted access to other resources.
+These roles are a bundle of task-related permissions because in order to do anything meaningful, you typically require more than one or two permissions. However, most meaningful tasks, such as performing system admin tasks, will require many permissions.
+Roles therefore represent abstract functions and are customized to align with real jobs.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Auditing Policy Changes and IAM Roles</h3>
+<p>Auditing policy changes is a good idea to ensure that permissions are being managed effectively. The audit logs should record project level permissions changes, including any additional levels that are being added.</p>
+<p><strong>Using Groups for Permissions Management</strong></p>
+<p>Managing permissions for individual users can be cumbersome and error-prone. The best practice recommends using groups instead of individual users. For example, create a DevSecOps group for your development and security operations team with multiple roles, such as the security admin role to manage firewalls and the log viewer role for auditing.</p>
+<p>This approach is more convenient and less error-prone than managing individual users. However, for high-risk areas, it's recommended to assign roles directly to individuals rather than using groups.</p>
+<h3>Types of IAM Roles</h3>
+<p>Roles are task-related bundles of necessary permissions that define who can do what on which resource. There are three specific types of roles in Cloud IAM:</p>
+<h4>Primitive Roles</h4>
+<p>The most basic roles are the primitive roles, which include:</p>
+<ul>
+<li><strong>Owner</strong>: Full administrative access, including adding and removing members and deleting projects.</li>
+<li><strong>Editor</strong>: Modify permission in conjunction with read access permission, suitable for developers or operators who need to deploy applications and modify resources.</li>
+<li><strong>Viewer</strong>: Read-only access, cannot modify any resource. Suitable for edit, manager, or project leader roles for audit purposes.</li>
+</ul>
+<p>These roles are concentric, meaning the higher role includes all the permissions of the lower roles.</p>
+<h4>Curated Roles</h4>
+<p>In addition to primitive roles, Cloud IAM provides curated or pre-configured roles that give more refined access control to specific GCP resources. These roles are bundles of task-related permissions and reduce the risk of inadvertently providing unwanted access to other resources.</p>
+<p>These roles represent abstract functions and are customized to align with real jobs, such as performing system admin tasks that require many permissions.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><ul>
+<li><strong>Group Management</strong>: The importance of using groups for managing permissions is highlighted, as it reduces errors and makes it more convenient to add new members.</li>
+<li><strong>High Risk Areas</strong>: For high-risk areas, assigning roles directly to individuals may be necessary rather than relying on groups.</li>
+<li><strong>Primitive Roles</strong>: The three basic primitive roles in Cloud IAM are owner, editor, and viewer, each with specific permissions and concentric relationships between them.</li>
+<li><strong>Curated Roles</strong>: Curated or pre-configured roles provide more refined access control for specific GCP resources, reducing the risk of unintended access to other resources.</li>
+</ul></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of auditing policy changes in Cloud IAM?
+Answer: To ensure that project level permissions changes are recorded and any additional levels being added.</p>
+</li>
+<li>
+<p>Why should you use groups instead of individual users for managing permissions?
+Answer: Because it is more convenient and less error-prone to add new members to a group rather than creating a new user.</p>
+</li>
+<li>
+<p>What type of roles does Cloud IAM provide that give more refined access control to specific GCP resources?
+Answer: Curated or pre-configured roles, also known as granular roles.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do the different types of roles in Cloud IAM relate to each other? Provide examples.
+Answer: The primitive roles (owner, editor, viewer) are concentric, meaning that a higher role includes all the permissions of lower roles. For example, the owner role is inclusive of all the permissions of the editor role.</p>
+</li>
+<li>
+<p>What is the difference between using groups and assigning roles to individuals directly in high-risk areas?
+Answer: Using groups is more convenient and less error-prone, while assigning roles to individuals directly may be necessary for high-risk areas where more control is required.</p>
+</li>
+<li>
+<p>How do curated roles reduce the risk of inadvertently providing unwanted access to other resources?
+Answer: By providing a bundle of task-related permissions that are customized to align with real jobs, reducing the need for multiple permissions and minimizing the risk of unintended access.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Create a DevSecOps group for your development and security operations team, including multiple roles such as security admin and log viewer.
+Answer: This would involve creating a new group in Cloud IAM and assigning the necessary roles to it, allowing you to add new members to the group without having to create individual users.</p>
+</li>
+<li>
+<p>Determine which type of role is suitable for a project leader who needs to manage billing and add or remove administrators.
+Answer: The billing administrator role is suitable for this role, as it provides the necessary permissions to manage billing and add or remove administrators.</p>
+</li>
+<li>
+<p>Design a system that uses curated roles to provide refined access control to specific GCP resources, such as performing system admin tasks.
+Answer: This would involve creating a custom role that includes multiple task-related permissions, such as managing resources, configuring settings, and monitoring performance, allowing the user to perform meaningful tasks while minimizing the risk of unintended access.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>audit logs</td>
+<td>Log</td>
+<td>"Therefore, it is a good idea to audit policy changes."</td>
+<td>The entity refers to the records of permission changes made in the project, indicating that auditing is necessary for monitoring and tracking changes.</td>
+</tr>
+<tr>
+<td>DevSecOps group</td>
+<td>Group</td>
+<td>"For example, you should create a DevSecOps group for your development and security operations team..."</td>
+<td>A group is a collection of users with shared permissions, allowing for easier management and addition of new members.</td>
+</tr>
+<tr>
+<td>security admin role</td>
+<td>Role</td>
+<td>"...grant the security admin role to manage firewalls..."</td>
+<td>A role defines specific permissions and access levels, in this case, managing firewalls. The security admin role has a high level of authority.</td>
+</tr>
+<tr>
+<td>log viewer role</td>
+<td>Role</td>
+<td>"...grant the log viewer role for auditing."</td>
+<td>Similar to the security admin role, the log viewer role has specific permissions related to auditing.</td>
+</tr>
+<tr>
+<td>users</td>
+<td>User</td>
+<td>"Since managing permissions for individual users can be cumbersome and error prone..."</td>
+<td>Users are individuals who have access to resources and require permission management. Using groups is recommended over individual user management.</td>
+</tr>
+<tr>
+<td>project level permissions changes</td>
+<td>Permission Change</td>
+<td>"...record project level permissions changes, and any additional levels that are being added."</td>
+<td>A permission change refers to an update or modification to the permissions assigned to a resource or user within a project.</td>
+</tr>
+<tr>
+<td>high risk areas</td>
+<td>Risk Area</td>
+<td>"Nonetheless, for high risk areas, you can assign roles to individuals directly rather than using groups."</td>
+<td>High-risk areas refer to sensitive resources that require extra caution and control when assigning permissions. Using individual roles is recommended in these cases.</td>
+</tr>
+<tr>
+<td>primitive roles</td>
+<td>Role Type</td>
+<td>"...the original roles that were available in the GCP console. Specifically, these are the owner, editor, and the viewer roles."</td>
+<td>Primitive roles are basic roles with limited access levels: owner (full admin), editor (modify and read), and viewer (read-only).</td>
+</tr>
+<tr>
+<td>billing administrator role</td>
+<td>Role</td>
+<td>"...there is one other role, the billing administrator role..."</td>
+<td>The billing administrator role has specific permissions related to managing billing and adding/removing administrators.</td>
+</tr>
+<tr>
+<td>curator roles</td>
+<td>Role Type</td>
+<td>"In addition to the primitive roles, Cloud IAM also provides additional more granular curated or pre-configured roles..."</td>
+<td>Curated roles are more refined access control roles that provide a higher level of granularity than primitive roles. They reduce the risk of unintended access.</td>
+</tr>
+<tr>
+<td>custom roles</td>
+<td>Role Type</td>
+<td>"...roles therefore represent abstract functions and are customized to align with real jobs."</td>
+<td>Custom roles are tailored to specific job requirements, providing a high level of flexibility in permission management.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

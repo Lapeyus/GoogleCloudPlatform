@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_210</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Scalability in Cloud Networks
+        ## Stateless Applications
+        - This situation is very flexible with regards to scale as it doesn't matter what physical  server processes a request  from ac which makes horizontal scaling a perfect solution for
+        - client,
+        - managing
+        - growth. Indeed, because a service instance can retrieve all the application state  it might require from elsewhere  enables resiliency, elasticity, and flexibility. This makes it feasible for any  available
+        - service instance to process any task;
+        
+        ## Stateless Applications Deployment
+        - In cloud networks stateless applications are most commonly deployed as containerized microservices apps. However, this is not without its own drawback as containerisation at scale leads to a need for orchestration. In GCP  there is the  Kubernetes Engine managed service that serves this function for managing and conducting stateless apps. Orchestration determines the best location to run the containers from the perspective of its resources,
+        - including maintaining high availability.
+        
+        ## Stateful Applications
+        - Stateful applications on the other hand mean stateful applications are typically transactional by nature so require somewhere to store state information. They will involve users logging into an account or the user's activity being tracked via a session cookie. Stateful applications are most commonly deployed in the cloud for ecommerce, CRM, ERP, on-line banking and other such applications that need to track and maintain transactional real-time data.
+        
+        ## Challenges with Horizontal Scaling
+        - With Stateful applications the service will process inbound requests based on the information relayed with each request and also key information stored from earlier requests - this means that the server must access and hold onto state information generated during the processing of the earlier request. This can cause an issue with horizontal scaling as the same server must  be used to process all subsequent requests linked to the  same state  information,  otherwise the state information must be  shared with all  servers  in the pool.
+        
+        ## Solutions for Stateful Applications
+        - The trick here is to either maintain session  affinity at the load  balancer so that it  always sends a returning  client to the  same server or to store all state  information in a shared  database that is accessible by all servers in the pool. Orchestration  for stateful applications is still required and it involves  determining the best location to run the containers  from the perspective  of the of the applications' overall needs. Orchestration  for stateful applications also manages high availability- moving containers and remounting volumes  with no
+        - application or code changes.
+        
+        ## Centralized vs Decentralized State Management
+        - In the latter scenario of using a shared backend database, then you can  certainly handle scale and you can handle distribution as well. But here  lies a problem; if you have a shared backend database your  data is centrally located. However, a central database can be a choke point  and a single point of failure , and latency in retrieving the  client state information can slow down  the
+        - application.
+        
+        ## Importance of Data Integrity
+        - But there is a bigger issue than that. This state information is your customer data; this could well be the data on active sessions that a client was going through on an e-commerce website. So, it had better not get lost or corrupted as it is now the single source of truth for all the transactional data in the billing system.
+        
+        ## Alternative Solutions
+        - Hence, we have to really contemplate and take into our design where we're going to be storing stateful information. There are several ways in which the load distribution facilities in the product can maintain state information between client requests, including:
+        - · Transaction affinity - in which the load distribution facility acknowledges a transaction's existence and tries to direct all requests within that transaction's scope to the same server;
+
+      </script>
+    </div>
+  </body>
+</html>

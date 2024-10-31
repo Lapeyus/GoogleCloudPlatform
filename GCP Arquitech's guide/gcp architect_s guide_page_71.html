@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_71</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_71_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_71</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Cloud Service Mesh</h1>
+<h2>Overview</h2>
+<p>Google Cloud Platform has its own GCSM which is a fully managed service that is built on the high-performance Envoy sidecar proxy and the open source Istio service mesh provides the overlay on your microservices running in Kubernetes for container API support.</p>
+<h3>Features</h3>
+<ul>
+<li><strong>End-to-end encryption</strong>: Supports end-to-end encryption between services using mTLS (mutual TLS)</li>
+<li><strong>Granular traffic control</strong>: Provides granular traffic management, routing, and authorization policy</li>
+<li><strong>Integration with Stackdriver</strong>: Integrates with Stackdriver to monitor and alert on key metrics</li>
+</ul>
+<h2>Istio on GKE</h2>
+<h3>Overview</h3>
+<p>Istio on GKE provides a managed, mature service mesh that you can deploy that spans both the Cloud and on-premise networks with just one click.</p>
+<h3>Utility</h3>
+<p>The real utility of the Istio service mesh is in the context of the cloud-native ecosystem as it provides a path towards infrastructure abstraction and process automation in a cloud or a hybrid cloud environment.</p>
+<h2>Automation</h2>
+<h3>Overview</h3>
+<p>Organizations are increasingly moving toward automation as it delivers efficiencies, velocity and quality in the development process.</p>
+<h3>Benefits</h3>
+<ul>
+<li><strong>Continuous improvement</strong>: Strives for continuous improvement and rapid deployment to deliver products</li>
+<li><strong>Pipeline-based approach</strong>: Automates application upgrades and rapid deployment through pipeline-based approaches</li>
+</ul>
+<h3>Integration with GCSM</h3>
+<p>Google Cloud Service Mesh based on Istio integrates seamlessly with continuous delivery systems and the deployment pipelines. It can also work with modern GitOps workflows due to its declarative configuration model.</p>
+<h2>Traffic Director</h2>
+<h3>Overview</h3>
+<p>Traffic Director is GCP's fully managed traffic control plane for service mesh.</p>
+<h3>Features</h3>
+<ul>
+<li><strong>Simple load balancing</strong>: Easy to configure simple load balancing</li>
+<li><strong>Global load balancing</strong>: Deploy global load balancing with automatic cross-region overflow and failover</li>
+<li><strong>Advanced features</strong>: Enables seamless scalability within Compute Engine and Kubernetes Engine environments</li>
+</ul>
+<p>| Products | Price |
+| --- | --- |
+| Apple | 4 |
+| Banana | 2 |</p>
+<p><img alt="" src="/favicon.png" /></p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Google Cloud Platform has its own GCSM, which is a fully managed service built on the high-performance Envoy sidecar proxy and the open source Istio service mesh. This provides container API support for microservices running in Kubernetes. The Google Cloud Service Mesh supports end-to-end encryption between services using mTLS (mutual TLS), as well as granular traffic control, routing, and authorization policy. It also integrates with Stackdriver to monitor and alert on key metrics, all achieved without changing your application code.
+
+Istio on GKE provides a managed, mature service mesh that can be deployed across both the Cloud and on-premise networks with just one click. However, the real utility of Istio lies in its ability to provide infrastructure abstraction and process automation in a cloud or hybrid cloud environment.
+
+Automation is increasingly becoming a key aspect of organizations' development processes, delivering efficiencies, velocity, and quality. Many organizations strive for continuous improvement and rapid deployment to deliver their products. As a result, development has become a pipeline-based approach for automating application upgrades and rapid deployment.
+
+Google Cloud Service Mesh based on Istio integrates seamlessly with continuous delivery systems and deployment pipelines. For example, you can configure your pipeline to deploy Istio VirtualServices to manage granular traffic management or even in-flight A-B testing without manual intervention. Istio also works well with modern GitOps workflows due to its declarative configuration model.
+
+In this scenario, the source control serves as the central source of truth for both your application and infrastructure configuration.
+
+Traffic Director is GCP's fully managed traffic control plane for service mesh. It provides an abstraction used to deliver microservices and modern applications. The service mesh data plane is deployed through service proxies like Envoy, controlling the flow of traffic and enforcing policy, configuration, and intelligence. With Traffic Director, it's easy to configure traffic control policies.
+
+You can also use Traffic Director to deploy simple load balancing as well as deploy it across multiple regions as VMs or containers. Additionally, Traffic Director enables global load balancing with automatic cross-region overflow and failover. Some advanced features like request routing and percentage-based traffic splitting enable seamless scalability within Compute Engine and Kubernetes Engine environments.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Google Cloud Service Mesh and Istio on GKE: A Comprehensive Overview</h3>
+<p>Google Cloud Platform (GCP) offers a fully managed service called Google Cloud Service Mesh (GCSM), which leverages the high-performance Envoy sidecar proxy and open-source Istio service mesh. This provides a robust overlay for microservices running in Kubernetes, offering end-to-end encryption, granular traffic control, routing, and authorization policies.</p>
+<h3>Key Features of GCSM</h3>
+<ul>
+<li>Built on Envoy sidecar proxy and Istio service mesh</li>
+<li>Supports end-to-end encryption using mTLS (mutual TLS)</li>
+<li>Granular traffic control, routing, and authorization policy</li>
+<li>Integrates with Stackdriver for monitoring and alerting on key metrics</li>
+<li>Achieves no change to application code</li>
+</ul>
+<h3>Istio on GKE: A Managed Service Mesh</h3>
+<p>Istio on Google Kubernetes Engine (GKE) provides a managed service mesh that can be deployed across both cloud and on-premise networks with just one click. The real utility of Istio lies in the context of the cloud-native ecosystem, offering a path towards infrastructure abstraction and process automation.</p>
+<h3>Automation with GCSM</h3>
+<p>Organizations are increasingly moving toward automation to deliver efficiencies, velocity, and quality in the development process. Google Cloud Service Mesh based on Istio integrates seamlessly with continuous delivery systems and deployment pipelines. This enables granular traffic management, A-B testing, and automated deployment without manual intervention.</p>
+<h3>Traffic Director: A Fully Managed Traffic Control Plane</h3>
+<p>Traffic Director is GCP's fully managed traffic control plane for service mesh. It provides an abstraction for delivering microservices and modern applications. The service mesh data plane is deployed through service proxies like Envoy, controlling the flow of traffic and enforcing policy, configuration, and intelligence.</p>
+<h3>Key Features of Traffic Director</h3>
+<ul>
+<li>Easy configuration of traffic control policies</li>
+<li>Simple load balancing deployment</li>
+<li>Global load balancing with automatic cross-region overflow and failover</li>
+<li>Advanced features like request routing and percentage-based traffic splitting for seamless scalability</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Cloud-Native Ecosystem
+The concept of a cloud-native ecosystem is discussed in the context of Istio service mesh, which provides a path towards infrastructure abstraction and process automation in a cloud or hybrid cloud environment.</p>
+<h3>Topic 2</h3>
+<p>Automation
+Automation is increasingly adopted by organizations to deliver efficiencies, velocity, and quality in the development process. It involves continuous improvement and rapid deployment, with pipeline-based approaches for automating application upgrades and rapid deployment.</p>
+<h3>Topic 3</h3>
+<p>Service Mesh
+The service mesh is a critical component of Google Cloud Platform's offerings, providing end-to-end encryption between services using mTLS (mutual TLS), granular traffic control, routing, and authorization policy. It integrates seamlessly with continuous delivery systems and deployment pipelines.</p>
+<h3>Topic 4</h3>
+<p>Traffic Director
+Traffic Director is GCP's fully managed traffic control plane for service mesh, enabling easy configuration of traffic control policies, simple load balancing, and global load balancing across multiple regions.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary function of Google Cloud Service Mesh based on Istio?
+Answer: It integrates seamlessly with continuous delivery systems and deployment pipelines, enabling automation of application upgrades and rapid deployment.</p>
+</li>
+<li>
+<p>How does Traffic Director work in relation to service mesh data plane?
+Answer: The service mesh data plane is deployed through service proxies like Envoy, which controls the flow of traffic and enforces policy, configuration, and intelligence.</p>
+</li>
+<li>
+<p>What is the purpose of mTLS (mutual TLS) in Google Cloud Service Mesh?
+Answer: It provides end-to-end encryption between services for secure communication.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Istio's declarative configuration model enable seamless integration with modern GitOps workflows?
+Answer: By serving as the central source of truth for both application and infrastructure configuration, Istio allows for declarative configuration that can be easily managed through source control.</p>
+</li>
+<li>
+<p>What are some benefits of using Traffic Director for traffic control in service mesh?
+Answer: It enables easy configuration of traffic control policies, simple load balancing, global load balancing with automatic cross-region overflow and failover, and seamless scalability within Compute Engine and Kubernetes Engine environments.</p>
+</li>
+<li>
+<p>How does Google Cloud Service Mesh based on Istio support infrastructure abstraction and process automation in a cloud-native ecosystem?
+Answer: By providing a managed service mesh that spans both the Cloud and on-premise networks, it enables organizations to abstract their infrastructure and automate processes for improved efficiency and velocity.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a pipeline-based approach for automating application upgrades and rapid deployment using Google Cloud Service Mesh based on Istio.
+Answer: This would involve integrating with continuous delivery systems, deploying Istio VirtualServices for granular traffic management, and utilizing modern GitOps workflows to manage infrastructure configuration.</p>
+</li>
+<li>
+<p>Implement Traffic Director in a service mesh environment to deliver global load balancing with automatic cross-region overflow and failover.
+Answer: This would require configuring Traffic Director policies, deploying simple load balancing, and setting up global load balancing across multiple regions using VMs or containers.</p>
+</li>
+<li>
+<p>Evaluate the benefits of using Google Cloud Service Mesh based on Istio for a cloud-native ecosystem.
+Answer: Consider factors such as improved efficiency, velocity, and quality in development processes, infrastructure abstraction, process automation, and seamless scalability within Compute Engine and Kubernetes Engine environments.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GCSM</td>
+<td>Service Mesh</td>
+<td>"Google Cloud Platform has its own GCSM which is a fully managed service that is built on the high-performance Envoy sidecar proxy"</td>
+<td>The Google Cloud Service Mesh (GCSM) is a managed service mesh that provides end-to-end encryption, granular traffic control, routing, and authorization policy. It integrates with Stackdriver for monitoring and alerting, and does not require changes to application code.</td>
+</tr>
+<tr>
+<td>Istio</td>
+<td>Service Mesh</td>
+<td>"The open source Istio service mesh provides the overlay on your microservices running in Kubernetes for container API support"</td>
+<td>Istio is an open-source service mesh that provides a managed, mature service mesh that can be deployed across both cloud and on-premise networks with ease. It provides a path towards infrastructure abstraction and process automation in a cloud or hybrid cloud environment.</td>
+</tr>
+<tr>
+<td>mTLS</td>
+<td>Encryption Protocol</td>
+<td>"The Google Cloud Service Mesh supports end-to-end encryption between services using mTLS (mutual TLS)"</td>
+<td>mTLS is an encryption protocol that ensures secure communication between services. In the context of GCSM, it provides end-to-end encryption for services, ensuring confidentiality and integrity of data in transit.</td>
+</tr>
+<tr>
+<td>Envoy</td>
+<td>Sidecar Proxy</td>
+<td>"The Google Cloud Service Mesh is built on the high-performance Envoy sidecar proxy"</td>
+<td>Envoy is a sidecar proxy that provides high-performance networking capabilities. In GCSM, it serves as the foundation for the service mesh, enabling secure and efficient communication between services.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Container Orchestration</td>
+<td>"The Google Cloud Service Mesh supports container API support on your microservices running in Kubernetes"</td>
+<td>Kubernetes is a container orchestration system that enables efficient deployment, scaling, and management of containerized applications. In GCSM, it provides a platform for deploying microservices and modern applications.</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Monitoring Tool</td>
+<td>"The Google Cloud Service Mesh integrates with Stackdriver to monitor and alert on key metrics"</td>
+<td>Stackdriver is a monitoring tool that provides real-time insights into application performance and behavior. In GCSM, it enables monitoring and alerting capabilities, ensuring timely detection of issues and improved overall system reliability.</td>
+</tr>
+<tr>
+<td>GitOps</td>
+<td>Workflow Model</td>
+<td>"Istio can also work with modern GitOps workflows due to its declarative configuration model"</td>
+<td>GitOps is a workflow model that emphasizes collaboration between developers and operations teams through version control systems like Git. In Istio, it provides a declarative configuration model that enables seamless integration with source control systems.</td>
+</tr>
+<tr>
+<td>VirtualServices</td>
+<td>Service Mesh Configuration</td>
+<td>"You can configure your pipeline to deploy Istio VirtualServices in order to manage granular traffic management or even in-flight A-B testing without any manual intervention"</td>
+<td>VirtualServices are a configuration component of the service mesh that enables granular traffic management and routing. In GCSM, they provide a way to manage traffic flow and enforce policies without requiring manual intervention.</td>
+</tr>
+<tr>
+<td>Traffic Director</td>
+<td>Traffic Control Plane</td>
+<td>"Traffic Director is GCP's fully managed traffic control plane for service mesh"</td>
+<td>Traffic Director is a fully managed traffic control plane that enables easy configuration of traffic control policies and deployment of simple load balancing across multiple regions. It provides advanced features like request routing and percentage-based traffic splitting, enabling seamless scalability within Compute Engine and Kubernetes Engine environments.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_167</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_167_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_167</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Shared VPC Service Projects</h1>
+<h2>Network A</h2>
+<h3>VM-1</h3>
+<h4>Project 1</h4>
+<h4>Project 2</h4>
+<h4>Project -P2</h4>
+<h3>Network B</h3>
+<h3>Network C</h3>
+<h4>Shared PVC</h4>
+<h4>Hosted PVC P3</h4>
+<h3>Network A</h3>
+<h4>VM-2</h4>
+<h4>Peering</h4>
+<h4>Vm-3</h4>
+<h4>SVPC</h4>
+<h4>Network A</h4>
+<h4>Peering</h4>
+<h4>Shared PVC</h4>
+<h3>Service Project P4</h3>
+<h2>Private Google Access</h2>
+<p>Private Google Access enables virtual machine instances on a subnetwork to reach <strong>Service Project P 1</strong> 
+VM-1
+Project 1
+Project 2
+Project -P2
+Network B
+Network C
+Shared PVC
+Hosted PVC P3
+Network A
+VM-2
+Peering
+Vm-3
+SVPC
+Network A
+Peering
+Shared PVC
+Sevice Project P4
+X
+Subnet-1 
+10.1.0.0/24</p>
+<p>Nico</p>
+<p>Subnet-2 
+10.10.0.0/2</p>
+<p>Subnet 3 
+10.2.0.0/24</p>
+<p>VM 2</p>
+<p>VM1 Nic1</p>
+<p>Nico</p>
+<p>VM-4</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Service Project P 1
+
+VM-1
+Project 1
+Project 2
+Project -P2
+Network B
+Network C
+Shared PVC
+Hosted PVC P3
+Network A
+VM-2
+Peering
+Vm-3
+SVPC
+Network A
+Peering
+Shared PVC
+Sevice Project P4
+X
+Subnet-1 10.1.0.0/24
+Nico
+Subnet-2 10.10.0.0/2
+Subnet 3 10.2.0.0/24
+
+VM instances in shared VPC service projects that are using the network SVPC have private internal IP connectivity with any endpoints associated to network A. VM instances associated to network A will have private internal IP connectivity with any endpoints associated to network SVPC regardless of whether they live in the host project or a service project.
+
+You can set up VPC network peering between two shared VPC networks. An instance can have multiple network interfaces, one each in different VPC networks, which is shown here on the diagram that follows:
+
+Figure-19
+
+In the diagram, VM1 has a network interface in both network A and network B. Network B is peered with another network C. VM2 in network C can send traffic across to network B to VM1 because nico is peered with network B, and network B routes are automatically propagated to network C when the two networks are peered.
+
+However, for VM2, to send traffic to network A, which is also on VM1, you'd have to configure policy routing for the nic1 interface. This is because addresses and flows for subnet A and interface nico are not installed in network C, so network C knows nothing about network A's nico so it cannot access network A. Similarly, network A knows nothing about network C as it is not privy to the peering arrangement so does not get the routes forwarded even though it is on the same VM1 as network B.
+
+Private Google Access
+
+Private Google Access enables virtual machine instances on a subnetwork to reach Service Project P 1
+VM-1
+Project 1
+Project 2
+Project -P2
+Network B
+Network C
+Shared PVC
+Hosted PVC P3
+Network A
+VM-2
+Peering
+Vm-3
+SVPC
+Network A
+Peering
+Shared PVC
+Sevice Project P4
+X
+Subnet-1 10.1.0.0/24
+Nico
+Subnet-2 10.10.0.0/2
+Subnet 3 10.2.0.0/24
+
+VM instances in shared VPC service projects that are using the network SVPC have private internal IP connectivity with any endpoints associated to network A. VM instances associated to network A will have private internal IP connectivity with any endpoints associated to network SVPC regardless of whether they live in the host project or a service project.
+
+You can set up VPC network peering between two shared VPC networks. An instance can have multiple network interfaces, one each in different VPC networks, which is shown here on the diagram that follows:
+
+Figure-19
+
+In the diagram, VM1 has a network interface in both network A and network B. Network B is peered with another network C. VM2 in network C can send traffic across to network B to VM1 because nico is peered with network B, and network B routes are automatically propagated to network C when the two networks are peered.
+
+However, for VM2, to send traffic to network A, which is also on VM1, you'd have to configure policy routing for the nic1 interface. This is because addresses and flows for subnet A and interface nico are not installed in network C, so network C knows nothing about network A's nico so it cannot access network A. Similarly, network A knows nothing about network C as it is not privy to the peering arrangement so does not get the routes forwarded even though it is on the same VM1 as network B.
+
+350
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Shared VPC Network Connectivity and Private Google Access</h3>
+<p>Shared VPC service projects that use the network SVPC have private internal IP connectivity with any endpoints associated to network A. Similarly, VM instances associated to network A will have private internal IP connectivity with any endpoints associated to network SVPC, regardless of whether they live in the host project or a service project.</p>
+<h3>Network Peering</h3>
+<p>VPC network peering allows two shared VPC networks to communicate with each other. An instance can have multiple network interfaces, one each in different VPC networks. For example, VM1 has a network interface in both network A and network B.</p>
+<p>Network peering enables traffic between the two networks, but there are limitations. Network C, which is peered with network B, cannot access network A without configuring policy routing for the nic1 interface of VM2. This is because addresses and flows for subnet A and interface nico are not installed in network C.</p>
+<h3>Private Google Access</h3>
+<p>Private Google Access enables virtual machine instances on a subnetwork to reach specific services or projects. In this case, it allows VM instances to access Service Project P 1, VM-1, Project 1, Project 2, and Project -P2.</p>
+<p>The following networks are accessible:</p>
+<ul>
+<li>Network B</li>
+<li>Network C</li>
+<li>Shared PVC</li>
+<li>Hosted PVC P3</li>
+<li>Network A</li>
+</ul>
+<p>However, there are some limitations. For example, network A cannot access network C without configuring policy routing for the nic1 interface of VM2.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Shared VPC and Network Peering</h3>
+<p>Shared VPCs enable private internal IP connectivity between endpoints associated with different networks. Network peering allows instances to have multiple network interfaces in different VPC networks.</p>
+<h3>Topic 2: Private Google Access</h3>
+<p>Private Google Access enables virtual machine instances on a subnetwork to reach specific services, such as Service Project P1 and VM-1.</p>
+<h3>Topic 3: Network Configuration and Routing</h3>
+<p>Network configuration and routing play a crucial role in determining the connectivity between different networks. Policy routing is required for certain configurations, such as when an instance needs to access a network that is not directly connected.</p>
+<h3>Topic 4: VPC Network Peering and Traffic Flow</h3>
+<p>VPC network peering allows instances to send traffic across different networks. However, some configurations may require additional setup, such as policy routing, to ensure proper traffic flow.</p>
+<h3>Topic 5: Service Projects and Shared PVCs</h3>
+<p>Service projects and shared PVCs enable private internal IP connectivity between endpoints associated with different networks.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What type of connectivity do VM instances in shared VPC service projects that are using the network SVPC have with endpoints associated to network A?
+Answer: Private internal IP connectivity.</p>
+</li>
+<li>
+<p>How does an instance having multiple network interfaces, one each in different VPC networks, work?
+Answer: An instance can send traffic across to other networks through peering and policy routing.</p>
+</li>
+<li>
+<p>What is required for VM2 to send traffic to network A, which is also on VM1?
+Answer: Configuration of policy routing for the nic1 interface.</p>
+</li>
+<li>
+<p>Why does network C know nothing about network A's nico?
+Answer: Because addresses and flows for subnet A and interface nico are not installed in network C.</p>
+</li>
+<li>
+<p>What is Private Google Access used for?
+Answer: To enable virtual machine instances on a subnetwork to reach other networks.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the peering arrangement between two shared VPC networks affect traffic routing between them?
+Answer: Peering allows automatic propagation of routes, but may require policy routing in certain cases.</p>
+</li>
+<li>
+<p>What are the implications of network A not being privy to the peering arrangement with network C?
+Answer: Network A does not get the routes forwarded even though it is on the same VM1 as network B.</p>
+</li>
+<li>
+<p>How does the use of shared VPCs and peering affect the connectivity between different networks in a multi-project environment?
+Answer: Shared VPCs provide private internal IP connectivity, while peering allows for traffic routing between networks.</p>
+</li>
+<li>
+<p>What are some potential challenges when setting up VPC network peering between two shared VPC networks?
+Answer: Potential challenges include requiring policy routing and ensuring that routes are propagated correctly.</p>
+</li>
+<li>
+<p>How does Private Google Access enhance the connectivity of virtual machine instances in a multi-project environment?
+Answer: Private Google Access enables virtual machine instances on a subnetwork to reach other networks, improving overall connectivity.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a network architecture for a multi-project environment using shared VPCs and peering.
+Answer: This would involve setting up shared VPCs for each project, peering between them as needed, and configuring policy routing where necessary.</p>
+</li>
+<li>
+<p>How would you troubleshoot issues with traffic routing between two shared VPC networks that are peered?
+Answer: Troubleshooting would involve checking the peering arrangement, verifying that routes are propagated correctly, and ensuring that policy routing is configured correctly.</p>
+</li>
+<li>
+<p>What security considerations should be taken into account when using Private Google Access in a multi-project environment?
+Answer: Security considerations include ensuring that access controls are in place to prevent unauthorized traffic, and monitoring network activity for potential security threats.</p>
+</li>
+<li>
+<p>How would you optimize the performance of virtual machine instances in a shared VPC environment with multiple peered networks?
+Answer: Optimization would involve configuring optimal routing policies, using high-performance network interfaces, and ensuring that network resources are allocated efficiently.</p>
+</li>
+<li>
+<p>What are some best practices for managing shared VPCs and peering arrangements in a multi-project environment?
+Answer: Best practices include regularly monitoring network activity, updating peering arrangements as needed, and implementing robust security controls to prevent unauthorized access.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service Project P 1</td>
+<td>Organization</td>
+<td>"Service Project P 1" is mentioned as one of the service projects using the network SVPC. It is likely a project within Google Cloud that has access to shared VPC features. The mention of multiple projects (Project 1, Project 2, etc.) suggests that this is a list of service projects used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>VM-1</td>
+<td>Virtual Machine</td>
+<td>"VM-1" is mentioned as an instance associated with Service Project P 1 and Network B. It is likely a virtual machine running on Google Cloud infrastructure. The mention of multiple instances (VM-2, VM-3, etc.) suggests that this is a list of virtual machines used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Project 1</td>
+<td>Organization</td>
+<td>"Project 1" is mentioned as one of the service projects using the network SVPC. It is likely a project within Google Cloud that has access to shared VPC features. The mention of multiple projects (Service Project P 1, Project 2, etc.) suggests that this is a list of service projects used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Project 2</td>
+<td>Organization</td>
+<td>"Project 2" is mentioned as one of the service projects using the network SVPC. It is likely a project within Google Cloud that has access to shared VPC features. The mention of multiple projects (Service Project P 1, Project 1, etc.) suggests that this is a list of service projects used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Project -P2</td>
+<td>Organization</td>
+<td>"Project -P2" is mentioned as one of the service projects using the network SVPC. It is likely a project within Google Cloud that has access to shared VPC features. The mention of multiple projects (Service Project P 1, Project 1, etc.) suggests that this is a list of service projects used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Network B</td>
+<td>Network</td>
+<td>"Network B" is mentioned as one of the networks associated with VM-1 and Service Project P 1. It is likely a virtual private cloud (VPC) network within Google Cloud. The mention of multiple networks (Network A, Network C, etc.) suggests that this is a list of VPC networks used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Network C</td>
+<td>Network</td>
+<td>"Network C" is mentioned as one of the networks associated with VM-2 and Network B. It is likely a virtual private cloud (VPC) network within Google Cloud. The mention of multiple networks (Network A, Network B, etc.) suggests that this is a list of VPC networks used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Shared PVC</td>
+<td>Feature</td>
+<td>"Shared PVC" is mentioned as a feature of shared VPCs that enables private internal IP connectivity between VM instances associated with different networks. It is likely a virtual private cloud (VPC) network within Google Cloud. The mention of multiple features (Hosted PVC P3, Peering, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Hosted PVC P3</td>
+<td>Feature</td>
+<td>"Hosted PVC P3" is mentioned as one of the features of shared VPCs that enables private internal IP connectivity between VM instances associated with different networks. It is likely a virtual private cloud (VPC) network within Google Cloud. The mention of multiple features (Shared PVC, Peering, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Network A</td>
+<td>Network</td>
+<td>"Network A" is mentioned as one of the networks associated with VM-1 and Service Project P 1. It is likely a virtual private cloud (VPC) network within Google Cloud. The mention of multiple networks (Network B, Network C, etc.) suggests that this is a list of VPC networks used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>VM-2</td>
+<td>Virtual Machine</td>
+<td>"VM-2" is mentioned as an instance associated with Network C and Peering. It is likely a virtual machine running on Google Cloud infrastructure. The mention of multiple instances (VM-1, VM-3, etc.) suggests that this is a list of virtual machines used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>VM-3</td>
+<td>Virtual Machine</td>
+<td>"VM-3" is mentioned as an instance associated with Peering and Network A. It is likely a virtual machine running on Google Cloud infrastructure. The mention of multiple instances (VM-1, VM-2, etc.) suggests that this is a list of virtual machines used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Virtual Machine</td>
+<td>Device</td>
+<td>"Virtual Machine" is mentioned as an instance associated with multiple networks and projects. It is likely a device running on Google Cloud infrastructure. The mention of multiple instances (VM-1, VM-2, etc.) suggests that this is a list of devices used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Peering</td>
+<td>Feature</td>
+<td>"Peering" is mentioned as one of the features of shared VPCs that enables private internal IP connectivity between VM instances associated with different networks. It is likely a feature within Google Cloud that allows for network connectivity between virtual machines. The mention of multiple features (Shared PVC, Hosted PVC P3, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Private Access</td>
+<td>Feature</td>
+<td>"Private Access" is mentioned as one of the features of shared VPCs that enables private internal IP connectivity between VM instances associated with different networks. It is likely a feature within Google Cloud that allows for network connectivity between virtual machines. The mention of multiple features (Shared PVC, Hosted PVC P3, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Subnetwork</td>
+<td>Feature</td>
+<td>"Subnetwork" is mentioned as one of the features of shared VPCs that enables private internal IP connectivity between VM instances associated with different networks. It is likely a feature within Google Cloud that allows for network connectivity between virtual machines. The mention of multiple features (Shared PVC, Hosted PVC P3, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Private Access</td>
+<td>Feature</td>
+<td>"Private Access" is mentioned as one of the features of shared VPCs that enables private internal IP connectivity between VM instances associated with different networks. It is likely a feature within Google Cloud that allows for network connectivity between virtual machines. The mention of multiple features (Shared PVC, Hosted PVC P3, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Virtual Private Cloud</td>
+<td>Network</td>
+<td>"Virtual Private Cloud" is mentioned as one of the concepts related to shared VPCs. It is likely a network within Google Cloud that provides private and secure connectivity between virtual machines. The mention of multiple networks (Network A, Network B, etc.) suggests that this is a list of networks used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Shared VPC</td>
+<td>Feature</td>
+<td>"Shared VPC" is mentioned as one of the features of Google Cloud that enables private internal IP connectivity between VM instances associated with different networks. It is likely a feature within Google Cloud that allows for network connectivity between virtual machines. The mention of multiple features (Shared PVC, Hosted PVC P3, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Google Cloud</td>
+<td>Organization</td>
+<td>"Google Cloud" is mentioned as the organization providing the shared VPC feature. It is likely the company behind the cloud infrastructure platform being described. The mention of multiple projects (Service Project P 1, Project 1, etc.) suggests that this is a list of service projects used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Google Cloud</td>
+<td>Organization</td>
+<td>"Google Cloud" is mentioned as the organization providing the shared VPC feature. It is likely the company behind the cloud infrastructure platform being described. The mention of multiple features (Shared PVC, Hosted PVC P3, etc.) suggests that this is a list of features used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+<tr>
+<td>Google Cloud</td>
+<td>Organization</td>
+<td>"Google Cloud" is mentioned as the organization providing the shared VPC feature. It is likely the company behind the cloud infrastructure platform being described. The mention of multiple projects (Service Project P 1, Project 1, etc.) suggests that this is a list of service projects used in the context of shared VPCs.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

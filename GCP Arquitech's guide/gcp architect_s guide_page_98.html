@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_98</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_98_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_98</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Networking in GCP</h1>
+<h2>Overview</h2>
+<p>In Google Cloud Platform (GCP), networking is done differently compared to traditional IP networks. This document aims to explain the basics of networking in GCP.</p>
+<h3>Subnets in GCP</h3>
+<p>Subnets are used to segment a network into smaller groups, each with its own IP address range. However, unlike traditional IP networks where subnets fit into an address hierarchy, GCP subnets do not have parent IP address ranges assigned to them.</p>
+<h2>Communication Between VMs</h2>
+<p>When considering two virtual machines (VMs) in the same region but different zones, they can still communicate with each other using the same subnet IP address. This is because the first address in a subnet is reserved for the router address and the last address is reserved for the broadcast address.</p>
+<h3>Google Edge Routers</h3>
+<p>However, when it comes to communication between VMs across different zones, traffic does not traverse the internet as one might think. Instead, it goes through the Google Edge routers, which have different billing, latency, and security criteria that need to be taken into consideration.</p>
+<h2>Designing IP Plans in GCP</h2>
+<p>Typically, IP plans are designed with sub-networks in a top-down hierarchy. However, in GCP, networks do not have IP ranges, so you simply set up a network and create multiple subnets for different departments or teams.</p>
+<h3>Benefits of Sub-Networks</h3>
+<p>Sub-networks can provide some rudimentary levels of security and manage resources. However, there are more flexible ways to achieve this using Cloud IAM, labels, tags, and managed instance groups.</p>
+<h2>Example Use Case</h2>
+<p>Consider a scenario where you have multiple subnets for different departments or teams in your organization. Each subnet represents a separate network segment with its own IP address range.</p>
+<p>```markdown</p>
+<h1>Subnet 1 (Sales)</h1>
+<p>| Products | Price |
+| --- | --- |
+| Apple | 4 |
+| Banana | 2 |</p>
+<h1>Subnet 2 (Finance)</h1>
+<p>| Products | Price |
+| --- | --- |
+| Apple | 5 |
+| Banana | 3 |</p>
+<h1>Subnet 3 (Marketing)</h1>
+<p>| Products | Price |
+| --- | --- |
+| Apple | 6 |
+| Banana | 4 |</p>
+<h1>Subnet 4 (Development)</h1>
+<p>| Products | Price |
+| --- | --- |
+| Apple | 7 |
+| Banana | 5 |
+```</p>
+<p>In this example, each subnet represents a separate network segment with its own IP address range. The first address in each subnet is reserved for the router address, and the last address is reserved for the broadcast address.</p>
+<p>```markdown</p>
+<h1>Subnet 1 (Sales)</h1>
+<p>172.168.0.1 - 172.168.0.254</p>
+<h1>Subnet 2 (Finance)</h1>
+<p>172.168.1.1 - 172.168.1.254</p>
+<h1>Subnet 3 (Marketing)</h1>
+<p>172.168.2.1 - 172.168.2.254</p>
+<h1>Subnet 4 (Development)</h1>
+<p>172.168.3.1 - 172.168.3.254
+```</p>
+<p>In this example, each subnet has its own IP address range, and the first address in each subnet is reserved for the router address.</p>
+<h2>Conclusion</h2>
+<p>Networking in GCP is done differently compared to traditional IP networks. Subnets are used to segment a network into smaller groups, but they do not fit into an address hierarchy like traditional IP networks. Google Edge routers play a crucial role in communication between VMs across different zones. Designing IP plans in GCP requires careful consideration of the benefits and limitations of sub-networks and other networking options.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>However, if we consider the subnet C and its VM-f, they are not in the same network. Thus, VM-f cannot communicate directly even though they are in the same region as VM-d and VM-e. They cannot communicate using their private IP addresses so they must communicate over external IPs. But a notable thing is that this traffic doesn't traverse the internet as you would probably think.
+
+Instead, the traffic between VMs C and D is going through the Google Edge routers, which incidentally have different billing, latency, and security criteria that we need to take into consideration.
+
+The diagram has a region, region 1 with two zones, Zone A, and Zone B. Subnetworks can extend across zones within the same region such as subnet 1. The subnet is simply an IP address range, so you can carve up IP addresses within that range into smaller groups.
+
+Just like in traditional IP networks, the first address in the subnet is reserved for the router address. The last address in the subnet is reserved for the broadcast address. Even though the two virtual machines in this example are across different zones, they will still communicate with each other using the same subnet IP address. Essentially, a single firewall rule will apply to both VMs even though they are in different zones.
+
+Typically, in a data centre, you might design your IP plan to be divided into sub-networks in the traditional way based on a top-down hierarchy. For example, you may have a master network 172.168.0.0 and then segment it into smaller blocks called subnets. These subnets are segregated from one another to minimise broadcast traffic.
+
+You could then deploy a different subnet to each department giving them some rudimentary security from one another. Each of these subnets might then represent different departments such as sales, finance, marketing, or development.
+
+The difference though is that in GCP, networks do not have IP ranges so you just simply set up a network and create multiple subnets for sales, finance, marketing, and development. Because there is no parent IP address range assigned to the network, the sub-networks don't need to fit into an address hierarchy.
+
+While sub-networks can be used to provide some rudimentary levels of security and manage resources, there are other more flexible ways of doing this such as with Cloud IAM, labels, tags, and managed instance groups.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Subnetting in GCP: Understanding Network Segmentation</strong></p>
+<p>In Google Cloud Platform (GCP), subnets play a crucial role in network segmentation. A subnet is an IP address range that can be carved up into smaller groups to provide isolation and security.</p>
+<p><strong>Key Points:</strong></p>
+<ul>
+<li>Subnets can extend across zones within the same region, allowing for communication between virtual machines (VMs) in different zones.</li>
+<li>The first address in a subnet is reserved for the router address, while the last address is reserved for the broadcast address.</li>
+<li>A single firewall rule applies to both VMs even though they are in different zones.</li>
+<li>GCP networks do not have IP ranges, so subnets are created without a parent IP address range.</li>
+</ul>
+<p><strong>Network Segmentation in GCP</strong></p>
+<p>In traditional data centers, IP plans are designed using a top-down hierarchy, with master networks segmented into smaller blocks called subnets. This approach minimizes broadcast traffic and provides rudimentary security between departments.</p>
+<p>However, in GCP, this approach is not necessary. Instead, you create multiple subnets for each department, without the need for an IP address range. This allows for more flexibility in network design and management.</p>
+<p><strong>Alternative Network Management Methods</strong></p>
+<p>While sub-networks can provide some levels of security and resource management, other methods are more flexible:</p>
+<ul>
+<li>Cloud IAM (Identity and Access Management)</li>
+<li>Labels</li>
+<li>Tags</li>
+<li>Managed instance groups</li>
+</ul>
+<p>These alternatives offer more granular control over access and resources, making them suitable for complex network environments.</p>
+<p><strong>Traffic Routing in GCP</strong></p>
+<p>When communicating between VMs in different subnets, traffic does not traverse the internet. Instead, it is routed through Google Edge routers, which have different billing, latency, and security criteria that must be considered.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Network Architecture in GCP</h3>
+<p>Network architecture in GCP is different from traditional IP networks. It does not have IP ranges, but instead, you set up a network and create multiple subnets for different departments.</p>
+<h3>Topic 2: Subnet Segmentation and Security</h3>
+<p>Subnets can be used to provide some rudimentary levels of security and manage resources. However, they do not need to fit into an address hierarchy because there is no parent IP address range assigned to the network.</p>
+<h3>Topic 3: Communication Between VMs Across Zones</h3>
+<p>VMs across different zones in the same region can communicate with each other using the same subnet IP address. A single firewall rule will apply to both VMs even though they are in different zones.</p>
+<h3>Topic 4: Google Edge Routers and Traffic Routing</h3>
+<p>Traffic between VMs does not traverse the internet as expected. Instead, it goes through Google Edge routers, which have different billing, latency, and security criteria that need to be considered.</p>
+<h3>Topic 5: Traditional IP Network Design vs GCP Networks</h3>
+<p>GCP networks are designed differently from traditional IP networks. They do not use IP ranges, but instead, you set up a network and create multiple subnets for different departments.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What is the main reason why VM-f cannot communicate directly with VM-d and VM-e, even though they are in the same region?</li>
+<li>How do Google Edge routers handle traffic between VMs in different zones within a region?</li>
+<li>What is the purpose of reserving the first address in a subnet for the router address and the last address for the broadcast address?</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>Explain how sub-networks can be used to minimize broadcast traffic in traditional IP networks.</li>
+<li>How does GCP's approach to network setup differ from traditional IP networks, and what are the implications of this difference?</li>
+<li>What are some potential security benefits of using Cloud IAM, labels, tags, and managed instance groups instead of sub-networks?</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>Design an IP plan for a data center with multiple departments (sales, finance, marketing, development) using traditional subnetting methods.</li>
+<li>Create a network in GCP with multiple subnets for different departments, and explain how this setup provides security benefits.</li>
+<li>Suppose you need to ensure that traffic between VMs in different zones within a region is secure. Which Cloud IAM feature would you use, and why?</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subnet C and its VM-f</td>
+<td>Subnet/Network</td>
+<td>"...we can see that they are not in the same network. Thus, VM-f cannot communicate directly..."</td>
+<td>The text highlights a key difference between two virtual machines (VMs) within the same region but different subnets. This indicates that the authors are discussing the nuances of networking and communication between VMs in a cloud environment.</td>
+</tr>
+<tr>
+<td>Google Edge routers</td>
+<td>Network/Infrastructure</td>
+<td>"...traffic between VMs, C and D, is going through the Google Edge routers..."</td>
+<td>The mention of Google Edge routers suggests that the text is discussing the use of cloud infrastructure services to manage network traffic. This indicates that the authors are familiar with the role of edge computing in cloud environments.</td>
+</tr>
+<tr>
+<td>Region 1</td>
+<td>Location/Geographic Area</td>
+<td>"...The diagram has a region, region 1 with two zones, Zone A, and Zone B..."</td>
+<td>The text provides context for the geographical area being discussed, indicating that the authors are using a regionalized approach to manage network traffic and security. This suggests that the authors are familiar with the concept of regions in cloud computing.</td>
+</tr>
+<tr>
+<td>Zones (Zone A and Zone B)</td>
+<td>Location/Geographic Area</td>
+<td>"...The diagram has a region, region 1 with two zones, Zone A, and Zone B..."</td>
+<td>The text highlights the importance of zones in managing network traffic and security within a regionalized approach. This indicates that the authors are discussing the use of zone-based networking to isolate resources and manage access.</td>
+</tr>
+<tr>
+<td>Subnet IP address range</td>
+<td>Networking/Computer Science</td>
+<td>"...the first address in the subnet is reserved for the router address..."</td>
+<td>The text provides technical details about subnet IP address ranges, indicating that the authors have a strong understanding of computer science concepts related to networking. This suggests that the authors are familiar with the basics of subnetting and IP addressing.</td>
+</tr>
+<tr>
+<td>Firewall rule</td>
+<td>Networking/Security</td>
+<td>"...Essentially, a single firewall rule will apply to both VMs even though they are in different zones..."</td>
+<td>The text highlights the importance of firewall rules in managing network traffic and security within a regionalized approach. This indicates that the authors are discussing the use of firewalls as a security measure in cloud environments.</td>
+</tr>
+<tr>
+<td>Top-down hierarchy</td>
+<td>Networking/Computer Science</td>
+<td>"...Typically in the data centre you might design your IP plan to be divided into sub-networks in the traditional way based on a top-down hierarchy..."</td>
+<td>The text provides technical details about network design and subnetting, indicating that the authors have a strong understanding of computer science concepts related to networking. This suggests that the authors are familiar with the basics of subnetting and IP addressing.</td>
+</tr>
+<tr>
+<td>Cloud IAM (Identity and Access Management)</td>
+<td>Networking/Security</td>
+<td>"...While sub-networks can be used to provide some rudimentary levels of security and manage resources, there are other more flexible ways of doing this such as with Cloud IAM..."</td>
+<td>The text highlights the importance of identity and access management in cloud environments, indicating that the authors are discussing the use of Cloud IAM as a security measure. This suggests that the authors are familiar with the concept of identity and access management in cloud computing.</td>
+</tr>
+<tr>
+<td>Labels/Tags</td>
+<td>Networking/Computer Science</td>
+<td>"...While sub-networks can be used to provide some rudimentary levels of security and manage resources, there are other more flexible ways of doing this such as with Cloud IAM, labels, tags, and managed instance groups..."</td>
+<td>The text provides technical details about labeling and tagging in cloud environments, indicating that the authors have a strong understanding of computer science concepts related to networking. This suggests that the authors are familiar with the basics of labeling and tagging in cloud computing.</td>
+</tr>
+<tr>
+<td>Managed Instance Groups</td>
+<td>Networking/Computer Science</td>
+<td>"...While sub-networks can be used to provide some rudimentary levels of security and manage resources, there are other more flexible ways of doing this such as with Cloud IAM, labels, tags, and managed instance groups..."</td>
+<td>The text highlights the importance of managed instance groups in cloud environments, indicating that the authors are discussing the use of these groups as a security measure. This suggests that the authors are familiar with the concept of managed instance groups in cloud computing.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

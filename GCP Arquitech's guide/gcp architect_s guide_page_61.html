@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_61</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_61_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_61</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_61_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Kubernetes</h1>
+<h2>Introduction</h2>
+<p>Potentially when you use containers a host can scale up or down and start and stop the containers on-demand as demand for your application changes, or if a host fails. But you will need tools to orchestrate and control the provisioning process and that is where Kubernetes comes in.</p>
+<h2>The Role of Kubernetes</h2>
+<p>Kubernetes acts as the orchestrator managing many containers deployed on many hosts and scaling them as microservices.
+Kubernetes also plays an important role in automatic provisioning and deploying rollouts and rollbacks.</p>
+<h2>Why We Need Kubernetes</h2>
+<p>To understand how and why we need Kubernetes as an orchestrator we have to comprehend that deploying and managing containers manually is not really feasible. This is due to fact that there is a lot more too just building and running containers there are the other tasks associated with service discovery, managing updates, monitoring, and provisioning, which are the essential components of an automated, reliable, scalable, distributed system.</p>
+<h2>Benefits of Kubernetes</h2>
+<p>To assist us in automating the management and provisioning of our container base we can use Kubernetes, which is an open source orchestrator that abstracts containers at a higher level so you can better manage and scale your applications. Kubernetes can be thought of as a set of APIs that you can use to deploy and manage containers.</p>
+<h2>Architecture</h2>
+<p>The Kubernetes system is organised as a set of master components that run as a control plane, and a set of nodes that run containers. In Kubernetes, a node represents a computing instance like a virtual machine. Specifically in Google Cloud, Kubernetes nodes are virtual machines running in the Compute Engine.</p>
+<h2>Nodes, Pods and Clusters</h2>
+<p>At a very high level of operations, you describe a set of applications and how they  should interact with each other, and Kubernetes figures how to  make that happen.
+Kubernetes uses the concept of a cluster which is basically a set of containers. Hence once you have built your container, the first thing you will need to do is deploy it into a cluster.</p>
+<h2>Kubernetes Engine (GKE)</h2>
+<p>GKE is hosted Kubernetes by Google. Within GKE clusters can be customized, they can support different machine types, numbers of nodes, and network settings. Kubernetes is also able to launch containers in existing VMs or to provision new VMs and place the containers within them.</p>
+<h3>Pod</h3>
+<p>This is the smallest unit in Kubernetes that you can create or deploy. Logically a pod will represent a running process on your cluster. It can be either a component of your application, or the entire application.</p>
+<h2>Conclusion</h2>
+<p>Kubernetes provides an automated way to manage and scale containerized applications, making it easier to deploy and manage complex systems.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Potentially when you use containers a host can scale up or down and start and stop the containers on-demand as demand for your application changes, or if a host fails. But you will need tools to orchestrate and control the provisioning process and that is where Kubernetes comes in.
+
+The Role of Kubernetes
+Kubernetes acts as the orchestrator managing many containers deployed on many hosts and scaling them as microservices. Kubernetes also plays an important role in automatic provisioning and deploying rollouts and rollbacks.
+
+To understand how and why we need Kubernetes as an orchestrator, we have to comprehend that deploying and managing containers manually is not really feasible. This is due to the fact that there is a lot more to just building and running containers than there are the other tasks associated with service discovery, managing updates, monitoring, and provisioning, which are the essential components of an automated, reliable, scalable, distributed system.
+
+To assist us in automating the management and provisioning of our container base, we can use Kubernetes, which is an open source orchestrator that abstracts containers at a higher level so you can better manage and scale your applications. Kubernetes can be thought of as a set of APIs that you can use to deploy and manage containers.
+
+The Kubernetes system is organised as a set of master components that run as a control plane, and a set of nodes that run containers. In Kubernetes, a node represents a computing instance like a virtual machine. Specifically in Google Cloud, Kubernetes nodes are virtual machines running in the Compute Engine.
+
+At a very high level of operations, you describe a set of applications and how they should interact with each other, and Kubernetes figures out how to make that happen.
+
+Nodes, Pods and Clusters
+Kubernetes uses the concept of a cluster which is basically a set of containers. Hence once you have built your container, the first thing you will need to do is deploy it into a cluster. However, Kubernetes clusters can be configured with many options and add-ons, which can be complex and time consuming.
+
+Instead, you can use the Kubernetes Engine, or GKE, which is hosted Kubernetes by Google. Within GKE clusters can be customized, they can support different machine types, numbers of nodes, and network settings. Kubernetes is also able to launch containers in existing VMs or to provision new VMs and place the containers within them.
+
+Kubernetes goes well beyond simply booting containers as it also provides the tools to monitor and manage them. With Kubernetes, administrators can create Pods; these are logical groups of similar or tightly coupled containers that are related to an application. Pods are duly provisioned within the Compute Engine VMs.
+
+When using Kubernetes Engine, it will deploy containers on Compute Engine VMs using a wrapper around one or more related containers called a pod. This is the smallest unit in Kubernetes that you can create or deploy. Logically a pod will represent a running process on your cluster. It can be either a component of your application, or the entire application.
+
+Kubernetes can scale up or down and start and stop containers on-demand as demand for your application changes, or if a host fails. But you will need tools to orchestrate and control the provisioning process and that is where Kubernetes comes in.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding Kubernetes: An Orchestrator for Containerized Applications</h3>
+<p>Kubernetes acts as an orchestrator managing multiple containers deployed on various hosts and scaling them as microservices. This open-source system abstracts containers at a higher level, enabling better management and scaling of applications.</p>
+<h3>The Need for Automation in Container Management</h3>
+<p>Deploying and managing containers manually is not feasible due to the numerous tasks associated with service discovery, updates, monitoring, and provisioning. These components are essential for an automated, reliable, scalable, and distributed system.</p>
+<h3>Kubernetes as a Solution</h3>
+<p>Kubernetes can be thought of as a set of APIs that deploy and manage containers. The system consists of master components running as a control plane and nodes running containers. In Google Cloud, these nodes represent virtual machines running in the Compute Engine.</p>
+<h3>Key Concepts: Nodes, Pods, and Clusters</h3>
+<ul>
+<li><strong>Cluster</strong>: A cluster is essentially a set of containers.</li>
+<li><strong>Pods</strong>: Logical groups of similar or tightly coupled containers related to an application. Pods are provisioned within Compute Engine VMs.</li>
+<li><strong>Kubernetes Engine (GKE)</strong>: Hosted Kubernetes by Google, allowing for customization and support for different machine types, nodes, and network settings.</li>
+</ul>
+<h3>Benefits of Using Kubernetes</h3>
+<ul>
+<li>Automates the management and provisioning of containerized applications</li>
+<li>Abstracts containers at a higher level for better management and scaling</li>
+<li>Provides tools for monitoring and managing containers</li>
+<li>Supports automatic provisioning and deploying rollouts and rollbacks</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Container Management</strong></h3>
+<p>This topic revolves around the challenges and limitations of manually managing containers, including service discovery, updates, monitoring, and provisioning.</p>
+<h3>Topic 2: <strong>Kubernetes as an Orchestrator</strong></h3>
+<p>This topic highlights the role of Kubernetes in automating the management and provisioning of container-based systems, abstracting containers at a higher level for better application management and scaling.</p>
+<h3>Topic 3: <strong>Cluster Configuration and Customization</strong></h3>
+<p>This topic discusses the complexity of configuring and customizing Kubernetes clusters with various options and add-ons, and how tools like Kubernetes Engine (GKE) can simplify this process.</p>
+<h3>Topic 4: <strong>Pods and Logical Grouping</strong></h3>
+<p>This topic explains the concept of Pods in Kubernetes, which are logical groups of similar or tightly coupled containers related to an application, provisioned within Compute Engine VMs for efficient management.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What problem does deploying and managing containers manually pose for an automated, reliable, scalable, distributed system?
+Answer: The manual deployment and management of containers involves tasks such as service discovery, updating, monitoring, and provisioning, which are essential components of a distributed system.</p>
+</li>
+<li>
+<p>How does Kubernetes abstract containers at a higher level to better manage and scale applications?
+Answer: Kubernetes provides APIs that can be used to deploy and manage containers, allowing for better management and scaling of applications.</p>
+</li>
+<li>
+<p>What is the role of nodes in Kubernetes?
+Answer: In Kubernetes, a node represents a computing instance like a virtual machine, specifically in Google Cloud, it refers to virtual machines running in the Compute Engine.</p>
+</li>
+<li>
+<p>What is the smallest unit in Kubernetes that can be created or deployed?
+Answer: A pod is the smallest unit in Kubernetes that can be created or deployed, representing a logical group of similar or tightly coupled containers related to an application.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does Kubernetes address the complexity of configuring and managing clusters with many options and add-ons?
+Answer: Instead of dealing with complex configurations, Kubernetes Engine (GKE) provides a hosted solution that can customize clusters, support different machine types, numbers of nodes, and network settings.</p>
+</li>
+<li>
+<p>What is the significance of monitoring and managing containers in Kubernetes?
+Answer: Monitoring and managing containers are essential tools provided by Kubernetes to ensure the reliability and scalability of distributed systems.</p>
+</li>
+<li>
+<p>How does Kubernetes handle automatic provisioning and deploying rollouts and rollbacks?
+Answer: Kubernetes plays an important role in automatic provisioning and deploying rollouts and rollbacks, ensuring that applications can be scaled and updated efficiently.</p>
+</li>
+<li>
+<p>What is the relationship between pods and Compute Engine VMs in Kubernetes?
+Answer: Pods are provisioned within Compute Engine VMs, using a wrapper around one or more related containers called a pod, which represents a running process on the cluster.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>How would you use Kubernetes to manage and scale an application with multiple microservices?
+Answer: You would describe the set of applications and how they should interact with each other, and then use Kubernetes to figure out how to make that happen, by deploying containers into a cluster and scaling them as needed.</p>
+</li>
+<li>
+<p>What benefits does using Kubernetes Engine (GKE) provide over manual configuration and management of clusters?
+Answer: GKE provides a hosted solution that can customize clusters, support different machine types, numbers of nodes, and network settings, making it easier to manage and scale applications.</p>
+</li>
+<li>
+<p>How would you use Kubernetes to monitor and manage containers in a distributed system?
+Answer: You would create pods, which are logical groups of similar or tightly coupled containers related to an application, and then use the tools provided by Kubernetes to monitor and manage them.</p>
+</li>
+<li>
+<p>What is the importance of using Kubernetes in an automated, reliable, scalable, distributed system?
+Answer: Using Kubernetes provides a way to automate the management and provisioning of container-based systems, ensuring reliability, scalability, and efficiency in distributed systems.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>containers</td>
+<td>Concept</td>
+<td>"Potentially when you use containers a host can scale up or down and start and stop the containers on-demand as demand for your application changes, or if a host fails."</td>
+<td>Containers refer to self-contained packages of software that can be run independently. They are used to package applications and their dependencies into a single unit, making it easier to deploy and manage them.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Software</td>
+<td>"Kubernetes acts as the orchestrator managing many containers deployed on many hosts and scaling them as microservices."</td>
+<td>Kubernetes is an open-source container orchestration system for automating the deployment, scaling, and management of containers. It abstracts containers at a higher level, making it easier to manage and scale applications.</td>
+</tr>
+<tr>
+<td>cluster</td>
+<td>Concept</td>
+<td>"Kubernetes uses the concept of a cluster which is basically a set of containers."</td>
+<td>A cluster refers to a group of computers or nodes that work together as a single system. In Kubernetes, clusters are used to deploy and manage containers.</td>
+</tr>
+<tr>
+<td>pods</td>
+<td>Concept</td>
+<td>"With Kubernetes, administrators can create Pods; these are logical groups of similar or tightly coupled containers that are related to an application."</td>
+<td>Pods refer to the smallest unit in Kubernetes that you can create or deploy. They represent a running process on your cluster and can be either a component of your application or the entire application.</td>
+</tr>
+<tr>
+<td>nodes</td>
+<td>Concept</td>
+<td>"In Kubernetes, a node represents a computing instance like a virtual machine."</td>
+<td>Nodes refer to individual computers or machines that make up a cluster in Kubernetes. Each node runs containers and is managed by the Kubernetes system.</td>
+</tr>
+<tr>
+<td>master components</td>
+<td>Software</td>
+<td>"The Kubernetes system is organised as a set of master components that run as a control plane, and a set of nodes that run containers."</td>
+<td>Master components refer to the central component of the Kubernetes system that manages the cluster and makes decisions about container deployment and scaling.</td>
+</tr>
+<tr>
+<td>APIs</td>
+<td>Concept</td>
+<td>"Kubernetes can be thought of as a set of APIs that you can use to deploy and manage containers."</td>
+<td>APIs (Application Programming Interfaces) refer to the interfaces between different software systems. In Kubernetes, APIs are used to interact with the system and deploy and manage containers.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Software</td>
+<td>"Specifically in Google Cloud, Kubernetes nodes are virtual machines running in the Compute Engine."</td>
+<td>Compute Engine is a cloud computing platform provided by Google that allows users to create and manage virtual machines (VMs) for their applications. In Kubernetes, Compute Engine VMs are used as nodes to run containers.</td>
+</tr>
+<tr>
+<td>GKE</td>
+<td>Software</td>
+<td>"GKE is hosted Kubernetes by Google."</td>
+<td>GKE (Google Kubernetes Engine) is a managed platform that provides a fully-managed Kubernetes environment for users. It allows users to deploy and manage containers without worrying about the underlying infrastructure.</td>
+</tr>
+<tr>
+<td>rollouts</td>
+<td>Concept</td>
+<td>"Kubernetes also plays an important role in automatic provisioning and deploying rollouts and rollbacks."</td>
+<td>Rollouts refer to the process of deploying new versions of an application or service. In Kubernetes, rollouts are used to automate the deployment of new versions and ensure that the system remains stable during the rollout process.</td>
+</tr>
+<tr>
+<td>add-ons</td>
+<td>Concept</td>
+<td>"However, Kubernetes clusters can be configured with many options and add-ons, which can be complex and time consuming."</td>
+<td>Add-ons refer to optional features or services that can be added to a Kubernetes cluster to enhance its functionality. They can include things like monitoring tools, logging services, or security plugins.</td>
+</tr>
+<tr>
+<td>master components</td>
+<td>Software</td>
+<td>"The Kubernetes system is organised as a set of master components that run as a control plane, and a set of nodes that run containers."</td>
+<td>Master components refer to the central component of the Kubernetes system that manages the cluster and makes decisions about container deployment and scaling. They are responsible for maintaining the health and stability of the cluster.</td>
+</tr>
+<tr>
+<td>APIs</td>
+<td>Concept</td>
+<td>"Kubernetes can be thought of as a set of APIs that you can use to deploy and manage containers."</td>
+<td>APIs (Application Programming Interfaces) refer to the interfaces between different software systems. In Kubernetes, APIs are used to interact with the system and deploy and manage containers.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

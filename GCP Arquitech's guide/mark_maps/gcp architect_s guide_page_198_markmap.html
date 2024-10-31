@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_198</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Kubernetes Engine
+        ## Overview
+        - Integration with other Google services is a big advantage of Kubernetes Engine, for example it can integrate with identity access easier to manage container clusters because it throws in all of those management. Indeed, Google Kubernetes Engine can make it much additional GCP services that aren't natively part of Kubernetes.
+        
+        ## Kubernetes at Work
+        - At its core, Kubernetes is about organising and managing containers, so it creates what are called a container cluster. The cluster consists of physical hardware resources so in GCP the cluster is going to be made up off Compute Engine's virtual machines.
+        - Kubernetes engine automates the setup and deployment of the entire Kubernetes cluster. You can choose between a standard minimum cluster, which is going to have exactly one master to start with and your choice of the number of cluster nodes. Or there is a high availability cluster for production environments that supports multi-master configurations.
+        
+        ### Cluster Components
+        - Regardless, that master is going to be the orchestrator as it will be conducting the API access to communicate with the individual nodes. Each of these individual nodes is going to be running a docker runtime. In addition there will be a kubelet agent running, which is there to handle the managing and scheduling.
+        - The Kubernetes cluster will also include a network proxy so that they can communicate internally with each other and with other containers inside of the virtual machines.
+        
+        ## Kubernetes Master
+        - The Kubernetes master is the cloud endpoint fronting the Kubernetes cluster and it runs the Kubernetes API server and it handles all of the scheduling.
+        - The master is responsible for managing the cluster so it runs the health checks to ensure everything is running correctly and it provides all the cloud service integration that you need. In your own on-premises Kubernetes environment you will set up your own Kubernetes master and all the individual nodes and be responsible for their administration and management. But in the GCP, the Kubernetes Engine is a fully managed service so it is going to be running this master node on a VM for you. Google takes over the management node for you, integrates that with Stackdriver , IAM, and other automated processes. Indeed you do not see the master VM let alone get to manage it.
+        
+        ## Container Organization
+        - Containers are organized inside of what we call a pod, which is similar to a target group in load balancers. In Kubernetes, you create a pod where you can bundle multiple containers together that might be tightly coupled.
+        - However in Kubernetes engine it is recommend that you only run one container per pod. The reason for this difference between Kubernetes and Kubernetes engine is that the latter is not distributing containers it is distributing pods across multiple physical nodes.
+        
+        ### Pod Components
+        - A pod acts like a target group as it exposes these container applications through a single public IP address. Containers in the pod share a single internal IP address and a single namespace so they can communicate with the other nodes in the cluster.
+        - A pod also gives containers access to centralized storage. This is useful if there is information that needs to be shared such as SSL certificate keys.
+
+      </script>
+    </div>
+  </body>
+</html>

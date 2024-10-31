@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_11</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud-Native Architecture
+        ## Principles of Good Architectural Design
+        ### Similarities with Traditional Infrastructure
+        - What we actually will find 
+        - is that the cloud is not much different
+        - is made of the 
+        - same fabric of servers, disks and networks that makes up 
+        - traditional infrastructure. This means that almost all 
+        - of
+        - the principles of good 
+        - architectural design still apply for cloud-
+        - native architecture.
+        
+        ## Non-Functional Aspects
+        - While many of the functional aspects remain the same regardless a to on-premises or cloud  the latter is often more challenging  when it comes to the non- functional aspects. These do often result in design constraints. Indeed,  some of the fundamental  assumptions about  how the infrastructure fabric performs do change when you're in the cloud.
+        
+        ### Speed and Flexibility
+        - The differences are in speed and flexibility. For instance, provisioning a replacement server can take weeks  in traditional environments, even in VM environments it still takes a day, whereas in the cloud, it takes seconds. Hence in the cloud it's much easier to provision a full application stack with fully automated scaling and fail-over scenarios than on-premises.
+        
+        ## Requirements for Cloud-Native Architecture
+        - However in order to take advantage of these properties it is a requirement that the cloud provider has many application and vendor partners. To this end Google Cloud Platform support a very large partner network, which allows you to provision both proprietary and open source solutions with a single click via the Cloud Launcher service.
+        
+        ## Key Characteristics of Cloud-Native Architecture
+        - Google's SDN network facilitates a cloud-native design, which also tends to focus on key metrics such as resilience, horizontal scaling, distributed processing, and automation. So we need to take these characteristics into account when you are evaluating other cloud- native architectures that are not based on Google's own SDN cloud
+        - network.
+        
+        ## Google Cloud Platform Architecture
+        - The Google Cloud Platform is organized as a software defined network, now that might sound confusing but it's not really and we will consider the architecture later in some detail. But for now all you need to know is that Google's global network is defined by segments and its smallest entity is a Zone, which can be defined as a deployment area for Google Cloud Platform Resources.
+        
+        ### Zones
+        - It could be simplified to mean a data centre but that is not always the case as a zone could have several points of presence within a local zone. However a zone works as one large switch operating within a common subnet so entities within a zone communicate at layer-2 or the Ethernet data layer - which we will cover later - but it means latency is minimal and configuration negligible.
+        
+        ### Selecting Local Zones
+        - When you launch a virtual machine for example, in a GCP zone using Compute Engine, you will be prompted to select a local zone. This is the local area where you wish the application or service to run. Hence you would select the closest zone to where you want the application or service to run. This will ensure that the associated compute, storage and network resources are local and close to the area they serve to deliver low latency and high performance.
+        
+        ### Redundancy and Business Continuity
+        - However zones, as we have seen, can be large geographical areas that contain several data centres which are many kilometres apart and this allows for a measure of redundancy and business continuity planning. For instance you could mirror your infrastructure across two zones perhaps 100 km apart to give you a measure of mitigation for disaster recovery or business continuity should one zone's data centre suffer a natural catastrophe.
+
+      </script>
+    </div>
+  </body>
+</html>

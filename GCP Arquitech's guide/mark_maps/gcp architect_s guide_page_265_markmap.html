@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_265</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        - 1. Detach the VM.
+        
+        - 2. Test the application to verify that it functions accurately post-migration.
+        
+        # Migrate for Compute Engine
+        ## Features
+        - As an agentless service, there is no impact to the workload.
+        - No need to have source instances running to migrate them to GCP.
+        - Access to the application remains unchanged or reconfigured.
+        - Extensive pre-migration checklists and testing ensure validated instances before moving to GCP.
+        
+        ## Benefits
+        - Rapid migration of single applications saving hours of time and labor.
+        - Scaling to 100s of apps using several migration waves, with stateful workloads running in cloud within minutes rather than days.
+        - Apps are live up to 100x faster, and migrations complete up to 10x quicker compared to traditional strategies.
+        
+        ## How MCE Works
+        - 1. Validate and perform in-cloud testing on clones to ensure live applications are unaffected.
+        - 2. Build pre-planned migration waves containing an application and its dependencies.
+        - 3. Deploy workloads to GCP.
+        - 4. Background data synchronisation and transfer to GCP, resulting in near zero downtime.
+        - 5. Detach and verify, with the option to roll back with no loss of data or project time.
+        
+        ## Right-Sizing Analytical Tool
+        - MCE provides a tool to assist in provisioning and deploying optimal cloud instances for cost and performance.
+        
+        # Manually Migrating Databases
+        - 1. Detach the VM.
+        - 2. Test the application to verify that it functions accurately post-migration.
+
+      </script>
+    </div>
+  </body>
+</html>

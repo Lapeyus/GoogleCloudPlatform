@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_75</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_75_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_75</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_75_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Cloud Source Repositories</h1>
+<h2>Overview</h2>
+<p>That's what Cloud Source repositories is all about. When you use the Cloud Source Repository the managed service provides Git version control to support your development of any application or service that are running on App Engine, but it can also be used on Compute Engine and Kubernetes Engine.</p>
+<h2>Benefits</h2>
+<p>In addition, Cloud Source Repositories, lets you handle any number of private Git repositories, which allows you the freedom to organize and manage your code as you see fit. Further, the Cloud Source Repository also contains a source viewer so that you can browse and view repository files from within the GCP console.</p>
+<h3>Setting Up Environment</h3>
+<p>Initially setting up your environment in GCP can entail many steps, such as configuring the compute network and storage resources, as well as keeping track of their configurations.
+This is considered an imperative method as you issue direct commands. You can do it all by hand if you want to but if you want to clone your environment, you have to replicate all those commands again.</p>
+<h3>Declarative Approach</h3>
+<p>A better way is to take a declarative approach and proactively work out the commands you need to set up your environment and then make a template as this is more efficient.
+This is good if you already have a strong idea of how you wish the environment to be and later should you want to change your environment, you can readily reconfigure it. However this does mean you have an idea of what the environment should look like but not necessarily know how you want the environment to be configured so it's declarative rather than imperative.</p>
+<h2>Deployment Manager</h2>
+<p>GCP provides Deployment Manager to let you do just that.
+Deployment manager is an Infrastructure Management Service that automates the creation and management of your Google Cloud Platform resources for you based upon a template.</p>
+<h3>Creating Templates</h3>
+<p>To use deployment manager, you will create a template file using either the YAML markup language or Python that will describe what you want the components of your environment to look like. You don't need to imperatively state the commands just what you want it to finally represent.</p>
+<h2>Stackdriver</h2>
+<p>There is little doubt that in order to run an application reliably and with any stability you need to have robust monitoring.
+Managing is only possible with diligent monitoring of the application as it passes you the information about how the system is working and handling demand and traffic fluctuations and provides early warnings as to potential flaws. It also indicates where potential changes may be required to mitigate issues and then subsequently whether the changes you made are working or not.</p>
+<h3>Importance of Monitoring</h3>
+<p>Monitoring of an application also lets you respond to issues through informed decisions rather than with guesswork or in blind panic mode.
+166</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_75_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>That's what Cloud Source repositories is all about. When you use the Cloud Source Repository, the managed service provides Git version control to support your development of any application or service that are running on App Engine, but it can also be used on Compute Engine and Kubernetes Engine.
+
+In addition, Cloud Source Repositories lets you handle any number of private Git repositories, which allows you the freedom to organize and manage your code as you see fit. Further, the Cloud Source Repository also contains a source viewer so that you can browse and view repository files from within the GCP console.
+
+Initially setting up your environment in GCP can entail many steps, such as configuring the compute network and storage resources, as well as keeping track of their configurations. This is considered an imperative method as you issue direct commands. You can do it all by hand if you want to, but if you want to clone your environment, you have to replicate all those commands again.
+
+A better way is to take a declarative approach and proactively work out the commands you need to set up your environment and then make a template as this is more efficient. This is good if you already have a strong idea of how you wish the environment to be and later should you want to change your environment, you can readily reconfigure it.
+
+However, this does mean you have an idea of what the environment should look like but not necessarily know how you want the environment to be configured so it's declarative rather than imperative. GCP provides Deployment Manager to let you do just that.
+
+Deployment Manager is an Infrastructure Management Service that automates the creation and management of your Google Cloud Platform resources for you based upon a template. To use deployment manager, you will create a template file using either the YAML markup language or Python that will describe what you want the components of your environment to look like.
+
+You don't need to imperatively state the commands just what you want it to finally represent. Then, you give the template to Deployment Manager which figures out how it can achieve your design and then does the actions needed to create the environment your template describes.
+
+If you need to change your environment, edit your template and then tell Deployment Manager to update the environment to match the change. Here's a tip, you can also store and version control your Deployment Manager templates in Cloud Source Repositories.
+
+Stackdriver is essential for running an application reliably and with any stability. You need robust monitoring to manage your application as it passes you information about how the system is working and handling demand and traffic fluctuations.
+
+Monitoring of an application provides early warnings as to potential flaws, indicates where potential changes may be required to mitigate issues, and subsequently whether the changes you made are working or not. Monitoring also lets you respond to issues through informed decisions rather than with guesswork or in blind panic mode.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Cloud Source Repositories, Deployment Manager, and Stackdriver</h3>
+<p>Cloud Source Repositories is a managed service that provides Git version control for development on App Engine, Compute Engine, and Kubernetes Engine. It allows handling multiple private Git repositories, enabling flexible code organization and management.</p>
+<h3>Setting Up Environment in GCP</h3>
+<p>Initially setting up an environment in GCP can be time-consuming, involving direct commands to configure compute networks, storage resources, and their configurations. However, a declarative approach using templates is more efficient. Deployment Manager automates the creation and management of Google Cloud Platform resources based on a template.</p>
+<h3>Deployment Manager</h3>
+<p>Deployment Manager uses YAML or Python markup language to describe the desired environment components. It figures out how to achieve the design and performs the necessary actions to create the environment. Templates can be stored and version-controlled in Cloud Source Repositories.</p>
+<h3>Stackdriver Monitoring</h3>
+<p>Robust monitoring is crucial for running applications reliably and stably. Stackdriver provides diligent monitoring, passing information about system performance, handling demand fluctuations, and providing early warnings for potential flaws. It enables informed decision-making to respond to issues, rather than relying on guesswork or panic mode.</p>
+<h3>Key Takeaways</h3>
+<ul>
+<li>Cloud Source Repositories provides Git version control for development in GCP.</li>
+<li>Deployment Manager automates environment creation and management using templates.</li>
+<li>Stackdriver monitoring is essential for reliable application operation.</li>
+<li>Templates can be stored and version-controlled in Cloud Source Repositories.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cloud Source Repositories</h3>
+<p>Cloud Source Repositories provide Git version control for development, allowing organization and management of code as desired.</p>
+<h3>Topic 2: Deployment Manager</h3>
+<p>Deployment Manager automates creation and management of Google Cloud Platform resources based on a template, eliminating the need to state commands imperatively.</p>
+<h3>Topic 3: Stackdriver Monitoring</h3>
+<p>Robust monitoring is crucial for running applications reliably and stably, providing early warnings for potential flaws and enabling informed decision-making.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is Cloud Source Repository, and what services can it be used on?
+Answer: Cloud Source Repository is a managed service that provides Git version control for development of applications running on App Engine, Compute Engine, and Kubernetes Engine.</p>
+</li>
+<li>
+<p>What are the benefits of using Cloud Source Repositories?
+Answer: It allows users to handle any number of private Git repositories, organize and manage code as they see fit, and contains a source viewer for browsing repository files within the GCP console.</p>
+</li>
+<li>
+<p>What is an imperative method in setting up an environment in GCP?
+Answer: An imperative method involves issuing direct commands to configure resources, which can be time-consuming and prone to errors.</p>
+</li>
+<li>
+<p>What is a declarative approach to setting up an environment in GCP?
+Answer: A declarative approach involves proactively working out the commands needed to set up the environment and creating a template for efficient setup and reconfiguration.</p>
+</li>
+<li>
+<p>What is Deployment Manager, and how does it work?
+Answer: Deployment Manager is an Infrastructure Management Service that automates creation and management of Google Cloud Platform resources based on a template created in YAML or Python markup language.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the declarative approach to setting up an environment in GCP compare to the imperative method? Provide examples.
+Answer: The declarative approach allows users to focus on what they want their environment to look like, rather than how to achieve it, making it more efficient and flexible.</p>
+</li>
+<li>
+<p>What are the benefits of storing Deployment Manager templates in Cloud Source Repositories?
+Answer: It provides version control and organization of templates, making it easier to manage and update environments.</p>
+</li>
+<li>
+<p>How does Stackdriver contribute to reliable application operation?
+Answer: Stackdriver provides robust monitoring that passes information about system performance, handling demand and traffic fluctuations, and provides early warnings for potential flaws.</p>
+</li>
+<li>
+<p>What is the difference between blind panic mode and informed decision-making in responding to issues?
+Answer: Blind panic mode involves reacting impulsively without data, while informed decision-making involves using monitoring data to make informed decisions about addressing issues.</p>
+</li>
+<li>
+<p>How does Deployment Manager's use of templates improve the setup process for environments in GCP?
+Answer: Templates allow users to focus on what they want their environment to look like, rather than how to achieve it, making the setup process more efficient and flexible.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Source Repositories</td>
+<td>Service/Platform</td>
+<td>"That's what Cloud Source repositories is all about."</td>
+<td>Cloud Source Repositories is a managed service that provides Git version control for development of applications on App Engine, Compute Engine, and Kubernetes Engine. It allows handling private Git repositories and contains a source viewer for browsing repository files within the GCP console.</td>
+</tr>
+<tr>
+<td>Deployment Manager</td>
+<td>Service/Platform</td>
+<td>"GCP provides Deployment Manager to let you do just that."</td>
+<td>Deployment Manager is an Infrastructure Management Service that automates creation and management of Google Cloud Platform resources based on a template. It allows users to describe their desired environment without imperatively stating commands, making it a declarative approach.</td>
+</tr>
+<tr>
+<td>YAML markup language</td>
+<td>Programming Language/Format</td>
+<td>"To use deployment manager, you will create a template file using either the YAML markup language..."</td>
+<td>YAML (YAML Ain't Markup Language) is a human-readable serialization format that can be used to describe data structures and configurations in a structured way. It's often used for configuration files and templates.</td>
+</tr>
+<tr>
+<td>Python</td>
+<td>Programming Language/Format</td>
+<td>"To use deployment manager, you will create a template file using either the YAML markup language or Python..."</td>
+<td>Python is a high-level programming language known for its simplicity and readability. It's often used for scripting and automation tasks due to its extensive libraries and frameworks.</td>
+</tr>
+<tr>
+<td>Cloud Source Repositories (private)</td>
+<td>Service/Platform</td>
+<td>"...lets you handle any number of private Git repositories, which allows you the freedom to organize and manage your code as you see fit."</td>
+<td>Private Git repositories are a way to store sensitive or confidential code in a secure manner. Cloud Source Repositories provides this feature, allowing users to manage their own private repositories for their projects.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Service/Platform</td>
+<td>"...as well as keeping track of their configurations."</td>
+<td>Compute Engine is a service offered by Google Cloud Platform that allows users to create and manage virtual machines (VMs) in the cloud. It's often used for web applications, data processing, and other compute-intensive tasks.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Service/Platform</td>
+<td>"...but it can also be used on Compute Engine and Kubernetes Engine."</td>
+<td>Kubernetes Engine is a managed container orchestration service offered by Google Cloud Platform. It allows users to deploy, manage, and scale containerized applications in the cloud.</td>
+</tr>
+<tr>
+<td>Stackdriver</td>
+<td>Service/Platform</td>
+<td>"There is little doubt that in order to run an application reliably and with any stability you need to have robust monitoring."</td>
+<td>Stackdriver is a monitoring and logging service offered by Google Cloud Platform. It provides real-time insights into application performance, allowing users to identify issues and optimize their applications for better reliability and stability.</td>
+</tr>
+<tr>
+<td>GCP console</td>
+<td>Interface/Platform</td>
+<td>"...so that you can browse and view repository files from within the GCP console."</td>
+<td>The GCP console is a web-based interface provided by Google Cloud Platform for managing and interacting with its services. It allows users to access various features, such as monitoring, logging, and configuration management, in a centralized manner.</td>
+</tr>
+<tr>
+<td>Imperative method</td>
+<td>Method/Approach</td>
+<td>"...This is considered an imperative method..."</td>
+<td>An imperative method involves issuing direct commands or instructions to achieve a goal. In the context of setting up environments, this approach requires users to explicitly state what they want to happen, rather than describing it in a more abstract way.</td>
+</tr>
+<tr>
+<td>Declarative method</td>
+<td>Method/Approach</td>
+<td>"...it's declarative rather than imperative."</td>
+<td>A declarative method involves describing what you want to achieve, without specifying how to do it. In the context of setting up environments, this approach allows users to focus on defining their desired state, rather than worrying about the details of implementation.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

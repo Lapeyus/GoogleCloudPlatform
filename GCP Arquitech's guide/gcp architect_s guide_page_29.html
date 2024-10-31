@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_29</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_29_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_29</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Service Accounts in Google Cloud</h1>
+<h2>Introduction</h2>
+<p>Service accounts are a crucial component of Google Cloud Security. They provide a way to authenticate and authorize access to resources across multiple projects.</p>
+<h3>Creating a Service Account</h3>
+<p>A service account is created with an identity that corresponds to an email address. This email address serves as the username for the service account.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>Create a Service Account</h1>
+<ul>
+<li><strong>Email Address</strong>: <code>example-service-account@project-id.iam.gserviceaccount.com</code>
+```</li>
+</ul>
+<h2>Roles and Permissions</h2>
+<p>Service accounts can be granted various roles, which determine their level of access to resources. The most common role is the InstanceAdmin Role.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>Granting Roles</h1>
+<ul>
+<li><strong>InstanceAdmin Role</strong>: Allows the service account to create, modify, and delete instances.
+  <code>bash
+  gcloud iam roles add member --member user:serviceAccount@example-service-account@project-id.iam.gserviceaccount.com --role roles/instanceadmin</code>
+```</li>
+</ul>
+<h2>Managing Service Accounts</h2>
+<p>Service accounts can be managed using IAM policies. These policies determine what actions the service account can perform.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>Managing Service Accounts with IAM Policies</h1>
+<ul>
+<li><strong>Editor Role</strong>: Allows the service account to edit resources.
+  <code>bash
+  gcloud iam policies create editor-policy --policy='{"effects": "ALLOW", "resources": ["*"]}' --member user:serviceAccount@example-service-account@project-id.iam.gserviceaccount.com</code>
+```</li>
+</ul>
+<h2>Blended Security</h2>
+<p>Blended security is achieved by combining resource management, organisational policy, and IAM rules.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>Blended Security</h1>
+<ul>
+<li><strong>Resource Management</strong>: Configure resource access controls.</li>
+<li><strong>Organisational Policy</strong>: Establish organisational policies for resource access.</li>
+<li><strong>IAM Rules</strong>: Define fine-grained policies for resource access.
+  <code>bash
+  gcloud iam policies create blended-security-policy --policy='{"effects": "ALLOW", "resources": ["*"]}' --member user:serviceAccount@example-service-account@project-id.iam.gserviceaccount.com</code>
+```</li>
+</ul>
+<h2>Conclusion</h2>
+<p>Service accounts play a vital role in Google Cloud Security. By understanding how to create, manage, and use service accounts, you can implement effective security measures across your projects.</p>
+<h3>References</h3>
+<ul>
+<li><a href="https://cloud.google.com/iam/docs/service-accounts">Google Cloud Service Accounts</a></li>
+<li><a href="https://cloud.google.com/iam/docs/roles">Google Cloud IAM Roles</a></li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>For instance, you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained policies that deliver the security principles of separation, maintainability and simplicity.
+
+Blended Security is a key concept in Google Cloud Security, where you may have an application running in a virtual machine, such as a web server, that needs to communicate with another VM, which runs the business logic for the application. This VM in turn needs to store data in Google Cloud Storage, but you have to lock down the access so that only that virtual machine can directly access the data.
+
+In this scenario, you would create a service account to authenticate your VM webserver to the VM application and then only the VM application to the cloud storage. The way that Service accounts work is that they are set up with an identity that corresponds to an email address. That is pretty straightforward but the authentication is less so as a VM cannot enter a password.
+
+Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources. A simple example is if you consider that you have created a service account, which you have granted the InstanceAdmin Role. By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances.
+
+But the interesting thing about Service accounts are they are more than just identities as they are also resources so they can have their own IAM policies attached to it. This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them.
+
+Thus, you can give Alice an editor role in a service account and Bob can have the viewer role. This is just like granting roles for any other GCP resource. However another thing to be aware of is that you can grant different groups of VMs in your project with different identities by creating different service accounts for each distinct group of VMs.
+
+Another convenience is that you can also change the permissions of the service accounts without having to recreate the member VMs. If we consider a more complex example we can see this principle in action. So let us say that we have a very common design whereby we have an application that's implemented across a group of Compute Engine virtual machines.
+
+However the design criteria demands that one component of your application needs to have an editor role on another project, but the other components must not have access. In this case it is possible to manage both design criteria by creating two different service accounts, one for each subgroup of virtual machines.
+
+Only the first service account will be granted privilege on the other project and this reduces the potential impact of a miscoded application or a compromised virtual machine affecting the other project.
+
+Blended Security
+In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules. It is by combining strategically the policy, rules and privileges at those different tactical levels that we can obtain the fine grained
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Service Accounts in Google Cloud</strong></h1>
+<p>Service accounts are a crucial component of Google Cloud's Identity and Access Management (IAM) system. They allow you to authenticate your virtual machines (VMs) to access resources in the cloud.</p>
+<h2><strong>Creating Service Accounts</strong></h2>
+<p>A service account is set up with an identity that corresponds to an email address. This identity is used for authentication, but since VMs cannot enter passwords, cryptographic keys are used instead.</p>
+<h2><strong>Granting Roles and Permissions</strong></h2>
+<p>Service accounts can be granted roles and permissions, such as the InstanceAdmin Role, which allows them to create, modify, and delete instances. However, service accounts are more than just identities; they are also resources that can have their own IAM policies attached to them.</p>
+<h2><strong>Managing Service Accounts</strong></h2>
+<p>Service accounts need to be managed, and this is where roles come in. You can give different roles to different users or groups, such as editor or viewer roles. This allows you to manage access to your service accounts.</p>
+<h2><strong>Blended Security</strong></h2>
+<p>Security in Google Cloud is applied through the blending of resource management, organisational policy, and IAM rules. By combining these tactical levels, you can obtain fine-grained policies that deliver the security principles of separation, maintainability, and simplicity.</p>
+<h2><strong>Example Use Case</strong></h2>
+<p>Consider an application implemented across a group of Compute Engine virtual machines. The design criteria demands that one component has an editor role on another project, but other components must not have access. In this case, creating two different service accounts, one for each subgroup of virtual machines, can help manage both design criteria.</p>
+<p>By using service accounts and IAM roles, you can reduce the potential impact of a miscoded application or compromised virtual machine affecting other projects. This is just one example of how blended security can be applied in practice.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p><strong>Virtual Machine Isolation</strong>
+The text highlights the importance of isolating virtual machines from each other to prevent unauthorized access. This is achieved through the use of service accounts, which provide a secure way for VMs to authenticate with each other and access resources.</p>
+<h3>Topic 2</h3>
+<p><strong>Service Account Management</strong>
+Service accounts are not just identities but also resources that can have their own IAM policies attached to them. This allows for fine-grained control over who can manage and view service accounts, making it easier to manage complex security scenarios.</p>
+<h3>Topic 3</h3>
+<p><strong>Group-Based Security</strong>
+The text demonstrates how different groups of VMs can be assigned different identities by creating separate service accounts for each group. This enables organizations to implement specific design criteria while minimizing the impact of a compromised virtual machine on other projects.</p>
+<h3>Topic 4</h3>
+<p><strong>Blended Security Approach</strong>
+The blended security approach combines resource management, organisational policy, and IAM rules to achieve fine-grained policies that deliver separation, maintainability, and simplicity. This approach is essential for implementing robust security principles in complex cloud-based systems.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary purpose of creating a service account in Google Cloud Platform (GCP)?
+Answer: To authenticate a virtual machine (VM) to access resources in GCP.</p>
+</li>
+<li>
+<p>Why are hard-coded passwords not used with service accounts?
+Answer: Because VMs cannot enter passwords, and using cryptographic keys provides an alternative authentication method.</p>
+</li>
+<li>
+<p>What is the difference between granting roles to a service account and granting roles to other GCP resources?
+Answer: Service accounts can have their own IAM policies attached to them, making them more than just identities.</p>
+</li>
+<li>
+<p>How can different groups of VMs in a project be granted different identities using service accounts?
+Answer: By creating different service accounts for each distinct group of VMs.</p>
+</li>
+<li>
+<p>What is the benefit of changing the permissions of a service account without recreating the member VMs?
+Answer: It reduces the potential impact of a miscoded application or compromised virtual machine affecting other projects.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of service accounts contribute to the security principle of separation in GCP?
+Answer: By isolating access to resources and preventing unauthorized access, even if one VM is compromised.</p>
+</li>
+<li>
+<p>What is the role of blended security in GCP, and how does it achieve fine-grained policies?
+Answer: Blended security combines resource management, organizational policy, and IAM rules to deliver separation, maintainability, and simplicity.</p>
+</li>
+<li>
+<p>How can service accounts be used to manage access to different projects or resources in GCP?
+Answer: By creating separate service accounts for each distinct group of VMs or project, with tailored permissions and roles.</p>
+</li>
+<li>
+<p>What are the implications of using a single service account for multiple subgroups of virtual machines?
+Answer: It increases the risk of unauthorized access if one subgroup is compromised, highlighting the need for separate service accounts.</p>
+</li>
+<li>
+<p>How can the use of service accounts contribute to the security principle of maintainability in GCP?
+Answer: By allowing administrators to easily manage and update permissions without affecting other VMs or projects.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a scenario where you have an application implemented across multiple Compute Engine virtual machines, with different components requiring access to different resources.
+Answer: Create separate service accounts for each subgroup of virtual machines, granting the necessary roles and permissions for each component.</p>
+</li>
+<li>
+<p>How would you implement blended security in a GCP project that requires fine-grained policies for separation, maintainability, and simplicity?
+Answer: Combine resource management, organizational policy, and IAM rules to achieve tailored access controls and minimize potential security risks.</p>
+</li>
+<li>
+<p>What are some best practices for managing service accounts in GCP, considering the need for separate identities for different groups of VMs or projects?
+Answer: Regularly review and update permissions, use least privilege principles, and implement role-based access control (RBAC) to ensure secure access to resources.</p>
+</li>
+<li>
+<p>How can you use service accounts to reduce the impact of a miscoded application or compromised virtual machine on other projects or resources in GCP?
+Answer: Create separate service accounts for each subgroup of virtual machines, granting only necessary permissions to minimize potential damage.</p>
+</li>
+<li>
+<p>What are some common security considerations when using service accounts in GCP, and how can they be mitigated?
+Answer: Regularly review and update permissions, use least privilege principles, implement RBAC, and monitor access logs to detect potential security breaches.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Service account</td>
+<td>Resource</td>
+<td>"That is pretty straightforward but the authentication is less so as a VM cannot enter a password..."</td>
+<td>A service account is an identity that corresponds to an email address, used for authentication and access to resources. It's more than just an identity, also being a resource that can have its own IAM policies attached to it.</td>
+</tr>
+<tr>
+<td>InstanceAdmin Role</td>
+<td>Role</td>
+<td>"By having this role the service account could effectively be used to permit an application running in a VM to create, modify, and/or delete other instances."</td>
+<td>An instance-level role that grants permission to manage virtual machines, including creating, modifying, and deleting instances. It's one of the roles that can be granted to a service account for authentication purposes.</td>
+</tr>
+<tr>
+<td>IAM policies</td>
+<td>Resource</td>
+<td>"This is very handy because service accounts also need to be managed. An example, is maybe Alice needs to manage what can use a given service account, while Bob just needs to be able to view them."</td>
+<td>A set of rules that define the permissions and access control for a resource or identity in GCP. IAM policies can be attached to service accounts, allowing for fine-grained management and control over access.</td>
+</tr>
+<tr>
+<td>Email address</td>
+<td>Identity</td>
+<td>"That is pretty straightforward but the authentication is less so as a VM cannot enter a password..."</td>
+<td>An email address that corresponds to a service account, used for authentication purposes. It's a unique identifier for the identity.</td>
+</tr>
+<tr>
+<td>Cryptographic keys</td>
+<td>Resource</td>
+<td>"Therefore, instead of hard coded passwords, the service accounts use cryptographic keys to access resources."</td>
+<td>A pair of keys used for encryption and decryption, used by service accounts to access resources in GCP. They replace traditional passwords as a more secure authentication method.</td>
+</tr>
+<tr>
+<td>Editor role</td>
+<td>Role</td>
+<td>"Thus, you can give Alice an editor role in a service account and Bob can have the viewer role."</td>
+<td>A role that grants permission to edit or modify resources, including service accounts. It's one of the roles that can be granted to users or identities for access control purposes.</td>
+</tr>
+<tr>
+<td>Viewer role</td>
+<td>Role</td>
+<td>"Thus, you can give Alice an editor role in a service account and Bob can have the viewer role."</td>
+<td>A role that grants permission to view resources, but not edit or modify them. It's one of the roles that can be granted to users or identities for access control purposes.</td>
+</tr>
+<tr>
+<td>Compute Engine virtual machines</td>
+<td>Resource</td>
+<td>"However the design criteria demands that one component of your application needs to have an editor role on another project..."</td>
+<td>Virtual machines running in GCP, used as a platform for deploying applications. They are resources that require management and access control.</td>
+</tr>
+<tr>
+<td>Project</td>
+<td>Resource</td>
+<td>"...but the other components must not have access."</td>
+<td>A container for related resources, including virtual machines, service accounts, and IAM policies. Projects provide a way to organize and manage resources in GCP.</td>
+</tr>
+<tr>
+<td>Organisational policy</td>
+<td>Policy</td>
+<td>"In practice security is applied across the GCP through the blending of resource management, organisational policy and IAM rules."</td>
+<td>A set of guidelines or rules that define how an organisation should use GCP services, including security best practices. It's a way to enforce consistency and compliance across projects and resources.</td>
+</tr>
+<tr>
+<td>Resource management</td>
+<td>Tactical level</td>
+<td>"It is by combining strategically the policy, rules and privileges at those different tactical levels..."</td>
+<td>The process of managing and controlling access to resources in GCP, including virtual machines, service accounts, and IAM policies. It's a key aspect of security and compliance in GCP.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_59</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_59_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_59</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Containers</h1>
+<h2>What are Containers?</h2>
+<p>The idea of a container is to give you the independent scalability of workloads, but with an abstraction layer of the OS and hardware. Therefore what you effectively get is a VM without a dedicated guest OS.</p>
+<h3>Benefits</h3>
+<ul>
+<li><strong>Lightweight</strong>: Containers don't require their own guest OS, so they can be created and started quickly.</li>
+<li><strong>Isolation</strong>: Containers provide isolation between applications, which helps to prevent conflicts and improves security.</li>
+<li><strong>Portability</strong>: Containers are portable across environments, making it easy to deploy applications on different platforms.</li>
+</ul>
+<h2>How do Containers Work?</h2>
+<p>Containers act like a box around your code and its dependencies. They provide a self-contained environment for your application to run in, without the need for a dedicated guest OS.</p>
+<h3>Key Features</h3>
+<ul>
+<li><strong>File System</strong>: Containers have limited access to their own partition of the file system.</li>
+<li><strong>Hardware</strong>: Containers also have limited access to hardware resources.</li>
+<li><strong>System Calls</strong>: Containers only require a few system calls to create and start, which means they can be up and running quickly.</li>
+</ul>
+<h2>Use Cases for Containers</h2>
+<p>Containers are ideal for:
+- <strong>Web Applications</strong>: Containers provide a fast and efficient way to deploy web applications.
+- <strong>Microservices Architecture</strong>: Containers help to isolate and scale individual microservices in a distributed application.
+- <strong>DevOps</strong>: Containers simplify the deployment and management of applications in a DevOps environment.</p>
+<h2>Comparison with VMs</h2>
+<p>Containers are similar to virtual machines (VMs) but without the need for a dedicated guest OS. This makes containers more lightweight and efficient than VMs.</p>
+<h3>Key Differences</h3>
+<ul>
+<li><strong>Resource Usage</strong>: Containers use fewer resources than VMs.</li>
+<li><strong>Boot Time</strong>: Containers can be up and running quickly, whereas VMs take longer to boot.</li>
+<li><strong>Isolation</strong>: Containers provide isolation between applications, which is not possible with VMs.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Nonetheless, technology doesn't stand still and a new wave of technological innovation has arrived in the form of immutable infrastructure and micro-services. At the forefront of this change is a popular Linux-based technology called containers, which allows a single kernel to run multiple instances of a VM upon a single underlying operating system.
+
+When we use Compute Engine VMs, we are utilizing the benefits of Infrastructure as a Service, which allows us to share compute resources with other developers by virtualizing the hardware using virtual machines. Each developer can deploy their own application environment, building applications in their own self-contained environment with access to an operating system, RAM, file systems, networking interfaces, and so on. This provides several benefits of using virtual machines, including a self-contained environment for installing favorite applications, run-times, tools, web servers, databases, middleware, and more.
+
+However, this isolation and flexibility come at a cost, as the smallest unit of compute is an app with its VM. A VM is a virtualized server that contains its own guest OS, which can be large (perhaps gigabytes in size) and take several minutes to boot. This may not be a problem when starting out or building a development location in GCP, but as applications grow and move to production, scaling horizontally by adding replica VMs becomes necessary.
+
+As demand for an application increases, copying an entire VM and booting the guest OS for each instance can be slow, costly, and inefficient. However, using App Engine services provides access to programming services, allowing developers to write code and self-contained workloads with dependent libraries. This solution scales rapidly but sacrifices the benefit of fine-tuning underlying architecture to save cost.
+
+Containers offer an alternative solution, providing independent scalability of workloads while abstracting the OS and hardware. A container acts like a box around code and dependencies, but also comes with limited access to its own partition of the file system and hardware. This means it doesn't require its own guest OS, only requiring a few system calls to create and start, which results in faster boot times.
+
+Containers provide a VM without a dedicated guest OS, allowing for quick deployment and scaling. They offer a balance between isolation and flexibility, making them an attractive solution for modern applications.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Containers: A Solution for Scalable Workloads</h3>
+<p>Technology is constantly evolving, and the latest innovation in this space is containers. These are Linux-based technologies that allow multiple instances of a VM to run on a single underlying operating system.</p>
+<p><strong>Benefits of Virtual Machines</strong></p>
+<p>Using Compute Engine VMs provides several benefits, including:</p>
+<ul>
+<li><strong>Infrastructure as a Service</strong>: allows you to share compute resources with other developers by virtualizing the hardware using virtual machines.</li>
+<li><strong>Self-contained environment</strong>: each developer can deploy their own application environment, providing access to an operating system, RAM, file systems, networking interfaces, and more.</li>
+<li><strong>Custom configuration</strong>: you can configure the underlying system resources such as disk space, disk I/O, and networking.</li>
+</ul>
+<p>However, this isolation and flexibility come with a cost. The smallest unit of compute is an app with its VM, which can be large (gigabytes in size) and take several minutes to boot.</p>
+<p><strong>Scaling Issues</strong></p>
+<p>As demand for your application increases, you'll need to copy and boot an entire VM for each instance of your app, which can be slow, costly, and inefficient.</p>
+<h3>Containers: A Solution</h3>
+<p>Containers address these scaling issues by providing independent scalability of workloads with an abstraction layer of the OS and hardware. This means you effectively get a VM without a dedicated guest OS.</p>
+<p><strong>How Containers Work</strong></p>
+<ul>
+<li><strong>Abstraction layer</strong>: containers provide an abstraction layer between your code and the underlying OS and hardware.</li>
+<li><strong>Limited access to file system and hardware</strong>: containers have limited access to your own partition of the file system and hardware, which means they don't require their own guest OS.</li>
+<li><strong>Quick startup</strong>: containers only require a few system calls to create and start, allowing them to be up and running quickly.</li>
+</ul>
+<h3>Conclusion</h3>
+<p>Containers offer a solution for scalable workloads by providing independent scalability with an abstraction layer of the OS and hardware. By using containers, you can avoid the scaling issues associated with traditional VMs and take advantage of faster startup times and reduced costs.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Virtual Machines (VMs) and Infrastructure as a Service</h3>
+<p>This topic revolves around the use of virtual machines in infrastructure as a service, providing self-contained environments for application deployment.</p>
+<h3>Topic 2: Scalability Challenges with VMs</h3>
+<p>This topic highlights the limitations of using virtual machines, particularly when scaling horizontally to meet increasing demand, which can be slow, costly, and inefficient.</p>
+<h3>Topic 3: App Engine Services and Scalability</h3>
+<p>This topic discusses how App Engine services provide seamless scalability for applications by workload and infrastructure, but at the cost of sacrificing fine-tuning the underlying architecture.</p>
+<h3>Topic 4: Containers as a Solution</h3>
+<p>This topic introduces containers as an abstraction layer between workloads and OS/hardware, providing independent scalability without the need for dedicated guest OSes.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the main benefit of using virtual machines in Infrastructure as a Service?
+Answer: Virtual machines provide a self-contained environment where you can install your favorite applications, run-times, tools, web server, database, middleware, and so on.</p>
+</li>
+<li>
+<p>Why do developers need to scale their applications horizontally by adding replica VMs in production?
+Answer: As demand for an application increases, it becomes necessary to add more instances of the application to meet the demand, which can be slow, costly, and inefficient.</p>
+</li>
+<li>
+<p>What is the main problem with using virtual machines in production?
+Answer: The main problem is that each instance of a virtual machine requires its own guest OS, which can lead to slow boot times and increased costs.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of App Engine services compare to using Compute Engine VMs in terms of scalability and flexibility?
+Answer: App Engine services provide seamless scaling and independent workload management, but sacrifice the benefit of fine-tuning the underlying architecture.</p>
+</li>
+<li>
+<p>What is the main advantage of using containers compared to virtual machines?
+Answer: Containers provide independent scalability without requiring a dedicated guest OS, resulting in faster boot times and reduced costs.</p>
+</li>
+<li>
+<p>How do containers address the issue of slow boot times and increased costs associated with virtual machines?
+Answer: Containers only require a few system calls to create and start, eliminating the need for an entire guest OS and reducing boot times.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are building a web application that requires multiple instances to handle high traffic. How would you use containers to improve scalability and reduce costs?
+Answer: You can use containerization to deploy your application in a scalable manner, with each instance running independently and efficiently, without the need for a dedicated guest OS.</p>
+</li>
+<li>
+<p>What are some potential benefits of using containers in a production environment?
+Answer: Containers provide faster boot times, reduced costs, and improved scalability, making them an attractive option for many applications.</p>
+</li>
+<li>
+<p>How can you use containerization to improve collaboration among developers working on different parts of the same application?
+Answer: By using containers, each developer can work independently with their own self-contained environment, without affecting other team members' work or introducing compatibility issues.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Containers</td>
+<td>Technology</td>
+<td>"a popular Linux-based technology called containers"</td>
+<td>Containers are a new wave of technological innovation that allows for independent scalability of workloads with an abstraction layer of the OS and hardware. They provide a VM without a dedicated guest OS, acting as a box around code and dependencies. This enables quick deployment and scaling of applications.</td>
+</tr>
+<tr>
+<td>Virtual Machines (VMs)</td>
+<td>Technology</td>
+<td>"virtualizing the hardware using virtual machines"</td>
+<td>Virtual Machines are used to share compute resources with other developers, providing a self-contained environment for application development. However, they come with a cost as each instance requires its own guest OS, leading to slow and costly deployment of new instances.</td>
+</tr>
+<tr>
+<td>Infrastructure as a Service (IaaS)</td>
+<td>Technology</td>
+<td>"utilizing the benefits of Infrastructure as a Service"</td>
+<td>IaaS allows developers to share compute resources by virtualizing hardware using VMs, providing a self-contained environment for application development with access to an operating system, RAM, file systems, and networking interfaces.</td>
+</tr>
+<tr>
+<td>App Engine Services</td>
+<td>Technology</td>
+<td>"one way around this was to use the App Engine services"</td>
+<td>App Engine provides programming services that allow developers to write code and workloads without worrying about deployment and scaling. The platform scales rapidly but sacrifices fine-tuning of underlying architecture for cost savings.</td>
+</tr>
+<tr>
+<td>Immutable Infrastructure</td>
+<td>Technology</td>
+<td>"a new wave of technological innovation has arrived in the form of immutable infrastructure"</td>
+<td>Immutable Infrastructure refers to a system where resources are created, used, and then deleted, eliminating the need for manual management and reducing costs. This is a key aspect of modern cloud computing.</td>
+</tr>
+<tr>
+<td>Micro-Services</td>
+<td>Technology</td>
+<td>"a popular Linux-based technology called containers"</td>
+<td>Micro-Services refer to small, independent services that can be developed, deployed, and scaled independently. Containers enable this by providing a lightweight and portable way to package applications and their dependencies.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Cloud Service</td>
+<td>"When we use Compute Engine VMs"</td>
+<td>Compute Engine is a cloud service that provides virtual machines for computing resources, allowing developers to share resources with other users. It offers benefits such as self-contained environments and scalability but also comes with costs associated with deployment and scaling.</td>
+</tr>
+<tr>
+<td>Linux-based Technology</td>
+<td>Technology</td>
+<td>"a popular Linux-based technology called containers"</td>
+<td>Linux-based Technology refers to the use of Linux operating systems in various applications, including containers. Containers provide a lightweight and portable way to package applications and their dependencies, making them an attractive option for modern cloud computing.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

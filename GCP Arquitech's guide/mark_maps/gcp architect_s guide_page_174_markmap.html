@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_174</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Load Balancing in GCP
+        ## Overview
+        
+        - Load balancing is a crucial component of a scalable and reliable application architecture. In this section, we'll explore the different aspects of load balancing in Google Cloud Platform (GCP).
+        
+        ### Backend Services vs Target Pools
+        
+        - A backend service is conceptually similar to a target pool, but with additional health checks to determine when to send traffic to that pool.
+        
+        ## Regional Redundancy
+        
+        - The global internet and cloud infrastructure require regional redundancy. We don't want to send all traffic to one region by default. Instead, we need to have alternative regions to redirect requests to in case the primary region is overloaded.
+        
+        ### Health Checks
+        
+        - We can deploy different health checks to ensure that our application continues to function even if one of the backend services fails. This includes metrics such as CPU utilization, maximum request per second per instance, and more.
+        
+        ## Session Affinity
+        
+        - To maintain session affinity, we use techniques such as basic client IP affinity or generated cookie affinity. Basic client IP affinity directs requests from the same origin IP address to the same server, while generated cookie affinity issues a cookie on the user's first visit and directs subsequent requests to the same instance.
+        
+        ### Issues with Session Affinity
+        
+        - However, session affinity can break due to various reasons such as instance group capacity running out, auto scaling changes, or target instances failing health checks. We need to understand these conditions and criteria to determine when to divert traffic to another backend.
+        
+        ## Balancer Mode
+        
+        - The balancer mode setting allows us to select one of several metrics to determine whether the backend instance group is at capacity. This includes CPU utilization, maximum request per second per instance, maximum request per second per group, and more. The choice of metric depends on how well it matches the operational dynamics of our application.
+        
+        ## Conclusion
+        
+        - Load balancing in GCP requires a deep understanding of regional redundancy, health checks, session affinity, and balancer mode settings. By deploying the right combination of these components, we can ensure that our applications are scalable, reliable, and performant.
+
+      </script>
+    </div>
+  </body>
+</html>

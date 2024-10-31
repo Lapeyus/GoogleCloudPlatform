@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_160</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Routing Service
+        ## Introduction
+        - Administration of static routes in networking is just too slow, tedious and error prone for managing any large network.
+        
+        ### Benefits of Dynamic Routing
+        - A routing protocol manages the exchange of subnet information dynamically, discovering new subnets and changes to the network topology and then advertising those changes to its routing peer.
+        - This allows for a dynamic solution as you outgrow your VPN interconnect as the burden of updating the static routing becomes just too great.
+        
+        ## Cloud Router Service
+        - The Cloud Router service is a managed service that provides dynamic routing and advertising of new networks and topology changes through a routing protocol, similar to on a physical router in the on-premises network.
+        - However, the GCP's cloud router is only a virtual router as it is part of Google's SDN (Software Defined network) running the BGP routing protocol.
+        
+        ### How it Works
+        - When you use the cloud router service, you're peering with Google, exchanging dynamic routing information and BGP is auto-discovering the network topology and exchanging information about any existing or new subnets within your VPC.
+        - This is especially beneficial if you're peering with GCP from multiple locations.
+        
+        ## Key Features
+        
+        *   Managed service
+        *   Dynamic routing and advertising of new networks and topology changes
+        *   Uses BGP routing protocol
+        *   Auto-discovering network topology and exchanging information about existing or new subnets within your VPC
+
+      </script>
+    </div>
+  </body>
+</html>

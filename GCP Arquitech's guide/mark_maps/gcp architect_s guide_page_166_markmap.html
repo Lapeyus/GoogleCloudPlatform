@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_166</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Network Cost Optimization in GCP
+        
+        ## Network Cost Considerations
+        
+        *   GCP charges egress bandwidth pricing for networks that use external IPs to communicate, even if the traffic is within the same zone.
+        *   However, if the networks are peered, they can use internal IPs to communicate and save on those egress costs.
+        *   Regular network pricing still applies to all traffic.
+        
+        ## Network Peering
+        
+        ### Benefits of Peering
+        
+        *   Allows for communication between networks without incurring egress costs
+        *   Enables sharing of resources across multiple projects
+        
+        ### Peering Limitations
+        
+        *   Internal load balancing services are only available to clients and directly peered networks.
+        *   Firewall rules must be used to block traffic to specific VM instances or internal load balancers.
+        
+        ## Shared VPC Host Project
+        
+        *   Allows other projects to use one of its networks
+        *   Enables sharing of resources across multiple projects
+        
+        ### Example Use Case
+        
+        *   Service projects P3 and P4 can attach VM instances to network SVPC peers with network A.
+        *   Network A and B can be peered, allowing for communication between the two networks.
+        
+        ## Firewall Rules
+        
+        *   Can be used to block traffic from specific subnets or VM instances
+        *   Must be installed on the network being blocked
+        
+        ### Example Firewall Rule
+        
+        *   Allow all traffic from Subnets 1 and 2 in Network A to Subnet 4 in Network B.
+        *   Deny traffic from Subnets 1 and 2 in Network A to Subnet 3 in Network B.
+        
+        - Subnet 1
+        - Subnet 2
+        - Subnet 4
+        
+        - Figure 17: VPC network peering allows peering with a shared VPC. Firewall drops traffic from subnets 1 & 2 for subnet 3 but allows traffic to subnet 4.
+        
+        - Subnet 3
+        
+        ### Table of Network Costs
+        
+        - | Project | Network |
+        - | --- | --- |
+        - | P1 | A |
+        - | P2 | B |
+        - | P3 | SVPC |
+        - | P4 | SVPC |
+        
+        - | Network | Price |
+        - | --- | --- |
+        - | A | $0.01/GB |
+        - | B | $0.02/GB |
+        - | SVPC | $0.03/GB |
+        
+        ### Katex Example
+        
+        - $x = {-b \pm \sqrt{b^2-4ac} \over 2a}$
+
+      </script>
+    </div>
+  </body>
+</html>

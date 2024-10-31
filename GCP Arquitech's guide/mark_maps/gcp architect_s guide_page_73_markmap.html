@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_73</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # App Engine vs Google Kubernetes Engine vs Compute Engine
+        
+        ## CONS - App Engine
+        
+        ### Low Maintenance
+        - This is a low maintenance platform as App Engine manages the infrastructure for you.
+        
+        - App Engine also handles auto scaling on your behalf and it is fast and lightweight as it is based upon instance classes.
+        - Additional functions such as version management and traffic splitting are built into App Engine standard and flexible environments.
+        - Native access to Datastore as it has co-location with App Engine Standard environment.
+        - There is also built-in access to Memcache.
+        
+        ### Secure Sandbox
+        - Standard environment runs in a secure sandbox. This is inherently more secure way of working compared to Compute Engine where you need to do your own security controls.
+        - The secure sandbox prevents interact with the file systems and persistent storage and there are other constraints such as the instances are kept smaller so they can benefit from the fast autoscaling.
+        
+        ### No Networking
+        - There is no networking with the standard edition's sandbox.
+        
+        ## CONS - Google Kubernetes Engine
+        
+        ### Limited Support for Load Balancer
+        - so there is no support for Cloud Load Balancer.
+        - Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5.
+        - App Engine Flex
+        - Not limited to the standard runtimes as it can support custom runtimes
+        - Integration with GCE networking
+        - In built version and traffic management.
+        
+        ### Larger Instance Sizes
+        - larger instance sizes makes it more appropriate for large applications or Java applications that consume a lot of memory
+        
+        - No internal load balancers or support for shared VPCS
+        - No native integration with Memcache
+        
+        ### Management Overhead
+        - There is some management overhead.
+        - Not really intuitive so there is a learning curve due to many new concepts such as pods, deployments, services, ingress, and namespaces
+        - Public IPs need to be exposed to locations where you want to run 'kubectl' commands
+        - Monitoring tool integration is limited
+        
+        ## CONS - Compute Engine
+        
+        ### No Built-in Security Controls
+        - This is a low maintenance platform as App Engine manages the infrastructure for you
+        - App Engine also handles auto scaling on your behalf and it is fast and lightweight as it is based upon instance classes.
+        - Additional functions such as version management and traffic splitting are built into App Engine standard and flexible environments.
+        - Native access to Datastore as it has co-location with App Engine Standard environment.
+        - There is also built-in access to Memcache.
+        
+        ### No Networking
+        - There is no networking with the standard edition's sandbox
+        
+        ## PROS - App Engine
+        
+        ### Custom Runtimes
+        - so there is no support for Cloud Load Balancer
+        - Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5.
+        - App Engine Flex
+        - Not limited to the standard runtimes as it can support custom runtimes
+        - Integration with GCE networking
+        - In built version and traffic management
+        
+        ### Large Applications
+        - larger instance sizes makes it more appropriate for large applications or Java applications that consume a lot of memory
+        
+        - No internal load balancers or support for shared VPCS
+        - No native integration with Memcache
+        
+        ## PROS - Google Kubernetes Engine
+        
+        ### Custom Runtimes
+        - App Engine Flex
+        - Not limited to the standard runtimes as it can support custom runtimes
+        - Integration with GCE networking
+        - In built version and traffic management.
+        
+        ### Platform Neutral Deployment Framework
+        - Tight coupling with containers for better management and cluster configuration.
+        - Open source Kubernetes, provides a method for portability between on-premises and the cloud
+        - Private Clusters, now in beta, eliminate the need to expose public IP addresses
+        - Version management through Google Container Registry
+        
+        ### Monitoring Tool Integration
+        - Monitoring tool integration is limited
+
+      </script>
+    </div>
+  </body>
+</html>

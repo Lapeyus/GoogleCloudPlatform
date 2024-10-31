@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_200</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Container Clusters
+        ## Benefits of Running Google Kubernetes Engine
+        ### Built-in Resilience
+        - Deployments provide built-in resilience. For example, if a physical node fails with running pods, all pods become unavailable. However, the deployment has rules stating it must have a minimum of two pods running at all times.
+        
+        - So, if there is only one physical node left running, the deployment controller must move the containers from the unhealthy node-if it can - or spin up new ones onto the remaining node.
+        
+        ### Rolling Updates
+        - Another built-in administrative feature is rolling updates, which allows you to safely and with zero downtime upgrade systems to a new version. In this scenario, we can consider that a version 1.0 of the application is running on three separate nodes in a deployment.
+        
+        - Moreover, the deployment rules determine that at all times there must be three running pods available to service the application. What we can do here is launch a fourth pod onto node three with the new version of the application, 2.0.
+        
+        - Once the pod is operational, the service picks up the pod based on the label and now we have four pods, but we only need three. So, deployment manager will shut down the older pod with version 1.0 on node three.
+        
+        - This process is continued until all three nodes have a pod with the updated version 2.0 of the application.
+        
+        ### Built-in IAM Support
+        - Another benefit of running Google Kubernetes Engine is the built-in IAM support for controlling access to the containerized environment. Using IAM service, you can set the Kubernetes engine's command and control to the same level of security that you give to an administrator.
+        
+        ### Multi-Zone Container Clusters
+        - Deployment Manager with IAM gives you central axis control when it comes to managing the rest of the platform objects. You can design container clusters so that they are spread across multiple zones for resiliency.
+        
+        - Resources are replicated in the additional zones, and work is done when you enable multi-zone container clusters. If one zone fails, the others can pick up the slack.
+        
+        - For example, we would want to ensure a design so that any single zone is capable of running the entire application. In the design, node pools are instance groups in the Kubernetes cluster and very similar to a managed instance group.
+        
+        - All of the VMs in a pool are going to be exactly the same. However, Pools can contain different virtual machines in other designs. Pools can also be located in different zones, and Google Kubernetes Engine is node pool-aware via labels.
+        
+        - So, based on the pool specific labels that you designated, Kubernetes engine can manage those accordingly. Consequently, the Kubernetes Engine will replicate all node pools and multi-zone container clusters.
+        
+        ### Multi-Region Considerations
+        - When running across multi-regions, it is always advisable to check any quotas or limits associated with those specific regions.
+
+      </script>
+    </div>
+  </body>
+</html>

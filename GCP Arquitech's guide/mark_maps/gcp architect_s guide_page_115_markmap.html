@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_115</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Machine Types
+        ## Pre-emptible VMs
+        ### Advantages
+        * 80% discount compared to normal VMs
+        * Cost-effective way to use a VM, with no charge if terminated within the first 10 minutes
+        
+        ### Disadvantages
+        * May be preempted or terminated at any time
+        * Limited to maximum 24 hours of operation
+        * Only 30-second notification before termination
+        * No live migrations possible
+        * No automatic restarts
+        
+        ## Batch Processing Jobs
+        ### Use Case
+        * Economically deploy pre-emptible instances for batch processing tasks
+        * Save money and avoid placing additional workload on existing instances
+        
+        ## Region and Zones
+        ### Geographical Location
+        * Choose a region closest to your customer base for lowest latency and highest customer experience
+
+      </script>
+    </div>
+  </body>
+</html>

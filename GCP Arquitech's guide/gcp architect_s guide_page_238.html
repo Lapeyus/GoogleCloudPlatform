@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_238</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_238_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_238</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Correlated Failures and Overload</h1>
+<h2>Correlated Failures</h2>
+<p>Correlated failures occur when a single failure causes a chain reaction of events. For example, if a zone or region is lost, all resources in it will fail.</p>
+<h3>Failure Domains</h3>
+<p>Identify potential failure domains during the design process to prevent correlated failures. Divide business logic into services based on failure domains, considering entire failure domains rather than individual components.</p>
+<h3>High-Level Perspective</h3>
+<p>Look at failure domains from a high-level perspective, such as identifying them at the zone or regional level. This helps separate and isolate risk while designing independent but collaborative services.</p>
+<h2>Failure due to Overload</h2>
+<p>When a system is overloaded, it exhibits nonlinear behavior, such as:</p>
+<ul>
+<li>Local applications hanging</li>
+<li>Disks thrashing</li>
+<li>Systems stopping responses altogether</li>
+</ul>
+<h3>Common Behaviors of Overload</h3>
+<p>Recognize these behaviors when a resource crosses into nonlinear behavior:</p>
+<ul>
+<li>Running out of memory</li>
+<li>Running out of disk space</li>
+<li>CPU becoming too high</li>
+</ul>
+<h3>Cascading Failures</h3>
+<p>Overloaded resources can lead to cascading failures, making it difficult to troubleshoot. Identify potential points of overload by examining the networking service architecture.</p>
+<h3>Design Process</h3>
+<p>Identify important first things that indicate an overload in the design process. This helps prevent unavailability and creates a huge chain of effect, causing dependent services to fail.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Correlated Failures and Failure due to Overload
+
+Correlated failures occur when a single event causes a chain reaction of failures. For example, if a zone or region is lost, all resources in it will inevitably fail. This is known as a failure domain. To identify potential failure domains during the design process, divide business logic into services based on failure domains. This approach considers resiliency for entire failure domains rather than individual components.
+
+Dividing business logic into services based on failure domains makes it easier to look at the problem from a high-level perspective, such as identifying failure domains at the zone or regional level. The goal is to separate and isolate the risk of correlated failures while designing independent but collaborative services.
+
+Failure due to Overload
+
+When a system is overloaded, it will exhibit nonlinear behavior, such as local applications hanging, crashing, disks thrashing, or stopping altogether. Overloading occurs for several reasons, but a common cause is the relationship between failure due to loss and failure due to overload.
+
+For instance, if a system goes offline due to the loss of a downstream resource, it becomes unavailable to upstream systems that depend on it. When the system comes back online, the queued backlog of work must be processed before new work can be handled. This may overwhelm the system, causing it to transition from being unavailable due to resource loss to being unavailable due to overload.
+
+Common behaviors of failure due to overload include running out of memory, high CPU usage, or disk thrashing. Regardless of the symptoms, unavailability will create a chain reaction of effects, leading to failures in dependent services. To identify potential points of overload, take an overall look at the networking service architecture.
+
+This is because once there's overload on a resource, such as an overloaded frontend, a large list of cascading failures will occur. Troubleshooting can be challenging when dealing with multiple independent alarms being triggered. Therefore, it's essential to identify in the design process what are the critical first things that can happen, which indicate an overload.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Correlated Failures and Failure due to Overload</h3>
+<p>Correlated failures occur when a single event causes a chain reaction of failures. This can happen when a zone or region is lost, resulting in all resources failing. To mitigate this, it's essential to identify potential failure domains during the design process.</p>
+<p>Best practices include dividing business logic into services based on failure domains, allowing for resiliency across entire failure domains rather than individual components. This approach enables a high-level perspective, such as identifying failure domains at the zone or regional level.</p>
+<h3>Failure due to Overload</h3>
+<p>When a system is overloaded, it will exhibit nonlinear behavior, leading to applications hanging, crashing, disks thrashing, or stopping altogether. Overloading can occur due to various reasons, but a common cause is the relationship between loss and overload failures.</p>
+<p>When a system comes back online after being offline due to resource loss, the queued backlog of work must be processed before new work can be handled. This may overwhelm the system, causing it to transition from total unavailability due to resource loss to total unavailability due to overload.</p>
+<p>Common behaviors of failure due to overload include:</p>
+<ul>
+<li>Running out of memory or disk space</li>
+<li>Disk thrashing</li>
+<li>No network availability</li>
+<li>CPU being too busy</li>
+</ul>
+<p>To identify potential points of overload, it's crucial to take an overall look at the networking service architecture. However, this can be challenging when dealing with multiple independent alarms triggered simultaneously.</p>
+<p>Therefore, it's essential to identify the most critical events that indicate an overload during the design process.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Failure Domains</strong></h3>
+<p>Identify potential failure domains during design process to create correlated sets of failures.</p>
+<h3>Topic 2: <strong>Overload and Unavailability</strong></h3>
+<p>Recognize common behaviors of system overload leading to unavailability, including running out of memory, disk thrashing, and CPU issues.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is a failure domain, and how does it relate to correlated failures?
+Answer: A failure domain refers to a situation where something fails and causes a huge chain of events, resulting in the inevitable failure of all resources within that zone or region.</p>
+</li>
+<li>
+<p>Why is it essential to identify potential failure domains during the design process?
+Answer: Identifying potential failure domains helps designers separate and isolate the risk of correlated failures, while designing independent but collaborative services.</p>
+</li>
+<li>
+<p>What happens when a system experiences overload, and how does it affect dependent systems?
+Answer: When a system experiences overload, it exhibits nonlinear behavior, such as applications hanging or crashing, and can cause a huge chain of effects that lead to the failure of all dependent services.</p>
+</li>
+<li>
+<p>How do correlated failures differ from failure due to overload?
+Answer: Correlated failures occur when something fails and causes a huge chain of events, whereas failure due to overload occurs when a system becomes overwhelmed, leading to nonlinear behavior and potential cascading failures.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some common reasons for overloading in systems, and how do they relate to correlated failures?
+Answer: Overloading can occur due to various reasons, including the loss of downstream resources, which can cause a system to become unavailable and lead to cascading failures.</p>
+</li>
+<li>
+<p>How does the design process influence the identification of potential failure domains and points of overload?
+Answer: The design process plays a crucial role in identifying potential failure domains and points of overload by taking an overall look at the networking service architecture and considering the importance of first things that can happen, which indicate an overload.</p>
+</li>
+<li>
+<p>What are some strategies for designing independent but collaborative services to mitigate correlated failures and failure due to overload?
+Answer: Strategies include dividing business logic into services based on failure domains, designing services with resiliency in mind, and taking a high-level perspective when identifying potential failure domains and points of overload.</p>
+</li>
+<li>
+<p>How can designers troubleshoot issues related to correlated failures and failure due to overload?
+Answer: Designers need to identify the important first things that can happen, which indicate an overload, and take an overall look at the networking service architecture to troubleshoot issues effectively.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are designing a system with multiple zones or regions. How would you identify potential failure domains and points of overload?
+Answer: You would take an overall look at the networking service architecture, consider the importance of first things that can happen, which indicate an overload, and divide business logic into services based on failure domains.</p>
+</li>
+<li>
+<p>If a system experiences correlated failures due to the loss of a downstream resource, how would you design services to mitigate this issue?
+Answer: You would design services with resiliency in mind, consider dividing business logic into services based on failure domains, and take a high-level perspective when identifying potential failure domains and points of overload.</p>
+</li>
+<li>
+<p>How would you handle a situation where a system becomes overloaded due to a sudden increase in traffic or requests?
+Answer: You would identify the root cause of the overload, design services with resiliency in mind, and consider implementing strategies such as load balancing, caching, or queuing to mitigate the issue.</p>
+</li>
+<li>
+<p>Suppose you are tasked with designing a system that can handle a large volume of traffic. How would you approach this challenge?
+Answer: You would take an overall look at the networking service architecture, consider the importance of first things that can happen, which indicate an overload, and design services with resiliency in mind to ensure the system can handle the increased load.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Correlated Failures</td>
+<td>Concept</td>
+<td>"Correlated failures are when something fails and this directly causes a huge chain of events..."</td>
+<td>Refers to a situation where the failure of one component leads to a cascade of failures across multiple components. It highlights the importance of identifying potential failure domains during design to prevent such cascading effects.</td>
+</tr>
+<tr>
+<td>Failure Domain</td>
+<td>Concept</td>
+<td>"...a failure domain that could create a correlated set of failures."</td>
+<td>A specific area or zone where a single failure can lead to a chain reaction of failures, emphasizing the need for separate and independent services within these domains.</td>
+</tr>
+<tr>
+<td>Overload</td>
+<td>Phenomenon</td>
+<td>"When a system is overloaded..."</td>
+<td>Describes a situation where a system becomes unable to handle its workload, leading to nonlinear behavior such as application crashes or disk thrashing. It highlights the potential consequences of overload on system availability.</td>
+</tr>
+<tr>
+<td>Nonlinear Behaviour</td>
+<td>Phenomenon</td>
+<td>"...exhibit nonlinear behaviour..."</td>
+<td>Refers to the abnormal and unpredictable behavior of a system when it reaches a critical point, such as running out of memory or disk space. This behavior can lead to cascading failures across dependent services.</td>
+</tr>
+<tr>
+<td>Zone/Region</td>
+<td>Location</td>
+<td>"if a zone or region is lost..."</td>
+<td>A specific geographic area or network segment that, if failed, can cause widespread consequences due to the interconnectedness of systems within it. Identifying these zones during design helps mitigate potential correlated failures.</td>
+</tr>
+<tr>
+<td>Business Logic</td>
+<td>Concept</td>
+<td>"...dividing business logic into services based on failure domains."</td>
+<td>Refers to the process of separating and organizing system components into distinct services that operate independently but collaboratively, reducing the risk of correlated failures.</td>
+</tr>
+<tr>
+<td>Services</td>
+<td>Component</td>
+<td>"...design independent but collaborative services."</td>
+<td>A self-contained unit of work or functionality within a larger system, designed to be separate yet interconnected with other services to achieve a common goal.</td>
+</tr>
+<tr>
+<td>Resource Loss</td>
+<td>Event</td>
+<td>"...a very specific relationship between failure due to loss and failure due to overload."</td>
+<td>Describes the situation where a system fails due to the loss of a critical resource, leading to a chain reaction of failures across dependent systems.</td>
+</tr>
+<tr>
+<td>Queued Backlog</td>
+<td>Phenomenon</td>
+<td>"...that queued backlog of work is sent across..."</td>
+<td>Refers to the accumulation of tasks or requests that are waiting to be processed by a system after it becomes unavailable due to overload or loss. This can exacerbate the situation and lead to further failures.</td>
+</tr>
+<tr>
+<td>Cascading Failures</td>
+<td>Phenomenon</td>
+<td>"...a huge list of cascading failures that will more than likely occur."</td>
+<td>Describes the chain reaction of failures that can occur when one component fails, leading to widespread system unavailability. Identifying potential points of overload is crucial in preventing such cascades.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_114</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Machine Types Overview
+        ## High Memory Machine Types
+        - Ideal for applications with high memory requirements relative to virtual CPUs.
+        - Start at 6.5 GB of RAM per VCPU, nearly doubling the amount compared to standard types.
+        
+        ## High CPU Machine Types
+        - Suitable for applications demanding more virtual CPUs relative to memory.
+        - Start at 0.9 GB of RAM per VCPU.
+        
+        ## Predefined vs Custom Machine Types
+        - Predefined machine types are constantly being evaluated and may change or become unavailable in certain regions.
+        - Check the Web Console for availability in your region.
+        - If predefined types don't meet compute needs, create a custom machine type to customize CPU, memory, and GPU requirements.
+        
+        ## Specialist Machine Types for HPC and ML
+        - Google provides Compute Optimized (C2) and Memory Optimized (M2) VMs to meet the requirements of High Performance Computing (HPC) and Machine Learning (ML) workloads.
+        - C2 VMs offer high per-thread performance, increased memory speeds, and improved performance for HPC and gaming applications.
+        - M2 VMs provide the highest memory configuration, suitable for memory-intensive workloads like large in-memory databases and data analytics.
+        
+        ## Custom Machine Type Discounts
+        - Custom machines don't fit into a category, making them ineligible for Google's standard machine type discount plan.
+        - Compute Engine calculates virtual CPU and memory usage to apply discounts based on sustained user rates.
+
+      </script>
+    </div>
+  </body>
+</html>

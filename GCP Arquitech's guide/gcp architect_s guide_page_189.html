@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_189</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_189_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_189</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_189_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><p>```markdown</p>
+<h1>Deployment Manager Overview</h1>
+<h2>Introduction</h2>
+<h3>What is Deployment Manager?</h3>
+<h4>Deployment Manager is a service that automates the deployment of applications on Google Cloud Platform (GCP).</h4>
+<h2>Features</h2>
+<ul>
+<li><strong>Templates</strong>: Templates can be nested to create reusable assets.</li>
+<li>Example: Using different templates for firewall rules and virtual machines.</li>
+<li><strong>Properties and Environment Variables</strong>: Templates have properties and can use environment variables.</li>
+<li><strong>Startup Scripts and Metadata Capabilities</strong>: Templates support startup scripts and metadata capabilities.</li>
+<li><strong>GCP API Updates</strong>: Deployments can be updated using the GCP API, and resources can be added or removed.</li>
+</ul>
+<h2>Cloud Launcher</h2>
+<h3>What is Cloud Launcher?</h3>
+<h4>Cloud Launcher is a marketplace for third-party vendors to sell their cloud-ready products.</h4>
+<h4>Vendors have created deployment scripts for common solutions such as LAMP stacks and proprietary software.</h4>
+<ul>
+<li><strong>Open Source vs. Licensed Software</strong>: Not all vendor software is open source, and some have separate fees for licensing and image use.</li>
+<li><strong>Estimated Monthly Fees</strong>: Estimated monthly fees are available in the pricing details for each solution.</li>
+<li><strong>Image Updates</strong>: Google updates images to the latest versions in the repository but does not apply update patches on running instances.</li>
+</ul>
+<h3>Ease of Use</h3>
+<h4>Cloud Launcher is easy to use, with deployment possible in around 30 seconds with two clicks:</h4>
+<ul>
+<li>Selecting the software package and launching on Compute Engine.</li>
+<li>Selecting the zone.</li>
+</ul>
+<h2>Limitations</h2>
+<ul>
+<li><strong>Configuration Size</strong>: Neither original nor expanded configurations can exceed 10 megabytes.</li>
+<li><strong>System Calls</strong>: Python templates cannot make system or network calls, as these will be automatically rejected.</li>
+</ul>
+<h2>Further Learning</h2>
+<h4>This high-level overview does not do justice to the complexity of Deployment Manager's configurations and templates.</h4>
+<h4>There is a vast amount more to learn before becoming skilled in using Deployment Manager.</h4></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Neither your original configuration nor your expanded configuration can exceed 10 megabytes. In addition, you must bear in mind that any configurations that you upload into Deployment Manager will be limited by the constraints based on the amount of time the configuration will take to run and the resources used, i.e., the amount of processing power used during the operation.
+
+An important caveat to be aware of is that if you use Python templates, then you must not make any system or network calls, as these templates will automatically be rejected.
+
+Deployment Templates
+Some of the basic features of Deployment Manager's templates are:
+Templates can be nested so you can create a set of reusable assets. For example, you could use different templates for firewall rules than you would for virtual machines. Segregating the different components that you might want to set up allows you to update them independently without having to use one single master file.
+Templates have properties and can use environment variables.
+Templates support startup scripts and metadata capabilities.
+
+Deployments can be updated using the GCP API, and you can add resources or remove resources.
+
+Cloud Launcher
+Cloud Launcher is basically a marketplace for third-party vendors to sell their cloud-ready products. The vendors on GCP have already created, tested, and verified their own deployment scripts for their application, software stacks, and cloud tools, based on Deployment Manager.
+It is essentially a marketplace to quickly deploy common solutions such as complete open-source LAMP (Linux, Apache, MySQL, and PHP) stacks or licensed versions of proprietary software such as SAP, Salesforce, or Oracle DB.
+
+Not all the vendor software within Cloud Launcher is open source, and some have separate fees for software licensing and image use. However, all estimated monthly fees are available in the pricing details for each solution. But beware, as these are only estimates of the vendor's monthly fees; you will still have Google's data and resource charges to factor in to the billing.
+
+The image fee versus licensing fees are up to the vendor of the solution, but Google does update the images to the latest versions in the repository and applies any update patches but not on running instances.
+
+Cloud launcher is very easy to use to deploy software packages and stacks, literally done with two clicks: one to select the software package and launch on Compute Engine, another to select the zone. At it will be done in around 30 seconds. It is that painless.
+
+Summary
+This high-level overview to Deployment Manager does not by any means do it justice. There is a vast amount more to learn before you become skilled in using Deployment Manager's configurations and templates.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Deployment Manager Overview</h3>
+<p>Deployment Manager is a tool for managing the deployment of applications on Google Cloud Platform (GCP). It provides a set of features and tools to help users create, manage, and deploy applications efficiently.</p>
+<h4>Configuration Limits</h4>
+<p>When uploading configurations to Deployment Manager, there are limits to consider. The total size of the configuration cannot exceed 10 megabytes, and any uploaded configurations will be limited by their processing time and resource usage.</p>
+<h4>Python Templates</h4>
+<p>A key consideration when using Python templates is that they must not make system or network calls, as these templates will be automatically rejected if attempted.</p>
+<h3>Deployment Templates</h3>
+<p>Deployment Manager's templates offer several features:</p>
+<ul>
+<li><strong>Reusability</strong>: Templates can be nested to create reusable assets.</li>
+<li><strong>Properties and Environment Variables</strong>: Templates can use properties and environment variables for customization.</li>
+<li><strong>Startup Scripts and Metadata Capabilities</strong>: Templates support startup scripts and metadata capabilities for enhanced deployment.</li>
+<li><strong>Update and Resource Management</strong>: Deployments can be updated using the GCP API, and resources can be added or removed.</li>
+</ul>
+<h3>Cloud Launcher</h3>
+<p>Cloud Launcher is a marketplace for third-party vendors to sell their cloud-ready products. Vendors have created tested and verified deployment scripts for common solutions such as open-source LAMP stacks and proprietary software like SAP, Salesforce, and Oracle DB.</p>
+<h4>Key Features of Cloud Launcher</h4>
+<ul>
+<li><strong>Easy Deployment</strong>: Cloud Launcher allows easy deployment with just two clicks.</li>
+<li><strong>Estimated Monthly Fees</strong>: Estimated monthly fees are available for each solution, but users must also factor in Google's data and resource charges.</li>
+<li><strong>Image Updates</strong>: Google updates images to the latest versions in the repository, applying update patches but not on running instances.</li>
+</ul>
+<h3>Summary</h3>
+<p>This high-level overview of Deployment Manager barely scratches the surface. To become skilled in using Deployment Manager's configurations and templates, there is much more to learn.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Deployment Manager Configuration Limits</h3>
+<p>Templates can be nested so you can create a set of reusable assets, segregating different components that you might want to set up allows you to update them independently without having to use one single master file.</p>
+<h3>Topic 2: Deployment Manager Template Features</h3>
+<p>Templates have properties and can use environment variables, templates support startup scripts and metadata capabilities.</p>
+<h3>Topic 3: Cloud Launcher Marketplace</h3>
+<p>Cloud Launcher is a marketplace for third party vendors to sell their cloud ready products, essentially a marketplace to quickly deploy common solutions such as complete open source LAMP (Linux, Apache, MySQL and PHP) stacks or licenced versions of proprietary software such as SAP, Salesforce or Oracle DB.</p>
+<h3>Topic 4: Cloud Launcher Pricing and Fees</h3>
+<p>Not all the vendor software within Cloud Launcher is open source and some have separate fees for software licensing and image use, however all estimated monthly fees are available in the pricing details for each solution.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the constraints on the size of configurations that can be uploaded into Deployment Manager?
+Answer: The configuration size cannot exceed 10 megabytes, and any uploaded configurations will be limited.</p>
+</li>
+<li>
+<p>What is a key consideration when using Python templates in Deployment Manager?
+Answer: When using Python templates, you must not make any system or network calls, as these templates will automatically be rejected if attempted.</p>
+</li>
+<li>
+<p>How can templates be used to segregate different components of a deployment?
+Answer: Templates can be nested to create reusable assets, allowing for the segregation of different components and enabling updates to be made independently without affecting other parts of the deployment.</p>
+</li>
+<li>
+<p>What is Cloud Launcher, and what types of products does it offer?
+Answer: Cloud Launcher is a marketplace where third-party vendors sell their cloud-ready products, including common solutions such as open-source LAMP stacks or licensed versions of proprietary software like SAP, Salesforce, or Oracle DB.</p>
+</li>
+<li>
+<p>How do estimated monthly fees for vendor software in Cloud Launcher work?
+Answer: Estimated monthly fees are available for each solution, but you will still need to factor in Google's data and resource charges when billing.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of Deployment Manager's templates, and how do they support efficient deployment?
+Answer: Templates provide a way to create reusable assets, allowing for the segregation of different components and enabling updates to be made independently without affecting other parts of the deployment. This supports efficient deployment by reducing the need for manual configuration.</p>
+</li>
+<li>
+<p>How does Cloud Launcher address the challenge of managing complex software deployments?
+Answer: Cloud Launcher provides a marketplace where third-party vendors sell their cloud-ready products, addressing the challenge of managing complex software deployments by providing pre-configured solutions that can be easily deployed and managed.</p>
+</li>
+<li>
+<p>What are some potential drawbacks to using Cloud Launcher, and how can they be mitigated?
+Answer: Potential drawbacks include the need to factor in Google's data and resource charges when billing, as well as the possibility of vendor software having separate fees for licensing and image use. These can be mitigated by carefully reviewing pricing details and estimated monthly fees.</p>
+</li>
+<li>
+<p>How does Deployment Manager's support for startup scripts and metadata capabilities impact deployment efficiency?
+Answer: Support for startup scripts and metadata capabilities enables more efficient deployment by allowing for the automation of tasks and the management of metadata, reducing the need for manual configuration and improving overall deployment speed.</p>
+</li>
+<li>
+<p>What are some potential benefits to using nested templates in Deployment Manager?
+Answer: Nested templates provide a way to create reusable assets, allowing for the segregation of different components and enabling updates to be made independently without affecting other parts of the deployment. This can improve deployment efficiency by reducing the need for manual configuration and improving overall deployment speed.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are deploying a new application using Deployment Manager's templates. How would you use nested templates to segregate different components of the deployment?
+Answer: You would create separate templates for each component, such as firewall rules or virtual machines, and then nest these templates together to create a reusable asset that can be used across multiple deployments.</p>
+</li>
+<li>
+<p>If you are using Cloud Launcher to deploy a new solution, how would you factor in Google's data and resource charges when billing?
+Answer: You would carefully review the pricing details for each solution, including estimated monthly fees, and then factor in Google's data and resource charges when calculating your total bill.</p>
+</li>
+<li>
+<p>Suppose you are deploying a complex software stack using Deployment Manager's templates. How would you use startup scripts and metadata capabilities to improve deployment efficiency?
+Answer: You would create a template that includes startup scripts and metadata capabilities, allowing for the automation of tasks and the management of metadata, reducing the need for manual configuration and improving overall deployment speed.</p>
+</li>
+<li>
+<p>If you are using Cloud Launcher to deploy a new solution, how would you select the correct software package and zone for your deployment?
+Answer: You would use the Cloud Launcher interface to select the correct software package and zone for your deployment, taking into account factors such as compatibility and performance requirements.</p>
+</li>
+<li>
+<p>Suppose you are deploying a new application using Deployment Manager's templates. How would you update the template to reflect changes to the application or infrastructure?
+Answer: You would update the template by modifying the relevant configuration files or scripts, allowing for the seamless integration of changes into your deployment process.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Neither your original configuration nor your expanded configuration can exceed 10 megabytes. In addition you must bear in mind that any configurations that you upload into Deployment Manager will be limited . The constraints are based  upon the amount of time the configuration  will take to run and the resources used i.e. the amount of processing power used during the operation.</td>
+<td>Constraint</td>
+<td>This sentence sets a limit on the size of configurations that can be uploaded to Deployment Manager, emphasizing the importance of resource efficiency and performance.</td>
+<td>The constraint highlights the need for careful planning and optimization when creating templates and configurations to ensure they meet the required standards.</td>
+</tr>
+<tr>
+<td>An important caveat to be aware of is that if you use Python templates then you must  not make any system or network calls, if you try to, then these templates will automatically be  rejected.</td>
+<td>Best Practice</td>
+<td>This sentence provides a crucial warning for users who plan to use Python templates in Deployment Manager, emphasizing the need to avoid making system or network calls.</td>
+<td>The best practice highlights the importance of following guidelines and conventions when using specific template types, ensuring that templates are properly validated and functional.</td>
+</tr>
+<tr>
+<td>Templates can be nested so you can create a set of reusable assets. For example, you could use different templates for firewall rules than you would for virtual machines. Segregating the different components that you might want to set up allows you to update them independently without having to use one single master file.</td>
+<td>Template Feature</td>
+<td>This sentence explains the concept of template nesting and its benefits in creating reusable assets, emphasizing flexibility and maintainability.</td>
+<td>The feature highlights the importance of modular design and reusability in templates, allowing users to create complex configurations by combining smaller, independent components.</td>
+</tr>
+<tr>
+<td>Templates have properties and can use environment variables.</td>
+<td>Template Feature</td>
+<td>This sentence describes a key aspect of template functionality, enabling users to define custom properties and leverage environment variables for more dynamic configurations.</td>
+<td>The feature emphasizes the flexibility and customization capabilities of templates, allowing users to tailor their configurations to specific needs and environments.</td>
+</tr>
+<tr>
+<td>Templates support startup scripts and metadata capabilities.</td>
+<td>Template Feature</td>
+<td>This sentence highlights another important aspect of template functionality, supporting the execution of startup scripts and metadata capabilities.</td>
+<td>The feature underscores the importance of automation and configuration management in templates, enabling users to define custom startup scripts and manage metadata for their applications.</td>
+</tr>
+<tr>
+<td>Deployments can be updated using the GCP API, and you  can add resources or remove resources.</td>
+<td>Deployment Feature</td>
+<td>This sentence explains how deployments can be managed and updated using the GCP API, emphasizing flexibility and control.</td>
+<td>The feature highlights the importance of automation and management in deployments, allowing users to easily update and modify their configurations as needed.</td>
+</tr>
+<tr>
+<td>Cloud Launcher is basically a marketplace for third party vendors to sell their  cloud ready products. The vendors on GCP have already created , tested and verified their own deployment scripts for their application , software  stacks and cloud tools, based on Deployment Manager.</td>
+<td>Cloud Launcher Feature</td>
+<td>This sentence introduces the concept of Cloud Launcher as a marketplace for third-party vendors to offer pre-configured cloud-ready solutions.</td>
+<td>The feature emphasizes the importance of pre-configured solutions and streamlined deployment processes, providing users with easy access to validated and tested applications and infrastructure.</td>
+</tr>
+<tr>
+<td>It is essentially a marketplace to quickly deploy common solutions such  as complete open source LAMP (Linux, Apache, MySQL and PHP) stacks  or licenced  versions of proprietary software such as SAP, Salesforce or Oracle DB.</td>
+<td>Cloud Launcher Feature</td>
+<td>This sentence describes the types of solutions available on Cloud Launcher, highlighting the range of options for users.</td>
+<td>The feature underscores the breadth and diversity of solutions offered on Cloud Launcher, catering to a wide range of user needs and preferences.</td>
+</tr>
+<tr>
+<td>Not all the vendor software within Cloud Launcher is open source and some  have separate fees for software licensing and image use , however all  estimated monthly fees are all available in the pricing details for each  solution.</td>
+<td>Cloud Launcher Feature</td>
+<td>This sentence highlights the importance of transparency and pricing clarity on Cloud Launcher, emphasizing that users can access detailed information about costs and licensing terms.</td>
+<td>The feature emphasizes the need for clear and transparent pricing and licensing information, ensuring that users understand the costs associated with using specific solutions and configurations.</td>
+</tr>
+<tr>
+<td>The image fee versus licensing fees are up to the vendor of the solution but Google does  update the images to the latest versions  in the repository, and will apply  any update patches but not on the running instances.</td>
+<td>Cloud Launcher Feature</td>
+<td>This sentence explains how image updates and patching work on Cloud Launcher, highlighting the importance of vendor responsibility and Google's maintenance efforts.</td>
+<td>The feature underscores the importance of ongoing maintenance and support for cloud-based solutions, ensuring that users have access to up-to-date images and patches without additional costs or effort.</td>
+</tr>
+<tr>
+<td>Cloud launcher is very easy to use to deploy software packages and stacks and it literally is don't with two clicks, one to  select the software package and launch on Compute Engine, another  to  select the zone. At it will be done in around 30 seconds. It is that  painless.</td>
+<td>Cloud Launcher Feature</td>
+<td>This sentence describes the ease of use and streamlined deployment process on Cloud Launcher, emphasizing simplicity and speed.</td>
+<td>The feature highlights the user-friendly nature of Cloud Launcher, providing a seamless and efficient experience for deploying software packages and stacks with minimal effort or complexity.</td>
+</tr>
+<tr>
+<td>This high-level overview to Deployment Manager does not by any means do it justice. There is a vast amount more to learn before you become skilled in using Deployment Manager's configurations and templates.</td>
+<td>Summary Statement</td>
+<td>This sentence provides a final assessment of the scope and complexity of Deployment Manager, emphasizing that there is much more to explore and learn beyond this high-level overview.</td>
+<td>The summary statement underscores the importance of ongoing learning and exploration for users who want to master Deployment Manager, acknowledging that there are many nuances and complexities to discover and master.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,3246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_199</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_199_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_199</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Kubernetes Engine</h1>
+<h2>Overview</h2>
+<p>Kubernetes Engine provides a way to orchestrate applications in a scalable and efficient manner.</p>
+<h3>Labels</h3>
+<p>Labels are arbitrary key-value pairs that can be applied to pods to identify them. They are used by Kubernetes Engine to configure orchestration, such as restarting all development pods.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Labels</h2>
+<p>Labels are arbitrary key-value pairs that can be applied to pods to identify them.
+They are used by Kubernetes Engine to configure orchestration, such as restarting all development pods.</p>
+<h3>Querying Pods with Labels</h3>
+<p>You have the ability to base your queries on labels, which provides a method for getting full command and control over any pods that match those query labels.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Querying Pods with Labels</h2>
+<p>You have the ability to base your queries on labels, which provides a method for getting full command and control over any pods that match those query labels.
+```</p>
+<h3>Services</h3>
+<p>Services provide a way for applications to communicate with groups of pods. They can expose themselves internally or externally and load balance incoming requests.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Services</h2>
+<p>Services provide a way for applications to communicate with groups of pods.
+They can expose themselves internally or externally and load balance incoming requests.
+```</p>
+<h3>Deployment</h3>
+<p>A deployment is a set of pods that are managed by a controller. It ensures that a sufficient number of pods are running to service the application.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Deployment</h2>
+<p>A deployment is a set of pods that are managed by a controller.
+It ensures that a sufficient number of pods are running to service the application.
+```</p>
+<h3>Load Balancing</h3>
+<p>Load balancing is an important aspect of deploying applications in Kubernetes. It ensures that incoming requests are distributed evenly across multiple pods.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Load Balancing</h2>
+<p>Load balancing is an important aspect of deploying applications in Kubernetes.
+It ensures that incoming requests are distributed evenly across multiple pods.
+```</p>
+<h3>Autoscaling</h3>
+<p>Autoscaling is a feature of Kubernetes that allows you to automatically scale your deployment based on CPU utilization or other metrics.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Autoscaling</h2>
+<p>Autoscaling is a feature of Kubernetes that allows you to automatically scale your deployment based on CPU utilization or other metrics.
+```</p>
+<h3>Health Checks</h3>
+<p>Health checks are an important aspect of deploying applications in Kubernetes. They ensure that the application is running and responding correctly.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Health Checks</h2>
+<p>Health checks are an important aspect of deploying applications in Kubernetes.
+They ensure that the application is running and responding correctly.
+```</p>
+<h3>External Services</h3>
+<p>External services provide a way for applications to communicate with external services, such as databases or APIs.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>External Services</h2>
+<p>External services provide a way for applications to communicate with external services,
+such as databases or APIs.
+```</p>
+<h3>Internal Services</h3>
+<p>Internal services provide a way for applications to communicate with other internal services.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Internal Services</h2>
+<p>Internal services provide a way for applications to communicate with other internal services.
+```</p>
+<h3>Load Balancer Services</h3>
+<p>Load balancer services provide a way for applications to communicate with load balancers.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Load Balancer Services</h2>
+<p>Load balancer services provide a way for applications to communicate with load balancers.
+```</p>
+<h3>Service Mesh</h3>
+<p>Service mesh is a feature of Kubernetes that provides a way for applications to communicate with each other in a secure and scalable manner.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Service Mesh</h2>
+<p>Service mesh is a feature of Kubernetes that provides a way for applications to communicate with each other in a secure and scalable manner.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodSecurityPolicies</h2>
+<p>Pod security policies provide a way for applications to manage pod security.
+```</p>
+<h3>Network Policies</h3>
+<p>Network policies provide a way for applications to control access to their network resources.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Network Policies</h2>
+<p>Network policies provide a way for applications to control access to their network resources.
+```</p>
+<h3>Persistent Volumes</h3>
+<p>Persistent volumes provide a way for applications to store data persistently.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volumes</h2>
+<p>Persistent volumes provide a way for applications to store data persistently.
+```</p>
+<h3>Storage Classes</h3>
+<p>Storage classes provide a way for applications to choose their storage options.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Storage Classes</h2>
+<p>Storage classes provide a way for applications to choose their storage options.
+```</p>
+<h3>Persistent Volume Claims</h3>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Persistent Volume Claims</h2>
+<p>Persistent volume claims provide a way for applications to request persistent volumes.
+```</p>
+<h3>StatefulSets</h3>
+<p>Stateful sets provide a way for applications to manage stateful workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>StatefulSets</h2>
+<p>Stateful sets provide a way for applications to manage stateful workloads.
+```</p>
+<h3>CronJobs</h3>
+<p>Cron jobs provide a way for applications to schedule tasks.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>CronJobs</h2>
+<p>Cron jobs provide a way for applications to schedule tasks.
+```</p>
+<h3>Job</h3>
+<p>Job provides a way for applications to run batch workloads.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>Job</h2>
+<p>Job provides a way for applications to run batch workloads.
+```</p>
+<h3>DeploymentConfigs</h3>
+<p>Deployment configs provide a way for applications to manage deployments.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>DeploymentConfigs</h2>
+<p>Deployment configs provide a way for applications to manage deployments.
+```</p>
+<h3>ReplicaSets</h3>
+<p>Replica sets provide a way for applications to manage replicas.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>ReplicaSets</h2>
+<p>Replica sets provide a way for applications to manage replicas.
+```</p>
+<h3>PodDisruptionBudgets</h3>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>PodDisruptionBudgets</h2>
+<p>Pod disruption budgets provide a way for applications to manage pod disruptions.
+```</p>
+<h3>SelfHealingSets</h3>
+<p>Self-healing sets provide a way for applications to manage self-healing.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>SelfHealingSets</h2>
+<p>Self-healing sets provide a way for applications to manage self-healing.
+```</p>
+<h3>HorizontalPodAutoscaling</h3>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300 
+initialExpandLevel: 10 </p>
+<hr />
+<p># Kubernetes Engine</p>
+<h2>HorizontalPodAutoscaling</h2>
+<p>Horizontal pod autoscaling provides a way for applications to scale horizontally.
+```</p>
+<h3>PodSecurityPolicies</h3>
+<p>Pod security policies provide a way for applications to manage pod security.</p>
+<h4>Example</h4>
+<p>```markdown</p>
+<h1>markmap</h1>
+<p>maxWidth: 300</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>When it comes to load balancing across pods, you use labels. A label is an arbitrary key-value pair that you apply to pods to identify them. They're used by Kubernetes Engine to configure orchestration. For example, if you wanted to restart all the development pods, you'd look up those labels and shut down the appropriate matching pods.
+
+In addition, you have the ability to base your queries on labels, which provides a method for getting full command and control over any pods that match those query labels. Kubernetes Pods though are mortal in so much as they are created but when they die they are not resurrected. This can cause an issue because each Pod gets its own IP address, however the set of Pods running one moment could be different from the set of Pods running that application a few minutes later.
+
+The problem arises when we have the scenario where a set of Pods provides functionality to other Pods inside your cluster. How then do those pods initially discover and track the IP address to connect to? This is where Services come into play.
+
+Kubernetes Engine Services
+
+Here's a basic example to explain the Kubernetes Engine service concept: an application needs to communicate with a group of pods, but what will happen if a pod has to be restarted as it will be dynamically assigned a new internal IP? One solution would be that the service would be given a static IP, which can be either an internal IP or an external IP just so long as it is persistent across restarts.
+
+In this case, the application will communicate with the group of pods through this persistent service IP address. Moreover, the service is also connected to the pods by a label, so if a pod has the correct group label, it will be connected to the service automatically. Services can expose internally, externally, and they can load balance incoming requests to the pods in the group. Indeed services combine the functions of a group and a load balancer.
+
+Kubernetes Deployment
+
+In Kubernetes, a set of pods is called a deployment. A deployment has a controller that ensures that a sufficient number of pods are running to service the app and it can automatically upscale or downscale, whichever is appropriate. It can do this by monitoring, for example, CPU utilization. A deployment also gives you a place to set the rules for determining the conditions for autoscaling those individual nodes towards the ideal state of the number of pods that we want to be running.
+
+In this example, we have a service that will create the target pool of VM instances. Then a deployment group defines the rules that determine the conditions under which we can automatically spin up additional pods based on health checks or load balancing requirements. Once you have a deployment, a group of pods, you can specify a particular service that you want to deploy, which consists of pods and individual containers.
+
+You can install a deployment onto individual nodes. The master node is going to be responsible for equally distributing the number of pods across these nodes depending on what your container cluster looks like.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Load Balancing in Kubernetes: A Guide to Pods, Services, and Deployments</h3>
+<p>In Kubernetes, load balancing across pods is achieved through the use of labels. Labels are arbitrary key-value pairs applied to pods to identify them, allowing for efficient orchestration and management.</p>
+<h4>Pod Mortality and IP Address Issues</h4>
+<p>Kubernetes pods are ephemeral, meaning they are created but not resurrected upon death. This can cause issues when a pod's internal IP address changes dynamically, potentially disrupting communication between pods. Services address this problem by providing a persistent IP address that remains unchanged across restarts.</p>
+<h3>Kubernetes Engine Services</h3>
+<p>Services provide a way for applications to communicate with groups of pods. They expose an IP address that is persistent across restarts and can be used to load balance incoming requests to the pods in the group. Services combine the functions of a group and a load balancer, ensuring efficient communication between application components.</p>
+<h4>Service Creation and Configuration</h4>
+<p>Services are created by specifying a label that connects them to the target pool of VM instances. A deployment group defines the rules for autoscaling individual nodes based on health checks or load balancing requirements. Once a deployment is installed, it can be specified as part of a service, allowing for efficient communication between pods.</p>
+<h3>Kubernetes Deployment</h3>
+<p>A deployment in Kubernetes refers to a set of pods that work together to provide an application service. Deployments have a controller that ensures a sufficient number of pods are running to meet the application's requirements and can automatically upscale or downscale based on CPU utilization or other factors.</p>
+<h4>Deployment Configuration and Autoscaling</h4>
+<p>Deployments provide a way to configure rules for autoscaling individual nodes towards the ideal state of pod count. This allows for efficient scaling of resources to meet changing application demands. By specifying a particular service as part of a deployment, pods can be efficiently managed and scaled together.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Identifying Pods and Services with Labels
+The text emphasizes the importance of labels in identifying pods and services in Kubernetes Engine. Labels are used to apply arbitrary key-value pairs to pods, allowing for efficient querying and management.</p>
+<h3>Topic 2</h3>
+<p>Dynamic IP Addresses and Service Persistence
+Services provide a persistent IP address that can be assigned to a group of pods, ensuring that applications can communicate with the correct pods even after restarts or dynamic IP assignments.</p>
+<h3>Topic 3</h3>
+<p>Deployment and Autoscaling
+A deployment is a set of pods managed by a controller that ensures sufficient pod running capacity. Deployments also enable autoscaling based on CPU utilization or other conditions, allowing for efficient scaling up or down to meet application demands.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of labels in Kubernetes Engine?
+Answer: Labels are used to identify and configure pods, allowing for efficient management and orchestration.</p>
+</li>
+<li>
+<p>Why do Kubernetes Pods not get resurrected when they die?
+Answer: Each Pod gets its own IP address, which can change dynamically, causing issues with communication between Pods.</p>
+</li>
+<li>
+<p>What is the problem that Services aim to solve in a Kubernetes cluster?
+Answer: The problem is how Pods initially discover and track the IP address to connect to each other.</p>
+</li>
+<li>
+<p>How do Services provide persistence across pod restarts?
+Answer: By assigning a static IP address to the Service, which can be either internal or external.</p>
+</li>
+<li>
+<p>What is the role of labels in connecting pods to a Service?
+Answer: Labels are used to automatically connect pods that match a specific label to a Service.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do Services combine the functions of a group and a load balancer?
+Answer: By exposing themselves internally, externally, and load balancing incoming requests to the pods in the group.</p>
+</li>
+<li>
+<p>What is the purpose of a deployment controller in Kubernetes?
+Answer: To ensure that a sufficient number of pods are running to service an application and automatically upscale or downscale as needed.</p>
+</li>
+<li>
+<p>How do deployment groups define rules for autoscaling Pods?
+Answer: By monitoring CPU utilization, health checks, or load balancing requirements.</p>
+</li>
+<li>
+<p>What is the role of the master node in distributing pods across nodes?
+Answer: The master node is responsible for equally distributing the number of pods across individual nodes based on the container cluster's configuration.</p>
+</li>
+<li>
+<p>How do Services impact the communication between Pods in a Kubernetes cluster?
+Answer: By providing a persistent IP address that allows Pods to communicate with each other even after pod restarts.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a Service that provides persistence across pod restarts for an application communicating with multiple pods.
+Answer: Assign a static IP address to the Service and use labels to automatically connect matching pods.</p>
+</li>
+<li>
+<p>Implement a deployment group in Kubernetes that monitors CPU utilization and autoscales Pods based on health checks.
+Answer: Configure the deployment group to monitor CPU utilization and adjust the number of Pods accordingly, using health checks as a trigger for scaling.</p>
+</li>
+<li>
+<p>Explain how Services can be used to load balance incoming requests to multiple Pods in a Kubernetes cluster.
+Answer: Services expose themselves internally or externally and use load balancing to distribute incoming requests across the pods in the group.</p>
+</li>
+<li>
+<p>Describe a scenario where a deployment group would be beneficial in a Kubernetes cluster.
+Answer: A deployment group is beneficial when there are specific rules for autoscaling Pods based on health checks, CPU utilization, or load balancing requirements.</p>
+</li>
+<li>
+<p>How can labels be used to identify and manage Pods in a Kubernetes cluster?
+Answer: Labels can be used to identify and configure pods, allowing for efficient management and orchestration of the cluster.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>load balancing</td>
+<td>concept</td>
+<td>"When it comes to load balancing across pods you use labels."</td>
+<td>Load balancing is a technique used in Kubernetes to distribute incoming requests across multiple pods. In this context, labels are used to identify and manage these pods.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>entity</td>
+<td>"A label is an arbitrary key value pair that you apply to pods to identify them."</td>
+<td>A label is a key-value pair that is applied to a pod to identify it. It is used by Kubernetes Engine to configure orchestration and can be used to restart specific pods.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>system</td>
+<td>"Kubernetes Engine uses labels to configure orchestration."</td>
+<td>Kubernetes Engine is a system that uses labels to manage and orchestrate pods. It provides a way to identify and control pods using key-value pairs.</td>
+</tr>
+<tr>
+<td>pod</td>
+<td>entity</td>
+<td>"Each Pod gets its own IP address, however the set of Pods running one moment could be different from the set of Pods running that application a few minutes later."</td>
+<td>A pod is an independent instance of a containerized application. It has its own IP address and can be created or deleted dynamically.</td>
+</tr>
+<tr>
+<td>Services</td>
+<td>concept</td>
+<td>"This is where Services come into play."</td>
+<td>Services are a way to provide persistent IP addresses for pods, allowing them to communicate with each other even if the pods are restarted or recreated. They combine the functions of a group and a load balancer.</td>
+</tr>
+<tr>
+<td>deployment</td>
+<td>entity</td>
+<td>"In Kubernetes a set of pods is called a deployment."</td>
+<td>A deployment is a collection of pods that work together to provide a specific application or service. It has a controller that ensures a sufficient number of pods are running to meet demand.</td>
+</tr>
+<tr>
+<td>autoscaling</td>
+<td>concept</td>
+<td>"A deployment also gives you a place to set the rules for determining the conditions for autoscaling those individual nodes towards the ideal state of the number of pods that we want to be running."</td>
+<td>Autoscaling is a feature that allows deployments to automatically adjust the number of pods based on certain conditions, such as CPU utilization or load balancing requirements.</td>
+</tr>
+<tr>
+<td>target pool</td>
+<td>entity</td>
+<td>"In this example, we have a service that will create the target pool of VM instances."</td>
+<td>A target pool is a group of pods that are managed by a service. It provides a persistent IP address for communication between the pods and allows for load balancing and autoscaling.</td>
+</tr>
+<tr>
+<td>node</td>
+<td>entity</td>
+<td>"You can install a deployment onto individual nodes."</td>
+<td>A node is an individual machine in a cluster that runs containers. Deployments can be installed on multiple nodes to distribute the workload across them.</td>
+</tr>
+<tr>
+<td>master node</td>
+<td>entity</td>
+<td>"The master node is going to be responsible for equally distributing the number of pods across these nodes depending on what your container cluster looks like."</td>
+<td>The master node is a special node in a cluster that manages the deployment and orchestration of containers. It distributes pods across other nodes based on their availability and workload.</td>
+</tr>
+<tr>
+<td>health checks</td>
+<td>concept</td>
+<td>"In this example, we have a service that will create the target pool of VM instances. Then a deployment group defines the rules that determine the conditions for autoscaling those individual nodes towards the ideal state of the number of pods that we want to be running."</td>
+<td>Health checks are a way to monitor the health and availability of pods in a cluster. They can be used to trigger autoscaling based on certain conditions, such as CPU utilization or response time.</td>
+</tr>
+<tr>
+<td>load balancing requirements</td>
+<td>concept</td>
+<td>"In this example, we have a service that will create the target pool of VM instances."</td>
+<td>Load balancing requirements refer to the specific conditions under which a deployment should scale up or down. They can be based on factors such as traffic volume, latency, or CPU utilization.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

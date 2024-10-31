@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_114</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_114_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_114</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Machine Types Overview</h1>
+<h2>High Memory Machine Types</h2>
+<ul>
+<li>Ideal for applications with high memory requirements relative to virtual CPUs.</li>
+<li>Start at 6.5 GB of RAM per VCPU, nearly doubling the amount compared to standard types.</li>
+</ul>
+<h2>High CPU Machine Types</h2>
+<ul>
+<li>Suitable for applications demanding more virtual CPUs relative to memory.</li>
+<li>Start at 0.9 GB of RAM per VCPU.</li>
+</ul>
+<h2>Predefined vs Custom Machine Types</h2>
+<ul>
+<li>Predefined machine types are constantly being evaluated and may change or become unavailable in certain regions.</li>
+<li>Check the Web Console for availability in your region.</li>
+<li>If predefined types don't meet compute needs, create a custom machine type to customize CPU, memory, and GPU requirements.</li>
+</ul>
+<h2>Specialist Machine Types for HPC and ML</h2>
+<ul>
+<li>Google provides Compute Optimized (C2) and Memory Optimized (M2) VMs to meet the requirements of High Performance Computing (HPC) and Machine Learning (ML) workloads.</li>
+<li>C2 VMs offer high per-thread performance, increased memory speeds, and improved performance for HPC and gaming applications.</li>
+<li>M2 VMs provide the highest memory configuration, suitable for memory-intensive workloads like large in-memory databases and data analytics.</li>
+</ul>
+<h2>Custom Machine Type Discounts</h2>
+<ul>
+<li>Custom machines don't fit into a category, making them ineligible for Google's standard machine type discount plan.</li>
+<li>Compute Engine calculates virtual CPU and memory usage to apply discounts based on sustained user rates.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>In contrast, high memory machine types are best suited for applications that require more memory relative to the number of virtual CPUs. These machine types start out at 6.5 gigabytes of RAM per virtual CPU, nearly double the amount of ram per VCPU as the standard type.
+
+On the other hand, high CPU machine types are best suited for applications that are processor intensive and demand more virtual CPUs relative to memory. These machine types start out at 0.9 gigabytes of RAM per virtual CPU.
+
+Now, these options are constantly being evaluated, and some configurations aren't available in all regions. So, you need to check the Web Console if the preconfigured type is available in your region.
+
+If the predefined machine types don't fit your compute needs, you can always create a custom machine type where you can customize your CPU memory and GPU needs. In most cases, these general VM machine-types will suffice for your workloads. However, as more users deploy in the cloud to use HPC (High Performance Computing) and ML (Machine Learning) infrastructures, Google provides specialist machine types and CPUs to meet those requirements.
+
+The Compute Optimized and Memory Optimized CPUs meet the requirements of HPC and ML as they are able to provide specific compute or memory requirements that match your large workloads.
+
+Compute Optimized VMs (C2) expose high per-thread performance for compute-intensive workloads. They offer increased memory speeds that suit the requirements of most for HPC and gaming, but are equally proficient serving single thread applications. The new Compute-Optimized VMs offer a greater than 40% performance improvement compared to current GCP VMs.
+
+On the other hand, Memory Optimized VMs (M2) offer the highest memory configuration for a Compute Engine VM. They are well-suited for memory-intensive workloads such as large in-memory databases and in-memory data analytics workloads. The M2 family offers up to 12 TB of memory and 416 VCPUs, enabling you to run scale-up workloads on GCP.
+
+These custom and specialist VMs are generally more expensive than predefined VMs but provide more flexibility and specialist configuration for heavy workloads.
+
+However, in the case of custom VMs, it's perhaps crossed your mind that there is a question as to how Google will give discounts on your custom machines. The issue is that custom machines don't really fall into a category, so they are not a fit with Google's standard machine type discount plan.
+
+Instead, Google's billing plan for custom machine types requires Compute Engine to calculate the virtual CPU and memory usage and then applies the discount described by the sustained user's discount.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Machine Types for Compute Engine VMs</strong></p>
+<p>Google provides various machine types for Compute Engine VMs, each suited for specific workloads. The main differences between high memory and high CPU machine types are:</p>
+<ul>
+<li>High Memory Machine Types: Best suited for applications that require more memory relative to the number of virtual CPUs. These machines start at 6.5 GB of RAM per virtual CPU, nearly double the amount of ram per VCPU as the standard type.</li>
+<li>High CPU Machine Types: Best suited for applications that demand more virtual CPUs relative to memory. These machines start at 0.9 GB of RAM per virtual CPU.</li>
+</ul>
+<p><strong>Specialist Machine Types</strong></p>
+<p>For High Performance Computing (HPC) and Machine Learning (ML) workloads, Google provides specialist machine types:</p>
+<ul>
+<li>Compute Optimized VMs (C2): Expose high per-thread performance for compute-intensive workloads. Offer a greater than 40% performance improvement compared to current GCP VMs.</li>
+<li>Memory Optimized VMs (M2): Provide the highest memory configuration for Compute Engine VMs, well-suited for memory-intensive workloads such as large in-memory databases and in-memory data analytics.</li>
+</ul>
+<p><strong>Custom Machine Types</strong></p>
+<p>If predefined machine types don't fit your compute needs, you can create a custom machine type to customize CPU, memory, and GPU needs. However, custom machines don't fall into a category, making it challenging to apply discounts using Google's standard machine type discount plan. Instead, Compute Engine calculates the virtual CPU and memory usage and applies the sustained user's discount.</p>
+<p><strong>Availability and Pricing</strong></p>
+<p>Machine types are constantly being evaluated and may change or become unavailable in certain regions. Check the Web Console for availability before selecting a preconfigured type. Custom machine types are generally more expensive than predefined VMs but provide flexibility and specialist configuration for heavy workloads.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Memory-Intensive Workloads</h3>
+<p>High memory machine types are best suited for applications requiring more memory relative to the number of virtual CPUs, starting at 6.5 GB of RAM per VCPU.</p>
+<h3>Topic 2: Processor-Intensive Workloads</h3>
+<p>High CPU machine types are best suited for applications demanding more virtual CPUs relative to memory, starting at 0.9 GB of RAM per VCPU.</p>
+<h3>Topic 3: Compute Optimized VMs (C2)</h3>
+<p>Compute-Optimized VMs expose high per-thread performance and increased memory speeds suitable for HPC and gaming workloads, offering a greater than 40% performance improvement compared to current GCP VMs.</p>
+<h3>Topic 4: Memory Optimised VMs (M2)</h3>
+<p>Memory Optimised VMs offer the highest memory configuration for Compute Engine VMs, well-suited for large in-memory databases and in-memory data analytics workloads, with up to 12 TB of memory and 416 VCPUs.</p>
+<h3>Topic 5: Custom Machine Types</h3>
+<p>Custom machine types provide flexibility and specialist configurations for heavy workloads but are not a fit with Google's standard machine type discount plan due to their unique resource usage.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are high memory machine types best suited for?
+Answer: Applications that require more memory relative to the number of virtual CPUs.</p>
+</li>
+<li>
+<p>How much RAM per virtual CPU do high memory machine types start out at?
+Answer: 6.5 gigabytes.</p>
+</li>
+<li>
+<p>What is the main difference between Compute Optimized VMs and Memory Optimized VMs?
+Answer: Compute Optimized VMs are suitable for compute-intensive workloads, while Memory Optimized VMs are suitable for memory-intensive workloads.</p>
+</li>
+<li>
+<p>How much performance improvement do new Compute-Optimized VMs offer compared to current GCP VMs?
+Answer: Greater than 40%.</p>
+</li>
+<li>
+<p>What is the maximum amount of memory available in Memory Optimized VMs (M2)?
+Answer: Up to 12 TB.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>Why are custom machine types more expensive than predefined VMs?
+Answer: Custom machine types provide more flexibility and specialist configuration for heavy workloads, which comes at a higher cost.</p>
+</li>
+<li>
+<p>How does Google's billing plan for custom machine types differ from the standard machine type discount plan?
+Answer: Custom machines don't fit into a category, so their resource use cannot be aggregated to get the best discount. Instead, Compute Engine calculates virtual CPU and memory usage and applies the sustained user's discount.</p>
+</li>
+<li>
+<p>What are some scenarios where predefined VMs may not suffice for workloads?
+Answer: Workloads that require high performance or large amounts of memory.</p>
+</li>
+<li>
+<p>How do Compute Optimized VMs (C2) compare to single-thread applications in terms of performance?
+Answer: They are equally proficient serving single-thread applications.</p>
+</li>
+<li>
+<p>What is the purpose of specialist machine types and CPUs provided by Google for HPC and ML infrastructures?
+Answer: To meet specific compute or memory requirements that match large workloads.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you need a VM with high memory and CPU performance, what type of machine would you choose?
+Answer: High memory machine type.</p>
+</li>
+<li>
+<p>How can you determine if a predefined machine type is available in your region?
+Answer: Check the Web Console for availability.</p>
+</li>
+<li>
+<p>What are some scenarios where custom machine types might be necessary?
+Answer: Workloads that require high performance or large amounts of memory, such as HPC and ML infrastructures.</p>
+</li>
+<li>
+<p>How can you take advantage of discounts on custom machines?
+Answer: By applying the sustained user's discount calculated by Compute Engine based on virtual CPU and memory usage.</p>
+</li>
+<li>
+<p>What are some benefits of using specialist machine types and CPUs provided by Google for HPC and ML infrastructures?
+Answer: They provide specific compute or memory requirements that match large workloads, enabling scale-up workloads on GCP.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>high memory machine types</td>
+<td>Machine Type</td>
+<td>"In contrast the high memory machine types are best suited ideal for applications that are memory intensive..."</td>
+<td>These machine types are designed to handle memory-intensive workloads, requiring more RAM per virtual CPU compared to standard types. They start at 6.5 GB of RAM per VCPU and nearly double this amount compared to standard types.</td>
+</tr>
+<tr>
+<td>high CPU machine types</td>
+<td>Machine Type</td>
+<td>"...On the other hand, the high CPU machine types are best suited for applications that are processor intensive..."</td>
+<td>These machine types are designed to handle processor-intensive workloads, requiring more virtual CPUs relative to memory. They start at 0.9 GB of RAM per VCPU.</td>
+</tr>
+<tr>
+<td>predefined machine types</td>
+<td>Machine Type</td>
+<td>"...If the predefined type is available in your region, you can use it."</td>
+<td>Predefined machine types are pre-configured options that are available in specific regions. They may not meet all compute needs, but are generally sufficient for most workloads.</td>
+</tr>
+<tr>
+<td>custom machine types</td>
+<td>Machine Type</td>
+<td>"...If the predefined machine types don't fit your compute needs, you can always create a custom machine type..."</td>
+<td>Custom machine types allow users to customize CPU memory and GPU needs to meet specific requirements. They are more expensive than predefined VMs but provide flexibility for heavy workloads.</td>
+</tr>
+<tr>
+<td>Compute Optimised VMs (C2)</td>
+<td>Virtual Machine Type</td>
+<td>"...Compute-Optimized VMs expose high per-thread performance compute-intensive workloads..."</td>
+<td>C2 VMs offer high per-thread performance and increased memory speeds, making them suitable for HPC and gaming applications. They can handle up to 60 vCPUs, 240 GB of memory, and 3TB of local storage.</td>
+</tr>
+<tr>
+<td>Memory Optimised VMs (M2)</td>
+<td>Virtual Machine Type</td>
+<td>"...Memory Optimised VMs offer the highest memory configuration for a Compute Engine VM..."</td>
+<td>M2 VMs provide the highest memory configuration, making them suitable for memory-intensive workloads such as large in-memory databases and data analytics. They can handle up to 12 TB of memory and 416 VCPUs.</td>
+</tr>
+<tr>
+<td>HPC (High Performance Computing)</td>
+<td>Field/Industry</td>
+<td>"...Google provides specialist machine types and CPUs to meet those requirements..."</td>
+<td>HPC refers to the use of high-performance computing systems for scientific simulations, data analysis, and other applications that require intense computational resources.</td>
+</tr>
+<tr>
+<td>ML (Machine Learning)</td>
+<td>Field/Industry</td>
+<td>"...Google provides specialist machine types and CPUs to meet those requirements..."</td>
+<td>Machine learning involves the development of algorithms that enable computers to learn from data. Specialist machine types and CPUs are designed to support these applications.</td>
+</tr>
+<tr>
+<td>SAP HANA</td>
+<td>Software</td>
+<td>"...They are well suited for memory-intensive workloads such as large in-memory databases, e.g., SAP HANA..."</td>
+<td>SAP HANA is a database management system that uses in-memory computing to improve performance. M2 VMs are optimized for this type of workload.</td>
+</tr>
+<tr>
+<td>GCP (Google Cloud Platform)</td>
+<td>Platform/Service</td>
+<td>"...You can choose Compute-Optimized VMs with up to 60 vCPUs, 240 GB of memory, and up to 3TB of local storage..."</td>
+<td>GCP is a cloud computing platform that provides virtual machines, storage, and other services. C2 VMs are part of this platform.</td>
+</tr>
+<tr>
+<td>Custom machine types discount plan</td>
+<td>Billing Plan</td>
+<td>"...The issue is that custom machines don't really fall into a category."</td>
+<td>The standard machine type discount plan does not apply to custom machine types because they do not fit into a specific category. Instead, Compute Engine calculates the virtual CPU and memory usage and applies the sustained user's discount.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

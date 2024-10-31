@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_65</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # App Engine Environments
+        ## Standard Environment
+        ### Caveats
+        - Runs in a Sandbox
+        -   - Software and security construct that enforces independence of hardware, operating system, file system, or physical location of the server it runs on
+        -   - Enforces segregation and isolation of code
+        - Constraints:
+        -   - Application can't write to local file system
+        -   - Must use database service for persistent data storage (Cloud Datastore)
+        -   - Requests have a 60-second timeout
+        -   - Can't install arbitrary third-party software in sandbox
+        
+        ### Roadmap
+        - 1. Develop application locally using App Engine SDK
+        - 2. Deploy application using SDK commands
+        - 3. Each App Engine application runs in a GCP project
+        - 4. App Engine automatically provisions server instances and scales/load balances them
+        - 5. Application can make calls to various services using dedicated APIs
+        
+        ## Flexible Environment
+        ### Differences from Standard Environment
+        - Instead of using a sandbox, runs application inside Docker containers on Google Compute Engine Virtual Machines (VMs)
+        - Allows specifying container for App Engine to run in
+        - App Engine manages Compute Engine virtual machines for you
+        - VMs are monitored, health-checked, healed as necessary
+        - Select geographical region for VMs to run in
+        
+        ### Features
+        - App Engine applies critical backward-compatible updates to operating systems automatically
+        - Works transparently, allowing focus on code development
+
+      </script>
+    </div>
+  </body>
+</html>

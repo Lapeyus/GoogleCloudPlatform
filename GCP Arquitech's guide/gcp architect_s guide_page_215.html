@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_215</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_215_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_215</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        <audio controls><source src="gcp architect_s guide_page_215_markdown.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h1>Design Methodology</h1>
+<h2>Gathering Requirements</h2>
+<p>An initial step in all project or design methodologies place importance into diligently gathering requirements. This is so that we understand what our design objectives might be.</p>
+<h3>Identifying Stakeholders and Asking Questions</h3>
+<p>Therefore we can consider that a design always starts by simply identifying the stakeholders and asking them questions.
+By asking stakeholders questions you can define the key service level objectives that are important to them and this will  be helpful in thinking through the design decisions later.</p>
+<h2>Quantitative Requirements</h2>
+<p>Once we have our answers as qualitative requirements it is now time to define them quantitatively, with relation to time, data, and users.
+In effect we will be defining how much time we will allow this system to be down. But this is quantitative so there must be logic backing up our decision.</p>
+<h3>Cost of Data</h3>
+<p>So we have to consider things such as:
+- what is the cost of data?
+What this means is that how you handle data will come with related costs. For example, data replication for redundancy and data backups for business continuity and DR do not come cheap.</p>
+<h2>User Location and Latency</h2>
+<p>Another important design requirement will be where are the users located? Are they going to be close to the data? Or are they going to be all over the world?
+If it's the latter you will now have to starting to thinking about distributed caching, or about data replication across regions.
+The user's locations will define data storage requirements, and it also  defines the time element. The inherent delay in accessing  data storage  around the  world will determine where you  replicate your data  storage.</p>
+<h2>Capacity Planning and Scaling</h2>
+<p>So there is a lot to think about with storage alone let alone start contemplating capacity planning and; what happens if we had an unexpected growth?
+Then we would need some method of automatic scaling. In this case we will  have to start worrying about what resource constraints You will also  need to think about handling state, and where you are going to be important to the design stability?</p>
+<h2>Business Logic</h2>
+<p>Business Logic is the code that implements business rules, which in turn determines how the data is processed.
+446</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_215_txt.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre>An initial step in all project or design methodologies places importance into diligently gathering requirements. This is so that we understand what our design objectives might be. Therefore, we can consider that a design always starts by simply identifying the stakeholders and asking them questions.
+
+By asking stakeholders questions, you can define the key service level objectives that are important to them and this will be helpful in thinking through the design decisions later. For example, you might start out asking some basic questions that will provide you with some qualitative requirements; why is the system needed? Or, what problem does it solve? Or, what are the priorities?
+
+Once we have our answers as qualitative requirements, it is now time to define them quantitatively, with relation to time, data, and users. In effect, we will be defining how much time we will allow this system to be down. But this is quantitative so there must be logic backing up our decision.
+
+So, we have to consider things such as what is the cost of data? What this means is that how you handle data will come with related costs. For example, data replication for redundancy and data backups for business continuity and DR do not come cheap. You will also have to contemplate how fast will the data grow? This might mean that you will need a dedicated 10 Gb Ethernet link.
+
+Another important design requirement will be where are the users located? Are they going to be close to the data? Or are they going to be all over the world? If it's the latter, you will now have to start thinking about distributed caching, or about data replication across regions. The user's locations will define data storage requirements and also defines the time element.
+
+The inherent delay in accessing data storage around the world will determine where you replicate your data storage. Of course, this duplication of resources has a financial impact on the design. So, you need to determine what level of latency is acceptable for the production design and any fail-over scenarios.
+
+So, there is a lot to think about with storage alone, let alone start contemplating capacity planning and what happens if we had an unexpected growth? Then, we would need some method of automatic scaling. In this case, we will have to start worrying about what resource constraints you will also need to think about handling state, and where you are going to be important to the design stability?
+
+We need the resources to scale. So, what we have to try and understand is how do we create sufficient dimensions around this forecasted requirement without massive over-provisioning of resources? We also need to consider horizontal or vertical scaling and can our design handle these methods.
+
+A good example is with MySQL as it doesn't scale horizontally; it needs to scale vertically. In this scenario, where you want incremental horizontal scaling, then a NoSQL, data storage solution would be preferable.
+
+Business Logic
+In computer science, business logic is the code that implements business rules, which in turn determines how the data is processed.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_215_summary.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Gathering Requirements: A Foundation for Design Success</h3>
+<p>Identifying stakeholders and asking questions is the initial step in all project or design methodologies. This process helps understand design objectives by defining key service level objectives important to stakeholders.</p>
+<p><strong>Qualitative Requirements</strong></p>
+<p>Basic questions can provide qualitative requirements, such as:
+- Why is the system needed?
+- What problem does it solve?
+- What are the priorities?</p>
+<p>These answers help define the scope of the design and guide future decisions.</p>
+<h3>Quantifying Requirements</h3>
+<p>Once qualitative requirements are established, they must be defined quantitatively. This involves considering factors like time, data, and users.</p>
+<p><strong>Storage Requirements</strong></p>
+<p>The user's locations will determine data storage requirements and the time element. The inherent delay in accessing data storage around the world will determine where to replicate data storage. Duplication of resources has a financial impact on the design, so determining an acceptable level of latency is crucial for production designs and fail-over scenarios.</p>
+<p><strong>Capacity Planning and Scaling</strong></p>
+<p>There are several factors to consider when planning capacity:
+- How do we create sufficient dimensions around forecasted requirements without massive over-provisioning?
+- Can our design handle horizontal or vertical scaling?</p>
+<p>A good example is using a NoSQL data storage solution for incremental horizontal scaling, as seen with MySQL.</p>
+<h3>Business Logic</h3>
+<p>Business logic is the code that implements business rules, determining how data is processed. It plays a crucial role in designing systems that meet specific requirements and objectives.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_215_lda.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Topic 1: Design Requirements and Objectives</h3>
+<p>Identifying stakeholders and asking questions to define key service level objectives.</p>
+<h3>Topic 2: Quantitative Requirements and Data Management</h3>
+<p>Defining quantitative requirements related to time, data, and users, including cost of data, data replication, and latency considerations.</p>
+<h3>Topic 3: Capacity Planning and Resource Scaling</h3>
+<p>Considering capacity planning, automatic scaling, resource constraints, and handling state for design stability.</p>
+<h3>Topic 4: Business Logic and System Design</h3>
+<p>Understanding business logic as the code that implements business rules, determining how data is processed.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_215_questions.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the initial step in all project or design methodologies?
+Answer: Gathering requirements.</p>
+</li>
+<li>
+<p>Why is it important to gather requirements?
+Answer: To understand what the design objectives might be and to define key service level objectives that are important to stakeholders.</p>
+</li>
+<li>
+<p>What type of questions do you ask stakeholders to get qualitative requirements?
+Answer: Basic questions such as "why is the system needed?" or "what problem does it solve?"</p>
+</li>
+<li>
+<p>What is the purpose of defining quantitative requirements?
+Answer: To define how much time the system will be allowed to be down, and to consider things like data cost, growth rate, user locations, and latency.</p>
+</li>
+<li>
+<p>Why do you need to consider data storage requirements?
+Answer: Because the user's locations will define data storage requirements and also determine where to replicate data storage.</p>
+</li>
+<li>
+<p>What is the impact of duplication of resources on design?
+Answer: It has a financial impact on the design.</p>
+</li>
+<li>
+<p>What method of scaling do you use when incremental horizontal scaling is required?
+Answer: A NoSQL, data storage solution.</p>
+</li>
+<li>
+<p>Why is it important to consider resource constraints and handling state in design stability?
+Answer: To ensure that resources can scale and handle state changes without compromising design stability.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the location of users affect data storage requirements and latency?
+Answer: The user's locations will define data storage requirements and also determine where to replicate data storage, which affects latency.</p>
+</li>
+<li>
+<p>What are some potential costs associated with handling data?
+Answer: Data replication for redundancy and data backups for business continuity and DR do not come cheap.</p>
+</li>
+<li>
+<p>How does the growth rate of data affect design decisions?
+Answer: The growth rate of data may require a dedicated 10 Gb Ethernet link or other measures to handle increased data storage needs.</p>
+</li>
+<li>
+<p>What are some potential consequences of under-provisioning resources in design?
+Answer: Massive over-provisioning of resources, which can be wasteful and costly.</p>
+</li>
+<li>
+<p>How does the choice of database management system (DBMS) affect scalability?
+Answer: Some DBMSs, like MySQL, do not scale horizontally, while others, like NoSQL solutions, are better suited for incremental horizontal scaling.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you are designing a new e-commerce platform that needs to handle a large volume of user data. How would you approach gathering requirements and defining quantitative requirements?
+Answer: You would start by asking stakeholders questions about the system's needs, such as "why is the system needed?" or "what problem does it solve?", and then define quantitative requirements based on factors like data cost, growth rate, user locations, and latency.</p>
+</li>
+<li>
+<p>If you are designing a cloud-based application that requires high availability and low latency, what design considerations would you prioritize?
+Answer: You would prioritize design considerations such as data replication across regions, automatic scaling, and handling state changes to ensure design stability and meet performance requirements.</p>
+</li>
+<li>
+<p>Suppose you are tasked with designing a new database management system for a company that requires incremental horizontal scaling. What type of solution would you recommend?
+Answer: A NoSQL, data storage solution would be preferable because it can handle incremental horizontal scaling more effectively than traditional DBMSs like MySQL.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        <audio controls><source src="gcp architect_s guide_page_215_entities.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>stakeholders</td>
+<td>Person</td>
+<td>Identifying stakeholders and asking them questions to define key service level objectives.</td>
+<td>The text emphasizes the importance of identifying stakeholders to understand their needs and requirements, which is a crucial step in designing a system.</td>
+</tr>
+<tr>
+<td>system</td>
+<td>System</td>
+<td>A design always starts by simply identifying stakeholders and asking them questions.</td>
+<td>The text highlights that a system's design should be driven by understanding the needs and requirements of its stakeholders.</td>
+</tr>
+<tr>
+<td>service level objectives</td>
+<td>Concept</td>
+<td>Defining key service level objectives that are important to stakeholders.</td>
+<td>Service level objectives are critical in defining the performance and functionality of a system, ensuring it meets the required standards.</td>
+</tr>
+<tr>
+<td>qualitative requirements</td>
+<td>Concept</td>
+<td>Providing some basic questions that will provide you with some qualitative requirements.</td>
+<td>Qualitative requirements are essential in understanding the needs and requirements of stakeholders, providing a foundation for designing a system.</td>
+</tr>
+<tr>
+<td>quantitative requirements</td>
+<td>Concept</td>
+<td>Defining key service level objectives quantitatively, with relation to time, data, and users.</td>
+<td>Quantitative requirements are critical in defining the performance and functionality of a system, ensuring it meets specific standards and criteria.</td>
+</tr>
+<tr>
+<td>cost of data</td>
+<td>Financial</td>
+<td>Considering the cost of data when handling it.</td>
+<td>The text highlights that handling data comes with related costs, such as data replication and backups, which must be considered when designing a system.</td>
+</tr>
+<tr>
+<td>data growth</td>
+<td>Concept</td>
+<td>Contemplating how fast data will grow.</td>
+<td>Data growth is an essential consideration in designing a system, ensuring it can handle increasing amounts of data without compromising performance.</td>
+</tr>
+<tr>
+<td>users' locations</td>
+<td>Location</td>
+<td>Defining where users are located and their impact on data storage requirements.</td>
+<td>Users' locations play a critical role in defining data storage requirements, as well as the time element, which affects latency and replication decisions.</td>
+</tr>
+<tr>
+<td>latency</td>
+<td>Concept</td>
+<td>Determining what level of latency is acceptable for production design and fail-over scenarios.</td>
+<td>Latency is an essential consideration in designing a system, ensuring it can handle real-time requests without compromising performance.</td>
+</tr>
+<tr>
+<td>capacity planning</td>
+<td>Process</td>
+<td>Contemplating capacity planning to handle unexpected growth.</td>
+<td>Capacity planning is critical in designing a system that can scale to meet increasing demands, ensuring it remains stable and performant.</td>
+</tr>
+<tr>
+<td>automatic scaling</td>
+<td>Method</td>
+<td>Considering methods of automatic scaling to handle resource constraints.</td>
+<td>Automatic scaling is essential in designing a system that can adapt to changing demands, ensuring resources are allocated efficiently.</td>
+</tr>
+<tr>
+<td>business logic</td>
+<td>Concept</td>
+<td>The code that implements business rules, which determines how data is processed.</td>
+<td>Business logic plays a critical role in defining the functionality and performance of a system, ensuring it meets specific requirements and standards.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

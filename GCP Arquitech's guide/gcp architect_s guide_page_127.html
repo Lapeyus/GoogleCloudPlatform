@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_127</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_127_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_127</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Google Cloud Platform (GCP) Memberships</h1>
+<h2>Types of Memberships</h2>
+<h3>1. Google Groups</h3>
+<p>You can easily add members to and remove members from a Google group instead of updating a cloud IM policy to add or remove users.</p>
+<h3>2. Service Accounts</h3>
+<p>A service account is a type of account that belongs to your service or application, used in automation scenarios where you want the application to interact with a resource without human intervention.</p>
+<h2>Service Account Types</h2>
+<p>There are three types of service accounts:
+- <strong>User Creator/Custom</strong>: More flexibility than the default service account but require more management.
+- <strong>Built-in</strong>: The built-in Compute Engine default service account and the Google Cloud platform API service account, which is automatically granted the editor role on the project.
+- <strong>Google APIs Service Account</strong></p>
+<h2>Built-in Service Accounts</h2>
+<p>All projects have the built-in Compute Engine default service account and the Google Cloud platform API service account.</p>
+<h3>1. Default Service Account</h3>
+<p>The default account is automatically created for every project and is identifiable by the email <code>projectnumber@cloudservices.gserviceaccount.com</code>.</p>
+<h3>2. Custom Service Account</h3>
+<p>You can start an instance with a custom service account, providing more flexibility than the default service account but requiring more management.</p>
+<h2>Access Scopes</h2>
+<p>Authorization is the process of determining what permissions and privileges an authenticated identity has on a set of specified resources. Scopes are the mechanisms used to determine if an authenticated identity is authorized.</p>
+<h3>1. Adding Members to Google Groups</h3>
+<p>You can easily add members to and remove members from a Google group instead of updating a cloud IM policy to add or remove users.</p>
+<h3>2. Authorization Process</h3>
+<p>The authorization process determines what permissions and privileges an authenticated identity has on a set of specified resources.</p>
+<h2>Accessing Cloud Resources with Service Accounts</h2>
+<p>To access cloud resources, you need to authenticate using a service account. You can enable the service account on a VM instance and grant read/write access to obtain credentials from the service account.</p>
+<h3>1. Enabling Service Accounts</h3>
+<p>You can enable a custom service account on a VM instance or disable service accounts for that VM instance.</p>
+<h3>2. Obtaining Credentials from Service Account</h3>
+<p>To authenticate to cloud resources, you need to obtain credentials from the service account using the <code>GOOGLE_APPLICATION_CREDENTIALS</code> environment variable.</p>
+<h2>Conclusion</h2>
+<p>Google Cloud Platform (GCP) memberships are essential for managing access to cloud resources. Understanding the different types of memberships and how to use them effectively is crucial for securing your applications and data.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>You can also easily add members to and remove members from a Google group instead of updating a cloud IM policy to add or remove users.
+
+Importantly, GCP does not create or manage users or groups as that is the task of the G Suite Admin, which manages users and groups for an organization in a separate product from GCP.
+
+Service Account
+As we mentioned earlier, another type of member that you can have in GCP is a service account. This is a type of account that belongs to your service or application, and is used in typically automation scenarios where you want the application to interact with a resource without any human intervention. Hence you will need the application or the service to have an identity instead of an end user.
+
+A service account provides an identity for a service that is responsible for executing a server-to-server interaction within a project. The issue here is how service accounts manage this without supplying hardcoded user credentials. For example, if you write an application that reads and writes files on cloud storage, it must first authenticate to either the Google Cloud Storage, via an XML API or JSON API.
+
+Now with GCP you can enable service accounts and grant read/write access to the account on the VM instance where you plan to run your application. Then, the next step will be to code the application to obtain credentials from the service account. In this way your application can then authenticate to the storage API without embedding any secrets or credentials with-in the VM instance, image, or application code.
+
+There are three types of service accounts: user creator or custom, built-in, and Google APIs service accounts. All projects have the built-in Compute Engine default service account. In addition, all projects come with a Google Cloud platform API service account, identifiable by the email projectnumber@cloudservices.gserviceaccount.com. This service account is designed to run internal Google processes, and it is automatically granted the editor role on the project.
+
+The default account is automatically created for every project. Also, this account is identifiable by the email projectnumber-compute@developer.gserviceaccount.com, and it is automatically granted the editor role on the project. Moreover, you can start an instance with a custom service account. This provides more flexibility than the default service account, but they do require more management. You can make as many custom service accounts as you require and assign them to any Cloud IAM role, arbitrary access scopes, or any virtual machine instance.
+
+When you start a new instance using gcloud, the default service account is enabled on that instance. However, you can prevent this by specifying another service account, or by disabling service accounts for that VM instance.
+
+Access Scopes
+Authorization is the process of determining what permissions and privileges an authenticated identity has on a set of specified resources. Scopes are the mechanisms used to determine, if an authenticated identity is authorized.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p><strong>Managing Members in Google Cloud Platform (GCP)</strong></p>
+<p>In GCP, you can easily add members to and remove members from a Google group without updating a cloud IM policy. However, it's essential to note that GCP does not create or manage users or groups; this task falls under the responsibility of the G Suite Admin for an organization in a separate product.</p>
+<p><strong>Service Accounts</strong></p>
+<p>A service account is another type of member that can be used in GCP. It belongs to your service or application and is used in automation scenarios where you want the application to interact with a resource without human intervention. Service accounts provide an identity for a service responsible for executing server-to-server interactions within a project.</p>
+<p>There are three types of service accounts:</p>
+<ul>
+<li>Built-in Compute Engine default service account</li>
+<li>Google Cloud platform API service account (identifiable by <code>projectnumber@cloudservices.gserviceaccount.com</code>)</li>
+<li>Custom service accounts</li>
+</ul>
+<p>Custom service accounts provide more flexibility than the default service account but require more management. You can make as many custom service accounts as you require and assign them to any Cloud IAM role, arbitrary access scopes, or virtual machine instance.</p>
+<p><strong>Access Scopes</strong></p>
+<p>Authorization in GCP is determined by the process of determining what permissions and privileges an authenticated identity has on a set of specified resources. Scopes are the mechanisms used to determine if an authenticated identity is authorized.</p>
+<p>To authenticate your application to cloud storage without embedding secrets or credentials within the VM instance, image, or application code, you can enable service accounts and grant read/write access to the account on the VM instance where you plan to run your application. Then, code your application to obtain credentials from the service account.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Google Cloud Platform (GCP) Management</h3>
+<p>Definition: This topic revolves around the management aspects of GCP, including user and group management, service accounts, and access scopes.</p>
+<h3>Topic 2: Service Accounts in GCP</h3>
+<p>Definition: This topic focuses on the use of service accounts in GCP for automation scenarios, providing an identity for services to interact with resources without human intervention.</p>
+<h3>Topic 3: Access Scopes and Authorization</h3>
+<p>Definition: This topic explores the concept of authorization in GCP, including access scopes and their role in determining permissions and privileges for authenticated identities.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is one advantage of using service accounts in GCP over updating a cloud IM policy to add or remove users?
+Answer: You can easily add members to and remove members from a Google group instead.</p>
+</li>
+<li>
+<p>Who manages users and groups for an organization in a separate product from GCP?
+Answer: The G Suite Admin.</p>
+</li>
+<li>
+<p>What is the purpose of a service account in GCP?
+Answer: To provide an identity for a service that interacts with resources without human intervention.</p>
+</li>
+<li>
+<p>Why do applications need to authenticate to Google Cloud Storage using a service account?
+Answer: Because they must authenticate without embedding secrets or credentials within the VM instance, image, or application code.</p>
+</li>
+<li>
+<p>What is the purpose of the built-in Compute Engine default service account in all projects?
+Answer: To run internal Google processes and is automatically granted the editor role on the project.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do service accounts differ from user accounts in terms of their use case?
+Answer: Service accounts are used for automation scenarios where an application interacts with resources without human intervention, whereas user accounts are used for human interaction.</p>
+</li>
+<li>
+<p>What is the benefit of using custom service accounts over the default service account?
+Answer: Custom service accounts provide more flexibility but require more management.</p>
+</li>
+<li>
+<p>How do access scopes relate to authorization in GCP?
+Answer: Scopes determine if an authenticated identity has permissions and privileges on a set of specified resources.</p>
+</li>
+<li>
+<p>Why is it important to grant read/write access to a service account on a VM instance?
+Answer: To enable the application to authenticate to storage APIs without embedding secrets or credentials within the VM instance, image, or application code.</p>
+</li>
+<li>
+<p>What are some potential security risks associated with using service accounts in GCP?
+Answer: Hardcoding user credentials or not properly managing service accounts can lead to security risks.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a scenario where you would use a custom service account instead of the default service account.
+Answer: You would use a custom service account if you need more flexibility and control over access scopes for your application.</p>
+</li>
+<li>
+<p>How would you implement authentication using a service account in an application that reads and writes files on cloud storage?
+Answer: You would enable the service account, grant read/write access to the account on the VM instance, and code the application to obtain credentials from the service account.</p>
+</li>
+<li>
+<p>What are some best practices for managing service accounts in GCP?
+Answer: Regularly review and update service accounts, use custom service accounts when necessary, and ensure proper access control and security measures are in place.</p>
+</li>
+<li>
+<p>How would you troubleshoot issues related to authentication using a service account in an application?
+Answer: You would check the service account's credentials, verify that the application is correctly obtaining credentials from the service account, and review the application's code for any errors or security vulnerabilities.</p>
+</li>
+<li>
+<p>What are some potential use cases for service accounts in GCP beyond automation scenarios?
+Answer: Service accounts can be used in other scenarios such as server-to-server interactions, IoT device management, and serverless applications.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google group</td>
+<td>Organization</td>
+<td>"You can also easily add members to and remove members from a Google group instead of updating a cloud IM policy to add or"</td>
+<td>A Google group is a type of organization that allows users to collaborate and communicate with each other. In this context, it's mentioned as an alternative to updating a cloud IM policy to manage user additions and removals.</td>
+</tr>
+<tr>
+<td>GCP (Google Cloud Platform)</td>
+<td>Organization</td>
+<td>"Importantly, GCP does not create or manage users or groups as that is the task of the G Suite Admin, which manages users and groups for an organization in a separate product from GCP."</td>
+<td>GCP refers to Google's cloud computing platform, which provides various services such as storage, computing, and networking. In this context, it's mentioned as a separate entity from G Suite, which is managed by the G Suite Admin.</td>
+</tr>
+<tr>
+<td>Service Account</td>
+<td>Identity</td>
+<td>"As we mentioned earlier, another type of member that you can have in GCP is a service account."</td>
+<td>A service account is a type of identity that belongs to a service or application, used for automation scenarios where human intervention is not required. It provides an identity for a service responsible for executing server-to-server interactions within a project.</td>
+</tr>
+<tr>
+<td>XML API</td>
+<td>Protocol</td>
+<td>"For example, if you write an application that reads and writes files on cloud storage, it must first authenticate to either the Google Cloud Storage, via an XML API or JSON API."</td>
+<td>An XML API is a protocol used for authentication with Google Cloud Storage. In this context, it's mentioned as one of the methods used by applications to authenticate with the storage service.</td>
+</tr>
+<tr>
+<td>JSON API</td>
+<td>Protocol</td>
+<td>"For example, if you write an application that reads and writes files on cloud storage, it must first authenticate to either the Google Cloud Storage, via an XML API or JSON API."</td>
+<td>A JSON API is a protocol used for authentication with Google Cloud Storage. In this context, it's mentioned as another method used by applications to authenticate with the storage service.</td>
+</tr>
+<tr>
+<td>Compute Engine default service account</td>
+<td>Identity</td>
+<td>"All projects have the built-in Compute Engine default service account."</td>
+<td>The Compute Engine default service account is an identity that belongs to all projects in GCP. It provides access to various resources and services within the project.</td>
+</tr>
+<tr>
+<td>Google Cloud platform API service account</td>
+<td>Identity</td>
+<td>"All projects come with a Google Cloud platform API service account, identifiable by the email, projectnumber@cloudservices.gserviceaccount.com."</td>
+<td>The Google Cloud platform API service account is an identity that belongs to all projects in GCP. It provides access to various resources and services within the project, including internal Google processes.</td>
+</tr>
+<tr>
+<td>Custom service account</td>
+<td>Identity</td>
+<td>"Moreover, you can start an instance with a custom service account."</td>
+<td>A custom service account is an identity that can be created for specific use cases. It provides more flexibility than the default service account but requires more management.</td>
+</tr>
+<tr>
+<td>Cloud IAM role</td>
+<td>Role</td>
+<td>"You can make as many custom service accounts as you require and assign them to any Cloud IAM role, arbitrary access scopes, or any virtual machine instance."</td>
+<td>A Cloud IAM role is a type of identity that defines permissions and access rights for resources within GCP. In this context, it's mentioned as an option for assigning custom service accounts.</td>
+</tr>
+<tr>
+<td>Virtual Machine Instance</td>
+<td>Resource</td>
+<td>"When you start a new instance using gcloud, the default service account is enabled on that instance."</td>
+<td>A virtual machine instance is a resource in GCP that provides computing power and storage. In this context, it's mentioned as a resource where the default service account can be enabled.</td>
+</tr>
+<tr>
+<td>Cloud IM policy</td>
+<td>Policy</td>
+<td>"You can also easily add members to and remove members from a Google group instead of updating a cloud IM policy to manage user additions and removals."</td>
+<td>A cloud IM policy is a type of policy that defines access rights and permissions for users within GCP. In this context, it's mentioned as an alternative to managing user additions and removals using a Google group.</td>
+</tr>
+<tr>
+<td>Authorization</td>
+<td>Process</td>
+<td>"Authorization is the process of determining what permissions and privileges an authenticated identity has on a set of specified resources."</td>
+<td>Authorization refers to the process of verifying the identity of users and determining their access rights to specific resources within GCP.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_56</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud SQL
+        ## Features
+        - • Backup data with On-Demand or scheduled backups.
+        - • Scale vertically by changing machine type.
+        - • Scale horizontally via read replicas.
+        - • Network firewalls, encrypted data on Google's internal networks, and secure temporary files and backups.
+        - • Readily accessible to other GCP services and external services.
+        - • Supports authorization of Compute Engine instances and low latency high performance.
+        
+        ## Use Cases
+        - Consider using Cloud SQL for relational database support with MySQL or PostgreSQL, especially if vast scale is required.
+        
+        ## Alternatives
+        - Consider using Cloud Spanner for:
+        - Horizontal scalability not just through replicas.
+        - Transactional consistency at a global scale.
+        - Relational schemas.
+        - High availability.
+        
+        # Cloud Spanner
+        ## Features
+        - • Provide petabytes of capacity.
+        - • Offer transactional consistency at a global scale.
+        - • Support relational schemas, SQL, and synchronous replication for high availability.
+        
+        ## Use Cases
+        - Natural use cases include financial applications and inventory applications. Consider using Cloud SQL if you require vast scale or full SQL support for an online transaction processing system.
+        
+        # Cloud Datastore
+        ## Features
+        - • Highly scalable NoSQL database.
+        - • Store structured data from App Engine apps.
+        - • Integration point for solutions spanning App Engine and Compute Engine VMs.
+        - • Fully managed service with automatic sharding, replication, and scaling.
+        - • Offers transactions that can affect multiple database rows and SQL-like queries.
+        
+        ## Use Cases
+        - Use Cloud Datastore as the integration point for your solution.
+
+      </script>
+    </div>
+  </body>
+</html>

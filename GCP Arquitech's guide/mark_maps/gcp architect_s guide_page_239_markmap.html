@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_239</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cascading Failures Prevention
+        ## Introduction
+        
+        - Measuring and logging data is crucial to determine what triggered an alarm, allowing us to plan for monitoring individual services from a user experience perspective.
+        
+        ## Designing to Prevent Cascading Failures
+        
+        - Prevention is the best strategy. We want to monitor resource thresholds and set safe limits. For example, we should ensure our CPU utilization doesn't exceed a safe threshold and autoscale if it does.
+        
+        ### Setting Trigger Thresholds
+        
+        - Setting trigger thresholds lower allows us to be proactive and keep one step ahead.
+        
+        #### Cost of Adding Resources
+        
+        - The cost of adding VM resources as additional servers to absorb traffic load shouldn't be an issue, as the alternative is downtime.
+        
+        #### Autoscaling
+        
+        - We should auto-scale in order to increase cluster size for failover, not just operating capacity.
+        
+        ### Best Practices
+        
+        - **n+2**: Handle for failover under routine maintenance conditions and add additional resources for growth.
+        - Clustering in pairs: Redistribute nodes through different tiers to limit single server fan-in issues and mitigate feedback loops.
+        
+        #### Trade-offs
+        
+        - There's a trade-off between retry frequency and back-off. A back-off algorithm can be applied to health checks and retries, using the concept seen in Gmail and BGP route dampening.
+        
+        ## Use Case - 24
+        
+        - The popular video transcription services suddenly crashed. We need to define the issue, develop a process to rectify it, and ensure it won't happen again.
+        
+        - This time, troubleshooting is easier due to an entire zone failing in GCP. Our goal will be to design controls that protect against future zone outages.
+        
+        #### Growing Popularity
+        
+        - The app was not considered business critical but its growing popularity and use now makes it so.
+        
+        #### Measuring and Logging Data
+        
+        - Measuring and logging data is crucial to determine what triggered the alarm, allowing us to plan for monitoring individual services from a user experience perspective.
+
+      </script>
+    </div>
+  </body>
+</html>

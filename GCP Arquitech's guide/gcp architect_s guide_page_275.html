@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_275</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_275_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_275</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Video Transcription Application</h1>
+<h2>Homegrown ETL Processing Script</h2>
+<ul>
+<li>For expediency, we didn't want to change languages.</li>
+<li>However, a better ETL service is available: Dataflow.</li>
+</ul>
+<h2>Resource Deployment</h2>
+<p>After forecast and allocate stages comes deploy. 
+- We have data to drive numbers for forecasts.
+- This makes it easier to get approval.
+- Now, go to the deploy phase and start testing.
+  - Make testing realistic but easy to run.
+  - Surface issues before serving users.
+  - Use unit testing for hard issues.</p>
+<h2>Pricing &amp; Billing</h2>
+<ul>
+<li>Pricing varies between on-premises and cloud initiatives.</li>
+<li>On-premises pricing is capital expense orientated.</li>
+<li>Cloud pricing is operational usage with no capital outlay.</li>
+<li>Examples: bulk-use discounting, discounts for rarely used resources.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>So, for example in our video transcription application we're running a home grown ETL processing script that we made, for the sake of expediency as we didn't want to change languages. However, throughout the evolution of the video transcription service there was a better ETL service available to us, Dataflow. It's a fully managed service, it scales better, and the algorithms are tuned, so perhaps we should stop procrastinating and switch over to Dataflow.
+
+Resource Deployment
+
+After the forecast and allocate stages comes deploy, and if you've been using your service level objectives and indicators, you will now have data to drive these numbers to support your forecasts. So it should be a lot easier to get approval, you have the data, you have forecasting, and you can calculate and justify what the subsequent costs will be to meet the design.
+
+So now, you're going to go to the deploy phase and then start your testing. We want to make the testing realistic but easy to run, should also be customizable. After all we want to be able to catch obvious errors and handle simple use cases. But we also need to surface some of those stubborn intermittent issues that are more difficult to find. Therefore, we want to try to build in some kind of unit testing for reproducible or hard issues.
+
+You should always first surface and then work through any issues before serving it up to your users. By striving to maintain the integrity of our application to the users we want to identify any bottlenecks or other user pain points and make the user experience as good as possible.
+
+If you can do dark launches then do so, as this way you are going to be doing testing in an isolated launch. Then of course, you can start a slow stage and iterative process with canary deployments slowly rolling out. So if we do adversely affect our customer base it will be a very small percentage.
+
+Pricing & Billing
+
+A significant factor when designing for cloud deployments is that the method, techniques, and perspective of pricing vary tremendously between on-premises and cloud initiatives. Pricing is commonly used in on-premises for vendor evaluation and budget approval as it is typically very capital expense orientated i.e. you are pricing physical hardware for purchase or lease.
+
+What is more, most of the projects' pricing will be on capital expenditure with operational expenses such as power and communications shared across the data centre. Pricing however in the cloud is much different because here you are pricing for the operational usage of resources with no capital outlay so it is more nuanced. But do not mistake this as being an opportunity to dispense with diligent pricing as it is still crucial to cost optimization, reducing cost, and for project budgeting.
+
+When we said that pricing could be nuanced one example is that in Google Cloud Platform there is bulk-use discounting, which is built-in and automatic for many services. Conversely, there are discounts for resources that are rarely used such as with cold storage or pre-emptive VMs.
+
+In this chapter, you will find out some of the ways and design choices, which can influence price.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Migrating to a Better ETL Service: A Cloud Deployment Perspective</strong></h1>
+<p>We're currently running a homegrown ETL processing script for our video transcription service, but we've been presented with an opportunity to switch to Dataflow, a fully managed service that scales better and has algorithms tuned for optimal performance. It's time to stop procrastinating and make the switch.</p>
+<h2><strong>Resource Deployment</strong></h2>
+<p>After forecasting and allocating resources, we'll enter the deploy phase. With data-driven service level objectives and indicators in hand, we'll have an easier time getting approval for our deployment. We'll also be able to calculate and justify subsequent costs more effectively.</p>
+<p>To ensure a smooth deployment, we'll focus on realistic yet easy-to-run testing that's customizable. This will allow us to catch obvious errors, handle simple use cases, and surface stubborn intermittent issues that are harder to find. We'll prioritize unit testing for reproducible or hard issues and strive to maintain the integrity of our application.</p>
+<h2><strong>Dark Launches and Canary Deployments</strong></h2>
+<p>If possible, we'll opt for dark launches to test in an isolated environment before rolling out to our users. This will minimize the impact on our customer base if any issues arise during deployment. We can then start with slow, iterative processes using canary deployments to gradually roll out changes.</p>
+<h2><strong>Pricing and Billing</strong></h2>
+<p>Cloud pricing is vastly different from on-premises pricing. In the cloud, we're paying for operational usage of resources without capital outlay, making it more nuanced. However, diligent pricing is still crucial for cost optimization, reducing costs, and project budgeting.</p>
+<p>We'll explore design choices that can influence price, such as bulk-use discounting in Google Cloud Platform. We'll also examine discounts for rarely used resources like cold storage or preemptive VMs.</p>
+<p>By understanding these factors, we can make informed decisions about our cloud deployment and ensure a successful transition to Dataflow.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Homegrown ETL Processing Script vs. Dataflow
+The text discusses the use of a homegrown ETL (Extract, Transform, Load) processing script in a video transcription application, but also mentions that a better service called Dataflow is available.</p>
+<h3>Topic 2</h3>
+<p>Resource Deployment and Testing
+This topic covers the deployment phase after forecasting and allocation stages, including testing strategies such as dark launches and canary deployments to catch errors and surface issues before serving them to users.</p>
+<h3>Topic 3</h3>
+<p>Pricing and Billing in Cloud Deployments
+The text explains how pricing differs between on-premises and cloud initiatives, with a focus on operational usage of resources rather than capital expenditure. It also discusses nuances such as bulk-use discounting and discounts for rarely used resources like cold storage or preemptive VMs.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What was the initial reason for using a homegrown ETL processing script in the video transcription application?
+Answer: The initial reason was to maintain expediency by not wanting to change languages.</p>
+</li>
+<li>
+<p>Which fully managed service was considered as an alternative to the existing ETL processing script?
+Answer: Dataflow.</p>
+</li>
+<li>
+<p>What is the main difference between pricing in on-premises and cloud initiatives?
+Answer: Pricing in the cloud is more nuanced, focusing on operational usage of resources with no capital outlay, whereas on-premises pricing is typically capital expense-oriented.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of a homegrown ETL processing script affect the scalability and maintainability of the video transcription application?
+Answer: It may limit the scalability and maintainability due to the lack of a fully managed service like Dataflow.</p>
+</li>
+<li>
+<p>What are some potential drawbacks of using dark launches in cloud deployments?
+Answer: Dark launches can be risky, as they involve testing in an isolated launch without user feedback, which may lead to unintended consequences if not done carefully.</p>
+</li>
+<li>
+<p>How does pricing for operational usage of resources in the cloud differ from on-premises pricing?
+Answer: Pricing in the cloud is more nuanced, focusing on operational usage with no capital outlay, whereas on-premises pricing is typically capital expense-oriented.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>If you were to switch from a homegrown ETL processing script to Dataflow, what steps would you need to take to ensure a smooth transition?
+Answer: You would need to evaluate the current application's architecture, identify areas that can be optimized or improved, and develop a plan for migrating to Dataflow.</p>
+</li>
+<li>
+<p>How could you implement unit testing for reproducible or hard issues in your cloud deployment?
+Answer: You could use automated testing frameworks, such as JUnit or PyUnit, to write tests that cover specific scenarios and ensure the application's integrity.</p>
+</li>
+<li>
+<p>What are some best practices for pricing and cost optimization in cloud deployments?
+Answer: Best practices include using bulk-use discounting, monitoring resource usage, and implementing cost-saving strategies, such as right-sizing instances or using reserved instances.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ETL processing script</td>
+<td>Software/Technology</td>
+<td>"So, for the sake of expediency as we didn't want to change languages."</td>
+<td>The entity is a custom-built script used for data extraction and transformation in the video transcription application. Its primary purpose is to facilitate the process without requiring changes to existing language support.</td>
+</tr>
+<tr>
+<td>Dataflow</td>
+<td>Cloud Service/Platform</td>
+<td>"However, throughout the evolution of the video transcription service there was a better ETL service available to us, Dataflow."</td>
+<td>Dataflow is a fully managed service that offers improved scalability and algorithmic tuning compared to the existing ETL processing script. It presents an opportunity for optimization and potential cost savings.</td>
+</tr>
+<tr>
+<td>Service Level Objectives (SLOs)</td>
+<td>Business Concept</td>
+<td>"After the forecast and allocate stages comes deploy, and if you've been using your SLOs..."</td>
+<td>SLOs are key performance indicators used to measure service quality and drive forecasting. They provide a framework for calculating costs and justifying design decisions.</td>
+</tr>
+<tr>
+<td>Forecasting</td>
+<td>Business Process</td>
+<td>"...you will now have data to drive these numbers to support your forecasts."</td>
+<td>Forecasting is an essential process in the video transcription application, enabling data-driven decision-making and cost optimization. It involves analyzing historical data to predict future performance.</td>
+</tr>
+<tr>
+<td>Testing</td>
+<td>Quality Assurance/Testing Methodology</td>
+<td>"We want to make the testing realistic but easy to run, should also be customizable..."</td>
+<td>The entity represents a crucial aspect of software development, ensuring that applications meet user expectations and are free from errors. Testing is an iterative process that involves identifying and addressing issues before deployment.</td>
+</tr>
+<tr>
+<td>Unit Testing</td>
+<td>Software Development Methodology</td>
+<td>"...we want to try to build in some kind of unit testing for reproducible or hard issues."</td>
+<td>Unit testing is a specific type of testing focused on individual components or units within an application. It helps identify and fix problems early in the development cycle, reducing overall costs and improving quality.</td>
+</tr>
+<tr>
+<td>Dark Launches</td>
+<td>Deployment Strategy</td>
+<td>"If you can do dark launches then do so as this way you are going to be doing testing in an isolated launch."</td>
+<td>A dark launch is a deployment strategy where an application or service is launched in isolation before being made publicly available. This approach allows for testing and iteration without affecting the broader user base.</td>
+</tr>
+<tr>
+<td>Canary Deployments</td>
+<td>Deployment Strategy</td>
+<td>"...then of course, you can start a slow stage and iterative process with canary deployments slowly rolling out."</td>
+<td>Canary deployments involve releasing new versions or features to a small subset of users before scaling up to the entire user base. This approach enables testing and validation while minimizing potential disruptions.</td>
+</tr>
+<tr>
+<td>Pricing</td>
+<td>Business Concept</td>
+<td>"A significant factor when designing for cloud deployments is that the method, techniques and perspective of pricing do vary tremendously between on-premises and cloud initiatives."</td>
+<td>Pricing refers to the process of determining the cost of goods or services, including cloud-based solutions. It involves considering various factors, such as usage patterns, operational expenses, and capital expenditures, to establish a fair and competitive pricing strategy.</td>
+</tr>
+<tr>
+<td>Bulk-Use Discounting</td>
+<td>Cloud Service Feature</td>
+<td>"...one example is that in Google Cloud Platform there is bulk-use discounting..."</td>
+<td>Bulk-use discounting is a feature offered by cloud platforms like Google Cloud Platform, providing discounts for customers who use their services extensively. This approach incentivizes cost-effective usage and can lead to significant savings for businesses.</td>
+</tr>
+<tr>
+<td>Cold Storage</td>
+<td>Cloud Service Feature</td>
+<td>"...there are discounts for resources that are rarely used such as with cold storage or pre-emptive VMs."</td>
+<td>Cold storage refers to a type of cloud-based storage that is less frequently accessed, often due to infrequent data usage patterns. Discounts for these services can help reduce costs and improve overall efficiency in cloud deployments.</td>
+</tr>
+<tr>
+<td>Pre-emptive VMs</td>
+<td>Cloud Service Feature</td>
+<td>"...there are discounts for resources that are rarely used such as with cold storage or pre-emptive VMs."</td>
+<td>Pre-emptive VMs (Virtual Machines) are a type of cloud-based computing resource that allows businesses to provision and manage virtual machines in advance. Discounts for these services can help reduce costs and improve scalability in cloud deployments.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

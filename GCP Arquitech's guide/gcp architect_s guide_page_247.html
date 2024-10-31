@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_247</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_247_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_247</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Encryption and Security Controls in GCP</h1>
+<h2>Overview of Encryption</h2>
+<p>And in this case, when you supply and manage your own keys the GCP does use those keys in memory but does not write it to storage this way, your data is still stored safely with Google, but you hold the decryption keys.</p>
+<p>Now if you need more control over your encryption, there are lots of other tools you can use. A common method is to use your own client side encryption. Here you would encrypt the data before you send it over to Google Cloud Storage, and then you could also encrypt the storage bucket.</p>
+<p>You can also do disk encryption, or even file system encryption using third party tools and techniques. TrueCrypt for example is a very popular one as it's an open source project.</p>
+<h2>Blending Security Controls</h2>
+<p>Blending Security Controls very quickly if you work at the user level rather than using groups. AM is the foundation of all GCP security but it can get complex Therefore you should always create groups and then place users into the groups as this greatly simplifies the administration and maintainability of the security policy.</p>
+<p>Similarly when working with folders in resource manager it is always best to mimic the organisational structure and to use the same naming convention. This is because folders are then easier to identify when looked at look okay when viewed in its hierarchal structure as we can see the out of context.</p>
+<p>For example calling a folder 'development' might context but it is not very informative if we view the folder name in a log entry. Thus, we should be more verbose with folder names so as to relate their structure i.e. instead of just using the name 'development' we could use, 'ABC - IT- Development', which follows the organisational naming convention so we can see at a glance the owner of the folder.</p>
+<h2>Control Principle</h2>
+<p>The principle we follow here are based on Control, Visibility, and Security Solutions. To get started we will begin with the principle of control.</p>
+<h3>Control Measures</h3>
+<h4>1. Group Management</h4>
+<p>AM is the foundation of all GCP security but it can get complex Therefore you should always create groups and then place users into the groups as this greatly simplifies the administration and maintainability of the security policy.</p>
+<h4>2. Organisational Structure</h4>
+<p>Similarly when working with folders in resource manager it is always best to mimic the organisational structure and to use the same naming convention. This is because folders are then easier to identify when looked at look okay when viewed in its hierarchal structure as we can see the out of context.</p>
+<h4>3. Naming Conventions</h4>
+<p>For example calling a folder 'development' might context but it is not very informative if we view the folder name in a log entry. Thus, we should be more verbose with folder names so as to relate their structure i.e. instead of just using the name 'development' we could use, 'ABC - IT- Development', which follows the organisational naming convention so we can see at a glance the owner of the folder.</p>
+<h3>Conclusion</h3>
+<p>So there are many different levels you can go to when encrypting and protecting your data. Blending Security Controls is key to getting the best out of GCP security solutions.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>And in this case, when you supply and manage your own keys, GCP does use those keys in memory but does not write it to storage. This way, your data is still stored safely with Google, but you hold the decryption keys.
+
+Now if you need more control over your encryption, there are lots of other tools you can use. A common method is to use your own client side encryption. Here, you would encrypt the data before you send it over to Google Cloud Storage, and then you could also encrypt the storage bucket. You can also do disk encryption, or even file system encryption using third-party tools and techniques. TrueCrypt for example is a very popular one as it's an open-source project.
+
+So there are many different levels you can go to when encrypting and protecting your data.
+
+Blending Security Controls
+
+Working at the user level rather than using groups can be complex, so it's essential to create groups and then place users into those groups. This greatly simplifies the administration and maintainability of the security policy. Similarly, when working with folders in Resource Manager, it's always best to mimic the organizational structure and use the same naming convention.
+
+This is because folders are then easier to identify when looked at or viewed in their hierarchical structure. For example, calling a folder 'development' might seem contextually correct, but it's not very informative if we view the folder name in a log entry. Thus, we should be more verbose with folder names so as to relate their structure. Instead of just using the name 'development', we could use 'ABC - IT- Development', which follows the organizational naming convention, so we can see at a glance the owner of the folder.
+
+The importance of following a naming convention becomes very apparent when you're looking through logs and trying to identify folders or other resources.
+
+We saw earlier how to blend IAM and Resource Manager to provide better separation, maintainability, and simplicity when defining our security policies. Here, we are going to add some tips on how to get the best out of blending the security controls that are available to you. The principle we follow here are based on Control, Visibility, and Security Solutions.
+
+To get started, we will begin with the principle of control.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Managing Keys and Encryption in GCP</strong></h1>
+<p>When using Google Cloud Platform (GCP), you can manage your own keys to encrypt data stored in GCP. This approach allows you to hold the decryption keys, ensuring that your data is stored safely with Google.</p>
+<p>However, if you need more control over encryption, there are alternative methods available. One common approach is to use client-side encryption, where you encrypt data before sending it to GCP Storage, and then encrypt the storage bucket itself. Additionally, you can use disk or file system encryption using third-party tools and techniques, such as TrueCrypt.</p>
+<h1><strong>Blending Security Controls</strong></h1>
+<p>To simplify security administration and maintainability, it's recommended to create groups instead of working at the user level. This approach simplifies the process of adding users to groups and ensures that security policies are consistently applied.</p>
+<p>When working with folders in Resource Manager, it's essential to mimic organizational structures and use consistent naming conventions. This makes it easier to identify folders and resources, especially when viewing logs or hierarchal structures.</p>
+<h2><strong>Principles for Blending Security Controls</strong></h2>
+<p>To get the most out of blending security controls, follow these principles:</p>
+<ol>
+<li><strong>Control</strong>: Implement a control-oriented approach to security, where access is granted based on specific requirements.</li>
+<li><strong>Visibility</strong>: Ensure that you have visibility into your security controls and configurations, making it easier to identify potential vulnerabilities or misconfigurations.</li>
+<li><strong>Security Solutions</strong>: Leverage security solutions and tools to enhance your security posture and protect against emerging threats.</li>
+</ol>
+<p>By following these principles and best practices, you can create a robust security framework for your GCP resources and ensure that your data is protected effectively.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Data Encryption and Protection
+The importance of encrypting data before sending it to Google Cloud Storage and using decryption keys is highlighted.</p>
+<h3>Topic 2</h3>
+<p>Group Management for Simplified Administration
+Creating groups and placing users into them simplifies security policy administration and maintainability.</p>
+<h3>Topic 3</h3>
+<p>Organizational Structure and Naming Conventions
+Using the same naming convention as the organizational structure makes folders easier to identify in logs and hierarchal views.</p>
+<h3>Topic 4</h3>
+<p>Blending Security Controls for Better Separation
+Following the principles of Control, Visibility, and Security Solutions is essential for getting the best out of blending security controls.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>1. What is the primary benefit of using your own client-side encryption in Google Cloud Storage?</h4>
+<p>The primary benefit of using your own client-side encryption in Google Cloud Storage is that you hold the decryption keys, ensuring your data remains safe with Google.</p>
+<h4>2. Why should users create groups instead of working at the user level when implementing security policies in GCP?</h4>
+<p>Creating groups simplifies administration and maintainability of security policy.</p>
+<h4>3. What is the importance of following a naming convention for folders in Resource Manager?</h4>
+<p>Following a naming convention makes it easier to identify folders, especially when viewed in logs or hierarchal structures.</p>
+<h3>Analytical Questions</h3>
+<h4>1. How does using your own client-side encryption compare to relying on Google Cloud Storage's built-in encryption methods?</h4>
+<p>Using your own client-side encryption provides more control over data protection, but also requires additional effort and expertise.</p>
+<h4>2. What are the advantages of blending IAM and Resource Manager security controls?</h4>
+<p>Blending these controls provides better separation, maintainability, and simplicity when defining security policies.</p>
+<h4>3. How can using a naming convention for folders in Resource Manager improve security and organization?</h4>
+<p>Using a naming convention makes it easier to identify folders and resources, especially in logs or hierarchal structures.</p>
+<h3>Application Questions</h3>
+<h4>1. Suppose you need to encrypt data before sending it to Google Cloud Storage. Which tool would you recommend using, and why?</h4>
+<p>TrueCrypt is a popular open-source project that can be used for client-side encryption.</p>
+<h4>2. If you are implementing security policies in GCP, how would you ensure that your organization's naming convention is followed consistently across all resources?</h4>
+<p>You would create a standard naming convention and apply it to all folders and resources, ensuring consistency and ease of identification.</p>
+<h4>3. How can using groups instead of working at the user level improve the administration and maintainability of security policies in GCP?</h4>
+<p>Creating groups simplifies the management of users and permissions, making it easier to update and enforce security policies.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>And in this case, when you supply and manage your own keys the GCP does use those keys in memory but does not write it to storage</td>
+<td>Sentence</td>
+<td>The text is discussing the security measures taken by Google Cloud Platform (GCP) for data encryption.</td>
+<td>This sentence indicates that even if an individual manages their own encryption keys, GCP still uses these keys in its memory but does not store them in its storage system. This implies that the individual retains control over their decryption keys.</td>
+</tr>
+<tr>
+<td>this way, your data is still stored safely with Google, but you hold the decryption keys</td>
+<td>Sentence</td>
+<td>The text emphasizes the importance of an individual holding onto their decryption keys.</td>
+<td>This sentence highlights the dual nature of data encryption: while GCP stores the encrypted data securely, the individual retains control over the decryption keys, ensuring they can access their data.</td>
+</tr>
+<tr>
+<td>Now if you need more control over your encryption, there are lots of other tools you can use</td>
+<td>Sentence</td>
+<td>The text introduces alternative methods for gaining more control over encryption.</td>
+<td>This sentence signals that GCP offers various tools and techniques for individuals to take additional measures to secure their data, such as client-side encryption or third-party tools like TrueCrypt.</td>
+</tr>
+<tr>
+<td>A common method is to use your own client side encryption</td>
+<td>Phrase</td>
+<td>One of the alternatives mentioned for gaining more control over encryption.</td>
+<td>Client-side encryption involves encrypting data before sending it to GCP, allowing individuals to maintain control over their encrypted data. This approach provides an additional layer of security and flexibility.</td>
+</tr>
+<tr>
+<td>Here you would encrypt the data before you send it over to Google Cloud Storage, and then you could also encrypt the storage bucket</td>
+<td>Sentence</td>
+<td>A specific example of client-side encryption in action.</td>
+<td>This sentence illustrates how individual-controlled encryption can be applied at multiple levels: first, by encrypting data before sending it to GCP, and second, by encrypting the storage bucket itself.</td>
+</tr>
+<tr>
+<td>You can also do disk encryption, or even file system encryption using third party tools and techniques</td>
+<td>Sentence</td>
+<td>Additional methods for gaining more control over encryption.</td>
+<td>This sentence highlights other options available to individuals, including disk-level and file system encryption, which can be achieved through third-party tools and techniques. These alternatives provide further flexibility in securing data.</td>
+</tr>
+<tr>
+<td>TrueCrypt for example is a very popular one as it's an open source project</td>
+<td>Phrase</td>
+<td>An example of a third-party tool for encryption.</td>
+<td>TrueCrypt is mentioned as a well-known and widely-used open-source tool for file system encryption, demonstrating its popularity among individuals seeking to enhance their data security.</td>
+</tr>
+<tr>
+<td>So there are many different levels you can go to when encrypting and protecting your data</td>
+<td>Sentence</td>
+<td>A summary statement emphasizing the variety of options available.</td>
+<td>This sentence underscores the range of choices available to individuals looking to secure their data through encryption, from basic client-side encryption to more advanced techniques like disk-level or file system encryption.</td>
+</tr>
+<tr>
+<td>Blending Security Controls</td>
+<td>Title</td>
+<td>The main topic of discussion in this section.</td>
+<td>The title "Blending Security Controls" signals that the text will explore how to combine different security measures to achieve a more comprehensive and effective security posture.</td>
+</tr>
+<tr>
+<td>very quickly if you work at the user level rather than using groups</td>
+<td>Sentence</td>
+<td>A recommendation for simplifying administration and maintainability.</td>
+<td>This sentence advises individuals working at the user level to use groups instead, as it simplifies administrative tasks and improves security policy management.</td>
+</tr>
+<tr>
+<td>AM is the foundation of all GCP security but it can get complex</td>
+<td>Sentence</td>
+<td>An explanation of how IAM works in GCP.</td>
+<td>This sentence clarifies that Identity and Access Management (IAM) serves as the core security framework for GCP, but its complexity can make it challenging to manage effectively.</td>
+</tr>
+<tr>
+<td>Therefore you should always create groups and then place users into the groups as this greatly simplifies the administration and maintainability of the security policy</td>
+<td>Sentence</td>
+<td>A recommendation for improving security policy management.</td>
+<td>This sentence emphasizes the importance of creating groups and placing users within them, as it streamlines administrative tasks and enhances the overall manageability of security policies.</td>
+</tr>
+<tr>
+<td>The importance of following a naming convention becomes very apparent when you are looking through logs and trying to identify folders or other resources</td>
+<td>Sentence</td>
+<td>An example illustrating the value of clear naming conventions.</td>
+<td>This sentence highlights the significance of using descriptive names for folders and other resources, as it facilitates identification and management in log analysis and security monitoring.</td>
+</tr>
+<tr>
+<td>We saw earlier how to blend IAM and Resource Manager to provide better separation, maintainability and simplicity when defining our security policies</td>
+<td>Reference</td>
+<td>A previous discussion on blending IAM and Resource Manager.</td>
+<td>This sentence references a previous section that discussed the benefits of combining IAM and Resource Manager for more effective security policy management.</td>
+</tr>
+<tr>
+<td>Here, we are going to add some tips on how to get the best out of blending the security controls that are available to you</td>
+<td>Sentence</td>
+<td>An introduction to additional guidance on blending security controls.</td>
+<td>This sentence signals that the text will provide further advice on maximizing the effectiveness of combining different security measures in GCP.</td>
+</tr>
+<tr>
+<td>The principle we follow here are based on Control, Visibility, and Security Solutions</td>
+<td>Title</td>
+<td>A framework for understanding how to blend security controls.</td>
+<td>The title "Control, Visibility, and Security Solutions" outlines a structured approach to blending security controls, emphasizing the importance of balancing these three key aspects: control, visibility, and security solutions.</td>
+</tr>
+<tr>
+<td>To get started we will begin with the principle of control</td>
+<td>Sentence</td>
+<td>An introduction to the first step in blending security controls.</td>
+<td>This sentence initiates the discussion on how to blend security controls by focusing on the fundamental principle of control, which is essential for establishing a robust security posture.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

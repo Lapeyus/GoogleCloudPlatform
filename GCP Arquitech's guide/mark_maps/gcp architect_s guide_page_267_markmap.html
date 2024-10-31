@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_267</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Migrating Database Clusters
+        ## Challenges in Database Migration
+        - In this section we will look at a more challenging issue with database migration than moving clusters or high availability configurations to the cloud.
+        
+        ### Migrating a PostgreSQL Cluster to the Cloud
+        - To begin, you perform the following tasks:
+        - 1. Set up PostgreSQL in GCP.
+        - 2. Set up replication on Compute Engine.
+        - 3. Then, you'll seed the data to a new instance before you start replicating the master.
+        
+        #### Set up PostgreSQL in GCP
+        - 1. You configure PostgreSQL on an Ubuntu virtual machine instance on Compute Engine.
+        - 2. Set up replication on Compute Engine
+        - 3. Configure PostgreSQL to run in Hot Standby mode on Compute Engine by using two Compute Engine instances. One instance will run the primary PostgreSQL server and the other instance will run the standby server.
+        
+        #### Seed the Data
+        - Because the master database contains a capped transaction log, most PostgreSQL migrations require the data to be seeded to a new instance before you can start replicating the master. You can seed the data in one of the following ways:
+        - 1. Dump a single database into a script or archive file using `Pg_dump`.
+        - 2. Take a binary copy of a running database cluster using `Pg_basebackup`.
+        - 3. Replicate the data folder to the replica using rsync.
+        - 4. Restore a previous backup to the replica.
+        
+        - After the initial seeding of the database, you can use the rsync command to feed changes to the replica that have occurred since the last backup; the b
+        - the command syncs
+        - the data directories between the
+        
+        #### Setting up the PostgreSQL cluster on GCP
+        - two Instances. This step is important if the backup has fallen too far behind 
+        - the master to catch up through normal replication. You can create 
+        - the PostgreSQL cluster using cascade 
+        - replication.
+        
+        - 2. Transfer the backup to the bucket you just created:
+        - 1. Take a full data backup from the running master server
+        - 3. Transfer 
+        - the 
+        - backup file to the GCP master:
+        - 4. Restore 
+        - the backup file into the GCP master : 
+        - 5. Create 
+        - a recovery.conf file in the $PG_DATA 
+        - directory 
+        - 6. Start 
+        - the PostgreSQL service:
+        - 7. Wait until the GCP master server syncs with the running
+        - master.
+        - 8. Create a subordinate database
+        - 9. Shut down the database and the server: 
+        - 10. In the GCP  Console, go to the Snapshots  page. 
+        - 11. From 
+        - the PostgreSQL disk, create a new snapshot . 
+        - 12. Start the GCP  master server.
+        - 13. Go to the VM instances page, click master-instance-name,
+        - and then click Start.
+        - 14. Start the new server and mount the disk:
+        - 15. Configure data directory and replication values. Copy the PostgreSQL.conf file and the pg_hba.conf file 
+        - from the 
+        - GCP
+        - master, and edit the recovery.conf file
+
+      </script>
+    </div>
+  </body>
+</html>

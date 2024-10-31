@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_28</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud IAM Custom Roles and Service Accounts
+        ## Introduction
+        
+        - Cloud IAM provides custom roles that allow you to fine-tune permissions for specific users or groups. This section will cover the benefits, caveats, and usage guidelines for custom roles.
+        
+        ### Benefits
+        
+        * Fine-grained control over permissions
+        * Suitable for organizations adhering to a least privileged access model
+        * Can be used at project or organization levels
+        
+        ## Custom Roles
+        
+        - Custom roles are created to address specific requirements that may not be met by predefined roles. To create a custom role, you can add or remove permissions from an existing role.
+        
+        ### Example: Instance Operator Role
+        
+        - InstanceOperator:
+        -   * compute.instances.get
+        -   * compute.instances.list
+        -   * compute.instances.start
+        -   * compute.instances.stop
+        -   * compute.instances.setMachineType
+        -   * compute.instances.setDisks
+        -   * compute.instances.setNetworkInterfaces
+        
+        ## Caveats
+        
+        * Custom roles require manual permission management, which can be complex and unpredictable.
+        * Interaction between permissions can lead to error-prone and security-risky configurations.
+        
+        ### Auditing Custom Roles
+        
+        - Some companies require custom roles to be thoroughly audited by a third party or peer review before assignment. Others prefer to stick with predefined roles due to the risks associated with custom roles.
+        
+        ## Service Accounts
+        
+        - Service accounts are used to grant permissions to resources, rather than users. This is useful for automating processes that interact with multiple resources.
+        
+        ### Example: Granting Permissions to a Compute Engine Virtual Machine
+        
+        * Create a service account with the necessary permissions
+        * Assign the service account to the virtual machine
+        * Use the service account to automate tasks and interact with the virtual machine
+        
+        ## Usage Guidelines
+        
+        * Custom roles can only be used at project or organization levels.
+        * Service accounts are suitable for automating processes that interact with multiple resources.
+
+      </script>
+    </div>
+  </body>
+</html>

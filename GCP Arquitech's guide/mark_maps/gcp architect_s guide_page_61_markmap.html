@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_61</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Kubernetes
+        ## Introduction
+        - Potentially when you use containers a host can scale up or down and start and stop the containers on-demand as demand for your application changes, or if a host fails. But you will need tools to orchestrate and control the provisioning process and that is where Kubernetes comes in.
+        
+        ## The Role of Kubernetes
+        - Kubernetes acts as the orchestrator managing many containers deployed on many hosts and scaling them as microservices.
+        - Kubernetes also plays an important role in automatic provisioning and deploying rollouts and rollbacks.
+        
+        ## Why We Need Kubernetes
+        - To understand how and why we need Kubernetes as an orchestrator we have to comprehend that deploying and managing containers manually is not really feasible. This is due to fact that there is a lot more too just building and running containers there are the other tasks associated with service discovery, managing updates, monitoring, and provisioning, which are the essential components of an automated, reliable, scalable, distributed system.
+        
+        ## Benefits of Kubernetes
+        - To assist us in automating the management and provisioning of our container base we can use Kubernetes, which is an open source orchestrator that abstracts containers at a higher level so you can better manage and scale your applications. Kubernetes can be thought of as a set of APIs that you can use to deploy and manage containers.
+        
+        ## Architecture
+        - The Kubernetes system is organised as a set of master components that run as a control plane, and a set of nodes that run containers. In Kubernetes, a node represents a computing instance like a virtual machine. Specifically in Google Cloud, Kubernetes nodes are virtual machines running in the Compute Engine.
+        
+        ## Nodes, Pods and Clusters
+        - At a very high level of operations, you describe a set of applications and how they  should interact with each other, and Kubernetes figures how to  make that happen.
+        - Kubernetes uses the concept of a cluster which is basically a set of containers. Hence once you have built your container, the first thing you will need to do is deploy it into a cluster.
+        
+        ## Kubernetes Engine (GKE)
+        - GKE is hosted Kubernetes by Google. Within GKE clusters can be customized, they can support different machine types, numbers of nodes, and network settings. Kubernetes is also able to launch containers in existing VMs or to provision new VMs and place the containers within them.
+        
+        ### Pod
+        - This is the smallest unit in Kubernetes that you can create or deploy. Logically a pod will represent a running process on your cluster. It can be either a component of your application, or the entire application.
+        
+        ## Conclusion
+        - Kubernetes provides an automated way to manage and scale containerized applications, making it easier to deploy and manage complex systems.
+
+      </script>
+    </div>
+  </body>
+</html>

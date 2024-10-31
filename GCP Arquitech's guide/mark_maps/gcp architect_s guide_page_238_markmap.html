@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_238</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Correlated Failures and Overload
+        
+        ## Correlated Failures
+        
+        - Correlated failures occur when a single failure causes a chain reaction of events. For example, if a zone or region is lost, all resources in it will fail.
+        
+        ### Failure Domains
+        
+        - Identify potential failure domains during the design process to prevent correlated failures. Divide business logic into services based on failure domains, considering entire failure domains rather than individual components.
+        
+        ### High-Level Perspective
+        
+        - Look at failure domains from a high-level perspective, such as identifying them at the zone or regional level. This helps separate and isolate risk while designing independent but collaborative services.
+        
+        ## Failure due to Overload
+        
+        - When a system is overloaded, it exhibits nonlinear behavior, such as:
+        
+        * Local applications hanging
+        * Disks thrashing
+        * Systems stopping responses altogether
+        
+        ### Common Behaviors of Overload
+        
+        - Recognize these behaviors when a resource crosses into nonlinear behavior:
+        
+        * Running out of memory
+        * Running out of disk space
+        * CPU becoming too high
+        
+        ### Cascading Failures
+        
+        - Overloaded resources can lead to cascading failures, making it difficult to troubleshoot. Identify potential points of overload by examining the networking service architecture.
+        
+        ### Design Process
+        
+        - Identify important first things that indicate an overload in the design process. This helps prevent unavailability and creates a huge chain of effect, causing dependent services to fail.
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_287</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_287_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_287</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Stackdriver Trace and Debugger</h1>
+<h2>Overview of Stackdriver Trace</h2>
+<p>Consequently, you can use the Stackdriver Trace to automatically analyse all of your applications' processes in order to produce in-depth latency reports. These latency reports can be used to detect deep rooted performance deteriorations over time.</p>
+<h2>Managing Application Performance</h2>
+<p>Managing the amount of time it takes for your applications to handle incoming requests and perform operations is an important part of managing overall application performance.</p>
+<h3>Debugging with Stackdriver Debugger</h3>
+<p>Stackdriver Debugger inspects the state of a running application in real-time without any interruption. The application and the users are not impacted while you capture the call stack and variables at any location in your source code.</p>
+<h4>Features and Support</h4>
+<p>The Stackdriver Debugger is generally used with App Engine, both Standard and Flexible, Compute Engine and the Kubernetes Engine. The debugger also supports multiple languages such as, Java, Python and Go.</p>
+<h3>Installing and Configuring Stackdriver</h3>
+<p>Installing Stackdriver is also very easy and most basic built-in monitoring functions are available by default inside of the VM. But, should you need some of the additional capabilities then you need to do this via the startup script. Indeed you use this script to install the Stackdriver agent as well as the logging agent.</p>
+<h4>Logging Capabilities</h4>
+<p>With the logging agent installed you can capture not just the system but a number of custom applications such as Cassandra, MySQL, PostgreSQL, Java, different run-times, custom metrics, and logs, all sorts of other things.</p>
+<h2>Istio for GKE</h2>
+<h3>Overview of Istio</h3>
+<p>The open source service mesh Istio is integrated with GKE. When you create or update a cluster with Istio on GKE, the following core Istio components will be installed:</p>
+<h4>Core Istio Components</h4>
+<p>• <strong>Pilot</strong>: this is the component responsible for service discovery and for configuring the Envoy sidecar proxies within an Istio service mesh.
+• <strong>Mixer</strong>: this is the component responsible for the Istio-Policy and Istio-Telemetry, Mixer enforces usage policies and gathers the telemetry data across the service mesh.
+• <strong>Istio ingress gateway</strong>: this service provides an ingress point for traffic from outside the cluster.
+• <strong>Istio egress gateway</strong>: provides a place for Istio monitoring and routing rules to be applied to traffic exiting the mesh. The Istio egress gateway is no longer installed by default in version 1.1 and later.
+• <strong>Citadel</strong>: this Istio component is responsible for key and certificate management.
+• <strong>Galley</strong>: this component provides configuration management services.</p>
+<h4>Benefits of Istio</h4>
+<p>The integration of Istio with GKE provides a robust service mesh that can be used to manage complex microservices architectures.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Consequently, you can use the Stackdriver Trace to automatically analyse all of your applications' processes in order to produce in-depth latency reports. These latency reports can be used to detect deep rooted performance deteriorations over time. The service can also capture and analyse the traces from all of your VMS, containers or Google App Engine products.
+
+Managing the amount of time it takes for your applications to handle incoming requests and perform operations is an important part of managing overall application performance.
+
+Debugging
+Stackdriver Debugger inspects the state of a running application in real-time without any interruption. The application and the users are not impacted while you capture the call stack and variables at any location in your source code. Indeed, you can use debugging to understand the behaviour of your code in production as well as analyse its state to locate those hard to find bugs. However, you should be aware that debugging can be strenuous on CPU activity.
+
+The Stackdriver Debugger is generally used with App Engine, both Standard and Flexible, Compute Engine and the Kubernetes Engine. The debugger also supports multiple languages such as Java, Python and Go. Installing Stackdriver is also very easy and most basic built-in monitoring functions are available by default inside of the VM. But, should you need some of the additional capabilities then you need to do this via the startup script.
+
+Indeed, you use this script to install the Stackdriver agent as well as the logging agent. With the logging agent installed, you can capture not just the system but a number of custom applications such as Cassandra, MySQL, PostgreSQL, Java, different run-times, custom metrics and logs, all sorts of other things.
+
+Istio for GKE
+The open source service mesh Istio is integrated with GKE. When you create or update a cluster with Istio on GKE, the following core Istio components will be installed:
+
+• Pilot: this is the component responsible for service discovery and for configuring the Envoy sidecar proxies within an Istio service mesh.
+• Mixer: this is the component responsible for the Istio-Policy and Istio-Telemetry. Mixer enforces usage policies and gathers the telemetry data across the service mesh.
+• Istio ingress gateway: this service provides an ingress point for traffic from outside the cluster.
+• Istio egress gateway: provides a place for Istio monitoring and routing rules to be applied to traffic exiting the mesh. The Istio egress gateway is no longer installed by default in version 1.1 and later.
+• Citadel: this Istio component is responsible for key and certificate management.
+• Galley: this component provides configuration management services.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Monitoring and Debugging with Stackdriver and Istio</h3>
+<h4>Overview of Stackdriver Trace</h4>
+<p>Stackdriver Trace allows automatic analysis of application processes to produce in-depth latency reports. These reports can detect deep-rooted performance deteriorations over time. The service also captures and analyzes traces from all VMS, containers, or Google App Engine products.</p>
+<h4>Managing Application Performance</h4>
+<p>Managing the time it takes for applications to handle incoming requests is crucial for overall application performance.</p>
+<h4>Debugging with Stackdriver Debugger</h4>
+<p>Stackdriver Debugger inspects a running application's state in real-time without interruption. It captures call stacks and variables at any location in source code, allowing for understanding of production behavior and analysis of hard-to-find bugs. However, debugging can be CPU-intensive. The debugger supports multiple languages like Java, Python, and Go.</p>
+<h4>Installing Stackdriver</h4>
+<p>Stackdriver is easy to install, with basic monitoring functions available by default inside VMs. Additional capabilities require a startup script, which installs the Stackdriver agent and logging agent. With the logging agent installed, custom applications like Cassandra, MySQL, PostgreSQL, and more can be captured.</p>
+<h4>Istio for GKE</h4>
+<p>Istio is integrated with GKE, installing core components when creating or updating a cluster:</p>
+<ul>
+<li>Pilot: Service discovery and Envoy sidecar proxy configuration</li>
+<li>Mixer: Enforces usage policies and gathers telemetry data across the service mesh</li>
+<li>Istio ingress gateway: Provides an ingress point for traffic from outside the cluster</li>
+<li>Istio egress gateway: Applies monitoring and routing rules to traffic exiting the mesh (no longer installed by default in version 1.1 and later)</li>
+<li>Citadel: Key and certificate management</li>
+<li>Galley: Configuration management services</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Application Performance Monitoring</h3>
+<p>Monitoring application performance to detect deep-rooted issues.</p>
+<h3>Topic 2: Debugging Tools</h3>
+<p>Using Stackdriver Debugger to inspect running applications in real-time without interruption.</p>
+<h3>Topic 3: Logging and Custom Applications</h3>
+<p>Capturing logs, custom metrics, and system data from various applications such as Cassandra, MySQL, PostgreSQL, Java, and more.</p>
+<h3>Topic 4: Service Mesh Integration</h3>
+<p>Integrating Istio with GKE, including components like Pilot, Mixer, Istio ingress gateway, Istio egress gateway, Citadel, and Galley.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary function of Stackdriver Trace?
+Answer: To automatically analyze all applications' processes in order to produce in-depth latency reports.</p>
+</li>
+<li>
+<p>Which components are installed when you create or update a cluster with Istio on GKE?
+Answer: Pilot, Mixer, Istio ingress gateway, Istio egress gateway, and Citadel.</p>
+</li>
+<li>
+<p>What is the purpose of the Stackdriver Debugger?
+Answer: To inspect the state of a running application in real-time without any interruption to understand the behavior of your code in production and analyze its state to locate hard-to-find bugs.</p>
+</li>
+<li>
+<p>Which components are supported by the Stackdriver Debugger?
+Answer: Java, Python, and Go.</p>
+</li>
+<li>
+<p>What is the primary function of the logging agent?
+Answer: To capture not just system logs but also custom applications such as Cassandra, MySQL, PostgreSQL, etc.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the use of Stackdriver Trace and Stackdriver Debugger relate to managing application performance?
+Answer: By providing in-depth latency reports and real-time debugging capabilities, respectively, these tools help developers identify and address performance issues before they become major problems.</p>
+</li>
+<li>
+<p>What are some potential drawbacks of using the Stackdriver Debugger?
+Answer: Debugging can be strenuous on CPU activity, which may impact application performance.</p>
+</li>
+<li>
+<p>How does Istio for GKE enhance service mesh functionality?
+Answer: By integrating with GKE, Istio provides a comprehensive set of components that enable service discovery, policy enforcement, telemetry gathering, and monitoring, among other features.</p>
+</li>
+<li>
+<p>What is the significance of the Istio egress gateway in version 1.1 and later?
+Answer: It is no longer installed by default, indicating a change in the Istio configuration.</p>
+</li>
+<li>
+<p>How does Galley contribute to the overall functionality of Istio for GKE?
+Answer: By providing configuration management services, Galley helps ensure that Istio components are properly configured and managed.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you're developing an e-commerce application built on App Engine. How would you use Stackdriver Trace to analyze its performance?
+Answer: You would enable Stackdriver Trace for your application, which would provide in-depth latency reports, helping you identify performance issues and optimize the application's behavior.</p>
+</li>
+<li>
+<p>If you're experiencing issues with a Cassandra database in your application, how would you use the logging agent to troubleshoot the problem?
+Answer: You would install the logging agent, which would allow you to capture logs from the Cassandra database, enabling you to diagnose and resolve the issue.</p>
+</li>
+<li>
+<p>How might you integrate Istio for GKE into an existing Kubernetes cluster?
+Answer: You would create or update a cluster with Istio on GKE, which would automatically install the necessary components, including Pilot, Mixer, and Citadel.</p>
+</li>
+<li>
+<p>What are some potential benefits of using Istio for GKE in a production environment?
+Answer: Istio provides a comprehensive set of features that enable service discovery, policy enforcement, telemetry gathering, and monitoring, among other things, helping to ensure the reliability and performance of applications.</p>
+</li>
+<li>
+<p>How might you use Galley to manage configuration settings for your application built on App Engine?
+Answer: You would configure Galley to provide configuration management services, ensuring that your application's settings are properly managed and updated.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stackdriver Trace</td>
+<td>Tool/Service</td>
+<td>"Consequently, you can use the Stackdriver Trace to automatically analyse all of your applications' processes in order to produce in-depth latency reports."</td>
+<td>The entity refers to a tool used for analyzing application performance and producing latency reports. It is a service that provides automated analysis of application processes.</td>
+</tr>
+<tr>
+<td>Applications</td>
+<td>Concept</td>
+<td>"Managing the amount of time it takes for your applications to handle incoming requests and perform operations is an important part of managing overall application performance."</td>
+<td>The entity represents software programs or systems that run on computer hardware. In this context, it refers to the management of application performance.</td>
+</tr>
+<tr>
+<td>VMS (Virtual Machine Systems)</td>
+<td>Technology/Infrastructure</td>
+<td>"The service can also capture and analyse the traces from all of your VMS, containers or Google App Engine products."</td>
+<td>The entity refers to virtual machine systems used for running applications. It is a type of infrastructure that provides a platform for software programs to run on.</td>
+</tr>
+<tr>
+<td>Containers</td>
+<td>Technology/Infrastructure</td>
+<td>"The service can also capture and analyse the traces from all of your VMS, containers or Google App Engine products."</td>
+<td>The entity represents a package of software that includes code, libraries, and dependencies, packaged together into a single unit. It is a type of technology used for deploying applications.</td>
+</tr>
+<tr>
+<td>Google App Engine</td>
+<td>Service/Product</td>
+<td>"The service can also capture and analyse the traces from all of your VMS, containers or Google App Engine products."</td>
+<td>The entity refers to a cloud-based platform provided by Google that allows developers to build, deploy, and manage web applications. It is a service that provides infrastructure for running applications.</td>
+</tr>
+<tr>
+<td>Stackdriver Debugger</td>
+<td>Tool/Service</td>
+<td>"Stackdriver Debugger inspects the state of a running application in real-time without any interruption."</td>
+<td>The entity refers to a tool used for debugging applications. It is a service that provides real-time inspection of an application's state, allowing developers to identify and fix issues.</td>
+</tr>
+<tr>
+<td>Call Stack</td>
+<td>Concept</td>
+<td>"The application and the users are not impacted while you capture the call stack and variables at any location in your source code."</td>
+<td>The entity refers to a record of function calls made within a program. It is a concept used for debugging applications.</td>
+</tr>
+<tr>
+<td>Variables</td>
+<td>Concept</td>
+<td>"The application and the users are not impacted while you capture the call stack and variables at any location in your source code."</td>
+<td>The entity represents values that can be accessed within a program. It is a concept used for debugging applications.</td>
+</tr>
+<tr>
+<td>CPU Activity</td>
+<td>Phenomenon</td>
+<td>"However, you should be aware that debugging can be strenuous on CPU activity."</td>
+<td>The entity refers to the amount of processing power being used by a computer system. It is a phenomenon that can impact application performance.</td>
+</tr>
+<tr>
+<td>App Engine</td>
+<td>Service/Product</td>
+<td>"The Stackdriver Debugger is generally used with App Engine, both Standard and Flexible, Compute Engine and the Kubernetes Engine."</td>
+<td>The entity refers to a cloud-based platform provided by Google that allows developers to build, deploy, and manage web applications. It is a service that provides infrastructure for running applications.</td>
+</tr>
+<tr>
+<td>Istio</td>
+<td>Service/Mesh</td>
+<td>"The open source service mesh Istio is integrated with GKE."</td>
+<td>The entity refers to an open-source service mesh that provides a way to connect and manage microservices. It is a technology used for deploying and managing distributed systems.</td>
+</tr>
+<tr>
+<td>Pilot</td>
+<td>Component</td>
+<td>"Pilot, this is the component responsible for service discovery and for configuring the Envoy sidecar proxies within an Istio service mesh."</td>
+<td>The entity refers to a component of the Istio service mesh that provides service discovery and configuration for Envoy sidecar proxies. It is a part of the Istio system used for managing microservices.</td>
+</tr>
+<tr>
+<td>Mixer</td>
+<td>Component</td>
+<td>"Mixer, this is the component responsible for the Istio-Policy and Istio-Telemetry, Mixer enforces usage policies and gathers the telemetry data across the service mesh."</td>
+<td>The entity refers to a component of the Istio service mesh that provides policy enforcement and telemetry gathering. It is a part of the Istio system used for managing microservices.</td>
+</tr>
+<tr>
+<td>Citadel</td>
+<td>Component</td>
+<td>"Citadel, this Istio component is responsible for key and certificate management."</td>
+<td>The entity refers to a component of the Istio service mesh that provides key and certificate management. It is a part of the Istio system used for securing communication between services.</td>
+</tr>
+<tr>
+<td>Galley</td>
+<td>Component</td>
+<td>"Galley, this component provides configuration management services."</td>
+<td>The entity refers to a component of the Istio service mesh that provides configuration management services. It is a part of the Istio system used for managing microservices.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine (GKE)</td>
+<td>Service/Product</td>
+<td>"The open source service mesh Istio is integrated with GKE."</td>
+<td>The entity refers to a cloud-based platform provided by Google that allows developers to build, deploy, and manage containerized applications. It is a service that provides infrastructure for running applications.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_239</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_239_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_239</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cascading Failures Prevention</h1>
+<h2>Introduction</h2>
+<p>Measuring and logging data is crucial to determine what triggered an alarm, allowing us to plan for monitoring individual services from a user experience perspective.</p>
+<h2>Designing to Prevent Cascading Failures</h2>
+<p>Prevention is the best strategy. We want to monitor resource thresholds and set safe limits. For example, we should ensure our CPU utilization doesn't exceed a safe threshold and autoscale if it does.</p>
+<h3>Setting Trigger Thresholds</h3>
+<p>Setting trigger thresholds lower allows us to be proactive and keep one step ahead.</p>
+<h4>Cost of Adding Resources</h4>
+<p>The cost of adding VM resources as additional servers to absorb traffic load shouldn't be an issue, as the alternative is downtime.</p>
+<h4>Autoscaling</h4>
+<p>We should auto-scale in order to increase cluster size for failover, not just operating capacity.</p>
+<h3>Best Practices</h3>
+<ul>
+<li><strong>n+2</strong>: Handle for failover under routine maintenance conditions and add additional resources for growth.</li>
+<li>Clustering in pairs: Redistribute nodes through different tiers to limit single server fan-in issues and mitigate feedback loops.</li>
+</ul>
+<h4>Trade-offs</h4>
+<p>There's a trade-off between retry frequency and back-off. A back-off algorithm can be applied to health checks and retries, using the concept seen in Gmail and BGP route dampening.</p>
+<h2>Use Case - 24</h2>
+<p>The popular video transcription services suddenly crashed. We need to define the issue, develop a process to rectify it, and ensure it won't happen again.</p>
+<p>This time, troubleshooting is easier due to an entire zone failing in GCP. Our goal will be to design controls that protect against future zone outages.</p>
+<h4>Growing Popularity</h4>
+<p>The app was not considered business critical but its growing popularity and use now makes it so.</p>
+<h4>Measuring and Logging Data</h4>
+<p>Measuring and logging data is crucial to determine what triggered the alarm, allowing us to plan for monitoring individual services from a user experience perspective.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Measuring and logging data is crucial to determine what triggered an alarm, which in turn enables us to monitor individual services from a user experience perspective. This can provide additional clues.
+
+When designing to prevent cascading failures, prevention is the best strategy as it can be very difficult to roll back once it occurs. To do this, we need to monitor a resource's threshold and set safe limits. For example, we want to ensure our CPUs utilization doesn't exceed a safe threshold and autoscale a little bit earlier to prevent overload. Setting the trigger threshold lower allows us to be proactive and keep one step ahead.
+
+The cost of adding VM resources as additional servers to absorb short-term or longer-term traffic load should not be an issue because what is the alternative cost of downtime. For instance, if we experience overload in the frontend, we would want to auto-scale to increase the size of our clusters for failover, not just for operating capacity.
+
+Additionally, remember the best practice of n+2 to handle for failover under routine maintenance conditions, but also adding additional resources so you can handle growth. However, adding clusters by themselves may lead to overload if we are not careful. This is because one server distributing to a clustered backend can become a bottleneck. To solve this issue, we need to cluster in pairs and keep redistributing two clusters of nodes through different tiers.
+
+This approach limits the single server fan-in issue and mitigates queries of death overload failure caused by feedback loops. Furthermore, it prevents further overload of an already stressed resource. The design of such systems occurs when failed requests are continuously resent, causing problems. Although adding retries makes the system more reliable, it also creates the potential for an issue.
+
+There is a trade-off required when considering retries between how often you retry and how much you back-off. With a back-off algorithm, you set a penalty each time to discourage being swamped by retries. This concept is similar to what you see in Gmail when it retries after a connection loss or BGP handles flapping links on the Internet via a back-off process called route dampening.
+
+Use case - 24
+
+The popular video transcription services suddenly crashed, requiring us to define the issue and develop a process to rectify the problem. This time, troubleshooting is easier as an entire zone failed in GCP, with all backend transcription services located in that single region and zone. Our goal will be to design controls that protect against a future zone outage.
+
+This was designed that way as the app was not considered business critical but its growing popularity and use now make it so.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><p>Measuring and logging data is crucial for determining what initially triggered an alarm, allowing us to plan for monitoring individual services from both user experience and technical perspectives. To prevent cascading failures, prevention is the best strategy as it can be challenging to roll back once a failure occurs.</p>
+<p>Monitoring resource thresholds and setting safe limits is essential. For instance, ensuring CPU utilization doesn't exceed a safe threshold and autoscaling when necessary can help prevent overload. The cost of adding VM resources should not be an issue, as the alternative cost of downtime far outweighs it.</p>
+<p>A best practice for handling failover under routine maintenance conditions is n+2, which involves adding additional resources to handle growth. However, clustering alone may lead to overload if not done carefully. To mitigate this, clustering in pairs and redistributing nodes through different tiers can solve several issues, including the single server fan-in issue and feedback loops.</p>
+<p>Designing for reliability also involves considering retries. While adding retries can make a system more reliable, it also creates potential issues, such as further overload of an already stressed resource. A trade-off is required when deciding how often to retry and how much to back off. This concept is similar to Gmail's retry mechanism after a connection loss and BGP's route dampening process.</p>
+<p>A recent use case involved the sudden crash of popular video transcription services due to an entire zone failure in GCP. The goal was to design controls that protect against future zone outages, despite the app not being initially considered business critical. This experience highlights the importance of measuring and logging data to determine root causes and develop processes to rectify issues and prevent similar failures in the future.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Monitoring and Prevention of Cascading Failures</h3>
+<ul>
+<li>Definition: The importance of monitoring individual services, setting safe limits, and using proactive strategies to prevent cascading failures.</li>
+</ul>
+<h3>Topic 2: Autoscaling and Resource Management</h3>
+<ul>
+<li>Definition: The need to autoscale resources to prevent overload, the cost of downtime, and the best practice of n+2 for failover under routine maintenance conditions.</li>
+</ul>
+<h3>Topic 3: Cluster Design and Pairing</h3>
+<ul>
+<li>Definition: The importance of clustering in pairs, redistributing nodes through different tiers, and mitigating single server fan-in issues and queries of death overload failure caused by feedback loops.</li>
+</ul>
+<h3>Topic 4: Retries and Back-off Algorithms</h3>
+<ul>
+<li>Definition: The trade-off required when considering retries, the concept of back-off algorithms, and their application to health checks and retries.</li>
+</ul></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the importance of measuring and logging data in preventing cascading failures?
+Answer: Measuring and logging data enables us to determine what triggered an alarm, which helps us plan for monitoring individual services from a user experience perspective.</p>
+</li>
+<li>
+<p>Why is prevention the best strategy when designing to prevent cascading failures?
+Answer: Prevention is difficult to roll back once it occurs, making proactive measures essential to avoid downtime.</p>
+</li>
+<li>
+<p>What is the purpose of setting safe limits and autoscaling in resource utilization?
+Answer: To prevent overload by scaling resources earlier, allowing us to be proactive and keep one step ahead.</p>
+</li>
+<li>
+<p>Why is adding clusters with n+2 a good practice for failover under routine maintenance conditions?
+Answer: It allows for handling growth while ensuring that there are always two additional resources available for failover.</p>
+</li>
+<li>
+<p>What issue can occur when clustering servers together without proper pairing?
+Answer: Single server fan-in issues and queries of death overload failure caused by feedback loops.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concept of back-off algorithms relate to retries in system design?
+Answer: Back-off algorithms set a penalty each time to discourage being swamped by retries, similar to how Gmail and BGP handle connection loss and flapping links.</p>
+</li>
+<li>
+<p>What is the trade-off required when considering retries between frequency and back-off?
+Answer: There is a balance between retrying frequently enough to ensure reliability and backing off long enough to avoid overwhelming the system.</p>
+</li>
+<li>
+<p>How does clustering in pairs with redistributing nodes through different tiers mitigate issues?
+Answer: It limits single server fan-in issues and queries of death overload failure caused by feedback loops, making it a more robust design.</p>
+</li>
+<li>
+<p>What is the relationship between adding clusters and potential overload?
+Answer: Adding clusters alone can lead to overload if not done carefully, as one server may become a bottleneck distributing requests to each cluster node.</p>
+</li>
+<li>
+<p>How does the use case of video transcription services crashing relate to designing controls for future zone outages?
+Answer: The crash highlights the importance of designing controls that protect against future zone outages, especially when an entire zone failed in GCP.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a system with autoscaling and back-off algorithms to prevent overload and ensure reliability.
+Answer: Implement a system that monitors resource utilization, sets safe limits, and uses back-off algorithms to discourage retries, ensuring proactive measures are taken to prevent overload.</p>
+</li>
+<li>
+<p>How would you apply the concept of n+2 in designing clusters for failover under routine maintenance conditions?
+Answer: Use the n+2 principle to ensure there are always two additional resources available for failover, allowing for handling growth while maintaining redundancy.</p>
+</li>
+<li>
+<p>What steps would you take to design controls that protect against future zone outages based on the use case of video transcription services crashing?
+Answer: Develop a plan to identify and mitigate potential zone outage risks, including implementing redundant systems, monitoring resource utilization, and using back-off algorithms to prevent overload.</p>
+</li>
+<li>
+<p>How can clustering in pairs with redistributing nodes through different tiers be applied in real-world system design?
+Answer: Apply this design principle by clustering servers together in pairs, ensuring that each node is not overwhelmed by requests from other cluster nodes, and redistributing nodes across different tiers for added redundancy.</p>
+</li>
+<li>
+<p>What trade-offs would you consider when designing a system with retries and back-off algorithms to ensure reliability?
+Answer: Balance the frequency of retries against the need to avoid overwhelming the system, considering factors such as system capacity, user experience, and potential downtime.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>measuring and logging data</td>
+<td>concept</td>
+<td>This is why we need to measure and log data as it will enable us to determine what was the first thing to alarm. Therefore, we must plan for monitoring individual services but from the user experience as well, which might help give us additional clues.</td>
+<td>The importance of measuring and logging data cannot be overstated. It allows us to identify issues early on and take proactive measures to prevent them from becoming major problems. By analyzing data, we can gain insights into our systems' performance and make informed decisions about how to improve it.</td>
+</tr>
+<tr>
+<td>monitoring individual services</td>
+<td>concept</td>
+<td>We must plan for monitoring individual services but from the user experience as well, which might help give us additional clues.</td>
+<td>Monitoring individual services is crucial to identifying issues before they become major problems. By analyzing data from these services, we can identify trends and patterns that may indicate a problem is brewing. This allows us to take proactive measures to prevent issues from occurring in the first place.</td>
+</tr>
+<tr>
+<td>prevention</td>
+<td>concept</td>
+<td>When designing to prevent cascading failures; prevention is the best strategy as it can be very difficult to roll back once it occurs. To do this, we really want to monitor a resource's threshold and set safe limits. For example, we want to make sure our CPUs utilization don't exceed a safe threshold and if they do then we want to autoscale a little bit earlier to prevent overload.</td>
+<td>Prevention is the best strategy when it comes to preventing cascading failures. By monitoring resources and setting safe limits, we can identify potential issues before they become major problems. This allows us to take proactive measures to prevent issues from occurring in the first place.</td>
+</tr>
+<tr>
+<td>autoscaling</td>
+<td>concept</td>
+<td>We want to make sure our CPUs utilization don't exceed a safe threshold and if they do then we want to autoscale a little bit earlier to prevent overload.</td>
+<td>Autoscaling is a crucial component of preventing cascading failures. By automating the process of adding or removing resources as needed, we can ensure that our systems remain stable and responsive even in the face of increased demand.</td>
+</tr>
+<tr>
+<td>n+2</td>
+<td>concept</td>
+<td>Also remember the best practice of n+2 in order to handle for failover under routine maintenance conditions, but also adding additional resources so you can handle growth.</td>
+<td>The n+2 principle is a best practice when it comes to designing systems that can handle failure and growth. By having one extra resource or component beyond what is needed, we can ensure that our systems remain stable and responsive even in the face of unexpected failures or increased demand.</td>
+</tr>
+<tr>
+<td>clustering</td>
+<td>concept</td>
+<td>Nonetheless, adding clusters by themselves may also lead to overload if we are not careful. This is because if one server is distributing to a clustered backend it can become a bottleneck. This is because it alone has to handle the requests from each cluster node. Therefore, we need to cluster in pairs and keep redistributing two clusters of nodes through different tiers.</td>
+<td>Clustering is a crucial component of designing systems that can handle high levels of traffic or demand. By distributing resources across multiple servers, we can ensure that our systems remain stable and responsive even in the face of increased demand. However, clustering requires careful planning and management to avoid bottlenecks and other issues.</td>
+</tr>
+<tr>
+<td>feedback loops</td>
+<td>concept</td>
+<td>This solves a lot of issues as it limits the single server fan-in issue because you no longer have exactly one node distributing to every single node in the cluster. Another issue it mitigates is the queries of death overload failure caused by feedback loops.</td>
+<td>Feedback loops can cause systems to become unstable and unresponsive, leading to performance issues and even crashes. By designing systems that avoid feedback loops, we can ensure that our systems remain stable and responsive even in the face of unexpected changes or events.</td>
+</tr>
+<tr>
+<td>retries</td>
+<td>concept</td>
+<td>The design This occurs when failed requests are continuously resent causing problem though is that although you are trying to make the system more reliable by adding retries it also creates the potential for an There is a trade-off required when considering retries between how often you retry and how much you back-off. With a back-off you set a penalty each time to discourage being swamped by retries.</td>
+<td>Retries can be a useful tool for making systems more reliable, but they can also create issues if not used carefully. By analyzing the trade-offs involved in using retries, we can design systems that balance reliability with performance and stability.</td>
+</tr>
+<tr>
+<td>back-off algorithm</td>
+<td>concept</td>
+<td>Using a back-off algorithm is a really good concept that you can apply to a lot of health checks and retries.</td>
+<td>Back-off algorithms are a crucial component of designing systems that can handle high levels of traffic or demand. By analyzing the trade-offs involved in using back-off algorithms, we can design systems that balance reliability with performance and stability.</td>
+</tr>
+<tr>
+<td>zone failure</td>
+<td>event</td>
+<td>This time the troubleshooting to determine the root cause is easier as an entire zone failed in GCP. Unfortunately, all the backend transcription services were in that single region and zone. So our goal will be to design controls that protect against a future zone outage.</td>
+<td>Zone failures can have significant impacts on system availability and performance. By designing systems that can handle zone failures, we can ensure that our systems remain stable and responsive even in the face of unexpected events or changes.</td>
+</tr>
+<tr>
+<td>business criticality</td>
+<td>concept</td>
+<td>This was designed that way as the app was not considered to be business critical but its growing popularity and use now makes it so.</td>
+<td>Business criticality is a crucial consideration when designing systems that must handle high levels of traffic or demand. By understanding the business requirements and constraints, we can design systems that meet those needs while also ensuring stability and performance.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

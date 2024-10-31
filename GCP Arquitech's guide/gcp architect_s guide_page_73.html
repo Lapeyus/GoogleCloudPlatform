@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_73</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_73_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_73</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>App Engine vs Google Kubernetes Engine vs Compute Engine</h1>
+<h2>CONS - App Engine</h2>
+<h3>Low Maintenance</h3>
+<p>This is a low maintenance platform as App Engine manages the infrastructure for you.</p>
+<p>App Engine also handles auto scaling on your behalf and it is fast and lightweight as it is based upon instance classes.
+Additional functions such as version management and traffic splitting are built into App Engine standard and flexible environments.
+Native access to Datastore as it has co-location with App Engine Standard environment.
+There is also built-in access to Memcache.</p>
+<h3>Secure Sandbox</h3>
+<p>Standard environment runs in a secure sandbox. This is inherently more secure way of working compared to Compute Engine where you need to do your own security controls.
+The secure sandbox prevents interact with the file systems and persistent storage and there are other constraints such as the instances are kept smaller so they can benefit from the fast autoscaling.</p>
+<h3>No Networking</h3>
+<p>There is no networking with the standard edition's sandbox.</p>
+<h2>CONS - Google Kubernetes Engine</h2>
+<h3>Limited Support for Load Balancer</h3>
+<p>so there is no support for Cloud Load Balancer.
+Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5.
+App Engine Flex
+Not limited to the standard runtimes as it can support custom runtimes
+Integration with GCE networking
+In built version and traffic management.</p>
+<h3>Larger Instance Sizes</h3>
+<p>larger instance sizes makes it more appropriate for large applications or Java applications that consume a lot of memory</p>
+<p>No internal load balancers or support for shared VPCS
+No native integration with Memcache</p>
+<h3>Management Overhead</h3>
+<p>There is some management overhead.
+Not really intuitive so there is a learning curve due to many new concepts such as pods, deployments, services, ingress, and namespaces
+Public IPs need to be exposed to locations where you want to run 'kubectl' commands
+Monitoring tool integration is limited</p>
+<h2>CONS - Compute Engine</h2>
+<h3>No Built-in Security Controls</h3>
+<p>This is a low maintenance platform as App Engine manages the infrastructure for you
+App Engine also handles auto scaling on your behalf and it is fast and lightweight as it is based upon instance classes.
+Additional functions such as version management and traffic splitting are built into App Engine standard and flexible environments.
+Native access to Datastore as it has co-location with App Engine Standard environment.
+There is also built-in access to Memcache.</p>
+<h3>No Networking</h3>
+<p>There is no networking with the standard edition's sandbox</p>
+<h2>PROS - App Engine</h2>
+<h3>Custom Runtimes</h3>
+<p>so there is no support for Cloud Load Balancer
+Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5.
+App Engine Flex
+Not limited to the standard runtimes as it can support custom runtimes
+Integration with GCE networking
+In built version and traffic management</p>
+<h3>Large Applications</h3>
+<p>larger instance sizes makes it more appropriate for large applications or Java applications that consume a lot of memory</p>
+<p>No internal load balancers or support for shared VPCS
+No native integration with Memcache</p>
+<h2>PROS - Google Kubernetes Engine</h2>
+<h3>Custom Runtimes</h3>
+<p>App Engine Flex
+Not limited to the standard runtimes as it can support custom runtimes
+Integration with GCE networking
+In built version and traffic management.</p>
+<h3>Platform Neutral Deployment Framework</h3>
+<p>Tight coupling with containers for better management and cluster configuration.
+Open source Kubernetes, provides a method for portability between on-premises and the cloud
+Private Clusters, now in beta, eliminate the need to expose public IP addresses
+Version management through Google Container Registry</p>
+<h3>Monitoring Tool Integration</h3>
+<p>Monitoring tool integration is limited</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>**Google App Engine**
+
+**Cons**
+
+App Engine manages the infrastructure for you, making it a low-maintenance platform. It also handles auto-scaling on your behalf and is fast and lightweight due to its instance classes. Additional functions such as version management and traffic splitting are built into both standard and flexible environments. Native access to Datastore is available, with co-location in the App Engine Standard environment. There's also built-in access to Memcache.
+
+The secure sandbox in the standard environment provides a more secure way of working compared to Compute Engine, where you need to handle security controls yourself. However, this sandbox prevents interaction with file systems and persistent storage, keeping instances smaller for faster autoscaling.
+
+There is no networking support in the standard edition's sandbox.
+
+**Pros**
+
+App Engine Flex supports custom runtimes and integrates with GCE networking. Built-in version and traffic management are also available.
+
+However, App Engine has limited support for Cloud Load Balancer and only supports specific runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5.
+
+**Google Kubernetes Engine**
+
+**Pros**
+
+Google Kubernetes Engine (GKE) natively integrates with containers, allowing for custom runtimes. It also provides tight coupling with containers for better management and cluster configuration.
+
+However, GKE enforces best practices for virtual machines, making it easy to roll back VMs to previous versions. Containers provide a flexible and platform-neutral deployment framework, and open-source Kubernetes offers portability between on-premises and the cloud.
+
+Private Clusters are now in beta, eliminating the need to expose public IP addresses. Version management is handled through Google Container Registry.
+
+**Cons**
+
+GKE has no native traffic management, which can be a drawback. There's also some management overhead due to its complexity. The platform requires a learning curve due to many new concepts such as pods, deployments, services, ingress, and namespaces.
+
+Public IPs need to be exposed in locations where you want to run 'kubectl' commands. Monitoring tool integration is limited, which can make it harder to manage your cluster effectively.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>App Engine Standard Environment</h3>
+<h4>Cons</h4>
+<ul>
+<li>Low maintenance platform with App Engine managing infrastructure</li>
+<li>Fast and lightweight due to instance classes</li>
+<li>Built-in access to Datastore and Memcache</li>
+<li>Secure sandbox environment for better security controls</li>
+<li>No networking with standard edition's sandbox</li>
+</ul>
+<h4>Pros</h4>
+<ul>
+<li>No support for Cloud Load Balancer</li>
+<li>Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5</li>
+<li>App Engine Flex supports custom runtimes</li>
+<li>Integration with GCE networking</li>
+</ul>
+<h3>App Engine Flexible Environment</h3>
+<h4>Cons</h4>
+<ul>
+<li>Larger instance sizes make it more suitable for large applications or memory-intensive Java applications</li>
+<li>No internal load balancers or support for shared VPCS</li>
+<li>No native integration with Memcache</li>
+</ul>
+<h4>Pros</h4>
+<ul>
+<li>Supports custom runtimes</li>
+<li>Integration with GCE networking</li>
+<li>Built-in version and traffic management</li>
+</ul>
+<h3>Google Kubernetes Engine (GKE)</h3>
+<h4>Cons</h4>
+<ul>
+<li>Enforces best practices for virtual machines</li>
+<li>Provides easy roll back of VMs to previous versions</li>
+<li>Limited monitoring tool integration</li>
+<li>Not intuitive due to new concepts like pods, deployments, services, ingress, and namespaces</li>
+<li>Public IPs need to be exposed to locations where you want to run 'kubectl' commands</li>
+</ul>
+<h4>Pros</h4>
+<ul>
+<li>Natively integrates with containers for custom runtimes</li>
+<li>Tight coupling with containers for better management and cluster configuration</li>
+<li>Open source Kubernetes provides portability between on-premises and the cloud</li>
+<li>Private Clusters eliminate the need to expose public IP addresses</li>
+<li>Version management through Google Container Registry</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Security and Control</strong></h3>
+<p>This topic revolves around the security features of App Engine, Compute Engine, and Google Kubernetes Engine. It highlights the secure sandbox in App Engine, the lack of networking with standard edition's sandbox, and the need for custom security controls in Compute Engine.</p>
+<h3>Topic 2: <strong>Infrastructure Management</strong></h3>
+<p>This topic focuses on the infrastructure management aspects of these platforms. It discusses how App Engine manages infrastructure, auto-scaling, and version management, as well as the limitations of other platforms like Google Kubernetes Engine.</p>
+<h3>Topic 3: <strong>Customization and Flexibility</strong></h3>
+<p>This topic explores the customization options available in different platforms. It highlights the limited runtimes supported by App Engine, the ability to support custom runtimes in App Engine Flex, and the flexibility offered by Google Kubernetes Engine with its container-based deployment framework.</p>
+<h3>Topic 4: <strong>Scalability and Performance</strong></h3>
+<p>This topic discusses the scalability and performance aspects of these platforms. It mentions that larger instance sizes are more suitable for large applications or Java applications consuming a lot of memory, and how App Engine Flex can handle this due to its flexible runtime support.</p>
+<h3>Topic 5: <strong>Management Complexity</strong></h3>
+<p>This topic touches upon the management complexity of Google Kubernetes Engine. It highlights the learning curve due to new concepts like pods, deployments, services, ingress, and namespaces, as well as the need for public IPs to be exposed for 'kubectl' commands.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Understanding App Engine, Flex, and Kubernetes Engine</h3>
+<h4>Comprehension Questions</h4>
+<ol>
+<li>What is the primary benefit of using App Engine's standard environment?</li>
+<li>How does App Engine handle version management and traffic splitting?</li>
+<li>What are some limitations of App Engine's supported runtimes?</li>
+</ol>
+<h4>Analytical Questions</h4>
+<ol>
+<li>Compare and contrast the security features of App Engine's standard environment with Compute Engine.</li>
+<li>How do the instance sizes in App Engine Flex compare to those in App Engine Standard?</li>
+<li>What is the main advantage of using Google Kubernetes Engine over traditional virtual machines?</li>
+</ol>
+<h4>Application Questions</h4>
+<ol>
+<li>Design a simple web application that uses App Engine's standard environment and version management features.</li>
+<li>Create a plan for deploying a large Java application on App Engine Flex, considering instance size and memory requirements.</li>
+<li>Develop a strategy for managing traffic to a containerized application using Google Kubernetes Engine.</li>
+</ol>
+<h3>Understanding the Trade-Offs</h3>
+<h4>Comprehension Questions</h4>
+<ol>
+<li>What is the main trade-off between security and flexibility in choosing between App Engine's standard environment and Compute Engine?</li>
+<li>How does the lack of native integration with Memcache affect the choice of App Engine or Flex?</li>
+<li>What are some potential drawbacks to using Google Kubernetes Engine for containerized applications?</li>
+</ol>
+<h4>Analytical Questions</h4>
+<ol>
+<li>Compare the management overhead of App Engine Flex versus traditional virtual machines.</li>
+<li>How do the limitations of App Engine's supported runtimes impact the choice of programming language for a web application?</li>
+<li>What is the main advantage of using private clusters in Google Kubernetes Engine?</li>
+</ol>
+<h4>Application Questions</h4>
+<ol>
+<li>Develop a plan for migrating a legacy application from Compute Engine to App Engine Flex, considering instance size and memory requirements.</li>
+<li>Create a strategy for managing traffic to a containerized application using Google Kubernetes Engine, including load balancing and monitoring tools.</li>
+<li>Design a scalable architecture for a web application that uses both App Engine's standard environment and Google Kubernetes Engine.</li>
+</ol>
+<h3>Understanding the Ecosystem</h3>
+<h4>Comprehension Questions</h4>
+<ol>
+<li>What is the relationship between App Engine, Flex, and Compute Engine in terms of infrastructure management?</li>
+<li>How does Google Container Registry impact version management in Google Kubernetes Engine?</li>
+<li>What are some potential use cases for private clusters in Google Kubernetes Engine?</li>
+</ol>
+<h4>Analytical Questions</h4>
+<ol>
+<li>Compare the security features of App Engine's standard environment with those of Google Kubernetes Engine.</li>
+<li>How do the instance sizes in App Engine Flex compare to those in traditional virtual machines?</li>
+<li>What is the main advantage of using open source Kubernetes versus proprietary solutions?</li>
+</ol>
+<h4>Application Questions</h4>
+<ol>
+<li>Develop a plan for deploying a containerized application on both App Engine and Google Kubernetes Engine, considering scalability and security requirements.</li>
+<li>Create a strategy for managing traffic to a web application that uses both App Engine's standard environment and Google Kubernetes Engine.</li>
+<li>Design a scalable architecture for a web application that leverages the strengths of each platform.</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>App Engine</td>
+<td>Platform/Service</td>
+<td>"This is a low maintenance platform as App Engine manages the infrastructure for you"</td>
+<td>App Engine is a cloud-based platform that provides a managed infrastructure, allowing developers to focus on their applications without worrying about the underlying infrastructure. It also handles auto-scaling and has built-in features such as version management and traffic splitting.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Platform/Service</td>
+<td>"Standard environment runs in a secure sandbox. This is inherently more secure way of working compared to Compute Engine where you need to do your own security controls"</td>
+<td>Compute Engine is a cloud-based platform that provides virtual machines, but requires developers to manage their own security controls. In contrast, App Engine's standard environment has a built-in secure sandbox that prevents interaction with file systems and persistent storage.</td>
+</tr>
+<tr>
+<td>Datastore</td>
+<td>Database/Storage</td>
+<td>"Native access to Datastore as it has co-location with App Engine Standard environment"</td>
+<td>Datastore is a NoSQL database service provided by Google Cloud Platform, which is tightly integrated with App Engine's standard environment. This allows for seamless data storage and retrieval.</td>
+</tr>
+<tr>
+<td>Memcache</td>
+<td>Cache Service</td>
+<td>"There is also built-in access to Memcache"</td>
+<td>Memcache is an in-memory caching service provided by Google Cloud Platform, which can be used to improve the performance of applications running on App Engine. It provides fast and lightweight caching capabilities.</td>
+</tr>
+<tr>
+<td>GCE (Google Compute Engine)</td>
+<td>Networking/Infrastructure</td>
+<td>"Integration with GCE networking"</td>
+<td>GCE is a cloud-based platform that provides virtual machines and networking services. Integration with GCE allows for seamless communication between applications running on App Engine and other Google Cloud Platform services.</td>
+</tr>
+<tr>
+<td>Kubernetes Engine</td>
+<td>Container Orchestration</td>
+<td>"Natively integrates with containers, which allows for custom runtimes"</td>
+<td>Kubernetes Engine is a container orchestration service provided by Google Cloud Platform, which allows developers to deploy and manage containerized applications. It provides a flexible and platform-neutral deployment framework.</td>
+</tr>
+<tr>
+<td>Java 7/8/11</td>
+<td>Programming Language/Runtime</td>
+<td>"Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5"</td>
+<td>Java 7/8/11 are supported runtimes for App Engine, which allows developers to deploy Java-based applications on the platform.</td>
+</tr>
+<tr>
+<td>Python 2.7</td>
+<td>Programming Language/Runtime</td>
+<td>"Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5"</td>
+<td>Python 2.7 is a supported runtime for App Engine, which allows developers to deploy Python-based applications on the platform.</td>
+</tr>
+<tr>
+<td>Go 1.6-1.9</td>
+<td>Programming Language/Runtime</td>
+<td>"Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5"</td>
+<td>Go 1.6-1.9 are supported runtimes for App Engine, which allows developers to deploy Go-based applications on the platform.</td>
+</tr>
+<tr>
+<td>PHP 5.5</td>
+<td>Programming Language/Runtime</td>
+<td>"Limited to supported runtimes: Python 2.7, Java 7 and 8, Go 1.6-1.9, and PHP 5.5"</td>
+<td>PHP 5.5 is a supported runtime for App Engine, which allows developers to deploy PHP-based applications on the platform.</td>
+</tr>
+<tr>
+<td>Cloud Load Balancer</td>
+<td>Networking/Infrastructure</td>
+<td>"so there is no support for Cloud Load Balancer"</td>
+<td>Cloud Load Balancer is a networking service provided by Google Cloud Platform, which distributes incoming traffic across multiple instances of an application. Its absence from App Engine's standard environment limits its scalability and reliability.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Container Orchestration</td>
+<td>"Not really intuitive so there is a learning curve due to many new concepts such as pods, deployments, services, ingress, and namespaces"</td>
+<td>Kubernetes is a container orchestration service provided by Google Cloud Platform, which provides a flexible and platform-neutral deployment framework. However, its complexity can make it challenging for developers to learn and master.</td>
+</tr>
+<tr>
+<td>Pod</td>
+<td>Container Orchestration</td>
+<td>"Tight coupling with containers for better management and cluster configuration"</td>
+<td>Pods are the basic execution unit in Kubernetes, which provide a way to manage and deploy containerized applications. They offer a high degree of flexibility and scalability.</td>
+</tr>
+<tr>
+<td>Deployment</td>
+<td>Container Orchestration</td>
+<td>"Version management through Google Container Registry"</td>
+<td>Deployments are a way to manage the rollout of new versions of an application in Kubernetes. The use of Google Container Registry provides a centralized location for managing container images, making it easier to deploy and manage applications.</td>
+</tr>
+<tr>
+<td>Service</td>
+<td>Container Orchestration</td>
+<td>"Public IPs need to be exposed to locations where you want to run 'kubectl' commands"</td>
+<td>Services are a way to expose networked applications in Kubernetes, which provide a way to access the application from outside the cluster. Public IPs must be exposed for this to work, making it essential for accessing the application remotely.</td>
+</tr>
+<tr>
+<td>Ingress</td>
+<td>Container Orchestration</td>
+<td>"Monitoring tool integration is limited"</td>
+<td>Ingress is a way to manage incoming traffic to an application in Kubernetes, which provides a standardized way of handling HTTP requests. Limited monitoring tool integration can make it challenging to monitor and troubleshoot applications running on this platform.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_245</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_245_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_245</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Sharing and Isolation</h1>
+<h2>Introduction</h2>
+<p>The least secure and least resilient design is where everything is hosted within a single failure domain.</p>
+<h3>Definition of Terms</h3>
+<p>For cloud architects, sharing is an enabler for collaboration between components of the architecture.
+Isolation is a control that prevents the compromise of one part from spreading to the other.</p>
+<h3>Decoupling Dependencies</h3>
+<p>By decoupling dependencies on one another, we produce more private or fault-tolerant communication channels between them.</p>
+<h4>Redesigning with Multiple Failure Domains</h4>
+<p>One method is to redesign using multiple failure domains, which inherently provides better isolation and resiliency.</p>
+<p>However, distribution of resources leads to increased latency.</p>
+<h3>Network Topology Features</h3>
+<p>Thankfully, Google Cloud Platform provides many network topology features you can use in your designs to provide different blends of resource sharing and isolation.</p>
+<h2>Isolation Techniques</h2>
+<h3>Microservice Architecture</h3>
+<p>Microservices do not really communicate with other services as they have no concept of downstream or upstream services. Therefore, there is no effective communication with which to compromise another service.</p>
+<p>For example, if an exploiter gains access to one machine, they can't get into the others.</p>
+<h4>Virtual Private Cloud (VPC)</h4>
+<p>Using a VPC means that two different projects under different administrative control but needing to talk to each other will have their own private IP address. This isolates the two networks from each other and may not have authentication space or their own IAM.</p>
+<p>So, any user with capabilities to do so can communicate between each party.</p>
+<h4>VPN Tunnelling</h4>
+<p>This is a more traditional networking technique of IP address-encrypted link between two or more projects. However, if you want projects to talk to each other privately, this is used regularly in on-premises networks.</p>
+<p>They can use another private IP address subnet space to increase privacy and even encrypted communications.</p>
+<h4>Cross-Project Virtual Private Cloud Network Peering</h4>
+<p>This feature allows us to directly connect two projects together using a private IP address. This enables two different companies or organizations to share and collaborate on resources and in projects.</p>
+<p>If you need to collaborate with an external partner, you can set identity access controls to control what kind of communication can occur between these two particular domains.</p>
+<h4>Shared Private Cloud</h4>
+<p>This is another option for sharing and collaboration on resources and in projects.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Sharing and Isolation
+
+As we demonstrated earlier, the least secure and least resilient design is where everything is hosted within a single failure domain. This is because all components in the design must directly interact, collaborate, and communicate to fulfill the design goals, making them fully dependent on one another.
+
+There are many methods or techniques we can use to separate those inter-related parts by decoupling their dependencies on one another, producing more private or fault-tolerant communication channels between them. One method is to redesign using multiple failure domains, which inherently provides better isolation and resiliency. However, distribution of resources leads to increased latency, so we must also be aware of the need to share and collaborate on resources.
+
+Thankfully, Google Cloud Platform provides many network topology features that can be used in designs to provide different blends of resource sharing and isolation. In the next section, we will take a deeper dive into resource sharing and isolation.
+
+Defining Terms
+
+For cloud architects, sharing is defined as an enabler for collaboration between components of the architecture. On the other hand, architects define isolation as a control that prevents the compromise of one part from spreading to the other. One very effective way to provide isolation is using a microservice architecture.
+
+Microservices do not really communicate with other services as they have no concept of downstream or upstream services; they simply accept an input and hand off an output. Therefore, there is no effective communication with which to compromise another service. For example, should an exploiter gain access to one machine, they can't get into the others.
+
+Natural Separation Techniques
+
+One way to achieve this type of isolation is through leveraging the cloud. For instance, if you have two different projects under different administrative control but need to talk to each other, using a VPC means that they will have their own private IP address space. This allows you to isolate the two networks from each other's communication over the network, without authentication space and their own IAM.
+
+Isolation Using VPN Tunnelling
+
+In this scenario, we can have an encrypted link between two or more projects. While not a feature of Google Cloud Platform, if you want projects to talk to each other privately, it is used regularly in on-premises networks. You can use another private IP address subnet space to increase the privacy and even encrypt communications.
+
+Cross-Project Virtual Private Cloud Network Peering
+
+Then there's a new feature called cross-project Virtual Private Cloud network peering or as it was known, cross-project networking. In this case, network peering allows us to directly connect two projects together using a private IP address. This enables two different companies, two different organizations, to share and collaborate on resources and in projects.
+
+Identity Access Controls
+
+Hence, if you need to collaborate with an external partner and want to be able to communicate, you can set identity access controls. This gives you the ability to control what kind of communication can occur between these two particular domains.
+
+Shared Private Cloud
+
+And then there's the shared private cloud, which provides a secure environment for collaboration and data sharing among multiple organizations.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Sharing and Isolation in Cloud Networking</strong></h1>
+<p>The least secure design is one where everything is hosted within a single failure domain, as all components must interact and collaborate to fulfill design goals, making them fully dependent on each other. To address this, we can use techniques such as decoupling dependencies, redesigning with multiple failure domains, and leveraging cloud networking features.</p>
+<h2><strong>Defining Sharing and Isolation</strong></h2>
+<p>In the context of cloud networking, sharing refers to collaboration between components of an architecture, while isolation refers to a control that prevents compromise from spreading to other parts. One effective way to provide isolation is through microservice architecture, where services do not communicate with each other due to their lack of concept of downstream or upstream services.</p>
+<h2><strong>Achieving Isolation</strong></h2>
+<p>Isolation can be achieved through various methods:</p>
+<ul>
+<li><strong>Leveraging the Cloud</strong>: Using Virtual Private Clouds (VPCs) provides private IP addresses for networks, isolating them from communication.</li>
+<li><strong>VPN Tunnelling</strong>: Encrypting links between projects using VPN tunnelling provides a secure connection.</li>
+<li><strong>Cross-Project Network Peering</strong>: Directly connecting two projects using a private IP address enables collaboration while maintaining isolation.</li>
+</ul>
+<h2><strong>Shared Private Cloud</strong></h2>
+<p>A shared private cloud allows multiple organizations to share resources and collaborate on projects, providing a secure and isolated environment for communication between domains. Identity access controls can be set to control what kind of communication occurs between these domains.</p>
+<p>By understanding the importance of sharing and isolation in cloud networking, architects can design more resilient and secure architectures that balance collaboration with security.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: <strong>Resource Sharing</strong></h3>
+<p>Sharing is defined as an enabler for collaboration between components of the architecture, allowing different parts of a system to work together effectively.</p>
+<h3>Topic 2: <strong>Isolation in Cloud Networking</strong></h3>
+<p>Isolation is a control that prevents the compromise of one part from spreading to the other, and it can be achieved through various methods such as microservice architecture, virtual private networks (VPNs), and cross-project Virtual Private Cloud network peering.</p>
+<h3>Topic 3: <strong>Decoupling Dependencies</strong></h3>
+<p>Decoupling dependencies between components in a design allows for more private and fault-tolerant communication channels, reducing the risk of compromise when one part of the system is affected.</p>
+<h3>Topic 4: <strong>Microservice Architecture</strong></h3>
+<p>A microservice architecture provides isolation by having services communicate with each other through inputs and outputs, without any concept of downstream or upstream services, making it difficult for an exploiter to gain access to multiple services.</p>
+<h3>Topic 5: <strong>Virtual Private Cloud (VPC)</strong></h3>
+<p>Using a VPC allows two projects under different administrative control to have their own private IP addresses, isolating them from each other and preventing unauthorized communication between them.</p>
+<h3>Topic 6: <strong>VPN Tunnelling</strong></h3>
+<p>VPN tunnelling provides an encrypted link between two or more projects, allowing for private communication between them, even in on-premises networks.</p>
+<h3>Topic 7: <strong>Cross-Project Networking</strong></h3>
+<p>Cross-project Virtual Private Cloud network peering allows direct connection between two projects using a private IP address, enabling collaboration and secure communication between different companies and organizations.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<h4>1. What is the primary reason why a single failure domain in design leads to security and resilience issues?</h4>
+<p>Answer: All components must directly interact, collaborate, and communicate to fulfill design goals, making them fully dependent on one another.</p>
+<h4>2. How does decoupling dependencies between components help improve communication channels?</h4>
+<p>Answer: Decoupling dependencies produces more private or fault-tolerant communication channels between components.</p>
+<h4>3. What is the main benefit of using a microservice architecture for isolation?</h4>
+<p>Answer: Microservices do not have effective communication with other services, making it difficult for an exploiter to gain access to one service and compromise others.</p>
+<h3>Analytical Questions</h3>
+<h4>1. Compare and contrast the benefits of using multiple failure domains versus decoupling dependencies in design.</h4>
+<p>Answer: Multiple failure domains provide better isolation and resiliency but may lead to increased latency due to resource distribution, while decoupling dependencies improves communication channels without compromising security.</p>
+<h4>2. How does leveraging the cloud contribute to achieving isolation?</h4>
+<p>Answer: Cloud platforms offer various network topology features that enable different blends of resource sharing and isolation, such as VPCs, VPN tunnelling, and cross-project Virtual Private Cloud network peering.</p>
+<h4>3. What is the primary advantage of using a shared private cloud for collaboration between organizations?</h4>
+<p>Answer: Shared private clouds allow two or more organizations to collaborate on resources and projects while maintaining control over communication and access.</p>
+<h3>Application Questions</h3>
+<h4>1. Design a network topology that balances resource sharing and isolation for a multi-organization project.</h4>
+<p>Answer: Consider using VPCs, VPN tunnelling, and cross-project Virtual Private Cloud network peering to achieve the desired balance of collaboration and security.</p>
+<h4>2. How can cloud architects ensure secure communication between components in a microservice architecture?</h4>
+<p>Answer: Implement identity access controls and encryption policies to control what kind of communication can occur between services.</p>
+<h4>3. What are some potential drawbacks of using cross-project Virtual Private Cloud network peering for collaboration between organizations?</h4>
+<p>Answer: Potential drawbacks may include increased complexity, security risks if not properly configured, and limitations in scalability.</p></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sharing</td>
+<td>concept</td>
+<td>"For cloud architects we define sharing as an enabler for collaboration between components of the architecture."</td>
+<td>Sharing refers to the act of collaborating and working together with other components or services in a system. In the context of cloud networking, sharing enables communication and cooperation between different parts of an architecture. This can be achieved through various methods such as using multiple failure domains, decoupling dependencies, or leveraging cloud features like VPCs.</td>
+</tr>
+<tr>
+<td>isolation</td>
+<td>concept</td>
+<td>"On the other hand architects can define isolation as a control that prevents the compromise of one part from spreading to the other."</td>
+<td>Isolation refers to the act of separating and protecting different parts of a system from each other, preventing any potential security breaches or compromises from spreading. In cloud networking, isolation is achieved through various techniques such as using microservices architecture, leveraging virtual private networks (VPNs), or implementing cross-project Virtual Private Cloud network peering.</td>
+</tr>
+<tr>
+<td>microservice</td>
+<td>architectural pattern</td>
+<td>"And one very effective way to provide isolation is using a microservice architecture."</td>
+<td>Microservices are an architectural pattern where a system is broken down into smaller, independent services that communicate with each other through APIs. This approach provides natural separation and isolation between different services, making it difficult for an attacker to compromise multiple services at once.</td>
+</tr>
+<tr>
+<td>VPC (Virtual Private Cloud)</td>
+<td>cloud feature</td>
+<td>"For example, if you have two different projects under different administrative control but they need to talk to each other."</td>
+<td>A Virtual Private Cloud (VPC) is a virtual network that provides a private and secure environment for deploying applications and services in the cloud. By using VPCs, organizations can isolate their networks from each other, ensuring that data and resources are protected from unauthorized access.</td>
+</tr>
+<tr>
+<td>VPN tunnelling</td>
+<td>networking technique</td>
+<td>"isolation using VPN tunnelling."</td>
+<td>Virtual Private Network (VPN) tunnelling is a networking technique that encrypts data traffic between two endpoints, creating a secure and private connection. This approach can be used to isolate communication between different projects or services, ensuring that sensitive data remains confidential.</td>
+</tr>
+<tr>
+<td>cross-project Virtual Private Cloud network peering</td>
+<td>cloud feature</td>
+<td>"Then we have a new feature called cross-project Virtual Private Cloud network peering or as it used to be known, cross-project networking."</td>
+<td>Cross-project Virtual Private Cloud network peering is a feature that allows organizations to connect their VPCs across different projects or accounts, enabling secure communication and collaboration between them. This approach provides a high level of isolation and security while still allowing for seamless communication and data exchange.</td>
+</tr>
+<tr>
+<td>shared private cloud</td>
+<td>cloud deployment model</td>
+<td>"And then of course there's the shared private cloud."</td>
+<td>A shared private cloud is a cloud deployment model where multiple organizations share a single, private cloud infrastructure. This approach provides a secure and isolated environment for deploying applications and services, while still allowing for collaboration and data exchange between organizations.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

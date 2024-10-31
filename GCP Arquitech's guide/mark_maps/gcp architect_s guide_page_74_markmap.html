@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_74</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Computing Methods
+        ## Compute Engine
+        ### Pros
+        - • Intuitive and little learning curve
+        - • Almost total management and administrative control
+        - • No need for public IPs
+        - • Can run docker containers using container-Optimized OS
+        - • Total control, but can be complex to manage and control
+        
+        ### Cons
+        - • More management overhead
+        - • Autoscaling is slower than App Engine
+        - • Installing software on custom GCE instances can be difficult to maintain
+        
+        ## Cloud Source Repositories
+        ### Pros
+        - • Running your own Git instance provides total control
+        - • Using a hosted Git provider means less work, but some loss of control
+        - • GCP provides its own way to keep code private to a GCP project
+        - • Can use IAM permissions to protect access to code
+        
+        ### Cons
+        - • Requires managing code versioning, libraries, and source code trees
+        - • May require many tools to assist in managing code
+
+      </script>
+    </div>
+  </body>
+</html>

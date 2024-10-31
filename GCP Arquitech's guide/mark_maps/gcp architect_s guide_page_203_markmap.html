@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_203</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Metrics and Scaling
+        ## Understanding Custom Metrics
+        - The purpose of custom metrics is to get a Deployment to scale its replicated Pods based on the given metric value. However, metrics with a total target value should always be defined only when the effects of the scaling will bring the updated value of the metric closer to the target value.
+        
+        ## Scaling a Frontend Application
+        - We can see this better by considering how we might go about scaling a frontend application. We could do this by choosing a custom metric based on the queries-per-second metric. Thus, we are expecting that when the metric value increases, the number of Pods should scale up, with each Pod serving a similar amount of traffic as before.
+        
+        ## Importance of Average vs Total Value
+        - However, if we had exported from each pod the total number of queries-per-second and then set instead of an average but a total target value for this metric, it will not work as we hoped. This is because increasing the number of Pods doesn't have any effect on the total traffic value so the HPA will not scale the deployment based upon that metric.
+        
+        ## Use Case - High Performance Computing
+        - A University comes to you seeking your advice as how to run an High Performance Computing analytics project on a vast internet-based dataset. It is a collaborative project and the application is being shared across several participating Universities.
+        
+        ## Solution Overview
+        - The place to start is if their application is in container technology already, then they could look for a highly scalable architecture based Kubernetes Engine clusters with auto scale and pre-emptive upon VMs.
+
+      </script>
+    </div>
+  </body>
+</html>

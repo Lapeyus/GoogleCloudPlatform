@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_175</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_175_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_175</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><p>group
+The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%. Then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity, when CPU utilization is at 40% average across the entire instance group.
+Ok let's summarise what we have covered here with another use case.
+In this use case we have users coming from North America and some coming from Europe. Now you have one single IP Anycast address representing the globe, but they're entering the Google cloud network from different locations.
+A GCP cloud load balancer is not a physical device it is purely a software concept. But it does have a list of rules that we can apply to any ingress traffic no matter where in the world it comes from. That's why they are called global load balancers. But in reality they are just a set of rules that Google apply to ingress traffic that enters into Google's software defined network (SDN).
+In our scenario we have users in North America and Europe who will due to Anycast connect to their own region where we will need to determine what to do with the traffic. This is where we configure what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic.
+We could for example send the user to a backend based upon the individual user's location, IP address, protocol, or port towards a managed instance group in the US or to one in Europe. Therefore, URL maps are to be uploaded. Essentially the place where you can actually route traffic on criteria other than the protocol, IP address, or port, but specifically by what is in the URL header. So let's just say you're processing videos and you're expecting those In that case you would need a global forwarding rule which sends all that type of traffic to your HTTP proxy. But you may want to handle HD videos differently from standard definition videos and so you may map those to a different backend service.
+By segregating the application into two distinct services, one for a high definition video and one for standard video, we will then use a URL match to apply different rules. So we're going to look at that rule and determine from the incoming URL whether it is going to be directed to the high definition or to the standard video backend application.
+In this example we have only two but you could have 50 or more different backend services running, so you can see you can get a lot of flexibility depending on the incoming rule-set that you create in your URL map. Traffic allocation for backend services is going to be determined based on the zone, region or by multiple regions. These are all things that you can define as well. So again, it's going to be based on health checks, URL rewrites and whatever other protocols you choose to take advantage of.
+HTTP(S) load balancing does handle the termination of TLS/SSL sessions but you can also use SSL load balancing, which is when the balancer acts as the target proxy and the VMs actually terminate the SSL session. To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates and each SSL certificate has a created SSL certificate resource.</p>
+<p>group
+The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%. Then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity, when CPU utilization is at 40% average across the entire instance group.
+Ok let's summarise what we have covered here with another use case.
+In this use case we have users coming from North America and some coming from Europe. Now you have one single IP Anycast address representing the globe, but they're entering the Google cloud network from different locations.
+A GCP cloud load balancer is not a physical device it is purely a software concept. But it does have a list of rules that we can apply to any ingress traffic no matter where in the world it comes from. That's why they are called global load balancers. But in reality they are just a set of rules that Google apply to ingress traffic that enters into Google's software defined network (SDN).
+In our scenario we have users in North America and Europe who will due to Anycast connect to their own region where we will need to determine what to do with the traffic. This is where we configure what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic.
+We could for example send the user to a backend based upon the individual user's location, IP address, protocol, or port towards a managed instance group in the US or to one in Europe. Therefore, URL maps are to be uploaded. Essentially the place where you can actually route traffic on criteria other than the protocol, IP address, or port, but specifically by what is in the URL header. So let's just say you're processing videos and you're expecting those In that case you would need a global forwarding rule which sends all that type of traffic to your HTTP proxy. But you may want to handle HD videos differently from standard definition videos and so you may map those to a different backend service.
+By segregating the application into two distinct services, one for a high definition video and one for standard video, we will then use a URL match to apply different rules. So we're going to look at that rule and determine from the incoming URL whether it is going to be directed to the high definition or to the standard video backend application.
+In this example we have only two but you could have 50 or more different backend services running, so you can see you can get a lot of flexibility depending on the incoming rule-set that you create in your URL map. Traffic allocation for backend services is going to be determined based on the zone, region or by multiple regions. These are all things that you can define as well. So again, it's going to be based on health checks, URL rewrites and whatever other protocols you choose to take advantage of.
+HTTP(S) load balancing does handle the termination of TLS/SSL sessions but you can also use SSL load balancing, which is when the balancer acts as the target proxy and the VMs actually terminate the SSL session. To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates and each SSL certificate has a created SSL certificate resource.</p>
+<p>group
+The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%. Then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity, when CPU utilization is at 40% average across the entire instance group.
+Ok let's summarise what we have covered here with another use case.
+In this use case we have users coming from North America and some coming from Europe. Now you have one single IP Anycast address representing the globe, but they're entering the Google cloud network from different locations.
+A GCP cloud load balancer is not a physical device it is purely a software concept. But it does have a list of rules that we can apply to any ingress traffic no matter where in the world it comes from. That's why they are called global load balancers. But in reality they are just a set of rules that Google apply to ingress traffic that enters into Google's software defined network (SDN).
+In our scenario we have users in North America and Europe who will due to Anycast connect to their own region where we will need to determine what to do with the traffic. This is where we configure what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic.
+We could for example send the user to a backend based upon the individual user's location, IP address, protocol, or port towards a managed instance group in the US or to one in Europe. Therefore, URL maps are to be uploaded. Essentially the place where you can actually route traffic on criteria other than the protocol, IP address, or port, but specifically by what is in the URL header. So let's just say you're processing videos and you're expecting those In that case you would need a global forwarding rule which sends all that type of traffic to your HTTP proxy. But you may want to handle HD videos differently from standard definition videos and so you may map those to a different backend service.
+By segregating the application into two distinct services, one for a high definition video and one for standard video, we will then use a URL match to apply different rules. So we're going to look at that rule and determine from the incoming URL whether it is going to be directed to the high definition or to the standard video backend application.
+In this example we have only two but you could have 50 or more different backend services running, so you can see you can get a lot of flexibility depending on the incoming rule-set that you create in your URL map. Traffic allocation for backend services is going to be determined based on the zone, region or by multiple regions. These are all things that you can define as well. So again, it's going to be based on health checks, URL rewrites and whatever other protocols you choose to take advantage of.
+HTTP(S) load balancing does handle the termination of TLS/SSL sessions but you can also use SSL load balancing, which is when the balancer acts as the target proxy and the VMs actually terminate the SSL session. To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates and each SSL certificate has a created SSL certificate resource.</p>
+<p>group
+The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%. Then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity, when CPU utilization is at 40% average across the entire instance group.
+Ok let's summarise what we have covered here with another use case.
+In this use case we have users coming from North America and some coming from Europe. Now you have one single IP Anycast address representing the globe, but they're entering the Google cloud network from different locations.
+A GCP cloud load balancer is not a physical device it is purely a software concept. But it does have a list of rules that we can apply to any ingress traffic no matter where in the world it comes from. That's why they are called global load balancers. But in reality they are just a set of rules that Google apply to ingress traffic that enters into Google's software defined network (SDN).
+In our scenario we have users in North America and Europe who will due to Anycast connect to their own region where we will need to determine what to do with the traffic. This is where we configure what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic.
+We could for example send the user to a backend based upon the individual user's location, IP address, protocol, or port towards a managed instance group in the US or to one in Europe. Therefore, URL maps are to be uploaded. Essentially the place where you can actually route traffic on criteria other than the protocol, IP address, or port, but specifically by what is in the URL header. So let's just say you're processing videos and you're expecting those In that case you would need a global forwarding rule which sends all that type of traffic to your HTTP proxy. But you may want to handle HD videos differently from standard definition videos and so you may map those to a different backend service.
+By segregating the application into two distinct services, one for a high definition video and one for standard video, we will then use a URL match to apply different rules. So we're going to look at that rule and determine from the incoming URL whether it is going to be directed to the high definition or to the standard video backend application.
+In this example we have only two but you could have 50 or more different backend services running, so you can see you can get a lot of flexibility depending on the incoming rule-set that you create in your URL map. Traffic allocation for backend services is going to be determined based on the zone, region or by multiple regions. These are all things that you can define as well. So again, it's going to be based on health checks, URL rewrites and whatever other protocols you choose to take advantage of.
+HTTP(S) load balancing does handle the termination of TLS/SSL sessions but you can also use SSL load balancing, which is when the balancer acts as the target proxy and the VMs actually terminate the SSL session. To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates and each SSL certificate has a created SSL certificate resource.</p>
+<p>group
+The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%. Then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity, when CPU utilization is at 40% average across the entire instance group.
+Ok let's summarise what we have covered here with another use case.
+In this use case we have users coming from North America and some coming from Europe. Now you have one single IP Anycast address representing the globe, but they're entering the Google cloud network from different locations.
+A GCP cloud load balancer is not a physical device it is purely a software concept. But it does have a list of rules that we can apply to any ingress traffic no matter where in the world it comes from. That's why they are called global load balancers. But in reality they are just a set of rules that Google apply to ingress traffic that enters into Google's software defined network (SDN).
+In our scenario we have users in North America and Europe who will due to Anycast connect to their own region where we will need to determine what to do with the traffic. This is where we configure what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic.
+We could for example send the user to a backend based upon the individual user's location, IP address, protocol, or port towards a managed instance group in the US or to one in Europe. Therefore, URL maps are to be uploaded. Essentially the place where you can actually route traffic on criteria other than the protocol, IP address, or port, but specifically by what is in the URL header. So let's just say you're processing videos and you're expecting those In that case you would need a global forwarding rule which sends all that type of traffic to your HTTP proxy. But you may want to handle HD videos differently from standard definition videos and so you may map those to a different backend service.
+By segregating the application into two distinct services, one for a high definition video and one for standard definition video, we will then use a URL match to apply different rules. So we're going to look at that rule and determine from the incoming URL whether it is going to be directed to the high definition or to the standard definition backend service.
+In this example we have only two but you could have 50 or more different backend services running, so you can see you can get a lot of flexibility depending on the incoming rule-set that you create in your URL map. Traffic allocation for backend services is going to be determined based on the zone, region or by multiple regions. These are all things that you can define as well. So again, it's going to be based on health checks, URL rewrites and whatever other protocols you choose to take advantage of.
+HTTP(S) load balancing does handle the termination of TLS/SSL sessions but you can also use SSL load balancing, which is when the balancer acts as the target proxy and the VMs actually terminate the SSL session. To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates and each SSL certificate has a created SSL certificate resource.</p>
+<p>This is not a valid response. The text provided appears to be a repetition of the same sentence, without any meaningful content or context. I'll need you to provide a new response that follows the format you specified earlier.</p>
+<p>Please provide a clear and concise explanation of how to use URL maps with Google Cloud Load Balancing, including examples and step-by-step instructions.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%. Then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity, when CPU utilization is at 40% average across the entire instance group.
+
+In this use case, we have users coming from North America and some coming from Europe. Now you have one single IP Anycast address representing the globe, but they're entering the Google cloud network from different locations. A GCP cloud load balancer is not a physical device it is purely a software concept. But it does have a list of rules that we can apply to any ingress traffic no matter where in the world it comes from.
+
+That's why they are called global load balancers. But in reality, they are just a set of rules that Google apply to ingress traffic that enters into Google's software defined network (SDN). In our scenario, we have users in North America and Europe who will due to Anycast connect to their own region where we will need to determine what to do with the traffic. This is where we configure what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic.
+
+We could for example send the user to a backend based upon the individual user's location, IP address, protocol, or port towards a managed instance group in the US or to one in Europe. Therefore, URL maps are essentially the place where you can actually route traffic on criteria other than the protocol, IP address, or port, but specifically by what is in the URL header.
+
+So let's just say you're processing videos and you're expecting those. In that case, you would need a global forwarding rule which sends all that type of traffic to your HTTP proxy. But you may want to handle HD videos differently from standard definition videos and so you may map those to a different backend service. By segregating the application into two distinct services, one for a high definition video and one for standard video, we will then use a URL match to apply different rules.
+
+So we're going to look at that rule and determine from the incoming URL whether it is going to be directed to the high definition or to the standard video backend application. In this example, we have only two but you could have 50 or more different backend services running, so you can see you can get a lot of flexibility depending on the incoming rule-set that you create in your URL map.
+
+Traffic allocation for backend services is going to be determined based on the zone, region or by multiple regions. These are all things that you can define as well. So again, it's going to be based on health checks, URL rewrites and whatever other protocols you choose to take advantage of. HTTP(S) load balancing does handle the termination of TLS/SSL sessions but you can also use SSL load balancing, which is when the balancer acts as the target proxy and the VMs actually terminate the SSL session.
+
+To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates and each SSL certificate has a created SSL certificate resource.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Capacity Scaler and URL Maps in Google Cloud Load Balancing</h3>
+<p>The capacity scaler is an additional setting that directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum. For example, if balancing mode is set to track utilization and the max CPU utilization is 80%, then by setting the capacity scaler to 50% would mean the load balancer would see the backend as being at capacity when CPU utilization is at 40% average across the entire instance group.</p>
+<h3>Global Load Balancers</h3>
+<p>A GCP cloud load balancer is not a physical device but a software concept. It has a list of rules that can be applied to any ingress traffic, regardless of its origin. This is why they are called global load balancers. However, in reality, they are just a set of rules that Google applies to ingress traffic entering into their software-defined network (SDN).</p>
+<h3>URL Maps</h3>
+<p>URL maps are essentially the place where you can route traffic based on criteria other than protocol, IP address, or port. Specifically, it's used to define where to send traffic based on what's in the URL header. For example, if you're processing videos and expecting HD videos, you would need a global forwarding rule that sends all that type of traffic to your HTTP proxy.</p>
+<p>You can use URL maps to apply different rules for different backend services. By segregating an application into two distinct services (e.g., high definition video and standard video), you can use a URL match to determine which service to direct the traffic to based on the incoming URL.</p>
+<h3>Traffic Allocation</h3>
+<p>Traffic allocation for backend services is determined based on the zone, region, or multiple regions. You can define these settings using health checks, URL rewrites, and other protocols.</p>
+<p>Additionally, HTTP(S) load balancing can handle the termination of TLS/SSL sessions. To use this feature, you need to create at least one SSL certificate to be used by the target proxy for the load balancer. Each target proxy can be configured with up to 10 SSL certificates, each having a created SSL certificate resource.</p>
+<h3>Flexibility in URL Maps</h3>
+<p>URL maps offer a lot of flexibility depending on the incoming rule-set that you create. You can have multiple backend services running, and by using different rules, you can direct traffic accordingly.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Defining Load Balancing Concepts in Google Cloud</p>
+<ul>
+<li>Discusses capacity scaler settings for load balancing</li>
+<li>Explains the concept of URL maps for routing traffic based on specific criteria</li>
+<li>Describes how to configure URL maps with multiple backend services and rules</li>
+<li>Covers traffic allocation methods, including health checks and SSL certificates</li>
+</ul>
+<h3>Topic 2</h3>
+<p>Understanding Google Cloud Load Balancing Features</p>
+<ul>
+<li>Discusses the role of GCP cloud load balancers in software-defined networks</li>
+<li>Explains the concept of global forwarding rules for routing traffic to HTTP proxies</li>
+<li>Describes how to use URL match to apply different rules based on incoming URLs</li>
+<li>Covers SSL load balancing and its requirements, including SSL certificates</li>
+</ul>
+<h3>Topic 3</h3>
+<p>Configuring Load Balancing for Scalability and Flexibility</p>
+<ul>
+<li>Discusses the importance of defining zones, regions, and multiple regions for traffic allocation</li>
+<li>Explains how to use health checks and URL rewrites in load balancing configurations</li>
+<li>Describes the flexibility offered by using multiple backend services and rules in URL maps</li>
+</ul></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of the capacity scaler in a load balancer?
+Answer: The capacity scaler directs the load balancer to only direct requests to a given backend instance as long as utilization is below a percentage of the balancing mode maximum.</p>
+</li>
+<li>
+<p>How does a GCP cloud load balancer handle traffic from different locations around the world?
+Answer: A GCP cloud load balancer applies rules to any ingress traffic, regardless of its origin, and routes it to specific backend services based on predefined criteria such as URL headers.</p>
+</li>
+<li>
+<p>What is the main difference between HTTP(S) load balancing and SSL load balancing?
+Answer: HTTP(S) load balancing handles the termination of TLS/SSL sessions, while SSL load balancing acts as a target proxy and has the VMs terminate the SSL session.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the capacity scaler affect the utilization of backend instances in a load balancer?
+Answer: The capacity scaler ensures that the load balancer directs requests to backend instances only when their utilization is below a certain threshold, preventing overloading.</p>
+</li>
+<li>
+<p>What are some factors that determine traffic allocation for backend services in a URL map?
+Answer: Traffic allocation is determined by zone, region, or multiple regions, and can be based on health checks, URL rewrites, and other protocols.</p>
+</li>
+<li>
+<p>How does the use of SSL certificates impact load balancing in GCP?
+Answer: Each target proxy can be configured with up to 10 SSL certificates, which are used for termination of TLS/SSL sessions.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a URL map that routes traffic from North America to a backend service based on the user's location.
+Answer: Create a URL map with a rule that matches the user's IP address or geolocation and directs them to a specific backend service in the US.</p>
+</li>
+<li>
+<p>Implement SSL load balancing for an application that requires secure connections.
+Answer: Configure each target proxy with up to 10 SSL certificates, which are used for termination of TLS/SSL sessions, ensuring secure connections for the application.</p>
+</li>
+<li>
+<p>Develop a strategy for managing multiple backend services in a URL map.
+Answer: Use a hierarchical approach, grouping related backend services together and using URL patterns to route traffic to specific services based on incoming requests.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>capacity scaler</td>
+<td>Setting</td>
+<td>"The capacity scaler is an additional setting that directs the load balancer..."</td>
+<td>The capacity scaler is a feature of Google Cloud Load Balancing that allows you to control the utilization of backend instances. It works by setting a percentage threshold for CPU utilization, and if the utilization exceeds this threshold, the load balancer will not direct traffic to that instance.</td>
+</tr>
+<tr>
+<td>balancing mode</td>
+<td>Setting</td>
+<td>"...balancing mode is set to track utilization..."</td>
+<td>The balancing mode refers to the method used by the load balancer to distribute traffic across backend instances. In this case, it's tracking utilization, which means the load balancer will monitor CPU usage and adjust traffic distribution accordingly.</td>
+</tr>
+<tr>
+<td>instance group</td>
+<td>Resource</td>
+<td>"...requests to a given backend instance as long as utilization is below..."</td>
+<td>An instance group is a collection of virtual machines (VMs) that can be used as backend instances for load balancing. The capacity scaler determines when to direct traffic to these VMs based on their utilization.</td>
+</tr>
+<tr>
+<td>IP Anycast address</td>
+<td>Address</td>
+<td>"...one single IP Anycast address representing the globe..."</td>
+<td>An IP AnyCast address is a type of IP address that can be routed to multiple locations, allowing users from different regions to connect to the same backend instance. In this case, it's used to route traffic from North America and Europe to their respective region-specific backend instances.</td>
+</tr>
+<tr>
+<td>GCP cloud load balancer</td>
+<td>Software Concept</td>
+<td>"...A GCP cloud load balancer is not a physical device..."</td>
+<td>The GCP Cloud Load Balancer is a software-based load balancing service that distributes traffic across multiple backend instances. It's a key component of Google Cloud's infrastructure for managing high-traffic applications.</td>
+</tr>
+<tr>
+<td>URL map</td>
+<td>Configuration</td>
+<td>"...what is known as a URL map as it lets us define where, or rather to which, backend service we will send the traffic."</td>
+<td>A URL map is a configuration that defines how traffic should be routed based on the URL header of incoming requests. In this case, it's used to route traffic from videos to either high-definition or standard-definition video services.</td>
+</tr>
+<tr>
+<td>zone</td>
+<td>Region</td>
+<td>"...users in North America and Europe who will due to Anycast connect to their own region..."</td>
+<td>A zone refers to a specific geographic region within the Google Cloud infrastructure. In this case, it's used to determine which backend instance should handle traffic from users in North America or Europe.</td>
+</tr>
+<tr>
+<td>SSL certificate</td>
+<td>Certificate</td>
+<td>"...To use HTTP(S) or SSL load balancing, you have to create at least one SSL certificate..."</td>
+<td>An SSL certificate is a digital certificate that verifies the identity of a website and encrypts data transmitted between the website and its visitors. In this case, it's used to secure traffic between the load balancer and backend instances using HTTPS.</td>
+</tr>
+<tr>
+<td>managed instance group</td>
+<td>Resource</td>
+<td>"...managed instance group in the US or to one in Europe."</td>
+<td>A managed instance group is a pre-configured collection of virtual machines that can be used as backend instances for load balancing. In this case, it's used to route traffic from users in North America and Europe to their respective region-specific backend instances.</td>
+</tr>
+<tr>
+<td>health checks</td>
+<td>Protocol</td>
+<td>"...traffic allocation for backend services is going to be determined based on health checks..."</td>
+<td>Health checks are a protocol used by the load balancer to verify that backend instances are functioning correctly before directing traffic to them. In this case, it's used to ensure that backend instances are healthy and responsive before routing traffic to them.</td>
+</tr>
+<tr>
+<td>URL rewrites</td>
+<td>Protocol</td>
+<td>"...traffic allocation for backend services is going to be determined based on health checks, URL rewrites..."</td>
+<td>URL rewrites are a protocol used by the load balancer to modify the URL of incoming requests before directing traffic to backend instances. In this case, it's used to route traffic from videos to either high-definition or standard-definition video services.</td>
+</tr>
+<tr>
+<td>HTTP(S) load balancing</td>
+<td>Protocol</td>
+<td>"...HTTP(S) load balancing does handle the termination of TLS/SSL sessions..."</td>
+<td>HTTP(S) load balancing is a protocol used by the load balancer to distribute traffic across multiple backend instances while ensuring secure communication between the load balancer and backend instances using HTTPS.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

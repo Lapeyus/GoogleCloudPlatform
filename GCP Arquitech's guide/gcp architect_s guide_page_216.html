@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_216</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_216_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_216</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Business Logic</h1>
+<h2>Definition and Purpose</h2>
+<p>The business logic determines how the application process works in fulfilling its purpose.</p>
+<h3>Example Use Case</h3>
+<p>An example would be in banking, as the business logic would determine how the application handled a financial transaction and which accounts would be debited or credited and in which order.</p>
+<h2>Characteristics of Business Logic</h2>
+<p>By definition, business logic operates on data, which means processing some code. Essentially, the business logic layer design is where you'll consider all of the cloud processing options in order to determine what services the business logic code will need to use.</p>
+<h1>Microservices Architecture</h1>
+<h2>Overview and Benefits</h2>
+<p>In computer software, business logic or domain logic is part of the program that encodes the real-world business rules that determine how data can be created, stored, and changed.</p>
+<h3>Microservices Design</h3>
+<p>Microservices design is a popular approach to applications design in the cloud as they leverage small, stateless processing code to provide scalability and resiliency. Microservices architecture can be thought of as independently deployable, small modular single purpose functions.</p>
+<h2>Advantages of Microservices</h2>
+<p>As such microservices can be used like tiny building blocks of single function micro-applications. Building application using these functional building blocks is very efficient and well suited for the cloud. This is due to each modular service running as a unique process that is going to contribute to some individual business goal.</p>
+<h3>Communication Mechanisms</h3>
+<p>Also microservices can communicate effectively through a lightweight mechanism such as Cloud Pub/Sub, which is GCP message queuing service.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The business logic determines how the application process works in fulfilling its purpose. An example would be in banking, as the business logic would determine how the application handled a financial transaction and which accounts would be debited or credited and in which order.
+
+By definition, business logic operates on data, which means processing some code. Essentially, the business logic layer design is where you'll consider all of the cloud processing options in order to determine what services the business logic code will need to use.
+
+Microservices
+In computer software, business logic or domain logic is part of the program that encodes the real-world business rules that determine how data can be created, stored, and changed. Microservices design is a popular approach to applications design in the cloud as they leverage small, stateless processing code to provide scalability and resiliency.
+
+Microservices architecture can be thought of as independently deployable, small modular single purpose functions. As such microservices can be used like tiny building blocks of single function micro-applications. Building application using these functional building blocks is very efficient and well suited for the cloud. This is due to each modular service running as a unique process that is going to contribute to some individual business goal.
+
+Also, microservices can communicate effectively through a lightweight mechanism such as Cloud Pub/Sub, which is GCP message queuing service.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Business Logic and Microservices Architecture</h3>
+<p>The business logic determines how an application processes data to fulfill its purpose. In banking, for example, the business logic would decide how financial transactions are handled, including which accounts are debited or credited in what order.</p>
+<p>Business logic operates on data, processing code that defines real-world business rules for creating, storing, and changing data. When designing a cloud-based application, it's essential to consider all available cloud processing options to determine the services required by the business logic layer.</p>
+<h3>Microservices Design</h3>
+<p>Microservices design is a popular approach to applications in the cloud, leveraging small, stateless processing code to provide scalability and resiliency. This architecture can be thought of as independently deployable, small modular single-purpose functions that can be used like tiny building blocks for single-function micro-applications.</p>
+<p>Each modular service runs as a unique process contributing to an individual business goal, making it efficient and well-suited for the cloud. Microservices also communicate effectively through lightweight mechanisms such as Cloud Pub/Sub, a GCP message queuing service, enabling seamless communication between services.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Business Logic and Data Processing</p>
+<h3>Topic 2</h3>
+<p>Microservices Architecture for Scalability and Resiliency</p>
+<h3>Topic 3</h3>
+<p>Cloud Computing and Business Rules</p>
+<h3>Topic 4</h3>
+<p>Application Design in the Cloud</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>What determines how an application process works in fulfilling its purpose?
+Answer: The business logic.</li>
+<li>In the context of banking, what does the business logic determine for financial transactions?
+Answer: How to debit or credit accounts and in which order.</li>
+<li>What is the primary function of the business logic layer design?
+Answer: To consider cloud processing options and determine necessary services.</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>How do microservices architecture and business logic relate to each other?
+Answer: Microservices are designed to operate independently, with their own unique purpose, which aligns with the concept of business logic.</li>
+<li>What is the benefit of using microservices in cloud-based applications?
+Answer: Scalability and resiliency due to small, stateless processing code that can be deployed independently.</li>
+<li>How does Cloud Pub/Sub facilitate communication between microservices?
+Answer: It provides a lightweight mechanism for microservices to communicate effectively.</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>Design a simple banking application using business logic and microservices. Describe how the application would handle financial transactions.
+Answer: The application would use business logic to determine which accounts to debit or credit, in what order, and utilize microservices to process each transaction independently.</li>
+<li>How can a cloud-based application benefit from using microservices architecture?
+Answer: By providing scalability and resiliency due to small, stateless processing code that can be deployed independently.</li>
+<li>What are some potential challenges when implementing business logic and microservices in a cloud-based application?
+Answer: Ensuring consistency across different services, handling errors and exceptions, and maintaining data integrity.</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>business logic</td>
+<td>Concept</td>
+<td>"...the business logic determines how the application process works in fulfilling its purpose."</td>
+<td>Refers to the rules and processes that govern an application's behavior, operating on data to achieve a specific goal. In this context, it is used to describe the layer of code responsible for handling financial transactions in banking.</td>
+</tr>
+<tr>
+<td>banking</td>
+<td>Industry/Domain</td>
+<td>"...an example would be in banking..."</td>
+<td>A specific industry or domain where business logic plays a crucial role in processing financial transactions and managing accounts. It serves as an example of how business logic operates in real-world applications.</td>
+</tr>
+<tr>
+<td>data</td>
+<td>Concept</td>
+<td>"...business logic operates on data, which means processing some code."</td>
+<td>Refers to the information used by an application to function, including user input, database records, or other relevant information. Business logic processes this data to achieve a specific goal.</td>
+</tr>
+<tr>
+<td>cloud processing options</td>
+<td>Technology/Service</td>
+<td>"...where you'll consider all of the cloud processing options in order to determine what services the business logic code will need to use."</td>
+<td>Refers to the various technologies and services available for processing data in the cloud, such as Cloud Pub/Sub or GCP message queuing service. These options are considered when designing the business logic layer.</td>
+</tr>
+<tr>
+<td>microservices</td>
+<td>Design Pattern/Architecture</td>
+<td>"...Microservices design is a popular approach to applications design in the cloud..."</td>
+<td>A software design pattern that involves breaking down an application into small, stateless processing code modules, each with a single purpose and independently deployable. This architecture provides scalability and resiliency.</td>
+</tr>
+<tr>
+<td>domain logic</td>
+<td>Concept</td>
+<td>"...business logic or domain logic is part of the program that encodes the real-world business rules..."</td>
+<td>Refers to the set of rules and processes that govern an application's behavior, operating on data to achieve a specific goal. It is often used interchangeably with business logic.</td>
+</tr>
+<tr>
+<td>scalability</td>
+<td>Concept</td>
+<td>"...provides scalability and resiliency."</td>
+<td>Refers to the ability of an application or system to handle increased load or traffic without compromising performance. Microservices architecture provides this benefit by allowing each module to run as a unique process.</td>
+</tr>
+<tr>
+<td>resiliency</td>
+<td>Concept</td>
+<td>"...provides scalability and resiliency."</td>
+<td>Refers to the ability of an application or system to withstand failures, errors, or disruptions without affecting its overall functionality. Microservices architecture provides this benefit by allowing each module to be independently deployed and managed.</td>
+</tr>
+<tr>
+<td>Cloud Pub/Sub</td>
+<td>Technology/Service</td>
+<td>"...which is GCP message queuing service."</td>
+<td>A lightweight mechanism for communication between microservices in a cloud-based application, enabling them to exchange data and coordinate their behavior.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

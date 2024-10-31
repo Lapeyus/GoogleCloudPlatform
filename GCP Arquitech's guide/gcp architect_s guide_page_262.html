@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_262</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_262_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_262</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Migration Considerations</h1>
+<h2>Existing Investment</h2>
+<p>There is likely to be significant costs associated with servers and support infrastructure.</p>
+<h3>Servers</h3>
+<p>Servers are likely to be on a hardware lifecycle roadmap, refreshed every 3-5 years. This may be the ideal time to migrate on-premises resources to the cloud.</p>
+<h2>Application Performance and Portability</h2>
+<p>Consider whether the application can function in the cloud. Compatibility and performance are not likely to be a problem in GCP, but latency and portability must be considered.</p>
+<h3>Latency</h3>
+<p>Even with unlimited compute and memory resources, limited internet bandwidth may be detrimental to application performance.</p>
+<h3>Portability</h3>
+<p>Migrating virtualized application servers is not a problem, but external dependencies such as partner data source connections must be considered.</p>
+<h2>Network Assessment</h2>
+<p>Assess the premises network and how it will integrate with the cloud. Consider deploying cloud-based AD domain controllers and DNS.</p>
+<h3>Cloud-Network Integration</h3>
+<p>The cloud network must function for both on-premises and cloud access. This requires a secure communications path between the cloud and on-premises network.</p>
+<h2>Migration Strategy</h2>
+<p>Strive for a lift-and-shift of easy applications and databases early on, such as MySQL and PostgreSQL. As experience and confidence grow, migrate more complex applications and databases like Microsoft SQL Server or Oracle.</p>
+<h3>Homogenous vs. Heterogeneous Migration</h3>
+<p>A homogenous migration involves migrating similar applications and databases at once. A heterogeneous migration involves migrating different applications and databases separately.</p>
+<h2>Best Practices</h2>
+<ul>
+<li>Take your time and look for the best deployment methods on an application-to-application basis.</li>
+<li>Don't need to lift and shift everything at once.</li>
+<li>Consider the best deployment methods for each application and database.</li>
+</ul></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>When evaluating an application for suitability for the cloud, one must consider the existing investment. There is likely to be significant costs associated with servers and support infrastructure. The migration of a server's functionality to the cloud may leave it defunct and a wasted business investment unless the business can somehow repurpose the servers.
+
+Servers are likely to be on a hardware lifecycle roadmap whereby they are refreshed every 3-5 years, so that may be the ideal time to migrate on-premises resources to the cloud.
+
+2. Consider application performance and portability
+
+In the case of application servers, we must consider whether the application can function in the cloud. Compatibility and application performance are not likely to be a problem in the GCP environment, but you must consider two important aspects: latency or delay and applications portability.
+
+The first aspect is latency or delay because even though you can provision the virtual instance for the application server with nearly unlimited compute and memory resources if there is limited internet bandwidth then that may well be detrimental to the application performance. The second aspect to consider will be the applications portability. In this case, migrate a virtualized application server to the cloud will not be a problem but the application might have some important external dependencies.
+
+3. Assess the network premises and how it will integrate with the cloud
+
+If an organization wants their users to be able to access applications in premises and some in the cloud, the cloud network must function seamlessly or if they wish to keep some of their resources on as an extension of the on-premises network and vice versa. Typically, you have to deploy cloud-based AD domain controllers, DNS, and maintain a secure communications path between the cloud and the on-premises network.
+
+It is essential to understand that when building a migration plan, you do not usually need to move everything at the same time. It's crucial to strive for a lift and shift of easy applications and like-for-like databases early on, which is the low-hanging fruit. Then, as you build experience and confidence, you can start using Compute Engine VMs to migrate virtualization of other legacy applications or databases that aren't directly supported in GCP.
+
+For example, MySQL and PostgreSQL can be considered straightforward since GCP supports these databases natively. This is what would be described as a homogenous migration. However, if you need to later move a Microsoft SQL Server cluster or an Oracle server to the cloud, you could run it within a VM on Compute Engine or a container in Kubernetes.
+
+The point being, you don't need to lift and shift everything at once; take your time, and look for the best deployment methods on an application-to-application basis.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Evaluating Application Suitability for Cloud Migration</h3>
+<p>When considering cloud migration, it's essential to evaluate existing investments, including server costs and support infrastructure. Servers typically follow a hardware lifecycle roadmap, refreshing every 3-5 years, making this a suitable time for on-premises resources to be migrated to the cloud.</p>
+<h3>Application Performance and Portability</h3>
+<p>For application servers, consider compatibility and performance in the GCP environment. Two key aspects to evaluate are:</p>
+<ul>
+<li><strong>Latency</strong>: Even with unlimited compute and memory resources, limited internet bandwidth can negatively impact application performance.</li>
+<li><strong>Portability</strong>: Migrating virtualized application servers is not a problem, but external dependencies may require consideration. For example, MySQL databases with partner data source connections that rely on direct connections.</li>
+</ul>
+<h3>Assessing the Network</h3>
+<p>When building a cloud migration plan, consider integrating the premises network with the cloud:</p>
+<ul>
+<li>Ensure users can access applications in both premises and the cloud.</li>
+<li>Deploy cloud-based AD domain controllers and DNS.</li>
+<li>Maintain secure communications between the cloud and on-premises networks.</li>
+<li>Understand that not all resources need to be migrated at once; prioritize easy applications and databases (low-hanging fruit) first.</li>
+</ul>
+<h3>Homogenous vs. Heterogeneous Migration</h3>
+<p>Migration can be categorized into two types:</p>
+<ul>
+<li><strong>Homogenous migration</strong>: Migrating applications with similar requirements, such as MySQL or PostgreSQL, which are directly supported in GCP.</li>
+<li><strong>Heterogeneous migration</strong>: Migrating applications with different requirements, such as Microsoft SQL Server or Oracle servers, which may require running within a VM on Compute Engine or a container in Kubernetes.</li>
+</ul>
+<h3>Best Practices</h3>
+<ul>
+<li>Take time to evaluate the best deployment methods for each application.</li>
+<li>Prioritize easy applications and databases (low-hanging fruit) first.</li>
+<li>Build experience and confidence before migrating more complex applications.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1</h3>
+<p>Consideration of existing investment and potential repurposing of servers due to hardware lifecycle roadmap.</p>
+<h3>Topic 2</h3>
+<p>Application performance and portability, including latency and internet bandwidth limitations.</p>
+<h3>Topic 3</h3>
+<p>Assessment of premises network integration with cloud infrastructure, including deployment of AD domain controllers and DNS.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is one of the significant costs associated with migrating servers to the cloud?
+Answer: Significant costs associated with servers and support infrastructure.</p>
+</li>
+<li>
+<p>Why is it recommended to repurpose servers after migration to the cloud?
+Answer: To avoid wasting business investment.</p>
+</li>
+<li>
+<p>How often are servers typically refreshed on a hardware lifecycle roadmap?
+Answer: Every 3-5 years.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are two important aspects of application performance in the GCP environment that need to be considered when migrating an application server to the cloud?
+Answer: Latency or delay and application portability.</p>
+</li>
+<li>
+<p>How do limited internet bandwidth and co-located data source connections affect application performance in the cloud?
+Answer: Limited internet bandwidth can lead to detrimental application performance, while co-located data source connections may require direct connections that are not supported in the cloud.</p>
+</li>
+<li>
+<p>What is a key consideration when building a cloud migration plan for an organization with on-premises and cloud resources?
+Answer: Ensuring seamless access to applications both in premises and in the cloud, requiring a secure communications path between the two.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Which databases are considered "low hanging fruit" for homogenous migrations to GCP?
+Answer: MySQL and PostgreSQL, as they are natively supported by GCP.</p>
+</li>
+<li>
+<p>What is an alternative deployment method for migrating legacy applications or databases that aren't directly supported in GCP?
+Answer: Running them within a VM on Compute Engine or a container in Kubernetes.</p>
+</li>
+<li>
+<p>Why is it recommended to take time when planning a cloud migration and look for the best deployment methods on an application-to-application basis?
+Answer: To avoid lifting and shifting everything at once, allowing for more flexibility and control over the migration process.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>existing investment</td>
+<td>Financial Resource</td>
+<td>"When it comes to evaluating an application for suitability for the cloud one must consider the existing investment."</td>
+<td>The concept of existing investment refers to the financial resources already invested in a particular system or infrastructure. In this context, it highlights the importance of considering these investments when deciding whether to migrate to the cloud.</td>
+</tr>
+<tr>
+<td>servers and support infrastructure</td>
+<td>Hardware Resource</td>
+<td>"There is likely to be significant costs associated with servers and support infrastructure."</td>
+<td>Servers and support infrastructure refer to the hardware and software resources required to run an application or system. The mention of significant costs highlights the importance of considering these expenses when evaluating migration options.</td>
+</tr>
+<tr>
+<td>cloud</td>
+<td>Cloud Computing Platform</td>
+<td>"The migration of a server's functionality to the cloud may leave it defunct and a wasted business investment unless the business can somehow repurpose the servers."</td>
+<td>The cloud refers to a cloud computing platform that provides on-demand access to computing resources, such as servers, storage, and applications. In this context, it highlights the potential risks associated with migrating to the cloud if not done carefully.</td>
+</tr>
+<tr>
+<td>hardware lifecycle roadmap</td>
+<td>Hardware Life Cycle Management</td>
+<td>"Servers are likely to be on a hardware lifecycle roadmap whereby they are refreshed every 3-5 years so that may be the ideal time to migrate on-premises resources to the cloud."</td>
+<td>A hardware lifecycle roadmap refers to the planned replacement or upgrade of hardware systems over a specific period. In this context, it highlights the importance of considering the natural cycle of hardware refreshes when deciding whether to migrate to the cloud.</td>
+</tr>
+<tr>
+<td>application performance</td>
+<td>Application Performance Metrics</td>
+<td>"In the case of application servers, we must consider whether the application can function in the cloud."</td>
+<td>Application performance refers to the metrics used to measure the efficiency and effectiveness of an application. In this context, it highlights the importance of considering how well an application will perform in a cloud environment.</td>
+</tr>
+<tr>
+<td>latency or delay</td>
+<td>Performance Metric</td>
+<td>"The first is latency or delay because even though you can provision the virtual instance for the application server with nearly unlimited compute and memory resources if there is limited internet bandwidth then that may well be detrimental to the application performance."</td>
+<td>Latency or delay refers to the time it takes for data to travel between two points. In this context, it highlights the importance of considering the potential impact of limited internet bandwidth on application performance.</td>
+</tr>
+<tr>
+<td>portability</td>
+<td>Application Portability Metrics</td>
+<td>"The second aspect to consider will be the applications portability."</td>
+<td>Portability refers to the ability of an application to function in different environments or systems. In this context, it highlights the importance of considering how well an application will perform in a cloud environment.</td>
+</tr>
+<tr>
+<td>network</td>
+<td>Network Infrastructure</td>
+<td>"If an when building a cloud migration plan you must consider the on-organization wants their users to be able to access applications in premises and some in the cloud, the cloud network must function the cloud or if they wish to keep some of their resources on as an extension of the on-premises network."</td>
+<td>Network infrastructure refers to the physical or virtual infrastructure that supports communication between devices. In this context, it highlights the importance of considering how the cloud network will integrate with existing networks and infrastructure.</td>
+</tr>
+<tr>
+<td>AD domain controllers</td>
+<td>Identity and Access Management System</td>
+<td>"typically have to deploy cloud-based AD domain controllers"</td>
+<td>Active Directory (AD) domain controllers are used to manage user identities and access to resources in a network. In this context, it highlights the importance of considering how cloud-based AD domain controllers will be deployed and managed.</td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>Domain Name System</td>
+<td>"typically have to deploy cloud-based AD domain controllers, DNS"</td>
+<td>The Domain Name System (DNS) is used to translate human-readable domain names into IP addresses that computers can understand. In this context, it highlights the importance of considering how DNS will function in a cloud environment.</td>
+</tr>
+<tr>
+<td>lift and shift</td>
+<td>Migration Strategy</td>
+<td>"Therefore you should strive for a lift and shift of easy applications and like for like databases early on."</td>
+<td>Lift and shift refers to a migration strategy where existing applications are simply moved from one environment to another without significant changes or modifications. In this context, it highlights the importance of considering how to apply this strategy in a cloud environment.</td>
+</tr>
+<tr>
+<td>Compute Engine VMs</td>
+<td>Virtual Machine</td>
+<td>"Then as you build experience and confidence you can start to use Compute Engine VMs to migrate virtualisation of other legacy application or databases that aren't directly supported in GCP."</td>
+<td>Compute Engine VMs are virtual machines provided by Google Cloud Platform (GCP) for running applications. In this context, it highlights the importance of considering how these VMs will be used to migrate legacy applications and databases to the cloud.</td>
+</tr>
+<tr>
+<td>homogenous migration</td>
+<td>Migration Strategy</td>
+<td>"This is what would be described as a homogenous migration"</td>
+<td>Homogenous migration refers to a migration strategy where all components of an application or system are moved to a new environment in a single step. In this context, it highlights the importance of considering how to apply this strategy in a cloud environment.</td>
+</tr>
+<tr>
+<td>Microsoft SQL Server cluster</td>
+<td>Database Management System</td>
+<td>"However if u need to later move a Microsoft SQL Server cluster or an Oracle server to the cloud you could run it within a VM on Compute Engine or a container in Kubernetes."</td>
+<td>Microsoft SQL Server is a database management system used by many organizations. In this context, it highlights the importance of considering how to migrate these systems to the cloud.</td>
+</tr>
+<tr>
+<td>Oracle server</td>
+<td>Database Management System</td>
+<td>"However if u need to later move a Microsoft SQL Server cluster or an Oracle server to the cloud you could run it within a VM on Compute Engine or a container in Kubernetes."</td>
+<td>Oracle is a database management system used by many organizations. In this context, it highlights the importance of considering how to migrate these systems to the cloud.</td>
+</tr>
+<tr>
+<td>Kubernetes</td>
+<td>Container Orchestration System</td>
+<td>"However if u need to later move a Microsoft SQL Server cluster or an Oracle server to the cloud you could run it within a VM on Compute Engine or a container in Kubernetes."</td>
+<td>Kubernetes is a container orchestration system used to manage and deploy applications in a cloud environment. In this context, it highlights the importance of considering how to use these systems to migrate legacy applications and databases to the cloud.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

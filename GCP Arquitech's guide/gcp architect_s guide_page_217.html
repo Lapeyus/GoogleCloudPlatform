@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_217</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_217_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_217</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Microservice vs Business Logic Design</h1>
+<h2>Introduction</h2>
+<p>In general, microservices can make development in the cloud much easier and faster, especially with unit testing. However, they can also complicate business logic.</p>
+<h2>Unified Banking Service</h2>
+<p>Consider a simple unified banking service where customers deposit or withdraw money. If a customer deposits money, the bank needs to update the relevant customer account. But what happens if you have segregated deposit and withdrawal functions in microservices?</p>
+<h3>Challenges with Microservices</h3>
+<p>If a particular microservice fails or communication is interrupted between the segregated microservices, there's a possibility that someone could fail to withdraw their money because an earlier deposit was never recorded against their account.</p>
+<h2>Communication Protocol</h2>
+<p>Communication protocol between microservices is an important aspect of business logic design. With microservices, it can be complicated, but GCP has mechanisms to monitor and troubleshoot integration and business logic issues.</p>
+<h2>When to Use Microservices</h2>
+<p>Use microservices when many consumers will be performing the same single function all the time. However, if these functions are closely related and tightly coupled, using microservices might add overhead without much benefit.</p>
+<h2>Cloud Functions</h2>
+<p>Cloud Functions is a lightweight compute solution for GCP that offers a managed service. It can help with scenarios where tightly coupled functions need to cooperate via multiple microservices.</p>
+<h3>Example Use Case</h3>
+<p>Consider an application where customers upload images all the time. To process these images, you might deploy two separate microservices: one for accepting and storing uploads, and another for processing the images. However, if these functions are tightly coupled, using Cloud Functions can help encapsulate them into a single consolidated service.</p>
+<h2>Conclusion</h2>
+<p>Microservices can make development in the cloud easier and faster, but they also complicate business logic. Use microservices when many consumers will be performing the same single function all the time, and consider Cloud Functions for scenarios where tightly coupled functions need to cooperate via multiple microservices.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Microservice vs. Business Logic Design
+In general, microservices can make development in the cloud much easier and faster, such as unit testing being easier because they're individual small functional modules. Nonetheless, microservices can still complicate business logic.
+
+For example, consider a simple unified banking service where you have a machine that accepts deposits and withdrawals. If a customer deposits money into the machine, the bank needs to determine within the centralized system that the transaction is accepted and the relevant customer account has been updated. On the other hand, if the customer withdraws cash, then the bank will have to depreciate the amount from the user's account.
+
+In most banking apps, the two functions of withdrawal and deposit are tightly coupled within the code. However, with microservices, you may have segregated deposits and withdrawal functions. If a customer deposits money into the bank, they need to update the withdrawal service so it knows that it can now give out that money that was just deposited.
+
+In a monolith application, both services are tightly integrated, and if an application fails, the entire service fails. However, in a microservices design, if a particular microservice fails or communication is interrupted between the segregated microservices, there's a possibility that someone could fail to withdraw their money because an earlier deposit was never recorded against their account.
+
+Understanding integration and logic issues is crucial when designing business logic with microservices. Communication protocols between microservices are also important in business logic design. Fortunately, GCP has several mechanisms to monitor and troubleshoot integration and business logic.
+
+When designing business logic, you may want to use microservices where they make sense in the design. This is typically when many consumers will be performing the same single function all the time, then deploying microservices makes sense. However, if these single functions are closely related and highly dependent on one another, using microservices can add overhead without much benefit.
+
+In such cases, encapsulating multi-functions into a consolidated service may not require decomposing and segregating the functions down to the microservices level. This scenario requires some overarching logic to perform an aggregated and grander function, which is where Cloud Functions come into play.
+
+Cloud Functions
+This is a lightweight compute solution for the GCP that Google offers as a managed service.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1>Microservice vs. Business Logic Design</h1>
+<p>Microservices can simplify development in the cloud, making unit testing easier due to individual small functional modules. However, they can also complicate business logic.</p>
+<p><strong>Tight Coupling and Microservices</strong></p>
+<p>In a simple unified banking service, deposits and withdrawals are tightly coupled within the code. If microservices are used with segregated deposit and withdrawal functions, updating one service may affect the other. This can lead to issues if a particular microservice fails or communication is interrupted between services.</p>
+<p>For example, when a customer deposits money into the bank, the system needs to update the withdrawal service to allow for withdrawals from that account. In a monolith application, this is manageable. However, in a microservices design, there's a risk that an earlier deposit may not be recorded against the customer's account if communication between services fails.</p>
+<p><strong>Communication Protocols and Integration</strong></p>
+<p>Communication protocols between microservices are crucial in business logic design. While it can be complicated, GCP provides mechanisms to monitor and troubleshoot integration and business issues.</p>
+<p>When designing business logic, consider using microservices when many consumers will perform the same single function repeatedly. However, if functions are closely related and tightly coupled, using microservices may add overhead without benefit.</p>
+<p><strong>Cloud Functions</strong></p>
+<p>In such cases where tightly coupled functions need to cooperate via multiple microservices, Cloud Functions can provide an overarching logic to perform aggregated and grander functions. Cloud Functions is a lightweight compute solution for GCP that offers a managed service.</p>
+<p>When deciding between microservices and business logic design, consider the following:</p>
+<ul>
+<li>Use microservices when many consumers will perform the same single function repeatedly.</li>
+<li>Avoid using microservices if tightly coupled functions are involved, as it may add overhead without benefit.</li>
+<li>Consider Cloud Functions to provide an overarching logic for aggregated and grander functions.</li>
+</ul></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Microservice Design Complexity</h3>
+<p>The text highlights the challenges of using microservices in business logic design, particularly when it comes to integration and communication between services.</p>
+<h3>Topic 2: Monolithic Application vs. Microservices</h3>
+<p>The article discusses the trade-offs between monolithic application design and microservices architecture, emphasizing that while microservices can simplify development, they also introduce complexity and potential issues with integration and logic.</p>
+<h3>Topic 3: Business Logic Integration Challenges</h3>
+<p>The text notes that communication protocols between microservices are crucial in business logic design, but can be complicated. It also mentions the importance of monitoring and troubleshooting integration and business issues.</p>
+<h3>Topic 4: Microservices Overhead</h3>
+<p>The article warns that using microservices for tightly coupled functions can add overhead without providing significant benefits, suggesting that encapsulating multi-functions into a consolidated service may be a better approach.</p>
+<h3>Topic 5: Cloud Functions as an Alternative</h3>
+<p>Cloud Functions are introduced as a lightweight compute solution for the GCP that can help address integration and logic challenges in business logic design.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What are the benefits of using microservices in cloud development, specifically regarding unit testing?
+Answer: Microservices make development in the cloud easier and faster, with individual small functional modules making unit testing easier.</p>
+</li>
+<li>
+<p>In a unified banking service, what happens when a customer deposits money into the machine?
+Answer: The bank needs to update the relevant customer account within the centralised system that the transaction is accepted.</p>
+</li>
+<li>
+<p>What is the potential issue with using microservices for tightly coupled functions in a banking app?
+Answer: There is a possibility that someone could fail to withdraw their money because an earlier deposit was never recorded against their account.</p>
+</li>
+<li>
+<p>How does GCP help with integration and business logic design in microservices architecture?
+Answer: GCP provides mechanisms to monitor and troubleshoot integration and business issues, making it easier to design and implement microservices.</p>
+</li>
+<li>
+<p>When should you consider using microservices in your design?
+Answer: You should use microservices when many consumers will be performing the same single function all the time, as it makes sense for scalability and performance.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How do tightly coupled functions affect the decision to use microservices in a design?
+Answer: Tightly coupled functions can add overhead without much benefit if not properly encapsulated into one consolidated service.</p>
+</li>
+<li>
+<p>What is the role of Cloud Functions in addressing the challenges of tightly coupled functions in microservices architecture?
+Answer: Cloud Functions provides a lightweight compute solution for managing aggregated and grander functions, helping to overcome the limitations of microservices.</p>
+</li>
+<li>
+<p>How do communication protocols between microservices impact business logic design?
+Answer: Communication protocols are an important aspect of business logic design, requiring careful consideration to ensure seamless integration and coordination between services.</p>
+</li>
+<li>
+<p>What is the trade-off between using microservices for a single function versus encapsulating it into one consolidated service?
+Answer: Using microservices can add complexity without much benefit if not necessary, whereas encapsulating functions into one service can simplify the architecture.</p>
+</li>
+<li>
+<p>How do you determine whether to use microservices or a monolith application for a specific design?
+Answer: You should consider using microservices when many consumers will be performing the same single function all the time, and when the functions are independent but closely related.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Design a unified banking service that uses microservices for deposits and withdrawals.
+Answer: Implement separate services for deposits and withdrawals, with communication protocols in place to ensure seamless integration and coordination between services.</p>
+</li>
+<li>
+<p>Consider using Cloud Functions to process images uploaded by customers in an application.
+Answer: Use Cloud Functions to manage the processing of uploaded images, ensuring scalability and performance while maintaining a streamlined architecture.</p>
+</li>
+<li>
+<p>Develop a strategy for monitoring and troubleshooting integration issues in a microservices architecture.
+Answer: Implement mechanisms such as logging, monitoring, and alerting tools to detect and resolve integration issues promptly.</p>
+</li>
+<li>
+<p>Design an application that uses microservices for multiple functions, including user authentication and data storage.
+Answer: Implement separate services for each function, with communication protocols in place to ensure seamless integration and coordination between services.</p>
+</li>
+<li>
+<p>Evaluate the trade-offs of using microservices versus a monolith application for a specific design.
+Answer: Weigh the benefits of scalability and performance against the potential drawbacks of added complexity and overhead, considering factors such as business requirements and technical expertise.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microservice</td>
+<td>Concept</td>
+<td>In the context of business logic design, microservices are individual small functional modules that can make development in the cloud easier and faster. However, they can also complicate the business logic.</td>
+<td>A microservice is a self-contained module that provides a specific functionality, making it easier to develop and test in the cloud. However, when used in conjunction with other microservices, it can create integration challenges and require additional overhead.</td>
+</tr>
+<tr>
+<td>Business Logic</td>
+<td>Concept</td>
+<td>In the context of microservices, business logic refers to the rules and processes that govern how data is processed and transactions are executed. It is a critical aspect of microservices design, as it ensures that each microservice operates independently while still maintaining consistency across the system.</td>
+<td>Business logic is the underlying framework that governs how data is processed and transactions are executed in a microservices architecture. It requires careful consideration to ensure that each microservice operates correctly and consistently with other services.</td>
+</tr>
+<tr>
+<td>Unified Banking Service</td>
+<td>System</td>
+<td>A simple unified banking service where customers can deposit and withdraw money using a machine. The system needs to update customer accounts accordingly.</td>
+<td>A unified banking service is a monolithic application that provides a single interface for customers to perform deposits and withdrawals. However, when decomposed into microservices, it creates challenges in terms of integration and business logic.</td>
+</tr>
+<tr>
+<td>Deposits</td>
+<td>Function</td>
+<td>In the context of a unified banking service, deposits refer to the process of adding money to a customer's account. The system needs to update the account balance accordingly.</td>
+<td>A deposit is a specific function that adds money to a customer's account. When used in conjunction with withdrawals, it requires careful consideration to ensure that the account balance is updated correctly.</td>
+</tr>
+<tr>
+<td>Withdrawals</td>
+<td>Function</td>
+<td>In the context of a unified banking service, withdrawals refer to the process of removing money from a customer's account. The system needs to update the account balance accordingly.</td>
+<td>A withdrawal is a specific function that removes money from a customer's account. When used in conjunction with deposits, it requires careful consideration to ensure that the account balance is updated correctly.</td>
+</tr>
+<tr>
+<td>Centralised System</td>
+<td>System</td>
+<td>A centralized system refers to a monolithic application that provides a single interface for customers to perform deposits and withdrawals. The system needs to update customer accounts accordingly.</td>
+<td>A centralized system is a monolithic application that provides a single interface for customers to perform deposits and withdrawals. However, when decomposed into microservices, it creates challenges in terms of integration and business logic.</td>
+</tr>
+<tr>
+<td>Cloud Functions</td>
+<td>Service</td>
+<td>A lightweight compute solution for the GCP that provides a managed service for executing code.</td>
+<td>Cloud Functions is a managed service provided by Google Cloud Platform (GCP) that allows developers to execute code without provisioning or managing servers. It provides a lightweight and scalable way to process data and transactions in microservices architecture.</td>
+</tr>
+<tr>
+<td>Monolith Application</td>
+<td>System</td>
+<td>A monolithic application refers to a single, self-contained unit of software that provides a specific functionality. The system needs to update customer accounts accordingly.</td>
+<td>A monolithic application is a single, self-contained unit of software that provides a specific functionality. However, when decomposed into microservices, it creates challenges in terms of integration and business logic.</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Concept</td>
+<td>In the context of microservices, integration refers to the process of connecting multiple services together to provide a cohesive system. It requires careful consideration to ensure that each service operates correctly and consistently with other services.</td>
+<td>Integration is the process of connecting multiple services together to provide a cohesive system. When used in conjunction with business logic, it ensures that each microservice operates correctly and consistently with other services.</td>
+</tr>
+<tr>
+<td>Communication Protocol</td>
+<td>Concept</td>
+<td>In the context of microservices, communication protocol refers to the rules and processes that govern how data is exchanged between services. It requires careful consideration to ensure that each service operates correctly and consistently with other services.</td>
+<td>A communication protocol is a set of rules and processes that govern how data is exchanged between services in a microservices architecture. When used in conjunction with business logic, it ensures that each service operates correctly and consistently with other services.</td>
+</tr>
+<tr>
+<td>Consumers</td>
+<td>Entity</td>
+<td>In the context of microservices, consumers refer to the users or applications that interact with a specific service. They require a consistent experience across multiple services.</td>
+<td>Consumers are the users or applications that interact with a specific service in a microservices architecture. They require a consistent experience across multiple services, which is ensured by careful consideration of business logic and integration.</td>
+</tr>
+<tr>
+<td>Images</td>
+<td>Data</td>
+<td>In the context of an application where customers upload images, images refer to the visual data that needs to be processed and stored. The system requires additional overhead when processing images using microservices.</td>
+<td>Images are the visual data that needs to be processed and stored in an application. When used in conjunction with other functions, such as deposits and withdrawals, it requires careful consideration to ensure that the system operates correctly and consistently.</td>
+</tr>
+<tr>
+<td>Overhead</td>
+<td>Concept</td>
+<td>In the context of microservices, overhead refers to the additional resources or complexity required when using multiple services together. It can add value if used effectively, but can also create challenges in terms of integration and business logic.</td>
+<td>Overhead is the additional resources or complexity required when using multiple services together in a microservices architecture. When used effectively, it can provide benefits such as scalability and flexibility, but can also create challenges in terms of integration and business logic.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

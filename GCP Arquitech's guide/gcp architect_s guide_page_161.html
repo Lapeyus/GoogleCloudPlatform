@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_161</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_161_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_161</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Router with Subnetworks</h1>
+<h2>Use Case</h2>
+<p>If you are a developer working within your organisations VPC and you want to spin up a new environment for the purpose of analytics. When you create the resources within that environment they will interconnect over a network that will use a new subnet range.</p>
+<h2>Benefits</h2>
+<p>Now you can connect to it fine as you are connecting through GCP but how will others in your organisation connect to your new dashboards as it on a newly created subnet.
+Well you could update every router in the on-premise network with a static route to the new subnet or you could use cloud router to advertise the subnet for you.</p>
+<h2>How it Works</h2>
+<p>Cloud router will advertise the subnet through its peering arrangement with a remote neighbour on the on-premise peering network.
+Cloud router's BGP protocol will announce to its neighbour that the new subnet is now available . Then the neighbour BGP router on- premise, will update its routing tables and any of its peer's so that all internal on-premises routers will now know how to get to this new allocated subnet. Now any departments that want to access your new analytics dashboards can do so.</p>
+<h2>Importance</h2>
+<p>Importantly this process works in both directions so if your data centre adds a new w physical rack and it goes online with a new range of subnets, the VPC resources will need to know about them.
+This is because any hosts on this new range of subnets will be able to reach your new analytics dashboard okay but the VPC network will not know how to return the traffic as it knows nothing about the new range of subnets. However with cloud router the on-premises BGP process will discover the new range of subnets and it will tell the BGP neighbour on the cloud side that a new network exists. Now they will have a route to return traffic from that new range of subnets.</p>
+<h2>Configuration</h2>
+<p>As Cloud Router uses the Border Gateway Protocol (BGP) to dynamically exchange routes between your Virtual Private Cloud network and your on-premises network you will need to configure an interface and a BGP peer for your on-premises router.
+The interface and BGP peer configuration together form a BGP session. However, when configuring BGP you must stipulate an autonomous system number; this is a unique BGP identifier for the organization.</p>
+<h2>Types of ASN</h2>
+<p>There are two types of ASN:
+- A public ASN is unique like IP addresses and are registered to your organization so if you already have a public ASN you are likely running BGP on your routers already.
+- A private ASN, which like private IP addresses are only unique within the organization and so are not valid on the internet. Fortunately, you can use a private ASN within private networks such as when operation a VPN connection.</p>
+<h2>GCP Resources</h2>
+<p>Within GCP, a Cloud Router interface connects to exactly one of the following GCP resources:
+• A traditional VPN tunnel that is using dynamic routing (you use a private ASN)
+• A HA (High Availability) VPN tunnel that will be using dynamic routing (you use a private ASN)</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>We can demonstrate the benefit of using Cloud Router with subnetworks through a use case. If you are a developer working within your organisation's VPC and you want to spin up a new environment for the purpose of analytics, when you create the resources within that environment they will interconnect over a network that will use a new subnet range.
+
+Now you can connect to it fine as you are connecting through GCP but how will others in your organisation connect to your new dashboards as it on a newly created subnet. Well you could update every router in the on-premise network with a static route to the new subnet or you could use cloud router to advertise the subnet for you.
+
+Cloud router will advertise the subnet through its peering arrangement with a remote neighbour on the on-premise peering network. Cloud router's BGP protocol will announce to its neighbour that the new subnet is now available. Then the neighbour BGP router on-premise, will update its routing tables and any of its peer's so that all internal on-premises routers will now know how to get to this new allocated subnet. Now any departments that want to access your new analytics dashboards can do so.
+
+Importantly this process works in both directions so if your data centre adds a new physical rack and it goes online with a new range of subnets, the VPC resources will need to know about them. This is because any hosts on this new range of subnets will be able to reach your new analytics dashboard okay but the VPC network will not know how to return the traffic as it knows nothing about the new range of subnets. However with cloud router the on-premises BGP process will discover the new range of subnets and it will tell the BGP neighbour on the cloud side that a new network exists. Now they will have a route to return traffic from that new range of subnets.
+
+As Cloud Router uses the Border Gateway Protocol (BGP) to dynamically exchange routes between your Virtual Private Cloud network and your on-premises network you will need to configure an interface and a BGP peer for your on-premises router. The interface and BGP peer configuration together form a BGP session. However, when configuring BGP you must stipulate an autonomous system number; this is a unique BGP identifier for the organization.
+
+There are two types of ASN: there is a public and a private ASN. A public ASN is unique like IP addresses and are registered to your organization so if you already have a public ASN you are likely running BGP on your routers already. Nonetheless, if you do not have one you can use a private ASN, which like private IP addresses are only unique within the organization and so are not valid on the internet. Fortunately, you can use a private ASN within private networks such as when operating a VPN connection.
+
+Within GCP, a Cloud Router interface connects to exactly one of the following GCP resources:
+• A traditional VPN tunnel that is using dynamic routing (you use a private ASN)
+• A HA (High Availability) VPN tunnel that will be using dynamic routing (you use a private ASN)
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h1><strong>Using Cloud Router with Subnetworks for Seamless Connectivity</strong></h1>
+<p>When creating a new environment within an organization's VPC for analytics, it's essential to consider how others in the organization can connect to the new dashboards. One approach is to update every router in the on-premise network with static routes to the new subnet. However, this can be time-consuming and prone to errors.</p>
+<p>A more efficient solution is to use Cloud Router, which advertises the new subnet through its peering arrangement with a remote neighbor on the on-premise peering network. This process works by announcing the new subnet to the neighboring BGP router, which updates its routing tables and shares the information with other internal on-premises routers.</p>
+<p><strong>Key Benefits</strong></p>
+<ul>
+<li>Cloud Router enables seamless connectivity between the VPC and on-premise networks.</li>
+<li>The process works in both directions, ensuring that both incoming and outgoing traffic can be routed correctly.</li>
+<li>This approach eliminates the need for manual static route updates, reducing administrative overhead.</li>
+</ul>
+<p><strong>Configuring BGP with Autonomous System Numbers</strong></p>
+<p>To configure Cloud Router, you'll need to stipulate an autonomous system number (ASN), which is a unique identifier for your organization. There are two types of ASNs: public and private. Public ASNs are registered with your organization and are valid on the internet, while private ASNs are only unique within the organization and are not valid on the internet.</p>
+<p><strong>GCP Cloud Router Interface Options</strong></p>
+<p>Within GCP, a Cloud Router interface connects to one of the following resources:</p>
+<ul>
+<li>A traditional VPN tunnel using dynamic routing (private ASN)</li>
+<li>An HA (High Availability) VPN tunnel using dynamic routing (private ASN)</li>
+</ul>
+<p>By leveraging Cloud Router with subnetworks, organizations can establish seamless connectivity between their VPC and on-premise networks, ensuring efficient data exchange and reduced administrative complexity.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Cloud Router Configuration and BGP Protocol</h3>
+<p>Cloud router configuration involves setting up an interface and a BGP peer for the on-premises router, forming a BGP session. The autonomous system number (ASN) must be stipulated to identify the organization.</p>
+<h3>Topic 2: Benefits of Using Cloud Router with Subnetworks</h3>
+<p>Using cloud router allows organizations to advertise new subnets to their on-premise networks, enabling departments to access new analytics dashboards. This process works in both directions, ensuring that VPC resources and hosts on new subnets can communicate effectively.</p>
+<h3>Topic 3: Autonomous System Numbers (ASNs) and BGP Configuration</h3>
+<p>There are two types of ASNs: public and private. Public ASNs are unique like IP addresses and registered to the organization, while private ASNs are only valid within the organization's private networks. Cloud router uses dynamic routing with a private ASN for VPN connections.</p>
+<h3>Topic 4: GCP Resources and Cloud Router Interfaces</h3>
+<p>Cloud router interfaces connect to traditional VPN tunnels using dynamic routing or HA (High Availability) VPN tunnels also using dynamic routing.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the purpose of Cloud Router in the context of connecting an organization's VPC to its on-premises network?
+Answer: To advertise and manage subnets between the two networks, enabling seamless communication and traffic exchange.</p>
+</li>
+<li>
+<p>How does Cloud Router handle the addition of new subnets in a data center when it goes online with a new range of subnets?
+Answer: It uses BGP protocol to announce the new subnet to its neighbor on the cloud side, allowing them to discover and update their routing tables.</p>
+</li>
+<li>
+<p>What is an autonomous system number (ASN), and what are its types - public and private?
+Answer: An ASN is a unique identifier for an organization's network. There are two types: public ASNs, which are registered with the organization and valid on the internet, and private ASNs, which are only unique within the organization.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are the benefits of using Cloud Router over updating every router in the on-premise network with a static route to the new subnet?
+Answer: Cloud Router provides a more dynamic and efficient way to manage subnets, enabling seamless communication between the VPC and on-premises networks.</p>
+</li>
+<li>
+<p>How does the BGP protocol facilitate the exchange of routes between the VPC and on-premises networks?
+Answer: The BGP protocol allows for dynamic routing, where the Cloud Router announces new subnets to its neighbor on the cloud side, enabling them to update their routing tables and discover new network paths.</p>
+</li>
+<li>
+<p>What are the implications of using a private ASN within private networks, such as when operating a VPN connection?
+Answer: Private ASNs are only unique within the organization and are not valid on the internet, but they can be used within private networks for secure communication.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>Suppose you want to spin up a new environment for analytics within your VPC. How would you use Cloud Router to connect it to your on-premises network?
+Answer: You would configure an interface and BGP peer for your on-premises router, stipulating an ASN, and then use the Cloud Router's BGP protocol to advertise the new subnet to its neighbor on the cloud side.</p>
+</li>
+<li>
+<p>If you already have a public ASN registered with your organization, how would you use it to connect your VPC to your on-premises network?
+Answer: You would configure an interface and BGP peer for your on-premises router using the existing public ASN, and then use the Cloud Router's BGP protocol to advertise the new subnet.</p>
+</li>
+<li>
+<p>How would you handle the addition of a new range of subnets in a data center when it goes online with a new physical rack?
+Answer: You would configure an interface and BGP peer for your on-premises router using a private ASN, stipulating an ASN, and then use the Cloud Router's BGP protocol to announce the new subnet to its neighbor on the cloud side.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cloud Router</td>
+<td>Network Device</td>
+<td>"We can demonstrate the benefit of using Cloud Router with subnetworks through a use case."</td>
+<td>A network device that enables dynamic routing and peering between on-premises and cloud networks. It uses BGP protocol to advertise subnets and establish routes.</td>
+</tr>
+<tr>
+<td>Subnetworks</td>
+<td>Network Segment</td>
+<td>"When you create the resources within that environment they will interconnect over a network that will use a new subnet range."</td>
+<td>A segment of a network that is isolated from other segments by a router or switch. In this context, it refers to a new range of subnets allocated for analytics purposes.</td>
+</tr>
+<tr>
+<td>Autonomous System Number (ASN)</td>
+<td>Organization Identifier</td>
+<td>"However, when configuring BGP you must stipulate an autonomous system number; this is a unique BGP identifier for the organization."</td>
+<td>A unique identifier assigned to an organization to identify its network and routing configuration. There are public and private ASNs, with public ASNs being registered and used on the internet.</td>
+</tr>
+<tr>
+<td>Border Gateway Protocol (BGP)</td>
+<td>Routing Protocol</td>
+<td>"As Cloud Router uses the Border Gateway Protocol (BGP) to dynamically exchange routes between your Virtual Private Cloud network and your on-premises network."</td>
+<td>A routing protocol that enables dynamic routing and peering between networks, allowing for the exchange of routing information and establishment of routes.</td>
+</tr>
+<tr>
+<td>VPC (Virtual Private Cloud)</td>
+<td>Network Infrastructure</td>
+<td>"If you are a developer working within your organisations VPC and you want to spin up a new environment for the purpose of analytics."</td>
+<td>A virtual network infrastructure that provides a secure and private connection between an organization's on-premises network and cloud resources.</td>
+</tr>
+<tr>
+<td>VPN (Virtual Private Network)</td>
+<td>Network Connection</td>
+<td>"Within GCP, a Cloud Router interface connects to exactly one of the following GCP resources: • A traditional VPN tunnel that is using dynamic routing (you use a private ASN)"</td>
+<td>A network connection that provides a secure and private connection between two or more networks over the internet. In this context, it refers to a traditional VPN tunnel using dynamic routing with a private ASN.</td>
+</tr>
+<tr>
+<td>HA (High Availability) VPN Tunnel</td>
+<td>Network Connection</td>
+<td>"Within GCP, a Cloud Router interface connects to exactly one of the following GCP resources: • A traditional VPN tunnel that is using dynamic routing (you use a private ASN)"</td>
+<td>A network connection that provides a secure and private connection between two or more networks over the internet, with high availability features. In this context, it refers to an HA VPN tunnel using dynamic routing with a private ASN.</td>
+</tr>
+<tr>
+<td>Data Centre</td>
+<td>Physical Location</td>
+<td>"Importantly this process works in both directions so if your data centre adds a new w physical rack and it goes online with a new range of subnets..."</td>
+<td>A physical location where computer servers are housed, providing a centralized infrastructure for an organization's computing resources. In this context, it refers to the addition of new racks and allocation of new subnets.</td>
+</tr>
+<tr>
+<td>Physical Rack</td>
+<td>Server Housing</td>
+<td>"Importantly this process works in both directions so if your data centre adds a new w physical rack and it goes online with a new range of subnets..."</td>
+<td>A structure that houses multiple servers or computing equipment, providing a centralized infrastructure for an organization's computing resources. In this context, it refers to the addition of new racks and allocation of new subnets.</td>
+</tr>
+<tr>
+<td>Cloud Resources</td>
+<td>Virtualized Infrastructure</td>
+<td>"If you are a developer working within your organisations VPC and you want to spin up a new environment for the purpose of analytics."</td>
+<td>Virtualized infrastructure provided by cloud providers, allowing organizations to provision and manage computing resources over the internet. In this context, it refers to the allocation of new subnets and establishment of routes between on-premises and cloud networks.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

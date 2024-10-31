@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_250</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_250_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_250</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><h1>Cloud Security and Identity Management</h1>
+<h2>Overview of Google Cloud Services</h2>
+<h3>Identity-Aware Proxy for Identity Management</h3>
+<p>• <strong>Identity-Aware Proxy</strong>: for identity management
+• <strong>VPC-for global reach using Google's Private Network</strong></p>
+<p>The way it works is:</p>
+<ul>
+<li>Cloud Armor at the edge of the network intercepts all incoming connection requests from remote users.</li>
+<li>Whitelist/blacklist determines IP addresses which are accepted to internal Google hosted applications and onto the network.</li>
+<li>The second step is that the connection is established with the global HTTPS load balancer that will forward your request to the application.</li>
+<li>At this step, the load balancer checks the user's identity using the Identity-Aware Proxy and considers the users' profile such as groups, roles, and permissions that they are entitled too.</li>
+<li>But it also checks whether the user's job function is compatible with the application or resource that they are requesting access to.</li>
+</ul>
+<h3>Cloud Security Scanner</h3>
+<h4>Features</h4>
+<ul>
+<li>Detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications</li>
+<li>Automatically scans and detects the most common system vulnerabilities, such as cross-site scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and insecure libraries.</li>
+<li>Enables you to set up, run, schedule, and manage security scans quickly to identify and remediate well-known vulnerabilities with low false-positive rates.</li>
+</ul>
+<h4>Use Case</h4>
+<p>You need to conduct a security audit of the video transcription service to identify any potential vulnerabilities as well as define the protections already in place. You also need to lock down access by applying IAM and Resource Management techniques such as folders and projects to limit access to the infrastructure.</p>
+<h3>Solution</h3>
+<p>There are many risk mitigation controls provided by GCP by default, so you should identify them before considering any additional security design changes.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>Identity-Aware Proxy for Identity Management and VPC for Global Reach using Google's Private Network
+
+The way it works is Cloud Armor at the edge of the network intercepts all incoming connection requests from remote users. Whitelist/blacklist determines IP addresses which are accepted to internal Google hosted applications, using a simple onto the network. The second step is that the connection is established with the global HTTPS load balancer that will forward your request to the application. At this step, the load balancer checks the user's identity using the Identity-Aware Proxy and considers their profile such as groups, roles, and permissions that they are entitled too. It also checks whether the user's job function is compatible with the application or resource that they are requesting access to.
+
+For example, if your job function is an IT Developer, then it will likely reject your request to connect to a Finance system. The Identity-Aware Proxy is not confined to using IAM; it can also check network identity through Active Directory Federations, LDAP, or two-factor methods as these can all be integrated with the Identity-Manager.
+
+Once the identity and authorisation checks have been successfully completed, the user request is passed over the Google private network using private IP addressing to the closest location of the application or resource. On-premises hosts can reach Google APIs and other services over a Cloud VPN or Cloud Interconnect connection to GCP as they don't need an external IP address; instead, they can communicate using their private IP addresses.
+
+To enable Private Google Access for on-premises hosts, you have to first configure DNS, firewall rules, and routes in your on-premises and VPC networks. You don't need to enable Private Google Access for any subnets in your VPC network as you would for Private Google Access for GCP VM instances.
+
+Cloud Security Scanner
+
+GCP at no additional cost is a web security scanner that detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications. Cloud Security Scanner will automatically scan and detect the most common system vulnerabilities, such as cross-site scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and insecure libraries.
+
+As a result, Cloud Security Scanner enables you to set up, run, schedule, and manage security scans quickly to identify and remediate well-known vulnerabilities with low false-positive rates.
+
+Use Case - 25
+
+You need to conduct a security audit of the video transcription service to identify any potential vulnerabilities as well as define the protections already in place. You also need to lock down access by applying IAM and Resource Management techniques such as folders and projects to limit access to the infrastructure.
+
+In short, the production and staging internal teams need access as do third-party partners, but external partners should not have access to other internal project teams. How can you achieve these security goals?
+
+Solution
+
+There are many risk mitigation controls provided by GCP by default, so you should identify them before considering any additional security design changes.
+
+Cloud Security Scanner
+GCP at no Cloud Security Scanner is a web security scanner that detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications. CSS will automatically scan and detect the most common system vulnerabilities, such as cross-site scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and insecure libraries.
+
+As a result, Cloud Security Scanner enables you to set up, run, schedule, and manage security scans quickly to identify and remediate well-known vulnerabilities with low false-positive rates.
+
+Use Case - 25
+
+You need to conduct a security audit of the video transcription service to identify any potential vulnerabilities as well as define the protections already in place. You also need to lock down access by applying IAM and Resource Management techniques such as folders and projects to limit access to the infrastructure.
+
+In short, the production and staging internal teams need access as do third-party partners but external partners should not have access to other internal project teams. How can you achieve these security goals?
+
+Solution
+
+There are many risk mitigation controls provided by GCP by default, so you should identify them before considering any additional security design changes.
+
+Cloud Security Scanner
+GCP at no Cloud Security Scanner is a web security scanner that detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications. CSS will automatically scan and detect the most common system vulnerabilities, such as cross-site scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and insecure libraries.
+
+As a result, Cloud Security Scanner enables you to set up, run, schedule, and manage security scans quickly to identify and remediate well-known vulnerabilities with low false-positive rates.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Identity-Aware Proxy and VPC for Global Reach</h3>
+<p>Cloud Armor at the edge of the network intercepts incoming connection requests from remote users, whitelisting/blacklisting IP addresses based on accepted internal Google hosted applications. The global HTTPS load balancer forwards requests to the application, checking user identity through Identity-Aware Proxy (IAP) with IAM and other methods like Active Directory Federations, LDAP, or two-factor authentication.</p>
+<h3>Cloud Security Scanner</h3>
+<p>Cloud Security Scanner is a web security scanner that detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications. It automatically scans for system vulnerabilities such as cross-site scripting (XSS), Flash injection, mixed content, and insecure libraries, enabling quick setup, running, scheduling, and managing security scans with low false-positive rates.</p>
+<h3>Risk Mitigation Controls</h3>
+<p>To achieve security goals, identify the risk mitigation controls provided by GCP by default before considering additional security design changes. This includes using Identity-Aware Proxy for identity management and VPC for global reach using Google's Private Network.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><p>• <strong>Identity Management</strong>: 
+    - Identity-Aware Proxy for identity management and network identity checks through Active Directory Federations, LDAP or two-factor methods.</p>
+<p>• <strong>Global Network Access</strong>
+    - VPC-for global reach using Google's Private Network
+    - Cloud Armor at the edge of the network intercepts incoming connection requests from remote users.
+    - Global HTTPS load balancer forwards user requests to applications and resources.
+    - Private IP addressing for secure communication over the Google private network.</p>
+<p>• <strong>Cloud Security</strong>
+    - Cloud Security Scanner detects common system vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications.
+    - Automatic scanning and detection of vulnerabilities such as cross-site scripting (XSS), Flash injection, mixed content (HTTP in HTTPS), and insecure libraries.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is the primary function of Cloud Armor in the Google Cloud Platform (GCP) network?
+Answer: Cloud Armor intercepts all incoming connection requests from remote users and determines IP addresses that are accepted to internal GCP hosted applications.</p>
+</li>
+<li>
+<p>How does the Identity-Aware Proxy check a user's identity before granting access to an application or resource?
+Answer: The Identity-Aware Proxy checks the user's profile, including groups, roles, and permissions, as well as their job function compatibility with the requested application or resource.</p>
+</li>
+<li>
+<p>What is the purpose of Cloud Security Scanner in GCP?
+Answer: Cloud Security Scanner detects common vulnerabilities in App Engine, Compute Engine, and Google Kubernetes Engine applications to identify and remediate well-known vulnerabilities with low false-positive rates.</p>
+</li>
+<li>
+<p>What is the primary benefit of using Private Google Access for on-premises hosts?
+Answer: On-premises hosts can communicate with GCP services over a Cloud VPN or Cloud Interconnect connection without needing an external IP address, using their private IP addresses instead.</p>
+</li>
+<li>
+<p>How does the Identity-Aware Proxy integrate with other identity management systems like Active Directory Federations and LDAP?
+Answer: The Identity-Aware Proxy can be integrated with these systems to check network identity and perform additional authentication checks.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>What are some potential security risks associated with using a shared application or resource, such as a video transcription service? How can these risks be mitigated?
+Answer: Potential security risks include unauthorized access by external partners or internal teams. Mitigation strategies include applying IAM and Resource Management techniques to limit access to the infrastructure.</p>
+</li>
+<li>
+<p>How does Cloud Security Scanner's automatic scanning feature impact the process of identifying vulnerabilities in GCP applications?
+Answer: The automatic scanning feature enables quick identification and remediation of well-known vulnerabilities with low false-positive rates, streamlining the security scan process.</p>
+</li>
+<li>
+<p>What are some key considerations when implementing Private Google Access for on-premises hosts? How can these considerations be addressed?
+Answer: Key considerations include configuring DNS, firewall rules, and routes in both on-premises and VPC networks. These can be addressed by following GCP's guidelines and best practices for implementing Private Google Access.</p>
+</li>
+<li>
+<p>What are some potential benefits of using Cloud Security Scanner in conjunction with other security measures, such as IAM and Resource Management?
+Answer: The benefits include enhanced vulnerability detection and remediation capabilities, improved security posture, and reduced risk of false positives.</p>
+</li>
+<li>
+<p>How can the use of Identity-Aware Proxy impact an organization's overall identity management strategy? What are some potential benefits and considerations?
+Answer: The use of Identity-Aware Proxy can enhance identity management by providing a centralized platform for authentication and authorization checks, improving security and reducing the risk of unauthorized access.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identity-Aware Proxy</td>
+<td>Security Service</td>
+<td>"The way it works is Cloud Armor at the edge of the network intercepts all the incoming connection requests from remote users... The second step is that the connection is established with the global HTTPS load balancer that will forward your request to the application. At this step the load balancer checks the user's identity using the Identity-Aware Proxy..."</td>
+<td>The Identity-Aware Proxy is a security service that authenticates and authorizes users before granting access to internal Google hosted applications, using IAM, Active Directory Federations, LDAP, or two-factor methods. It ensures that only authorized users can access specific resources.</td>
+</tr>
+<tr>
+<td>VPC</td>
+<td>Networking Service</td>
+<td>"...VPC-for global reach using Google's Private Network..."</td>
+<td>A Virtual Private Cloud (VPC) is a networking service that allows you to create a virtual network in the cloud, providing a secure and isolated environment for your applications. It enables you to connect to other services over the internet while maintaining control over who can access them.</td>
+</tr>
+<tr>
+<td>Cloud Armor</td>
+<td>Security Service</td>
+<td>"...Cloud Armor at the edge of the network intercepts all the incoming connection requests from remote users..."</td>
+<td>Cloud Armor is a security service that protects your cloud resources by detecting and blocking malicious traffic, such as DDoS attacks and malware. It provides an additional layer of protection for your applications and data.</td>
+</tr>
+<tr>
+<td>Global HTTPS Load Balancer</td>
+<td>Networking Service</td>
+<td>"...The second step is that the connection is established with the global HTTPS load balancer..."</td>
+<td>A global HTTPS load balancer is a networking service that distributes incoming traffic across multiple instances of an application, ensuring high availability and scalability. It also provides SSL/TLS encryption for secure communication between users and applications.</td>
+</tr>
+<tr>
+<td>IAM (Identity and Access Management)</td>
+<td>Identity Service</td>
+<td>"...The Identity-Aware Proxy checks the user's identity using the Identity-Aware Proxy..."</td>
+<td>IAM is a service that enables you to manage access to your cloud resources, including creating and managing users, groups, and roles. It provides an additional layer of security by authenticating and authorizing users before granting access to specific resources.</td>
+</tr>
+<tr>
+<td>Active Directory Federations</td>
+<td>Identity Service</td>
+<td>"...The Identity-Aware Proxy can also check network identity through Active Directory Federations..."</td>
+<td>Active Directory Federations is a service that enables you to integrate your on-premises Active Directory with Google Cloud services, allowing for single sign-on and secure authentication. It provides an additional layer of security by authenticating users before granting access to cloud resources.</td>
+</tr>
+<tr>
+<td>LDAP (Lightweight Directory Access Protocol)</td>
+<td>Identity Service</td>
+<td>"...The Identity-Aware Proxy can also check network identity through Active Directory Federations, LDAP..."</td>
+<td>LDAP is a protocol that enables you to manage and authenticate users in a directory service. It provides an additional layer of security by authenticating users before granting access to cloud resources.</td>
+</tr>
+<tr>
+<td>Two-factor Methods</td>
+<td>Authentication Method</td>
+<td>"...The Identity-Aware Proxy can also check network identity through Active Directory Federations, LDAP or two-factor methods..."</td>
+<td>Two-factor methods are authentication methods that require both something you know (e.g., a password) and something you have (e.g., a token or code sent to your phone). They provide an additional layer of security by making it more difficult for attackers to gain unauthorized access.</td>
+</tr>
+<tr>
+<td>Cloud Security Scanner</td>
+<td>Security Service</td>
+<td>"...Cloud Security Scanner is a web security scanner that comes with o additional cost..."</td>
+<td>Cloud Security Scanner is a service that scans your cloud resources for vulnerabilities, such as cross-site scripting (XSS), Flash injection, and insecure libraries. It provides an additional layer of security by identifying and remediating known vulnerabilities in your applications.</td>
+</tr>
+<tr>
+<td>App Engine</td>
+<td>Application Service</td>
+<td>"...Cloud Security Scanner detects common system vulnerabilities in App  Engine..."</td>
+<td>App Engine is a service that enables you to build, deploy, and manage web applications in the cloud. It provides a scalable and secure environment for your applications, but also requires additional security measures to protect against known vulnerabilities.</td>
+</tr>
+<tr>
+<td>Compute Engine</td>
+<td>Application Service</td>
+<td>"...Cloud Security Scanner detects common system vulnerabilities in Compute  Engine..."</td>
+<td>Compute Engine is a service that enables you to build, deploy, and manage virtual machines in the cloud. It provides a scalable and secure environment for your applications, but also requires additional security measures to protect against known vulnerabilities.</td>
+</tr>
+<tr>
+<td>Google Kubernetes Engine</td>
+<td>Application Service</td>
+<td>"...Cloud Security Scanner detects common system vulnerabilities in Google Kubernetes  Engine..."</td>
+<td>Google Kubernetes Engine is a service that enables you to build, deploy, and manage containerized applications in the cloud. It provides a scalable and secure environment for your applications, but also requires additional security measures to protect against known vulnerabilities.</td>
+</tr>
+<tr>
+<td>Private IP Addresses</td>
+<td>Networking Service</td>
+<td>"...On-premises hosts can reach Google APIs and other services over a Cloud VPN or Cloud Interconnect connection using their private IP addresses..."</td>
+<td>Private IP addresses are used to connect on-premises networks to cloud resources, providing a secure and isolated environment for your applications. They enable you to control who can access specific resources in the cloud.</td>
+</tr>
+<tr>
+<td>DNS (Domain Name System)</td>
+<td>Networking Service</td>
+<td>"...To enable Private Google Access for on-premises hosts, you have to first configure DNS..."</td>
+<td>DNS is a service that translates domain names into IP addresses, enabling communication between devices on different networks. It provides an additional layer of security by controlling access to cloud resources through DNS-based authentication and authorization.</td>
+</tr>
+<tr>
+<td>Firewall Rules</td>
+<td>Networking Service</td>
+<td>"...To enable Private Google Access for on-premises hosts, you have to first configure firewall rules..."</td>
+<td>Firewall rules are used to control incoming and outgoing network traffic, providing a secure environment for your applications. They enable you to block unauthorized access to cloud resources while allowing authorized traffic to pass through.</td>
+</tr>
+<tr>
+<td>Routes</td>
+<td>Networking Service</td>
+<td>"...To enable Private Google Access for on-premises hosts, you have to first configure routes..."</td>
+<td>Routes are used to connect networks and provide a path for network traffic to follow. They provide an additional layer of security by controlling access to cloud resources through routing-based authentication and authorization.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

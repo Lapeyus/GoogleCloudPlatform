@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_75</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Source Repositories
+        ## Overview
+        - That's what Cloud Source repositories is all about. When you use the Cloud Source Repository the managed service provides Git version control to support your development of any application or service that are running on App Engine, but it can also be used on Compute Engine and Kubernetes Engine.
+        
+        ## Benefits
+        - In addition, Cloud Source Repositories, lets you handle any number of private Git repositories, which allows you the freedom to organize and manage your code as you see fit. Further, the Cloud Source Repository also contains a source viewer so that you can browse and view repository files from within the GCP console.
+        
+        ### Setting Up Environment
+        - Initially setting up your environment in GCP can entail many steps, such as configuring the compute network and storage resources, as well as keeping track of their configurations.
+        - This is considered an imperative method as you issue direct commands. You can do it all by hand if you want to but if you want to clone your environment, you have to replicate all those commands again.
+        
+        ### Declarative Approach
+        - A better way is to take a declarative approach and proactively work out the commands you need to set up your environment and then make a template as this is more efficient.
+        - This is good if you already have a strong idea of how you wish the environment to be and later should you want to change your environment, you can readily reconfigure it. However this does mean you have an idea of what the environment should look like but not necessarily know how you want the environment to be configured so it's declarative rather than imperative.
+        
+        ## Deployment Manager
+        - GCP provides Deployment Manager to let you do just that.
+        - Deployment manager is an Infrastructure Management Service that automates the creation and management of your Google Cloud Platform resources for you based upon a template.
+        
+        ### Creating Templates
+        - To use deployment manager, you will create a template file using either the YAML markup language or Python that will describe what you want the components of your environment to look like. You don't need to imperatively state the commands just what you want it to finally represent.
+        
+        ## Stackdriver
+        - There is little doubt that in order to run an application reliably and with any stability you need to have robust monitoring.
+        - Managing is only possible with diligent monitoring of the application as it passes you the information about how the system is working and handling demand and traffic fluctuations and provides early warnings as to potential flaws. It also indicates where potential changes may be required to mitigate issues and then subsequently whether the changes you made are working or not.
+        
+        ### Importance of Monitoring
+        - Monitoring of an application also lets you respond to issues through informed decisions rather than with guesswork or in blind panic mode.
+        - 166
+
+      </script>
+    </div>
+  </body>
+</html>

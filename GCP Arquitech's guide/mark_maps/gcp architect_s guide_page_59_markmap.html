@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_59</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Containers
+        ## What are Containers?
+        - The idea of a container is to give you the independent scalability of workloads, but with an abstraction layer of the OS and hardware. Therefore what you effectively get is a VM without a dedicated guest OS.
+        
+        ### Benefits
+        - **Lightweight**: Containers don't require their own guest OS, so they can be created and started quickly.
+        - **Isolation**: Containers provide isolation between applications, which helps to prevent conflicts and improves security.
+        - **Portability**: Containers are portable across environments, making it easy to deploy applications on different platforms.
+        
+        ## How do Containers Work?
+        - Containers act like a box around your code and its dependencies. They provide a self-contained environment for your application to run in, without the need for a dedicated guest OS.
+        
+        ### Key Features
+        - **File System**: Containers have limited access to their own partition of the file system.
+        - **Hardware**: Containers also have limited access to hardware resources.
+        - **System Calls**: Containers only require a few system calls to create and start, which means they can be up and running quickly.
+        
+        ## Use Cases for Containers
+        - Containers are ideal for:
+        - **Web Applications**: Containers provide a fast and efficient way to deploy web applications.
+        - **Microservices Architecture**: Containers help to isolate and scale individual microservices in a distributed application.
+        - **DevOps**: Containers simplify the deployment and management of applications in a DevOps environment.
+        
+        ## Comparison with VMs
+        - Containers are similar to virtual machines (VMs) but without the need for a dedicated guest OS. This makes containers more lightweight and efficient than VMs.
+        
+        ### Key Differences
+        - **Resource Usage**: Containers use fewer resources than VMs.
+        - **Boot Time**: Containers can be up and running quickly, whereas VMs take longer to boot.
+        - **Isolation**: Containers provide isolation between applications, which is not possible with VMs.
+
+      </script>
+    </div>
+  </body>
+</html>

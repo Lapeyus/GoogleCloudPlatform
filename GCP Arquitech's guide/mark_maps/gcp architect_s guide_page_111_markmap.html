@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_111</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Compute Engine Roles
+        ## Overview
+        - Compute Engine roles provide access to various features and functionalities within the platform.
+        
+        ### Roles
+        - **roles/compute.networkUser**: Provides access to a shared VPC network once granted, service owners can use VPC networks and subnets that belong to the host project.
+        - **roles/compute.orgSecurityPolicyAdmin**: Full control of Compute Engine Organization Security Policies.
+        - **roles/compute.storageAdmin**: Permissions to create, modify, and delete disks, images, and snapshots.
+        
+        ### Combining Roles
+        - Roles can be combined to give users or groups specific permissions. For example, granting roles/compute.networkAdmin and roles/compute.securityAdmin allows a networking team to manage networks and apply firewall rules.
+        
+        # VM Lifecycle
+        ## Overview
+        - Understanding the lifecycle of a VM is crucial for knowing its status at any given time, especially for billing purposes.
+        
+        ### Stages
+        - **Provisioning State**: The initial stage after configuring VM properties. Resources are reserved but the VM itself isn't running.
+        - **Staging State**: The next stage where resources are moved from being reserved to acquired and the instance is prepared for launch.
+        - **Running State**: Where the VM starts doing useful work, executing pre-configured startup scripts, and enabling SSH or RDP access.
+        
+        ### Benefits
+        - The running state offers flexibility with tasks such as:
+        - Moving VMs to different zones
+        - Taking snapshots of persistent disks for backup or migration purposes
+        - Exporting system images
+        - Re-configuring metadata
+        
+        - However, some admin tasks require stopping the virtual machine.
+
+      </script>
+    </div>
+  </body>
+</html>

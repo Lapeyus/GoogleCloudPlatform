@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_170</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Load Balancing in GCP
+        ## Overview
+        - Load balancing in GCP is a managed service and software-defined, making it easy to configure. It provides geo-location features by capturing requests at locations closest to requestors.
+        
+        ### Anycast Method
+        - Anycast uses the same public IP address on replicated load balancers across all regions. This ensures requests are routed to the closest load balancer based on the requester's region, providing high availability and redirecting to the next closest service if unavailable.
+        
+        #### Regional Load Balancing
+        - Regional load balancing distributes traffic across backend servers using TCO and UDP protocols and ports. It can be configured to send HTTP traffic to a pool of web servers with overflow capacity.
+        
+        ### Benefits and Complexity
+        - While less flexible than hardware load balancers, GCP's load balancing is easy to configure using the console. However, it comes with additional configuration complexity.
+        
+        ## Managed Instance Groups
+        - Managed Instance Groups provide administrative benefits by allowing simultaneous creation of VMs using an instance template. The template can hold specific common properties for each instance, making it easier to update and scale instances.
+        
+        ### Rolling Updates
+        - The instance group updater feature enables deploying staggered releases with zero downtime, making it useful for canary updates and rollbacks.
+        
+        #### Scaling Compute Resources
+        - Managed Instance Groups can use edited templates to scale the number of instances in a group, providing additional compute resources when needed.
+        
+        ## Types of Load Balancing
+        - There are five types of load balancing covered in this chapter:
+        
+        - 1. **HTTP(S), SSL Proxy, and TCP Proxy**: Global services
+        - 2. **Network and Internal Load Balancing**: Regional services
+        
+        ### Next Steps
+        - This chapter will discuss each type of load balancing in more detail, including their benefits and configuration options using GCP.
+
+      </script>
+    </div>
+  </body>
+</html>

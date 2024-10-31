@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_248</title>
+    <style>
+      body {
+        display: flex;
+        margin: 0;
+        font-family: Arial, sans-serif;
+      }
+      .pane {
+        height: 100vh;
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .processed {
+        width: 70%;
+        background-color: #f9f9f9;
+      }
+      .raw {
+        width: 30%;
+        background-color: #fff;
+        border-left: 1px solid #ddd;
+        font-family: monospace;
+      }
+      .tab {
+        display: none;
+        padding: 10px;
+      }
+      .tab-content {
+        display: block;
+      }
+      .tab-buttons {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 10px;
+      }
+      .tab-buttons button {
+        cursor: pointer;
+        padding: 5px 10px;
+      }
+      iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+      pre {
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+    <script>
+      function openTab(event, tabName) {
+        var tabs = document.getElementsByClassName("tab");
+        for (var i = 0; i < tabs.length; i++) {
+          tabs[i].style.display = "none";
+        }
+        document.getElementById(tabName).style.display = "block";
+
+        var buttons = document.getElementsByClassName("tab-button");
+        for (var i = 0; i < buttons.length; i++) {
+          buttons[i].classList.remove("active");
+        }
+        event.currentTarget.classList.add("active");
+      }
+    </script>
+  </head>
+  <body>
+    <div class="pane processed">
+      <iframe src="mark_maps/gcp architect_s guide_page_248_markmap.html" title="Processed HTML Content"></iframe>
+    </div>
+
+    <div class="pane raw">
+      <h2>gcp architect_s guide_page_248</h2>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="openTab(event, 'markdown')">Map</button>
+        <button class="tab-button" onclick="openTab(event, 'txt')">Text</button>
+        <button class="tab-button" onclick="openTab(event, 'summary')">Summary</button>
+        <button class="tab-button" onclick="openTab(event, 'lda')">lda</button>
+        <button class="tab-button" onclick="openTab(event, 'questions')">Questions</button>
+        <button class="tab-button" onclick="openTab(event, 'entities')">Entities</button>
+      </div>
+
+      <div id="markdown" class="tab tab-content">
+        Audio content not available.
+        <pre><p>The article discusses the importance of controlling and monitoring service accounts in Google Cloud Platform (GCP). Here are the main points:</p>
+<p><strong>Control</strong></p>
+<ol>
+<li>Each resource or application should have its own service account.</li>
+<li>Service accounts should have specific roles assigned to them, with a maximum of 10-20 roles per account.</li>
+<li>If a service account has too many roles, it's a concentration risk and may need to be decomposed into smaller modules.</li>
+<li>Service accounts should have verbose identifiers (e.g., email addresses) that clearly indicate their function or role.</li>
+<li>Assigning multiple roles to a single service account can lead to security risks, as group members may inherit all the permissions.</li>
+</ol>
+<p><strong>Mitigating Risks</strong></p>
+<ol>
+<li>Use strong naming conventions to identify service accounts as "service accounts" in logs and reports.</li>
+<li>Include the function or role of the service account in its name for easier understanding during troubleshooting.</li>
+<li>Limit the roles and permissions assigned to each service account to specific resources and tasks.</li>
+</ol>
+<p><strong>Visibility</strong></p>
+<ol>
+<li>Don't rely on default service accounts, as they are not immutable and their roles and permissions can be deprecated at any time.</li>
+<li>Use tools like logs, Stackdriver, and Forseti Security to discover who or what service accounts can access resources and with what permissions.</li>
+<li>Having visibility into the underlying permissions matrix is crucial for understanding what's going on and who's doing what.</li>
+</ol>
+<p><strong>Forseti Security</strong></p>
+<ol>
+<li>GCP uses an open-source product called Forseti Security to answer questions about access policies and user permissions.</li>
+<li>Forseti works by building a model from your access policy and providing a query interface to ask questions like "who can delete this VM?" or "what resources can this user access?"</li>
+</ol>
+<p>Overall, the article emphasizes the importance of controlling and monitoring service accounts in GCP to prevent security risks and ensure visibility into permissions and access.</p></pre>
+      </div>
+      <div id="txt" class="tab">
+        Audio content not available.
+        <pre>The answer to this depends on your architecture but as a rule of thumb, each resource or an application should have its own service account. The roles assigned to the service account will vary, with some having 10-20 roles assigned, which is a clear sign that your application needs to be decomposed into smaller modules as that is a concentration risk.
+
+If you consider the risk, you'll see known as a concentration problem if a user is granted permission to use that service account. Service accounts are another resource and identity, requiring verbose identifiers so they can be readily recognized and their function understood. Indeed, with service accounts, it's a good practice to incorporate the role it performs into the name.
+
+This makes it easier to understand during troubleshooting but also cuts down on potential errors when assigning service accounts to a group. Sometimes this may not be possible as the service account serves many roles, which is a concentration problem and you should look to making the service account's role more specific.
+
+The problem with having too many roles or permissions assigned to a service account is that when it's assigned to a group, all group members may then inherit all the service account's permissions. They cannot use the permissions directly but can access all the resources available to the service account by connecting through it even though they have no need or reason to.
+
+This is a significant security hole that you do need to audit regularly. You will be perhaps surprised to discover just how many permissions you are granting indirectly to users via poorly defined service accounts. Some ways to mitigate this risk is to use a strong naming convention that stipulates that it's a service account, as in logs and reports, it just shows up as an email address.
+
+So add a prefix to identify it as a service account. Secondly, if you can include its function or role into the name so you can clearly define its appropriate usage. Limit the service accounts' own roles and permissions to specific resources and tasks. It's better to create more specific service accounts that to continually keep empowering an existing account with more functions and roles.
+
+This begs the question, how many service accounts do we need? Indirectly, users have access way beyond their own role as they can access everything that the service account can. For example, if you try to consider who can access a resource and what permissions it starts to become a very difficult question to answer.
+
+This is why GCP uses an open-source product they developed themselves called Forseti Security to answer these questions. The way Forseti works is that you simply give it your list of users, groups, and their roles, and Forseti then builds a model from your access policy and provides a query interface. You can then ask it questions such as, 'who can delete this VM?' or 'what resources can this user access?'
+
+A final point before we conclude our discussion on control and move on to visibility is don't rely on default service accounts. The issue is that you shouldn't rely on just having the project's own default service account. Every project in GCP gets a default service account upon creation, but they are not immutable and the roles and permissions are not guaranteed as they can be depreciated at any time.
+
+So only use them for initial testing do not use them in production. When we consider visibility, we're going to be using tools such as logs, Stackdriver, and Forseti, which we introduced earlier. These are the tools that we need to discover who or what service accounts can access resources and with what permissions.
+
+We need to be able to have visibility into the underlying permissions matrix in order to understand what is going on and who is doing what.
+</pre>
+        
+      </div>
+      <div id="summary" class="tab">
+        Audio content not available.
+        <pre><h3>Service Accounts: Control and Visibility</h3>
+<p>Each resource or application should have its own service account, as a rule of thumb. The roles assigned to the service account will vary, with some having 10-20 roles assigned, indicating that the application needs to be decomposed into smaller modules to avoid concentration risks.</p>
+<p>Service accounts are another resource and identity that requires verbose identifiers for easy recognition and understanding. It's a good practice to incorporate the role it performs into the name, making it easier to understand during troubleshooting and reducing potential errors when assigning service accounts to groups.</p>
+<p>However, having too many roles or permissions assigned to a service account can lead to significant security holes, as group members may inherit all the service account's permissions. This is why it's essential to limit the service account's own roles and permissions to specific resources and tasks, creating more specific service accounts instead of continually empowering existing accounts with more functions and roles.</p>
+<p>To mitigate this risk, use a strong naming convention that identifies service accounts as email addresses, and include their function or role in the name for clear definition. Additionally, regularly audit service accounts to prevent indirect permission grants to users via poorly defined accounts.</p>
+<p>GCP uses an open-source product called Forseti Security to answer questions about access permissions and resource access. Forseti works by building a model from your access policy and providing a query interface to ask questions like "who can delete this VM?" or "what resources can this user access?"</p>
+<p>Finally, don't rely on default service accounts for production use, as they are not immutable and their roles and permissions can be deprecated at any time. Instead, use these tools in conjunction with logs, Stackdriver, and Forseti to discover who or what service accounts can access resources and with what permissions, ensuring visibility into the underlying permissions matrix.</p></pre>
+        
+      </div>
+      <div id="lda" class="tab">
+        Audio content not available.
+        <pre><h3>Topic 1: Decomposition of Applications</h3>
+<p>The importance of decomposing applications into smaller modules due to concentration risk, where a single service account may have too many roles assigned.</p>
+<h3>Topic 2: Service Account Management</h3>
+<p>Best practices for managing service accounts, including incorporating role information into the name, limiting roles and permissions, and using strong naming conventions to mitigate security risks.</p>
+<h3>Topic 3: Security Risks of Service Accounts</h3>
+<p>The potential security hole when a group member inherits all service account permissions, and the need to regularly audit and monitor service accounts to prevent this risk.</p>
+<h3>Topic 4: Forseti Security</h3>
+<p>An open-source product used by GCP to answer questions about access policies, such as who can delete a VM or what resources a user can access.</p>
+<h3>Topic 5: Visibility and Control</h3>
+<p>The importance of having visibility into the underlying permissions matrix using tools like logs, Stackdriver, and Forseti, and avoiding reliance on default service accounts in production environments.</p></pre>
+      </div>
+      <div id="questions" class="tab">
+        Audio content not available.
+        <pre><h3>Comprehension Questions</h3>
+<ol>
+<li>
+<p>What is a common practice when it comes to assigning roles to service accounts?
+Answer: Each resource or application should have its own service account, with roles assigned to ensure specific functionality.</p>
+</li>
+<li>
+<p>Why is it recommended to limit the number of roles and permissions assigned to a service account?
+Answer: To prevent security risks, such as users inheriting all service account permissions when assigned to a group.</p>
+</li>
+<li>
+<p>What is the purpose of using a strong naming convention for service accounts?
+Answer: To clearly define their function or role, making it easier to understand during troubleshooting and reducing potential errors.</p>
+</li>
+<li>
+<p>How does GCP's Forseti Security tool help with managing access policies?
+Answer: By building a model from your access policy and providing a query interface to answer questions about user permissions and resource access.</p>
+</li>
+<li>
+<p>What should you not rely on when it comes to service accounts in production environments?
+Answer: Default service accounts, as their roles and permissions can be deprecated at any time.</p>
+</li>
+</ol>
+<h3>Analytical Questions</h3>
+<ol>
+<li>
+<p>How does the concentration of roles within a single service account impact security risks? 
+Answer: It increases the risk of users inheriting all service account permissions when assigned to a group, compromising security.</p>
+</li>
+<li>
+<p>What are some potential consequences of not using a strong naming convention for service accounts?
+Answer: Potential errors during troubleshooting and increased security risks due to unclear or poorly defined roles.</p>
+</li>
+<li>
+<p>How does GCP's use of Forseti Security address the complexity of managing access policies?
+Answer: By providing a query interface that allows users to easily answer questions about user permissions and resource access, reducing the complexity of managing access policies.</p>
+</li>
+<li>
+<p>What is the relationship between service account roles and security risks in group assignments?
+Answer: When a group member is assigned to a service account with multiple roles, they inherit all those roles, increasing the risk of security breaches.</p>
+</li>
+<li>
+<p>How can using more specific service accounts help mitigate security risks?
+Answer: By limiting the number of roles and permissions assigned to each service account, reducing the risk of users inheriting unnecessary permissions.</p>
+</li>
+</ol>
+<h3>Application Questions</h3>
+<ol>
+<li>
+<p>A company has a large application with multiple services that require different access levels. What is the best approach for managing these services in terms of service accounts?
+Answer: Decompose the application into smaller modules, each with its own service account, to reduce concentration risks and improve security.</p>
+</li>
+<li>
+<p>An organization wants to ensure that users can only access specific resources within their project. How would you implement this using GCP's Forseti Security tool?
+Answer: Create a custom query interface using Forseti Security to define the specific resources and permissions for each user or group, ensuring they can only access authorized resources.</p>
+</li>
+<li>
+<p>A company has a default service account that is used across multiple projects. What should be done to mitigate security risks associated with this practice?
+Answer: Replace the default service account with custom service accounts tailored to each project's needs, reducing the risk of deprecated roles and permissions.</p>
+</li>
+<li>
+<p>How can an organization ensure that their service accounts are properly audited and monitored for security risks?
+Answer: Regularly review access policies, monitor service account activity, and use tools like Forseti Security to identify potential security risks and take corrective action.</p>
+</li>
+<li>
+<p>What is the importance of using a strong naming convention for service accounts in terms of security and management?
+Answer: It improves visibility into service account roles and permissions, reducing errors during troubleshooting and improving overall security and management of access policies.</p>
+</li>
+</ol></pre>
+      </div>
+      <div id="entities" class="tab">
+        Audio content not available.
+        <table>
+<thead>
+<tr>
+<th>Entity</th>
+<th>Entity Type</th>
+<th>Context</th>
+<th>Semantic Analysis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Each resource or application should have its own service account</td>
+<td>Service Account</td>
+<td>The text emphasizes the importance of having a separate service account for each resource or application to avoid concentration risk and ensure proper security.</td>
+<td>A service account is a resource that requires verbose identifiers to be easily recognized and understood. It's essential to incorporate the role it performs into the name to facilitate troubleshooting and error prevention.</td>
+</tr>
+<tr>
+<td>Roles assigned to a service account</td>
+<td>Role</td>
+<td>The text highlights the importance of assigning specific roles to a service account, as having too many roles can lead to security issues.</td>
+<td>A role is a set of permissions that define what actions an entity can perform on resources. Assigning too many roles to a service account can create concentration risk and make it difficult to manage permissions.</td>
+</tr>
+<tr>
+<td>Service accounts are another resource and identity</td>
+<td>Service Account</td>
+<td>The text emphasizes the importance of treating service accounts as a separate resource and identity, requiring verbose identifiers for easy recognition and understanding.</td>
+<td>A service account is an entity that requires attention to its role and permissions to ensure proper security and management.</td>
+</tr>
+<tr>
+<td>Concentration risk</td>
+<td>Concentration Risk</td>
+<td>The text highlights the risk of having too many roles assigned to a single service account, leading to security issues and difficulty in managing permissions.</td>
+<td>Concentration risk occurs when multiple roles are assigned to a single entity, making it challenging to manage permissions and ensure proper security.</td>
+</tr>
+<tr>
+<td>Security hole</td>
+<td>Security Hole</td>
+<td>The text warns about the significant security issue that arises when group members inherit all service accounts' permissions without needing them.</td>
+<td>A security hole is a vulnerability in an entity's design or implementation that can be exploited by attackers. In this case, it refers to the risk of unauthorized access due to inherited permissions.</td>
+</tr>
+<tr>
+<td>Forseti Security</td>
+<td>Forseti Security</td>
+<td>The text introduces an open-source product developed by GCP to address the challenges of managing service accounts and permissions.</td>
+<td>Forseti Security is a tool that helps manage service accounts and permissions by building models from access policies and providing query interfaces for easy querying.</td>
+</tr>
+<tr>
+<td>Default service account</td>
+<td>Default Service Account</td>
+<td>The text warns against relying on default service accounts, which are not immutable and have uncertain roles and permissions.</td>
+<td>A default service account is a pre-configured service account provided by the system, but it's essential to avoid relying on it due to its potential for changes in roles and permissions.</td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td>Visibility</td>
+<td>The text emphasizes the importance of having visibility into the underlying permissions matrix to understand what's happening with service accounts and resources.</td>
+<td>Visibility refers to the ability to see and understand the relationships between entities, including their roles and permissions. In this context, it's essential for managing service accounts and ensuring proper security.</td>
+</tr>
+</tbody>
+</table>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_148</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Cloud Firestore
+        ## Overview
+        - Cloud Firestore's is GCP's next generation NoSQL database but with Cloud Firestore you store data in structures called documents, which contain fields mapping to values. These documents are then stored in collections, which are  containers for your  documents ,  which are used to organize your data  and make it easier to build queries.
+        
+        ## Features
+        - Documents support many different  data types, from simple strings and numbers, to complex, nested objects 
+        - You can create sub-collections within documents 
+        - Build hierarchical data structures that scale as your database grows.
+        - Efficient and flexible query system for targeted document-level retrieval
+        - Add sorting, filtering, and limits to queries for more expressive results
+        - Realtime listeners keep data in sync across client apps
+        - Seamless integration with other Firebase Platform and Google Cloud Platform products
+        
+        ## Pricing
+        - • The number of reads, writes, and deletes that you perform.
+        - • The amount of storage that your database uses, including overhead for  metadata and indexes.
+        - • The amount of network bandwidth that you use. 
+        - Storage and  bandwidth usage are calculated in  gigabytes (GIB),  where 1 GiB = 230 bytes. All charges accrue daily. However you  get 1GB of free storage per month and 50,000 document  reads per day as well as 20,000 document writes  and deletes per day . After that quota has been exceeded the price is $0.06 per  read, $0.18 per write and $0.02 per delete. Storage is charged  at $0.18 per Gigabyte per month.
+        
+        # Bigtable
+        ## Overview
+        - Google Bigtable is Google's cloud storage solution for high- performance and  low latency data access. It is widely used  in many Google's core services  like Google Search, Google Maps, and Gmail .
+        
+        ## Features
+        - Designed in NoSQL architecture but can use row-based data format
+        - Handle data read/ write under 10 milliseconds, perfect for frequent and large amounts of data ingestion
+        - Compatible with HBase 1.0 API via extensions for simplified migration from HBase
+        - No SQL interface, only use the API to use Put/Get/Delete commands on individual rows or run scan operations
+        - Readily integrated with other GCP tools, like Cloud Dataflow and Dataproc
+        
+        ## Pricing
+        - 312
+
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gcp architect_s guide_page_249</title>
+    <style>
+      svg.markmap {
+        width: 100%;
+        height: 100vh;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.17"></script>
+  </head>
+  <body>
+    <div class="markmap">
+      <script type="text/template">
+        ---
+        markmap:
+          maxWidth: 300
+          initialExpandLevel: -1
+          spacingHorizontal: 80
+          spacingVertical: 5
+          duration: 1000
+          colorFreezeLevel: 3
+        ---
+
+        # Security Best Practices in GCP
+        ## Overview of GCP Security Features
+        
+        - Typically we will use Stackdriver for logging and monitoring as it is inherent within GCP but when we are using containers and microservices we may use Istio integrated with Stackdriver, Istio for monitoring and Stackdriver for logging and visualisation.
+        
+        - When we consider logs we need to be aware that there are two distinct types log logged data. First there are the admin data logs, which record every action done through the admin user account. These are immutable and cannot be switched off. The second type of logs are the private data logs, which are logged changes within your applications and resources. You need to configure these and have a higher permission level to access them as they hold more sensitive information about your apps and resources.
+        
+        - However the data private logged output can be huge so be warned and be careful what you log. For example as you are in effect logging every data read and every data write you probably will not want to include Cloud SQL service in your logs. Fortunately you can exclude services that you don't wish to monitor, which makes the process feasible as you only monitor the services that you are interested in.
+        
+        - Another interesting aspect regards logging is that in GCP logging remains within the projects that they are created in. This can be problematic for large organisations that have perhaps 100s of projects as it means flipping back and fore between projects to access the logs. Fortunately Stackdriver has a log aggregation export feature that allows you to collate logs from many projects across the organisation into a single log.
+        
+        - Further, you can filter and transform the logs into a common format before sending them to other, BigQuery for analysis, Cloud Storage for long term archiving r to Pub/Sub for integration with other third party services.
+        
+        - 514
+        - compliance then be careful to configure object versioning on the Fyou choose to archive the logs perhaps due to regulation doud  Storage bucket as this will prevent the archive's bucket from ever being accidentally deleted. Similarly you should do the same and prevent deletion of the project where the bucket resides production projects. You can do this by using the Lien command although you should have this protection in place for all your simple to implement on a per project basis using resource- manager: which acts as a defence against a projects accidental deletion. It is
+        - Compliance Archive"
+        
+        ## Security Solutions
+        
+        - The third principle that we want to cover is Security Solutions which are really the types of blended solutions we discussed earlier. These security solutions are made up of components from the GCP security stack and applied to compound their effectiveness in certain scenarios or conditions.
+        
+        - One of the most common security related questions that Google receives from customers regards how they can access their remote applications securely without having to use VPNs.
+        
+        - This is a common problem for large organisations whereby they have applications located in some but not all of the geographical areas where they have an office or presence. Typically, the solution required the use of VPNs but that is an admin overhead and is not scalable. The solution to this dilemma is to use a compound security solution comprising of three security elements:
+        
+        - • Cloud Armor for edge protection
+
+      </script>
+    </div>
+  </body>
+</html>
